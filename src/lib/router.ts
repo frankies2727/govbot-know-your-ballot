@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 // A tiny path-based router (no dependency) so each screen has its own URL under
-// the site's base — e.g. /Games/, /Games/projects, /Games/projects/ai-art,
-// /Games/play/crossword. Deep links and the browser back/forward button work;
+// the site's base — e.g. /frankie-labs/, /frankie-labs/projects, /frankie-labs/projects/ai-art,
+// /frankie-labs/play/crossword. Deep links and the browser back/forward button work;
 // a public/404.html fallback restores the path on a hard load (GitHub Pages
 // serves static files and would otherwise 404 on a non-root path).
 //
-// Routes are the path *after* the Vite base ("/Games/"), with no surrounding
+// Routes are the path *after* the Vite base ("/frankie-labs/"), with no surrounding
 // slashes: "" (home), "projects", "projects/<id>", "play/<gameId>".
 
-const BASE = import.meta.env.BASE_URL; // e.g. "/Games/" (always ends in "/")
+const BASE = import.meta.env.BASE_URL; // e.g. "/frankie-labs/" (always ends in "/")
 
 export function currentRoute(): string {
   let p = window.location.pathname;
