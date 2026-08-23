@@ -7,7 +7,8 @@ import { useEffect, useState } from 'react';
 // serves static files and would otherwise 404 on a non-root path).
 //
 // Routes are the path *after* the Vite base ("/frankie-labs/"), with no surrounding
-// slashes: "" (home), "projects", "projects/<id>", "play/<gameId>".
+// slashes: "" (home = the projects gallery), "games", "projects/<id>",
+// "play/<gameId>". "projects" is kept as a legacy alias of home.
 
 const BASE = import.meta.env.BASE_URL; // e.g. "/frankie-labs/" (always ends in "/")
 
@@ -21,12 +22,16 @@ export function currentRoute(): string {
   return p.replace(/^\/+|\/+$/g, '');
 }
 
-export function navigate(route: string): void {
+// `replace` swaps the current history entry instead of adding one — use it when
+// canonicalising a legacy URL, so the Back button skips the old path rather than
+// bouncing the visitor straight back into the redirect.
+export function navigate(route: string, opts?: { replace?: boolean }): void {
   const clean = route.replace(/^\/+|\/+$/g, '');
   const url = clean ? BASE + clean : BASE;
   if (url !== window.location.pathname) {
-    window.history.pushState({}, '', url);
-    // pushState doesn't emit popstate; nudge listeners so the app re-renders.
+    if (opts?.replace) window.history.replaceState({}, '', url);
+    else window.history.pushState({}, '', url);
+    // pushState/replaceState don't emit popstate; nudge listeners so the app re-renders.
     window.dispatchEvent(new PopStateEvent('popstate'));
   }
 }
