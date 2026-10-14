@@ -1,0 +1,81 @@
+/* Know Your Ballot on govbot's design tokens (govbot/govbot.css): every
+   colour follows govbot's light and dark themes. */
+:root {
+  /* True gold for judges (govbot's --gb-gold is its green). */
+  --kyb-gold: #E5B94E;
+  /* Chips and hovers: a tint of the text colour, so they show in both themes. */
+  --kyb-chip: color-mix(in srgb, var(--gb-text) 9%, transparent);
+  --kyb-chip-hi: color-mix(in srgb, var(--gb-text) 16%, transparent);
+  /* Under govbot's sticky header. */
+  --kyb-top: 66px;
+}
+:root[data-theme="light"] { --kyb-gold: #8A6100; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --kyb-gold: #8A6100; } }
+
+.kyb h1, .kyb h2, .kyb h3 { font-family: var(--gb-font-display); font-weight: 600; letter-spacing: -0.01em; }
+
+/* County orange: not in govbot's set, tuned the same way (page-background ink reads on it). */
+:root { --kyb-orange: #F59E54; }
+:root[data-theme="light"] { --kyb-orange: #A04A0C; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --kyb-orange: #A04A0C; } }
+
+/* The Capitol hero: govbot's line-art building with its Illinois flag waving
+   on the pole (same art and motion as govbot's elections page). */
+.kyb-capitol { position: relative; filter: drop-shadow(0 0 26px var(--gb-glow-primary)); }
+.kyb-capitol > img { display: block; width: 100%; height: auto; }
+:root[data-theme="light"] .kyb-capitol > img { filter: brightness(.58) saturate(1.5); }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) .kyb-capitol > img { filter: brightness(.58) saturate(1.5); } }
+.kyb-capitol .kyb-flag { position: absolute; left: 50.3%; top: 2.4%; width: 13.8%; }
+.kyb-capitol .kyb-flag svg { display: block; width: 100%; height: auto; overflow: visible; }
+.kyb-wave { transform-box: fill-box; transform-origin: left center; animation: kyb-wave 3.2s ease-in-out infinite; }
+@keyframes kyb-wave {
+  0%, 100% { transform: rotate(0deg) skewX(0deg) scaleX(1); }
+  22% { transform: rotate(-1.2deg) skewX(5deg) scaleX(1.03); }
+  48% { transform: rotate(0.6deg) skewX(-3deg) scaleX(0.99); }
+  72% { transform: rotate(-0.8deg) skewX(3deg) scaleX(1.01); }
+}
+@media (prefers-reduced-motion: reduce) { .kyb-wave { animation: none; } }
+
+/* Anything scrolled to (a focused field, a jumped-to card) lands below
+   govbot's sticky header, not under it. */
+.kyb-govbot { scroll-padding-top: calc(var(--kyb-top) + 16px); }
+
+/* The contents section you're on: a glow around its coloured frame pulses.
+   Only the glow layer's opacity animates, which the compositor does on its
+   own: animating the shadow itself repainted the page every frame, and made
+   anything blurred or layered over it (dialogs) crawl. */
+.kyb-pulse { position: relative; }
+.kyb-pulse::after {
+  content: ""; position: absolute; inset: -3px; border-radius: inherit; pointer-events: none;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--pulse) 50%, transparent), 0 0 20px 6px color-mix(in srgb, var(--pulse) 60%, transparent);
+  opacity: 0; animation: kyb-pulse 1.4s ease-in-out infinite; will-change: opacity;
+}
+@keyframes kyb-pulse { 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .kyb-pulse::after { animation: none; opacity: .7; }
+}
+
+/* A section's races scroll in their own box, sized to what's left of the
+   screen under the pinned bar; the scrollbar wears the section's colour.
+   Races inside it only need a small scroll margin (the page around the box
+   is scrolled separately). */
+.kyb-scroll {
+  position: relative; display: flex; flex-direction: column; gap: 1rem;
+  max-height: max(340px, calc(100dvh - var(--kyb-top) - var(--kyb-bar, 260px) - 96px));
+  overflow-y: auto; padding-right: 6px; scrollbar-gutter: stable;
+  scroll-margin-top: calc(var(--kyb-top) + var(--kyb-bar, 260px) + 12px);
+}
+/* Cards keep their height and the box scrolls (in a column flexbox they'd
+   otherwise shrink to fit and clip their own buttons). */
+.kyb-scroll > * { flex-shrink: 0; }
+.kyb-scroll [id^="race-"] { scroll-margin-top: 8px; }
+.kyb-scroll, .kyb-scroll-bar { scrollbar-width: thin; scrollbar-color: var(--scroll) color-mix(in srgb, var(--scroll) 18%, transparent); }
+
+/* While govbot's shell is on the page, its theme sets the page's base text,
+   background and font (the lab's own body colours would otherwise win, and
+   leave footer text light-on-light in the light theme). */
+.kyb-govbot body { background: var(--gb-bg); color: var(--gb-text); font: 15px/1.55 var(--gb-font-sans); }
+
+/* While the theme flips, nothing transitions (GovbotChrome): one restyle, not
+   an animation per element. */
+.kyb-theme-switch *, .kyb-theme-switch *::before, .kyb-theme-switch *::after { transition: none !important; }
