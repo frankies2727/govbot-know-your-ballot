@@ -13,7 +13,7 @@ import type { Guide } from './types';
 import { StateMap } from './Hero';
 import outline from './data/illinois/outline.json';
 import { GaugeDefs } from './BarRatings';
-import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from './Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, BackToTop, ReportLink, SavedPicks, type SectionCard } from './Bits';
 import { ReadOnlyContext } from './state';
 import { ContentsColumn, ContentsDrawer } from './Contents';
 import { Headliners } from './Headliners';
@@ -488,6 +488,7 @@ export function KnowYourBallot() {
             onOpenRace={(race) => { browse(); jumpTo(race.section, race.id); }}
             onOpenCandidate={openSheet}
             onOpenSection={(sectionId, id) => { browse(); jumpTo(sectionId, id); }}
+            onCompare={openCompare}
             place={saved.place?.label} onContinue={() => showView(true)}
             saved={Object.keys(saved.picks).length}
             onStartFresh={() => { setSaved((s) => ({ ...s, picks: {}, plan: {} })); setToast('Cleared. Starting fresh.'); }}
@@ -705,6 +706,7 @@ export function KnowYourBallot() {
         <div role="status" className="fixed bottom-6 inset-x-4 z-[55] mx-auto max-w-md rounded-2xl bg-[var(--gb-text)] px-5 py-4 text-center font-black text-[var(--gb-bg)] shadow-2xl print:hidden">{toast}</div>
       )}
       {party && <Confetti onDone={() => setParty(false)} />}
+      <BackToTop />
     </div>
     </GovbotChrome>
     </ReadOnlyContext.Provider>
@@ -716,10 +718,10 @@ export function KnowYourBallot() {
 /** Illinois in govbot's blues and primary green, pinned in gold. */
 const IL_MAP = { fill: ['var(--gb-blue-hi)', 'var(--gb-primary)', 'var(--gb-blue)'] as [string, string, string], stroke: 'var(--kyb-gold)', pin: 'var(--kyb-gold)', pinStroke: 'var(--gb-bg)' };
 
-function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, onSearchJump, onOpenRace, onOpenCandidate, onOpenSection, place, onContinue, daysLeft, saved, onStartFresh }: {
+function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, onSearchJump, onOpenRace, onOpenCandidate, onOpenSection, onCompare, place, onContinue, daysLeft, saved, onStartFresh }: {
   address: string; setAddress: (s: string) => void; status: { busy: boolean; error: string; outside: boolean };
   onSubmit: (e: FormEvent) => void; onLocate: () => void; onBrowse: () => void; onSearchJump: (h: Hit) => void; onOpenRace: (r: Race) => void; onOpenCandidate: (r: Race, c: Candidate) => void;
-  onOpenSection: (sectionId: string, id: string) => void; /** A saved ballot to go back to. */ place?: string; onContinue: () => void; daysLeft: number;
+  onOpenSection: (sectionId: string, id: string) => void; onCompare: (r: Race) => void; /** A saved ballot to go back to. */ place?: string; onContinue: () => void; daysLeft: number;
   /** Picks already saved on this device. */
   saved: number; onStartFresh: () => void;
 }) {
@@ -808,8 +810,8 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
 
       <div className="kyb-wide pt-4">
         <Headliners races={STATEWIDE} sections={SECTIONS} overline="On every Illinois ballot" heading="The statewide races"
-          intro={`These ${STATEWIDE.length} contests are on every ballot in Illinois. Tap a card to meet the candidates; your address adds Congress, Springfield, Cook County, the judges and your ballot questions.`}
-          onOpen={onOpenCandidate} onOpenRace={onOpenRace} />
+          intro={`These ${STATEWIDE.length} contests are on every ballot in Illinois. Tap a face to meet a candidate, or Compare to see them side by side; your address adds Congress, Springfield, Cook County, the judges and your ballot questions.`}
+          onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} />
         <div className="mt-10">
           <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district, ward or precinct: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
         </div>

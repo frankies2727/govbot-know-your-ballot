@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, TriangleAlert, X } from 'lucide-react';
+import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, TriangleAlert, X } from 'lucide-react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
@@ -378,7 +378,16 @@ const officeOf = (title: string) => title.replace(/,.*$/, '').replace(/\s*\(.*$/
  * stays one card tall.
  */
 export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
-  const faces = card.items.flatMap((it) => it.race?.candidates ?? []);
+  const list = useRef<HTMLUListElement>(null);
+  const faces: StripPerson[] = card.items.flatMap((it) => (it.race?.candidates ?? []).map((c) => ({ ...c, note: it.sub, key: it.id })));
+  // A pick in the row opens that candidate's district below and scrolls to it.
+  const jump = (p: StripPerson) => {
+    const el = list.current?.querySelector<HTMLDetailsElement>(`details[data-race="${CSS.escape(p.key ?? '')}"]`);
+    if (!el) return;
+    el.open = true;
+    el.scrollIntoView({ block: 'start', behavior: STILL ? 'auto' : 'smooth' });
+    el.classList.remove('kyb-flash'); void el.offsetWidth; el.classList.add('kyb-flash');
+  };
   // Races sharing an explainer share a group, in the order they first appear.
   const groups: { key: string; label: string; about: string; items: SectionItem[] }[] = [];
   const rest: SectionItem[] = [];
@@ -408,12 +417,12 @@ export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: strin
         <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
         <span className="min-w-0 flex-1">
           <span className="block font-black leading-tight">{card.title}</span>
-          <span className="block text-sm">{card.hint}{groups.length ? ' · open a district to see who’s running' : ''}</span>
+          <span className="block text-sm">{card.hint}{groups.length ? ' · tap a face or a district to see who’s running' : ''}</span>
         </span>
         <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
       </div>
-      {faces.length > 0 && <FaceStrip people={faces} size="w-7 h-7 text-[10px]" />}
-      <ul className="kyb-scroll-bar max-h-[480px] overflow-y-auto rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
+      {faces.length > 0 && <FaceStrip people={faces} names max={400} size="w-9 h-9 text-xs" onPick={jump} />}
+      <ul ref={list} className="kyb-scroll-bar max-h-[480px] overflow-y-auto rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
         {groups.map((g) => (
           <li key={g.key}>
             <div className="sticky top-0 z-10 border-b border-[var(--gb-border)] bg-[var(--gb-surface)] px-3 py-2">
@@ -423,7 +432,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: strin
             <ul className="divide-y divide-[var(--kyb-chip)]">
               {g.items.map((it) => (
                 <li key={it.id}>
-                  <details className="group">
+                  <details className="group scroll-mt-[72px]" data-race={it.id}>
                     <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
                       <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
                       <span className="min-w-0 flex-1">
@@ -498,7 +507,9 @@ const STILL = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-m
  * carries the name and party; without, just faces, capped at `max` with a
  * "+N" at the end.
  */
-export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm', onTap }: { people: Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy'>[]; names?: boolean; max?: number; size?: string; /** A tap on the row (not a scroll or a drag). */ onTap?: () => void }) {
+export interface StripPerson extends Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy'> { /** A line under the party: their district. */ note?: string; /** What a pick means to the caller (a race id, say). */ key?: string }
+
+export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm', info = false, onPick }: { people: StripPerson[]; names?: boolean; max?: number; size?: string; /** An ⓘ badge on each face: there's more behind it. */ info?: boolean; /** A tap on a person (not a scroll or a drag). */ onPick?: (p: StripPerson) => void }) {
   const down = useRef<{ x: number; y: number } | null>(null);
   const box = useRef<HTMLDivElement>(null);
   const first = useRef<HTMLUListElement>(null);
@@ -553,25 +564,39 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
     hold.current = Date.now() + 4000;
     b.scrollBy({ left: dir * Math.max(160, b.clientWidth * 0.6), behavior: STILL ? 'auto' : 'smooth' });
   };
+  // A tap on a person, but not the end of a drag or a scroll.
+  const pick = (p: StripPerson) => (e: { clientX: number; clientY: number }) => {
+    const d = down.current; down.current = null;
+    if (onPick && (!d || Math.hypot(e.clientX - d.x, e.clientY - d.y) < 8)) onPick(p);
+  };
+  const person = (c: StripPerson) => (<>
+    <span className="relative inline-block">
+      <Face c={c} className={`${size} ${names ? '' : 'ring-2 ring-[var(--gb-surface)]'}`} />
+      {info && <Info className="absolute -right-0.5 -bottom-0.5 w-4 h-4 rounded-full bg-[var(--gb-surface)] text-[var(--gb-link)]" aria-hidden="true" />}
+    </span>
+    {names && <>
+      <span className="mt-1 block w-full truncate text-[12px] font-bold leading-tight">{c.name.split(' & ')[0]}</span>
+      <span className="block w-full truncate text-[10.5px] leading-tight">{c.nominatedBy ?? c.party}</span>
+      {c.note && <span className="block w-full truncate text-[10.5px] leading-tight">{c.note}</span>}
+    </>}
+  </>);
+  const cell = names ? 'w-full flex flex-col items-center text-center' : 'flex';
   const row = (hidden: boolean, ref?: typeof first) => (
     <ul ref={ref} aria-hidden={hidden || undefined} className="flex shrink-0" style={{ gap }}>
       {shown.map((c, i) => (
-        <li key={`${c.name}-${i}`} className={names ? 'w-[84px] flex flex-col items-center text-center' : ''}>
-          <Face c={c} className={`${size} ${names ? '' : 'ring-2 ring-[var(--gb-surface)]'}`} />
-          {names && <>
-            <span className="mt-1 block w-full truncate text-[12px] font-bold leading-tight">{c.name.split(' & ')[0]}</span>
-            <span className="block w-full truncate text-[10.5px] leading-tight">{c.nominatedBy ?? c.party}</span>
-          </>}
+        <li key={`${c.name}-${i}`} className={names ? 'w-[88px] flex' : ''}>
+          {onPick
+            ? <button type="button" onClick={pick(c)} tabIndex={hidden ? -1 : 0} aria-label={names ? undefined : `${c.name}: more about them`} className={`${cell} rounded-lg ${names ? 'px-0.5 py-1' : ''} hover:bg-[var(--kyb-chip)]`}>{person(c)}</button>
+            : <span className={cell}>{person(c)}</span>}
         </li>
       ))}
-      {more > 0 && <li className={`flex items-center ${names ? 'w-[84px] justify-center' : ''}`}><span className="rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">+{more}</span></li>}
+      {more > 0 && <li className={`flex items-center ${names ? 'w-[88px] justify-center' : ''}`}><span className="rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">+{more}</span></li>}
     </ul>
   );
   return (
     <div className="kyb-strip-wrap relative">
-      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} ${onTap ? 'cursor-pointer' : ''} w-full`} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
-        onPointerDown={onTap ? (e) => { down.current = { x: e.clientX, y: e.clientY }; } : undefined}
-        onClick={onTap ? (e) => { const d = down.current; down.current = null; if (!d || Math.hypot(e.clientX - d.x, e.clientY - d.y) < 8) onTap(); } : undefined}>
+      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
+        onPointerDown={onPick ? (e) => { down.current = { x: e.clientX, y: e.clientY }; } : undefined}>
         <div className="kyb-strip-in flex" style={{ gap }}>
           {row(false, first)}
           {loop && row(true)}
@@ -582,6 +607,26 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
         <button type="button" onClick={() => nudge(1)} aria-label="Scroll right" className="kyb-strip-btn right-0"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
       </>}
     </div>
+  );
+}
+
+/**
+ * "Back to top": a glass button in the corner once the page has scrolled a
+ * screen or so (the pinned bar's glass). Hidden in print.
+ */
+export function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const on = () => setShow(window.scrollY > 600);
+    on();
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
+  return (
+    <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: STILL ? 'auto' : 'smooth' })} aria-label="Back to top" title="Back to top"
+      className={`kyb-glass kyb-totop fixed bottom-5 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full text-[var(--gb-text)] print:hidden ${show ? 'is-on' : ''}`}>
+      <ArrowUp className="w-6 h-6" strokeWidth={2.5} aria-hidden="true" />
+    </button>
   );
 }
 
