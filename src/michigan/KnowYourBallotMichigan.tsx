@@ -1,7 +1,7 @@
 import { ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { ClearButton } from '../components/ClearButton';
-import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionPanel, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from '../Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionPanel, useBallotView, useDocumentMeta, BackToTop, ReportLink, SavedPicks, type SectionCard } from '../Bits';
 import { Group } from '../Calendar';
 import { guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
@@ -354,6 +354,7 @@ export function KnowYourBallotMichigan() {
             onOpenRace={(race) => { browse(); jumpTo(race.section, race.id); }}
             onOpenCandidate={openSheet}
             onOpenSection={(sectionId, id) => { browse(); jumpTo(sectionId, id); }}
+            onCompare={openCompare}
             place={saved.place?.label} onContinue={() => showView(true)}
             saved={Object.keys(saved.picks).length}
             onStartFresh={() => { setSaved((s) => ({ ...s, picks: {}, plan: {} })); setToast('Cleared. Starting fresh.'); }}
@@ -532,6 +533,7 @@ export function KnowYourBallotMichigan() {
         <div role="status" className="fixed bottom-6 inset-x-4 z-[55] mx-auto max-w-md rounded-2xl bg-[var(--gb-text)] px-5 py-4 text-center font-black text-[var(--gb-bg)] shadow-2xl print:hidden">{toast}</div>
       )}
       {party && <Confetti onDone={() => setParty(false)} />}
+      <BackToTop />
     </div>
     </GovbotChrome>
     </ReadOnlyContext.Provider>
@@ -551,10 +553,10 @@ const MORE: SectionCard[] = SECTIONS.map((s) => {
 // The proposals, as a card among the statewide races that flips to the questions.
 const PROPOSALS_CARD: SectionCard = { ...SECTIONS.find((s) => s.id === 'measures')!, n: data.measures.length, hint: 'Statewide · yes or no on each', items: data.measures.map((m) => ({ id: m.id, title: m.title, sub: 'Statewide', question: m.question, plain: m.plain })) };
 
-function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, onSearchJump, onOpenRace, onOpenCandidate, onOpenSection, place, onContinue, daysLeft, saved, onStartFresh }: {
+function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, onSearchJump, onOpenRace, onOpenCandidate, onOpenSection, onCompare, place, onContinue, daysLeft, saved, onStartFresh }: {
   address: string; setAddress: (s: string) => void; status: { busy: boolean; error: string; outside: boolean };
   onSubmit: (e: FormEvent) => void; onLocate: () => void; onBrowse: () => void; onSearchJump: (h: Hit) => void; onOpenRace: (r: Race) => void; onOpenCandidate: (r: Race, c: Candidate) => void;
-  onOpenSection: (sectionId: string, id: string) => void; /** A saved ballot to go back to. */ place?: string; onContinue: () => void;
+  onOpenSection: (sectionId: string, id: string) => void; onCompare: (r: Race) => void; /** A saved ballot to go back to. */ place?: string; onContinue: () => void;
   daysLeft: number; saved: number; onStartFresh: () => void;
 }) {
   // Spins while the browser finds you and the lookup runs.
@@ -638,7 +640,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
 
       <Headliners races={HEADLINERS} sections={SECTIONS} overline="On every Michigan ballot" heading="The statewide races"
         intro={`These ${HEADLINERS.length} contests are on every Michigan ballot. Tap a card to meet the candidates; your address adds your own U.S. House, state Senate, state House and Court of Appeals races from the ${byDistrict} by district.`}
-        onOpen={onOpenCandidate} onOpenRace={onOpenRace}>
+        onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare}>
         <SectionPanel card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
       </Headliners>
 

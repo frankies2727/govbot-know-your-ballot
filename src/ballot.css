@@ -114,16 +114,6 @@
    an animation per element. */
 .kyb-theme-switch *, .kyb-theme-switch *::before, .kyb-theme-switch *::after { transition: none !important; }
 
-/* Statewide race cards on the landing page flip over to show the candidates.
-   The face that's showing sizes the card; the other lies over it, hidden,
-   so a card with ten faces on its back is still short until it's flipped. */
-.kyb-flip { perspective: 1400px; }
-.kyb-flip-inner { position: relative; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
-.kyb-face { width: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.kyb-face.kyb-off { position: absolute; inset: 0; overflow: hidden; }
-.kyb-back { transform: rotateY(180deg); }
-.kyb-flipped { transform: rotateY(180deg); }
-@media (prefers-reduced-motion: reduce) { .kyb-flip-inner { transition: none; } }
 /* A row of candidates' faces the reader can scroll sideways (FaceStrip): the scrollbar is
    hidden, the ‹ › buttons sit at the ends, and when the row loops it fades at the edges.
    The drift itself is scrollLeft in a frame loop (Bits.tsx), so a swipe or a wheel scrolls
@@ -138,3 +128,12 @@
   background: var(--gb-surface); color: var(--gb-text); border: 2px solid var(--gb-text); opacity: 0; transition: opacity .2s; }
 .kyb-strip-wrap:hover .kyb-strip-btn, .kyb-strip-btn:focus-visible { opacity: 1; }
 @media (hover: none) { .kyb-strip-btn { display: none; } }
+
+/* "Back to top": the pinned bar's glass, in a round button that fades in once the page has scrolled. */
+.kyb-totop { opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s; }
+.kyb-totop.is-on { opacity: 1; visibility: visible; transform: none; }
+.kyb-totop:hover { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .kyb-totop { transition: none; } }
+/* The district a face in the row jumped to lights up for a moment. */
+@keyframes kyb-flash { 0% { background: color-mix(in srgb, var(--gb-primary) 28%, transparent); } 100% { background: transparent; } }
+.kyb-flash { animation: kyb-flash 1.6s ease-out; }
