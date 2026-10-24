@@ -57,7 +57,7 @@ function describePick(id: string, c: Choice | undefined): { what: string; pick: 
 }
 
 export function KnowYourBallotMichigan() {
-  useDocumentMeta('Know Your Ballot: Michigan', '🧤');
+  useDocumentMeta('Know Your Ballot: Michigan');
   const [saved, setSaved] = useSaved(STORAGE_KEY);
   const browsing = !!saved.browsing;
   const setBrowsing = (on: boolean) => setSaved((s) => ({ ...s, browsing: on || undefined }));

@@ -118,7 +118,7 @@ const DISTRICT_CHIPS: [keyof Districts, string][] = [
 const districtNumber = (k: keyof Districts, v: string) => (k === 'precinct' ? v.split('-')[1] : v);
 
 export function KnowYourBallot() {
-  useDocumentMeta('Know Your Ballot: Illinois', '🗳️');
+  useDocumentMeta('Know Your Ballot: Illinois');
   const [saved, setSaved] = useSaved();
   const browsing = !!saved.browsing;
   const setBrowsing = (on: boolean) => setSaved((s) => ({ ...s, browsing: on || undefined }));

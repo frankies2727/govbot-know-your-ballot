@@ -12,7 +12,7 @@ const IL_MAP = { fill: ['var(--gb-blue-hi)', 'var(--gb-primary)', 'var(--gb-blue
 
 /** The root of the Know Your Ballot site: pick your state. Each guide is one tap away at /illinois or /michigan. */
 export function KybHome() {
-  useDocumentMeta('Know Your Ballot', '🗳️');
+  useDocumentMeta('Know Your Ballot');
   const states = [
     { id: 'illinois', name: 'Illinois', color: 'var(--gb-amber-hi)', blurb: 'Every race, judge and question on your Nov 3, 2026 ballot, from the governor to your precinct.', map: <StateMap outline={ilOutline as Outline} name="Illinois" colors={IL_MAP} id="il-home" /> },
     { id: 'michigan', name: 'Michigan', color: 'var(--gb-primary-hi)', blurb: 'Every race, judge and proposal on your Nov 3, 2026 ballot, from the governor to your school board.', map: <MichiganMap /> },
