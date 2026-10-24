@@ -20,7 +20,7 @@ import { imageType, shrink } from './illinois/photos.mjs';
 import { browserPage } from './browser.mjs';
 
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36';
-const BUDGET_MS = 12 * 60_000;
+const BUDGET_MS = 20 * 60_000;
 const POOL = 3;
 const PLACEHOLDER = /SubmitPhoto|Silhouette|Placeholder/i;
 
@@ -158,11 +158,18 @@ export async function addProfiles(races, { dir, publicPath, prev, state = 'Michi
   let withPhoto = 0, withSocial = 0, withProfile = 0, total = 0, unreached = 0;
   const jobs = races.flatMap((race) => race.candidates.map((c) => ({ race, c })));
   total = jobs.length;
+  // Whoever has waited longest goes first, so a day that runs out of budget
+  // never starves the same people twice: each candidate carries the day their
+  // page was last tried (`ballotpediaRead`), and the list is read in that order.
+  const today = new Date().toISOString().slice(0, 10);
+  const readOn = ({ race, c }) => prevBy.get(`${race.id}|${c.name}`)?.ballotpediaRead ?? '';
+  jobs.sort((a, b) => (readOn(a) < readOn(b) ? -1 : readOn(a) > readOn(b) ? 1 : 0));
   for (const { c } of jobs) if (c.photo) used.add(c.photo.file.split('/').pop());
 
   await pool(jobs, POOL, async ({ race, c }) => {
     const key = `${race.id}|${c.name}`;
     const was = prevBy.get(key);
+    if (was?.ballotpediaRead) c.ballotpediaRead = was.ballotpediaRead;
     const keep = () => {
       if (stancesOnly) { if (!c.stances && was?.stances) c.stances = was.stances; if (!c.ballotpedia && was?.ballotpedia) c.ballotpedia = was.ballotpedia; return; }
       if (!c.photo && was?.photo && existsSync(join(dir, was.photo.file.split('/').pop()))) { c.photo = was.photo; used.add(was.photo.file.split('/').pop()); }
@@ -174,6 +181,7 @@ export async function addProfiles(races, { dir, publicPath, prev, state = 'Michi
     // Someone whose page was already read keeps their survey answers until the page is read again.
     if (missing && c.photo && c.social && c.website && (was?.ballotpedia || c.ballotpedia) && !stancesOnly) { keep(); return; }
     if (Date.now() - started > BUDGET_MS) { keep(); unreached += 1; return; }
+    c.ballotpediaRead = today;
     try {
       // No profile linked: find it by name, and make sure it's them.
       let profile = c.profile?.match(/^https:\/\/ballotpedia\.org\/\S+$/)?.[0] ?? c.ballotpedia ?? was?.ballotpedia ?? was?.photo?.link?.match(/^https:\/\/ballotpedia\.org\/\S+$/)?.[0];
