@@ -20,7 +20,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-24.04 # Playwright 1.56 has no Chromium build for the 26.04 image
-    timeout-minutes: 60
+    timeout-minutes: 100 # the build takes ~45 min; a slow day must still finish and commit
     steps:
       - uses: actions/checkout@v4
 
