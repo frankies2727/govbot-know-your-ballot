@@ -9,6 +9,7 @@ import { billItems, billUrl, changeItems, dateItems, Feed, newsItems } from '../
 import { Laws } from '../Laws';
 import { NextElectionNote } from './NextUp';
 import { Headliners } from '../Headliners';
+import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
 import { earnedTrophies, streak, Trophies } from '../Progress';
 import { CandidateSheet, Compare, MeasureCard, RaceCard } from '../Race';
@@ -545,7 +546,7 @@ const HEADLINERS = data.races.filter((r) => !r.area);
 // ...and the rest of the ballot by section, for the cards under them.
 const MORE: SectionCard[] = SECTIONS.map((s) => {
   const races = s.id === 'measures' ? [] : data.races.filter((r) => r.section === s.id && r.area);
-  return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: MICHIGAN.areaLabel(r), race: r })) };
+  return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: MICHIGAN.areaLabel(r), race: r, about: MICHIGAN.explainOffice(r.office), why: stakes(r) })) };
 }).filter((c) => c.n > 0);
 // The proposals, as a card among the statewide races that flips to the questions.
 const PROPOSALS_CARD: SectionCard = { ...SECTIONS.find((s) => s.id === 'measures')!, n: data.measures.length, hint: 'Statewide · yes or no on each', items: data.measures.map((m) => ({ id: m.id, title: m.title, sub: 'Statewide', question: m.question, plain: m.plain })) };

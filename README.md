@@ -87,6 +87,12 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 
 The address is sent once to the public address locator named in the app and nowhere else. Picks, plans and progress stay in the browser's local storage. The share card shows progress, never picks. No analytics, no cookies.
 
+## Reports from readers
+
+Every race, candidate, judge and measure carries a **Report a mistake** link. It opens a short form (what it shows, what is correct, a link to a source) that `api/report.ts`, a Vercel function, files as a GitHub issue labelled `wrong-information` and `from-site`, so a reader needs no GitHub account. Against spam it uses a hidden honeypot field, a minimum fill time, length and link checks, and a per-address limit; dropped reports still answer "thank you" so a bot learns nothing.
+
+The function needs one secret in the Vercel project (Settings → Environment Variables): `GITHUB_REPORT_TOKEN`, a fine-grained GitHub token with **Issues: read and write** on this repository only. Without it the form answers that reports aren't set up and offers GitHub's own form instead.
+
 ## Contributing
 
 Bug reports, corrections and new states are all welcome; see [CONTRIBUTING.md](CONTRIBUTING.md). Wrong information about a real person is fixed first: use the [wrong-information issue template](.github/ISSUE_TEMPLATE/wrong-information.md).
