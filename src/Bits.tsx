@@ -1,12 +1,23 @@
-import { ChevronDown, Info, ListChecks, MapPin, RotateCcw, TriangleAlert, X } from 'lucide-react';
+import { ChevronDown, Flag, Info, ListChecks, MapPin, RotateCcw, TriangleAlert, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
 import { navigate, useRoute } from './lib/router';
 import { useOpen } from './store';
+import { reportUrl } from './report';
 
 // Small pieces every state's guide shows: the progress ring in the pinned
 // bar, and the confetti when a ballot is finished.
+
+/** "Report a mistake": opens a GitHub issue pre-filled with this race or person (see report.ts). Hidden in print. */
+export function ReportLink({ what, name, id, inline = false, className = '' }: { what: string; name?: string; id?: string; /** Inside a sentence: no 44px tap height. */ inline?: boolean; className?: string }) {
+  return (
+    <a href={reportUrl({ what, name, id })} target="_blank" rel="noreferrer noopener"
+      className={`${inline ? 'inline-flex' : 'inline-flex min-h-[44px]'} items-center gap-1.5 text-sm font-bold text-[var(--gb-text)] underline underline-offset-2 hover:text-[var(--gb-link)] print:hidden ${className}`}>
+      <Flag className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />Report a mistake<span aria-hidden="true"> ↗</span>
+    </a>
+  );
+}
 
 export function Ring({ pct, size = 64 }: { pct: number; size?: number }) {
   const r = size / 2 - 6;

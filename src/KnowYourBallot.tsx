@@ -12,7 +12,7 @@ import type { Guide } from './types';
 import { StateMap } from './Hero';
 import outline from './data/illinois/outline.json';
 import { GaugeDefs } from './BarRatings';
-import { BrowsingBadge, BrowsingNotice, Confetti, ContinueCard, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, type SectionCard } from './Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, ContinueCard, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, ReportLink, type SectionCard } from './Bits';
 import { ReadOnlyContext } from './state';
 import { ContentsColumn, ContentsDrawer } from './Contents';
 import { Headliners } from './Headliners';
@@ -1004,6 +1004,7 @@ function Sources() {
         ))}
       </ul>
       <p className="mt-3 leading-snug">Nonpartisan and independent: not affiliated with any campaign, party or election authority. Always double-check your <a className="font-bold text-[var(--gb-link)] underline" href={LINKS.myInfo} target="_blank" rel="noreferrer noopener">official sample ballot</a>.</p>
+      <p className="mt-2 leading-snug">Spot a mistake? Every race and candidate has a <ReportLink what="Elsewhere on the page" inline /> link; it opens a GitHub issue with the place already filled in. Wrong information about a real person is fixed first.</p>
       </div>}
     </section>
   );

@@ -7,6 +7,7 @@ import { useReadOnly, useStateConfig } from './state';
 import { money, type Choice } from './store';
 import type { Candidate, Guide, Measure, Race, Retention, SocialPlatform } from './types';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
+import { ReportLink } from './Bits';
 
 const AREA_LABEL: Record<string, string> = {
   cd: 'Congressional District', sldu: 'State Senate District', sldl: 'State House District',
@@ -399,6 +400,7 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
           )}
           {race.candidates.length === 1 && <span className="text-sm text-[var(--gb-text)]">Only one candidate is running.</span>}
           {race.writeIn && <span className="text-sm text-[var(--gb-text)]">Write-ins allowed.</span>}
+          <ReportLink what={race.office} id={race.id} className="ml-auto" />
         </footer>
       </div>
     </article>
@@ -500,6 +502,7 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
               </li>
             ))}
           </ul>
+          <ReportLink what={race.office} name={c.name} id={race.id} />
         </section>
 
         {!readOnly && (
@@ -639,6 +642,7 @@ export const RetentionCard = memo(function RetentionCard({ color, r, choice, onC
       {r.withdrawn
         ? <p className="text-[15px] font-bold text-[var(--gb-amber-hi)]">Withdrew after the ballot was finalized. This name is still on your ballot, but votes for or against this judge won’t count.</p>
         : <YesNo value={choice} onChange={onChoose} label={`Retain ${r.judge}?`} />}
+      <ReportLink what={r.court} name={r.judge} id={r.id} />
     </div>
   );
 });
@@ -668,6 +672,7 @@ export const MeasureCard = memo(function MeasureCard({ color, m, choice, onChoos
         </blockquote>
       </div>
       <YesNo value={choice} onChange={onChoose} label={m.title} />
+      <ReportLink what={m.title} id={m.id} />
     </article>
   );
 });
