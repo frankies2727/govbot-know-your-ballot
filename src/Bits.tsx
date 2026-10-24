@@ -2,7 +2,7 @@ import { ChevronDown, Info, ListChecks, MapPin, RotateCcw, TriangleAlert, X } fr
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
-import { navigate, useRoute } from '../../lib/router';
+import { navigate, useRoute } from './lib/router';
 import { useOpen } from './store';
 
 // Small pieces every state's guide shows: the progress ring in the pinned

@@ -13,7 +13,7 @@
 //   5. The certified statewide proposals (michigan/proposals.mjs)
 //
 // Needs `unzip`, `curl`, ImageMagick and OpenCV for Python (see face-check.py) on PATH. Run by .github/workflows/know-your-ballot-michigan.yml;
-// locally: `node scripts/know-your-ballot/michigan.mjs`.
+// locally: `node scripts/michigan.mjs`.
 
 import { execFileSync } from 'node:child_process';
 import { createWriteStream, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -41,7 +41,7 @@ import { countiesFromLayers } from './michigan/counties.mjs';
 import { reconcile } from './audit.mjs';
 import { addRecords } from './illinois/record.mjs';
 
-const OUT = 'src/projects/know-your-ballot/data/michigan';
+const OUT = 'src/data/michigan';
 const PHOTOS_DIR = 'public/kyb-photos/michigan';
 const FEC_WEBALL = 'https://www.fec.gov/files/bulk-downloads/2026/weball26.zip';
 const ELECTION = { name: 'General Election', date: '2026-11-03' };

@@ -230,7 +230,7 @@ export async function addProfiles(races, { dir, publicPath, prev, state = 'Michi
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
   const { readFileSync: read, writeFileSync: write } = await import('node:fs');
   const which = process.argv[2] ?? 'michigan';
-  const file = new URL(`../../src/projects/know-your-ballot/data/${which}/ballot.json`, import.meta.url);
+  const file = new URL(`../src/data/${which}/ballot.json`, import.meta.url);
   const data = JSON.parse(read(file, 'utf8'));
   const r = await addProfiles(data.races, { prev: data, state: which === 'michigan' ? 'Michigan' : 'Illinois', fill: 'stances' });
   const n = data.races.flatMap((x) => x.candidates).filter((c) => c.stances).length;

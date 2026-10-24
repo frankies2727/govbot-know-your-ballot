@@ -262,7 +262,7 @@ export async function addWiki(races, { prev = null, fetchPage = fetchText, pause
 
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
   const { readFileSync, writeFileSync } = await import('node:fs');
-  const file = new URL('../../../src/projects/know-your-ballot/data/illinois/ballot.json', import.meta.url);
+  const file = new URL('../../src/data/illinois/ballot.json', import.meta.url);
   const data = JSON.parse(readFileSync(file, 'utf8'));
   const r = await addWiki(data.races, { prev: data });
   console.log(`Incumbents: ${r.incumbents.found} races read, ${r.incumbents.kept} kept, ${r.incumbents.running} on their ballot, ${r.incumbents.noted} with a note; endorsements: ${r.endorsements.withList} candidates`);

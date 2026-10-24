@@ -87,7 +87,7 @@ export async function addRecords(races, { state = 'il', prev = null, fetchJson =
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
   const { readFileSync, writeFileSync } = await import('node:fs');
   const state = process.argv[2] ?? 'il';
-  const file = new URL(`../../../src/projects/know-your-ballot/data/${STATE_NAME[state].toLowerCase()}/ballot.json`, import.meta.url);
+  const file = new URL(`../../src/data/${STATE_NAME[state].toLowerCase()}/ballot.json`, import.meta.url);
   const data = JSON.parse(readFileSync(file, 'utf8'));
   const r = await addRecords(data.races, { state, prev: data });
   console.log(`Records: ${r.matched} candidates are sitting legislators`);

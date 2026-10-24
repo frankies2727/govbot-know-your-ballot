@@ -91,7 +91,7 @@ export async function buildGuide(races, { prev = {}, fetchPage = (u) => fetch(u,
 
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
   const { readFileSync, writeFileSync, existsSync } = await import('node:fs');
-  const dir = new URL('../../../src/projects/know-your-ballot/data/illinois/', import.meta.url);
+  const dir = new URL('../../src/data/illinois/', import.meta.url);
   const data = JSON.parse(readFileSync(new URL('ballot.json', dir), 'utf8'));
   const file = new URL('guide.json', dir);
   const prev = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : {};

@@ -1,4 +1,4 @@
-import { navigate } from '../../lib/router';
+import { navigate } from './lib/router';
 import { useDocumentMeta } from './Bits';
 import ilOutline from './data/illinois/outline.json';
 import { GovbotChrome } from './GovbotChrome';

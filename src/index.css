@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* No dimmed text anywhere: placeholders render at full strength (Tailwind's
+   default is 50% of the text colour). Italic keeps a hint apart from a real
+   value. The guide's own colours come from govbot's stylesheet (src/govbot),
+   attached by GovbotChrome; ballot.css builds on them. */
+@layer base {
+  ::placeholder {
+    color: currentColor;
+    opacity: 1;
+    font-style: italic;
+  }
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}

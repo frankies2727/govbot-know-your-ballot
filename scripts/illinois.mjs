@@ -12,7 +12,7 @@
 //   5. Chicago community areas, Census places    -> the neighborhoods a district covers
 //
 // Needs `pdftotext` (poppler-utils) and `unzip` on PATH. Run by
-// .github/workflows/know-your-ballot-illinois.yml; locally: `node scripts/know-your-ballot/illinois.mjs`.
+// .github/workflows/know-your-ballot-illinois.yml; locally: `node scripts/illinois.mjs`.
 // CANDIDATE_PDF=<url or path> skips the page lookup (handy if the Board's site
 // is blocking automated requests).
 
@@ -45,7 +45,7 @@ import { addHeadshots } from './headshots.mjs';
 import { recentNews } from './news.mjs';
 import { buildOutline } from './michigan/districts.mjs';
 
-const OUT = 'src/projects/know-your-ballot/data/illinois';
+const OUT = 'src/data/illinois';
 const PHOTOS_DIR = 'public/kyb-photos/illinois';
 const CANDIDATES_PAGE = 'https://chicagoelections.gov/getting-ballot/candidates';
 const EARLY_VOTING_PAGE = 'https://chicagoelections.gov/voting/early-votingvote-centers';

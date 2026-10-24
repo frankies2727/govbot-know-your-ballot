@@ -1,6 +1,6 @@
 import { ArrowUpRight, ChevronDown, Rss, Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { ClearButton } from '../../components/ClearButton';
+import { ClearButton } from './components/ClearButton';
 import { useOpen } from './store';
 import type { Law } from './types';
 import { billUrl } from './Feed';

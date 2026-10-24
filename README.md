@@ -1,0 +1,86 @@
+# Govbot Know Your Ballot
+
+**Your exact ballot by address: every race, judge and question explained, who's running and who's funding them.** Free, open source, non-partisan, built on [Govbot](https://chihacknight.github.io/govbot/), Chi Hack Night's open civic data.
+
+### 👉 [govbot-know-your-ballot.vercel.app](https://govbot-know-your-ballot.vercel.app) 👈
+
+| State | Guide | Covers |
+|---|---|---|
+| 🗳️ Illinois | [/illinois](https://govbot-know-your-ballot.vercel.app/illinois) | Every contest on any Chicago or suburban Cook ballot on Nov 3, 2026, from U.S. Senate to judges, plus every county browsable without an address |
+| 🧤 Michigan | [/michigan](https://govbot-know-your-ballot.vercel.app/michigan) | Governor, U.S. Senate, Congress, every seat in Lansing, the Supreme Court and Court of Appeals, the university boards and both statewide proposals |
+
+**More states are welcome.** Read [CONTRIBUTING.md](CONTRIBUTING.md) and open a [new-state issue](.github/ISSUE_TEMPLATE/new-state.md).
+
+## What a voter gets
+
+Enter an address (it never leaves the browser except to the public address locator) and see the ballot, one race at a time: what the job is, who's running with photo and party, how much each campaign raised and spent, who holds the seat now and, when they aren't running, why. Open a candidate for their own words (survey answers, their issues page), their endorsements, their record in office, and links to dig deeper. Judges carry every bar association's rating and, in Illinois, the full Injustice Watch profile. Decide race by race, skip what you want, plan how you'll vote, print your picks or a full sample ballot, and share a progress card, never your picks.
+
+Everything shown comes from an official or documented public source named next to it. Nothing is summarized, rated or editorialized by us; a candidate's "words" are quoted verbatim with the date and a link.
+
+## How it's built
+
+A static site: a React + Vite app (`src/`) reads JSON that Node scripts (`scripts/`) rebuild every morning in GitHub Actions and commit (`src/data/<state>/`, candidate photos in `public/kyb-photos/<state>/`). Vercel redeploys from `main`. No server, no API keys, no tracking.
+
+```
+src/                 the app; src/michigan/ holds what differs for Michigan, src/state.tsx the per-state switches
+src/data/<state>/    the published data: ballot.json (races, candidates, incumbents), districts, guides, judges
+src/govbot/          Govbot's header, footer and stylesheet, copied by scripts/govbot-shell.mjs so the guide looks like Govbot
+scripts/             the daily builds: illinois.mjs, michigan.mjs, and the modules they share (illinois/* is the original set, used by both)
+scripts/audit.mjs    reconciliation, the last step of every build (see below)
+public/kyb-photos/   candidate photos, each credited and linked in the app
+.github/workflows/   one refresh workflow per state
+```
+
+### Run it locally
+
+```bash
+npm install
+npm run dev        # the site at http://localhost:5173
+npm run lint       # type-check
+npm run build      # production build (dist/)
+```
+
+To rebuild a state's data (what the daily workflow runs): `npm run data:illinois` (needs `pdftotext` from poppler-utils, ImageMagick and `npm install --no-save playwright` for the Board of Elections' bot check) or `npm run data:michigan` (needs `unzip`, `curl`, ImageMagick). Each step is fail-soft: a source that can't be read today keeps yesterday's data for that field, and the log says so.
+
+### Where the data comes from
+
+<details>
+<summary><b>🗳️ Illinois</b></summary>
+
+- **Who's on the ballot:** the Chicago Board of Elections candidate list (every contest on any Chicago ballot, in ballot order, plus judicial retentions and referenda), parsed from its PDF. Suburban Cook adds the State Board of Elections' certified list for the congressional, legislative and judicial districts outside Chicago. The four all-suburban County Board districts, suburban referenda and suburban ballot numbers come from the Cook County Clerk, whose site blocks automated downloads; the app tells suburban voters exactly what's missing for their address.
+- **Campaign money:** FEC bulk filings for federal candidates; the Illinois State Board of Elections' bulk disclosure files for state and local ones (raised and spent since Jan 2025, cash on hand, plus the $1,000+ contributions reported since the last quarterly report). A name only gets numbers when the whole name matches one person running for the same kind of office.
+- **Photos, websites & social accounts:** official sources first (Congress portraits, the General Assembly's member photos via Open States, Wikidata and Wikimedia Commons, campaign sites, hand-picked photos in `scripts/illinois/photos-chosen.json`); whoever is still missing something gets it from their Ballotpedia profile (found by page name, then by Ballotpedia's search, kept only when the page is theirs; when Ballotpedia's firewall answers with a challenge page, the page is read in a headless browser, `scripts/browser.mjs`), then from their own campaign site (the headshot it labels as them, face-checked by `scripts/headshots.mjs`, and the accounts that carry their name).
+- **Judges:** Injustice Watch's judicial election guide supplies each judge's photo, every bar group's rating and the whole profile, word for word (`src/data/illinois/judges.json`, fetched when a judge's details open; Injustice Watch publishes under Creative Commons BY-ND): age, law school, judge since, experience, their "Notable" reporting, the candidate survey, the bar groups' comments, icons and endorsements, with the glossary's definitions shown in place. The Alliance of Bar Associations adds each group's rating of the contested seats. A judicial vacancy carries the reason and date from the Illinois Courts' official vacancy list ("Retired on Aug 31, 2025.", "Died on …", "Elected to the Appellate Court on …").
+- **Who's in office now, and why they're leaving:** each seat's current holder from Open States' official roster (via Govbot) or the Wikipedia article on that 2026 race. Whether they're on the ballot is read from the candidate lists, never from prose. When they aren't, the reason is read, in order, from the article's sentence about them, the primary they lost (from its results box, with the numbers), the candidates-list heading they're filed under, their own Wikipedia article, Ballotpedia's lists of retiring and defeated incumbents, and last only what the article and the ballot show together. Candidates who already sit in Springfield or Congress carry the bills they sponsored this session, from Govbot.
+- **In their words & endorsements:** each candidate's three key campaign messages are their own answer to Ballotpedia's Candidate Connection survey (answers since 2025, quoted verbatim with the date), plus the "Issues" page their own campaign site links. Endorsements are the lists in the Wikipedia article on the race, by the article's own categories. School board candidates carry their Chicago Sun-Times / WBEZ voter-guide questionnaire, in their own words.
+- **Your districts:** the address goes once to Cook County's address locator; district maps (Census, Cook County, City of Chicago, Illinois Senate) are pre-baked, so matching happens on the device. With no address, any of the 102 counties can be browsed: the statewide races plus every Congress and Springfield district that reaches into it.
+- **Built on Govbot:** Govbot's homepage links here for "What's on my ballot?"; links to a race, `#race=<govbot race id>`, open that race.
+</details>
+
+<details>
+<summary><b>🧤 Michigan</b></summary>
+
+- **Who's on the ballot:** Ballotpedia's race pages (statewide offices, the U.S. House delegation, both legislative chambers, the Court of Appeals) and Wikipedia's articles for the three university boards. Both are CC BY-SA and linked from the app's Sources. The Secretary of State's certified listing is the official source, but its host refuses automated readers; swap it in (`scripts/michigan/ballotpedia.mjs`) when that changes.
+- **Campaign money:** federal races from the FEC; state and local races from the Michigan Transparency Network's nightly all-transaction exports (summed since Jan 2025; the exports carry no cash-on-hand figure).
+- **Photos, websites & social accounts:** each candidate's Ballotpedia profile first, then the same official sources Illinois uses (Congress portraits, the Legislature's member photos via Open States, Wikidata and Wikimedia Commons), then the headshot their own campaign site labels as them. `scripts/michigan/photos-chosen.json` takes hand-picked ones.
+- **Proposals:** the two statewide proposals in their certified wording, with a plain-English note.
+- **Your districts:** the address goes to Photon (OpenStreetMap's geocoder; Nominatim as fallback); Census maps of the congressional, state Senate, state House and county lines are pre-baked so matching happens on the device. The county sets the Court of Appeals district. Any county can be browsed without an address.
+- **Who's in office now, in their words, endorsements, records:** the same steps as Illinois, with Michigan's plan (`scripts/michigan/incumbents.mjs`: the Wikipedia articles on the 2026 Michigan races, including the Senate article's term-limited and retiring lists and the boards' convention results; Lansing and Congress bills from Govbot).
+- **Not here yet:** county and local offices, trial-court judges and local proposals. The app points voters to their sample ballot at Michigan.gov/Vote.
+</details>
+
+### Reconciliation, every build
+
+`scripts/audit.mjs` is the last step before a ballot is written. Anything attached to a candidate whose source names someone else is dropped and logged: a legislature portrait or site for someone who isn't a sitting legislator of that name, a Ballotpedia page with another name, a legislative record for a non-legislator, and a site, account, photo or money id two candidates share. Upstream, a candidate is matched to a sitting member, a legislator or a money filing only when the whole name agrees, never the surname alone. Run it by hand: `npm run audit -- il` or `npm run audit -- mi` (add `--write` to apply).
+
+### Privacy
+
+The address is sent once to the public address locator named in the app and nowhere else. Picks, plans and progress stay in the browser's local storage. The share card shows progress, never picks. No analytics, no cookies.
+
+## Contributing
+
+Bug reports, corrections and new states are all welcome; see [CONTRIBUTING.md](CONTRIBUTING.md). Wrong information about a real person is fixed first: use the [wrong-information issue template](.github/ISSUE_TEMPLATE/wrong-information.md).
+
+## Licence
+
+Code: [MIT](LICENSE). The data files are compiled from the public sources named above and in the app's Sources section, each under its own terms (government records; Ballotpedia and Wikipedia, CC BY-SA; Injustice Watch, CC BY-ND; Open States, CC0). Candidate photos are credited and linked to their source in the app.

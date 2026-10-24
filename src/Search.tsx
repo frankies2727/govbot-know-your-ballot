@@ -1,5 +1,5 @@
 import { Search as SearchIcon } from 'lucide-react';
-import { ClearButton } from '../../components/ClearButton';
+import { ClearButton } from './components/ClearButton';
 import { useMemo, useState } from 'react';
 import { useStateConfig, type StateConfig } from './state';
 import type { Measure, Race, Retention } from './types';

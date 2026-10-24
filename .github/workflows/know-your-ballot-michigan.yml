@@ -1,8 +1,8 @@
 name: Know Your Ballot Michigan – refresh data
 
-# Rebuilds src/projects/know-your-ballot/data/michigan (candidates from
-# Ballotpedia and Wikipedia, FEC money, Census maps) and redeploys when
-# anything changed. Daily through Election Day. See scripts/know-your-ballot/michigan.mjs.
+# Rebuilds src/data/michigan (candidates from
+# Ballotpedia and Wikipedia, FEC money, Census maps) and commits the result;
+# Vercel redeploys the site from main. Daily through Election Day. See scripts/michigan.mjs.
 
 on:
   workflow_dispatch:
@@ -11,7 +11,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 concurrency:
   group: know-your-ballot-michigan
@@ -38,17 +37,17 @@ jobs:
       # govbot's header, footer, stylesheet and script are a copy of the live
       # govbot site's; refresh it so the guide never lags govbot's nav.
       - name: Refresh govbot's site shell
-        run: node scripts/know-your-ballot/govbot-shell.mjs
+        run: node scripts/govbot-shell.mjs
 
       - name: Build ballot data
-        run: node scripts/know-your-ballot/michigan.mjs
+        run: node scripts/michigan.mjs
 
       - name: Commit any changes
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/projects/know-your-ballot/data/michigan public/kyb-photos/michigan src/projects/know-your-ballot/govbot
+          git add src/data/michigan public/kyb-photos/michigan src/govbot
           if git diff --staged --quiet; then
             echo "No ballot data changes."
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -60,8 +59,3 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Trigger Pages deploy
-        if: steps.commit.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run "Deploy to GitHub Pages" --ref main

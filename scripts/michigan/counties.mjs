@@ -37,7 +37,7 @@ export function countiesFromLayers(layers) {
 
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
   const { readFileSync, writeFileSync } = await import('node:fs');
-  const dir = new URL('../../../src/projects/know-your-ballot/data/michigan/', import.meta.url);
+  const dir = new URL('../../src/data/michigan/', import.meta.url);
   const counties = countiesFromLayers(JSON.parse(readFileSync(new URL('districts.json', dir), 'utf8')).layers);
   const file = new URL('ballot.json', dir);
   const data = JSON.parse(readFileSync(file, 'utf8'));
