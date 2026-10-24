@@ -1,4 +1,4 @@
-import { ArrowRight, RotateCcw } from 'lucide-react';
+import { ArrowRight, Info, RotateCcw } from 'lucide-react';
 import { useState, type ReactNode } from 'react';
 import { FaceStrip } from './Bits';
 import { Face } from './Face';
@@ -44,7 +44,7 @@ function Card({ race, section, onOpen, onOpenRace }: { key?: string; race: Race;
             <span className="block text-sm leading-snug">{explainOffice(race.office)}</span>
             {why && <span className="block text-sm leading-snug line-clamp-3"><span className="font-bold">Why it matters: </span>{why}</span>}
           </button>
-          <FaceStrip people={race.candidates} names />
+          <FaceStrip people={race.candidates} names onTap={() => setOpen(true)} />
           <span className="mt-auto flex items-center justify-between gap-2 text-xs font-bold">
             <span>{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'}{race.voteFor > 1 ? ` · pick up to ${race.voteFor}` : ''}</span>
             <button type="button" onClick={() => setOpen(true)} className="inline-flex items-center gap-1 min-h-[32px]" style={{ color: section.color }}>Meet all candidates <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" /></button>
@@ -52,7 +52,7 @@ function Card({ race, section, onOpen, onOpenRace }: { key?: string; race: Race;
         </div>
         <div className={`kyb-face kyb-back ${open ? '' : 'kyb-off'} rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3`} style={{ borderColor: section.color }} inert={!open}>
           <div className="flex items-start justify-between gap-2">
-            <p className="text-sm font-black leading-tight">{title(race)}</p>
+            <p className="text-sm font-black leading-tight">{title(race)}<span className="mt-0.5 flex items-center gap-1 text-xs font-bold"><Info className="w-3.5 h-3.5 text-[var(--gb-link)]" aria-hidden="true" />Tap a candidate to learn more</span></p>
             <button type="button" onClick={() => setOpen(false)} aria-label="Flip back" className="shrink-0 w-9 h-9 -mt-1 -mr-1 rounded-full flex items-center justify-center hover:bg-[var(--kyb-chip)]">
               <RotateCcw className="w-4 h-4" aria-hidden="true" />
             </button>
@@ -61,7 +61,10 @@ function Card({ race, section, onOpen, onOpenRace }: { key?: string; race: Race;
             {race.candidates.map((c) => (
               <li key={c.ballot}>
                 <button type="button" onClick={() => onOpen(race, c)} className="group w-full flex flex-col items-center gap-1.5 text-center">
-                  <Face c={c} className="w-16 h-16 text-xl ring-offset-2 ring-offset-[var(--gb-surface)] group-hover:ring-[3px] group-focus-visible:ring-[3px]" />
+                  <span className="relative">
+                    <Face c={c} className="w-16 h-16 text-xl ring-offset-2 ring-offset-[var(--gb-surface)] group-hover:ring-[3px] group-focus-visible:ring-[3px]" />
+                    <Info className="absolute -right-0.5 -bottom-0.5 w-5 h-5 rounded-full bg-[var(--gb-surface)] text-[var(--gb-link)]" aria-hidden="true" />
+                  </span>
                   <span className="block text-[13px] font-bold leading-tight">{lead(c.name)}</span>
                   <span className="inline-flex rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold leading-tight">{c.nominatedBy ?? c.party}</span>
                 </button>
