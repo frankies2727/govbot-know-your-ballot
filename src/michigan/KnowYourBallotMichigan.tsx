@@ -1,7 +1,7 @@
 import { ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { ClearButton } from '../components/ClearButton';
-import { BrowsingBadge, BrowsingNotice, Confetti, ContinueCard, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionFlip, useBallotView, useDocumentMeta, type SectionCard } from '../Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, ContinueCard, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionFlip, useBallotView, useDocumentMeta, ReportLink, type SectionCard } from '../Bits';
 import { Group } from '../Calendar';
 import { guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
@@ -775,6 +775,7 @@ function Sources() {
           ))}
         </ul>
         <p className="mt-3 leading-snug">Nonpartisan and independent: not affiliated with any campaign, party or election office. Always double-check your <a className="font-bold text-[var(--gb-link)] underline" href={LINKS.myInfo} target="_blank" rel="noreferrer noopener">official sample ballot</a>.</p>
+        <p className="mt-2 leading-snug">Spot a mistake? Every race and candidate has a <ReportLink what="Elsewhere on the page" inline /> link; it opens a GitHub issue with the place already filled in. Wrong information about a real person is fixed first.</p>
       </div>}
     </section>
   );

@@ -1,5 +1,15 @@
 # Govbot Know Your Ballot
 
+[![Live site](https://img.shields.io/website?url=https%3A%2F%2Fgovbot-know-your-ballot.vercel.app&label=live%20site&up_message=online&down_message=down)](https://govbot-know-your-ballot.vercel.app)
+[![Illinois data](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-illinois.yml/badge.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-illinois.yml)
+[![Michigan data](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-michigan.yml/badge.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-michigan.yml)
+[![Last data refresh](https://img.shields.io/github/last-commit/frankies2727/govbot-know-your-ballot/main?label=data%20refreshed)](https://github.com/frankies2727/govbot-know-your-ballot/commits/main)
+[![Good first issues](https://img.shields.io/github/issues/frankies2727/govbot-know-your-ballot/good%20first%20issue?label=good%20first%20issues&color=7057ff)](https://github.com/frankies2727/govbot-know-your-ballot/labels/good%20first%20issue)
+[![States wanted](https://img.shields.io/github/issues/frankies2727/govbot-know-your-ballot/new%20state?label=states%20wanted&color=0e8a16)](https://github.com/frankies2727/govbot-know-your-ballot/labels/new%20state)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Built on Govbot](https://img.shields.io/badge/built%20on-Govbot-3DDC84.svg)](https://github.com/chihacknight/govbot)
+
 **Your exact ballot by address: every race, judge and question explained, who's running and who's funding them.** Free, open source, non-partisan, built on [Govbot](https://chihacknight.github.io/govbot/), Chi Hack Night's open civic data.
 
 ### 👉 [govbot-know-your-ballot.vercel.app](https://govbot-know-your-ballot.vercel.app) 👈

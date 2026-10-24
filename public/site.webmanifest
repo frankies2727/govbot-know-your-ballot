@@ -1,0 +1,14 @@
+{
+  "name": "Govbot Know Your Ballot",
+  "short_name": "Know Your Ballot",
+  "description": "Your exact ballot by address: every race, judge and question explained.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080B12",
+  "theme_color": "#3DDC84",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
