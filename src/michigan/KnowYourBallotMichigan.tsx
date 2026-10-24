@@ -642,7 +642,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         <SectionPanel card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
       </Headliners>
 
-      <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district: your address picks out yours. Tap a section to see every contest in it, who’s running and where." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+      <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district: your address picks out yours. Every contest is here with what it is, why it matters and who’s running; scroll inside a section to see them all." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
 
       <div className="pt-2 space-y-8">
         <Sources />
