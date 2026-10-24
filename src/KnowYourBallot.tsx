@@ -12,7 +12,7 @@ import type { Guide } from './types';
 import { StateMap } from './Hero';
 import outline from './data/illinois/outline.json';
 import { GaugeDefs } from './BarRatings';
-import { BrowsingBadge, BrowsingNotice, Confetti, ContinueCard, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, ReportLink, type SectionCard } from './Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from './Bits';
 import { ReadOnlyContext } from './state';
 import { ContentsColumn, ContentsDrawer } from './Contents';
 import { Headliners } from './Headliners';
@@ -725,8 +725,6 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   // Spins while the browser finds you and the lookup runs.
   const [locating, setLocating] = useState(false);
   useEffect(() => { if (!status.busy) setLocating(false); }, [status.busy]);
-  // Two taps: wiping someone's picks shouldn't be one slip of the thumb.
-  const [confirming, setConfirming] = useState(false);
   const candidates = data.races.reduce((n, r) => n + r.candidates.length, 0);
   // Fetch the district maps while the voter types, so "Find my ballot"
   // doesn't wait on a download, but once the page is idle, so reading them
@@ -783,21 +781,12 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
             <ListChecks className="w-5 h-5" aria-hidden="true" /> No address? Browse every race
           </button>
         </div>
-        {place && <ContinueCard label={place} onContinue={onContinue} />}
+        <SavedPicks place={place} saved={saved} onContinue={onContinue} onStartFresh={onStartFresh} />
         {status.error && <p role="alert" className="rounded-xl bg-[var(--gb-red)] px-4 py-3 font-bold text-white">{status.error}</p>}
         {status.outside && (
           <p role="alert" className="rounded-xl bg-[var(--kyb-chip)] border-2 border-[var(--gb-amber-hi)] px-4 py-3 font-bold">
             That address is outside Illinois. This guide covers Illinois voters. Illinois voters away from home can look up their registration and polling place with the <a className="underline text-[var(--gb-amber-hi)]" href={LINKS.stateLookup} target="_blank" rel="noreferrer noopener">State Board of Elections ↗</a>.
           </p>
-        )}
-        {saved > 0 && (
-          <div className="rounded-xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 space-y-2">
-            <p className="text-[15px]">You have <strong>{saved} pick{saved === 1 ? '' : 's'}</strong> saved. Same voter, new address? Races on both ballots keep their picks. Looking up someone else’s ballot? Start fresh.</p>
-            <button type="button" onClick={() => { if (confirming) { onStartFresh(); setConfirming(false); } else setConfirming(true); }}
-              className={`min-h-[44px] rounded-xl border-2 px-4 font-bold ${confirming ? 'border-[var(--gb-red)] bg-[var(--gb-red)] text-white' : 'border-[var(--gb-text)] text-[var(--gb-text)]'}`}>
-              {confirming ? `Tap again to clear ${saved} pick${saved === 1 ? '' : 's'} and your plan` : 'Start fresh'}
-            </button>
-          </div>
         )}
         <p className="text-sm leading-relaxed text-[var(--gb-text)]">🔒 Your address goes once to Cook County’s address lookup (or OpenStreetMap, for the rest of Illinois or if the county’s is down) to find your districts. It’s saved only on your device, and never shared or stored anywhere.</p>
       </form>

@@ -1,7 +1,7 @@
 import { ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { ClearButton } from '../components/ClearButton';
-import { BrowsingBadge, BrowsingNotice, Confetti, ContinueCard, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionFlip, useBallotView, useDocumentMeta, ReportLink, type SectionCard } from '../Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionFlip, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from '../Bits';
 import { Group } from '../Calendar';
 import { guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
@@ -559,7 +559,6 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   // Spins while the browser finds you and the lookup runs.
   const [locating, setLocating] = useState(false);
   useEffect(() => { if (!status.busy) setLocating(false); }, [status.busy]);
-  const [confirming, setConfirming] = useState(false);
   const candidates = data.races.reduce((n, r) => n + r.candidates.length, 0);
   const byDistrict = data.races.length - HEADLINERS.length;
   // Fetch the district maps while the voter types, once the page is idle.
@@ -613,21 +612,12 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
             <ListChecks className="w-5 h-5" aria-hidden="true" /> No address? Browse every race
           </button>
         </div>
-        {place && <ContinueCard label={place} onContinue={onContinue} />}
+        <SavedPicks place={place} saved={saved} onContinue={onContinue} onStartFresh={onStartFresh} />
         {status.error && <p role="alert" className="rounded-xl bg-[var(--gb-red)] px-4 py-3 font-bold text-white">{status.error}</p>}
         {status.outside && (
           <p role="alert" className="rounded-xl bg-[var(--kyb-chip)] border-2 border-[var(--gb-amber-hi)] px-4 py-3 font-bold">
             That address is outside Michigan. This guide covers Michigan voters; Illinois voters have <a className="underline text-[var(--gb-amber-hi)]" href={guideUrl('illinois')}>their own guide</a>.
           </p>
-        )}
-        {saved > 0 && (
-          <div className="rounded-xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 space-y-2">
-            <p className="text-[15px]">You have <strong>{saved} pick{saved === 1 ? '' : 's'}</strong> saved. Same voter, new address? Races on both ballots keep their picks. Looking up someone else’s ballot? Start fresh.</p>
-            <button type="button" onClick={() => { if (confirming) { onStartFresh(); setConfirming(false); } else setConfirming(true); }}
-              className={`min-h-[44px] rounded-xl border-2 px-4 font-bold ${confirming ? 'border-[var(--gb-red)] bg-[var(--gb-red)] text-white' : 'border-[var(--gb-text)]'}`}>
-              {confirming ? `Tap again to clear ${saved} pick${saved === 1 ? '' : 's'} and your plan` : 'Start fresh'}
-            </button>
-          </div>
         )}
         <p className="text-sm leading-relaxed">🔒 Your address goes once to OpenStreetMap’s address search to find your districts, then matching happens on your device. It’s saved only on your device, and never shared or stored anywhere.</p>
       </form>

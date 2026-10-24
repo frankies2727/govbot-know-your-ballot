@@ -1,21 +1,84 @@
-import { ChevronDown, Flag, Info, ListChecks, MapPin, RotateCcw, TriangleAlert, X } from 'lucide-react';
+import { ChevronDown, Flag, Github, Info, ListChecks, Mail, MapPin, RotateCcw, TriangleAlert, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
 import { navigate, useRoute } from './lib/router';
 import { useOpen } from './store';
-import { reportUrl } from './report';
+import { reportLinks, type ReportAbout } from './report';
 
 // Small pieces every state's guide shows: the progress ring in the pinned
 // bar, and the confetti when a ballot is finished.
 
-/** "Report a mistake": opens a GitHub issue pre-filled with this race or person (see report.ts). Hidden in print. */
-export function ReportLink({ what, name, id, inline = false, className = '' }: { what: string; name?: string; id?: string; /** Inside a sentence: no 44px tap height. */ inline?: boolean; className?: string }) {
+/**
+ * "Report a mistake": a small menu with two ways to report what this race or
+ * person shows, a GitHub issue or an email, each pre-filled with where the
+ * reader was (see report.ts). Hidden in print.
+ */
+export function ReportLink({ what, name, id, inline = false, className = '' }: ReportAbout & { /** Inside a sentence: no 44px tap height, menu opens to the right. */ inline?: boolean; className?: string }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const away = (e: PointerEvent) => { if (!ref.current?.contains(e.target as Node)) setOpen(false); };
+    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('pointerdown', away); document.addEventListener('keydown', key);
+    return () => { document.removeEventListener('pointerdown', away); document.removeEventListener('keydown', key); };
+  }, [open]);
+  const links = open ? reportLinks({ what, name, id }) : null;
   return (
-    <a href={reportUrl({ what, name, id })} target="_blank" rel="noreferrer noopener"
-      className={`${inline ? 'inline-flex' : 'inline-flex min-h-[44px]'} items-center gap-1.5 text-sm font-bold text-[var(--gb-text)] underline underline-offset-2 hover:text-[var(--gb-link)] print:hidden ${className}`}>
-      <Flag className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />Report a mistake<span aria-hidden="true"> ↗</span>
-    </a>
+    <span ref={ref} className={`relative inline-block print:hidden ${className}`}>
+      <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-haspopup="menu"
+        className={`${inline ? '' : 'min-h-[44px]'} inline-flex items-center gap-1.5 text-sm font-bold text-[var(--gb-text)] underline underline-offset-2 hover:text-[var(--gb-link)]`}>
+        <Flag className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />Report a mistake
+      </button>
+      {links && (
+        <span role="menu" aria-label="Report a mistake" className={`absolute ${inline ? 'left-0' : 'right-0'} top-full z-20 mt-1 w-[270px] rounded-xl border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] p-3 text-left text-sm shadow-xl space-y-2`}>
+          <span className="block font-black leading-snug">Something wrong{name ? ` about ${name}` : ''}?</span>
+          <a role="menuitem" href={links.github} target="_blank" rel="noreferrer noopener" onClick={() => setOpen(false)} className="flex items-start gap-2 rounded-lg px-2 py-2 -mx-2 hover:bg-[var(--kyb-chip)]">
+            <Github className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
+            <span><span className="block font-bold">Report on GitHub ↗</span><span className="block text-xs">Free account needed. Fixes are tracked in the open.</span></span>
+          </a>
+          <a role="menuitem" href={links.email} onClick={() => setOpen(false)} className="flex items-start gap-2 rounded-lg px-2 py-2 -mx-2 hover:bg-[var(--kyb-chip)]">
+            <Mail className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
+            <span><span className="block font-bold">Send an email ↗</span><span className="block text-xs">No account needed. Opens your mail app with the details filled in.</span></span>
+          </a>
+          <span className="block text-xs">Mistakes about real people are fixed first.</span>
+        </span>
+      )}
+    </span>
+  );
+}
+
+/**
+ * The saved picks on this device, with the two things a returning voter
+ * wants: back to the ballot, or a clean slate (two taps, so one slip of the
+ * thumb can't wipe someone's picks).
+ */
+export function SavedPicks({ place, saved, onContinue, onStartFresh }: { /** The saved address's label, when there is one. */ place?: string; saved: number; onContinue: () => void; onStartFresh: () => void }) {
+  const [confirming, setConfirming] = useState(false);
+  if (!place && saved === 0) return null;
+  const picks = `${saved} pick${saved === 1 ? '' : 's'}`;
+  return (
+    <div className="rounded-2xl border-[3px] border-[var(--gb-primary)] bg-[var(--gb-surface)] p-4 space-y-3">
+      {place && <p className="font-bold">📍 {place}</p>}
+      {saved > 0 && (
+        <p className="text-[15px] leading-relaxed">
+          <strong>{picks} saved</strong> on this device.{place ? ' Pick up where you left off, or start fresh to clear them (if someone else is using this phone, say).' : ' Enter your address to see them on your ballot, or start fresh to clear them.'}
+          {place ? ' Moved? Enter the new address above: picks for races on both ballots carry over.' : ''}
+        </p>
+      )}
+      <div className="flex flex-wrap gap-2">
+        {place && (
+          <button type="button" onClick={onContinue} className="min-h-[44px] rounded-xl bg-[var(--gb-primary)] px-4 font-black text-[var(--gb-on-primary)]">Back to my ballot →</button>
+        )}
+        {saved > 0 && (
+          <button type="button" onClick={() => { if (confirming) { onStartFresh(); setConfirming(false); } else setConfirming(true); }} onBlur={() => setConfirming(false)}
+            className={`min-h-[44px] rounded-xl border-2 px-4 font-bold ${confirming ? 'border-[var(--gb-red)] bg-[var(--gb-red)] text-white' : 'border-[var(--gb-text)] text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]'}`}>
+            {confirming ? `Tap again to clear ${picks} and your plan` : 'Start fresh'}
+          </button>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -348,12 +411,3 @@ export function HowBallotWorks({ storageKey, title, defaultOpen = false, childre
   );
 }
 
-/** On the landing page, when a ballot is already saved: back into it in one tap. */
-export function ContinueCard({ label, onContinue }: { label: string; onContinue: () => void }) {
-  return (
-    <div className="flex flex-wrap items-center gap-3 rounded-2xl border-[3px] border-[var(--gb-primary)] bg-[var(--gb-surface)] p-4">
-      <p className="min-w-0 flex-1 font-bold">📍 {label}</p>
-      <button type="button" onClick={onContinue} className="min-h-[44px] rounded-xl bg-[var(--gb-primary)] px-4 font-black text-[var(--gb-on-primary)]">Back to my ballot →</button>
-    </div>
-  );
-}
