@@ -124,3 +124,6 @@
 .kyb-back { transform: rotateY(180deg); }
 .kyb-flipped { transform: rotateY(180deg); }
 @media (prefers-reduced-motion: reduce) { .kyb-flip-inner { transition: none; } }
+/* The statewide cards' face carousel: each face slides in as it takes its turn. */
+@keyframes kyb-cslide { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: none; } }
+.kyb-cslide { animation: kyb-cslide .45s ease; }

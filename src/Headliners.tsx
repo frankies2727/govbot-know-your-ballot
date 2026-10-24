@@ -1,11 +1,18 @@
 import { ArrowRight, RotateCcw } from 'lucide-react';
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Face } from './Face';
+import { useStateConfig } from './state';
 import type { Candidate, Race } from './types';
 
 // The races everyone in the state votes on, as cards on the landing page.
-// A card flips over to show who's running, as faces; a face opens that
-// candidate's details, and the back links into the race on the ballot.
+// The front says what the job does and what's at stake (an open seat, or
+// the incumbent running, in the source's words) and shows the candidates'
+// faces one at a time; a card flips over to show everyone running, a face
+// opens that candidate's details, and the back links into the race on the
+// ballot.
+
+/** Motion is off for readers who asked their system for less of it. */
+const STILL = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 interface Section { id: string; title: string; emoji: string; color: string; ink: string }
 
@@ -24,19 +31,70 @@ interface Props {
 const title = (r: Race) => r.office.replace(/ \(\d+ seats\)$/, '');
 const lead = (name: string) => name.split(' & ')[0];
 
+/** What's at stake, from the seat's current holder(s): an open seat in the source's words, or the incumbent running. */
+function stakes(race: Race): string {
+  const inc = race.incumbents ?? [];
+  const leaving = inc.filter((i) => i.ballot == null && i.note);
+  if (leaving.length) return `Open seat. ${leaving[0].note}`;
+  const running = inc.filter((i) => i.ballot != null);
+  if (running.length) return `${running.map((i) => i.name).join(' and ')} ${running.length > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.'}`;
+  return '';
+}
+
+/**
+ * The candidates' faces, one at a time (every 2.8 s, paused while the card
+ * is hovered or the tab is hidden), with the name and party of the one
+ * showing. With reduced motion, every face in a row instead.
+ */
+function Faces({ race, paused }: { race: Race; paused: boolean }) {
+  const cs = race.candidates;
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (STILL || paused || cs.length < 2) return;
+    const t = setInterval(() => { if (!document.hidden) setI((x) => (x + 1) % cs.length); }, 2800);
+    return () => clearInterval(t);
+  }, [paused, cs.length]);
+  if (STILL || cs.length === 1) {
+    return (
+      <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span className="flex">{cs.slice(0, 5).map((c, k) => <Face key={c.ballot} c={c} className={`w-10 h-10 text-sm ring-2 ring-[var(--gb-surface)] ${k ? '-ml-2' : ''}`} />)}</span>
+        <span className="text-sm leading-snug">{cs.slice(0, 4).map((c) => lead(c.name)).join(' · ')}{cs.length > 4 ? ` + ${cs.length - 4} more` : ''}</span>
+      </span>
+    );
+  }
+  const c = cs[i];
+  return (
+    <span className="flex items-center gap-3" aria-live="off">
+      <span key={c.ballot} className="kyb-cslide flex items-center gap-3 min-w-0">
+        <Face c={c} className="w-14 h-14 text-lg" />
+        <span className="min-w-0">
+          <span className="block text-[15px] font-bold leading-tight">{lead(c.name)}</span>
+          <span className="block text-xs">{c.nominatedBy ?? c.party}</span>
+        </span>
+      </span>
+      <span className="ml-auto flex shrink-0 gap-1" aria-hidden="true">
+        {cs.map((x, k) => <span key={x.ballot} className="h-1.5 w-1.5 rounded-full" style={{ background: k === i ? 'var(--gb-text)' : 'var(--gb-border)' }} />)}
+      </span>
+      <span className="sr-only">{cs.map((x) => lead(x.name)).join(', ')}</span>
+    </span>
+  );
+}
+
 function Card({ race, section, onOpen, onOpenRace }: { key?: string; race: Race; section: Section; onOpen: Props['onOpen']; onOpenRace: Props['onOpenRace'] }) {
   const [open, setOpen] = useState(false);
-  const majors = race.candidates.filter((c) => /^(Democratic|Republican)$/.test(c.nominatedBy ?? c.party));
-  const named = (majors.length ? majors : race.candidates).slice(0, 4);
-  const more = race.candidates.length - named.length;
+  const [hover, setHover] = useState(false);
+  const { explainOffice } = useStateConfig();
+  const why = stakes(race);
   return (
-    <li className="kyb-flip">
+    <li className="kyb-flip" onPointerEnter={() => setHover(true)} onPointerLeave={() => setHover(false)}>
       <div className={`kyb-flip-inner ${open ? 'kyb-flipped' : ''}`}>
         <button type="button" onClick={() => setOpen(true)} aria-expanded={open} inert={open}
-          className={`kyb-face ${open ? 'kyb-off' : ''} min-h-[176px] text-left rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2 hover:bg-[var(--kyb-chip)]`} style={{ borderColor: section.color }}>
+          className={`kyb-face ${open ? 'kyb-off' : ''} min-h-[176px] text-left rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 hover:bg-[var(--kyb-chip)]`} style={{ borderColor: section.color }}>
           <span className="inline-flex self-start items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-bold" style={{ background: section.color, color: section.ink }}>{section.emoji} {section.title}</span>
           <span className="block text-lg font-black leading-tight">{title(race)}</span>
-          <span className="block text-sm leading-snug">{named.map((c) => lead(c.name)).join(' · ')}{more > 0 ? ` + ${more} more` : ''}</span>
+          <span className="block text-sm leading-snug">{explainOffice(race.office)}</span>
+          {why && <span className="block text-sm leading-snug line-clamp-3"><span className="font-bold">Why it matters: </span>{why}</span>}
+          <Faces race={race} paused={hover || open} />
           <span className="mt-auto flex items-center justify-between gap-2 text-xs font-bold">
             <span>{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'}{race.voteFor > 1 ? ` · pick up to ${race.voteFor}` : ''}</span>
             <span className="inline-flex items-center gap-1" style={{ color: section.color }}>Meet them <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" /></span>
