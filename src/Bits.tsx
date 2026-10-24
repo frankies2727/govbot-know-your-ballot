@@ -201,17 +201,12 @@ export function Locating({ show }: { show: boolean }) {
 }
 
 /** The browser tab's title and icon while a guide is open; the lab's own come back on exit. */
-export function useDocumentMeta(title: string, emoji: string) {
+export function useDocumentMeta(title: string) {
   useEffect(() => {
-    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
-    const was = { title: document.title, href: link?.href ?? '', type: link?.type ?? '' };
+    const was = document.title;
     document.title = title;
-    if (link) {
-      link.type = 'image/svg+xml';
-      link.href = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><text x="32" y="52" font-size="52" text-anchor="middle">${emoji}</text></svg>`)}`;
-    }
-    return () => { document.title = was.title; if (link) { link.href = was.href; link.type = was.type; } };
-  }, [title, emoji]);
+    return () => { document.title = was; };
+  }, [title]);
 }
 
 /**
