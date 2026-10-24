@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, RotateCcw, TriangleAlert, X } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, TriangleAlert, X } from 'lucide-react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
@@ -366,96 +366,75 @@ export interface SectionItem {
 }
 export interface SectionCard { id: string; title: string; emoji: string; color: string; ink: string; n: number; hint: string; items: SectionItem[] }
 
-/** One section as a card that flips to list its contests (or questions). */
-export function SectionFlip({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
-  const [open, setOpen] = useState(false);
+/**
+ * One section as an open panel: its people as a face row, then every contest
+ * in it with what the office does, why it matters, and who's running (a face
+ * opens the candidate), or every question with its wording. The list scrolls
+ * inside the card so a 148-race section stays one card tall.
+ */
+export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   const faces = card.items.flatMap((it) => it.race?.candidates ?? []);
   return (
-    <li className={`kyb-flip ${open ? 'sm:col-span-2' : ''}`}>
-      <div className={`kyb-flip-inner ${open ? 'kyb-flipped' : ''}`}>
-        <div className={`kyb-face ${open ? 'kyb-off' : ''} rounded-2xl border-[3px] bg-[var(--gb-surface)] px-4 py-3`} style={{ borderColor: card.color }} inert={open}>
-          <button type="button" onClick={() => setOpen(true)} aria-expanded={open} className="flex w-full items-start gap-3 rounded-xl -mx-1 px-1 text-left hover:bg-[var(--kyb-chip)]">
-            <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
-            <span className="min-w-0 flex-1">
-              <span className="block font-black leading-tight">{card.title}</span>
-              <span className="block text-sm">{card.hint} · {card.items.some((it) => it.question) ? 'tap to read the questions' : 'tap to see who’s running'}</span>
-            </span>
-            <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
-          </button>
-          {faces.length > 0 && <div className="mt-2"><FaceStrip people={faces} size="w-7 h-7 text-[10px]" /></div>}
-        </div>
-        <div className={`kyb-face kyb-back ${open ? '' : 'kyb-off'} rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3`} style={{ borderColor: card.color }} inert={!open}>
-          <div className="flex items-start justify-between gap-2">
-            <p className="font-black leading-tight"><span aria-hidden="true">{card.emoji}</span> {card.title} <span className="font-bold">· {card.n}</span></p>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Flip back" className="shrink-0 w-9 h-9 -mt-1 -mr-1 rounded-full flex items-center justify-center hover:bg-[var(--kyb-chip)]">
-              <RotateCcw className="w-4 h-4" aria-hidden="true" />
-            </button>
-          </div>
-          <ul className="kyb-scroll-bar max-h-[440px] overflow-y-auto divide-y divide-[var(--kyb-chip)] rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
-            {card.items.map((it) => it.race ? (
-              <li key={it.id}>
-                <details className="group">
-                  <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
-                    <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                      <span className="block text-xs">{it.sub} · {it.race.candidates.length} candidate{it.race.candidates.length === 1 ? '' : 's'}</span>
-                      {it.about && <span className="mt-1 block text-[13px] leading-snug line-clamp-2">{it.about}</span>}
-                    </span>
-                  </summary>
-                  {it.why && <p className="px-3 pb-2 text-[13px] leading-snug"><span className="font-bold">Why it matters: </span>{it.why}</p>}
-                  <ul className="px-3 pb-3 space-y-1.5">
-                    {it.race.candidates.map((c) => (
-                      <li key={c.ballot}>
-                        <button type="button" onClick={() => onOpen(it.race!, c)} aria-label={`${c.name}: more about them`} className="w-full flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-left hover:bg-[var(--kyb-chip)]">
-                          <Face c={c} className="w-9 h-9 text-xs" />
-                          <span className="min-w-0 flex-1 text-sm font-bold leading-tight">{c.name}</span>
-                          <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">{c.nominatedBy ?? c.party}</span>
-                          <Info className="w-5 h-5 shrink-0 text-[var(--gb-link)]" aria-hidden="true" />
-                        </button>
-                      </li>
-                    ))}
-                    <li><button type="button" onClick={() => onOpenRace(it.race!)} className="mt-1 text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button></li>
-                  </ul>
-                </details>
-              </li>
-            ) : it.question ? (
-              <li key={it.id}>
-                <details className="group">
-                  <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
-                    <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                      <span className="block text-xs">{it.sub} · yes or no</span>
-                    </span>
-                  </summary>
-                  <div className="px-3 pb-3 space-y-2 text-sm leading-relaxed">
-                    {it.plain && <p>{it.plain}</p>}
-                    <p className="rounded-lg bg-[var(--kyb-chip)] p-2.5"><span className="block text-[11px] font-black uppercase tracking-wide">Official ballot text</span>“{it.question}”</p>
-                    <button type="button" onClick={() => onJump(card.id, it.id)} className="font-bold underline underline-offset-2">Decide on the ballot →</button>
-                  </div>
-                </details>
-              </li>
-            ) : (
-              <li key={it.id}>
-                <button type="button" onClick={() => onJump(card.id, it.id)} className="w-full px-3 py-2.5 text-left hover:bg-[var(--kyb-chip)]">
-                  <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                  <span className="block text-xs">{it.sub}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <li className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3" style={{ borderColor: card.color }}>
+      <div className="flex items-start gap-3">
+        <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
+        <span className="min-w-0 flex-1">
+          <span className="block font-black leading-tight">{card.title}</span>
+          <span className="block text-sm">{card.hint}{card.items.some((it) => it.race) ? ' · scroll for every race' : ''}</span>
+        </span>
+        <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
       </div>
+      {faces.length > 0 && <FaceStrip people={faces} size="w-7 h-7 text-[10px]" />}
+      <ul className="kyb-scroll-bar max-h-[480px] overflow-y-auto divide-y divide-[var(--kyb-chip)] rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
+        {card.items.map((it) => it.race ? (
+          <li key={it.id} className="px-3 py-3 space-y-2">
+            <div>
+              <p className="text-[15px] font-bold leading-snug">{it.title}</p>
+              <p className="text-xs">{it.sub} · {it.race.candidates.length} candidate{it.race.candidates.length === 1 ? '' : 's'}</p>
+            </div>
+            {it.about && <p className="text-[13px] leading-snug">{it.about}</p>}
+            {it.why && <p className="text-[13px] leading-snug"><span className="font-bold">Why it matters: </span>{it.why}</p>}
+            <ul className="space-y-1">
+              {it.race.candidates.map((c) => (
+                <li key={c.ballot}>
+                  <button type="button" onClick={() => onOpen(it.race!, c)} aria-label={`${c.name}: more about them`} className="w-full flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-left hover:bg-[var(--kyb-chip)]">
+                    <Face c={c} className="w-9 h-9 text-xs" />
+                    <span className="min-w-0 flex-1 text-sm font-bold leading-tight">{c.name}</span>
+                    <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">{c.nominatedBy ?? c.party}</span>
+                    <Info className="w-5 h-5 shrink-0 text-[var(--gb-link)]" aria-hidden="true" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
+          </li>
+        ) : it.question ? (
+          <li key={it.id} className="px-3 py-3 space-y-2 text-sm leading-relaxed">
+            <div>
+              <p className="text-[15px] font-bold leading-snug">{it.title}</p>
+              <p className="text-xs">{it.sub} · yes or no</p>
+            </div>
+            {it.plain && <p>{it.plain}</p>}
+            <p className="rounded-lg bg-[var(--kyb-chip)] p-2.5"><span className="block text-[11px] font-black uppercase tracking-wide">Official ballot text</span>“{it.question}”</p>
+            <button type="button" onClick={() => onJump(card.id, it.id)} className="font-bold underline underline-offset-2">Decide on the ballot →</button>
+          </li>
+        ) : (
+          <li key={it.id}>
+            <button type="button" onClick={() => onJump(card.id, it.id)} className="w-full px-3 py-2.5 text-left hover:bg-[var(--kyb-chip)]">
+              <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
+              <span className="block text-xs">{it.sub}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
     </li>
   );
 }
 
 /**
- * The rest of the ballot by section, as cards in the contents list's
- * colours. A card flips to list every contest in it with its district; each
- * race opens to its candidates (photo, name, party), and a candidate opens
- * their details.
+ * The rest of the ballot by section, as open panels in the contents list's
+ * colours: every contest, what it is, why it matters and who's running, on
+ * the page already; a candidate opens their details.
  */
 export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   if (!cards.length) return null;
@@ -465,8 +444,8 @@ export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump
         <h2 id="kyb-more" className="text-2xl sm:text-3xl leading-[1.05]">{heading}</h2>
         <p className="text-[15px]">{intro}</p>
       </div>
-      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 items-start">
-        {cards.map((c) => <SectionFlip key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onJump={onJump} />)}
+      <ul className="grid gap-3 sm:grid-cols-2 items-start">
+        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onJump={onJump} />)}
       </ul>
     </section>
   );

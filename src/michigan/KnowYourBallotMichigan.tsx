@@ -1,7 +1,7 @@
 import { ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { ClearButton } from '../components/ClearButton';
-import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionFlip, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from '../Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionPanel, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from '../Bits';
 import { Group } from '../Calendar';
 import { guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
@@ -639,7 +639,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
       <Headliners races={HEADLINERS} sections={SECTIONS} overline="On every Michigan ballot" heading="The statewide races"
         intro={`These ${HEADLINERS.length} contests are on every Michigan ballot. Tap a card to meet the candidates; your address adds your own U.S. House, state Senate, state House and Court of Appeals races from the ${byDistrict} by district.`}
         onOpen={onOpenCandidate} onOpenRace={onOpenRace}>
-        <SectionFlip card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+        <SectionPanel card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
       </Headliners>
 
       <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district: your address picks out yours. Tap a section to see every contest in it, who’s running and where." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
