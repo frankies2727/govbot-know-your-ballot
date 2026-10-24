@@ -1,51 +1,122 @@
-import { ChevronDown, Flag, Github, Info, ListChecks, Mail, MapPin, RotateCcw, TriangleAlert, X } from 'lucide-react';
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, TriangleAlert, X } from 'lucide-react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
 import { navigate, useRoute } from './lib/router';
 import { useOpen } from './store';
-import { reportLinks, type ReportAbout } from './report';
+import { githubIssueUrl, sendReport, type ReportAbout } from './report';
 
 // Small pieces every state's guide shows: the progress ring in the pinned
 // bar, and the confetti when a ballot is finished.
 
-/**
- * "Report a mistake": a small menu with two ways to report what this race or
- * person shows, a GitHub issue or an email, each pre-filled with where the
- * reader was (see report.ts). Hidden in print.
- */
-export function ReportLink({ what, name, id, inline = false, className = '' }: ReportAbout & { /** Inside a sentence: no 44px tap height, menu opens to the right. */ inline?: boolean; className?: string }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
+/** A modal sheet: Escape or the backdrop closes it, focus returns to where it was. */
+export function Dialog({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!open) return;
-    const away = (e: PointerEvent) => { if (!ref.current?.contains(e.target as Node)) setOpen(false); };
-    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
-    document.addEventListener('pointerdown', away); document.addEventListener('keydown', key);
-    return () => { document.removeEventListener('pointerdown', away); document.removeEventListener('keydown', key); };
-  }, [open]);
-  const links = open ? reportLinks({ what, name, id }) : null;
+    const prev = document.activeElement as HTMLElement | null;
+    ref.current?.focus();
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; prev?.focus(); };
+  }, [onClose]);
   return (
-    <span ref={ref} className={`relative inline-block print:hidden ${className}`}>
-      <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-haspopup="menu"
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/75" onClick={onClose}>
+      <div
+        ref={ref}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        tabIndex={-1}
+        onClick={(e) => e.stopPropagation()}
+        className="w-full sm:max-w-2xl max-h-[92dvh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none"
+      >
+        <div className="flex items-start justify-between gap-4 mb-5">
+          <h2 className="text-2xl font-black leading-tight text-[var(--gb-text)]">{title}</h2>
+          <button type="button" onClick={onClose} aria-label="Close" className="shrink-0 w-11 h-11 rounded-full bg-[var(--kyb-chip)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip-hi)]">
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * "Report a mistake": a form in a dialog that files the report as a GitHub
+ * issue through the site's own /api/report (no account needed), pre-filled
+ * with where the reader was; a link to GitHub's own form for those who
+ * prefer it. Hidden in print.
+ */
+export function ReportLink({ what, name, id, inline = false, className = '' }: ReportAbout & { /** Inside a sentence: no 44px tap height. */ inline?: boolean; className?: string }) {
+  const [open, setOpen] = useState(false);
+  const close = useCallback(() => setOpen(false), []);
+  return (
+    <span className={`inline-block print:hidden ${className}`}>
+      <button type="button" onClick={() => setOpen(true)}
         className={`${inline ? '' : 'min-h-[44px]'} inline-flex items-center gap-1.5 text-sm font-bold text-[var(--gb-text)] underline underline-offset-2 hover:text-[var(--gb-link)]`}>
         <Flag className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />Report a mistake
       </button>
-      {links && (
-        <span role="menu" aria-label="Report a mistake" className={`absolute ${inline ? 'left-0' : 'right-0'} top-full z-20 mt-1 w-[270px] rounded-xl border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] p-3 text-left text-sm shadow-xl space-y-2`}>
-          <span className="block font-black leading-snug">Something wrong{name ? ` about ${name}` : ''}?</span>
-          <a role="menuitem" href={links.github} target="_blank" rel="noreferrer noopener" onClick={() => setOpen(false)} className="flex items-start gap-2 rounded-lg px-2 py-2 -mx-2 hover:bg-[var(--kyb-chip)]">
-            <Github className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
-            <span><span className="block font-bold">Report on GitHub ↗</span><span className="block text-xs">Free account needed. Fixes are tracked in the open.</span></span>
-          </a>
-          <a role="menuitem" href={links.email} onClick={() => setOpen(false)} className="flex items-start gap-2 rounded-lg px-2 py-2 -mx-2 hover:bg-[var(--kyb-chip)]">
-            <Mail className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
-            <span><span className="block font-bold">Send an email ↗</span><span className="block text-xs">No account needed. Opens your mail app with the details filled in.</span></span>
-          </a>
-          <span className="block text-xs">Mistakes about real people are fixed first.</span>
-        </span>
-      )}
+      {open && <ReportDialog what={what} name={name} id={id} onClose={close} />}
     </span>
+  );
+}
+
+function ReportDialog({ what, name, id, onClose }: ReportAbout & { onClose: () => void }) {
+  const [opened] = useState(() => Date.now());
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [done, setDone] = useState<{ number: number; url: string } | null>(null);
+  const field = 'w-full rounded-xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] px-3 py-2.5 text-[15px] text-[var(--gb-text)] focus:border-[var(--gb-blue-hi)] focus:outline-none';
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const d = new FormData(e.currentTarget);
+    setBusy(true); setError('');
+    try {
+      setDone(await sendReport({ what, name, id, shows: String(d.get('shows') ?? ''), correct: String(d.get('correct') ?? ''), source: String(d.get('source') ?? ''), website: String(d.get('website') ?? ''), opened }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'The report couldn’t be sent.');
+    } finally { setBusy(false); }
+  };
+  return (
+    <Dialog title="Report a mistake" onClose={onClose}>
+      {done ? (
+        <div className="space-y-4">
+          <p className="text-[17px] font-bold">Thank you. {done.number ? <>It’s filed as <a href={done.url} target="_blank" rel="noreferrer noopener" className="text-[var(--gb-link)] underline">report #{done.number} ↗</a>.</> : 'It’s been received.'}</p>
+          <p className="text-[15px]">Mistakes about real people are fixed first. Every piece shown comes from a source named next to it; if the source itself is wrong, that field stops being read from it.</p>
+          <button type="button" onClick={onClose} className="min-h-[48px] rounded-xl bg-[var(--gb-primary)] px-5 font-black text-[var(--gb-on-primary)]">Done</button>
+        </div>
+      ) : (
+        <form onSubmit={submit} className="space-y-4">
+          <p className="text-[15px] leading-relaxed"><strong>{[what, name].filter(Boolean).join(' · ')}</strong>. Say what the page shows and what is right, with a link to where you saw it. No account needed; the report goes straight onto the project’s public to-do list.</p>
+          <label className="block space-y-1">
+            <span className="font-bold">What it shows</span>
+            <textarea name="shows" required maxLength={2000} rows={2} className={field} placeholder="e.g. It says she’s the incumbent" />
+          </label>
+          <label className="block space-y-1">
+            <span className="font-bold">What is correct</span>
+            <textarea name="correct" required maxLength={3000} rows={3} className={field} placeholder="e.g. She lost the March primary; the incumbent is…" />
+          </label>
+          <label className="block space-y-1">
+            <span className="font-bold">A link to a source</span>
+            <input name="source" type="url" required maxLength={500} inputMode="url" className={field} placeholder="https://… (the election authority, the candidate’s own site, the court, Ballotpedia, Wikipedia)" />
+            <span className="block text-xs">An official or primary page. That’s how every fact on the site is checked.</span>
+          </label>
+          {/* Honeypot: hidden from people, filled in by bots; the server drops any report that carries it. */}
+          <label className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden" aria-hidden="true">Website<input name="website" type="text" tabIndex={-1} autoComplete="off" /></label>
+          {error && <p role="alert" className="rounded-xl bg-[var(--gb-red)] px-4 py-3 font-bold text-white">{error} You can also <a href={githubIssueUrl({ what, name, id })} target="_blank" rel="noreferrer noopener" className="underline">report it on GitHub ↗</a>.</p>}
+          <div className="flex flex-wrap items-center gap-3">
+            <button type="submit" disabled={busy} className="inline-flex items-center gap-2 min-h-[48px] rounded-xl bg-[var(--gb-primary)] px-5 font-black text-[var(--gb-on-primary)] disabled:cursor-wait">
+              {busy ? <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> : <Flag className="w-4 h-4" aria-hidden="true" />}{busy ? 'Sending…' : 'Send report'}
+            </button>
+            <a href={githubIssueUrl({ what, name, id })} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1.5 min-h-[48px] text-sm font-bold underline underline-offset-2">
+              <Github className="w-4 h-4" aria-hidden="true" />Or report on GitHub ↗
+            </a>
+          </div>
+        </form>
+      )}
+    </Dialog>
   );
 }
 
@@ -288,98 +359,82 @@ export function useBallotView(projectId: string): [boolean, (on: boolean) => voi
 
 export interface SectionItem {
   id: string; title: string; /** Its district, court or scope. */ sub: string; race?: Race;
+  /** What the office does, and what's at stake (an open seat, the incumbent running). */
+  about?: string; why?: string;
   /** A ballot question: its official wording, and what yes or no does. */
   question?: string; plain?: string;
 }
 export interface SectionCard { id: string; title: string; emoji: string; color: string; ink: string; n: number; hint: string; items: SectionItem[] }
 
-/** One section as a card that flips to list its contests (or questions). */
-export function SectionFlip({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
-  const [open, setOpen] = useState(false);
+/**
+ * One section as an open panel: its people as a face row, then every contest
+ * in it with what the office does, why it matters, and who's running (a face
+ * opens the candidate), or every question with its wording. The list scrolls
+ * inside the card so a 148-race section stays one card tall.
+ */
+export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   const faces = card.items.flatMap((it) => it.race?.candidates ?? []);
   return (
-    <li className={`kyb-flip ${open ? 'sm:col-span-2' : ''}`}>
-      <div className={`kyb-flip-inner ${open ? 'kyb-flipped' : ''}`}>
-        <button type="button" onClick={() => setOpen(true)} aria-expanded={open} inert={open}
-          className={`kyb-face ${open ? 'kyb-off' : ''} flex items-start gap-3 rounded-2xl border-[3px] bg-[var(--gb-surface)] px-4 py-3 text-left hover:bg-[var(--kyb-chip)]`} style={{ borderColor: card.color }}>
-          <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
-          <span className="min-w-0 flex-1">
-            <span className="block font-black leading-tight">{card.title}</span>
-            <span className="block text-sm">{card.hint} · {card.items.some((it) => it.question) ? 'tap to read the questions' : 'tap to see who’s running'}</span>
-            {faces.length > 0 && <span className="mt-2 block"><FaceStrip people={faces} size="w-7 h-7 text-[10px]" /></span>}
-          </span>
-          <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
-        </button>
-        <div className={`kyb-face kyb-back ${open ? '' : 'kyb-off'} rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3`} style={{ borderColor: card.color }} inert={!open}>
-          <div className="flex items-start justify-between gap-2">
-            <p className="font-black leading-tight"><span aria-hidden="true">{card.emoji}</span> {card.title} <span className="font-bold">· {card.n}</span></p>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Flip back" className="shrink-0 w-9 h-9 -mt-1 -mr-1 rounded-full flex items-center justify-center hover:bg-[var(--kyb-chip)]">
-              <RotateCcw className="w-4 h-4" aria-hidden="true" />
-            </button>
-          </div>
-          <ul className="kyb-scroll-bar max-h-[440px] overflow-y-auto divide-y divide-[var(--kyb-chip)] rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
-            {card.items.map((it) => it.race ? (
-              <li key={it.id}>
-                <details className="group">
-                  <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
-                    <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                      <span className="block text-xs">{it.sub} · {it.race.candidates.length} candidate{it.race.candidates.length === 1 ? '' : 's'}</span>
-                    </span>
-                  </summary>
-                  <ul className="px-3 pb-3 space-y-1.5">
-                    {it.race.candidates.map((c) => (
-                      <li key={c.ballot}>
-                        <button type="button" onClick={() => onOpen(it.race!, c)} aria-label={`${c.name}: more about them`} className="w-full flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-left hover:bg-[var(--kyb-chip)]">
-                          <Face c={c} className="w-9 h-9 text-xs" />
-                          <span className="min-w-0 flex-1 text-sm font-bold leading-tight">{c.name}</span>
-                          <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">{c.nominatedBy ?? c.party}</span>
-                          <Info className="w-5 h-5 shrink-0 text-[var(--gb-link)]" aria-hidden="true" />
-                        </button>
-                      </li>
-                    ))}
-                    <li><button type="button" onClick={() => onOpenRace(it.race!)} className="mt-1 text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button></li>
-                  </ul>
-                </details>
-              </li>
-            ) : it.question ? (
-              <li key={it.id}>
-                <details className="group">
-                  <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
-                    <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                      <span className="block text-xs">{it.sub} · yes or no</span>
-                    </span>
-                  </summary>
-                  <div className="px-3 pb-3 space-y-2 text-sm leading-relaxed">
-                    {it.plain && <p>{it.plain}</p>}
-                    <p className="rounded-lg bg-[var(--kyb-chip)] p-2.5"><span className="block text-[11px] font-black uppercase tracking-wide">Official ballot text</span>“{it.question}”</p>
-                    <button type="button" onClick={() => onJump(card.id, it.id)} className="font-bold underline underline-offset-2">Decide on the ballot →</button>
-                  </div>
-                </details>
-              </li>
-            ) : (
-              <li key={it.id}>
-                <button type="button" onClick={() => onJump(card.id, it.id)} className="w-full px-3 py-2.5 text-left hover:bg-[var(--kyb-chip)]">
-                  <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                  <span className="block text-xs">{it.sub}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <li className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3" style={{ borderColor: card.color }}>
+      <div className="flex items-start gap-3">
+        <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
+        <span className="min-w-0 flex-1">
+          <span className="block font-black leading-tight">{card.title}</span>
+          <span className="block text-sm">{card.hint}{card.items.some((it) => it.race) ? ' · scroll for every race' : ''}</span>
+        </span>
+        <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
       </div>
+      {faces.length > 0 && <FaceStrip people={faces} size="w-7 h-7 text-[10px]" />}
+      <ul className="kyb-scroll-bar max-h-[480px] overflow-y-auto divide-y divide-[var(--kyb-chip)] rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
+        {card.items.map((it) => it.race ? (
+          <li key={it.id} className="px-3 py-3 space-y-2">
+            <div>
+              <p className="text-[15px] font-bold leading-snug">{it.title}</p>
+              <p className="text-xs">{it.sub} · {it.race.candidates.length} candidate{it.race.candidates.length === 1 ? '' : 's'}</p>
+            </div>
+            {it.about && <p className="text-[13px] leading-snug">{it.about}</p>}
+            {it.why && <p className="text-[13px] leading-snug"><span className="font-bold">Why it matters: </span>{it.why}</p>}
+            <ul className="space-y-1">
+              {it.race.candidates.map((c) => (
+                <li key={c.ballot}>
+                  <button type="button" onClick={() => onOpen(it.race!, c)} aria-label={`${c.name}: more about them`} className="w-full flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-left hover:bg-[var(--kyb-chip)]">
+                    <Face c={c} className="w-9 h-9 text-xs" />
+                    <span className="min-w-0 flex-1 text-sm font-bold leading-tight">{c.name}</span>
+                    <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">{c.nominatedBy ?? c.party}</span>
+                    <Info className="w-5 h-5 shrink-0 text-[var(--gb-link)]" aria-hidden="true" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
+          </li>
+        ) : it.question ? (
+          <li key={it.id} className="px-3 py-3 space-y-2 text-sm leading-relaxed">
+            <div>
+              <p className="text-[15px] font-bold leading-snug">{it.title}</p>
+              <p className="text-xs">{it.sub} · yes or no</p>
+            </div>
+            {it.plain && <p>{it.plain}</p>}
+            <p className="rounded-lg bg-[var(--kyb-chip)] p-2.5"><span className="block text-[11px] font-black uppercase tracking-wide">Official ballot text</span>“{it.question}”</p>
+            <button type="button" onClick={() => onJump(card.id, it.id)} className="font-bold underline underline-offset-2">Decide on the ballot →</button>
+          </li>
+        ) : (
+          <li key={it.id}>
+            <button type="button" onClick={() => onJump(card.id, it.id)} className="w-full px-3 py-2.5 text-left hover:bg-[var(--kyb-chip)]">
+              <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
+              <span className="block text-xs">{it.sub}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
     </li>
   );
 }
 
 /**
- * The rest of the ballot by section, as cards in the contents list's
- * colours. A card flips to list every contest in it with its district; each
- * race opens to its candidates (photo, name, party), and a candidate opens
- * their details.
+ * The rest of the ballot by section, as open panels in the contents list's
+ * colours: every contest, what it is, why it matters and who's running, on
+ * the page already; a candidate opens their details.
  */
 export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   if (!cards.length) return null;
@@ -389,42 +444,46 @@ export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump
         <h2 id="kyb-more" className="text-2xl sm:text-3xl leading-[1.05]">{heading}</h2>
         <p className="text-[15px]">{intro}</p>
       </div>
-      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 items-start">
-        {cards.map((c) => <SectionFlip key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onJump={onJump} />)}
+      <ul className="grid gap-3 sm:grid-cols-2 items-start">
+        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onJump={onJump} />)}
       </ul>
     </section>
   );
 }
 
+/** Motion is off for readers who asked their system for less of it. */
+const STILL = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /**
- * Everyone in a race (or a whole section) as a row of faces that scrolls
- * sideways on its own when it doesn't fit, looping like a ticker: paused
- * while hovered, running only while on screen, and a plain scrollable row
- * for readers who asked for less motion. With `names`, each face carries the
- * name and party; without, just faces, capped at `max` with a "+N" at the end.
+ * Everyone in a race (or a whole section) as a row of faces the reader can
+ * scroll sideways (swipe, trackpad, the ‹ › buttons) that also drifts along
+ * on its own when it doesn't fit, looping like a ticker: the row is drawn
+ * twice and wraps at one copy's width. The drift pauses while hovered and
+ * for a few seconds after the reader scrolls it themselves, runs only while
+ * on screen, and is off under reduced motion. With `names`, each face
+ * carries the name and party; without, just faces, capped at `max` with a
+ * "+N" at the end.
  */
 export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm' }: { people: Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy'>[]; names?: boolean; max?: number; size?: string }) {
   const box = useRef<HTMLDivElement>(null);
   const first = useRef<HTMLUListElement>(null);
+  const copy = useRef(0);            // one copy's width + gap, the loop length
+  const hold = useRef(0);            // drift paused until this time (ms)
+  const pos = useRef(0);             // the drift's own position: scrollLeft only holds whole pixels
   const [loop, setLoop] = useState(false);
   const [on, setOn] = useState(false);
   const shown = people.slice(0, max);
   const more = people.length - shown.length;
-  // Loop only when the row overflows: measure one copy, scroll by exactly that much.
+  const gap = names ? 14 : 6;
+  // Loop only when the row overflows; measure one copy to know where to wrap.
   useLayoutEffect(() => {
     const b = box.current, f = first.current;
     if (!b || !f) return;
-    const fit = () => {
-      const w = f.scrollWidth, gap = names ? 14 : 6;
-      const over = w > b.clientWidth + 1;
-      setLoop(over);
-      b.style.setProperty('--kyb-strip-w', `${w + gap}px`);
-      b.style.setProperty('--kyb-strip-t', `${Math.max(8, (w + gap) / 32)}s`);
-    };
+    const fit = () => { copy.current = f.scrollWidth + gap; setLoop(f.scrollWidth > b.clientWidth + 1); };
     fit();
     const ro = new ResizeObserver(fit); ro.observe(b);
     return () => ro.disconnect();
-  }, [people.length, names]);
+  }, [people.length, names, gap]);
   useEffect(() => {
     const b = box.current;
     if (!b || !('IntersectionObserver' in window)) { setOn(true); return; }
@@ -432,8 +491,35 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
     io.observe(b);
     return () => io.disconnect();
   }, []);
+  // The drift: a few pixels a frame, wrapping at one copy so the loop never jumps.
+  useEffect(() => {
+    const b = box.current;
+    if (!b || !loop || !on || STILL) return;
+    let raf = 0, last = 0, hover = false;
+    const tick = (ts: number) => {
+      raf = requestAnimationFrame(tick);
+      const dt = last ? Math.min((ts - last) / 1000, 0.05) : 0; last = ts;
+      if (hover || Date.now() < hold.current || document.hidden) return;
+      // The reader scrolled it: carry on from where they left it.
+      if (Math.abs(b.scrollLeft - Math.round(pos.current)) > 1) pos.current = b.scrollLeft;
+      pos.current += 28 * dt;
+      if (pos.current >= copy.current) pos.current -= copy.current;
+      b.scrollLeft = Math.round(pos.current);
+    };
+    const over = () => { hover = true; }, out = () => { hover = false; };
+    const touched = () => { hold.current = Date.now() + 4000; };
+    b.addEventListener('pointerenter', over); b.addEventListener('pointerleave', out);
+    b.addEventListener('pointerdown', touched); b.addEventListener('wheel', touched, { passive: true }); b.addEventListener('touchstart', touched, { passive: true });
+    raf = requestAnimationFrame(tick);
+    return () => { cancelAnimationFrame(raf); b.removeEventListener('pointerenter', over); b.removeEventListener('pointerleave', out); b.removeEventListener('pointerdown', touched); b.removeEventListener('wheel', touched); b.removeEventListener('touchstart', touched); };
+  }, [loop, on]);
+  const nudge = (dir: 1 | -1) => {
+    const b = box.current; if (!b) return;
+    hold.current = Date.now() + 4000;
+    b.scrollBy({ left: dir * Math.max(160, b.clientWidth * 0.6), behavior: STILL ? 'auto' : 'smooth' });
+  };
   const row = (hidden: boolean, ref?: typeof first) => (
-    <ul ref={ref} aria-hidden={hidden || undefined} className={`flex shrink-0 ${names ? 'gap-3.5' : 'gap-1.5'}`}>
+    <ul ref={ref} aria-hidden={hidden || undefined} className="flex shrink-0" style={{ gap }}>
       {shown.map((c, i) => (
         <li key={`${c.name}-${i}`} className={names ? 'w-[84px] flex flex-col items-center text-center' : ''}>
           <Face c={c} className={`${size} ${names ? '' : 'ring-2 ring-[var(--gb-surface)]'}`} />
@@ -447,11 +533,17 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
     </ul>
   );
   return (
-    <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} ${on ? 'is-on' : ''} w-full`} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`}>
-      <div className={`kyb-strip-in flex ${names ? 'gap-3.5' : 'gap-1.5'}`}>
-        {row(false, first)}
-        {loop && row(true)}
+    <div className="kyb-strip-wrap relative">
+      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}>
+        <div className="kyb-strip-in flex" style={{ gap }}>
+          {row(false, first)}
+          {loop && row(true)}
+        </div>
       </div>
+      {loop && <>
+        <button type="button" onClick={() => nudge(-1)} aria-label="Scroll left" className="kyb-strip-btn left-0"><ChevronLeft className="w-4 h-4" aria-hidden="true" /></button>
+        <button type="button" onClick={() => nudge(1)} aria-label="Scroll right" className="kyb-strip-btn right-0"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
+      </>}
     </div>
   );
 }

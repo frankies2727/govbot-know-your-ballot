@@ -2,6 +2,7 @@ import { ArrowRight, RotateCcw } from 'lucide-react';
 import { useState, type ReactNode } from 'react';
 import { FaceStrip } from './Bits';
 import { Face } from './Face';
+import { stakes } from './stakes';
 import { useStateConfig } from './state';
 import type { Candidate, Race } from './types';
 
@@ -29,21 +30,6 @@ interface Props {
 const title = (r: Race) => r.office.replace(/ \(\d+ seats\)$/, '');
 const lead = (name: string) => name.split(' & ')[0];
 
-/** What's at stake, from the seat's current holder(s): an open seat in the source's words, or the incumbent running. */
-function stakes(race: Race): string {
-  const inc = race.incumbents ?? [];
-  const leaving = inc.filter((i) => i.ballot == null && i.note);
-  if (leaving.length) {
-    // The note names the person only sometimes ("Durbin announced…" vs "Lost the party's nomination…").
-    const { name, note } = leaving[0];
-    const surname = name.split(' & ')[0].trim().split(/\s+/).pop() ?? '';
-    return `Open seat. ${surname && note!.includes(surname) ? note : `${name}: ${note}`}`;
-  }
-  const running = inc.filter((i) => i.ballot != null);
-  if (running.length) return `${running.map((i) => i.name).join(' and ')} ${running.length > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.'}`;
-  return '';
-}
-
 function Card({ race, section, onOpen, onOpenRace }: { key?: string; race: Race; section: Section; onOpen: Props['onOpen']; onOpenRace: Props['onOpenRace'] }) {
   const [open, setOpen] = useState(false);
   const { explainOffice } = useStateConfig();
@@ -51,18 +37,19 @@ function Card({ race, section, onOpen, onOpenRace }: { key?: string; race: Race;
   return (
     <li className="kyb-flip">
       <div className={`kyb-flip-inner ${open ? 'kyb-flipped' : ''}`}>
-        <button type="button" onClick={() => setOpen(true)} aria-expanded={open} inert={open}
-          className={`kyb-face ${open ? 'kyb-off' : ''} min-h-[176px] text-left rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 hover:bg-[var(--kyb-chip)]`} style={{ borderColor: section.color }}>
-          <span className="inline-flex self-start items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-bold" style={{ background: section.color, color: section.ink }}>{section.emoji} {section.title}</span>
-          <span className="block text-lg font-black leading-tight">{title(race)}</span>
-          <span className="block text-sm leading-snug">{explainOffice(race.office)}</span>
-          {why && <span className="block text-sm leading-snug line-clamp-3"><span className="font-bold">Why it matters: </span>{why}</span>}
+        <div className={`kyb-face ${open ? 'kyb-off' : ''} min-h-[176px] rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5`} style={{ borderColor: section.color }} inert={open}>
+          <button type="button" onClick={() => setOpen(true)} aria-expanded={open} className="flex flex-col items-start gap-2.5 rounded-xl -m-1 p-1 text-left hover:bg-[var(--kyb-chip)]">
+            <span className="inline-flex self-start items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-bold" style={{ background: section.color, color: section.ink }}>{section.emoji} {section.title}</span>
+            <span className="block text-lg font-black leading-tight">{title(race)}</span>
+            <span className="block text-sm leading-snug">{explainOffice(race.office)}</span>
+            {why && <span className="block text-sm leading-snug line-clamp-3"><span className="font-bold">Why it matters: </span>{why}</span>}
+          </button>
           <FaceStrip people={race.candidates} names />
           <span className="mt-auto flex items-center justify-between gap-2 text-xs font-bold">
             <span>{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'}{race.voteFor > 1 ? ` · pick up to ${race.voteFor}` : ''}</span>
-            <span className="inline-flex items-center gap-1" style={{ color: section.color }}>Meet all candidates <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" /></span>
+            <button type="button" onClick={() => setOpen(true)} className="inline-flex items-center gap-1 min-h-[32px]" style={{ color: section.color }}>Meet all candidates <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" /></button>
           </span>
-        </button>
+        </div>
         <div className={`kyb-face kyb-back ${open ? '' : 'kyb-off'} rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3`} style={{ borderColor: section.color }} inert={!open}>
           <div className="flex items-start justify-between gap-2">
             <p className="text-sm font-black leading-tight">{title(race)}</p>

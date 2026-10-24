@@ -2,7 +2,8 @@ import { ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, S
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import rawData from './data/illinois/ballot.json';
 import { ballotFor, ballotForCounty, ballotIdsFor, districtsAt, geocode, inChicago, inCook, inIllinois, prefetchDistricts } from './lookup';
-import { RETENTION_EXPLAINER } from './offices';
+import { explainOffice, RETENTION_EXPLAINER } from './offices';
+import { stakes } from './stakes';
 import { BallotSearch, type Hit } from './Search';
 import { GovbotChrome } from './GovbotChrome';
 import { guideUrl } from './hosts';
@@ -73,7 +74,7 @@ const MORE: SectionCard[] = SECTIONS.map((s) => {
   const races = s.id === 'retention' || s.id === 'measures' ? [] : everything.races.filter((r) => r.section === s.id && !STATEWIDE.includes(r));
   const items = s.id === 'retention' ? everything.retentions.filter((r) => !r.withdrawn).map((r) => ({ id: r.id, title: `Retain ${r.judge}?`, sub: r.court }))
     : s.id === 'measures' ? everything.measures.map((m) => ({ id: m.id, title: m.title, sub: SCOPE[m.scope.type](m), question: m.question, plain: m.plain }))
-    : races.map((r) => ({ id: r.id, title: r.office, sub: areaLabel(r), race: r }));
+    : races.map((r) => ({ id: r.id, title: r.office, sub: areaLabel(r), race: r, about: explainOffice(r.office), why: stakes(r) }));
   const hint = s.id === 'retention' ? 'All of Cook County · yes or no' : s.id === 'measures' ? 'By ward or precinct · yes or no' : races.some((r) => r.area) ? 'By district' : 'All of Cook County';
   return { ...s, n: items.length, hint, items };
 }).filter((c) => c.n > 0);
@@ -810,7 +811,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
           intro={`These ${STATEWIDE.length} contests are on every ballot in Illinois. Tap a card to meet the candidates; your address adds Congress, Springfield, Cook County, the judges and your ballot questions.`}
           onOpen={onOpenCandidate} onOpenRace={onOpenRace} />
         <div className="mt-10">
-          <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district, ward or precinct: your address picks out yours. Tap a section to see every contest in it, who’s running and where." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+          <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district, ward or precinct: your address picks out yours. Every contest is here with what it is, why it matters and who’s running; scroll inside a section to see them all." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
         </div>
         <div className="mt-12 space-y-8">
           <Sources />

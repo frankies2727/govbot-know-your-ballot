@@ -7,7 +7,7 @@ import { useReadOnly, useStateConfig } from './state';
 import { money, type Choice } from './store';
 import type { Candidate, Guide, Measure, Race, Retention, SocialPlatform } from './types';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
-import { ReportLink } from './Bits';
+import { Dialog, ReportLink } from './Bits';
 
 const AREA_LABEL: Record<string, string> = {
   cd: 'Congressional District', sldu: 'State Senate District', sldl: 'State House District',
@@ -26,38 +26,6 @@ function Badge({ children, tone = 'var(--kyb-chip)', ink = 'var(--gb-text)' }: {
   return <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold whitespace-nowrap" style={{ background: tone, color: ink }}>{children}</span>;
 }
 
-function Dialog({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const prev = document.activeElement as HTMLElement | null;
-    ref.current?.focus();
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
-    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; prev?.focus(); };
-  }, [onClose]);
-  return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/75" onClick={onClose}>
-      <div
-        ref={ref}
-        role="dialog"
-        aria-modal="true"
-        aria-label={title}
-        tabIndex={-1}
-        onClick={(e) => e.stopPropagation()}
-        className="w-full sm:max-w-2xl max-h-[92dvh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none"
-      >
-        <div className="flex items-start justify-between gap-4 mb-5">
-          <h2 className="text-2xl font-black leading-tight text-[var(--gb-text)]">{title}</h2>
-          <button type="button" onClick={onClose} aria-label="Close" className="shrink-0 w-11 h-11 rounded-full bg-[var(--kyb-chip)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip-hi)]">
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-        {children}
-      </div>
-    </div>
-  );
-}
 
 /** Yes / No / Skip for retentions and referenda. */
 function YesNo({ value, onChange, label }: { value: Choice | undefined; onChange: (c: Choice) => void; label: string }) {

@@ -1,7 +1,7 @@
 import { ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { ClearButton } from '../components/ClearButton';
-import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionFlip, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from '../Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionPanel, useBallotView, useDocumentMeta, ReportLink, SavedPicks, type SectionCard } from '../Bits';
 import { Group } from '../Calendar';
 import { guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
@@ -9,6 +9,7 @@ import { billItems, billUrl, changeItems, dateItems, Feed, newsItems } from '../
 import { Laws } from '../Laws';
 import { NextElectionNote } from './NextUp';
 import { Headliners } from '../Headliners';
+import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
 import { earnedTrophies, streak, Trophies } from '../Progress';
 import { CandidateSheet, Compare, MeasureCard, RaceCard } from '../Race';
@@ -545,7 +546,7 @@ const HEADLINERS = data.races.filter((r) => !r.area);
 // ...and the rest of the ballot by section, for the cards under them.
 const MORE: SectionCard[] = SECTIONS.map((s) => {
   const races = s.id === 'measures' ? [] : data.races.filter((r) => r.section === s.id && r.area);
-  return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: MICHIGAN.areaLabel(r), race: r })) };
+  return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: MICHIGAN.areaLabel(r), race: r, about: MICHIGAN.explainOffice(r.office), why: stakes(r) })) };
 }).filter((c) => c.n > 0);
 // The proposals, as a card among the statewide races that flips to the questions.
 const PROPOSALS_CARD: SectionCard = { ...SECTIONS.find((s) => s.id === 'measures')!, n: data.measures.length, hint: 'Statewide · yes or no on each', items: data.measures.map((m) => ({ id: m.id, title: m.title, sub: 'Statewide', question: m.question, plain: m.plain })) };
@@ -638,10 +639,10 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
       <Headliners races={HEADLINERS} sections={SECTIONS} overline="On every Michigan ballot" heading="The statewide races"
         intro={`These ${HEADLINERS.length} contests are on every Michigan ballot. Tap a card to meet the candidates; your address adds your own U.S. House, state Senate, state House and Court of Appeals races from the ${byDistrict} by district.`}
         onOpen={onOpenCandidate} onOpenRace={onOpenRace}>
-        <SectionFlip card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+        <SectionPanel card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
       </Headliners>
 
-      <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district: your address picks out yours. Tap a section to see every contest in it, who’s running and where." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+      <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district: your address picks out yours. Every contest is here with what it is, why it matters and who’s running; scroll inside a section to see them all." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
 
       <div className="pt-2 space-y-8">
         <Sources />

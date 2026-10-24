@@ -1,10 +1,29 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/illinois", "destination": "/illinois/index.html" },
-    { "source": "/illinois/(.*)", "destination": "/illinois/index.html" },
-    { "source": "/michigan", "destination": "/michigan/index.html" },
-    { "source": "/michigan/(.*)", "destination": "/michigan/index.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/illinois",
+      "destination": "/illinois/index.html"
+    },
+    {
+      "source": "/illinois/(.*)",
+      "destination": "/illinois/index.html"
+    },
+    {
+      "source": "/michigan",
+      "destination": "/michigan/index.html"
+    },
+    {
+      "source": "/michigan/(.*)",
+      "destination": "/michigan/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
