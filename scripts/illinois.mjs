@@ -204,7 +204,6 @@ async function main() {
   writeFileSync(join(OUT, 'judges.json'), JSON.stringify(judges.file) + '\n');
 
   const sites = await earlyVotingSites();
-  await closeBrowser();
 
   // A race whose district isn't on the map would silently vanish from every
   // ballot, so treat that as a broken build.
@@ -278,4 +277,8 @@ async function main() {
   console.log(`Wrote ${ballot.races.length} races, ${ballot.retentions.length} retentions, ${ballot.measures.length} measures.`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// The browser is opened on first need and must be closed last, or the open
+// browser keeps the process alive after the build is done: the incumbents
+// step reads Ballotpedia after the early-voting step, which once closed it.
+main().then(closeBrowser).catch((e) => { console.error(e); process.exit(1); });
+
