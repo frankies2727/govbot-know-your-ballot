@@ -1,5 +1,5 @@
 import { ChevronDown, Flag, Github, Info, ListChecks, Mail, MapPin, RotateCcw, TriangleAlert, X } from 'lucide-react';
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
 import { navigate, useRoute } from './lib/router';
@@ -296,15 +296,17 @@ export interface SectionCard { id: string; title: string; emoji: string; color: 
 /** One section as a card that flips to list its contests (or questions). */
 export function SectionFlip({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   const [open, setOpen] = useState(false);
+  const faces = card.items.flatMap((it) => it.race?.candidates ?? []);
   return (
     <li className={`kyb-flip ${open ? 'sm:col-span-2' : ''}`}>
       <div className={`kyb-flip-inner ${open ? 'kyb-flipped' : ''}`}>
         <button type="button" onClick={() => setOpen(true)} aria-expanded={open} inert={open}
-          className={`kyb-face ${open ? 'kyb-off' : ''} flex items-center gap-3 rounded-2xl border-[3px] bg-[var(--gb-surface)] px-4 py-3 text-left hover:bg-[var(--kyb-chip)]`} style={{ borderColor: card.color }}>
+          className={`kyb-face ${open ? 'kyb-off' : ''} flex items-start gap-3 rounded-2xl border-[3px] bg-[var(--gb-surface)] px-4 py-3 text-left hover:bg-[var(--kyb-chip)]`} style={{ borderColor: card.color }}>
           <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
           <span className="min-w-0 flex-1">
             <span className="block font-black leading-tight">{card.title}</span>
             <span className="block text-sm">{card.hint} · {card.items.some((it) => it.question) ? 'tap to read the questions' : 'tap to see who’s running'}</span>
+            {faces.length > 0 && <span className="mt-2 block"><FaceStrip people={faces} size="w-7 h-7 text-[10px]" /></span>}
           </span>
           <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
         </button>
@@ -391,6 +393,66 @@ export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump
         {cards.map((c) => <SectionFlip key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onJump={onJump} />)}
       </ul>
     </section>
+  );
+}
+
+/**
+ * Everyone in a race (or a whole section) as a row of faces that scrolls
+ * sideways on its own when it doesn't fit, looping like a ticker: paused
+ * while hovered, running only while on screen, and a plain scrollable row
+ * for readers who asked for less motion. With `names`, each face carries the
+ * name and party; without, just faces, capped at `max` with a "+N" at the end.
+ */
+export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm' }: { people: Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy'>[]; names?: boolean; max?: number; size?: string }) {
+  const box = useRef<HTMLDivElement>(null);
+  const first = useRef<HTMLUListElement>(null);
+  const [loop, setLoop] = useState(false);
+  const [on, setOn] = useState(false);
+  const shown = people.slice(0, max);
+  const more = people.length - shown.length;
+  // Loop only when the row overflows: measure one copy, scroll by exactly that much.
+  useLayoutEffect(() => {
+    const b = box.current, f = first.current;
+    if (!b || !f) return;
+    const fit = () => {
+      const w = f.scrollWidth, gap = names ? 14 : 6;
+      const over = w > b.clientWidth + 1;
+      setLoop(over);
+      b.style.setProperty('--kyb-strip-w', `${w + gap}px`);
+      b.style.setProperty('--kyb-strip-t', `${Math.max(8, (w + gap) / 32)}s`);
+    };
+    fit();
+    const ro = new ResizeObserver(fit); ro.observe(b);
+    return () => ro.disconnect();
+  }, [people.length, names]);
+  useEffect(() => {
+    const b = box.current;
+    if (!b || !('IntersectionObserver' in window)) { setOn(true); return; }
+    const io = new IntersectionObserver(([e]) => setOn(e.isIntersecting), { rootMargin: '80px' });
+    io.observe(b);
+    return () => io.disconnect();
+  }, []);
+  const row = (hidden: boolean, ref?: typeof first) => (
+    <ul ref={ref} aria-hidden={hidden || undefined} className={`flex shrink-0 ${names ? 'gap-3.5' : 'gap-1.5'}`}>
+      {shown.map((c, i) => (
+        <li key={`${c.name}-${i}`} className={names ? 'w-[84px] flex flex-col items-center text-center' : ''}>
+          <Face c={c} className={`${size} ${names ? '' : 'ring-2 ring-[var(--gb-surface)]'}`} />
+          {names && <>
+            <span className="mt-1 block w-full truncate text-[12px] font-bold leading-tight">{c.name.split(' & ')[0]}</span>
+            <span className="block w-full truncate text-[10.5px] leading-tight">{c.nominatedBy ?? c.party}</span>
+          </>}
+        </li>
+      ))}
+      {more > 0 && <li className={`flex items-center ${names ? 'w-[84px] justify-center' : ''}`}><span className="rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">+{more}</span></li>}
+    </ul>
+  );
+  return (
+    <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} ${on ? 'is-on' : ''} w-full`} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`}>
+      <div className={`kyb-strip-in flex ${names ? 'gap-3.5' : 'gap-1.5'}`}>
+        {row(false, first)}
+        {loop && row(true)}
+      </div>
+    </div>
   );
 }
 

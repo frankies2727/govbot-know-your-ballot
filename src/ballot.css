@@ -124,6 +124,18 @@
 .kyb-back { transform: rotateY(180deg); }
 .kyb-flipped { transform: rotateY(180deg); }
 @media (prefers-reduced-motion: reduce) { .kyb-flip-inner { transition: none; } }
-/* The statewide cards' face carousel: each face slides in as it takes its turn. */
-@keyframes kyb-cslide { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: none; } }
-.kyb-cslide { animation: kyb-cslide .45s ease; }
+/* A row of candidates' faces that scrolls sideways on its own when it overflows (FaceStrip):
+   the row is drawn twice and slides by one copy's width, so the loop never jumps. Paused on
+   hover, running only on screen; a plain scrollable row under reduced motion. */
+/* contain: inline-size keeps the row's own width from widening its card (a phone's single
+   grid column would otherwise grow to fit every face). */
+.kyb-strip { overflow: hidden; min-width: 0; contain: inline-size; }
+.kyb-strip.is-loop { -webkit-mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); }
+.kyb-strip-in { width: max-content; }
+.kyb-strip.is-loop.is-on .kyb-strip-in { animation: kyb-strip var(--kyb-strip-t, 20s) linear infinite; }
+.kyb-strip.is-loop:hover .kyb-strip-in { animation-play-state: paused; }
+@keyframes kyb-strip { to { transform: translateX(calc(-1 * var(--kyb-strip-w, 0px))); } }
+@media (prefers-reduced-motion: reduce) {
+  .kyb-strip.is-loop.is-on .kyb-strip-in { animation: none; }
+  .kyb-strip.is-loop { overflow-x: auto; -webkit-mask-image: none; mask-image: none; scrollbar-width: thin; }
+}
