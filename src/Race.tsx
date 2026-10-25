@@ -81,8 +81,8 @@ function MoneyBars({ c, max }: { c: Candidate; max: number }) {
 // "UNITED DEMOCRACY PROJECT ('UDP')", "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION".
 const ACRONYMS = new Set(['PAC', 'LLC', 'USA', 'DCCC', 'NRCC', 'DSCC', 'NRSC']);
 const groupName = (n: string) =>
-  n.replace(/\s*\([^)]*\)/g, '').replace(/\s+DBA\s.*$/i, '')
-    .replace(/\b(\w)(\w*)/g, (w: string, a: string, b: string) => (ACRONYMS.has(w.toUpperCase()) ? w.toUpperCase() : a + b.toLowerCase()));
+  n.replace(/\s*\([^)]*\)/g, '').replace(/\s+DBA\s.*$/i, '').toLowerCase()
+    .replace(/[a-z0-9']+/g, (w: string) => (ACRONYMS.has(w.toUpperCase()) ? w.toUpperCase() : w[0].toUpperCase() + w.slice(1)));
 
 /** "Outside spending" with an (i) that opens a plain-language explanation of what the figure is. */
 function OutsideHeading({ className }: { className: string }) {

@@ -1185,7 +1185,7 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 2808962,
+      "support": 2422472,
       "oppose": 20829479,
       "groups": [
        {
@@ -1204,11 +1204,6 @@
         "oppose": 0
        },
        {
-        "name": "PLANNED PARENTHOOD VOTES",
-        "support": 302981,
-        "oppose": 0
-       },
-       {
         "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
         "support": 0,
         "oppose": 299866
@@ -1217,6 +1212,11 @@
         "name": "COMMON DEFENSE ACTION FUND",
         "support": 289664,
         "oppose": 0
+       },
+       {
+        "name": "AMERICAN POLITICAL ACTION COMMITTEE",
+        "support": 0,
+        "oppose": 238712
        }
       ],
       "through": "09/30/2026",
@@ -1310,7 +1310,7 @@
      },
      "outside": {
       "support": 13677358,
-      "oppose": 6747378,
+      "oppose": 6446232,
       "groups": [
        {
         "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
@@ -1338,9 +1338,9 @@
         "oppose": 1753178
        },
        {
-        "name": "PLANNED PARENTHOOD VOTES",
+        "name": "LCV VICTORY FUND",
         "support": 0,
-        "oppose": 1083188
+        "oppose": 1015693
        }
       ],
       "through": "09/30/2026",
@@ -3924,12 +3924,12 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 63286,
+      "support": 31744,
       "oppose": 0,
       "groups": [
        {
         "name": "PLANNED PARENTHOOD VOTES",
-        "support": 62912,
+        "support": 31423,
         "oppose": 0
        },
        {
@@ -3939,7 +3939,7 @@
        },
        {
         "name": "GIVEGREEN UNITED ACTION",
-        "support": 130,
+        "support": 77,
         "oppose": 0
        }
       ],
@@ -4057,12 +4057,12 @@
      },
      "outside": {
       "support": 512235,
-      "oppose": 1201116,
+      "oppose": 1139123,
       "groups": [
        {
         "name": "LCV VICTORY FUND",
         "support": 0,
-        "oppose": 1021047
+        "oppose": 990130
        },
        {
         "name": "DEFEND AMERICAN JOBS",
@@ -4077,7 +4077,7 @@
        {
         "name": "PLANNED PARENTHOOD VOTES",
         "support": 0,
-        "oppose": 62499
+        "oppose": 31423
        },
        {
         "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
@@ -4763,7 +4763,7 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 658736,
+      "support": 650073,
       "oppose": 957088,
       "groups": [
        {
@@ -4778,7 +4778,7 @@
        },
        {
         "name": "WORKING FAMILIES PARTY PAC",
-        "support": 246460,
+        "support": 242460,
         "oppose": 0
        },
        {
@@ -4788,12 +4788,12 @@
        },
        {
         "name": "INDIVISIBLE ACTION",
-        "support": 7347,
+        "support": 5641,
         "oppose": 0
        },
        {
-        "name": "MOVEON.ORG POLITICAL ACTION",
-        "support": 2615,
+        "name": "FIELD TEAM 6, INC.",
+        "support": 1766,
         "oppose": 0
        }
       ],
@@ -4922,7 +4922,7 @@
      },
      "outside": {
       "support": 225627,
-      "oppose": 6845,
+      "oppose": 6376,
       "groups": [
        {
         "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
@@ -4947,7 +4947,7 @@
        {
         "name": "FIELD TEAM 6, INC.",
         "support": 0,
-        "oppose": 1880
+        "oppose": 1411
        },
        {
         "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
@@ -5116,7 +5116,7 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 13889,
+      "support": 13788,
       "oppose": 0,
       "groups": [
        {
@@ -5127,11 +5127,6 @@
        {
         "name": "GIVEGREEN UNITED ACTION",
         "support": 392,
-        "oppose": 0
-       },
-       {
-        "name": "EVERYTOWN FOR GUN SAFETY VICTORY FUND (EVERYTOWN VICTORY FUND)",
-        "support": 101,
         "oppose": 0
        }
       ],
@@ -6214,14 +6209,9 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 510,
+      "support": 10,
       "oppose": 0,
       "groups": [
-       {
-        "name": "WORKING FAMILIES PARTY PAC",
-        "support": 500,
-        "oppose": 0
-       },
        {
         "name": "SIERRA CLUB INDEPENDENT ACTION",
         "support": 10,
@@ -6549,17 +6539,17 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 1086063,
+      "support": 927932,
       "oppose": 268690,
       "groups": [
        {
-        "name": "WORKING FAMILIES PARTY PAC",
-        "support": 427074,
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 400000,
         "oppose": 0
        },
        {
-        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
-        "support": 400000,
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 297866,
         "oppose": 0
        },
        {
@@ -6573,13 +6563,13 @@
         "oppose": 0
        },
        {
-        "name": "PAF",
-        "support": 20000,
+        "name": "EMGAGE FEDERAL POLITICAL ACTION COMMITTEE",
+        "support": 17726,
         "oppose": 0
        },
        {
-        "name": "EMGAGE FEDERAL POLITICAL ACTION COMMITTEE",
-        "support": 17726,
+        "name": "SEIU COPE (SERVICE EMPLOYEES INTERNATIONAL UNION COMMITTEE ON POLITICAL EDUCATION)",
+        "support": 17141,
         "oppose": 0
        }
       ],

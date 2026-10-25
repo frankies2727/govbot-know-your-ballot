@@ -917,7 +917,7 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 1452,
+      "support": 1269,
       "oppose": 0,
       "groups": [
        {
@@ -927,7 +927,7 @@
        },
        {
         "name": "GRASSROOTS NORTH SHORE",
-        "support": 230,
+        "support": 47,
         "oppose": 0
        }
       ],
@@ -1493,7 +1493,7 @@
      },
      "outside": {
       "support": 173880,
-      "oppose": 113739,
+      "oppose": 112738,
       "groups": [
        {
         "name": "LAW ENFORCEMENT FOR A SAFER AMERICA PAC",
@@ -1523,7 +1523,7 @@
        {
         "name": "ACTIVATE AMERICA",
         "support": 0,
-        "oppose": 3234
+        "oppose": 2928
        }
       ],
       "through": "09/30/2026",
@@ -1717,12 +1717,12 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 181,
+      "support": 161,
       "oppose": 0,
       "groups": [
        {
         "name": "GRASSROOTS NORTH SHORE",
-        "support": 171,
+        "support": 151,
         "oppose": 0
        },
        {
@@ -2034,12 +2034,12 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 77,
+      "support": 18,
       "oppose": 0,
       "groups": [
        {
         "name": "GRASSROOTS NORTH SHORE",
-        "support": 77,
+        "support": 18,
         "oppose": 0
        }
       ],
@@ -2412,17 +2412,12 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 2268649,
+      "support": 2248565,
       "oppose": 0,
       "groups": [
        {
         "name": "NORTHWOODS FUTURE PAC",
         "support": 2239746,
-        "oppose": 0
-       },
-       {
-        "name": "MAHA PAC",
-        "support": 20084,
         "oppose": 0
        },
        {

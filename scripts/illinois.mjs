@@ -165,8 +165,7 @@ async function main() {
     const { rows, names } = await fetchOutside(work, download, (zip, dir) => execFileSync('unzip', ['-o', '-q', zip, '-d', dir]));
     const outside = addOutsideSpending(ballot.races, rows, names);
     console.log(`Outside spending: ${outside.matched}/${outside.total} federal candidates, through ${outside.through}`);
-  } catch (e) { console.warn(`outside spending: ${e.message}; keeping yesterday's`); }
-  console.log(`Outside spending: ${keepOutsideForward(ballot.races, prev)} candidates kept yesterday's`);
+  } catch (e) { console.warn(`outside spending: ${e.message}; ${keepOutsideForward(ballot.races, prev)} candidates keep yesterday's`); }
   console.log(`FEC: matched ${money.matched}/${money.total} federal candidates`);
 
   for (const f of ISBE_FILES) await download(`${ISBE_BASE}${f}.txt`, join(work, `${f}.txt`));

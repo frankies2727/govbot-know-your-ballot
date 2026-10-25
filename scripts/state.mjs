@@ -152,8 +152,7 @@ export async function build(cfg) {
     const { rows, names } = await fetchOutside(work, download, (zip, dir) => execFileSync('unzip', ['-o', '-q', zip, '-d', dir]));
     const outside = addOutsideSpending(races, rows, names);
     console.log(`Outside spending: ${outside.matched}/${outside.total} federal candidates, through ${outside.through}`);
-  } catch (e) { console.warn(`outside spending: ${e.message}; keeping yesterday's`); }
-  console.log(`Outside spending: ${keepOutsideForward(races, prev)} candidates kept yesterday's`);
+  } catch (e) { console.warn(`outside spending: ${e.message}; ${keepOutsideForward(races, prev)} candidates keep yesterday's`); }
   // State money, where the state publishes exports this build can read; if they can't be read today, each candidate keeps yesterday's figures.
   if (cfg.stateMoney) {
     try {

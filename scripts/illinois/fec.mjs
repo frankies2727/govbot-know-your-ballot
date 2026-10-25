@@ -8,7 +8,9 @@
 // https://www.fec.gov/campaign-finance-data/contributions-committees-candidates-file-description/
 // https://www.fec.gov/campaign-finance-data/committee-master-file-description/
 
+import { readFileSync } from 'node:fs';
 import { namesAgree } from '../ballotpedia-profiles.mjs';
+import { mdy } from '../money-names.mjs';
 
 const COL = { id: 0, name: 1, ici: 2, receipts: 5, spent: 7, cash: 10, state: 18, district: 19, through: 27 };
 const SUFFIX = /^(jr|sr|ii|iii|iv|mr|mrs|ms|dr)$/;
@@ -99,7 +101,7 @@ export function addFederalMoney(races, records, state = 'IL') {
 
 export const FEC_PAS2 = 'https://www.fec.gov/files/bulk-downloads/2026/pas226.zip';
 export const FEC_COMMITTEES = 'https://www.fec.gov/files/bulk-downloads/2026/cm26.zip';
-const PAS = { cmte: 0, type: 5, date: 13, amount: 14, cand: 16 };
+const PAS = { cmte: 0, type: 5, date: 13, amount: 14, cand: 16, memo: 19 };
 const TOP = 6;
 
 /** Committee id -> name, from cm.txt. */
@@ -116,6 +118,8 @@ export function parsePas2(text) {
     const f = line.split('|');
     const type = f[PAS.type];
     if (type !== '24A' && type !== '24E') continue;
+    // A memo row restates a figure already in another row (the FEC leaves it out of totals).
+    if (f[PAS.memo] === 'X') continue;
     const d = f[PAS.date] ?? '';
     out.push({ cmte: f[PAS.cmte], cand: f[PAS.cand], support: type === '24E', amount: Number(f[PAS.amount]) || 0, date: d.length === 8 ? `${d.slice(4)}-${d.slice(0, 2)}-${d.slice(2, 4)}` : '' });
   }
@@ -142,7 +146,7 @@ export function addOutsideSpending(races, rows, names) {
     g[r.support ? 'support' : 'oppose'] += r.amount;
     m.set(r.cmte, g);
   }
-  const mdy = through ? `${through.slice(5, 7)}/${through.slice(8, 10)}/${through.slice(0, 4)}` : '';
+  const through_ = mdy(through);
   let matched = 0, total = 0;
   for (const race of races) for (const c of race.candidates) {
     if (c.money?.source !== 'FEC') continue;
@@ -155,12 +159,12 @@ export function addOutsideSpending(races, rows, names) {
       support: groups.reduce((n, g) => n + g.support, 0),
       oppose: groups.reduce((n, g) => n + g.oppose, 0),
       groups: groups.slice(0, TOP),
-      through: mdy,
+      through: through_,
       url: `https://www.fec.gov/data/independent-expenditures/?candidate_id=${c.money.id}&cycle=2026&data_type=processed`,
     };
     matched++;
   }
-  return { matched, total, through: mdy };
+  return { matched, total, through: through_ };
 }
 
 /** Download and read the two files into `dir`; returns what addOutsideSpending needs. */
@@ -169,11 +173,10 @@ export async function fetchOutside(dir, download, unzip) {
   await download(FEC_COMMITTEES, `${dir}/cm.zip`);
   unzip(`${dir}/pas2.zip`, dir);
   unzip(`${dir}/cm.zip`, dir);
-  const { readFileSync } = await import('node:fs');
   return { rows: parsePas2(readFileSync(`${dir}/itpas2.txt`, 'utf8')), names: parseCommittees(readFileSync(`${dir}/cm.txt`, 'latin1')) };
 }
 
-/** Yesterday's `outside` for anyone who has none today (the download failed), like money-forward. */
+/** Yesterday's `outside` for everyone, when today's file couldn't be read. */
 export function keepOutsideForward(races, prev) {
   const before = new Map((prev?.races ?? []).flatMap((r) => r.candidates.filter((c) => c.outside).map((c) => [`${r.id}|${c.name}`, c.outside])));
   let kept = 0;
@@ -186,7 +189,7 @@ export function keepOutsideForward(races, prev) {
 
 // Standalone: `node scripts/illinois/fec.mjs <illinois|michigan|minnesota|wisconsin> [--write]` attaches outside spending to the committed data.
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
-  const { readFileSync, writeFileSync, mkdtempSync, createWriteStream } = await import('node:fs');
+  const { writeFileSync, mkdtempSync, createWriteStream } = await import('node:fs');
   const { execFileSync } = await import('node:child_process');
   const { tmpdir } = await import('node:os');
   const { join } = await import('node:path');

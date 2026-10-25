@@ -1508,17 +1508,17 @@
      },
      "outside": {
       "support": 0,
-      "oppose": 2811,
+      "oppose": 2005,
       "groups": [
-       {
-        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
-        "support": 0,
-        "oppose": 1612
-       },
        {
         "name": "TAKEACTION MN FEDERAL FUND",
         "support": 0,
         "oppose": 1199
+       },
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 806
        }
       ],
       "through": "09/30/2026",
@@ -1652,7 +1652,7 @@
       "asOf": "2026-10-25"
      },
      "outside": {
-      "support": 411404,
+      "support": 405404,
       "oppose": 0,
       "groups": [
        {
@@ -1662,7 +1662,7 @@
        },
        {
         "name": "CONGRESSIONAL PROGRESSIVE CAUCUS PAC",
-        "support": 150000,
+        "support": 144000,
         "oppose": 0
        },
        {
@@ -2611,12 +2611,12 @@
      },
      "outside": {
       "support": 0,
-      "oppose": 1094,
+      "oppose": 547,
       "groups": [
        {
         "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
         "support": 0,
-        "oppose": 1094
+        "oppose": 547
        }
       ],
       "through": "09/30/2026",
@@ -2814,12 +2814,12 @@
      },
      "outside": {
       "support": 0,
-      "oppose": 342,
+      "oppose": 171,
       "groups": [
        {
         "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
         "support": 0,
-        "oppose": 342
+        "oppose": 171
        }
       ],
       "through": "09/30/2026",
@@ -3021,12 +3021,12 @@
      },
      "outside": {
       "support": 0,
-      "oppose": 1108,
+      "oppose": 554,
       "groups": [
        {
         "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
         "support": 0,
-        "oppose": 1108
+        "oppose": 554
        }
       ],
       "through": "09/30/2026",
