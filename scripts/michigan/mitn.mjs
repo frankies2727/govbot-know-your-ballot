@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
-import { sameName } from '../money-names.mjs';
+import { dollars, sameName } from '../money-names.mjs';
 
 const MITN = 'https://mi-boe.entellitrak.com/etk-mi-boe-prod/page.request.do?page=gov.mi.boe.component.cfrexport.page.';
 export const MITN_EXPORTS = `${MITN}cfrexportdownload`;
@@ -66,7 +66,6 @@ const OFFICE = {
   'Judge of the Court of Appeals': 'Judge of Court of Appeals',
 };
 const districtOf = (s) => s.match(/\d+/)?.[0] ?? '';
-const dollars = (s) => Math.round(Number(s.replace(/[^0-9.-]/g, '')) || 0);
 const iso = (mdy) => { const m = mdy.match(/^(\d\d)\/(\d\d)\/(\d{4})$/); return m ? `${m[3]}-${m[1]}-${m[2]}` : ''; };
 
 /**

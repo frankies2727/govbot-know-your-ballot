@@ -15,7 +15,6 @@ import { dollars, mdy, parts, sameName } from '../money-names.mjs';
 
 const SITE = 'https://cfb.mn.gov';
 export const CFB_VIEWER = `${SITE}/reports-and-data/viewers/campaign-finance/candidates/`;
-export const committeePage = (id) => `${CFB_VIEWER}${id}/2026/`;
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36';
 const YEARS = ['2025', '2026'];
 const BUDGET_MS = 12 * 60_000;

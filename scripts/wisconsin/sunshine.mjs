@@ -80,7 +80,7 @@ const fetchPage = async (fetchFn, url) => {
 };
 
 // Words a committee name is made of besides the candidate's own ("Taxpayers for Marklein", "Friends of Robyn Vining").
-const STOP = new Set(['friends', 'of', 'for', 'committee', 'comm', 'elect', 're', 'reelect', 'the', 'citizens', 'taxpayers', 'neighbors', 'people', 'team', 'vote', 'to', 'with', 'campaign', 'fund', 'wisconsin', 'wi', 'a', 'and', 'senate', 'assembly', 'assem', 'assm', 'state', 'rep', 'representative', 'governor', 'treasurer', 'attorney', 'general', 'district', 'dist', 'madison', 'better', 'tomorrow', 'our', 'future', 'justice', 'judge', 'in', 'on', 'us', 'all', 'go', 'goes', 'vote', 'run', 'win', 'now', '2026', '2025', '2024']);
+const STOP = new Set(['friends', 'of', 'for', 'committee', 'comm', 'elect', 're', 'reelect', 'the', 'citizens', 'taxpayers', 'neighbors', 'people', 'team', 'vote', 'to', 'with', 'campaign', 'fund', 'wisconsin', 'wi', 'a', 'and', 'senate', 'assembly', 'assem', 'assm', 'state', 'rep', 'representative', 'governor', 'treasurer', 'attorney', 'general', 'district', 'dist', 'madison', 'better', 'tomorrow', 'our', 'future', 'justice', 'judge', 'in', 'on', 'us', 'all', 'go', 'goes', 'run', 'win', 'now', '2026', '2025', '2024']);
 /**
  * Does the committee's name fit the person: the surname as a word, with any
  * name-shaped words before it agreeing with the first name ("T E Pronschinske":
@@ -135,8 +135,7 @@ export async function addStateMoney(races, { fetchFn = fetch, pause = PAUSE_MS }
           const reg = parseRegistrant(await fetchPage(fetchFn, committeePage(k.id)));
           await sleep(pause);
           if (reg.office !== office || (district && reg.district !== district)) continue;
-          if (!namesSurname(k.name, c.name) && !sameParty(reg.party, c.party)) continue;
-          if (!sameParty(reg.party, c.party)) { log.push(`${c.name}: ${k.name} is registered ${reg.party}; not used`); continue; }
+          if (!sameParty(reg.party, c.party)) { if (namesSurname(k.name, c.name)) log.push(`${c.name}: ${k.name} is registered ${reg.party}; not used`); continue; }
           hits.push(k);
         }
         // Two people with one surname in one race: only committees naming our first name count then.

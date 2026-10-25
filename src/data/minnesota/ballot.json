@@ -4876,7 +4876,7 @@
     {
      "name": "Bill Weber",
      "party": "Republican",
-     "note": "Bill Weber (R–Luverne), representing district 21 since 2023, is retiring.{{cite news |last1=MNSRC|title=Weber not seeking reelection in 2026. They are in no race in this guide.",
+     "note": "Bill Weber (R–Luverne), representing district 21 since 2023, is retiring.",
      "source": {
       "name": "Wikipedia: 2026 Minnesota Senate election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_Senate_election#Retiring"
@@ -6979,7 +6979,7 @@
     {
      "name": "Tou Xiong",
      "party": "Democratic-Farmer-Labor",
-     "note": "Tou Xiong (DFL–Maplewood), representing district 44 since 2023, is retiring.{{cite news |last1=Xiong |first1=Tou |title=Senator Tou Xiong Will Not Seek Re-Election.",
+     "note": "Tou Xiong (DFL–Maplewood), representing district 44 since 2023, is retiring.",
      "source": {
       "name": "Wikipedia: 2026 Minnesota Senate election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_Senate_election#Retiring"
@@ -10323,7 +10323,8 @@
       "name": "Wikipedia: 2026 Minnesota House of Representatives election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_House_of_Representatives_election"
      },
-     "asOf": "2026-10-25"
+     "asOf": "2026-10-25",
+     "ballot": 1
     }
    ]
   },
@@ -12823,7 +12824,8 @@
       "name": "Wikipedia: 2026 Minnesota House of Representatives election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_House_of_Representatives_election"
      },
-     "asOf": "2026-10-25"
+     "asOf": "2026-10-25",
+     "ballot": 2
     }
    ]
   },
@@ -13258,7 +13260,8 @@
       "name": "Wikipedia: 2026 Minnesota House of Representatives election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_House_of_Representatives_election"
      },
-     "asOf": "2026-10-25"
+     "asOf": "2026-10-25",
+     "ballot": 2
     }
    ]
   },
@@ -17069,7 +17072,8 @@
       "name": "Wikipedia: 2026 Minnesota House of Representatives election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_House_of_Representatives_election"
      },
-     "asOf": "2026-10-25"
+     "asOf": "2026-10-25",
+     "ballot": 1
     }
    ]
   },
