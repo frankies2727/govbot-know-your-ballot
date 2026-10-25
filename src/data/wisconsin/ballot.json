@@ -915,6 +915,24 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_1"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 1452,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 1222,
+        "oppose": 0
+       },
+       {
+        "name": "GRASSROOTS NORTH SHORE",
+        "support": 230,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI01283&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1155,6 +1173,19 @@
       "seat": "U.S. House · WI-2",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2WI02124&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -1326,6 +1357,29 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_3"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 250070,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "PRO-CHOICE MAJORITY ACTION",
+        "support": 249122,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 823,
+        "oppose": 0
+       },
+       {
+        "name": "THE PEOPLE UNITED PAC",
+        "support": 125,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2WI03130&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1436,6 +1490,44 @@
       "seat": "U.S. House · WI-3",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 173880,
+      "oppose": 113739,
+      "groups": [
+       {
+        "name": "LAW ENFORCEMENT FOR A SAFER AMERICA PAC",
+        "support": 153880,
+        "oppose": 0
+       },
+       {
+        "name": "THE WISCO PROJECT PAC",
+        "support": 0,
+        "oppose": 66576
+       },
+       {
+        "name": "BACK THE BOLD",
+        "support": 0,
+        "oppose": 35722
+       },
+       {
+        "name": "SPECIAL OPERATIONS FOR AMERICA",
+        "support": 20000,
+        "oppose": 0
+       },
+       {
+        "name": "DEMOCRATIC PARTY OF WISCONSIN FEDERAL",
+        "support": 0,
+        "oppose": 4117
+       },
+       {
+        "name": "ACTIVATE AMERICA",
+        "support": 0,
+        "oppose": 3234
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0WI03175&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1623,6 +1715,24 @@
       "seat": "U.S. House · WI-4",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 181,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GRASSROOTS NORTH SHORE",
+        "support": 171,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4WI04183&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1922,6 +2032,19 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_6"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 77,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GRASSROOTS NORTH SHORE",
+        "support": 77,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI06191&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2287,6 +2410,29 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_7"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 2268649,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "NORTHWOODS FUTURE PAC",
+        "support": 2239746,
+        "oppose": 0
+       },
+       {
+        "name": "MAHA PAC",
+        "support": 20084,
+        "oppose": 0
+       },
+       {
+        "name": "TURNING POINT PAC INC.",
+        "support": 8819,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI07223&cycle=2026&data_type=processed"
      }
     }
    ],

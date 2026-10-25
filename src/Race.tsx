@@ -77,6 +77,38 @@ function MoneyBars({ c, max }: { c: Candidate; max: number }) {
   );
 }
 
+// FEC stores committee names in capitals, often with a nickname or "DBA" trade name tacked on:
+// "UNITED DEMOCRACY PROJECT ('UDP')", "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION".
+const ACRONYMS = new Set(['PAC', 'LLC', 'USA', 'DCCC', 'NRCC', 'DSCC', 'NRSC']);
+const groupName = (n: string) =>
+  n.replace(/\s*\([^)]*\)/g, '').replace(/\s+DBA\s.*$/i, '')
+    .replace(/\b(\w)(\w*)/g, (w: string, a: string, b: string) => (ACRONYMS.has(w.toUpperCase()) ? w.toUpperCase() : a + b.toLowerCase()));
+
+/** Spending by outside groups for and against a candidate, with the biggest spenders. */
+function OutsideBars({ c, max, brief = false }: { c: Candidate; max: number; brief?: boolean }) {
+  const o = c.outside;
+  if (!o) return null;
+  const rows: [string, number, string][] = [['For them', o.support, 'var(--gb-primary)'], ['Against them', o.oppose, 'var(--gb-red)']];
+  return (
+    <div className="space-y-2">
+      {rows.map(([label, n, color]) => (
+        <div key={label}>
+          <div className="flex justify-between gap-2 text-sm font-bold text-[var(--gb-text)]"><span>{label}</span><span>{money(n)}</span></div>
+          <div className="h-2.5 rounded-full bg-[var(--kyb-chip)] overflow-hidden">
+            <div className="h-full rounded-full" style={{ width: `${max ? Math.max(n ? 2 : 0, (n / max) * 100) : 0}%`, background: color }} />
+          </div>
+        </div>
+      ))}
+      <ul className="text-xs text-[var(--gb-text)] space-y-0.5">
+        {o.groups.slice(0, brief ? 2 : 6).map((g) => (
+          <li key={g.name}>{groupName(g.name)}: {[g.support ? `${money(g.support)} for` : '', g.oppose ? `${money(g.oppose)} against` : ''].filter(Boolean).join(', ')}</li>
+        ))}
+      </ul>
+      {!brief && <p className="text-xs text-[var(--gb-text)]">Independent expenditures by PACs, parties and other groups, which may not coordinate with the campaign, in the FEC’s processed filings through {o.through}. <a href={o.url} target="_blank" rel="noreferrer noopener" className="font-bold underline text-[var(--gb-link)]">Every expenditure at the FEC ↗</a></p>}
+    </div>
+  );
+}
+
 /** The seat's holder is one of these candidates. */
 export const isIncumbent = (race: Race, c: Candidate) => Boolean(c.incumbent || race.incumbents?.some((i) => i.ballot === c.ballot));
 
@@ -434,6 +466,12 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
           ) : (
             <p className="text-[15px] text-[var(--gb-text)]">{noMoney(race)}</p>
           )}
+          {c.outside && (
+            <div className="space-y-2 border-t border-[var(--gb-border)] pt-3">
+              <p className="text-sm font-black text-[var(--gb-text)]">Outside spending</p>
+              <OutsideBars c={c} max={Math.max(c.outside.support, c.outside.oppose)} />
+            </div>
+          )}
         </section>
 
         <VoterGuide g={guide} />
@@ -514,7 +552,8 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
   const max = Math.max(1, ...race.candidates.map((c) => c.money ? Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0) : 0));
   const anyMoney = race.candidates.some((c) => c.money);
   // A row shows for everyone when anyone in the race has it, so the columns line up and a blank reads as "none found".
-  const any = (k: 'stances' | 'endorsements' | 'record' | 'bar') => race.candidates.some((c) => c[k]);
+  const any = (k: 'stances' | 'endorsements' | 'record' | 'bar' | 'outside') => race.candidates.some((c) => c[k]);
+  const maxOutside = Math.max(1, ...race.candidates.map((c) => (c.outside ? Math.max(c.outside.support, c.outside.oppose) : 0)));
   const anyRecord = race.candidates.some((c) => c.record || isIncumbent(race, c));
   const scroller = useRef<HTMLDivElement>(null);
   return (
@@ -549,6 +588,11 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
                   {anyMoney && (c.money ? <MoneyBars c={c} max={max} /> : <p>No campaign reports found.</p>)}
                   {!anyMoney && <p>No reports found for anyone in this race.</p>}
                 </CompareRow>
+                {any('outside') && (
+                  <CompareRow label="Outside spending">
+                    {c.outside ? <OutsideBars c={c} max={maxOutside} brief /> : <p>None reported for or against them.</p>}
+                  </CompareRow>
+                )}
                 {any('stances') && (
                   <CompareRow label="In their words">
                     {c.stances ? <p>“{clip(c.stances.messages[0], 220)}”{c.stances.messages.length > 1 ? ` (+${c.stances.messages.length - 1} more)` : ''}</p> : <p>No survey answer yet.</p>}

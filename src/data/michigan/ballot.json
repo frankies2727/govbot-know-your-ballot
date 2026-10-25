@@ -1183,6 +1183,44 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 2808962,
+      "oppose": 20829479,
+      "groups": [
+       {
+        "name": "UNITED DEMOCRACY PROJECT ('UDP')",
+        "support": 0,
+        "oppose": 20140901
+       },
+       {
+        "name": "FIGHTING FOR MICHIGAN PAC",
+        "support": 1134114,
+        "oppose": 0
+       },
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 489664,
+        "oppose": 0
+       },
+       {
+        "name": "PLANNED PARENTHOOD VOTES",
+        "support": 302981,
+        "oppose": 0
+       },
+       {
+        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+        "support": 0,
+        "oppose": 299866
+       },
+       {
+        "name": "COMMON DEFENSE ACTION FUND",
+        "support": 289664,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=S6MI00418&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1269,6 +1307,44 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 13677358,
+      "oppose": 6747378,
+      "groups": [
+       {
+        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+        "support": 6838534,
+        "oppose": 0
+       },
+       {
+        "name": "GLCF, INC.",
+        "support": 3329146,
+        "oppose": 0
+       },
+       {
+        "name": "WINSENATE",
+        "support": 0,
+        "oppose": 1892819
+       },
+       {
+        "name": "THE SENTINEL ACTION FUND",
+        "support": 1859478,
+        "oppose": 0
+       },
+       {
+        "name": "EDF ACTION VOTES",
+        "support": 0,
+        "oppose": 1753178
+       },
+       {
+        "name": "PLANNED PARENTHOOD VOTES",
+        "support": 0,
+        "oppose": 1083188
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=S4MI00595&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3103,6 +3179,24 @@
       "seat": "U.S. House · MI-1",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 12911,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "NATIONAL ASSOCIATION OF REALTORS POLITICAL ACTION COMMITTEE",
+        "support": 12633,
+        "oppose": 0
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 278,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI01226&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3370,6 +3464,19 @@
       "seat": "U.S. House · MI-2",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 285,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 285,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI04126&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3548,6 +3655,24 @@
       "seat": "U.S. House · MI-3",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 143,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 133,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI03316&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3797,6 +3922,29 @@
       "seat": "Senate District 19",
       "source": "Michigan Legislature, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 63286,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "PLANNED PARENTHOOD VOTES",
+        "support": 62912,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 244,
+        "oppose": 0
+       },
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 130,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI04204&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3906,6 +4054,39 @@
       "seat": "U.S. House · MI-4",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 512235,
+      "oppose": 1201116,
+      "groups": [
+       {
+        "name": "LCV VICTORY FUND",
+        "support": 0,
+        "oppose": 1021047
+       },
+       {
+        "name": "DEFEND AMERICAN JOBS",
+        "support": 511996,
+        "oppose": 0
+       },
+       {
+        "name": "SOMOS PAC",
+        "support": 0,
+        "oppose": 117570
+       },
+       {
+        "name": "PLANNED PARENTHOOD VOTES",
+        "support": 0,
+        "oppose": 62499
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 239,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI02094&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4087,6 +4268,19 @@
       "seat": "U.S. House · MI-5",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 239,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 239,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI07103&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4303,6 +4497,19 @@
       "seat": "U.S. House · MI-6",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI12079&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4554,6 +4761,44 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Michigan#District_7"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 658736,
+      "oppose": 957088,
+      "groups": [
+       {
+        "name": "CRUSH MAGA PAC",
+        "support": 0,
+        "oppose": 909204
+       },
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 400000,
+        "oppose": 0
+       },
+       {
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 246460,
+        "oppose": 0
+       },
+       {
+        "name": "NEW DEMOCRAT MAJORITY",
+        "support": 0,
+        "oppose": 47884
+       },
+       {
+        "name": "INDIVISIBLE ACTION",
+        "support": 7347,
+        "oppose": 0
+       },
+       {
+        "name": "MOVEON.ORG POLITICAL ACTION",
+        "support": 2615,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI07298&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4674,6 +4919,44 @@
       "seat": "U.S. House · MI-7",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 225627,
+      "oppose": 6845,
+      "groups": [
+       {
+        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+        "support": 169800,
+        "oppose": 0
+       },
+       {
+        "name": "SPECIAL OPERATIONS FOR AMERICA",
+        "support": 50987,
+        "oppose": 0
+       },
+       {
+        "name": "YOUTH SAVE DEMOCRACY PAC",
+        "support": 0,
+        "oppose": 4965
+       },
+       {
+        "name": "CLUB FOR GROWTH PAC",
+        "support": 4594,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 0,
+        "oppose": 1880
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 246,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2MI07123&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4831,6 +5114,29 @@
       "seat": "U.S. House · MI-8",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 13889,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "WELCOMEPAC",
+        "support": 13396,
+        "oppose": 0
+       },
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 392,
+        "oppose": 0
+       },
+       {
+        "name": "EVERYTOWN FOR GUN SAFETY VICTORY FUND (EVERYTOWN VICTORY FUND)",
+        "support": 101,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI08218&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5078,6 +5384,19 @@
       "seat": "U.S. House · MI-9",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 281,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 281,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI10287&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5266,6 +5585,29 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Michigan#District_10"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 500388,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "PRO-CHOICE MAJORITY ACTION",
+        "support": 499998,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 365,
+        "oppose": 0
+       },
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 25,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI10276&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5333,6 +5675,24 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Michigan#District_10"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 156734,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "HONOR, DUTY & DISCIPLINE PAC",
+        "support": 156682,
+        "oppose": 0
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 52,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI10359&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5572,6 +5932,29 @@
       "seat": "Senate District 7",
       "source": "Michigan Legislature, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 295097,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "THINK BIG",
+        "support": 294612,
+        "oppose": 0
+       },
+       {
+        "name": "DMFI PAC",
+        "support": 381,
+        "oppose": 0
+       },
+       {
+        "name": "CONCERNED CITIZEN",
+        "support": 104,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI11191&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5829,6 +6212,24 @@
       "seat": "U.S. House · MI-12",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 510,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 500,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MI13250&cycle=2026&data_type=processed"
      }
     },
     {
@@ -6146,6 +6547,44 @@
       "seat": "House District 11",
       "source": "Michigan Legislature, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 1086063,
+      "oppose": 268690,
+      "groups": [
+       {
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 427074,
+        "oppose": 0
+       },
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 400000,
+        "oppose": 0
+       },
+       {
+        "name": "PROTECT PROGRESS",
+        "support": 0,
+        "oppose": 268690
+       },
+       {
+        "name": "JUSTICE DEMOCRATS PAC",
+        "support": 173167,
+        "oppose": 0
+       },
+       {
+        "name": "PAF",
+        "support": 20000,
+        "oppose": 0
+       },
+       {
+        "name": "EMGAGE FEDERAL POLITICAL ACTION COMMITTEE",
+        "support": 17726,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI13254&cycle=2026&data_type=processed"
      }
     },
     {

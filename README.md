@@ -105,6 +105,10 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 - **Not here yet:** county offices, local referendums and state campaign money. The app points voters to MyVote Wisconsin.
 </details>
 
+### Outside spending, every state
+
+Every federal candidate with an FEC id also carries what outside groups spent for and against them this cycle (`scripts/illinois/fec.mjs`, from the FEC's bulk file of committee transactions: the 24E rows are independent expenditures supporting a candidate, 24A ones opposing, named by the committee master). The candidate's details and the compare sheet show the totals, the biggest spenders and a link to the FEC's own list. These are the FEC's processed filings, so they lag the 24/48-hour reports by a few days.
+
 ### Reconciliation, every build
 
 `scripts/audit.mjs` is the last step before a ballot is written. Anything attached to a candidate whose source names someone else is dropped and logged: a legislature portrait or site for someone who isn't a sitting legislator of that name, a Ballotpedia page with another name, a legislative record for a non-legislator, and a site, account, photo or money id two candidates share. Upstream, a candidate is matched to a sitting member, a legislator or a money filing only when the whole name agrees, never the surname alone. Run it by hand: `npm run audit -- il`, `mi`, `mn` or `wi` (add `--write` to apply).

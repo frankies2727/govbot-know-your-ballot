@@ -935,7 +935,7 @@ function Sources() {
       body: 'Congressional, legislative and suburban Cook contests across Illinois, plus candidates’ own campaign websites, from the State Board’s certified list.',
       links: [['elections.il.gov', s.stateCandidates.url]] },
     { emoji: '💵', title: 'Campaign money', status: 'Live · when a committee matches',
-      body: 'Raised, spent and cash on hand from each campaign’s latest report: FEC for federal races, State Board D-2 reports for the rest. Attached only on a confident match.',
+      body: 'Raised, spent and cash on hand from each campaign’s latest report: FEC for federal races, State Board D-2 reports for the rest. Federal candidates also show what outside groups spent for and against them, from the FEC’s independent-expenditure filings. Attached only on a confident match.',
       links: [['FEC data', s.money.url], ['State Board files', s.stateMoney.url]] },
     { emoji: '📣', title: 'Social media & websites', status: 'Live · daily',
       body: 'Only accounts that are the candidate’s own: Congress’s official list, Wikidata (through their exact Wikipedia page), and the links on their own campaign site when the account carries their name.',

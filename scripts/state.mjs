@@ -25,7 +25,7 @@ import { join } from 'node:path';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 import { changeLog } from './illinois/changes.mjs';
-import { addFederalMoney, parseWeball } from './illinois/fec.mjs';
+import { addFederalMoney, addOutsideSpending, fetchOutside, keepOutsideForward, parseWeball } from './illinois/fec.mjs';
 import { fetchPage, parseHouseLists, parsePartisanTable, parseVoteboxes } from './michigan/ballotpedia.mjs';
 import { buildDistricts, buildOutline } from './michigan/districts.mjs';
 import { addProfiles } from './ballotpedia-profiles.mjs';
@@ -147,6 +147,13 @@ export async function build(cfg) {
   execFileSync('unzip', ['-o', '-q', join(work, 'weball.zip'), '-d', work]);
   const money = addFederalMoney(races, parseWeball(readFileSync(join(work, 'weball26.txt'), 'utf8')), cfg.code);
   console.log(`FEC: matched ${money.matched}/${money.total} federal candidates`);
+  // Outside spending for and against them; a failed download keeps yesterday's.
+  try {
+    const { rows, names } = await fetchOutside(work, download, (zip, dir) => execFileSync('unzip', ['-o', '-q', zip, '-d', dir]));
+    const outside = addOutsideSpending(races, rows, names);
+    console.log(`Outside spending: ${outside.matched}/${outside.total} federal candidates, through ${outside.through}`);
+  } catch (e) { console.warn(`outside spending: ${e.message}; keeping yesterday's`); }
+  console.log(`Outside spending: ${keepOutsideForward(races, prev)} candidates kept yesterday's`);
   // State money, where the state publishes exports this build can read; if they can't be read today, each candidate keeps yesterday's figures.
   if (cfg.stateMoney) {
     try {
