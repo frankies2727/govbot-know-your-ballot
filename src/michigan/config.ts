@@ -43,12 +43,12 @@ export const SECTION_TITLES: Record<string, string> = Object.fromEntries(SECTION
 
 // Plain-English "what does this job actually do", factual and neutral.
 const EXPLAINERS: [RegExp, string][] = [
-  [/^United States Senator/, 'One of Michigan’s two U.S. senators. Votes on federal laws, confirms federal judges and cabinet members, and approves treaties. 6-year term; this is the seat Gary Peters is leaving.'],
+  [/^United States Senator/, 'One of Michigan’s two U.S. senators; only this seat, the one Gary Peters is leaving, is on the ballot this year, so you pick 1. Votes on federal laws, confirms federal judges and cabinet members, and approves treaties. 6-year term.'],
   [/^Representative in Congress/, 'Your district’s seat in the U.S. House. Writes and votes on federal laws and the federal budget. 2-year term.'],
   [/^Governor and Lieutenant Governor/, 'Runs Michigan’s executive branch: proposes the state budget, signs or vetoes bills, appoints department heads. Governor and lieutenant governor run as one ticket. 4-year term; Gretchen Whitmer is term-limited.'],
   [/^Secretary of State/, 'Runs Michigan’s elections and the voter rolls, plus driver’s licenses, IDs and vehicle registration, and files campaign finance reports. 4-year term.'],
   [/^Attorney General/, 'Michigan’s top lawyer. Represents the state in court and enforces consumer-protection, civil-rights and environmental laws. 4-year term.'],
-  [/^State Senator/, 'Your seat in the Michigan Senate. Writes and votes on state laws and the state budget in Lansing. 4-year term; all 38 seats are up.'],
+  [/^State Senator/, 'Your seat in the Michigan Senate. Writes and votes on state laws and the state budget in Lansing. 4-year term. Every Senate district is on the ballot this year; you pick 1 for yours.'],
   [/^Representative in State Legislature/, 'Your seat in the Michigan House. Writes and votes on state laws and the state budget in Lansing. 2-year term.'],
   [/^Member of the State Board of Education/, 'Sets statewide education policy and hires the state superintendent. The board has eight members; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
   [/^Regent of the University of Michigan/, 'Governs the University of Michigan: its budget, tuition and president. The board has eight regents; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
@@ -57,7 +57,15 @@ const EXPLAINERS: [RegExp, string][] = [
   [/^Justice of the Supreme Court/, 'Michigan’s highest court: the final word on state law. Listed without party on the ballot’s nonpartisan section, though parties nominate the candidates. The court has seven justices; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
   [/^Judge of the Court of Appeals/, 'Hears appeals from trial courts across your Court of Appeals district. Sitting judges are usually unopposed; a “yes” is voting for the name, leaving it blank is not. 6-year term.'],
 ];
-const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
+// A race whose name carries its seat count ("Judge of the Court of Appeals, 1st
+// District (3 seats)") also says how many to pick.
+const explainOffice = (office: string) => {
+  const text = EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
+  const seats = office.match(/\((\d+) seats?\)/);
+  if (!text || !seats) return text;
+  const n = Number(seats[1]);
+  return `${text} ${n === 1 ? 'One seat in your district is on this ballot, so you pick 1.' : `${n} seats in your district are on this ballot, so you pick up to ${n}.`}`;
+};
 
 const AREA_LABEL: Record<string, string> = { cd: 'Congressional District', sldu: 'State Senate District', sldl: 'State House District', coa: 'Court of Appeals District' };
 const areaLabel = (r: Race) => (r.area ? `${AREA_LABEL[r.area.type] ?? r.area.type} ${r.area.id}` : 'Statewide');

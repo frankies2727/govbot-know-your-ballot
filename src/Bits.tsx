@@ -393,11 +393,14 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
   // Races sharing an explainer share a group, in the order they first appear.
   const groups: { key: string; label: string; about: string; items: SectionItem[] }[] = [];
   const rest: SectionItem[] = [];
+  // The seat-count sentence ("3 seats in your district…") is each district's own; the header carries the office's explainer without it.
+  const shared = (about: string) => about.replace(/ (?:One seat|\d+ seats) in your district [^.]*\./, '');
   for (const it of card.items) {
     if (!it.race) { rest.push(it); continue; }
-    const key = it.about || officeOf(it.title);
+    const about = shared(it.about ?? '');
+    const key = about || officeOf(it.title);
     const g = groups.find((x) => x.key === key);
-    if (g) g.items.push(it); else groups.push({ key, label: officeOf(it.title), about: it.about ?? '', items: [it] });
+    if (g) g.items.push(it); else groups.push({ key, label: officeOf(it.title), about, items: [it] });
   }
   const candidates = (it: SectionItem) => (
     <ul className="space-y-1">
