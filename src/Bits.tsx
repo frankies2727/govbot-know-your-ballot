@@ -423,7 +423,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
         </span>
         <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
       </div>
-      {faces.length > 0 && <FaceStrip people={faces} names max={400} size="w-9 h-9 text-xs" onPick={jump} />}
+      {faces.length > 0 && <FaceStrip people={faces} names max={400} size="w-9 h-9 text-xs" color={card.color} onPick={jump} />}
       <ul ref={list} className="kyb-scroll-bar max-h-[480px] overflow-y-auto rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
         {groups.map((g) => (
           <li key={g.key}>
@@ -508,23 +508,23 @@ const STILL = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-m
 
 /**
  * Everyone in a race (or a whole section) as a row of faces the reader can
- * scroll sideways (swipe, trackpad, the ‹ › buttons) that also drifts along
- * on its own when it doesn't fit, looping like a ticker: the row is drawn
- * twice and wraps at one copy's width. The drift pauses while hovered and
- * for a few seconds after the reader scrolls it themselves, runs only while
- * on screen, and is off under reduced motion. With `names`, each face
+ * scroll sideways (swipe, trackpad, the ‹ › buttons, a scrollbar in the
+ * card's colour that is always drawn) and that also drifts along on its own
+ * when it doesn't fit, to the end and back. The drift pauses while hovered
+ * and for a few seconds after the reader scrolls it themselves, runs only
+ * while on screen, and is off under reduced motion. With `names`, each face
  * carries the name and party; without, just faces, capped at `max` with a
  * "+N" at the end.
  */
 export interface StripPerson extends Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy'> { /** A line under the party: their district. */ note?: string; /** What a pick means to the caller (a race id, say). */ key?: string }
 
-export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm', info = false, onPick }: { people: StripPerson[]; names?: boolean; max?: number; size?: string; /** An ⓘ badge on each face: there's more behind it. */ info?: boolean; /** A tap on a person (not a scroll or a drag). */ onPick?: (p: StripPerson) => void }) {
+export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm', info = false, color, onPick }: { people: StripPerson[]; names?: boolean; max?: number; size?: string; /** An ⓘ badge on each face: there's more behind it. */ info?: boolean; /** The scrollbar's colour (the card's accent). */ color?: string; /** A tap on a person (not a scroll or a drag). */ onPick?: (p: StripPerson) => void }) {
   const down = useRef<{ x: number; y: number } | null>(null);
   const box = useRef<HTMLDivElement>(null);
   const first = useRef<HTMLUListElement>(null);
-  const copy = useRef(0);            // one copy's width + gap, the loop length
   const hold = useRef(0);            // drift paused until this time (ms)
   const pos = useRef(0);             // the drift's own position: scrollLeft only holds whole pixels
+  const dir = useRef(1);             // the drift's direction: to the end, then back
   const [loop, setLoop] = useState(false);
   const [on, setOn] = useState(false);
   const shown = people.slice(0, max);
@@ -534,7 +534,7 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
   useLayoutEffect(() => {
     const b = box.current, f = first.current;
     if (!b || !f) return;
-    const fit = () => { copy.current = f.scrollWidth + gap; setLoop(f.scrollWidth > b.clientWidth + 1); };
+    const fit = () => setLoop(f.scrollWidth > b.clientWidth + 1);
     fit();
     const ro = new ResizeObserver(fit); ro.observe(b);
     return () => ro.disconnect();
@@ -557,8 +557,11 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
       if (hover || Date.now() < hold.current || document.hidden) return;
       // The reader scrolled it: carry on from where they left it.
       if (Math.abs(b.scrollLeft - Math.round(pos.current)) > 1) pos.current = b.scrollLeft;
-      pos.current += 28 * dt;
-      if (pos.current >= copy.current) pos.current -= copy.current;
+      const end = b.scrollWidth - b.clientWidth;
+      pos.current += dir.current * 28 * dt;
+      // At either end, rest a moment, then head back the other way.
+      if (pos.current >= end) { pos.current = end; dir.current = -1; hold.current = Date.now() + 1500; }
+      if (pos.current <= 0) { pos.current = 0; dir.current = 1; hold.current = Date.now() + 1500; }
       b.scrollLeft = Math.round(pos.current);
     };
     const over = () => { hover = true; }, out = () => { hover = false; };
@@ -590,12 +593,12 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
     </>}
   </>);
   const cell = names ? 'w-full flex flex-col items-center text-center' : 'flex';
-  const row = (hidden: boolean, ref?: typeof first) => (
-    <ul ref={ref} aria-hidden={hidden || undefined} className="flex shrink-0" style={{ gap }}>
+  const row = (ref?: typeof first) => (
+    <ul ref={ref} className="flex shrink-0" style={{ gap }}>
       {shown.map((c, i) => (
         <li key={`${c.name}-${i}`} className={names ? 'w-[88px] flex' : ''}>
           {onPick
-            ? <button type="button" onClick={pick(c)} tabIndex={hidden ? -1 : 0} aria-label={names ? undefined : `${c.name}: more about them`} className={`${cell} rounded-lg ${names ? 'px-0.5 py-1' : ''} hover:bg-[var(--kyb-chip)]`}>{person(c)}</button>
+            ? <button type="button" onClick={pick(c)} aria-label={names ? undefined : `${c.name}: more about them`} className={`${cell} rounded-lg ${names ? 'px-0.5 py-1' : ''} hover:bg-[var(--kyb-chip)]`}>{person(c)}</button>
             : <span className={cell}>{person(c)}</span>}
         </li>
       ))}
@@ -604,11 +607,10 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
   );
   return (
     <div className="kyb-strip-wrap relative">
-      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
+      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} style={color ? { ['--scroll' as string]: color } : undefined} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
         onPointerDown={onPick ? (e) => { down.current = { x: e.clientX, y: e.clientY }; } : undefined}>
         <div className="kyb-strip-in flex" style={{ gap }}>
-          {row(false, first)}
-          {loop && row(true)}
+          {row(first)}
         </div>
       </div>
       {loop && <>
