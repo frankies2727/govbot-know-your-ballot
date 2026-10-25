@@ -305,7 +305,7 @@
     {
      "name": "Tina Smith",
      "party": "Democratic",
-     "note": "Incumbent Tina Smith is not running for re-election. They are in no race in this guide.",
+     "note": "Incumbent Tina Smith is not running for re-election.",
      "source": {
       "name": "Wikipedia: 2026 Minnesota elections",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_elections#United_States_Senate"
@@ -914,7 +914,7 @@
     {
      "name": "Julie Blaha",
      "party": "Democratic",
-     "note": "Incumbent auditor Julie Blaha announced in September 2025 that she is not seeking re-election. They are in no race in this guide.",
+     "note": "Incumbent auditor Julie Blaha announced in September 2025 that she is not seeking re-election.",
      "source": {
       "name": "Wikipedia: 2026 Minnesota elections",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_elections#State_executive_elections"
@@ -1430,6 +1430,24 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/F000475.jpg"
      },
      "issuesUrl": "https://finstadforcongress.com/issues/",
+     "outside": {
+      "support": 0,
+      "oppose": 2005,
+      "groups": [
+       {
+        "name": "TAKEACTION MN FEDERAL FUND",
+        "support": 0,
+        "oppose": 1199
+       },
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 806
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2MN01223&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -1505,24 +1523,6 @@
       "seat": "U.S. House · MN-1",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 0,
-      "oppose": 2005,
-      "groups": [
-       {
-        "name": "TAKEACTION MN FEDERAL FUND",
-        "support": 0,
-        "oppose": 1199
-       },
-       {
-        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
-        "support": 0,
-        "oppose": 806
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2MN01223&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -1592,6 +1592,34 @@
       "link": "https://commons.wikimedia.org/wiki/File:Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg/500px-Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
+     "outside": {
+      "support": 405404,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "MEDICARE FOR ALL",
+        "support": 200000,
+        "oppose": 0
+       },
+       {
+        "name": "CONGRESSIONAL PROGRESSIVE CAUCUS PAC",
+        "support": 144000,
+        "oppose": 0
+       },
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 61394,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN02230&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -1650,34 +1678,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Minnesota#District_2"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 405404,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "MEDICARE FOR ALL",
-        "support": 200000,
-        "oppose": 0
-       },
-       {
-        "name": "CONGRESSIONAL PROGRESSIVE CAUCUS PAC",
-        "support": 144000,
-        "oppose": 0
-       },
-       {
-        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
-        "support": 61394,
-        "oppose": 0
-       },
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN02230&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1978,6 +1978,19 @@
       "link": "https://bioguide.congress.gov/search/bio/M001143",
       "from": "https://unitedstates.github.io/images/congress/450x550/M001143.jpg"
      },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN04049&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -2063,19 +2076,6 @@
       "seat": "U.S. House · MN-4",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 10,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN04049&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2201,6 +2201,34 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/O000173.jpg"
      },
      "issuesUrl": "https://ilhanomar.com/visions/",
+     "outside": {
+      "support": 3794,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 3699,
+        "oppose": 0
+       },
+       {
+        "name": "TAKEACTION MN FEDERAL FUND",
+        "support": 48,
+        "oppose": 0
+       },
+       {
+        "name": "THE PEOPLE UNITED PAC",
+        "support": 37,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN05239&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -2303,34 +2331,6 @@
       "seat": "U.S. House · MN-5",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 3794,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "WORKING FAMILIES PARTY PAC",
-        "support": 3699,
-        "oppose": 0
-       },
-       {
-        "name": "TAKEACTION MN FEDERAL FUND",
-        "support": 48,
-        "oppose": 0
-       },
-       {
-        "name": "THE PEOPLE UNITED PAC",
-        "support": 37,
-        "oppose": 0
-       },
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN05239&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2532,6 +2532,19 @@
       "link": "https://bioguide.congress.gov/search/bio/E000294",
       "from": "https://unitedstates.github.io/images/congress/450x550/E000294.jpg"
      },
+     "outside": {
+      "support": 0,
+      "oppose": 547,
+      "groups": [
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 547
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MN06087&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -2608,19 +2621,6 @@
       "seat": "U.S. House · MN-6",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 0,
-      "oppose": 547,
-      "groups": [
-       {
-        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
-        "support": 0,
-        "oppose": 547
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MN06087&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2735,6 +2735,19 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/F000470.jpg"
      },
      "issuesUrl": "https://www.fischbachforcongress.com/issues",
+     "outside": {
+      "support": 0,
+      "oppose": 171,
+      "groups": [
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 171
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN07091&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -2811,19 +2824,6 @@
       "seat": "U.S. House · MN-7",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 0,
-      "oppose": 171,
-      "groups": [
-       {
-        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
-        "support": 0,
-        "oppose": 171
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN07091&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2943,6 +2943,19 @@
       "link": "https://bioguide.congress.gov/search/bio/S001212",
       "from": "https://unitedstates.github.io/images/congress/450x550/S001212.jpg"
      },
+     "outside": {
+      "support": 0,
+      "oppose": 554,
+      "groups": [
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 554
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN08043&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -3018,19 +3031,6 @@
       "seat": "U.S. House · MN-8",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 0,
-      "oppose": 554,
-      "groups": [
-       {
-        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
-        "support": 0,
-        "oppose": 554
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN08043&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -10323,8 +10323,7 @@
       "name": "Wikipedia: 2026 Minnesota House of Representatives election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_House_of_Representatives_election"
      },
-     "asOf": "2026-10-25",
-     "ballot": 1
+     "asOf": "2026-10-25"
     }
    ]
   },
@@ -12806,9 +12805,9 @@
      },
      "photo": {
       "file": "kyb-photos/minnesota/patricia-mueller-sldl-23b.jpg",
-      "credit": "Office of Governor Tim Walz & Lt. Governor Peggy Flanagan · Public domain · Wikimedia Commons",
-      "link": "https://commons.wikimedia.org/wiki/File:Patricia_Mueller_State_of_the_State_2025.jpg",
-      "from": "https://upload.wikimedia.org/wikipedia/commons/a/af/Patricia_Mueller_State_of_the_State_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      "credit": "Minnesota Legislature",
+      "link": "https://www.leg.mn.gov/",
+      "from": "https://www.house.mn.gov/hinfo/memberimgls94/23B.gif?v=112221"
      },
      "issuesUrl": "https://www.muellerforminnesota.com/positions.html"
     }
@@ -13260,8 +13259,7 @@
       "name": "Wikipedia: 2026 Minnesota House of Representatives election",
       "url": "https://en.wikipedia.org/wiki/2026_Minnesota_House_of_Representatives_election"
      },
-     "asOf": "2026-10-25",
-     "ballot": 2
+     "asOf": "2026-10-25"
     }
    ]
   },
@@ -14865,14 +14863,16 @@
      "social": {
       "facebook": "https://www.facebook.com/kariformn/",
       "instagram": "https://www.instagram.com/kariformn/",
-      "linkedin": "https://www.linkedin.com/in/kari-rehrauer-b734741a3/"
+      "linkedin": "https://www.linkedin.com/in/kari-rehrauer-b734741a3/",
+      "bluesky": "https://bsky.app/profile/rehrauer.bsky.social"
      },
      "photo": {
       "file": "kyb-photos/minnesota/kari-rehrauer-sldl-35b.jpg",
       "credit": "Minnesota Legislature",
       "link": "https://www.leg.mn.gov/",
       "from": "https://www.house.mn.gov/hinfo/memberimgls94/35B.gif?v=112221"
-     }
+     },
+     "issuesUrl": "https://kariformn.com/priorities/"
     },
     {
      "ballot": 2,
@@ -17026,9 +17026,9 @@
      },
      "photo": {
       "file": "kyb-photos/minnesota/lucille-rehm-sldl-48b.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Lucille_Rehm",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Lucy_Rehm.gif"
+      "credit": "Minnesota Legislature",
+      "link": "https://www.leg.mn.gov/",
+      "from": "https://www.house.mn.gov/hinfo/memberimgls94/48B.gif?v=112221"
      },
      "issuesUrl": "https://www.lucyrehm.com/priorities"
     },
@@ -22635,6 +22635,18 @@
  ],
  "news": [
   {
+   "at": "2026-10-25T15:01:37.000Z",
+   "title": "Minnesota governor's race: Parents of slain Annunciation student endorse Klobuchar and say Demuth ‘lied to us’",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOZm5QS0RPQjNjOTQ2WjFGTVlWQXhIbUt1aEtabzFQazJOcUY4b2hURHI2b2dWVW5IQUZyZUp2ZllGWGQxTDUtNHp6aVFjcFlzLVh4a0xmYXgxV1JOZzRfZG5XakVsa2FMWEtqWVB3b1prX0IxMldGLVI3MGxvczl5aFlGZUdtUFk4MXJfaTBRQ0lIUQ?oc=5",
+   "source": "Lodinews.com"
+  },
+  {
+   "at": "2026-10-25T12:00:21.000Z",
+   "title": "Minnesota Midterm Elections 2026: Key Races, Candidates and Past Results",
+   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9tcm9zOTJpaDhaUmRNYzJwNFRudHdjd05icGVNNmJjLTUyYVBuWFZoTm5jNDI0Um1XX1dxS3NvbFVnaU1mR0JPaDJNNUtpS1lURjQ1X2FrZ1M5UXY4eEVhLWVhR2tXN0FlQXUySjlLbXp1Nm8?oc=5",
+   "source": "NBC News"
+  },
+  {
    "at": "2026-10-25T03:48:13.000Z",
    "title": "Bernie Sanders returns to Minnesota to stump for Flanagan and Ellison",
    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPUnc4N3J5M3JOVXdZaWt1clNxLTdORkFCYTZGQW9wUzJIekppVlpjaHVldF9VdHI4M01UTEVRbHVCdXp3MXVOdi1uTTUwSnJQR2NfUXNpN3IzbUw4emZDYkNCcVdYVk45Z1NfdU1Uak02MHZMdWtxRjFuUmxjamd6SlJidXRYRXNKRVJwT0FmcGt0V1VFQ1Q2M2luZTZMdExMTVpFZ0hn?oc=5",
@@ -22643,14 +22655,8 @@
   {
    "at": "2026-10-25T01:49:28.000Z",
    "title": "Election 2026 Minnesota Senate",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQT3oyRlF2X3VueU9Db01GcXFhYWdZQ190UUxJZGhHWGRpbWlmMms3YWVGRnRCRG56aWFOTnkzZFphRGpJWDZJNWNrNTFHTGVZN2htUGVuOXRaTVFZYTZEclZEMWpQUzlvaVExQlV4Y0VxZzJpSVpzaEVhX3NfWTBCaFRTR2REUWlvQXBlSFR4UXR4d08yTVg2cWdIY01USFN3c1N3aEkwZUhnYllM?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQdWtydWVSVFM2ZVZIZVJ5bVkyQi1sdzZ3SE9Uc3JEZ0VBZDJ4clRITzV5S19tWGpWNVFKV0lUNWRuWmF0cUl1Rmt2UjcwZGhDYUNTRjlETHd4U2RaUjdBNGtHS1BxRHJoU0E1TU82ZHNnUmY3Tl9RNGRpelRsWHA2WThFb1JmNk13RVBNc2RsMmJtMjZ2UWp6Nm1oS0J2YkRkNjVEY0szeTZoM2hj?oc=5",
    "source": "The Herald Journal"
-  },
-  {
-   "at": "2026-10-25T00:00:21.000Z",
-   "title": "Minnesota Midterm Elections 2026: Key Races, Candidates and Past Results",
-   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9tcm9zOTJpaDhaUmRNYzJwNFRudHdjd05icGVNNmJjLTUyYVBuWFZoTm5jNDI0Um1XX1dxS3NvbFVnaU1mR0JPaDJNNUtpS1lURjQ1X2FrZ1M5UXY4eEVhLWVhR2tXN0FlQXUySjlLbXp1Nm8?oc=5",
-   "source": "NBC News"
   },
   {
    "at": "2026-10-24T19:30:29.000Z",
@@ -22663,6 +22669,13 @@
    "title": "US midterm elections 2026: Minnesota heads to polls in the shadow of Minneapolis ICE shootings",
    "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNY2V6WTM2cmo5eXNCN2dwcEJFNGY1dlVwallEQWF0UGw0X0xmNV9Db29YbUs1R1RicW5UbF9FOU9uTm1Nc1RQWV9yTERDdE9LRG5UVXVRUVF6amY1WGZUSVZtaGVOM0hydFloWHlRdlF4ajZkYU1JT0YzT0h2WUNHR0xOa21STld1dzFJQndnZ2tkaTFpUVl3MWIydkRBVUE3UnkzemRkREJZbVhBMkZHQnZVZEo5cW45V3BBNGlmdjl6eGpad2hRVXJyM01SclFjTDVwTw?oc=5",
    "source": "WION"
+  },
+  {
+   "at": "2026-10-24T17:40:02.000Z",
+   "title": "Minnesota 2020 U.S. Senate Race Organizations",
+   "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQMktfRVNrVngzWXZlbXFZeFd6SHJIM3dSOUd0VnJaQkFoaEJKQ2ZwUU1KMkF2ei1ORXpCWUg4NnFmNUJRZ0YyR3ktdTRCXzB1am44akRiM3RDUGx1Wk1xN2JkVENBclBxNUx6NzFubWNJcGt0eVAwUG9UQS1UczFzTEljVmtHQ3hjYWFDMXNJYmN4cXFFSVNKVDBob3R6YVNFcWwzblIzZ25vLUE2RVVVX3J5UEdQSmZaVjJ1TC1NM2tGQV94LURDbkhKOE1HS0xXNEZqZVpn?oc=5",
+   "source": "OpenSecrets",
+   "topic": "money"
   },
   {
    "at": "2026-10-24T14:15:47.000Z",
@@ -22712,6 +22725,13 @@
    "title": "Here's what to know about Minnesota races in the 2026 midterm election",
    "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQbDhybndmaDZZSXVWY1hXbnc2OHo4RlNpaHBneFFUcU9FZ01aNXdRWU1UNWU2RzhhMXd5TlJSczZ1RXV6VlRvMW9LdF9lUV9Na1NIeWswekhTdUhrdElOMVR5VEtxWUkzOG40bmFnaktjdklJeHRleU1CdzM2QUhjN3J6T2ZlRHB0cHVBN2hsMEtva004MXFYdE4wd0JCRWpwekVqMEtlLU9RYnF1dThTZGlYcXcydDBkRHVlQmhYc0pvdkRUZ29tVzdZTl9nbnBmUGdIX25RNlNRcFR3Q2dtZ0tQS3U5OFlPT2NHNW1COW4?oc=5",
    "source": "St. Cloud Times"
+  },
+  {
+   "at": "2026-10-23T20:52:14.000Z",
+   "title": "How much are candidates spending for the 2026 midterm?",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNS2s2b0xnZ2tLOVk4Yk90YVNjZGstel96R21NUnJDTThsWm1PdmJPWHN2anBiTEF4Q25MMHdtS2JRamE0czFqV2IxcEx5U21SQU1rQjhaY1g3RDVCbU5NQkFfM1pRek1VaWFVdnRzcVMxMkkwNkpabjdSeFduWGVtQTN6V1liWV8zRVI2MVMzUmR3QlhhRWY1aV9Edzh0VFRUVUE?oc=5",
+   "source": "USAFacts",
+   "topic": "money"
   },
   {
    "at": "2026-10-23T20:41:28.000Z",
@@ -22830,12 +22850,6 @@
    "source": "MPR News"
   },
   {
-   "at": "2026-10-23T00:17:00.000Z",
-   "title": "Minnesota governor's race: Parents of slain Annunciation student endorse Klobuchar and say Demuth ‘lied to us’",
-   "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxQa2RtZzdLUTNaVnYtTF9JWnZXTWdPZEZyUzBMUktrdVZ4UkFBM0JRZHhaVms4MDNMdVdRUlZHajVZeUR0bjVxYXhreFgxcDQyWTZ0QlJhaDVVVkdLX1BuZTUyNlQ1RGJHUVRIdGJBZkJPTjJ5UXhvem14dXp2V3puZjE1T0plUkVqQ2pEZUhBLW16bkxqTHByVGlDWVVTTkxNaElScktyLTNiTlV6eFZVTnFmcGVwQWJseE1OLU1oeUo2dUFhWTNLZDRNbmhxZ2FacktJTHpUM3dQOE5nTndZN2NuaUdFYmYzb1hhdXNoeFNnWmlJTUZQT3NPWUphLXYwbU5iQlB6MUhuZlZwRXROdHBjSDlENzhEUE1lNlJSOFfSAaYCQVVfeXFMTXF4RzhfcTVDckFsOGlwaGtnTUQzdWNkNk9wSEFkaXNFNkhrY3g2VjM0ZXEyNjUyZkV1RFlBYVRHeS1Gd0JBMno1dEo0N2IwRFlKeGpnOG14NEhUcFpXZ1Y5MGNwRkVpOFo4S3hiOEZMeGZzWlpZSTJIaWNYbUEwOVEyQzQxSXY4R1Q3MDJWenVzTlI4STBrOEprNU5wdERBb05XTFVsSDZkWU9hb2x1VEF6akt5NE9jbEVsYm50c2lhNzRYR0JQc0hwejdEcjJpbW91WEdvVkxUSnlrTnJuWlFzX2RuY2xRREFrNXhrS1hmZ0dKMnVtMlF2Tjd1RmI0TlU3ZWhzQ3JLQmJlRHpfaG9fNWxyNWhmdllsdlVDRURrNHJ4c0p3?oc=5",
-   "source": "Hanford Sentinel"
-  },
-  {
    "at": "2026-10-22T23:37:17.000Z",
    "title": "Southern Minnesota affordability, farm pressures tighten 1st District race",
    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0ycFRRWTlGdm9lakh0blJRcUhoYkpPemRWVW85RWJWbk1ERGxWX0dCM3VobzVTWlVMVGozSlhBQkp1emRGNC15alVfRmw1MXBFa05BX1hNQ3hMaTDSAWBBVV95cUxOaEtjV2x5bnJoZ2dhVG1ycDdvaG5YazNvRHBtZFl2TWNRY1p0R19vX01XVkRlVmlTYmxfWHh6QW03Y1ZmSTRpaG5qb0M3cTRyMFQ4aXBIMlBlU2dCQzBlVC0?oc=5",
@@ -22853,6 +22867,12 @@
    "title": "'Very few people will encounter issues': Voting rights expert on election monitors",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPci1vLW9JMGxjZUEwVGl1WFVaUkNhaDlQYkxfdDhRejZKaE5PNGs0TjVmalZ4Y19YN0V1RG1ZekJhNXhIYXFIQW95V3lncjlEODNfYVllRVRaOGxTN2RqVW1BMzFCYXdkRlpCZ25LMUNPeUdjMHNKU0d5YlJVQXhuWkVxcUFxeVNGcXB5ZkU4amFhSVBnc2szbDE1aEFjNXgzZUlrYm1VM2hWTkM4bWZ6MkxjUWdqTjk4UUZzVg?oc=5",
    "source": "MPR News"
+  },
+  {
+   "at": "2026-10-22T21:10:00.000Z",
+   "title": "Minnesota GOP Senate candidate Michele Tafoya on where she would break with Trump if elected",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNbEZJZVdyTnZtWll4UEpIT0xKNXhqajVsQ3AwejZLNnNnRGdXWXlEMkd3d2I3ZnhXTTJqTTlfeElHVW5pXzAzMzBuMVNlRzhjMTJyZUUyZDVDVHhLUmdVb3R1cGozQ19Zc0Q4X1p0SVJCdnFrRkVkZ2FFVDFBbXptbVJfV0swcmE2VTdUOE44dE04eWVRQ3hnS1cxMEx2NzZxM3RFYVlKYWg?oc=5",
+   "source": "CBS News"
   },
   {
    "at": "2026-10-22T19:22:37.000Z",
@@ -22934,6 +22954,12 @@
    "source": "Alpha News MN"
   },
   {
+   "at": "2026-10-22T11:53:24.000Z",
+   "title": "Minnesota gubernatorial candidates try to separate themselves from party leaders during final debate",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPX2NWTU1xdXBkVVhGUkp6Y2FVQnN6clR0dGlZVVY3UV85SFRNQTk3LUFsU3NXUkhob2pDSVVxR1JfWFpJQlJPOHNfQU8yWVNpMW5UaWZoaVBWTnktZGxoMnNoc2hkYzkxV25SN3V4NnBLOThBVU5tcXpNS1BUa1g0UnRBLUNjMUJNZFk2bmFnRmdCUDlVbDNoQ2JlM0cwSFg4d0RsRzhkUTFVMWh6T25RNWVwYzVaRWI3RjlGRjlRWTRCSThFeUNyMw?oc=5",
+   "source": "The Mighty 790 KFGO"
+  },
+  {
    "at": "2026-10-22T11:25:08.000Z",
    "title": "Cook Political Report shifts Minnesota US Senate race in favor of Republican",
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaXRtSHQ5UkNjaVl4U25FVGFfYkZOanpwOUFDSlBMYjJlQ25RaFVGck40TTE0UGpGbmszbTJoQnRsZVFtcG1ZQlhRZlJLNm5hOVZDSGkwaWR2ams3ZXVWdnZabzNyZ2ExSjk5dnpxQTd0WUR2dTFGRlZ2aVhPX3IwN2Nld0hCUnFUUElHX3ZNVlNNVVpDdmZVOGxzcHh2S2Z0?oc=5",
@@ -22975,30 +23001,6 @@
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQQlVhaWEzaDIxUzB2M1BJbWJ3Zm5zcmw2ZzlTZUpNY0VPd1FIUVhETUl5WDhSZmxsTVpOTkV3bVBRZUlqVFZ1eFM0MUxheEpIZ3JDQUdLZjdxdzl1ejdVV20ycEtxUVRJbElqaTFlVzlZODlOMF9SUGpoUmhjM2pxdHdJRUJlSE1uLTItSlNESnFjRWp1SXlRcGVfTVdpc1hkNzVScDRuSXNzaUM4QW0xQk9EemE?oc=5",
    "source": "MPR News",
    "topic": "money"
-  },
-  {
-   "at": "2026-10-22T03:38:00.000Z",
-   "title": "Minnesota gubernatorial candidates try to separate themselves from party leaders during final debate",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPQ0JRVDRFNkNxYlEyT1pwcmFUVkNYbjlheTR4Q1ZGVjhkcGVOTzNkVnlmbU1zX09IbUN1djVCTTNocEdPQ003NGlLUVdRRDd0bVNDeG1SbGduQWJCU2x3c0UxT0JyRTRwT0FBdlEtdHhCNzFJZEY5QWRNbERxWDdGZFJTZFktUDZYUFNQQnlqUE1HQQ?oc=5",
-   "source": "CBS News"
-  },
-  {
-   "at": "2026-10-22T03:11:26.000Z",
-   "title": "Klobuchar, Demuth tangle over what they’ve done in politics, what they would do as governor",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPVnZscU12ODlSZ2ZZQnBqdU5tRUFNSFhHMkt4ZUZfdXliTUt2V3hreG03R25rWlc5b1Q5TFZnQzZxdFBPT0ZVSm02ZThIRFZLeTFlZG1nX1FqV01Pa2xjT0ZYMC1vc0NKdHR6Z2d4SXhvdmFhWldrSGIwOWRqUC1QTEJtbmxnRERYWGJzMkxYWE1yR2k3ZU9WOUpCU0YzY2NkTHhKMEtORFlhUjBkT0xnVlA3RlJIYmdMelNSZDFNbVF1SFNxOHRr?oc=5",
-   "source": "MPR News"
-  },
-  {
-   "at": "2026-10-22T03:04:02.000Z",
-   "title": "Watch: Klobuchar, Demuth Minnesota governor debate",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQU051YUhhamRvQ1diMWRiMGlfLVFPVDZVeFN0VWhOcF96bFk3WEpzcllVVHM0clVvZFQwMTJ3cFp1RmZxSG5NT3JoRTRPLXNBUVF4UWlKQzVYLWVBMGpGa1VHSFZnRVBObEQtYlFpVVNISW12aXRjS1AySUpxRWFWUXc2YnM?oc=5",
-   "source": "FOX 9 Minneapolis-St. Paul"
-  },
-  {
-   "at": "2026-10-22T02:52:48.000Z",
-   "title": "'Fire every commissioner': Minnesota GOP nominee vows sweeping purge over fraud",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQWWpPY2dCTWZsZ0FkMmxVMlJBWTZUekdlTU5iRmpLSUtoWVNQNEd0cmtwVmkyMHdXNWFOVkNxdDJYYmJaMktWNmd0ZWFvLVVqMm1SenJfMll4X0M4R1c0TEpINjQyQl81SnQwbC1MQUVYN2trX3ZackJFbVpfOUJHdi1hWUh1SlNDRUJEZkRMazkyZEFH0gGaAUFVX3lxTE5MazI0YU56b25SQkt0VTVMNVM0bkwxaGpULTB5d1hqbm5VZTFUZmpEa1B6MjNBdHloX1JfX2xoQjhTbkYtYzk5U3Qwc01FSmtXWmZqQnhmam82NndzZFRzdm1JMEpLMUxjSWtxNEZHWkdCdVZTMnZFWkQxUm9WN25pc3JBR1JkOHhRSUMxYTB2MHdlN185b0R5R2c?oc=5",
-   "source": "Fox News"
   }
  ],
  "laws": [
