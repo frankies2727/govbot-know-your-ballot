@@ -1,6 +1,6 @@
 import { AtSign, Check, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, X, Youtube, type LucideIcon } from 'lucide-react';
 import { GOVBOT_LEGISLATION } from './hosts';
-import { memo, useEffect, useRef, useState, type ReactNode } from 'react';
+import { memo, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { BarRatings } from './BarRatings';
 import { Face } from './Face';
 import { useReadOnly, useStateConfig } from './state';
@@ -581,33 +581,35 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
   const anyRecord = race.candidates.some((c) => c.record || isIncumbent(race, c));
   const scroller = useRef<HTMLDivElement>(null);
   return (
-    <Dialog title={`Compare: ${race.office}`} onClose={onClose}>
+    <Dialog title={`Compare: ${race.office}`} onClose={onClose} wide>
       {race.candidates.length > 2 && (
-        <div className="mb-3 flex items-center justify-between gap-3 text-sm font-bold">
+        <div className="mb-3 flex shrink-0 items-center justify-between gap-3 text-sm font-bold">
           <span>{race.candidates.length} candidates side by side. Scroll sideways to see everyone.</span>
           <span className="flex shrink-0 gap-1.5">
-            <button type="button" onClick={() => scroller.current?.scrollBy({ left: -260, behavior: 'smooth' })} aria-label="Scroll left" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronLeft className="w-4 h-4" aria-hidden="true" /></button>
-            <button type="button" onClick={() => scroller.current?.scrollBy({ left: 260, behavior: 'smooth' })} aria-label="Scroll right" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
+            <button type="button" onClick={() => scroller.current?.scrollBy({ left: -300, behavior: 'smooth' })} aria-label="Scroll left" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronLeft className="w-4 h-4" aria-hidden="true" /></button>
+            <button type="button" onClick={() => scroller.current?.scrollBy({ left: 300, behavior: 'smooth' })} aria-label="Scroll right" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
           </span>
         </div>
       )}
-      <div ref={scroller} className="kyb-hscroll -mx-6 px-6 pb-3">
-        <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${race.candidates.length}, minmax(170px, 1fr))` }}>
+      <div ref={scroller} className="kyb-hscroll kyb-vscroll min-h-0 flex-1 -mx-6 px-6 pb-3">
+        <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${race.candidates.length}, minmax(260px, 1fr))` }}>
           {race.candidates.map((c) => {
             const on = picked.includes(c.ballot);
             return (
-              <div key={c.ballot} className="flex flex-col gap-3 rounded-2xl border-2 bg-[var(--gb-surface)] p-4" style={{ borderColor: on ? color : 'var(--gb-border)' }}>
-                <div className="flex items-center gap-3">
+              // The photo-and-name head stays put while the column scrolls; the head and the body each carry their share of the outline.
+              <div key={c.ballot} className="flex flex-col" style={{ '--cc': on ? color : 'var(--gb-text)' } as CSSProperties}>
+                <div className="sticky top-0 z-10 flex items-center gap-3 rounded-t-2xl border-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4">
                   <Face c={c} className="w-14 h-14 text-lg" />
                   <div className="min-w-0 space-y-1">
                     <p className="text-lg font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
                     <div className="flex flex-wrap gap-1.5">
+                      {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
                       <Badge>{c.party}</Badge>
-                      {numbered && <Badge>#{c.ballot}</Badge>}
                       {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
                     </div>
                   </div>
                 </div>
+                <div className="flex flex-1 flex-col gap-3 rounded-b-2xl border-x-2 border-b-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4 pt-3">
                 <CompareRow label="Campaign money">
                   {anyMoney && (c.money ? <MoneyBars c={c} max={max} /> : <p>No campaign reports found.</p>)}
                   {!anyMoney && <p>No reports found for anyone in this race.</p>}
@@ -659,12 +661,13 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
                     {on ? '✓ On My Ballot' : 'Pick'}
                   </button>
                 )}
+                </div>
               </div>
             );
           })}
         </div>
       </div>
-      <p className="mt-4 text-[15px] text-[var(--gb-text)]">{compareNote} Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.</p>
+      <p className="mt-4 shrink-0 text-[15px] text-[var(--gb-text)]">{compareNote} Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.</p>
     </Dialog>
   );
 }

@@ -146,6 +146,7 @@
 /* The compare table scrolls sideways; its scrollbar is always drawn (overlay scrollbars that
    only appear while scrolling hide the fact that there is more to the right). */
 .kyb-hscroll { overflow-x: auto; overflow-y: hidden; scrollbar-width: auto; scrollbar-color: var(--gb-text) var(--kyb-chip); }
-.kyb-hscroll::-webkit-scrollbar { height: 12px; }
+.kyb-hscroll.kyb-vscroll { overflow-y: auto; } /* Compare scrolls both ways, so its candidate heads can stick */
+.kyb-hscroll::-webkit-scrollbar { height: 12px; width: 12px; }
 .kyb-hscroll::-webkit-scrollbar-track { background: var(--kyb-chip); border-radius: 999px; }
 .kyb-hscroll::-webkit-scrollbar-thumb { background: var(--gb-text); border-radius: 999px; border: 3px solid var(--kyb-chip); }
