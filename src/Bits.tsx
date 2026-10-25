@@ -1,4 +1,4 @@
-import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, TriangleAlert, X } from 'lucide-react';
+import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, Scale, TriangleAlert, X } from 'lucide-react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
@@ -368,6 +368,8 @@ export interface SectionCard { id: string; title: string; emoji: string; color: 
 
 /** A race's office without its district: "State Senator, 27th District" → "State Senator". */
 const officeOf = (title: string) => title.replace(/,.*$/, '').replace(/\s*\(.*$/, '').trim();
+/** A district as a number: "Congressional District 1" → "#1", "School Subdistrict 1A" → "#1A"; anything without a number stays as is. */
+const districtNo = (sub: string) => { const m = sub.match(/(\d+[A-Za-z]?)\s*$/); return m ? `#${m[1]}` : sub; };
 
 /**
  * One section as an open panel: its people as a face row, then its contests
@@ -377,9 +379,9 @@ const officeOf = (title: string) => title.replace(/,.*$/, '').replace(/\s*\(.*$/
  * show their wording. The list scrolls inside the card so a 148-race section
  * stays one card tall.
  */
-export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
+export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   const list = useRef<HTMLUListElement>(null);
-  const faces: StripPerson[] = card.items.flatMap((it) => (it.race?.candidates ?? []).map((c) => ({ ...c, note: it.sub, key: it.id })));
+  const faces: StripPerson[] = card.items.flatMap((it) => (it.race?.candidates ?? []).map((c) => ({ ...c, note: districtNo(it.sub), key: it.id })));
   // A pick in the row opens that candidate's district below and scrolls to it.
   const jump = (p: StripPerson) => {
     const el = list.current?.querySelector<HTMLDetailsElement>(`details[data-race="${CSS.escape(p.key ?? '')}"]`);
@@ -421,7 +423,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: strin
         </span>
         <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
       </div>
-      {faces.length > 0 && <FaceStrip people={faces} names max={400} size="w-9 h-9 text-xs" onPick={jump} />}
+      {faces.length > 0 && <FaceStrip people={faces} names max={400} size="w-9 h-9 text-xs" color={card.color} onPick={jump} />}
       <ul ref={list} className="kyb-scroll-bar max-h-[480px] overflow-y-auto rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
         {groups.map((g) => (
           <li key={g.key}>
@@ -443,7 +445,14 @@ export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: strin
                     <div className="px-3 pb-3 space-y-2">
                       {it.why && <p className="text-[13px] leading-snug"><span className="font-bold">Why it matters: </span>{it.why}</p>}
                       {candidates(it)}
-                      <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
+                        {it.race!.candidates.length > 1 && (
+                          <button type="button" onClick={() => onCompare(it.race!)} className="inline-flex items-center gap-1.5 min-h-[36px] rounded-lg border-2 border-[var(--gb-text)] px-2.5 text-[13px] font-bold hover:bg-[var(--kyb-chip)]">
+                            <Scale className="w-3.5 h-3.5" aria-hidden="true" /> Compare
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </details>
                 </li>
@@ -479,7 +488,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: strin
  * colours: every contest, what it is, why it matters and who's running, on
  * the page already; a candidate opens their details.
  */
-export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
+export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onCompare, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   if (!cards.length) return null;
   return (
     <section aria-labelledby="kyb-more" className="space-y-4">
@@ -488,7 +497,7 @@ export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump
         <p className="text-[15px]">{intro}</p>
       </div>
       <ul className="grid gap-3 sm:grid-cols-2 items-start">
-        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onJump={onJump} />)}
+        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onJump} />)}
       </ul>
     </section>
   );
@@ -499,23 +508,23 @@ const STILL = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-m
 
 /**
  * Everyone in a race (or a whole section) as a row of faces the reader can
- * scroll sideways (swipe, trackpad, the ‹ › buttons) that also drifts along
- * on its own when it doesn't fit, looping like a ticker: the row is drawn
- * twice and wraps at one copy's width. The drift pauses while hovered and
- * for a few seconds after the reader scrolls it themselves, runs only while
- * on screen, and is off under reduced motion. With `names`, each face
+ * scroll sideways (swipe, trackpad, the ‹ › buttons, a scrollbar in the
+ * card's colour that is always drawn) and that also drifts along on its own
+ * when it doesn't fit, to the end and back. The drift pauses while hovered
+ * and for a few seconds after the reader scrolls it themselves, runs only
+ * while on screen, and is off under reduced motion. With `names`, each face
  * carries the name and party; without, just faces, capped at `max` with a
  * "+N" at the end.
  */
 export interface StripPerson extends Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy'> { /** A line under the party: their district. */ note?: string; /** What a pick means to the caller (a race id, say). */ key?: string }
 
-export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm', info = false, onPick }: { people: StripPerson[]; names?: boolean; max?: number; size?: string; /** An ⓘ badge on each face: there's more behind it. */ info?: boolean; /** A tap on a person (not a scroll or a drag). */ onPick?: (p: StripPerson) => void }) {
+export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm', info = false, color, onPick }: { people: StripPerson[]; names?: boolean; max?: number; size?: string; /** An ⓘ badge on each face: there's more behind it. */ info?: boolean; /** The scrollbar's colour (the card's accent). */ color?: string; /** A tap on a person (not a scroll or a drag). */ onPick?: (p: StripPerson) => void }) {
   const down = useRef<{ x: number; y: number } | null>(null);
   const box = useRef<HTMLDivElement>(null);
   const first = useRef<HTMLUListElement>(null);
-  const copy = useRef(0);            // one copy's width + gap, the loop length
   const hold = useRef(0);            // drift paused until this time (ms)
   const pos = useRef(0);             // the drift's own position: scrollLeft only holds whole pixels
+  const dir = useRef(1);             // the drift's direction: to the end, then back
   const [loop, setLoop] = useState(false);
   const [on, setOn] = useState(false);
   const shown = people.slice(0, max);
@@ -525,7 +534,7 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
   useLayoutEffect(() => {
     const b = box.current, f = first.current;
     if (!b || !f) return;
-    const fit = () => { copy.current = f.scrollWidth + gap; setLoop(f.scrollWidth > b.clientWidth + 1); };
+    const fit = () => setLoop(f.scrollWidth > b.clientWidth + 1);
     fit();
     const ro = new ResizeObserver(fit); ro.observe(b);
     return () => ro.disconnect();
@@ -548,8 +557,11 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
       if (hover || Date.now() < hold.current || document.hidden) return;
       // The reader scrolled it: carry on from where they left it.
       if (Math.abs(b.scrollLeft - Math.round(pos.current)) > 1) pos.current = b.scrollLeft;
-      pos.current += 28 * dt;
-      if (pos.current >= copy.current) pos.current -= copy.current;
+      const end = b.scrollWidth - b.clientWidth;
+      pos.current += dir.current * 28 * dt;
+      // At either end, rest a moment, then head back the other way.
+      if (pos.current >= end) { pos.current = end; dir.current = -1; hold.current = Date.now() + 1500; }
+      if (pos.current <= 0) { pos.current = 0; dir.current = 1; hold.current = Date.now() + 1500; }
       b.scrollLeft = Math.round(pos.current);
     };
     const over = () => { hover = true; }, out = () => { hover = false; };
@@ -575,18 +587,18 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
       {info && <Info className="absolute -right-0.5 -bottom-0.5 w-4 h-4 rounded-full bg-[var(--gb-surface)] text-[var(--gb-link)]" aria-hidden="true" />}
     </span>
     {names && <>
-      <span className="mt-1 block w-full truncate text-[12px] font-bold leading-tight">{c.name.split(' & ')[0]}</span>
-      <span className="block w-full truncate text-[10.5px] leading-tight">{c.nominatedBy ?? c.party}</span>
-      {c.note && <span className="block w-full truncate text-[10.5px] leading-tight">{c.note}</span>}
+      <span className="mt-1 block w-full text-[12.5px] font-bold leading-tight line-clamp-2 text-[var(--gb-text)]">{c.name.split(' & ')[0]}</span>
+      <span className="block w-full truncate text-[11px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>
+      {c.note && <span className="block w-full truncate text-[11px] font-bold leading-tight text-[var(--gb-text)]">{c.note}</span>}
     </>}
   </>);
   const cell = names ? 'w-full flex flex-col items-center text-center' : 'flex';
-  const row = (hidden: boolean, ref?: typeof first) => (
-    <ul ref={ref} aria-hidden={hidden || undefined} className="flex shrink-0" style={{ gap }}>
+  const row = (ref?: typeof first) => (
+    <ul ref={ref} className="flex shrink-0" style={{ gap }}>
       {shown.map((c, i) => (
         <li key={`${c.name}-${i}`} className={names ? 'w-[88px] flex' : ''}>
           {onPick
-            ? <button type="button" onClick={pick(c)} tabIndex={hidden ? -1 : 0} aria-label={names ? undefined : `${c.name}: more about them`} className={`${cell} rounded-lg ${names ? 'px-0.5 py-1' : ''} hover:bg-[var(--kyb-chip)]`}>{person(c)}</button>
+            ? <button type="button" onClick={pick(c)} aria-label={names ? undefined : `${c.name}: more about them`} className={`${cell} rounded-lg ${names ? 'px-0.5 py-1' : ''} hover:bg-[var(--kyb-chip)]`}>{person(c)}</button>
             : <span className={cell}>{person(c)}</span>}
         </li>
       ))}
@@ -595,11 +607,10 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
   );
   return (
     <div className="kyb-strip-wrap relative">
-      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
+      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} style={color ? { ['--scroll' as string]: color } : undefined} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
         onPointerDown={onPick ? (e) => { down.current = { x: e.clientX, y: e.clientY }; } : undefined}>
         <div className="kyb-strip-in flex" style={{ gap }}>
-          {row(false, first)}
-          {loop && row(true)}
+          {row(first)}
         </div>
       </div>
       {loop && <>

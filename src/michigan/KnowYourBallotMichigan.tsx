@@ -641,10 +641,10 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
       <Headliners races={HEADLINERS} sections={SECTIONS} overline="On every Michigan ballot" heading="The statewide races"
         intro={`These ${HEADLINERS.length} contests are on every Michigan ballot. Tap a face to meet a candidate, or Compare to see them side by side; your address adds your own U.S. House, state Senate, state House and Court of Appeals races from the ${byDistrict} by district.`}
         onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare}>
-        <SectionPanel card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+        <SectionPanel card={PROPOSALS_CARD} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
       </Headliners>
 
-      <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+      <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
 
       <div className="pt-2 space-y-8">
         <Sources />

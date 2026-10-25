@@ -114,13 +114,17 @@
    an animation per element. */
 .kyb-theme-switch *, .kyb-theme-switch *::before, .kyb-theme-switch *::after { transition: none !important; }
 
-/* A row of candidates' faces the reader can scroll sideways (FaceStrip): the scrollbar is
-   hidden, the ‹ › buttons sit at the ends, and when the row loops it fades at the edges.
-   The drift itself is scrollLeft in a frame loop (Bits.tsx), so a swipe or a wheel scrolls
-   the same row the drift moves. contain: inline-size keeps the row's own width from
-   widening its card (a phone's single grid column would otherwise grow to fit every face). */
-.kyb-strip { overflow-x: auto; overflow-y: hidden; min-width: 0; contain: inline-size; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
-.kyb-strip::-webkit-scrollbar { display: none; }
+/* A row of candidates' faces the reader can scroll sideways (FaceStrip): a thin scrollbar in
+   the card's colour (--scroll) that is always drawn, the ‹ › buttons at the ends, and a fade
+   at the edges when the row overflows. The drift itself is scrollLeft in a frame loop
+   (Bits.tsx), so a swipe or a wheel scrolls the same row the drift moves. contain: inline-size
+   keeps the row's own width from widening its card (a phone's single grid column would
+   otherwise grow to fit every face). */
+.kyb-strip { overflow-x: auto; overflow-y: hidden; min-width: 0; contain: inline-size; padding-bottom: 6px; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+  scrollbar-width: thin; scrollbar-color: var(--scroll, var(--gb-text)) var(--kyb-chip); }
+.kyb-strip::-webkit-scrollbar { height: 8px; }
+.kyb-strip::-webkit-scrollbar-track { background: var(--kyb-chip); border-radius: 999px; }
+.kyb-strip::-webkit-scrollbar-thumb { background: var(--scroll, var(--gb-text)); border-radius: 999px; }
 .kyb-strip:focus-visible { outline: 2px solid var(--gb-link); outline-offset: 2px; border-radius: 8px; }
 .kyb-strip.is-loop { -webkit-mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); }
 .kyb-strip-in { width: max-content; }
@@ -137,3 +141,11 @@
 /* The district a face in the row jumped to lights up for a moment. */
 @keyframes kyb-flash { 0% { background: color-mix(in srgb, var(--gb-primary) 28%, transparent); } 100% { background: transparent; } }
 .kyb-flash { animation: kyb-flash 1.6s ease-out; }
+
+
+/* The compare table scrolls sideways; its scrollbar is always drawn (overlay scrollbars that
+   only appear while scrolling hide the fact that there is more to the right). */
+.kyb-hscroll { overflow-x: auto; overflow-y: hidden; scrollbar-width: auto; scrollbar-color: var(--gb-text) var(--kyb-chip); }
+.kyb-hscroll::-webkit-scrollbar { height: 12px; }
+.kyb-hscroll::-webkit-scrollbar-track { background: var(--kyb-chip); border-radius: 999px; }
+.kyb-hscroll::-webkit-scrollbar-thumb { background: var(--gb-text); border-radius: 999px; border: 3px solid var(--kyb-chip); }
