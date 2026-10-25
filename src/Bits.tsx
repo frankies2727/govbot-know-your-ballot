@@ -1,4 +1,4 @@
-import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, TriangleAlert, X } from 'lucide-react';
+import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Flag, Github, Info, ListChecks, Loader2, MapPin, Scale, TriangleAlert, X } from 'lucide-react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
@@ -368,6 +368,8 @@ export interface SectionCard { id: string; title: string; emoji: string; color: 
 
 /** A race's office without its district: "State Senator, 27th District" → "State Senator". */
 const officeOf = (title: string) => title.replace(/,.*$/, '').replace(/\s*\(.*$/, '').trim();
+/** A district as a number: "Congressional District 1" → "#1", "School Subdistrict 1A" → "#1A"; anything without a number stays as is. */
+const districtNo = (sub: string) => { const m = sub.match(/(\d+[A-Za-z]?)\s*$/); return m ? `#${m[1]}` : sub; };
 
 /**
  * One section as an open panel: its people as a face row, then its contests
@@ -377,9 +379,9 @@ const officeOf = (title: string) => title.replace(/,.*$/, '').replace(/\s*\(.*$/
  * show their wording. The list scrolls inside the card so a 148-race section
  * stays one card tall.
  */
-export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
+export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   const list = useRef<HTMLUListElement>(null);
-  const faces: StripPerson[] = card.items.flatMap((it) => (it.race?.candidates ?? []).map((c) => ({ ...c, note: it.sub, key: it.id })));
+  const faces: StripPerson[] = card.items.flatMap((it) => (it.race?.candidates ?? []).map((c) => ({ ...c, note: districtNo(it.sub), key: it.id })));
   // A pick in the row opens that candidate's district below and scrolls to it.
   const jump = (p: StripPerson) => {
     const el = list.current?.querySelector<HTMLDetailsElement>(`details[data-race="${CSS.escape(p.key ?? '')}"]`);
@@ -443,7 +445,14 @@ export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: strin
                     <div className="px-3 pb-3 space-y-2">
                       {it.why && <p className="text-[13px] leading-snug"><span className="font-bold">Why it matters: </span>{it.why}</p>}
                       {candidates(it)}
-                      <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
+                        {it.race!.candidates.length > 1 && (
+                          <button type="button" onClick={() => onCompare(it.race!)} className="inline-flex items-center gap-1.5 min-h-[36px] rounded-lg border-2 border-[var(--gb-text)] px-2.5 text-[13px] font-bold hover:bg-[var(--kyb-chip)]">
+                            <Scale className="w-3.5 h-3.5" aria-hidden="true" /> Compare
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </details>
                 </li>
@@ -479,7 +488,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onJump }: { key?: strin
  * colours: every contest, what it is, why it matters and who's running, on
  * the page already; a candidate opens their details.
  */
-export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
+export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onCompare, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   if (!cards.length) return null;
   return (
     <section aria-labelledby="kyb-more" className="space-y-4">
@@ -488,7 +497,7 @@ export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onJump
         <p className="text-[15px]">{intro}</p>
       </div>
       <ul className="grid gap-3 sm:grid-cols-2 items-start">
-        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onJump={onJump} />)}
+        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onJump} />)}
       </ul>
     </section>
   );
@@ -575,9 +584,9 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
       {info && <Info className="absolute -right-0.5 -bottom-0.5 w-4 h-4 rounded-full bg-[var(--gb-surface)] text-[var(--gb-link)]" aria-hidden="true" />}
     </span>
     {names && <>
-      <span className="mt-1 block w-full truncate text-[12px] font-bold leading-tight">{c.name.split(' & ')[0]}</span>
-      <span className="block w-full truncate text-[10.5px] leading-tight">{c.nominatedBy ?? c.party}</span>
-      {c.note && <span className="block w-full truncate text-[10.5px] leading-tight">{c.note}</span>}
+      <span className="mt-1 block w-full text-[12.5px] font-bold leading-tight line-clamp-2 text-[var(--gb-text)]">{c.name.split(' & ')[0]}</span>
+      <span className="block w-full truncate text-[11px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>
+      {c.note && <span className="block w-full truncate text-[11px] font-bold leading-tight text-[var(--gb-text)]">{c.note}</span>}
     </>}
   </>);
   const cell = names ? 'w-full flex flex-col items-center text-center' : 'flex';

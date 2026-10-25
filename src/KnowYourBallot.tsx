@@ -813,7 +813,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
           intro={`These ${STATEWIDE.length} contests are on every ballot in Illinois. Tap a face to meet a candidate, or Compare to see them side by side; your address adds Congress, Springfield, Cook County, the judges and your ballot questions.`}
           onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} />
         <div className="mt-10">
-          <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district, ward or precinct: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onJump={onOpenSection} />
+          <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district, ward or precinct: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
         </div>
         <div className="mt-12 space-y-8">
           <Sources />

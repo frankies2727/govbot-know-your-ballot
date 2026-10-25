@@ -137,3 +137,11 @@
 /* The district a face in the row jumped to lights up for a moment. */
 @keyframes kyb-flash { 0% { background: color-mix(in srgb, var(--gb-primary) 28%, transparent); } 100% { background: transparent; } }
 .kyb-flash { animation: kyb-flash 1.6s ease-out; }
+
+
+/* The compare table scrolls sideways; its scrollbar is always drawn (overlay scrollbars that
+   only appear while scrolling hide the fact that there is more to the right). */
+.kyb-hscroll { overflow-x: auto; overflow-y: hidden; scrollbar-width: auto; scrollbar-color: var(--gb-text) var(--kyb-chip); }
+.kyb-hscroll::-webkit-scrollbar { height: 12px; }
+.kyb-hscroll::-webkit-scrollbar-track { background: var(--kyb-chip); border-radius: 999px; }
+.kyb-hscroll::-webkit-scrollbar-thumb { background: var(--gb-text); border-radius: 999px; border: 3px solid var(--kyb-chip); }

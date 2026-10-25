@@ -36,7 +36,7 @@ function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; 
       <span className="inline-flex self-start items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-bold" style={{ background: section.color, color: section.ink }}>{section.emoji} {section.title}</span>
       <h3 className="text-lg font-black leading-tight">{title(race)}</h3>
       <p className="text-sm leading-snug">{explainOffice(race.office)}</p>
-      {why && <p className="text-sm leading-snug line-clamp-3"><span className="font-bold">Why it matters: </span>{why}</p>}
+      {why && <p className="text-sm leading-snug"><span className="font-bold">Why it matters: </span>{why}</p>}
       <FaceStrip people={race.candidates} names info onPick={(c) => onOpen(race, c as Candidate)} />
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold">
         <span>{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'}{race.voteFor > 1 ? ` · pick up to ${race.voteFor}` : ''}</span>
