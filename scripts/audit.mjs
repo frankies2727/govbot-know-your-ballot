@@ -19,8 +19,8 @@
 import { membersOf } from './illinois/record.mjs';
 import { sameName } from './wiki.mjs';
 
-const LEGISLATURE_PHOTO = /U\.S\. Congress|General Assembly|Michigan Legislature/i;
-const LEGISLATURE_SITE = /\.(house|senate)\.gov(\/|$)|\bilga\.gov|\blegislature\.mi\.gov|\bhouse\.mi\.gov|\bsenate\.michigan\.gov/i;
+const LEGISLATURE_PHOTO = /U\.S\. Congress|General Assembly|(Michigan|Minnesota|Wisconsin) Legislature/i;
+const LEGISLATURE_SITE = /\.(house|senate)\.gov(\/|$)|\bilga\.gov|\blegislature\.mi\.gov|\bhouse\.mi\.gov|\bsenate\.michigan\.gov|\bhouse\.mn\.gov|\bsenate\.mn\b|\bleg\.state\.mn\.us|\blegis\.wisconsin\.gov/i;
 const titleOf = (url) => decodeURIComponent(url.split('/').pop() ?? '').replace(/_/g, ' ').replace(/\s*\(.*\)$/, '');
 
 /** Run the checks; returns the log lines. `members` is the state's sitting legislators from the roster. */
@@ -103,7 +103,9 @@ export async function reconcile(races, state) {
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
   const { readFileSync, writeFileSync } = await import('node:fs');
   const state = process.argv[2] ?? 'il';
-  const file = new URL(`../src/data/${state === 'mi' ? 'michigan' : 'illinois'}/ballot.json`, import.meta.url);
+  const folder = { il: 'illinois', mi: 'michigan', mn: 'minnesota', wi: 'wisconsin' }[state];
+  if (!folder) { console.error('usage: node scripts/audit.mjs il|mi|mn|wi [--write]'); process.exit(2); }
+  const file = new URL(`../src/data/${folder}/ballot.json`, import.meta.url);
   const data = JSON.parse(readFileSync(file, 'utf8'));
   const members = await rosterMembers(state);
   const log = audit(data.races, members ?? []);

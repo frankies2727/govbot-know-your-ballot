@@ -15,7 +15,7 @@ const SHOW = 5;
 const fold = (s) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 const surname = (n) => fold(n.split(' & ')[0].replace(/,?\s+(jr|sr|ii|iii|iv)\.?$/i, '')).split(/[^a-z]+/).filter(Boolean).at(-1);
 
-const STATE_NAME = { il: 'Illinois', mi: 'Michigan' };
+const STATE_NAME = { il: 'Illinois', mi: 'Michigan', mn: 'Minnesota', wi: 'Wisconsin' };
 
 /** A state's sitting legislators: [{ name, chamber: 'usa' | state, seat }]. */
 export function membersOf(people, state) {
@@ -63,7 +63,7 @@ export async function addRecords(races, { state = 'il', prev = null, fetchJson =
   }
   const members = membersOf(people, state);
   const bills = { [state]: il.bills ?? [], usa: usa.bills ?? [] };
-  const source = { il: 'Illinois General Assembly, via govbot', mi: 'Michigan Legislature, via govbot', usa: 'Congress.gov, via govbot' };
+  const source = { il: 'Illinois General Assembly, via govbot', mi: 'Michigan Legislature, via govbot', mn: 'Minnesota Legislature, via govbot', wi: 'Wisconsin Legislature, via govbot', usa: 'Congress.gov, via govbot' };
   let matched = 0;
   const asOf = new Date().toISOString().slice(0, 10);
   for (const r of races) {
@@ -83,7 +83,7 @@ export async function addRecords(races, { state = 'il', prev = null, fetchJson =
   return { matched, kept: 0, log };
 }
 
-// Standalone: refresh the committed data's records (`node record.mjs il|mi`).
+// Standalone: refresh the committed data's records (`node record.mjs il|mi|mn|wi`).
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
   const { readFileSync, writeFileSync } = await import('node:fs');
   const state = process.argv[2] ?? 'il';

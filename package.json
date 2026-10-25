@@ -12,7 +12,9 @@
     "preview": "vite preview",
     "lint": "tsc --noEmit",
     "data:illinois": "node scripts/illinois.mjs",
-    "data:michigan": "node scripts/michigan.mjs",
+    "data:michigan": "node scripts/state.mjs michigan",
+    "data:minnesota": "node scripts/state.mjs minnesota",
+    "data:wisconsin": "node scripts/state.mjs wisconsin",
     "audit": "node scripts/audit.mjs"
   },
   "dependencies": {

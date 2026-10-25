@@ -1,0 +1,15 @@
+/* Know Your Ballot: Wisconsin. A palette drawn from the state flag (its navy
+   field) and the state's look: cardinal, forest green, lake blue, harvest
+   gold. Brand colours stay the same in both themes; each section carries
+   the ink that reads on it (config.ts). The shared tokens are in ballot.css. */
+:root {
+  --wi-navy: #002D62;
+  --wi-cardinal: #C5050C;
+  --wi-forest: #1F6F43;
+  --wi-lake: #1F5F8B;
+  --wi-gold: #E0AA0F;
+  --wi-cream: #F2E6C9;
+}
+
+/* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the outline glows lake blue. */
+.kyb-wi { --kyb-accent: var(--wi-navy); --kyb-accent-ink: #FFFFFF; --kyb-map-glow: color-mix(in srgb, var(--wi-lake) 55%, transparent); }

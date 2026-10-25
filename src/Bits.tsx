@@ -591,7 +591,7 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
     </span>
     {names && <>
       <span className="mt-1 block w-full text-[12.5px] font-bold leading-tight line-clamp-2 text-[var(--gb-text)]">{c.name.split(' & ')[0]}</span>
-      <span className="block w-full truncate text-[11px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>
+      <span className="block w-full line-clamp-2 break-words text-[11px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>
       {c.note && <span className="block w-full truncate text-[11px] font-bold leading-tight text-[var(--gb-text)]">{c.note}</span>}
     </>}
   </>);

@@ -6,14 +6,16 @@ import { defineConfig } from 'vite';
 
 // What a shared link shows (the title, description and picture social apps
 // read from the HTML itself, before any script runs): one set per page, the
-// root, /illinois and /michigan. Each state's page is a copy of the app shell
+// root and each state's page. Each state's page is a copy of the app shell
 // with its own tags, which vercel.json serves for that path. The pictures are
 // public/kyb-og/*.png.
 const SITE = 'https://govbot-know-your-ballot.vercel.app';
 const PAGES: Record<string, { title: string; desc: string; img: string }> = {
-  '': { title: 'Govbot Know Your Ballot', desc: 'Your exact ballot by address: every race, judge and question, who’s running and who’s funding them. Illinois and Michigan, built on Govbot.', img: 'home' },
+  '': { title: 'Govbot Know Your Ballot', desc: 'Your exact ballot by address: every race, judge and question, who’s running and who’s funding them. Illinois, Michigan, Minnesota and Wisconsin, built on Govbot.', img: 'home' },
   illinois: { title: 'Know Your Illinois Ballot', desc: 'Every race, judge and question on your Nov 3, 2026 Illinois ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'illinois' },
   michigan: { title: 'Know Your Michigan Ballot', desc: 'Every race, judge and proposal on your Nov 3, 2026 Michigan ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'michigan' },
+  minnesota: { title: 'Know Your Minnesota Ballot', desc: 'Every race, judge and the amendment on your Nov 3, 2026 Minnesota ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'minnesota' },
+  wisconsin: { title: 'Know Your Wisconsin Ballot', desc: 'Every race and question on your Nov 3, 2026 Wisconsin ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'wisconsin' },
 };
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const metaFor = (page: string) => {
@@ -46,7 +48,7 @@ function siteMeta() {
     transformIndexHtml: (html: string) => html.replace(TITLE, metaFor('')),
     closeBundle() {
       const shell = readFileSync(path.join(outDir, 'index.html'), 'utf8');
-      for (const page of ['illinois', 'michigan']) {
+      for (const page of Object.keys(PAGES).filter(Boolean)) {
         mkdirSync(path.join(outDir, page), { recursive: true });
         writeFileSync(path.join(outDir, page, 'index.html'), shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaFor(page)));
       }
