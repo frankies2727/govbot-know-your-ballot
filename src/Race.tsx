@@ -305,7 +305,7 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
         <header className="space-y-2">
           <div className="flex flex-wrap items-center gap-2">
             <Badge>{areaLabel(race)}</Badge>
-            {race.voteFor > 1 && <Badge tone={color} ink={ink}>Pick up to {race.voteFor}</Badge>}
+            <Badge tone={color} ink={ink}>{race.voteFor > 1 ? `Pick up to ${race.voteFor}` : 'Pick 1'}</Badge>
             {decided && <Badge tone="var(--gb-primary)" ink="var(--gb-bg)">✓ Done</Badge>}
           </div>
           <h3 className="text-xl font-black leading-tight text-[var(--gb-text)]">{race.office}</h3>
