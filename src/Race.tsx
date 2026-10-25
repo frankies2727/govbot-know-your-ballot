@@ -84,6 +84,28 @@ const groupName = (n: string) =>
   n.replace(/\s*\([^)]*\)/g, '').replace(/\s+DBA\s.*$/i, '')
     .replace(/\b(\w)(\w*)/g, (w: string, a: string, b: string) => (ACRONYMS.has(w.toUpperCase()) ? w.toUpperCase() : a + b.toLowerCase()));
 
+/** "Outside spending" with an (i) that opens a plain-language explanation of what the figure is. */
+function OutsideHeading({ className }: { className: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <p className={`flex items-center gap-1.5 ${className}`}>
+        <span>Outside spending</span>
+        <button type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-label="What is outside spending?" className="inline-flex shrink-0 items-center justify-center w-6 h-6 rounded-full text-[var(--gb-link)] hover:bg-[var(--kyb-chip)]">
+          <Info className="w-4 h-4" aria-hidden="true" />
+        </button>
+      </p>
+      {open && (
+        <div className="mt-1 rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] p-3 text-xs leading-relaxed text-[var(--gb-text)] space-y-1.5 normal-case tracking-normal font-normal">
+          <p><strong>Outside spending</strong> is money spent on a race by groups that are <strong>not</strong> the candidate’s campaign: political action committees (PACs), parties and other organizations, mostly on ads and mailers. By law they may not coordinate with the candidate, and many can raise unlimited sums. It is separate from Campaign money, which is what the candidate’s own campaign raised and spent.</p>
+          <p><strong>For them</strong> is spending that urges voters to elect this candidate. <strong>Against them</strong> is spending that urges voters to defeat them. Each group is listed with its own totals.</p>
+          <p>The figures are what those groups reported to the Federal Election Commission, as processed by the FEC, which runs days to weeks behind the newest filings. Big spending late in a race shows up with a delay.</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /** Spending by outside groups for and against a candidate, with the biggest spenders. */
 function OutsideBars({ c, max, brief = false }: { c: Candidate; max: number; brief?: boolean }) {
   const o = c.outside;
@@ -468,7 +490,7 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
           )}
           {c.outside && (
             <div className="space-y-2 border-t border-[var(--gb-border)] pt-3">
-              <p className="text-sm font-black text-[var(--gb-text)]">Outside spending</p>
+              <OutsideHeading className="text-sm font-black text-[var(--gb-text)]" />
               <OutsideBars c={c} max={Math.max(c.outside.support, c.outside.oppose)} />
             </div>
           )}
@@ -535,10 +557,12 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
 // ---- head-to-head --------------------------------------------------------------
 
 /** One labelled block of the comparison card. */
-function CompareRow({ label, children }: { label: string; children: ReactNode }) {
+const COMPARE_LABEL = 'text-[11px] font-black uppercase tracking-widest text-[var(--gb-text)]';
+
+function CompareRow({ label, children }: { label: ReactNode; children: ReactNode }) {
   return (
     <div className="border-t border-[var(--gb-border)] pt-2">
-      <p className="text-[11px] font-black uppercase tracking-widest text-[var(--gb-text)]">{label}</p>
+      {typeof label === 'string' ? <p className={COMPARE_LABEL}>{label}</p> : label}
       <div className="mt-1 text-sm leading-snug text-[var(--gb-text)]">{children}</div>
     </div>
   );
@@ -589,7 +613,7 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
                   {!anyMoney && <p>No reports found for anyone in this race.</p>}
                 </CompareRow>
                 {any('outside') && (
-                  <CompareRow label="Outside spending">
+                  <CompareRow label={<OutsideHeading className={COMPARE_LABEL} />}>
                     {c.outside ? <OutsideBars c={c} max={maxOutside} brief /> : <p>None reported for or against them.</p>}
                   </CompareRow>
                 )}
