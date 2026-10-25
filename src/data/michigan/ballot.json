@@ -1022,6 +1022,44 @@
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Abdul_El-Sayed_meet-and-greet_by_Conlan_Houston_5_%28cropped%29.jpg/500px-Abdul_El-Sayed_meet-and-greet_by_Conlan_Houston_5_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "issuesUrl": "https://abdulforsenate.com/priorities/",
+     "outside": {
+      "support": 2422472,
+      "oppose": 20829479,
+      "groups": [
+       {
+        "name": "UNITED DEMOCRACY PROJECT ('UDP')",
+        "support": 0,
+        "oppose": 20140901
+       },
+       {
+        "name": "FIGHTING FOR MICHIGAN PAC",
+        "support": 1134114,
+        "oppose": 0
+       },
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 489664,
+        "oppose": 0
+       },
+       {
+        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+        "support": 0,
+        "oppose": 299866
+       },
+       {
+        "name": "COMMON DEFENSE ACTION FUND",
+        "support": 289664,
+        "oppose": 0
+       },
+       {
+        "name": "AMERICAN POLITICAL ACTION COMMITTEE",
+        "support": 0,
+        "oppose": 238712
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=S6MI00418&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -1183,44 +1221,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 2422472,
-      "oppose": 20829479,
-      "groups": [
-       {
-        "name": "UNITED DEMOCRACY PROJECT ('UDP')",
-        "support": 0,
-        "oppose": 20140901
-       },
-       {
-        "name": "FIGHTING FOR MICHIGAN PAC",
-        "support": 1134114,
-        "oppose": 0
-       },
-       {
-        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
-        "support": 489664,
-        "oppose": 0
-       },
-       {
-        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
-        "support": 0,
-        "oppose": 299866
-       },
-       {
-        "name": "COMMON DEFENSE ACTION FUND",
-        "support": 289664,
-        "oppose": 0
-       },
-       {
-        "name": "AMERICAN POLITICAL ACTION COMMITTEE",
-        "support": 0,
-        "oppose": 238712
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=S6MI00418&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1250,6 +1250,44 @@
       "credit": "P.J. Siquig · Public domain · Wikimedia Commons",
       "link": "https://commons.wikimedia.org/wiki/File:Mike_Rogers_in_November_2019_(3x4_cropped).jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Mike_Rogers_in_November_2019_%283x4_cropped%29.jpg/500px-Mike_Rogers_in_November_2019_%283x4_cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     },
+     "outside": {
+      "support": 13677358,
+      "oppose": 6446232,
+      "groups": [
+       {
+        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+        "support": 6838534,
+        "oppose": 0
+       },
+       {
+        "name": "GLCF, INC.",
+        "support": 3329146,
+        "oppose": 0
+       },
+       {
+        "name": "WINSENATE",
+        "support": 0,
+        "oppose": 1892819
+       },
+       {
+        "name": "THE SENTINEL ACTION FUND",
+        "support": 1859478,
+        "oppose": 0
+       },
+       {
+        "name": "EDF ACTION VOTES",
+        "support": 0,
+        "oppose": 1753178
+       },
+       {
+        "name": "LCV VICTORY FUND",
+        "support": 0,
+        "oppose": 1015693
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=S4MI00595&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -1307,44 +1345,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 13677358,
-      "oppose": 6446232,
-      "groups": [
-       {
-        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
-        "support": 6838534,
-        "oppose": 0
-       },
-       {
-        "name": "GLCF, INC.",
-        "support": 3329146,
-        "oppose": 0
-       },
-       {
-        "name": "WINSENATE",
-        "support": 0,
-        "oppose": 1892819
-       },
-       {
-        "name": "THE SENTINEL ACTION FUND",
-        "support": 1859478,
-        "oppose": 0
-       },
-       {
-        "name": "EDF ACTION VOTES",
-        "support": 0,
-        "oppose": 1753178
-       },
-       {
-        "name": "LCV VICTORY FUND",
-        "support": 0,
-        "oppose": 1015693
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=S4MI00595&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3093,6 +3093,24 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/B001301.jpg"
      },
      "issuesUrl": "https://www.bergmanforcongress.com/issues",
+     "outside": {
+      "support": 12911,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "NATIONAL ASSOCIATION OF REALTORS POLITICAL ACTION COMMITTEE",
+        "support": 12633,
+        "oppose": 0
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 278,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI01226&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -3179,24 +3197,6 @@
       "seat": "U.S. House · MI-1",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 12911,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "NATIONAL ASSOCIATION OF REALTORS POLITICAL ACTION COMMITTEE",
-        "support": 12633,
-        "oppose": 0
-       },
-       {
-        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
-        "support": 278,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI01226&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3394,6 +3394,19 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/M001194.jpg"
      },
      "issuesUrl": "https://www.johnmoolenaarforcongress.com/issues",
+     "outside": {
+      "support": 285,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 285,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI04126&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -3464,19 +3477,6 @@
       "seat": "U.S. House · MI-2",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 285,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
-        "support": 285,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI04126&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3577,6 +3577,24 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/S001221.jpg"
      },
      "issuesUrl": "https://hillaryscholten.com/priorities/",
+     "outside": {
+      "support": 143,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 133,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI03316&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -3655,24 +3673,6 @@
       "seat": "U.S. House · MI-3",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 143,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "GIVEGREEN UNITED ACTION",
-        "support": 133,
-        "oppose": 0
-       },
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI03316&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3809,6 +3809,29 @@
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/25-26-Headshot_20260930_144810_61455_1_2026-10-06_214834.jpg"
      },
      "issuesUrl": "https://seanmccannforcongress.com/issues/",
+     "outside": {
+      "support": 31744,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "PLANNED PARENTHOOD VOTES",
+        "support": 31423,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 244,
+        "oppose": 0
+       },
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 77,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI04204&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -3922,29 +3945,6 @@
       "seat": "Senate District 19",
       "source": "Michigan Legislature, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 31744,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "PLANNED PARENTHOOD VOTES",
-        "support": 31423,
-        "oppose": 0
-       },
-       {
-        "name": "FIELD TEAM 6, INC.",
-        "support": 244,
-        "oppose": 0
-       },
-       {
-        "name": "GIVEGREEN UNITED ACTION",
-        "support": 77,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI04204&cycle=2026&data_type=processed"
      }
     },
     {
@@ -3978,6 +3978,39 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/H001058.jpg"
      },
      "issuesUrl": "https://huizengaformichigan.com/issues/",
+     "outside": {
+      "support": 512235,
+      "oppose": 1139123,
+      "groups": [
+       {
+        "name": "LCV VICTORY FUND",
+        "support": 0,
+        "oppose": 990130
+       },
+       {
+        "name": "DEFEND AMERICAN JOBS",
+        "support": 511996,
+        "oppose": 0
+       },
+       {
+        "name": "SOMOS PAC",
+        "support": 0,
+        "oppose": 117570
+       },
+       {
+        "name": "PLANNED PARENTHOOD VOTES",
+        "support": 0,
+        "oppose": 31423
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 239,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI02094&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -4054,39 +4087,6 @@
       "seat": "U.S. House · MI-4",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 512235,
-      "oppose": 1139123,
-      "groups": [
-       {
-        "name": "LCV VICTORY FUND",
-        "support": 0,
-        "oppose": 990130
-       },
-       {
-        "name": "DEFEND AMERICAN JOBS",
-        "support": 511996,
-        "oppose": 0
-       },
-       {
-        "name": "SOMOS PAC",
-        "support": 0,
-        "oppose": 117570
-       },
-       {
-        "name": "PLANNED PARENTHOOD VOTES",
-        "support": 0,
-        "oppose": 31423
-       },
-       {
-        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
-        "support": 239,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI02094&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4198,6 +4198,19 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/W000798.jpg"
      },
      "issuesUrl": "https://www.walbergforcongress.com/issues",
+     "outside": {
+      "support": 239,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 239,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI07103&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -4268,19 +4281,6 @@
       "seat": "U.S. House · MI-5",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 239,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
-        "support": 239,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI07103&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4418,6 +4418,19 @@
       "from": "https://unitedstates.github.io/images/congress/450x550/D000624.jpg"
      },
      "issuesUrl": "https://debbiedingellforcongress.com/issues/",
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI12079&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -4497,19 +4510,6 @@
       "seat": "U.S. House · MI-6",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 10,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI12079&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4672,6 +4672,44 @@
       "link": "https://ballotpedia.org/William_Lawrence_(Michigan)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/William_Lawrence_20251023_083014.png"
      },
+     "outside": {
+      "support": 650073,
+      "oppose": 957088,
+      "groups": [
+       {
+        "name": "CRUSH MAGA PAC",
+        "support": 0,
+        "oppose": 909204
+       },
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 400000,
+        "oppose": 0
+       },
+       {
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 242460,
+        "oppose": 0
+       },
+       {
+        "name": "NEW DEMOCRAT MAJORITY",
+        "support": 0,
+        "oppose": 47884
+       },
+       {
+        "name": "INDIVISIBLE ACTION",
+        "support": 5641,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 1766,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI07298&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -4761,44 +4799,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Michigan#District_7"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 650073,
-      "oppose": 957088,
-      "groups": [
-       {
-        "name": "CRUSH MAGA PAC",
-        "support": 0,
-        "oppose": 909204
-       },
-       {
-        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
-        "support": 400000,
-        "oppose": 0
-       },
-       {
-        "name": "WORKING FAMILIES PARTY PAC",
-        "support": 242460,
-        "oppose": 0
-       },
-       {
-        "name": "NEW DEMOCRAT MAJORITY",
-        "support": 0,
-        "oppose": 47884
-       },
-       {
-        "name": "INDIVISIBLE ACTION",
-        "support": 5641,
-        "oppose": 0
-       },
-       {
-        "name": "FIELD TEAM 6, INC.",
-        "support": 1766,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI07298&cycle=2026&data_type=processed"
      }
     },
     {
@@ -4840,6 +4840,44 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Tom_Barrett_(Michigan)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-0242_20260924_190952_58018_1.jpg"
+     },
+     "outside": {
+      "support": 225627,
+      "oppose": 6376,
+      "groups": [
+       {
+        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+        "support": 169800,
+        "oppose": 0
+       },
+       {
+        "name": "SPECIAL OPERATIONS FOR AMERICA",
+        "support": 50987,
+        "oppose": 0
+       },
+       {
+        "name": "YOUTH SAVE DEMOCRACY PAC",
+        "support": 0,
+        "oppose": 4965
+       },
+       {
+        "name": "CLUB FOR GROWTH PAC",
+        "support": 4594,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 0,
+        "oppose": 1411
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 246,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2MI07123&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -4919,44 +4957,6 @@
       "seat": "U.S. House · MI-7",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 225627,
-      "oppose": 6376,
-      "groups": [
-       {
-        "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
-        "support": 169800,
-        "oppose": 0
-       },
-       {
-        "name": "SPECIAL OPERATIONS FOR AMERICA",
-        "support": 50987,
-        "oppose": 0
-       },
-       {
-        "name": "YOUTH SAVE DEMOCRACY PAC",
-        "support": 0,
-        "oppose": 4965
-       },
-       {
-        "name": "CLUB FOR GROWTH PAC",
-        "support": 4594,
-        "oppose": 0
-       },
-       {
-        "name": "FIELD TEAM 6, INC.",
-        "support": 0,
-        "oppose": 1411
-       },
-       {
-        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
-        "support": 246,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2MI07123&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5031,6 +5031,24 @@
       "from": "https://upload.wikimedia.org/wikipedia/commons/5/5b/McDonald_Rivet_Kristen_119th_Congress_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
      },
      "issuesUrl": "https://kristenmcdonaldrivet.com/priorities/",
+     "outside": {
+      "support": 13788,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "WELCOMEPAC",
+        "support": 13396,
+        "oppose": 0
+       },
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 392,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI08218&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -5114,24 +5132,6 @@
       "seat": "U.S. House · MI-8",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 13788,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "WELCOMEPAC",
-        "support": 13396,
-        "oppose": 0
-       },
-       {
-        "name": "GIVEGREEN UNITED ACTION",
-        "support": 392,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MI08218&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5315,6 +5315,19 @@
       "link": "https://bioguide.congress.gov/search/bio/M001136",
       "from": "https://unitedstates.github.io/images/congress/450x550/M001136.jpg"
      },
+     "outside": {
+      "support": 281,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 281,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI10287&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -5379,19 +5392,6 @@
       "seat": "U.S. House · MI-9",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 281,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
-        "support": 281,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MI10287&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5512,6 +5512,29 @@
       "link": "https://ballotpedia.org/Christina_Hines",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Christina_Hines_20250717_044310.jpeg"
      },
+     "outside": {
+      "support": 500388,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "PRO-CHOICE MAJORITY ACTION",
+        "support": 499998,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 365,
+        "oppose": 0
+       },
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 25,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI10276&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -5580,29 +5603,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Michigan#District_10"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 500388,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "PRO-CHOICE MAJORITY ACTION",
-        "support": 499998,
-        "oppose": 0
-       },
-       {
-        "name": "FIELD TEAM 6, INC.",
-        "support": 365,
-        "oppose": 0
-       },
-       {
-        "name": "GIVEGREEN UNITED ACTION",
-        "support": 25,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI10276&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5633,6 +5633,24 @@
       "credit": "Mike Bouchard · CC BY 2.0 · Wikimedia Commons",
       "link": "https://commons.wikimedia.org/wiki/File:Mike_Bouchard_2006.jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Mike_Bouchard_2006.jpg/500px-Mike_Bouchard_2006.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     },
+     "outside": {
+      "support": 156734,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "HONOR, DUTY & DISCIPLINE PAC",
+        "support": 156682,
+        "oppose": 0
+       },
+       {
+        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
+        "support": 52,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI10359&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -5670,24 +5688,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Michigan#District_10"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 156734,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "HONOR, DUTY & DISCIPLINE PAC",
-        "support": 156682,
-        "oppose": 0
-       },
-       {
-        "name": "RIGHT TO LIFE OF MICHIGAN VICTORY FUND",
-        "support": 52,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI10359&cycle=2026&data_type=processed"
      }
     },
     {
@@ -5813,6 +5813,29 @@
       "from": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Jeremy_Moss_Southfield_MI_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
      },
      "issuesUrl": "https://votejeremymoss.com/priorities/",
+     "outside": {
+      "support": 295097,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "THINK BIG",
+        "support": 294612,
+        "oppose": 0
+       },
+       {
+        "name": "DMFI PAC",
+        "support": 381,
+        "oppose": 0
+       },
+       {
+        "name": "CONCERNED CITIZEN",
+        "support": 104,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI11191&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -5927,29 +5950,6 @@
       "seat": "Senate District 7",
       "source": "Michigan Legislature, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 295097,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "THINK BIG",
-        "support": 294612,
-        "oppose": 0
-       },
-       {
-        "name": "DMFI PAC",
-        "support": 381,
-        "oppose": 0
-       },
-       {
-        "name": "CONCERNED CITIZEN",
-        "support": 104,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI11191&cycle=2026&data_type=processed"
      }
     },
     {
@@ -6116,6 +6116,19 @@
       "link": "https://bioguide.congress.gov/search/bio/T000481",
       "from": "https://unitedstates.github.io/images/congress/450x550/T000481.jpg"
      },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MI13250&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -6207,19 +6220,6 @@
       "seat": "U.S. House · MI-12",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 10,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MI13250&cycle=2026&data_type=processed"
      }
     },
     {
@@ -6362,6 +6362,44 @@
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/State_Rep_Donavan_McKinney_Swearing_In_12.12.22_%2852565631658%29_%28cropped%29.jpg/500px-State_Rep_Donavan_McKinney_Swearing_In_12.12.22_%2852565631658%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "issuesUrl": "https://www.donavanforcongress.com/priorities",
+     "outside": {
+      "support": 927932,
+      "oppose": 268690,
+      "groups": [
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 400000,
+        "oppose": 0
+       },
+       {
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 297866,
+        "oppose": 0
+       },
+       {
+        "name": "PROTECT PROGRESS",
+        "support": 0,
+        "oppose": 268690
+       },
+       {
+        "name": "JUSTICE DEMOCRATS PAC",
+        "support": 173167,
+        "oppose": 0
+       },
+       {
+        "name": "EMGAGE FEDERAL POLITICAL ACTION COMMITTEE",
+        "support": 17726,
+        "oppose": 0
+       },
+       {
+        "name": "SEIU COPE (SERVICE EMPLOYEES INTERNATIONAL UNION COMMITTEE ON POLITICAL EDUCATION)",
+        "support": 17141,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI13254&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -6537,44 +6575,6 @@
       "seat": "House District 11",
       "source": "Michigan Legislature, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 927932,
-      "oppose": 268690,
-      "groups": [
-       {
-        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
-        "support": 400000,
-        "oppose": 0
-       },
-       {
-        "name": "WORKING FAMILIES PARTY PAC",
-        "support": 297866,
-        "oppose": 0
-       },
-       {
-        "name": "PROTECT PROGRESS",
-        "support": 0,
-        "oppose": 268690
-       },
-       {
-        "name": "JUSTICE DEMOCRATS PAC",
-        "support": 173167,
-        "oppose": 0
-       },
-       {
-        "name": "EMGAGE FEDERAL POLITICAL ACTION COMMITTEE",
-        "support": 17726,
-        "oppose": 0
-       },
-       {
-        "name": "SEIU COPE (SERVICE EMPLOYEES INTERNATIONAL UNION COMMITTEE ON POLITICAL EDUCATION)",
-        "support": 17141,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MI13254&cycle=2026&data_type=processed"
      }
     },
     {
@@ -16284,6 +16284,13 @@
       "link": "https://commons.wikimedia.org/wiki/File:Steve_Carra_by_Gage_Skidmore.jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Steve_Carra_by_Gage_Skidmore.jpg/500px-Steve_Carra_by_Gage_Skidmore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
+     "money": {
+      "source": "MiTN",
+      "id": "0519453",
+      "raised": 81582,
+      "spent": 78761,
+      "through": "10/18/2026"
+     },
      "record": {
       "sponsored": 42,
       "bills": [
@@ -16582,9 +16589,9 @@
      "money": {
       "source": "MiTN",
       "id": "0611869",
-      "raised": 200,
-      "spent": 82,
-      "through": "12/23/2025"
+      "raised": 4030,
+      "spent": 3942,
+      "through": "10/13/2026"
      },
      "ballotpediaRead": "2026-10-25",
      "ballotpedia": "https://ballotpedia.org/Jett_Newton",
@@ -19768,9 +19775,9 @@
      "money": {
       "source": "MiTN",
       "id": "0611996",
-      "raised": 1060,
-      "spent": 771,
-      "through": "08/21/2026"
+      "raised": 2509,
+      "spent": 1733,
+      "through": "10/18/2026"
      },
      "ballotpediaRead": "2026-10-25",
      "ballotpedia": "https://ballotpedia.org/Jamie_Sonneberger",
@@ -20252,6 +20259,12 @@
      "website": "https://lesliegetz4mirep.com/",
      "social": {
       "facebook": "https://www.facebook.com/leslie.getz.5"
+     },
+     "photo": {
+      "file": "kyb-photos/michigan/leslie-getz-sldl-67.jpg",
+      "credit": "Leslie Getz (their campaign site)",
+      "link": "https://lesliegetz4mirep.com/",
+      "from": "http://lesliegetz4mirep.com/wp-content/uploads/2026/06/leslie-getz-for-State-Representative-District-67.jpeg"
      }
     },
     {
@@ -22422,6 +22435,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Drew_Robbins",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Drew_Robbins.png"
+     },
+     "money": {
+      "source": "MiTN",
+      "id": "0613418",
+      "raised": 29950,
+      "spent": 5572,
+      "through": "10/13/2026"
      }
     }
    ],
@@ -28170,11 +28190,145 @@
    "kind": "candidate-removed",
    "name": "Jeff McDonald",
    "ballot": 7
+  },
+  {
+   "at": "2026-10-25T15:11:16.284Z",
+   "id": "sldl-36",
+   "what": "Representative in State Legislature, 36th District",
+   "kind": "money",
+   "name": "Steve Carra",
+   "raised": 81582
+  },
+  {
+   "at": "2026-10-25T15:11:16.284Z",
+   "id": "sldl-38",
+   "what": "Representative in State Legislature, 38th District",
+   "kind": "money",
+   "name": "Jett Newton",
+   "raised": 4030
+  },
+  {
+   "at": "2026-10-25T15:11:16.284Z",
+   "id": "sldl-63",
+   "what": "Representative in State Legislature, 63rd District",
+   "kind": "money",
+   "name": "Jamie Sonneberger",
+   "raised": 2509
+  },
+  {
+   "at": "2026-10-25T15:11:16.284Z",
+   "id": "sldl-84",
+   "what": "Representative in State Legislature, 84th District",
+   "kind": "money",
+   "name": "Drew Robbins",
+   "raised": 29950
   }
  ],
  "news": [
   {
-   "at": "2026-10-25T04:41:14.000Z",
+   "at": "2026-10-25T14:42:19.000Z",
+   "title": "Obama Issues Searing Attacks on Trump and Ramaswamy in Return to Campaign Trail",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeUdkajdVaE81UXowdEROTVA0NFNwX0JJTUw1RHdaMmtHQURmRzZmNVN6dmplOGQtZ1BrQXNrb0JPZXdPZXQ3Qi1mNG9zb1RONC1DeDV0eXNzRmdDd2lpNkhjSHJLWDFrcFk5S0JLNHpKWVB5UnoyT2E3U2NPSHpKVXE5REdYdzlR?oc=5",
+   "source": "The New York Times"
+  },
+  {
+   "at": "2026-10-25T13:23:00.000Z",
+   "title": "Obama throws support behind El-Sayed as early voting begins in Michigan – video",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNcGdnN0FrUldUSjdlREFjZUlSV3MtTVRCTldwUVYwS2ZRb18ya0hnOEY1anUyY2pySzk2aE5iWnVsOV84MnBRRGlFVmt0Mlo1bU0tLTVyTkxYZC03NGZVMURBNzlWV0Q3Y0hud1BkVktTdHNVXzZJT19EZ1diSm42SjZ6XzhsY0tCOGFSeF9JVkEtREJKdzFLZTZPRm1TcVBDTXZrbnJ2WlU3VlNNblFWWHdQLUhaUzZzYklzaFZLcFlGeG5IbmJqWDVVVQ?oc=5",
+   "source": "The Guardian"
+  },
+  {
+   "at": "2026-10-25T12:38:59.000Z",
+   "title": "Trump, Obama clash in Michigan as Muslim candidate El-Sayed becomes flashpoint in Senate race",
+   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQbjBkWTFnMTdSMkNkQ2tKQjcyc3BHT0MyVThGV0o0aEdFeWRFRzBNTFhfY1dGbFhYWXVHTjVVb0MtSVlLVndCWDRyVTlkaVoySnphSVFVcDFMcmw1X0Zpbnc4Y3RiWFJkeFdYallUU255OGxkLS10N284OFRmWXRXZWRQcHRxUEIyeUd6WW1ydXNBX056b2U0UUlYZTQ5QzZjQ01pYnNUT2hKbXZVOGZYNUEzc0hrTDBJaHl5S1hZOUl6LXBpWEZxTnZ6bWE2V1BPeWJPbdIB2gFBVV95cUxNbXl1M2Z1b0VTakU3dktEbmszQlZ5UjZEeEh2ZnBPQnNDanplLWpDUDZxZUJUeDJSdjRLSGltWU1scW1FZk1wS2JXb19VSEIxeHZlT3Y5TWh1dExyd3R4VTNqYnZVOWVTbFRFWmRHaW1WdlNnbGl3RnJianRkYXR2VGhqTE43QWw4ZlJpWlh3Rko0YnpHMTJVN1E5VXRMcG5XWkpHZk9jc0hTUzFWWVBwX2dFc1VwLVk5Z0k2MENhR25NR0Q3TTRTLXJyRVhub3VQOThEdV9FWXhpZw?oc=5",
+   "source": "Firstpost"
+  },
+  {
+   "at": "2026-10-25T12:28:00.000Z",
+   "title": "Trump's midterm swing brings him to Michigan as Republicans aim to undermine El-Sayed in Senate race",
+   "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxQYjhOWWxwMlVvVGNIUXUwbXpHZlA5am1nc1FCcEE1cFVETndGc0p4MEhRVkdlRFpXeDF1VW5fMlhyZDZpeVZfOHJyX1lBWElwRUN6anVCTlBLcTExMTU3cGVOdkxnMWZxRF8ydDBiMjEwdVJBM3BEZ1FqeDA2SlV0QTgyWU55WWZLdlZob2dpVEthNFVHeTFvMGdfRGpycXc0SFVPUUhVdjFUUVY3WDIxeHROWGNfdHhpMDBRcV9UTEw4M0RKU3FzSGprY2dBbXJ0UzY1UVUyekFISTVfd3A2RmY4YXJTTDRva2dDcDU5d1luM1hXR1QwWkpqbU83ZUlseENuYl9DdHp3V1FnYTQwMlBxSlBHREx1?oc=5",
+   "source": "Bozeman Daily Chronicle"
+  },
+  {
+   "at": "2026-10-25T12:00:21.000Z",
+   "title": "Michigan Midterm Elections 2026: Key Races, Candidates and Past Results",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5VWE96aXR0S3I2YjZPYWRXb21UM1lCZXoxbFdDenBTUzdjMmJHUjljRTdFc3hHQm9DTlBiSXIzRGg1c1U4N05MbHk0OFhtSVNpc2RNcWZhMzdpRldLWE5jYzd0cEZQRV8zR1d1VUtWWWlYQQ?oc=5",
+   "source": "NBC News"
+  },
+  {
+   "at": "2026-10-25T12:00:21.000Z",
+   "title": "Minnesota Midterm Elections 2026: Key Races, Candidates and Past Results",
+   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9tcm9zOTJpaDhaUmRNYzJwNFRudHdjd05icGVNNmJjLTUyYVBuWFZoTm5jNDI0Um1XX1dxS3NvbFVnaU1mR0JPaDJNNUtpS1lURjQ1X2FrZ1M5UXY4eEVhLWVhR2tXN0FlQXUySjlLbXp1Nm8?oc=5",
+   "source": "NBC News"
+  },
+  {
+   "at": "2026-10-25T11:24:46.000Z",
+   "title": "Hundreds Attend Abdul El-Sayed Rally in Detroit as Barack Obama Backs Him: 10 outlets compared",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNRnRQX3hHczN4OTNVcUZ1QnBISU95VEptcV9oSTlyaGhlc0ViY3ZzMTVuN1p6bEd2NlpPeHMzVk9lRGJaMDNKTDVFNncwS0t1NE9RdjU1bF9GZDBmT3FCd1NzRnBVRlJuR051ckpVcGNhM2h4aGhvckJWem8tdHAzT2ZSQU1ITVJhYk1nMnVRR1JBZ18yeG5UV3I3d29xQWlhN0gyZWVaQzI2Y2Y5ZXIwNUY2MFZzbnFiX21ETXJZYVR3Tk9wTERSSzU5NA?oc=5",
+   "source": "NewsCord"
+  },
+  {
+   "at": "2026-10-25T11:22:23.000Z",
+   "title": "Obama Campaigns With Abdul El-Sayed and Jocelyn Benson in Detroit Ahead of Michigan Midterms",
+   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPMlNWSmdYZFBCRlZ6WEM3RG5fdWNuWkFUSnpzRW1pUXdCWk9VZ2dvVGNsZkxkM2ZQaV9OeGZxZ0FkQXUtQkk1S2xiTXRfS2pmQ1ZFdHEtSUFrdXRHX2t5Uk1KdTBqZE9TLUxidmdTcmU2Umh0c3dvYjZuTTFEN1NibVo3LU40MUE4c19CLVFQV2hIWF9MTVdCc1BzMk5ITS1MMDFLcWE2WWpPNkVpTmdZMXdVSDNNZC1vcm5lclNwLVViQmo1YU5iWjJ2NHF2VDJQcDRpbXlsTV9ybUdlSFZKRk81SmFDWDJr?oc=5",
+   "source": "NewsCord"
+  },
+  {
+   "at": "2026-10-25T11:19:43.000Z",
+   "title": "Election 2026 Trump Michigan",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNazFkMUt2SEd1cHlIMko0SVFGSWFDcWJMSUR4ZVc4b05IanUtYm5LOHV2Y0NDU3ZGMFRxOS05dER0YVBKdExkSENINUFiSVZUOEtCelJxWUdHLUhuWUFnOEdLV3ZrT1hScmdXcURjVTVFUlFEX1ZBTkRBT2ZwaEtSQTNSR1VnX0tXM2ZkblpjODlrcjRzOERiWEJnVHRvYUJETFMzS0EycXk0ajVOcENPOS1Jczh6cGda?oc=5",
+   "source": "Times Argus"
+  },
+  {
+   "at": "2026-10-25T11:01:00.000Z",
+   "title": "5 reasons the Free Press endorsed Jocelyn Benson for governor I Opinion",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVkdVX19kNWcyQnM4UWZfMVpZWlR4VW9IczVPcUlMNjZqam9WOC1vWS1YWm16VXl5Q21CRnZhVzIyU1JjZWw0c210MGk2MHJIemRXZENfcTI1UXRKN2t2el9DVWdGRDdaUUhBMmJVMWlWeGNzN1ozYUU0NHVveGZJTUhDWUVsTW91aUpfTWdiSnB3MDZUUXhVQ3hOY21qWkZINnlEWldNS0RPNEV2cVNLVkRTUWUtZlZG?oc=5",
+   "source": "Detroit Free Press"
+  },
+  {
+   "at": "2026-10-25T11:00:21.000Z",
+   "title": "Ohio Midterm Elections 2026: Key Races, Candidates and Past Results",
+   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9aYnktTFVvVC14X2pyUEYwRzZGaU5IWDFFdUt2eXo1ZzVheDJGU2xmb185dVJzb1FqaXBWNy1XdHdtTnVuUnZUOVFPWGw5cnYza045eVAwQm5QLUdCbEtNTmh5eElITjFFRU0zXw?oc=5",
+   "source": "NBC News"
+  },
+  {
+   "at": "2026-10-25T10:57:11.000Z",
+   "title": "Trump to rally Michigan Republicans after Obama backs Democrat Abdul El-Sayed in key US Senate race ahead of midterms",
+   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNemVsNmFKeHlCS0xleG5WT09uVEJxR2t3bm1UbnRibTF1eUVvRU1IeDc0N0V0bk4xZWJmdDBWRThCMHFGOUp2LU5CODFHWldqYzd2dDladWs1UGtLcG1OMzV2MFYzQkdOODVxME5wd20yU2NOWklCSmFORUc5OVBGdWtQYURReXRBcW9qakRhU0xmR0NNc1JBNzBVOTVWUnI2Z1R5LVlpclZ5UEVwTzhLdWdyQXhieEpGVFVpWl8tMG1vdllLUGVmRFh5cWt0eENLVkhSeFp2WmFwbVlleU55WWgyUmxLaDVwbXpwS3RwQnRoZw?oc=5",
+   "source": "Deccan Herald"
+  },
+  {
+   "at": "2026-10-25T10:02:48.000Z",
+   "title": "Michigan 2026 Election Results",
+   "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE92eFpWMFdHcEdTU1dIUlpjRGFqTTNIaE1DWUxUeDBCSWpxYU95M1BBbzRmak1VcFZpbE9GMDN3eTJwWUxnZGg2dnZRdlVybTVxbHg0LVRKQm5yb0p6UzFHMy1SQ1RKcUxH?oc=5",
+   "source": "MultiState"
+  },
+  {
+   "at": "2026-10-25T09:45:40.000Z",
+   "title": "Obama backs El-Sayed in Michigan Senate race",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPa1pkWWoyZWN5NTNZUHVpVDZrRjVSVU9NMkVlQUFHanczblNtYUFzVld3V3UtTjEwMlljWl9RWERnQTZmSGUtQ1gwQlY3UmJuYmo1VVFvR05laGFJNWV3N1dJT2RUcGw2Q21EbUFHWWFxeGxPYUlYWERJaURPT2tPRXBqeHVqS05RbkJZ?oc=5",
+   "source": "Yeni Şafak English"
+  },
+  {
+   "at": "2026-10-25T08:51:07.000Z",
+   "title": "Obama’s Ohio, Michigan speeches: Key takeaways on Trump, Iran war, midterms",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQNmpMTzVMV0M5WU04b2s2LW1QeWlLWVVSdnRJQ2xQeW9WeVdXVjZYVkVwVFgzWTd5U25HZHJ4VFFIb0xfZDBrOVNJYzVsWndCcmhfdEkycExMaVoxelNzcWtuTWhxdjFKWVZxeVhGemVZdi0wNjBaX1pwdWE0aTBOS1gtUlNUcjRwRXNzcXNkdnF6ZDlrTFBJejVCQ1kwUGRjQWQ2MTNHai10OUlhQ29TdFNn0gG3AUFVX3lxTE9zVTVQVDdCLWlial92eERzejVzYnlMSnRwdTRiOFd5WTZCcFE2VnVabkJYOFNwV0NQRl90a0R1ZllSc2NDUDdPLVd3bXBUV0dLcU01a0MzbVhNVUlHczgzUTlYOW95YkZFVVdFOW8zVmROUUN0alc1aTZzRnNuTUxZcHg1a1VTQktVYkNhSTBNMzZiampRSUFtbjBFaDBSZURlVDBiYnh4MjBBRDNuYlVNTnpPcVdJaw?oc=5",
+   "source": "Al Jazeera"
+  },
+  {
+   "at": "2026-10-25T08:12:34.000Z",
+   "title": "Obama backs El-Sayed in Michigan Senate race, Trump dismisses rally turnout",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNSERoZ011SUJJRXJVdnlhRUZ6cXo5aXF0UDkxVzZZNHg1R2dUdzVqTGtZWE5mOFpfR0ZYQTNlYmtIbnE2cWxxcEd0aGo2WExxWHZfdnl3Z0duMll3MFg1ZUFGLUVyUm82ZmlMc1hteGM0VUJWV1A1cTJQeEMyalZwRG1jZ09BQzBEVzJaNzl3WXR1cC1RRmFPU3B2QXVCQ01SUWlYdXNzNWQ1MEYwaFN4NzJOdUc2Nm8?oc=5",
+   "source": "Anadolu Ajansı"
+  },
+  {
+   "at": "2026-10-25T05:57:00.000Z",
+   "title": "Obama Attacks Trump Over Iran War While Campaigning For El-Sayed In Michigan",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPaURwUEsxRVFKdU13SzVsdmdiY0dnY2kxcmllOW1qYlRGTm50Z1dpME9tRjNRZUdRX2pnRC1wSGhfMUY5UWlLQ1gyNTh3VEVMLW4zLUxXOWN4S0hJcXU4el9uMExCU3ZvOENfS1cxeXpNajViNmFLdV9KQ0FYMjdrMU9OZW1WdUV0VEEwS1hLQzRGOTZOZ2FKbkVha0lRUjZ6eFJwcEhweDBWX2IxbUZBT2dsVS1WdnAzYUxtcXBWMkFLTU1wRWh6MlpYbnItaG9j?oc=5",
+   "source": "i24NEWS"
+  },
+  {
+   "at": "2026-10-25T04:56:00.000Z",
    "title": "Obama rallies with Abdul El-Sayed ahead of midterm elections",
    "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNdkh0cFI3ZDlYejA2ZVUwTDhybHg1aVltOG9Va1NCd0JxV2FrS1VKT1BRRDFfcDc3TDZLVERqZVNBMEFtZzhER3Q3RjVKQkt4UGgwaVJpQTlpNGdCOTB4SnluaXRIVTg1alZZdXFSV1J5MWE4a2lNZ3lNd0FVVmlEdHIyWTh1U3VvV1NJZ3NFb0VGNVVJUXN0S1ZUc3dhZFFGY0plMHM1OHNPcUhmY0Z2ZERBTlIwNFVZSDZ2M3VxZm5Uenc5LUJBVnhQcDhubDRjZ2F4c2dweno5bWlxNnpnUWozbHgxMm5yeTB4RThvRGoyemVVR0RLT25PWm0zazk5?oc=5",
    "source": "Detroit Free Press"
@@ -28186,10 +28340,17 @@
    "source": "Michigan Public"
   },
   {
-   "at": "2026-10-25T04:06:44.000Z",
-   "title": "Obama rallies Detroit voters in final push for Michigan democrats",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPQzlVdmxCZnEwSzZxMkpFeElkVEZHSklsWVg5My1lSHZSQl9wZlRsNHp4bUhUZUxObHZWNlllb3JlODE5YUJtM3R6aTcxTkI1NUhqN09jYlRZc0JPd19VRXZHbDF3ZGxURG9uTUc0d0p4eEV0RVluQmZDcHZPTWNveFBBVWRCWEY0elZOWWtrZnhhcHpfX0NuZFMzVTlUeFdWdXNfbVlXRDNSbmRHMmhsSEZuN3RlZThHNWx3?oc=5",
-   "source": "ClickOnDetroit | WDIV Local 4"
+   "at": "2026-10-25T04:11:11.000Z",
+   "title": "Obama slams Trump’s ‘cruelty and corruption’ as he rallies Democrats",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTnk5QXFZSUVHb3U0WEhGVFZ6YWUwYVdNdFgtOUNqS2VvSTBiYjJXVktNVGhNak5VQnBBSUdXOWxXM29pMkRXWW1OM3JZMlQzS1JQZmd3VTd3VnBFVm9ma3drTzFJTGZiTExQdXpFakhBUVh0TjZRTjRuSUtCbDV4VF9HdHRCR04xVzR2Qld5anpQRHVfVGtwSHhaeU1wdTVuQzhtWmRkM2t0TE5USE1WVNIBtgFBVV95cUxPazFHLUVrT2l3VF9wNWtMZHRXdWVJUlRmRkpESVhpTTNFVVltSXRuSFgwNVZCM1F2WTZlbmVfWG9EdFhvclplVExQQ2ZDbDlteTN3OWQ5dFZiX29GV3VFS1dmTkhFNzNMZXktdXJMbFVKRmRTZEVtU1J3TVpMcTJZOFg4SlhfR0lXY2dTYUFVQkw0MlV0M2Y3c2RnTDZVQkNOWFJsQnZoR2tSQjJKUl9rY3NQNVRaQQ?oc=5",
+   "source": "Al Jazeera"
+  },
+  {
+   "at": "2026-10-25T04:09:21.000Z",
+   "title": "Obama attacks Trump over inflation as Democrats fight for Michigan Senate seat",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNV2lLTXFKRHNDdU9rbVhsWEFlUENhTjN0Z0FxM0pSWTJNX2dienhwd1Z0d254UVhuQi11Ry1lZl9sY2RDa2FrMDM5bE5UdnNFUGRaVWgwcnJmQXpVSnRCcEpQNGRXZFJWbVlUVXppWGV0WmVQZGRiWTdLTnVvMW1DU1d1VmZraWVWVGpLYmsyUlVPejE5NmpCWU9pbW9NcUNYZnBqbHNkc05wQnZNRm1hb2FCNkdLd2JQREJwaW9oWHpIRVBoUDh3aS1R?oc=5",
+   "source": "Investing.com",
+   "topic": "money"
   },
   {
    "at": "2026-10-25T04:03:36.000Z",
@@ -28198,19 +28359,13 @@
    "source": "Tri-County Times"
   },
   {
-   "at": "2026-10-25T02:30:21.000Z",
-   "title": "Minnesota Midterm Elections 2026: Key Races, Candidates and Past Results",
-   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9tcm9zOTJpaDhaUmRNYzJwNFRudHdjd05icGVNNmJjLTUyYVBuWFZoTm5jNDI0Um1XX1dxS3NvbFVnaU1mR0JPaDJNNUtpS1lURjQ1X2FrZ1M5UXY4eEVhLWVhR2tXN0FlQXUySjlLbXp1Nm8?oc=5",
-   "source": "NBC News"
+   "at": "2026-10-25T02:45:00.000Z",
+   "title": "Obama, in Midwest, assails 'cruelty' and indecency from Trump and his allies in the midterm campaign",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQZkp6bHg5OWk2TXZXZndoNmVFcGlkRmktbEtieHpmckduS1BiSFB6dHN4N3dnamM2YUc0OVQ1d2VMSGZOUS1qQzRmRFZuZV9sQ0d5cjBwS1JJemtkRFBIZGdBSFpKVDd0bzdCWEpXSkJkZWE2ek9Pd1E1MXpSN0NVNUQ0enlqcEV6bFFhT1dJNWVjeUlxZHRjZFhtazV5TnpCZlBlUEc0eXA3SGZzQkdn?oc=5",
+   "source": "AP News"
   },
   {
-   "at": "2026-10-25T02:00:21.000Z",
-   "title": "Ohio Midterm Elections 2026: Key Races, Candidates and Past Results",
-   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9aYnktTFVvVC14X2pyUEYwRzZGaU5IWDFFdUt2eXo1ZzVheDJGU2xmb185dVJzb1FqaXBWNy1XdHdtTnVuUnZUOVFPWGw5cnYza045eVAwQm5QLUdCbEtNTmh5eElITjFFRU0zXw?oc=5",
-   "source": "NBC News"
-  },
-  {
-   "at": "2026-10-25T01:48:38.000Z",
+   "at": "2026-10-25T01:48:49.000Z",
    "title": "Fact checks, takeaways: Barack Obama blasts Trump, touts El-Sayed, in Detroit",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUmFzQWI3RUpudUNKWTA5ZlZkeHZnaWpWTjJDSWZpMTFCVW9YWnZRZXVvLXowUU5jTEZCLW03TXR4Z3JGU2hLbnlHNnJYVHFUQmozaGFOVW9pcHJHdVhKTjl5bUR3WWtWeVktOUo5amViT1d5LTNEQzhBLUxhSzdkNlV0NnVLZlJaYnROOWFmRGJYUW1HM1B6clJkUDEwUmF6Z2I5RDVBVDNncjNGTDdOZkU1dnF0Zw?oc=5",
    "source": "Bridge Michigan"
@@ -28228,28 +28383,16 @@
    "source": "Clinton Herald"
   },
   {
-   "at": "2026-10-25T00:45:44.000Z",
-   "title": "Michigan 2026 Election Results",
-   "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE92eFpWMFdHcEdTU1dIUlpjRGFqTTNIaE1DWUxUeDBCSWpxYU95M1BBbzRmak1VcFZpbE9GMDN3eTJwWUxnZGg2dnZRdlVybTVxbHg0LVRKQm5yb0p6UzFHMy1SQ1RKcUxH?oc=5",
-   "source": "MultiState"
-  },
-  {
    "at": "2026-10-25T00:25:35.000Z",
    "title": "Obama on attacks against El-Sayed: ‘We have seen this movie before. I starred in it.’",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPUDNwN0M0Wmd4NXk1em92Mk1hQkFLV1l0UWJ1RHRQNWVPUmJiWEhvYmZ1bGUyWk1ucE1DdzdzSEdTRGktcE42TlJwVnpia1FkVDBDUDN5aEZkdjBIdDZEQjlhck5nR3lPTmtzTFRHOE9JYXFHdmtSZUlfNkwyeC14dVNDb2JtNjl4R09rMFdraENhWWFiMmYybHVWRzVienBJSnhvTFlway1wNk5wTGduSUdqdUZiNEVYaFBxMg?oc=5",
    "source": "Michigan Advance"
   },
   {
-   "at": "2026-10-25T00:00:21.000Z",
-   "title": "Michigan Midterm Elections 2026: Key Races, Candidates and Past Results",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5VWE96aXR0S3I2YjZPYWRXb21UM1lCZXoxbFdDenBTUzdjMmJHUjljRTdFc3hHQm9DTlBiSXIzRGg1c1U4N05MbHk0OFhtSVNpc2RNcWZhMzdpRldLWE5jYzd0cEZQRV8zR1d1VUtWWWlYQQ?oc=5",
-   "source": "NBC News"
-  },
-  {
    "at": "2026-10-24T23:57:02.000Z",
    "title": "Election 2026 Michigan",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQSWV5RHE4cXRsR29uVFB2YmFLNEgySms5enlhQWNQSUI3dkRfQ0hpV1ZHcnV2Y19kVFVPSlo5SG4zZ2YzYXRXREE3dS15REozMzFQZnJnc3NnRlhMOFJiN0JDNHdlSXZQLWtwbzZpbF94MzAta2FoNVVVRENydDJIbHNRQVdwWndZYnA4Y3N5czB0UGF2WVV1NmJGc1lXdTJjVWIwVnQzV0NfV3dmaERCc21CcmJHOU00VkxN?oc=5",
-   "source": "Clinton Herald"
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQXAwVmhzZFZtckU4TVRPaDR5el9sSi1UNl9lakFmX0VjbWhDQVNwaGFYaW9neEEtR1ZDQXhpcFV6MFJocDZCZmhsNkN1R19fMmVSdjRvYXZQWS1wMkZkNXBGYUZZWHk4UkhKSzY4QklhbEpEYVRzY1g3S0JsdzM3RVNya01SckxhSXhNVnB3WGVqRTM2SGVRSU8taWhuTkJNMV9xMXlEZGhsWE5TZ2hWMzdJLTRKQkFBSUE?oc=5",
+   "source": "Idaho State Journal"
   },
   {
    "at": "2026-10-24T23:50:00.000Z",
@@ -28262,12 +28405,6 @@
    "title": "Mike Rogers joins John James, Doug Lloyd for door launch in Lansing",
    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxORnJuWjRIQTFnX2haUm1zeWxDbHU0dmhlRl82UXJ4LU1ydElucXhqUXFVeU5kVkVSa21Hd0RCVGdUQmRkbHJhVWdBX2tOQXh0OHA0bG1CRUhOdFgxb0NTZTZVdFo5dUFDVnR6cUVzZ2tibHJTRG5HdktVSGhFb2Z6c0RHQ3ZBOWdEZnotdHV5Mmpxay1ITnN0RmNBU2VqY1puOWpURlRwYUpTMEd6a0Q0M1d3Y1NoVTRsV2RINlBfYmVsNkduMXZuMEo2VFRCbU53QVlCamNFaWtuQVVC?oc=5",
    "source": "WWMT"
-  },
-  {
-   "at": "2026-10-24T22:54:38.000Z",
-   "title": "Latest Senate Polls: Midterm Elections 2026",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5Kem1zNEtLLXJhQndGWG1LTlI2UWtfWGlqdzJwTGFhV2c1ZUpYYTlNQnNaMW9HUGlHN281RzZpTktsSXVEVXhnS1diRndPbzQwYmtnM2NQSkY5VUstWFAta2ZuVlpRYkhMZk5hNEZrN0Vpdw?oc=5",
-   "source": "The New York Times"
   },
   {
    "at": "2026-10-24T22:42:10.000Z",
@@ -28288,10 +28425,16 @@
    "source": "thewash.org"
   },
   {
-   "at": "2026-10-24T18:03:00.000Z",
-   "title": "El-Sayed spats with Baier over Muslim Brotherhood question: ‘Be a journalist’",
-   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1VSmVicGhoX0NfS1ZlTDE5ei1iVlBxUDc5YkZMOEhFVGUtZWJHZHNDVzhYSlo3NXVpTXF0R1FfdnVJUnFoX2xYY1FZX3dBc0J1UlcybDlPbDhxLThaZWxVN2UtLW5HM1RTVlhNWWhRbEwtSTNCQUpTeUlZUdIBgAFBVV95cUxNeTg5TXhYODM5dHVRb1lDVXN6dnd2ZDRMejdJeHJCTDB5VlkzUVNFUWVTZ2VzOWdQRzVlb2lid3k0SFlFWDVEVVZSUEJyeGpPWUh4OXRaT19URGtYNzNJSjQ4UEtsSEtUdlEwSWZtQ1JuVjRkenN4cDNSWExfc05kWg?oc=5",
-   "source": "The Hill"
+   "at": "2026-10-24T20:04:49.000Z",
+   "title": "Tracking the Early Vote in the 2026 Midterm Elections",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWUNScEZXTjJwYVpIZENZS0txWHd4TTNRUFZvQk1aRUUtTHE2NUhQbWJpb3BTRHpQUTFtdWEybmpFRk9iN1VXY1Y5Q1FjMTNqTEYzdkJZZk9OOUFPNnR3WFV2Qy1KZ3JscGpGT2N0eGdOY2NSaXJSZ2hoLXFORXB1bEhmUGd6QnEtVW9sZzRudW9wQ2pJTTdxVWFCTGpaZDJBaU9LX29oeER4STJrczJsOTRZbG43cHFF?oc=5",
+   "source": "The New York Times"
+  },
+  {
+   "at": "2026-10-24T17:45:07.000Z",
+   "title": "Divided over Israel, Detroit Democrats unite on rising costs for midterm elections",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNZDJidU1HVGRwVWptSzkxQS1DNndyczhuNTQ1Uzd3QzNpNUlCc05yVzJFdUlEQkhDbGhHRWMwSHNhUi1lWVFobHdaZ0p6TkZlXzZFUjNaLWhxUGZEaW50WTY2NVVNYzgwS2lMeHlTRl8tcW8wY0ZjVk9YLWkyTnp0cEY3cXcwM2puZUt1TlR5aS1lMU1DVjMxMHczT2xJelhXc0phZmI4Mk5BSUMwV3Vvb2dMMXhXSERwRC0w?oc=5",
+   "source": "Reuters"
   },
   {
    "at": "2026-10-24T16:00:00.000Z",
@@ -28300,17 +28443,17 @@
    "source": "The Marshall Project"
   },
   {
-   "at": "2026-10-24T15:33:40.000Z",
+   "at": "2026-10-24T15:58:31.000Z",
+   "title": "Detroit kicks off early voting with big celebration",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYklTbmpmakJ4NWlfa1RKVVJCSm9Lc0hGdl9oZG5IN1pIVzNqUEdpdHotT0xlclNTYmM4Wl9LZWdCX3ZPVU5oRWQybi1aQUtZcS05S2FJeFdNa21ET195d2tmZ0NWa0dDSF9tSVdVVDZhZDAxWmwyMWl6NG0yLVFGSXMzdEtUcXJHSUE5Yi1NV1NWWGNZY2xzTlBuNVhQeDdpdENwMHhGR3k?oc=5",
+   "source": "ClickOnDetroit | WDIV Local 4"
+  },
+  {
+   "at": "2026-10-24T15:35:42.000Z",
    "title": "Late $1.8M surge for John James tests Michigan campaign finance law",
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOX2t5bDM2M3Vua3BvYWw4LWFBUHI0QUJGTDBlaGdCY1FEaTNhM3UtcjROR3NnMDJaemQyUS1YTzktdFZ4NnFEaVZlc1VCMVcwNHVJZVZFQkhTZnFuaGdMdHF0NkRrQ1JveGVrMEdWN2F0a2NDMnhaQXBEek9oS1liTTdMMy1Jc2ROcWZvMFlwNU94WWxKd051TWF5WWRBZ2l0NjRkSHNaRUZHVk51?oc=5",
    "source": "Bridge Michigan",
    "topic": "money"
-  },
-  {
-   "at": "2026-10-24T12:59:00.000Z",
-   "title": "Endorsement: Vote Hood and Cavanaugh for Michigan’s Supreme Court",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZXVrY2NoR3ZXZ0ZabUdyWG5DUXE0MV9wRVpUUncyckd3QVZGZENITlZvNTFDemNHNndUbENaMTZuZUEtV1hjdDlxRkI4a2ZXdW1yRmF0WHhUenJ6X3NidmdxaVlDdzhFTFRfV2tiUmJKTGhONGpzWDFTVUNLM3BSNUZ6V3E5WjRRWXpIWDljY29rdDRRYS05RVVn?oc=5",
-   "source": "The Michigan Chronicle"
   },
   {
    "at": "2026-10-24T12:00:00.000Z",
@@ -28331,12 +28474,6 @@
    "source": "Michigan Public"
   },
   {
-   "at": "2026-10-24T10:10:57.000Z",
-   "title": "AIPAC-linked PAC moves $9m to Rogers in Michigan Senate race",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNY1NtcHpGaUItLUd6ZDV6UkNRaXF1V01rcE1nRlF3TWFNbUZmVWlrVmJXMUY5RVVPX3RSeF9yS3o2THJWTDNPV05SdVVaclpNYmVFSERIVnVkM1BZXzc1SW9QcFZ0OHNSOW5Kdm5zN09pVWZmZWRHdHktZURHQTlWVmtLTDRIV1M0cXpGY2FXWFhPVGM?oc=5",
-   "source": "Muslim Network TV"
-  },
-  {
    "at": "2026-10-24T10:00:18.000Z",
    "title": "2026 midterm elections: Live fact-checks from key races",
    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxORXFEYllzNV9IVnRlVUdTeHZlcWgwdzZ2a3B4NFp6QXlCYWkteGQ4aUxPdWxfQXhmek54ZThoRWNGRnk1Z21tVDdrX2xUcXlCVHh4RlFmdFVLWmlPVlFEWlJRM2pFQm13TThueFhxdktLTm1VeVU0dV9xQ3c1ZGFxczJLOE0zdXhXMkVaYm83Z2d5Tm5xaU5DRExkS3Y5SW85YWJUYi1oLVZlLWNlWDM1SG5VVHNlU1NpUm5TdlFZRnZZQkhGeDh3Tl84S3dOdw?oc=5",
@@ -28347,12 +28484,6 @@
    "title": "Election 2026: Early in-person voting begins in Detroit. What to know.",
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOczZrMXJBZC05TV9NaFNOSzh4LU9NUkdiYTZaZWFBVnhjY3pscGYzaVVJRnZHMlE1b0FSSFViV2dSeDdISFJiLURFX094UlJvNXM2Z2h5NnFWSlozVWllZVRyRXBtaU1sMXl6NHRka0pPZHZnX291NXV0Ykd0QzBkdTVuNUk2aHU0TXpJWDNneW9OMEREekpGbHN3azlqYWs?oc=5",
    "source": "BridgeDetroit"
-  },
-  {
-   "at": "2026-10-24T10:00:00.000Z",
-   "title": "The signs for El-Sayed in Detroit — and the lack of them — are setting off alarm bells",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQcEExM0NhaFpWSktIamRiaEh3Z1d1cVFtRktIeXpjdGJpbGtXM1VIMDBlSVlIMGhOYlppeGs0TW80NzJNUVFCUUtka2RIUGtMTnpqUmhKUV8tYWM5Mnp2aVlOS1hUVWh5VFlTMjhqSkREY2NVTU1IaXhRT3F3U3Z1ZXVWSFlua01VTDZTVWtBOUpZY1FOb2Jkdzl5bFM3TTNfQU5pd2ZQX1c2Z25UTVUxZUM5a1JYZlhFdDBKQg?oc=5",
-   "source": "MS NOW"
   },
   {
    "at": "2026-10-24T09:26:57.000Z",
@@ -28367,29 +28498,11 @@
    "source": "Firstpost"
   },
   {
-   "at": "2026-10-24T04:02:52.000Z",
-   "title": "Obama is set to campaign with Democrats in Ohio and Michigan as he ramps up midterm efforts",
-   "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOTDVLbnl3OFZXYmxJWFluSkN6Y2daWWc2NzZrQXlkVU5xUGt0R0hCVnVXMzJoNVFDZDZTVDN2Qmg0U3dwRnVFeXowWVJBMk1nWWR4SHhGMDJWNl8zLU95YUhwTXJybzNtWnFWUmVPckFEZGJkdVZUWC1EaHkxNmtJaUl3NUw2WVdWcjhrNWh0ZFd5aFQ2Sm0zdFpLMklicGJWdGpQU2l2S3F6UTgzemh5QVZUNElLQW5xeWtnRUlDakEzcWJkZ1paSHVfMDE3a04yQTZhb0lCNlpKd2JRZ2pHcUlB?oc=5",
-   "source": "ClickOnDetroit | WDIV Local 4"
-  },
-  {
    "at": "2026-10-24T03:40:00.000Z",
    "title": "GOP, James campaign try path around donor limits in race's last days",
    "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQUWhRVUhYcnZNcTJGc0plczZlY2Y2VFVSbV9uc0lBU2RkQlZvXzlLcHh6MktsOUVYdldGQVpxZFJUTVJUdDNsQU5zeXlNYmdQOFRKbHZ0SkdELWxGLU9VSWJZN0lQMXpVM1pSaHhPM2FvN0Z2SjhMMTJCVlhySWI2VVBFdHdjRzl6X05LREhhcVBFU1F4Z1pxSnBEZ3JwUzdMZ25YMDNvODNkczJPeFlRMkJyZ2J6N0I1a1R5R1VoMjdlZUpLZVhfMVR6V3dPbnItaDlvaC05Wl9zYTFhTmhjUTBTX0JiOFhDcmJ1WnV0QUo?oc=5",
    "source": "The Detroit News",
    "topic": "money"
-  },
-  {
-   "at": "2026-10-24T00:24:25.000Z",
-   "title": "One-on-one: John James makes final case to Michigan voters",
-   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNzg1UUFpc3RCZENlbTdMaUZGbk14QkhGTUxKRzFWdmNnMXdvM1dSd1NUS2lHdWxBd1ZKZS1BVXZQMzNjdXJRUmoyZjByTENqS2FhSzU4R1ZLNDNjOE9OdmpkOGUwaXZFMWUzazRxWHNpZHF0YUVCWXdPZjNvTUx3b0tZUjI0eVFXcEgwaGlkbmNaMUl0dlVMUUR3TF8zbEFUYnRhb3Z2VVlvWHhWVktrY2ZSOXlHVm0wcFRfbDJkYjFOd3VFaGlRNUFpM192QVl0M245emRuMVB1aEZzQjFmaG5qX0I?oc=5",
-   "source": "WWMT"
-  },
-  {
-   "at": "2026-10-23T23:19:00.000Z",
-   "title": "Final fundraising report shows Benson outspent James, each brought in over $4M",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZC1nVUxtb2FBMDByOFpySmVpcmlyWHRCYW42b0hHRVgwam9Wb2xHQncwM2pKWkpDcmVyOWs1RjktYVUxY3R5VnRPVFpUdGZRd2kzbEJRdmdFcmx6aThIbG1TZVp4cERobGRWemxqZE9GUlZiTEZPNVdGY1Z4MjlsVVpyUnR4MF9RWHhxb1VmNlF4Q1VhcHRsV1dHamNuN19sQlMtcUUxdERzbDdOOFBtOTdsNnVPYXJaNnpDbA?oc=5",
-   "source": "MLive.com"
   },
   {
    "at": "2026-10-23T22:58:00.000Z",
@@ -28426,16 +28539,17 @@
    "topic": "money"
   },
   {
+   "at": "2026-10-23T20:52:14.000Z",
+   "title": "How much are candidates spending for the 2026 midterm?",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNS2s2b0xnZ2tLOVk4Yk90YVNjZGstel96R21NUnJDTThsWm1PdmJPWHN2anBiTEF4Q25MMHdtS2JRamE0czFqV2IxcEx5U21SQU1rQjhaY1g3RDVCbU5NQkFfM1pRek1VaWFVdnRzcVMxMkkwNkpabjdSeFduWGVtQTN6V1liWV8zRVI2MVMzUmR3QlhhRWY1aV9Edzh0VFRUVUE?oc=5",
+   "source": "USAFacts",
+   "topic": "money"
+  },
+  {
    "at": "2026-10-23T20:00:42.000Z",
    "title": "Focus groups: Their candidates lost in the Michigan and Texas primaries. Now what?",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX19RTUNrUERibDNOOThyYkNYSWFZNk0wNzRjbVhXNjA3Wk01TUdJbmRkR1dlcXlLMXRvSDVQNHVvYlRrZHJCX3NrX3lRWVJkeHpYR20ySWZBNE0yNkR6bWNMd1Y0RGRvWV95SjFNc1lJNEtjbXR0UEtORjRZZFBVMVY4TE8yTkNILTkta1pyTGp5eE9QN0lkLS1GQk5CeGk0XzNZanBFSExTOXN3dmlneFlmaGZZZw?oc=5",
    "source": "NBC News"
-  },
-  {
-   "at": "2026-10-23T19:59:59.000Z",
-   "title": "Understanding Michigan’s 2 Ballot Proposals",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQaXg0NmROMUd0ZXRQQ08wXzE1ZUJ2N2hLX01ZRmFIS0hia1JxUFBOaE5ZOFdCdURqY3BwamxFZWpYMW5fWEJzbmZDMmJ4VExjWjhldHNMWUx0YUlxeEdTZ2FaRG9LMndqQmRfVWNlaEZ3dy1ob3BDSExBZlhBbHVlVXlEMnI3akpicWNza3diaThOSklGNlJFVHNOSkc?oc=5",
-   "source": "ClickOnDetroit | WDIV Local 4"
   },
   {
    "at": "2026-10-23T19:58:34.000Z",
@@ -28470,12 +28584,6 @@
    "source": "ClickOnDetroit | WDIV Local 4"
   },
   {
-   "at": "2026-10-23T18:12:49.000Z",
-   "title": "Michigan Republicans target El-Sayed's lead among black voters",
-   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNemxrZHd3c05FQU9RbU9uMFFLNkdXMzZsaDUtRW1nVEhxRUduRFpvSnN0M01manhEUlo2cHNtdTNtdExiUDRtbnhUZl9vZXVueUZ0ZGN2V0J6MHRLLXZZamswRGtTdUh5Nm93WndUREdSVmE1M1E2dmdoQk9hSWdrUkh3QlpOdkVZQ1R4ZUFoWEtjRE10T3hrRDVuWUd5aVNSOVU4Y1QzWVRpUG8zUU1LSjdmMkJLVTlxUmh0T2pWdXZraS1seHdwVXcyc0RzLV9iSkp1Z2pFdlNJNUJxQW1NbzlsUQ?oc=5",
-   "source": "WCIV"
-  },
-  {
    "at": "2026-10-23T18:00:04.000Z",
    "title": "Fact check: Abdul El-Sayed not a ‘fake doctor’ or licensed physician",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOcm1pRF9LR0NzZlFZcjlwdVY3SHlEYmc3RmVSaFVXSjRtREkwcDNueVk5dXFMc1poY2UzZVpSZENnUnc1UmFCR3ZDUkl6OVI1OE82QlBUMG9uSUVTd2JHemVmSXFvODlIYjd2V3gydkE1WFg0TTdlYTRKV01aWUU4ZVVZdVVDWWdIeTdZVjRCUGRSUTNGYkVyY3p2bW83YjRCTE9ianlkMjlxOUU?oc=5",
@@ -28487,62 +28595,6 @@
    "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1reHp2cDFNMWZFRWJqeHl0WE9FZ0VxMTZaRDVhYWlWOUhTZDRJS3hZMy14MUMwZGl5OHUxTWNHZzZUWk5id0JTczBnMjlEVHJYYVZGajE4dEhhbGNuaUV6dV9ENFR6cXU3WkpwUWlBSWRxbnZkWl9FcE5IUQ?oc=5",
    "source": "Legis1",
    "topic": "money"
-  },
-  {
-   "at": "2026-10-23T17:53:00.000Z",
-   "title": "Opinion | Michigan’s Proposal 2 Aims at Politicians, Hits Journalists",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQOVhJMG5EVmM1aXZoWGVyMkJPak1haTFKMDliY2NCOGEzdW1LUmszZWpqMUNuRjNpblVGeU1pQ2haSmVVVlpOM0NtcU1GdW5ZY2VKYTM1bHlveWhXR2RpbUNJXzBSUGx4LVlyc0hUWjdaSE5tcHYwRkJWbDctRU5zdHZ4dzlxM2RzeWxxVGNyQXhFY1dIa1JqWHRn?oc=5",
-   "source": "WSJ"
-  },
-  {
-   "at": "2026-10-23T17:28:47.000Z",
-   "title": "Michigan's Senate race is a dead heat — and the majority hangs on it",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQOGNyaFVTZFMwcG5QdS1lckNvRXgyaXM1a0doRUQ1akx6V3R6NjZfaEQ0RGNQdlhiQUhIcVVpWXBpUEVSUTg3Vk5pbmV5NlB6TVpOTDl4RVdIajhMWTk4QTI2Mk9wX2Z4SWVuY19FMUNEMkdWdjRDWnNWZk9QbDM4RV9UbFUzaHZQb3ZwNWtSZ3JCbm9TdTZFYUNwREhJU0o1WWk0VU5PMVo?oc=5",
-   "source": "Latin Times"
-  },
-  {
-   "at": "2026-10-23T17:27:31.000Z",
-   "title": "Election 2026: Get to know the ballot issues Detroiters can vote on",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5LaUZtTGlxQl9sUGxReVhDVnVpLWZFaW1JTzVzT2tyTU5fVTl6aFJ4cHRqeTFKMk5xMVNHT0lzTnRkUEtJV3BlZkI5VjBTamt3QTR4YU1yRFRIWXRRSVRDaDVfMThrbUZGMDZRQVdVRGczdU10WEdLWERlMUlUd1k?oc=5",
-   "source": "BridgeDetroit"
-  },
-  {
-   "at": "2026-10-23T17:21:47.000Z",
-   "title": "South African runners don cheeky attire for annual race to spotlight prostate cancer",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNZ2o3ZjZxYkd1aGJxejdDc1k3U0pNWXhNTFlkRXJqT2ZPdWdPdWRQSldnT2tJUmxqdzFjSGFWZktMQVcwS3pPMF9sTEozMmVVdGpGWGxJeVpISDNVclM3MnQtdEZ6V0RMR3VsaDEwMDB4Q3llZ0x3MVRVaUtCeTBTRTVVNGxGX05aeWZubUJSRVBoajRZQWdIeFpTUFJKY25Wa1VmNFdKbGtyOWY2MmFUeHhUUTlGcFlCQWhTM0ptYWRHbTRkQnhfeUtXbjJMdm8?oc=5",
-   "source": "ClickOnDetroit | WDIV Local 4"
-  },
-  {
-   "at": "2026-10-23T17:11:30.000Z",
-   "title": "Elon Musk-backed PAC sends out ‘false’ text about Abdul El-Sayed in Senate race",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQR09FWkhBU1UxdEg1c1hiempSQXdxVDBKWXktUjNJSENoZFo3QVBwalJ0REJiVHlxSXp3VUtqRGlqMzA3dHVzQ0pqWGgzd3gzYlc4V2tIVUFCNVI0MFZoQzZnaWRJczBWaHRhTVpHMWhwZlFUYk56OHpDbXd6N1pMNlpCS2V5dEFlVC1ERDVHVHlZQzM3NXhLaGNwdlNUeUMtWTBjc2Y2NHgtcWhnSVRNSzJXTmM4WUFUNTZnUUhLc9IBxAFBVV95cUxOU00wOG05Sk9hSnBHUldXdWI2eXEyQUxkTHpWTTVtRHRsUWdJUlkwRVVOX3EycjBEdmxIVHhwTE16RFg5THg2VlFUS3BBZUJjeHBVOXVrbnFyYkh4Zi13Mm5YWUh2TGt5aHhXYnowVDE5OUM4cHR4SVBJS2dEM3NMY0RXdmk3STRZNzNJcDVJM2hvUmk0bVBJMzc2R01hQTZPdi1iZjlUWG50d002S01ObXRobE5MRzhZellXM1d2N0pxOTdo?oc=5",
-   "source": "WLNS 6 News"
-  },
-  {
-   "at": "2026-10-23T17:00:00.000Z",
-   "title": "Examining the Muslim Brotherhood claims in Michigan’s Senate race",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQYzlmclBHbllzRzNxVEh1WDJETThRSWx3RXRqd0FmX09NRnpodFNld3pUM3d6Wi04SFZiTEtCMS13Z19HakJtOXdyOWpzN1F6bEU4dnRPSHpXbFhUekM1MzFaaHVscm52clI3dUs1aFZoM2FoYkstOUZ0MGVvUlJ3Vmw0dlFsZFhmVUs1bk11V0FXR3lDZkdGajM5dFVkVzYtWUktTUMxcGZ3VVB4Z2c?oc=5",
-   "source": "The Washington Post",
-   "topic": "money"
-  },
-  {
-   "at": "2026-10-23T16:45:50.000Z",
-   "title": "Democrats for Mike Rogers Employs Firm of ‘MAGA Warrior’",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNaVgwWmh1VG9kV3B4US03WTYwakVWR0NEZktqZEZpZk04QTFjNG5JTVhuVlFHUjE0WVNSdEtZSDJiZm5SU25OcDNpbFdYUGdxekxXOEt4NGdGaHBFVmhjNUZKalV0ZkVaMFJyTkJrcW8wMV8yZXlfcDFwRV9yWTNpd1dPNXdJbVhleDlhZENCNDc0Yl93N2JNQzFFUTRkWTl6MS1RVWNyRjNLTVlncTFSMnVrOW5Ia3dodmxWaVZPdEwxSlMzTURuMGE2YVRXcjA?oc=5",
-   "source": "The Bulwark",
-   "topic": "money"
-  },
-  {
-   "at": "2026-10-23T16:45:31.000Z",
-   "title": "Do these Senate-governor splits make sense?",
-   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1rRHJRZ3hYLU5WSnJ4SGl6aWJmNlJkdDZsLUpINERiLWNOc21SLXl1WW5qVGlKRV9rTnNfbXFiVTdvbGI2Rkx2WWp1MHYyX0RuQkFWQXVhbmFGZkF2NlE0QlJqQkdUR3JxY0d3ek94UHo4Q28?oc=5",
-   "source": "Silver Bulletin"
-  },
-  {
-   "at": "2026-10-23T15:10:32.000Z",
-   "title": "Democratic divisions could hurt El-Sayed, but Trump’s economy may matter more",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPRmxtTUNJRDcwZnByYmpyMXFZQlM3QjJqY0NtcFpOQVJlSjRZUks0VC1DaTRCTWE5SFRBa244X3RJbTVVUEQwWnQyWDQ0bVJpNTg2dk9SWnZyUHkzQk1mclJkUkFsWGhCZ0VfNGEwSE5Ea01aZlhHb1lDTVhSbGxjTERubDd1dElkMmFmTHV4aFZyT2VlSEJNZDB6S3hzUzRDMjcyOVVtUHlYcVNkSlJLUjR4c1Jqdw?oc=5",
-   "source": "Michigan Advance"
   }
  ],
  "laws": [
