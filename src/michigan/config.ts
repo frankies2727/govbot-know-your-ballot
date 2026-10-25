@@ -50,11 +50,11 @@ const EXPLAINERS: [RegExp, string][] = [
   [/^Attorney General/, 'Michigan’s top lawyer. Represents the state in court and enforces consumer-protection, civil-rights and environmental laws. 4-year term.'],
   [/^State Senator/, 'Your seat in the Michigan Senate. Writes and votes on state laws and the state budget in Lansing. 4-year term; all 38 seats are up.'],
   [/^Representative in State Legislature/, 'Your seat in the Michigan House. Writes and votes on state laws and the state budget in Lansing. 2-year term.'],
-  [/^Member of the State Board of Education/, 'Sets statewide education policy and hires the state superintendent. Eight members, elected statewide; two seats this year. 8-year term.'],
-  [/^Regent of the University of Michigan/, 'Governs the University of Michigan: its budget, tuition and president. Eight regents, elected statewide; two seats this year. 8-year term.'],
-  [/^Trustee of Michigan State University/, 'Governs Michigan State University: its budget, tuition and president. Eight trustees, elected statewide; two seats this year. 8-year term.'],
-  [/^Governor of Wayne State University/, 'Governs Wayne State University in Detroit: its budget, tuition and president. Eight governors, elected statewide; two seats this year. 8-year term.'],
-  [/^Justice of the Supreme Court/, 'Michigan’s highest court: the final word on state law. Listed without party on the ballot’s nonpartisan section, though parties nominate the candidates. Seven justices; two seats this year. 8-year term.'],
+  [/^Member of the State Board of Education/, 'Sets statewide education policy and hires the state superintendent. The board has eight members; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
+  [/^Regent of the University of Michigan/, 'Governs the University of Michigan: its budget, tuition and president. The board has eight regents; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
+  [/^Trustee of Michigan State University/, 'Governs Michigan State University: its budget, tuition and president. The board has eight trustees; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
+  [/^Governor of Wayne State University/, 'Governs Wayne State University in Detroit: its budget, tuition and president. The board has eight governors; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
+  [/^Justice of the Supreme Court/, 'Michigan’s highest court: the final word on state law. Listed without party on the ballot’s nonpartisan section, though parties nominate the candidates. The court has seven justices; two of those seats are on this ballot, so you pick up to 2. 8-year term.'],
   [/^Judge of the Court of Appeals/, 'Hears appeals from trial courts across your Court of Appeals district. Sitting judges are usually unopposed; a “yes” is voting for the name, leaving it blank is not. 6-year term.'],
 ];
 const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';

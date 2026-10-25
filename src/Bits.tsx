@@ -421,7 +421,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
           <span className="block font-black leading-tight">{card.title}</span>
           <span className="block text-sm">{card.hint}{groups.length ? ' · tap a face or a district to see who’s running' : ''}</span>
         </span>
-        <span className="shrink-0 rounded-full px-2.5 py-1 text-sm font-black" style={{ background: card.color, color: card.ink }}>{card.n}</span>
+        <span className="shrink-0 rounded-full border-2 px-2.5 py-1 text-sm font-black text-[var(--gb-text)]" style={{ borderColor: card.color, background: `color-mix(in srgb, ${card.color} 14%, transparent)` }}>{card.n}</span>
       </div>
       {faces.length > 0 && <FaceStrip people={faces} names max={400} size="w-9 h-9 text-xs" color={card.color} onPick={jump} />}
       <ul ref={list} className="kyb-scroll-bar max-h-[480px] overflow-y-auto rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
@@ -439,7 +439,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
                       <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
                       <span className="min-w-0 flex-1">
                         <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                        <span className="block text-xs">{it.sub} · {it.race!.candidates.length} candidate{it.race!.candidates.length === 1 ? '' : 's'}</span>
+                        <span className="block text-xs">{it.sub} · {it.race!.candidates.length} candidate{it.race!.candidates.length === 1 ? '' : 's'} · {it.race!.voteFor > 1 ? `pick up to ${it.race!.voteFor}` : 'pick 1'}</span>
                       </span>
                     </summary>
                     <div className="px-3 pb-3 space-y-2">
