@@ -8592,12 +8592,12 @@
     {
      "name": "Gus Gustafson",
      "party": "Republican",
-     "note": "Retiring.",
      "source": {
       "name": "Wikipedia: 2026 Wisconsin State Assembly election",
       "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_State_Assembly_election#Retirements"
      },
-     "asOf": "2026-10-25"
+     "asOf": "2026-10-25",
+     "ballot": 2
     }
    ]
   },

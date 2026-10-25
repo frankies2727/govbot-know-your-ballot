@@ -91,7 +91,7 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 - **Photos, websites & social accounts, who's in office, in their words, endorsements, records:** the same steps as Michigan (`scripts/state.mjs` with `scripts/minnesota/config.mjs`).
 - **The amendment:** the permanent-school-fund amendment in the Legislature's ballot wording, with a plain-English note (`scripts/minnesota/measures.mjs`), including that a blank counts as a no.
 - **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, state House (lettered: 1A, 1B) and county lines. Any of the 87 counties can be browsed without an address.
-- **Not here yet:** county and local offices, school boards, district court judges, local questions and state campaign money. The app points voters to the Minnesota Voter Information Portal.
+- **Not here yet:** county and local offices, school boards, district court judges and local questions. The app points voters to the Minnesota Voter Information Portal.
 </details>
 
 <details>
@@ -102,7 +102,7 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 - **Photos, websites & social accounts, who's in office, in their words, endorsements, records:** the same steps as Michigan (`scripts/state.mjs` with `scripts/wisconsin/config.mjs`).
 - **The questions:** the three constitutional amendments in the Legislature's ballot wording, with a plain-English note on each (`scripts/wisconsin/measures.mjs`).
 - **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, Assembly and county lines. Any of the 72 counties can be browsed without an address.
-- **Not here yet:** county offices, local referendums and state campaign money. The app points voters to MyVote Wisconsin.
+- **Not here yet:** county offices and local referendums. The app points voters to MyVote Wisconsin.
 </details>
 
 ### Reconciliation, every build
