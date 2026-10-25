@@ -603,7 +603,7 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
                   <div className="min-w-0 space-y-1">
                     <p className="text-lg font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
                     <div className="flex flex-wrap gap-1.5">
-                      {numbered && <Badge tone={color} ink={ink}>Ballot #{c.ballot}</Badge>}
+                      {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
                       <Badge>{c.party}</Badge>
                       {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
                     </div>
