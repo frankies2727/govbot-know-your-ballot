@@ -1,5 +1,5 @@
-// Who's on Michigan's Nov 3, 2026 ballot, from Ballotpedia's race pages
-// (CC BY-SA; each page is linked from the app's Sources). Ballotpedia keeps
+// Who's on the Nov 3, 2026 ballot in Michigan, Minnesota and Wisconsin, from
+// Ballotpedia's race pages (CC BY-SA; each page is linked from the app's Sources). Ballotpedia keeps
 // one page per statewide race, one per legislative chamber and one for the
 // U.S. House delegation, in three table formats, parsed here.
 //
@@ -31,13 +31,14 @@ export async function fetchPage(title, tries = 3) {
 const decode = (s) => s.replace(/&#160;|&nbsp;/g, ' ').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const text = (html) => decode(html.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 
-// Party names as Michigan's ballot prints them.
+// Party names as the ballots print them (a state's config renames the rest, e.g. Minnesota's DFL).
 const PARTY = {
   D: 'Democratic', R: 'Republican', G: 'Green', L: 'Libertarian',
   'Democratic Party': 'Democratic', 'Republican Party': 'Republican', 'Green Party': 'Green', 'Libertarian Party': 'Libertarian',
   'U.S. Taxpayers Party': 'U.S. Taxpayers', 'Constitution Party': 'U.S. Taxpayers',
   'Natural Law Party in Michigan': 'Natural Law', 'Natural Law Party': 'Natural Law',
   'Working Class Party': 'Working Class', Independent: 'Independent', Nonpartisan: 'Nonpartisan',
+  'Forward Independence Party': 'Forward Independence', 'American Solidarity Party': 'American Solidarity', Unaffiliated: 'Unaffiliated',
 };
 const party = (s) => PARTY[s.trim()] ?? s.trim();
 
@@ -46,8 +47,9 @@ const LINK = /<a href="(https:\/\/ballotpedia\.org\/[^"]+)"[^>]*>([^<]+)<\/a>/;
 
 /**
  * Statewide pages: every "General election for …" vote box. Returns
- * [{ office, candidates: [{ name, party, incumbent, profile }] }]. Write-in
- * candidates aren't printed on the ballot, so they're left out.
+ * [{ office, candidates: [{ name, party, incumbent, profile, mate }] }]. Write-in
+ * candidates aren't printed on the ballot, so they're left out. A governor's
+ * row may carry the running mate ("A (D) / B (D)"), returned as `mate`.
  * Nonpartisan races (Supreme Court) get each candidate's nominating party
  * from the convention boxes on the same page.
  */
@@ -58,8 +60,10 @@ export function parseVoteboxes(html) {
     const link = cell.match(LINK);
     if (!link) return null;
     const rest = text(cell.slice(cell.indexOf('</a>') + 4));
+    const mate = cell.slice(cell.indexOf('</a>') + 4).match(/\/\s*<a href="https:\/\/ballotpedia\.org\/[^"]+"[^>]*>([^<]+)<\/a>/)?.[1];
     return {
       name: decode(link[2]).trim(),
+      ...(mate ? { mate: decode(mate).trim() } : {}),
       profile: link[1],
       party: party(rest.match(/^\(([^)]+)\)/)?.[1] ?? 'Independent'),
       writeIn: /\(Write-in\)/i.test(rest),
@@ -82,8 +86,8 @@ export function parseVoteboxes(html) {
     out.push({
       office: m[1],
       seats: Number(m[2] ?? 1),
-      candidates: rows(table).filter((c) => !c.writeIn).map(({ name, party: p, incumbent, profile }) => ({
-        name, party: p, incumbent, profile,
+      candidates: rows(table).filter((c) => !c.writeIn).map(({ name, party: p, incumbent, profile, mate }) => ({
+        name, party: p, incumbent, profile, ...(mate ? { mate } : {}),
         ...(p === 'Nonpartisan' && nominated.has(name) ? { nominatedBy: nominated.get(name) } : {}),
       })),
     });
@@ -102,7 +106,8 @@ export function parsePartisanTable(html) {
   const out = [];
   for (const [, row] of table.matchAll(/<tr>([\s\S]*?)<\/tr>/g)) {
     const cells = [...row.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((m) => m[1]);
-    const district = text(cells[0] ?? '').match(/^District (\d+)/)?.[1];
+    // Minnesota's House districts are lettered: 1A, 1B.
+    const district = text(cells[0] ?? '').match(/^District (\d+[A-Z]?)\b/)?.[1];
     if (!district || cells.length < 4) continue;
     const candidates = [];
     cells.slice(1, 4).forEach((cell, i) => {

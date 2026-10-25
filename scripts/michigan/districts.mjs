@@ -1,8 +1,8 @@
-// District maps for Michigan, pre-baked so the browser turns a lat/lng into
+// District maps for a state, pre-baked so the browser turns a lat/lng into
 // "your districts" without any further request. All from the Census Bureau's
 // TIGERweb (official, key-free): the 120th Congress districts, the 2026
-// Michigan Senate and House maps, and the 83 counties (which decide the Court
-// of Appeals district and which clerk runs a voter's election).
+// state Senate and House maps, and the counties (which decide which clerk
+// runs a voter's election, and in Michigan the Court of Appeals district).
 //
 // Output per layer: [{ id, rings: [[lng, lat, lng, lat, ...], ...] }]. A point
 // is inside a feature when it falls inside an odd number of its rings.
@@ -10,22 +10,24 @@
 import { getJson, normalizeId, pack, ringsOf, simplify } from '../geo.mjs';
 
 const TIGER = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb';
-const query = (service, layer, fields) =>
-  `${TIGER}/${service}/MapServer/${layer}/query?where=STATE%3D%2726%27&outFields=${fields}&returnGeometry=true&outSR=4326&f=geojson`;
+const query = (fips, service, layer, fields) =>
+  `${TIGER}/${service}/MapServer/${layer}/query?where=STATE%3D%27${fips}%27&outFields=${fields}&returnGeometry=true&outSR=4326&f=geojson`;
 
-// ~10 m: far below a geocoder's own error; the four layers come to ~1.3 MB.
+// ~10 m: far below a geocoder's own error; Michigan's four layers come to ~1.3 MB.
 const TOLERANCE = 0.0001;
 
-const LAYERS = {
-  cd: { url: query('Legislative', 0, 'CD120'), id: (p) => p.CD120, count: 13 },
-  sldu: { url: query('Legislative', 1, 'SLDU'), id: (p) => p.SLDU, count: 38 },
-  sldl: { url: query('Legislative', 2, 'SLDL'), id: (p) => p.SLDL, count: 110 },
-  county: { url: query('State_County', 1, 'BASENAME'), id: (p) => p.BASENAME, count: 83 },
-};
+const layersOf = (fips) => ({
+  cd: { url: query(fips, 'Legislative', 0, 'CD120'), id: (p) => p.CD120 },
+  sldu: { url: query(fips, 'Legislative', 1, 'SLDU'), id: (p) => p.SLDU },
+  sldl: { url: query(fips, 'Legislative', 2, 'SLDL'), id: (p) => p.SLDL },
+  county: { url: query(fips, 'State_County', 1, 'BASENAME'), id: (p) => p.BASENAME },
+});
 
-export async function buildDistricts() {
+/** `fips` is the state's Census code; `counts` how many of each (cd, sldu, sldl, county) it has, so a partial answer is refused. */
+export async function buildDistricts(fips, counts) {
   const layers = {};
-  for (const [type, { url, id, count }] of Object.entries(LAYERS)) {
+  for (const [type, { url, id }] of Object.entries(layersOf(fips))) {
+    const count = counts[type];
     const fc = await getJson(url);
     if (fc.exceededTransferLimit) throw new Error(`${type}: TIGERweb returned a partial layer`);
     layers[type] = fc.features

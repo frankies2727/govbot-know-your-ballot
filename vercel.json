@@ -22,6 +22,22 @@
       "destination": "/michigan/index.html"
     },
     {
+      "source": "/minnesota",
+      "destination": "/minnesota/index.html"
+    },
+    {
+      "source": "/minnesota/(.*)",
+      "destination": "/minnesota/index.html"
+    },
+    {
+      "source": "/wisconsin",
+      "destination": "/wisconsin/index.html"
+    },
+    {
+      "source": "/wisconsin/(.*)",
+      "destination": "/wisconsin/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

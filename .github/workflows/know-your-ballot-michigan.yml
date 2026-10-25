@@ -2,7 +2,8 @@ name: Know Your Ballot Michigan – refresh data
 
 # Rebuilds src/data/michigan (candidates from
 # Ballotpedia and Wikipedia, FEC money, Census maps) and commits the result;
-# Vercel redeploys the site from main. Daily through Election Day. See scripts/michigan.mjs.
+# Vercel redeploys the site from main. Daily through Election Day. See scripts/state.mjs
+# and scripts/michigan/config.mjs.
 
 on:
   workflow_dispatch:
@@ -40,7 +41,7 @@ jobs:
         run: node scripts/govbot-shell.mjs
 
       - name: Build ballot data
-        run: node scripts/michigan.mjs
+        run: node scripts/state.mjs michigan
 
       - name: Commit any changes
         id: commit

@@ -1,12 +1,15 @@
 import { lazy, Suspense } from 'react';
 import { useRoute } from './lib/router';
 
-// One screen per address: /illinois and /michigan (and their /ballot pages)
-// open that state's guide; everything else is the pick-your-state page. Each
-// guide loads only when opened, so the home page stays light.
+// One screen per address: /illinois, /michigan, /minnesota and /wisconsin
+// (and their /ballot pages) open that state's guide; everything else is the
+// pick-your-state page. Each guide loads only when opened, so the home page
+// stays light.
 const KybHome = lazy(() => import('./KybHome').then((m) => ({ default: m.KybHome })));
 const Illinois = lazy(() => import('./KnowYourBallot').then((m) => ({ default: m.KnowYourBallot })));
 const Michigan = lazy(() => import('./michigan/KnowYourBallotMichigan').then((m) => ({ default: m.KnowYourBallotMichigan })));
+const Minnesota = lazy(() => import('./minnesota/KnowYourBallotMinnesota').then((m) => ({ default: m.KnowYourBallotMinnesota })));
+const Wisconsin = lazy(() => import('./wisconsin/KnowYourBallotWisconsin').then((m) => ({ default: m.KnowYourBallotWisconsin })));
 
 function Loading() {
   return (
@@ -19,6 +22,7 @@ function Loading() {
 
 export default function App() {
   const route = useRoute();
-  const Screen = route.startsWith('projects/know-your-ballot-illinois') ? Illinois : route.startsWith('projects/know-your-ballot-michigan') ? Michigan : KybHome;
+  const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin)(\/|$)/)?.[1];
+  const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : KybHome;
   return <Suspense fallback={<Loading />}><Screen /></Suspense>;
 }

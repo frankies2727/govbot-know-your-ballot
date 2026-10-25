@@ -1,5 +1,5 @@
+import type { GuideSection } from '../guide/spec';
 import type { ResearchLink } from '../research';
-import { guideUrl } from '../hosts';
 import type { StateConfig } from '../state';
 import type { Candidate, Race } from '../types';
 
@@ -20,9 +20,6 @@ export const LINKS = {
   countyResults: 'https://www.michigan.gov/sos/elections/election-results-and-data/candidate-listings-and-election-results-by-county',
 };
 
-export const SHARE_URL = guideUrl('michigan');
-export const STORAGE_KEY = 'know-your-ballot:michigan:2026-11-03';
-
 // Ballot order: the partisan section (federal, state, legislature, boards),
 // then the nonpartisan section (judges), then proposals. Colours are the
 // Michigan palette (michigan.css), the same in both themes; each carries the
@@ -30,16 +27,14 @@ export const STORAGE_KEY = 'know-your-ballot:michigan:2026-11-03';
 // ones). Party never gets a colour.
 const WHITE = '#FFFFFF';
 const BLUE = 'var(--mi-blue)';
-export const SECTIONS = [
+export const SECTIONS: readonly GuideSection[] = [
   { id: 'federal', title: 'Federal', color: 'var(--mi-arboretum)', ink: WHITE, emoji: '🏛️' },
   { id: 'state', title: 'Michigan statewide', color: 'var(--mi-teal)', ink: BLUE, emoji: '🧤' },
   { id: 'legislature', title: 'Lansing', color: 'var(--mi-amethyst)', ink: WHITE, emoji: '⭐' },
   { id: 'education', title: 'Schools & universities', color: 'var(--mi-maize)', ink: BLUE, emoji: '🎓' },
   { id: 'judicial', title: 'Judges', color: 'var(--mi-field)', ink: BLUE, emoji: '⚖️' },
   { id: 'measures', title: 'Proposals', color: 'var(--mi-red)', ink: WHITE, emoji: '🗳️' },
-] as const;
-export type SectionId = (typeof SECTIONS)[number]['id'];
-export const SECTION_TITLES: Record<string, string> = Object.fromEntries(SECTIONS.map((s) => [s.id, s.title]));
+];
 
 // Plain-English "what does this job actually do", factual and neutral.
 const EXPLAINERS: [RegExp, string][] = [

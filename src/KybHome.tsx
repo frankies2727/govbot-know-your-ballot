@@ -4,18 +4,24 @@ import ilOutline from './data/illinois/outline.json';
 import { GovbotChrome } from './GovbotChrome';
 import { StateMap } from './Hero';
 import { MichiganMap } from './michigan/Hero';
+import { MinnesotaMap } from './minnesota/Hero';
+import { WisconsinMap } from './wisconsin/Hero';
 import type { Outline } from './types';
 import './ballot.css';
 import './michigan/michigan.css';
+import './minnesota/minnesota.css';
+import './wisconsin/wisconsin.css';
 
 const IL_MAP = { fill: ['var(--gb-blue-hi)', 'var(--gb-primary)', 'var(--gb-blue)'] as [string, string, string], stroke: 'var(--kyb-gold)', pin: 'var(--kyb-gold)', pinStroke: 'var(--gb-bg)' };
 
-/** The root of the Know Your Ballot site: pick your state. Each guide is one tap away at /illinois or /michigan. */
+/** The root of the Know Your Ballot site: pick your state. Each guide is one tap away at /illinois, /michigan, /minnesota or /wisconsin. */
 export function KybHome() {
   useDocumentMeta('Know Your Ballot');
   const states = [
     { id: 'illinois', name: 'Illinois', color: 'var(--gb-amber-hi)', blurb: 'Every race, judge and question on your Nov 3, 2026 ballot, from the governor to your precinct.', map: <StateMap outline={ilOutline as Outline} name="Illinois" colors={IL_MAP} id="il-home" /> },
     { id: 'michigan', name: 'Michigan', color: 'var(--gb-primary-hi)', blurb: 'Every race, judge and proposal on your Nov 3, 2026 ballot, from the governor to your school board.', map: <MichiganMap /> },
+    { id: 'minnesota', name: 'Minnesota', color: 'var(--mn-teal)', blurb: 'Every race, judge and the school-fund amendment on your Nov 3, 2026 ballot, from the governor to your state representative.', map: <MinnesotaMap /> },
+    { id: 'wisconsin', name: 'Wisconsin', color: 'var(--wi-cardinal)', blurb: 'Every race and all three constitutional questions on your Nov 3, 2026 ballot, from the governor to your Assembly seat.', map: <WisconsinMap /> },
   ];
   return (
     <GovbotChrome>

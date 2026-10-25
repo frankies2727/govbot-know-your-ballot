@@ -47,6 +47,14 @@ export const STATES = {
     code: 'MI', local: /michigan|detroit|lansing|grand rapids/i, people: 'data/mi/legislature',
     photo: (url) => (/^https:\/\/(?:www\.)?(?:house\.mi\.gov|senate\.michigan\.gov)\//.test(url) ? { url, credit: 'Michigan Legislature', link: 'https://www.legislature.mi.gov/' } : undefined),
   },
+  MN: {
+    code: 'MN', local: /minnesota|minneapolis|st\.? paul|saint paul|duluth|rochester/i, people: 'data/mn/legislature',
+    photo: (url) => (/^https:\/\/(?:www\.)?(?:house\.mn\.gov|house\.leg\.state\.mn\.us|senate\.mn|senate\.leg\.state\.mn\.us)\//.test(url) ? { url, credit: 'Minnesota Legislature', link: 'https://www.leg.mn.gov/' } : undefined),
+  },
+  WI: {
+    code: 'WI', local: /wisconsin|milwaukee|madison|green bay|kenosha/i, people: 'data/wi/legislature',
+    photo: (url) => (/^https:\/\/(?:docs\.|www\.)?legis\.wisconsin\.gov\//.test(url) ? { url, credit: 'Wisconsin Legislature', link: 'https://legis.wisconsin.gov/' } : undefined),
+  },
 };
 
 const PLATFORMS = {
@@ -101,14 +109,14 @@ async function congress(st) {
 // A few fields from each person's YAML; the files are regular enough to read by line.
 function readPerson(text, st) {
   const name = text.match(/^name: "?(.+?)"?$/m)?.[1]?.replace(/\\x([0-9A-F]{2})/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));
-  const roles = [...text.matchAll(/- (?:start_date: \S+\n\s+)?type: (lower|upper)[\s\S]*?district: '?(\d+)'?/g)];
+  const roles = [...text.matchAll(/- (?:start_date: \S+\n\s+)?type: (lower|upper)[\s\S]*?district: '?(\d+[A-Z]?)'?/g)];
   const role = roles.at(-1);
   const links = [...text.matchAll(/^- url: (\S+)/gm)].map((m) => m[1]);
   return {
     name,
     last: name && fold(text.match(/^family_name: "?(.+?)"?$/m)?.[1]?.replace(/\\x([0-9A-F]{2})/gi, (_, h) => String.fromCharCode(parseInt(h, 16))) ?? name.split(' ').pop()),
     chamber: role?.[1], district: role?.[2],
-    website: links.find((u) => !/ilga\.gov|legislature\.mi\.gov|wikipedia|ballotpedia|openstates/i.test(u)),
+    website: links.find((u) => !/ilga\.gov|legislature\.mi\.gov|house\.mn\.gov|senate\.mn\b|leg\.state\.mn\.us|legis\.wisconsin\.gov|wikipedia|ballotpedia|openstates/i.test(u)),
     wiki: links.find((u) => /en\.wikipedia\.org\/wiki\//.test(u))?.split('/wiki/')[1],
     // Only the legislature's own photos: some point at news sites' photos, which we can't reuse.
     photo: st.photo(text.match(/^image: (https?:\/\/\S+)/m)?.[1] ?? ''),

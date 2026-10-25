@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 
 // A tiny path-based router (no dependency). Each state's guide has a short
 // address: /illinois is its landing page, /illinois/ballot the ballot (the
-// same for /michigan), and the root is the pick-your-state page. Inside the
+// same for /michigan, /minnesota and /wisconsin), and the root is the
+// pick-your-state page. Inside the
 // app a route is "projects/know-your-ballot-<state>[/ballot]", the name the
 // guides have always used (saved picks and resume links carry it); only the
 // address differs. Deep links and the browser's Back button work; vercel.json
@@ -10,7 +11,7 @@ import { useEffect, useState } from 'react';
 
 const BASE = '/';
 const KYB = 'projects/know-your-ballot-';
-const toRoute = (path: string) => (/^(illinois|michigan)(\/|$)/.test(path) ? KYB + path : path);
+const toRoute = (path: string) => (/^(illinois|michigan|minnesota|wisconsin)(\/|$)/.test(path) ? KYB + path : path);
 const toPath = (route: string) => (route.startsWith(KYB) ? route.slice(KYB.length) : route);
 
 export function currentRoute(): string {

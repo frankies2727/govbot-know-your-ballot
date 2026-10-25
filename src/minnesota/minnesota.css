@@ -1,0 +1,18 @@
+/* Know Your Ballot: Minnesota. The State of Minnesota's brand palette
+   (mn.gov: Minnesota Blue and Green, the accent teal, dark green, orange,
+   purple, sky blue and gold) for the sections and the hero. Brand colours
+   stay the same in both themes; each section carries the ink that reads on
+   it (config.ts). The shared tokens are in ballot.css. */
+:root {
+  --mn-blue: #003865;
+  --mn-green: #78BE21;
+  --mn-teal: #008EAA;
+  --mn-pine: #0D5257;
+  --mn-orange: #8D3F2B;
+  --mn-purple: #5D295F;
+  --mn-sky: #9BCBEB;
+  --mn-gold: #FFC845;
+}
+
+/* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the outline glows Minnesota blue. */
+.kyb-mn { --kyb-accent: var(--mn-blue); --kyb-accent-ink: #FFFFFF; --kyb-map-glow: color-mix(in srgb, var(--mn-teal) 55%, transparent); }

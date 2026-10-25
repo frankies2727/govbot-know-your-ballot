@@ -224,6 +224,24 @@ export function outgoingLine(wt, n) {
 // ---- the roster --------------------------------------------------------------
 
 /** Sitting members by seat for one state: { "cd:7": {name, party}, "sldu:9": …, "sldl:1": … }. */
+/** A district id as the roster and the articles write it: "07" -> "7", Minnesota's "1A" as is. */
+export const districtKey = (id) => (/^\d+$/.test(id) ? String(+id) : id);
+
+/**
+ * The running mates on a governor's ticket, from the election article's
+ * infobox (`nominee1` / `running_mate1`, …): { 'Amy Klobuchar': 'Ben Schierer' }.
+ * The candidate boxes on Ballotpedia carry only the top of each ticket.
+ */
+export async function runningMates(title, fetchPage = fetchText) {
+  const wt = await fetchPage(`${WIKI}${encodeURIComponent(title)}`);
+  const out = {};
+  for (const [, n, nominee] of wt.matchAll(/\|\s*nominee(\d+)\s*=\s*([^\n]+)/g)) {
+    const mate = wt.match(new RegExp(`\\|\\s*running_mate${n}\\s*=\\s*([^\\n]+)`))?.[1];
+    if (mate) out[clean(nominee).trim()] = clean(mate).trim();
+  }
+  return out;
+}
+
 export function seatsFromRoster(people, state) {
   const seats = {};
   for (const rows of Object.values(people.usa ?? {})) for (const [, full, party, area] of rows) {
@@ -231,8 +249,8 @@ export function seatsFromRoster(people, state) {
     if (m) seats[`cd:${m[1] === 'AL' ? '1' : +m[1]}`] = { name: full, party };
   }
   for (const rows of Object.values(people[state.toLowerCase()] ?? {})) for (const [, full, party, area] of rows) {
-    const m = area?.match(/^(Senate|House) District (\d+)$/);
-    if (m) seats[`${m[1] === 'Senate' ? 'sldu' : 'sldl'}:${+m[2]}`] = { name: full, party };
+    const m = area?.match(/^(Senate|House) District (\d+[A-Z]?)$/);
+    if (m) seats[`${m[1] === 'Senate' ? 'sldu' : 'sldl'}:${districtKey(m[2])}`] = { name: full, party };
   }
   return seats;
 }

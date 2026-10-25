@@ -3,6 +3,8 @@
 [![Live site](https://img.shields.io/website?url=https%3A%2F%2Fgovbot-know-your-ballot.vercel.app&label=live%20site&up_message=online&down_message=down)](https://govbot-know-your-ballot.vercel.app)
 [![Illinois data](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-illinois.yml/badge.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-illinois.yml)
 [![Michigan data](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-michigan.yml/badge.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-michigan.yml)
+[![Minnesota data](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-minnesota.yml/badge.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-minnesota.yml)
+[![Wisconsin data](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-wisconsin.yml/badge.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-wisconsin.yml)
 [![Last data refresh](https://img.shields.io/github/last-commit/frankies2727/govbot-know-your-ballot/main?label=data%20refreshed)](https://github.com/frankies2727/govbot-know-your-ballot/commits/main)
 [![Good first issues](https://img.shields.io/github/issues/frankies2727/govbot-know-your-ballot/good%20first%20issue?label=good%20first%20issues&color=7057ff)](https://github.com/frankies2727/govbot-know-your-ballot/labels/good%20first%20issue)
 [![States wanted](https://img.shields.io/github/issues/frankies2727/govbot-know-your-ballot/new%20state?label=states%20wanted&color=0e8a16)](https://github.com/frankies2727/govbot-know-your-ballot/labels/new%20state)
@@ -18,6 +20,8 @@
 |---|---|---|
 | 🗳️ Illinois | [/illinois](https://govbot-know-your-ballot.vercel.app/illinois) | Every contest on any Chicago or suburban Cook ballot on Nov 3, 2026, from U.S. Senate to judges, plus every county browsable without an address |
 | 🧤 Michigan | [/michigan](https://govbot-know-your-ballot.vercel.app/michigan) | Governor, U.S. Senate, Congress, every seat in Lansing, the Supreme Court and Court of Appeals, the university boards and both statewide proposals |
+| 🌲 Minnesota | [/minnesota](https://govbot-know-your-ballot.vercel.app/minnesota) | Governor, U.S. Senate, Congress, every seat in St. Paul, the Supreme Court and Court of Appeals seats and the school-fund amendment |
+| 🧀 Wisconsin | [/wisconsin](https://govbot-know-your-ballot.vercel.app/wisconsin) | Governor, Congress, the odd-numbered Senate districts and every Assembly seat, and all three constitutional questions |
 
 **More states are welcome.** Read [CONTRIBUTING.md](CONTRIBUTING.md) and open a [new-state issue](.github/ISSUE_TEMPLATE/new-state.md).
 
@@ -32,10 +36,10 @@ Everything shown comes from an official or documented public source named next t
 A static site: a React + Vite app (`src/`) reads JSON that Node scripts (`scripts/`) rebuild every morning in GitHub Actions and commit (`src/data/<state>/`, candidate photos in `public/kyb-photos/<state>/`). Vercel redeploys from `main`. No server, no API keys, no tracking.
 
 ```
-src/                 the app; src/michigan/ holds what differs for Michigan, src/state.tsx the per-state switches
+src/                 the app; src/guide/ is the whole-state guide, src/<state>/ what differs for Michigan, Minnesota and Wisconsin, src/state.tsx the per-state switches
 src/data/<state>/    the published data: ballot.json (races, candidates, incumbents), districts, guides, judges
 src/govbot/          Govbot's header, footer and stylesheet, copied by scripts/govbot-shell.mjs so the guide looks like Govbot
-scripts/             the daily builds: illinois.mjs, michigan.mjs, and the modules they share (illinois/* is the original set, used by both)
+scripts/             the daily builds: illinois.mjs, state.mjs with <state>/config.mjs for the others, and the modules they share (illinois/* is the original set, used by all)
 scripts/audit.mjs    reconciliation, the last step of every build (see below)
 public/kyb-photos/   candidate photos, each credited and linked in the app
 .github/workflows/   one refresh workflow per state
@@ -50,7 +54,7 @@ npm run lint       # type-check
 npm run build      # production build (dist/)
 ```
 
-To rebuild a state's data (what the daily workflow runs): `npm run data:illinois` (needs `pdftotext` from poppler-utils, ImageMagick and `npm install --no-save playwright` for the Board of Elections' bot check) or `npm run data:michigan` (needs `unzip`, `curl`, ImageMagick). Each step is fail-soft: a source that can't be read today keeps yesterday's data for that field, and the log says so.
+To rebuild a state's data (what the daily workflow runs): `npm run data:illinois` (needs `pdftotext` from poppler-utils, ImageMagick and `npm install --no-save playwright` for the Board of Elections' bot check) or `npm run data:michigan`, `data:minnesota`, `data:wisconsin` (need `unzip`, `curl`, ImageMagick). Each step is fail-soft: a source that can't be read today keeps yesterday's data for that field, and the log says so.
 
 ### Where the data comes from
 
@@ -79,9 +83,31 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 - **Not here yet:** county and local offices, trial-court judges and local proposals. The app points voters to their sample ballot at Michigan.gov/Vote.
 </details>
 
+<details>
+<summary><b>🌲 Minnesota</b></summary>
+
+- **Who's on the ballot:** Ballotpedia's race pages (the statewide offices, the U.S. House delegation, both legislative chambers, the Supreme Court and Court of Appeals seats), CC BY-SA and linked from the app's Sources. Governor tickets take their running mate from the race page, else Wikipedia's article. The Secretary of State's candidate filings are the official source.
+- **Campaign money:** federal races from the FEC. State races aren't in yet; the app links the Campaign Finance Board.
+- **Photos, websites & social accounts, who's in office, in their words, endorsements, records:** the same steps as Michigan (`scripts/state.mjs` with `scripts/minnesota/config.mjs`).
+- **The amendment:** the permanent-school-fund amendment in the Legislature's ballot wording, with a plain-English note (`scripts/minnesota/measures.mjs`), including that a blank counts as a no.
+- **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, state House (lettered: 1A, 1B) and county lines. Any of the 87 counties can be browsed without an address.
+- **Not here yet:** county and local offices, school boards, district court judges, local questions and state campaign money. The app points voters to the Minnesota Voter Information Portal.
+</details>
+
+<details>
+<summary><b>🧀 Wisconsin</b></summary>
+
+- **Who's on the ballot:** Ballotpedia's race pages (the statewide offices, the U.S. House delegation, the 17 odd-numbered Senate districts and all 99 Assembly districts), CC BY-SA and linked from the app's Sources. No U.S. Senate seat and no statewide judges are up this November. The Elections Commission's certified candidate list is the official source.
+- **Campaign money:** federal races from the FEC. State races aren't in yet; the app links the Campaign Finance Information System.
+- **Photos, websites & social accounts, who's in office, in their words, endorsements, records:** the same steps as Michigan (`scripts/state.mjs` with `scripts/wisconsin/config.mjs`).
+- **The questions:** the three constitutional amendments in the Legislature's ballot wording, with a plain-English note on each (`scripts/wisconsin/measures.mjs`).
+- **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, Assembly and county lines. Any of the 72 counties can be browsed without an address.
+- **Not here yet:** county offices, local referendums and state campaign money. The app points voters to MyVote Wisconsin.
+</details>
+
 ### Reconciliation, every build
 
-`scripts/audit.mjs` is the last step before a ballot is written. Anything attached to a candidate whose source names someone else is dropped and logged: a legislature portrait or site for someone who isn't a sitting legislator of that name, a Ballotpedia page with another name, a legislative record for a non-legislator, and a site, account, photo or money id two candidates share. Upstream, a candidate is matched to a sitting member, a legislator or a money filing only when the whole name agrees, never the surname alone. Run it by hand: `npm run audit -- il` or `npm run audit -- mi` (add `--write` to apply).
+`scripts/audit.mjs` is the last step before a ballot is written. Anything attached to a candidate whose source names someone else is dropped and logged: a legislature portrait or site for someone who isn't a sitting legislator of that name, a Ballotpedia page with another name, a legislative record for a non-legislator, and a site, account, photo or money id two candidates share. Upstream, a candidate is matched to a sitting member, a legislator or a money filing only when the whole name agrees, never the surname alone. Run it by hand: `npm run audit -- il`, `mi`, `mn` or `wi` (add `--write` to apply).
 
 ### Privacy
 

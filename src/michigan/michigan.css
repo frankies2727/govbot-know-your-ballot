@@ -15,5 +15,5 @@
   --mi-amethyst: #702082;
 }
 
-/* The outline glows arboretum green. */
-.kyb-mi { --kyb-map-glow: color-mix(in srgb, var(--mi-arboretum) 55%, transparent); }
+/* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the outline glows arboretum blue. */
+.kyb-mi { --kyb-accent: var(--mi-arboretum); --kyb-accent-ink: #FFFFFF; --kyb-map-glow: color-mix(in srgb, var(--mi-arboretum) 55%, transparent); }
