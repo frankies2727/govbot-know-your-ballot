@@ -3,6 +3,7 @@
 // ballot uses, the Supreme Court and Court of Appeals seats (statewide, no
 // party), and the constitutional amendment.
 
+import { addStateMoney, CFB_VIEWER } from './cfb.mjs';
 import { MEASURES, MEASURES_SOURCE } from './measures.mjs';
 
 export const CONFIG = {
@@ -33,6 +34,8 @@ export const CONFIG = {
   partyNames: { Democratic: 'Democratic-Farmer-Labor' },
   partyOrder: ['Democratic-Farmer-Labor', 'Republican', 'Green', 'Libertarian', 'Forward Independence', 'Legal Marijuana Now', 'Grassroots-Legalize Cannabis', 'Independent', 'Unaffiliated', 'Nonpartisan'],
   chosenPhotos: new URL('./photos-chosen.json', import.meta.url),
+  // State candidates' money from the Campaign Finance Board's candidate viewer.
+  stateMoney: { name: 'CFB', url: CFB_VIEWER, add: (races) => addStateMoney(races) },
   measures: { list: MEASURES, source: MEASURES_SOURCE },
   news: ['Minnesota election 2026', 'Minnesota governor race Klobuchar Demuth', 'Minnesota Senate race Flanagan Tafoya', 'Minnesota constitutional amendment school fund 2026', 'Minnesota attorney general race Ellison Schutz'],
   moneyNews: ['Minnesota governor campaign fundraising', 'Minnesota election campaign donations super PAC', 'Minnesota Senate race campaign money', 'Minnesota Campaign Finance Board'],

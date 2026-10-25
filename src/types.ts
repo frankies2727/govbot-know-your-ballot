@@ -8,13 +8,13 @@ export interface Area { type: AreaType; id: string }
 
 /** Campaign totals this cycle (since Jan 1, 2025), from official filings. */
 export interface Money {
-  /** FEC for federal candidates; the Illinois State Board of Elections or Michigan's MiTN otherwise. */
-  source: 'FEC' | 'ISBE' | 'MiTN';
+  /** FEC for federal candidates; the state's disclosure system otherwise (Illinois' SBE, Michigan's MiTN, Minnesota's Campaign Finance Board, Wisconsin's campaign finance system). */
+  source: 'FEC' | 'ISBE' | 'MiTN' | 'MNCFB' | 'WISC';
   /** FEC candidate ID, or the state committee ID. */
   id: string;
   raised: number;
   spent: number;
-  /** Cash on hand at the end of the latest report (MiTN's exports don't carry one). */
+  /** Cash on hand at the end of the latest report (Michigan's and Wisconsin's systems don't carry one). */
   cash?: number;
   /** MM/DD/YYYY, end of the latest report. */
   through: string;

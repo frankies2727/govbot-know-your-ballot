@@ -14,6 +14,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
+import { dollars, sameName } from '../money-names.mjs';
 
 const MITN = 'https://mi-boe.entellitrak.com/etk-mi-boe-prod/page.request.do?page=gov.mi.boe.component.cfrexport.page.';
 export const MITN_EXPORTS = `${MITN}cfrexportdownload`;
@@ -50,19 +51,6 @@ async function* rows(path) {
   }
 }
 
-const fold = (s) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
-const parts = (n) => fold(n.split(' & ')[0].replace(/["“”][^"“”]*["“”]/g, ' ').replace(/,?\s+(jr|sr|ii|iii|iv)\.?$/i, '')).split(/[^a-z]+/).filter(Boolean);
-const SHORT = { jim: 'james', bill: 'william', bob: 'robert', rob: 'robert', dick: 'richard', rick: 'richard', mike: 'michael', tom: 'thomas', joe: 'joseph', dan: 'daniel', chris: 'christopher', charlie: 'charles', chuck: 'charles', ben: 'benjamin', tony: 'anthony', ted: 'edward', ed: 'edward', jack: 'john', liz: 'elizabeth', beth: 'elizabeth', kathy: 'katherine', kate: 'katherine', katie: 'katherine', peggy: 'margaret', sam: 'samuel', steve: 'steven', matt: 'matthew', pat: 'patrick', andy: 'andrew', nick: 'nicholas', greg: 'gregory', jeff: 'jeffrey', ken: 'kenneth', ron: 'ronald', don: 'donald', fred: 'frederick', larry: 'lawrence', jerry: 'gerald', tim: 'timothy', jon: 'jonathan', dave: 'david', doug: 'douglas', sue: 'susan', deb: 'deborah', jen: 'jennifer', alex: 'alexander', ray: 'raymond', russ: 'russell', marty: 'martin', pete: 'peter', josh: 'joshua', zach: 'zachary', nate: 'nathan', vince: 'vincent', abdul: 'abdul' };
-const sameFirst = (a, b) => a === b || (SHORT[a] ?? a) === (SHORT[b] ?? b) || (a.length >= 3 && b.length >= 3 && (a.startsWith(b) || b.startsWith(a)));
-/** Same person: last names equal, first names agree ("Dan" ~ "Daniel"). */
-function sameName(ours, theirsFirst, theirsLast) {
-  const a = parts(ours);
-  const last = fold(theirsLast).replace(/[^a-z]/g, '');
-  if (a.length < 2 || !last || a.at(-1) !== last && !a.slice(1).join('').endsWith(last)) return false;
-  const first = parts(theirsFirst)[0];
-  return !!first && sameFirst(a[0], first);
-}
-
 // Our office names -> MiTN's `can_office_sought`.
 const OFFICE = {
   'Governor and Lieutenant Governor': 'Governor',
@@ -78,7 +66,6 @@ const OFFICE = {
   'Judge of the Court of Appeals': 'Judge of Court of Appeals',
 };
 const districtOf = (s) => s.match(/\d+/)?.[0] ?? '';
-const dollars = (s) => Math.round(Number(s.replace(/[^0-9.-]/g, '')) || 0);
 const iso = (mdy) => { const m = mdy.match(/^(\d\d)\/(\d\d)\/(\d{4})$/); return m ? `${m[3]}-${m[1]}-${m[2]}` : ''; };
 
 /**

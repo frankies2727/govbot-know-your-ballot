@@ -511,7 +511,7 @@ const clip = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).replace
 export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, onClose }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void; onClose: () => void }) {
   const { compareNote } = useStateConfig();
   const readOnly = useReadOnly();
-  const max = Math.max(1, ...race.candidates.map((c) => c.money ? Math.max(c.money.raised, c.money.spent, c.money.cash) : 0));
+  const max = Math.max(1, ...race.candidates.map((c) => c.money ? Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0) : 0));
   const anyMoney = race.candidates.some((c) => c.money);
   // A row shows for everyone when anyone in the race has it, so the columns line up and a blank reads as "none found".
   const any = (k: 'stances' | 'endorsements' | 'record' | 'bar') => race.candidates.some((c) => c[k]);

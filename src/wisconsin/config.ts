@@ -16,8 +16,8 @@ export const LINKS = {
   absentee: 'https://elections.wi.gov/voters/absentee-voting',
   electionDay: 'https://elections.wi.gov/voters/voting-election-day',
   dates: 'https://elections.wi.gov/elections/upcoming-elections',
-  // The state's Campaign Finance Information System: every state candidate's committee.
-  disclosure: 'https://cfis.wi.gov/',
+  // The state's campaign finance system: every state candidate's committee and its transactions.
+  disclosure: 'https://campaignfinance.wi.gov/browse-data/registrants',
 };
 
 // Ballot order: federal, state, the Legislature, then the questions.
@@ -56,7 +56,8 @@ function researchLinks(c: Candidate, race: Race): ResearchLink[] {
   if (c.website) links.push({ label: 'Their campaign site', href: c.website, note: 'Their own words on the issues' });
   else links.push({ label: 'Search the web for their campaign', href: `https://duckduckgo.com/?q=${q(`${who} ${race.office} Wisconsin 2026 campaign`)}`, note: 'They listed no site in their filing, so this opens a web search, not their site' });
   if (c.money?.source === 'FEC') links.push({ label: 'FEC filings', href: `https://www.fec.gov/data/candidate/${c.money.id}/`, note: 'Every donor and expense, officially' });
-  else if (race.section !== 'federal') links.push({ label: 'Wisconsin campaign finance', href: LINKS.disclosure, note: 'The state’s Campaign Finance Information System: search for their committee' });
+  else if (c.money?.source === 'WISC') links.push({ label: 'Wisconsin campaign finance filings', href: `https://campaignfinance.wi.gov/browse-data/registrant/${c.money.id.split('+')[0]}`, note: 'Their committee’s reports, donors and spending, officially' });
+  else if (race.section !== 'federal') links.push({ label: 'Wisconsin campaign finance', href: LINKS.disclosure, note: 'The state’s campaign finance system: search for their committee' });
   // The League of Women Voters asks every candidate the same questions; answers are listed by address.
   links.push({ label: 'Vote411 candidate Q&A', href: 'https://www.vote411.org/ballot', note: 'League of Women Voters: their answers to the League’s questions, by your address' });
   return links;
@@ -71,8 +72,8 @@ export const WISCONSIN: StateConfig = {
   moneySource: (s) => (s === 'FEC' ? 'Federal Election Commission' : 'Wisconsin Ethics Commission'),
   noMoney: (r) => (r.section === 'federal'
     ? 'No FEC filings found. Federal candidates who raise or spend under $5,000 don’t have to file.'
-    : 'State campaign money isn’t in this guide yet. The Wisconsin Ethics Commission’s Campaign Finance Information System has every committee’s reports.'),
-  compareNote: 'Money comes from FEC records (federal races only); incumbency from the candidate lists. Tap “ⓘ Details” under a name for their profile and campaign site.',
+    : 'No committee for this race in Wisconsin’s campaign finance system: a candidate who raises and spends under $2,000 in a year can claim an exemption and files no reports.'),
+  compareNote: 'Money comes from FEC and Wisconsin Ethics Commission records; incumbency from the candidate lists. Tap “ⓘ Details” under a name for their profile and campaign site.',
 };
 
 /** A district's number as a chip: "Congress 2", "County Dane". */

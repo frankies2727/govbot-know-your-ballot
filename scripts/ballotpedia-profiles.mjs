@@ -17,6 +17,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { imageType, shrink } from './illinois/photos.mjs';
+import { fold, parts, sameFirst } from './money-names.mjs';
 import { browserPage } from './browser.mjs';
 
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36';
@@ -88,11 +89,6 @@ export function parseStances(html) {
   return { messages, asOf };
 }
 
-const fold = (s) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
-const parts = (n) => fold(n.split(' & ')[0].replace(/["“”][^"“”]*["“”]/g, ' ').replace(/,?\s+(jr|sr|ii|iii|iv)\.?$/i, '')).split(/[^a-z]+/).filter(Boolean);
-// Short forms Ballotpedia and ballots disagree on ("Dan Swanson" is "Daniel Swanson" there).
-const SHORT = { angie: 'angelica', jaz: 'jasper', timmy: 'timothy', jim: 'james', jimmy: 'james', bill: 'william', billy: 'william', will: 'william', bob: 'robert', rob: 'robert', bobby: 'robert', dick: 'richard', rick: 'richard', mike: 'michael', tom: 'thomas', tommy: 'thomas', joe: 'joseph', joey: 'joseph', dan: 'daniel', danny: 'daniel', chris: 'christopher', charlie: 'charles', chuck: 'charles', ben: 'benjamin', tony: 'anthony', ted: 'edward', ed: 'edward', eddie: 'edward', jack: 'john', johnny: 'john', liz: 'elizabeth', beth: 'elizabeth', betty: 'elizabeth', kathy: 'katherine', kate: 'katherine', katie: 'katherine', peggy: 'margaret', maggie: 'margaret', meg: 'margaret', sam: 'samuel', steve: 'steven', stephen: 'steven', matt: 'matthew', pat: 'patrick', andy: 'andrew', drew: 'andrew', nick: 'nicholas', greg: 'gregory', jeff: 'jeffrey', ken: 'kenneth', ron: 'ronald', don: 'donald', fred: 'frederick', frank: 'francis', larry: 'lawrence', jerry: 'gerald', terry: 'terrence', tim: 'timothy', jon: 'jonathan', dave: 'david', doug: 'douglas', gabby: 'gabrielle', sue: 'susan', debbie: 'deborah', deb: 'deborah', jen: 'jennifer', jenny: 'jennifer', jess: 'jessica', vicky: 'victoria', vicki: 'victoria', alex: 'alexander', al: 'albert', abe: 'abraham', ray: 'raymond', russ: 'russell', marty: 'martin', manny: 'manuel', pete: 'peter', josh: 'joshua', zach: 'zachary', nate: 'nathan', lou: 'louis', vince: 'vincent', max: 'maxwell' };
-const sameFirst = (a, b) => a === b || (SHORT[a] ?? a) === (SHORT[b] ?? b) || (a.length >= 3 && b.length >= 3 && (a.startsWith(b) || b.startsWith(a)));
 /** The quoted nickname, if any ("Christopher "C.D." Davidsmeyer" -> "cd"). */
 const nickname = (n) => { const q = n.match(/["“”]([^"“”]+)["“”]/)?.[1]; return q ? fold(q).replace(/[^a-z]/g, '') : null; };
 /** First and last name agree ("Robert W. Fioretti" ~ "Robert Fioretti", "Dan" ~ "Daniel", a quoted nickname as the first name). */
@@ -211,7 +207,14 @@ export async function addProfiles(races, { dir, publicPath, prev, state = 'Michi
       if (missing && c.photo) return;
       if (page.photo) {
         const file = `${slug(`${c.name.split(' & ')[0]}-${race.id}`)}.jpg`;
-        if (was?.photo?.from === page.photo && existsSync(join(dir, file))) {
+        const kept = was?.photo && existsSync(join(dir, was.photo.file.split('/').pop()));
+        if (kept && was.photo.credit !== 'Ballotpedia') {
+          // An official source (addPhotos) beat Ballotpedia's photo last run. Fetching
+          // Ballotpedia's now would overwrite that file under the same name while
+          // addPhotos keeps the official credit, so the page would show one photo
+          // credited to another. Keep the official one; addPhotos chooses again today.
+          c.photo = was.photo;
+        } else if (kept && was.photo.from === page.photo) {
           c.photo = was.photo;
         } else {
           const raw = curl(page.photo, true);
@@ -220,7 +223,7 @@ export async function addProfiles(races, { dir, publicPath, prev, state = 'Michi
           writeFileSync(join(dir, file), shrink(raw, type).bytes);
           c.photo = { file: `${publicPath}/${file}`, credit: 'Ballotpedia', link: profile, from: page.photo };
         }
-        used.add(file);
+        used.add(c.photo.file.split('/').pop());
       } else keep();
     } catch (e) {
       keep();

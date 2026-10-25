@@ -118,7 +118,9 @@ export function statusSentence(wt, name) {
   // Sentences end at . ! or ?, but not inside "U.S.", an initial or a title.
   for (const s of text.split(/(?<!\bU\.S\.|\b[A-Z]\.|\b(?:Jr|Sr|Dr|Mr|Mrs|Ms|St|No|Gov|Sen|Rep)\.)(?<=[.!?])\s+(?=[A-Z"“])/)) {
     if (new RegExp(`\\b${surname}\\b`).test(fold(s)) && STATUS.test(s) && !/not yet stated|has not (?:yet )?(?:said|announced)/i.test(s)) {
-      return s.length > 320 ? s.slice(0, 317).replace(/[,;:\s]+\S*$/, '') + '…' : s;
+      // A citation template the article left unclosed survives clean(): cut the sentence there.
+      const t = s.replace(/\s*\{\{.*$/, '');
+      return t.length > 320 ? t.slice(0, 317).replace(/[,;:\s]+\S*$/, '') + '…' : t;
     }
   }
   return null;
@@ -204,7 +206,7 @@ export function articleStatus(articleWt, name, year) {
  */
 export function outgoingLine(wt, n) {
   const want = new RegExp(`\\b(?:District ${n}|${ordinal(n)} (?:House of Representatives |Senate )?district|district ${n})\\b`, 'i');
-  for (const title of ['Retirements', 'Outgoing incumbents', 'Incumbents defeated']) {
+  for (const title of ['Retirements', 'Outgoing incumbents', 'Outgoing members', 'Incumbents defeated']) {
     const b = block(wt, title);
     if (!b) continue;
     let heading = title;
@@ -278,6 +280,8 @@ export function sameName(a, b) {
 // re-election" when they're no longer on the ballot; it only stays when it
 // says how that ended.
 const SAYS_RUNNING = /\b(seeking|running for|run for|is running|will run|sought)\b/i;
+// "…retiring to run for Hennepin County Attorney", not "is not running for re-election".
+const RUNS_ELSEWHERE = /(?<!\bnot )\b(running|run|seeking|candidate) for (?!re-?election)/i;
 const SAYS_OVER = /\b(not|unsuccessful\w*|defeated|lost|withdr\w*|retir\w*|resign\w*|appointed|died|instead|won.t|never|term.limited|ineligible)\b/i;
 
 /** Mark each incumbent as on this ballot, on another race's, or neither. */
@@ -287,11 +291,18 @@ export function placeIncumbents(races) {
       // The roster's "Jaz Martus" is the ballot's "Jasper Martus": the article's spelling is tried too.
       const names = [inc.name, ...(inc.aliases ?? [])];
       delete inc.aliases;
-      const here = r.candidates.find((c) => names.some((n) => sameName(c.name, n)));
+      // A governor's ticket is "A & B": the running mate is on that ballot too.
+      const onTicket = (c) => c.name.split(' & ').some((part) => names.some((n) => sameName(part, n)));
+      // The ballot's own incumbent mark ("Patricia Mueller (i)") beats a nickname the roster uses ("Patty", "Liish").
+      const here = r.candidates.find(onTicket) ?? r.candidates.find((c) => c.incumbent && surnameOf(c.name) === surnameOf(inc.name));
       if (here) { inc.ballot = here.ballot; delete inc.note; continue; }
       if (inc.note && SAYS_RUNNING.test(inc.note) && !SAYS_OVER.test(inc.note)) delete inc.note;
-      if (inc.note) continue;
-      const elsewhere = races.find((o) => o !== r && o.candidates.some((c) => names.some((n) => sameName(c.name, n))));
+      const elsewhere = races.find((o) => o !== r && o.candidates.some(onTicket));
+      if (inc.note) {
+        // "…is term-limited and running for the MSU board": true when written, but they aren't on that ballot (lost the nomination, withdrew), so say so.
+        if (RUNS_ELSEWHERE.test(inc.note) && !elsewhere && !/not on .*ballot|no race in this guide/i.test(inc.note)) inc.note = `${inc.note.replace(/\s+$/, '')} They are in no race in this guide.`;
+        continue;
+      }
       if (elsewhere) inc.note = `Running for ${elsewhere.office.replace(/ \(\d+ seats\)$/, '')} instead.`;
     }
   }

@@ -5,6 +5,7 @@
 // districts are.
 
 import { MEASURES, MEASURES_SOURCE } from './measures.mjs';
+import { addStateMoney, SUNSHINE } from './sunshine.mjs';
 
 export const CONFIG = {
   code: 'WI', slug: 'wisconsin', name: 'Wisconsin', capital: 'Madison', fips: '55',
@@ -26,6 +27,8 @@ export const CONFIG = {
   layerCounts: { cd: 8, sldu: 33, sldl: 99, county: 72 },
   partyOrder: ['Democratic', 'Republican', 'Constitution', 'Libertarian', 'Green', 'American Solidarity', 'Independent', 'Nonpartisan'],
   chosenPhotos: new URL('./photos-chosen.json', import.meta.url),
+  // State candidates' money from the Ethics Commission's campaign finance system.
+  stateMoney: { name: 'Sunshine', url: SUNSHINE, add: (races) => addStateMoney(races) },
   measures: { list: MEASURES, source: MEASURES_SOURCE },
   news: ['Wisconsin election 2026', 'Wisconsin governor race Crowley Tiffany', 'Wisconsin constitutional amendment 2026 partial veto', 'Wisconsin attorney general race Kaul Toney', 'Wisconsin Assembly election 2026'],
   moneyNews: ['Wisconsin governor campaign fundraising', 'Wisconsin election campaign donations super PAC', 'Wisconsin campaign finance 2026', 'Wisconsin Democracy Campaign'],

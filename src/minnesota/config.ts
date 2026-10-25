@@ -16,8 +16,8 @@ export const LINKS = {
   early: 'https://www.sos.mn.gov/elections-voting/other-ways-to-vote/vote-early-in-person/',
   electionDay: 'https://www.sos.mn.gov/elections-voting/election-day-voting/',
   dates: 'https://www.sos.mn.gov/elections-voting/',
-  // The Campaign Finance Board's public reports: every state candidate's committee.
-  disclosure: 'https://cfb.mn.gov/',
+  // The Campaign Finance Board's candidate viewer: every state candidate's committee and its reports.
+  disclosure: 'https://cfb.mn.gov/reports-and-data/viewers/campaign-finance/candidates/',
 };
 
 // Ballot order: federal, state, the Legislature, judges, then the amendment.
@@ -62,7 +62,8 @@ function researchLinks(c: Candidate, race: Race): ResearchLink[] {
   if (c.website) links.push({ label: 'Their campaign site', href: c.website, note: 'Their own words on the issues' });
   else links.push({ label: 'Search the web for their campaign', href: `https://duckduckgo.com/?q=${q(`${who} ${race.office} Minnesota 2026 campaign`)}`, note: 'They listed no site in their filing, so this opens a web search, not their site' });
   if (c.money?.source === 'FEC') links.push({ label: 'FEC filings', href: `https://www.fec.gov/data/candidate/${c.money.id}/`, note: 'Every donor and expense, officially' });
-  else if (race.section !== 'federal' && race.section !== 'judicial') links.push({ label: 'Minnesota campaign finance', href: LINKS.disclosure, note: 'The Campaign Finance Board’s reports: search for their committee' });
+  else if (c.money?.source === 'MNCFB') links.push({ label: 'Campaign Finance Board filings', href: `${LINKS.disclosure}${c.money.id}/2026/`, note: 'Their committee’s reports, donors and spending, officially' });
+  else if (race.section !== 'federal') links.push({ label: 'Minnesota campaign finance', href: LINKS.disclosure, note: 'The Campaign Finance Board’s candidate viewer: search for their committee' });
   // The League of Women Voters asks every candidate the same questions; answers are listed by address.
   links.push({ label: 'Vote411 candidate Q&A', href: 'https://www.vote411.org/ballot', note: 'League of Women Voters: their answers to the League’s questions, by your address' });
   return links;
@@ -77,8 +78,8 @@ export const MINNESOTA: StateConfig = {
   moneySource: (s) => (s === 'FEC' ? 'Federal Election Commission' : 'Minnesota Campaign Finance Board'),
   noMoney: (r) => (r.section === 'federal'
     ? 'No FEC filings found. Federal candidates who raise or spend under $5,000 don’t have to file.'
-    : 'State and local campaign money isn’t in this guide yet. The Minnesota Campaign Finance Board publishes every committee’s reports.'),
-  compareNote: 'Money comes from FEC records (federal races only); incumbency from the candidate lists. Tap “ⓘ Details” under a name for their profile and campaign site.',
+    : 'No committee reports found with the Campaign Finance Board. A Minnesota candidate who raises and spends under $750 files an affidavit instead of reports.'),
+  compareNote: 'Money comes from FEC and Minnesota Campaign Finance Board records; incumbency from the candidate lists. Tap “ⓘ Details” under a name for their profile and campaign site.',
 };
 
 /** A district's number as a chip: "Congress 4", "County Hennepin". */
