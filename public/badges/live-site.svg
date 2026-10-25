@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="102" height="20" role="img" aria-label="live site: online">
+<title>live site: online</title>
+<clipPath id="r"><rect width="102" height="20" rx="4"/></clipPath>
+<g clip-path="url(#r)"><rect width="58" height="20" fill="#555"/><rect x="58" width="44" height="20" fill="#4c1"/></g>
+<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11">
+<text x="29" y="14">live site</text><text x="80" y="14">online</text>
+</g>
+<rect x="1" y="1" width="100" height="18" rx="4" fill="none" stroke="#61BB46" stroke-width="2"/>
+</svg>
