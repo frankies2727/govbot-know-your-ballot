@@ -10,7 +10,8 @@ import { githubIssueUrl, sendReport, type ReportAbout } from './report';
 // bar, and the confetti when a ballot is finished.
 
 /** A modal sheet: Escape or the backdrop closes it, focus returns to where it was. */
-export function Dialog({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
+/** `wide` lets a side-by-side sheet (Compare) use most of the screen instead of a reading column. */
+export function Dialog({ title, onClose, wide = false, children }: { title: string; onClose: () => void; wide?: boolean; children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const prev = document.activeElement as HTMLElement | null;
@@ -29,7 +30,7 @@ export function Dialog({ title, onClose, children }: { title: string; onClose: (
         aria-label={title}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className="w-full sm:max-w-2xl max-h-[92dvh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none"
+        className={`w-full ${wide ? 'sm:max-w-[min(96vw,1500px)]' : 'sm:max-w-2xl'} max-h-[92dvh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none`}
       >
         <div className="flex items-start justify-between gap-4 mb-5">
           <h2 className="text-2xl font-black leading-tight text-[var(--gb-text)]">{title}</h2>

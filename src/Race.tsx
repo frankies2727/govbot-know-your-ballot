@@ -581,18 +581,18 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
   const anyRecord = race.candidates.some((c) => c.record || isIncumbent(race, c));
   const scroller = useRef<HTMLDivElement>(null);
   return (
-    <Dialog title={`Compare: ${race.office}`} onClose={onClose}>
+    <Dialog title={`Compare: ${race.office}`} onClose={onClose} wide>
       {race.candidates.length > 2 && (
         <div className="mb-3 flex items-center justify-between gap-3 text-sm font-bold">
           <span>{race.candidates.length} candidates side by side. Scroll sideways to see everyone.</span>
           <span className="flex shrink-0 gap-1.5">
-            <button type="button" onClick={() => scroller.current?.scrollBy({ left: -260, behavior: 'smooth' })} aria-label="Scroll left" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronLeft className="w-4 h-4" aria-hidden="true" /></button>
-            <button type="button" onClick={() => scroller.current?.scrollBy({ left: 260, behavior: 'smooth' })} aria-label="Scroll right" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
+            <button type="button" onClick={() => scroller.current?.scrollBy({ left: -300, behavior: 'smooth' })} aria-label="Scroll left" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronLeft className="w-4 h-4" aria-hidden="true" /></button>
+            <button type="button" onClick={() => scroller.current?.scrollBy({ left: 300, behavior: 'smooth' })} aria-label="Scroll right" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
           </span>
         </div>
       )}
       <div ref={scroller} className="kyb-hscroll -mx-6 px-6 pb-3">
-        <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${race.candidates.length}, minmax(170px, 1fr))` }}>
+        <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${race.candidates.length}, minmax(260px, 1fr))` }}>
           {race.candidates.map((c) => {
             const on = picked.includes(c.ballot);
             return (
