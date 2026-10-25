@@ -40,6 +40,8 @@ export function imageType(buf) {
   if (buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return 'jpg';
   if (buf.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return 'png';
   if (buf.slice(0, 4).toString() === 'RIFF' && buf.slice(8, 12).toString() === 'WEBP') return 'webp';
+  // The Minnesota House and some Ballotpedia profiles serve portraits as GIFs.
+  if (/^GIF8[79]a$/.test(buf.slice(0, 6).toString())) return 'gif';
   return null;
 }
 
@@ -133,7 +135,8 @@ async function download(url, ua) {
 export function shrink(buf, type, crop) {
   const cut = /^\d+x\d+\+\d+\+\d+$/.test(crop ?? '') ? ['-crop', crop, '+repage'] : [];
   try {
-    const out = execFileSync('convert', [`${type}:-`, ...cut, '-resize', `${WIDTH}x>`, '-background', '#E9EAEE', '-flatten', '-strip', '-quality', '82', 'jpg:-'],
+    // A GIF's first frame (an animated one would otherwise come out as a strip).
+    const out = execFileSync('convert', [`${type}:-[0]`, ...cut, '-resize', `${WIDTH}x>`, '-background', '#E9EAEE', '-flatten', '-strip', '-quality', '82', 'jpg:-'],
       { input: buf, maxBuffer: MAX_BYTES * 2, stdio: ['pipe', 'pipe', 'ignore'] });
     if (imageType(out) === 'jpg') return { bytes: out, type: 'jpg' };
   } catch { /* no ImageMagick: keep the photo as it came */ }

@@ -20,9 +20,9 @@ const sources = (d: StateData): SourceCard[] => {
     { emoji: '🗳️', title: 'Who’s running', status: `Live · daily · read ${s.candidates.asOf}`,
       body: 'Every statewide, congressional and legislative contest from Ballotpedia’s race pages (CC BY-SA), with incumbents and each candidate’s profile. The Elections Commission’s certified candidate list is the official source; check it if a name looks off.',
       links: [...pages.slice(0, 3).map(([office, url]) => [office, url] as [string, string]), ['Official candidate lists', 'https://elections.wi.gov/candidates-and-committees/candidates']] },
-    { emoji: '💵', title: 'Campaign money', status: 'Live · daily · federal races',
-      body: 'Federal races: raised, spent and cash on hand from each campaign’s latest FEC report, attached only on a confident name, office and district match. State races aren’t in yet: the Ethics Commission’s Campaign Finance Information System has every committee’s reports.',
-      links: [['FEC data', s.money.url], ['Wisconsin CFIS', LINKS.disclosure]] },
+    { emoji: '💵', title: 'Campaign money', status: 'Live · daily',
+      body: 'Federal races: raised, spent and cash on hand from each campaign’s latest FEC report. State races: each committee’s contributions and disbursements from the Ethics Commission’s campaign finance system, summed over 2025 and 2026 through its latest report (the system carries no cash-on-hand figure). Both attached only on a confident name, office and district match.',
+      links: [['FEC data', s.money.url], ['Wisconsin campaign finance', s.stateMoney?.url ?? LINKS.disclosure]] },
     { emoji: '📷', title: 'Photos, websites & social media', status: 'Live · daily',
       body: 'Each candidate’s Ballotpedia profile supplies their photo, campaign website and the accounts Ballotpedia lists as theirs. Official sources win where they overlap: Congress’s portraits, the Legislature’s member photos (via Open States), Wikidata and Wikimedia Commons. Anyone still without a photo gets the headshot their own campaign site labels as them. Every photo is credited on the card; candidates with none anywhere show their initials.',
       links: [['Ballotpedia', 'https://ballotpedia.org/'], ['Congress portraits', 'https://github.com/unitedstates/images'], ['Open States', 'https://openstates.org/wi/']] },
@@ -51,7 +51,7 @@ const sources = (d: StateData): SourceCard[] => {
       body: 'Each candidate’s three key campaign messages are their own answer to Ballotpedia’s Candidate Connection survey, quoted word for word with the date, plus the “Issues” page on their own campaign site when it has one. Endorsements are the lists in the Wikipedia article on the race, by the article’s own categories, linked to the section. Nothing here is written or rated by us.',
       links: [['Ballotpedia Candidate Connection', 'https://ballotpedia.org/Ballotpedia:Candidate_Connection'], ['Wikipedia: 2026 Wisconsin elections', 'https://en.wikipedia.org/wiki/2026_Wisconsin_elections']] },
     { emoji: '⏳', title: 'Not here yet', status: 'Planned', planned: true,
-      body: 'County offices (sheriff, clerk of courts and the rest), local referendums and state-level campaign money. Your sample ballot at MyVote.wi.gov has the contests.',
+      body: 'County offices (sheriff, clerk of courts and the rest) and local referendums. Your sample ballot at MyVote.wi.gov has the contests.',
       links: [['Your sample ballot', LINKS.myInfo]] },
   ];
 };
@@ -90,7 +90,7 @@ export const WISCONSIN_GUIDE: GuideSpec = {
     notCarried: 'County offices and local referendums',
     localContests: 'County sheriff, clerk of courts and other county offices, and local referendums.',
     clerkOf: (county) => `, from your municipal clerk in ${county} County`,
-    moneyFilings: 'FEC filings',
+    moneyFilings: 'FEC and Wisconsin Ethics Commission filings',
     legislature: 'Wisconsin Legislature',
     howItWorks: {
       title: 'How a Wisconsin ballot works',

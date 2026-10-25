@@ -17,6 +17,9 @@
    "url": "https://www.fec.gov/data/",
    "file": "https://www.fec.gov/files/bulk-downloads/2026/weball26.zip"
   },
+  "stateMoney": {
+   "url": "https://campaignfinance.wi.gov/browse-data/registrants"
+  },
   "proposals": {
    "ballotpedia": "https://ballotpedia.org/Wisconsin_2026_ballot_measures",
    "official": "https://elections.wi.gov/"
@@ -112,6 +115,13 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_gubernatorial_election"
       },
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16295",
+      "raised": 15135190,
+      "spent": 9214725,
+      "through": "09/23/2026"
      }
     },
     {
@@ -271,6 +281,13 @@
       "seat": "U.S. House · WI-7",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16621",
+      "raised": 44045471,
+      "spent": 29444284,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -356,6 +373,13 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_Attorney_General_election"
       },
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16762",
+      "raised": 2450159,
+      "spent": 653083,
+      "through": "09/23/2026"
      }
     },
     {
@@ -409,6 +433,13 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_Attorney_General_election"
       },
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16017",
+      "raised": 1949170,
+      "spent": 725024,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -563,6 +594,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Jay_Schroeder",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jay_Schroeder_2026-10-15_143130.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "8310899",
+      "raised": 40661,
+      "spent": 25025,
+      "through": "09/23/2026"
      }
     },
     {
@@ -612,6 +650,13 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_Secretary_of_State_election"
       },
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "10042337",
+      "raised": 68642,
+      "spent": 55746,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -626,7 +671,8 @@
       "name": "Wikipedia: 2026 Wisconsin elections",
       "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_elections#Executive"
      },
-     "asOf": "2026-10-25"
+     "asOf": "2026-10-25",
+     "note": "Running for Governor and Lieutenant Governor instead."
     }
    ]
   },
@@ -742,6 +788,13 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_State_Treasurer_election"
       },
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16108",
+      "raised": 48839,
+      "spent": 28800,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -1305,6 +1358,7 @@
       "link": "https://commons.wikimedia.org/wiki/File:Congressman_dvo.jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Congressman_dvo.jpg/500px-Congressman_dvo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
+     "issuesUrl": "https://www.vanordenforcongress.com/issues/",
      "endorsements": {
       "groups": [
        {
@@ -2452,6 +2506,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Nic_Cravillion",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cravillion-Nic_20260604_043546_29285_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226986",
+      "raised": 147857,
+      "spent": 85409,
+      "through": "09/23/2026"
      }
     },
     {
@@ -2481,7 +2542,14 @@
       "link": "https://ballotpedia.org/Mark_Becker_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/OFFICIALHS_20260817_034918_51541_1.jpg"
      },
-     "issuesUrl": "https://www.markforwisconsin.vote/priorities"
+     "issuesUrl": "https://www.markforwisconsin.vote/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "12226273",
+      "raised": 51551,
+      "spent": 23868,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -2528,6 +2596,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Tim_Carpenter",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/TimCarpenter.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16087",
+      "raised": 56501,
+      "spent": 38591,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -2577,7 +2652,14 @@
       "link": "https://ballotpedia.org/Robyn_Vining",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RobynVining24.jpeg"
      },
-     "issuesUrl": "https://www.robynforwi.com/priorities/"
+     "issuesUrl": "https://www.robynforwi.com/priorities/",
+     "money": {
+      "source": "WISC",
+      "id": "16126",
+      "raised": 529937,
+      "spent": 64856,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -2596,6 +2678,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Mike_Roberts_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/69643a086cf3e25232bdde39-IMG-6272-p-800_20260603_004912_29213_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12047272",
+      "raised": 432359,
+      "spent": 163141,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -2647,6 +2736,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Chris_Larson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ChrisLarson.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16833",
+      "raised": 88053,
+      "spent": 60448,
+      "through": "09/23/2026"
      }
     },
     {
@@ -2670,7 +2766,14 @@
       "link": "https://ballotpedia.org/Mike_Moeller_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mike_Moeller_20240930_011424.jpg"
      },
-     "issuesUrl": "https://mikemoeller.vote/issues/"
+     "issuesUrl": "https://mikemoeller.vote/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "2154126",
+      "raised": 28820,
+      "spent": 14414,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -2717,7 +2820,14 @@
       "link": "https://ballotpedia.org/Amy_Binsfeld",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AmyBinsfeld.jpg"
      },
-     "issuesUrl": "https://www.binsfeldforwi.com/"
+     "issuesUrl": "https://www.binsfeldforwi.com/",
+     "money": {
+      "source": "WISC",
+      "id": "30955",
+      "raised": 66659,
+      "spent": 18550,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -2745,6 +2855,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Christian_Ellis",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Christian-Headshot-01_20260817_034302_51531_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226491",
+      "raised": 329376,
+      "spent": 16928,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -2802,6 +2919,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Adam_Duda",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/adam-duda-headshot-ballotpedia_20260623_034209_42072_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228339",
+      "raised": 52371,
+      "spent": 51739,
+      "through": "09/23/2026"
      }
     },
     {
@@ -2821,6 +2945,13 @@
       "credit": "1225UserName · CC BY-SA 4.0 · Wikimedia Commons",
       "link": "https://commons.wikimedia.org/wiki/File:Ellen_Schutt_Official.jpg",
       "from": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Ellen_Schutt_Official.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15958",
+      "raised": 147035,
+      "spent": 126176,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -2876,6 +3007,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Sasha_Ripley",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/20251008-173717_20260717_031703_31443_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11948571",
+      "raised": 32775,
+      "spent": 19428,
+      "through": "10/19/2026"
      }
     },
     {
@@ -2897,6 +3035,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/John_Jagler",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JohnJagler.PNG"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "17164",
+      "raised": 49860,
+      "spent": 27139,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -2957,6 +3102,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Mark_Spreitzer",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Sen-Spreitzer-Portrait-Square-under-2_20261001_005941_56321_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16972",
+      "raised": 167590,
+      "spent": 68680,
+      "through": "09/23/2026"
      }
     },
     {
@@ -2969,6 +3121,13 @@
      "website": "https://scottflemingforwi.com/",
      "social": {
       "facebook": "https://www.facebook.com/flemingforwi/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226479",
+      "raised": 20665,
+      "spent": 6113,
+      "through": "09/23/2026"
      }
     },
     {
@@ -2988,7 +3147,14 @@
       "link": "https://ballotpedia.org/Christopher_Dean_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DSC046801_20260623_055608_30316_1.jpg"
      },
-     "issuesUrl": "https://www.christopherdeanforwisconsin.com/issues"
+     "issuesUrl": "https://www.christopherdeanforwisconsin.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12184555",
+      "raised": 3213,
+      "spent": 2123,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -3084,6 +3250,13 @@
       "seat": "House District 50",
       "source": "Wisconsin Legislature, via govbot",
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16793",
+      "raised": 1521535,
+      "spent": 1389441,
+      "through": "09/23/2026"
      }
     },
     {
@@ -3108,7 +3281,14 @@
       "link": "https://ballotpedia.org/Howard_Marklein",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Howard_Marklein1.jpg"
      },
-     "issuesUrl": "https://www.howardmarklein.com/my-priorities"
+     "issuesUrl": "https://www.howardmarklein.com/my-priorities",
+     "money": {
+      "source": "WISC",
+      "id": "16358",
+      "raised": 1088115,
+      "spent": 1099536,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -3157,7 +3337,14 @@
       "link": "https://ballotpedia.org/Emily_Tseffos",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/EmilyTseffos2024.jpg"
      },
-     "issuesUrl": "https://www.emilyforwi.com/priorities"
+     "issuesUrl": "https://www.emilyforwi.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "843353",
+      "raised": 102949,
+      "spent": 22243,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -3179,6 +3366,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Rachael_Cabral-Guevara",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Rachel-CabralGuevara.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16205",
+      "raised": 131267,
+      "spent": 81895,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -3238,7 +3432,14 @@
       "link": "https://ballotpedia.org/Trevor_Jung",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/TrevorJung2025.jpeg"
      },
-     "issuesUrl": "https://trevorjung.com/campaign-issues/"
+     "issuesUrl": "https://trevorjung.com/campaign-issues/",
+     "money": {
+      "source": "WISC",
+      "id": "11956743",
+      "raised": 1585000,
+      "spent": 1084572,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -3257,6 +3458,13 @@
       "credit": "Jim Croft (their campaign site)",
       "link": "https://croftforsenate.com/",
       "from": "https://croftforsenate.com/wp-content/uploads/bb-plugin/cache/673960830_122096303000627340_3497119187687940343_n-square-fa86f63ff66eded27365fbd695add046-80c64wd2azlr.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226367",
+      "raised": 1560903,
+      "spent": 1056488,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -3335,6 +3543,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Romaine_Quinn",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Romaine-Quinn.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "17271",
+      "raised": 150376,
+      "spent": 77047,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -3392,7 +3607,14 @@
       "link": "https://ballotpedia.org/Charly_Ray",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Charly_Ray_20260512_200907_1.jpg"
      },
-     "issuesUrl": "https://www.rayforwi.com/issues"
+     "issuesUrl": "https://www.rayforwi.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "11959444",
+      "raised": 854139,
+      "spent": 136029,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -3412,7 +3634,14 @@
       "link": "https://ballotpedia.org/Erik_Severson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Erik_Severson.jpg"
      },
-     "issuesUrl": "https://severson4senate.com/issues/"
+     "issuesUrl": "https://severson4senate.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "16291",
+      "raised": 351820,
+      "spent": 80970,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -3462,7 +3691,14 @@
       "link": "https://ballotpedia.org/Dianne_Hesselbein",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Dianne_Hesselbein.jpeg"
      },
-     "issuesUrl": "https://www.dianneforwi.com/priorities"
+     "issuesUrl": "https://www.dianneforwi.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "16771",
+      "raised": 186519,
+      "spent": 203991,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -3491,6 +3727,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Nathan_Kalmoe",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Big-Profile-Pic_20260906_154541_53879_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12417817",
+      "raised": 2105,
+      "spent": 511,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -3540,6 +3783,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Gillian_Battino",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Gillian_Battino.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "2985283",
+      "raised": 215368,
+      "spent": 110262,
+      "through": "09/23/2026"
      }
     },
     {
@@ -3572,6 +3822,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Cory_Tomczyk",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/CoryTomczyk.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16821",
+      "raised": 178939,
+      "spent": 99678,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -3621,7 +3878,14 @@
       "link": "https://ballotpedia.org/Jeff_Smith_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jeff_Smith_20230521_075004.png"
      },
-     "issuesUrl": "https://www.togetherwithjeff.com/priorities"
+     "issuesUrl": "https://www.togetherwithjeff.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "17261",
+      "raised": 667901,
+      "spent": 429647,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -3640,6 +3904,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Michele_Magadance_Skinner",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Michele_Magadance_Skinner4.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1704858",
+      "raised": 826118,
+      "spent": 444738,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -3699,6 +3970,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Mike_Van_Someren",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/MikeVanSomeren26.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11948129",
+      "raised": 80451,
+      "spent": 67559,
+      "through": "09/23/2026"
      }
     },
     {
@@ -3720,6 +3998,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Chris_Kapenga",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Chris-Kapenga.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15522",
+      "raised": 33213,
+      "spent": 13734,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -3775,6 +4060,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Renee_Paplham",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-8563_20260930_033845_60952_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "843162",
+      "raised": 37898,
+      "spent": 12941,
+      "through": "10/19/2026"
      }
     },
     {
@@ -3797,7 +4089,14 @@
       "link": "https://ballotpedia.org/Joel_Kitchens",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JoelKitchens.jpg"
      },
-     "issuesUrl": "https://www.joelkitchens.com/issues.html"
+     "issuesUrl": "https://www.joelkitchens.com/issues.html",
+     "money": {
+      "source": "WISC",
+      "id": "17342",
+      "raised": 54993,
+      "spent": 22249,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -3854,6 +4153,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Alicia_Saunders",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Alicia-Saunders-AD02-135_20260905_232001_53838_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "843024",
+      "raised": 9907,
+      "spent": 8908,
+      "through": "09/23/2026"
      }
     },
     {
@@ -3877,7 +4183,14 @@
       "link": "https://ballotpedia.org/Shae_Sortwell",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ShaeSortwell.jpg"
      },
-     "issuesUrl": "https://www.votesortwell.com/issues"
+     "issuesUrl": "https://www.votesortwell.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "663883",
+      "raised": 34627,
+      "spent": 25425,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -3916,6 +4229,13 @@
      "website": "https://goodwinforwi.com/",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61593264531756"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12416936",
+      "raised": 9257,
+      "spent": 4591,
+      "through": "09/23/2026"
      }
     },
     {
@@ -3937,6 +4257,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Ron_Tusler",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RonTusler.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16459",
+      "raised": 65581,
+      "spent": 64524,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -3982,6 +4309,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Alexia_Unertl",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Alexia_Unertl_20240808_092352.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1149779",
+      "raised": 11453,
+      "spent": 5465,
+      "through": "10/19/2026"
      }
     },
     {
@@ -4001,6 +4335,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/David_Steffen",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David-Steffen.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15669",
+      "raised": 74065,
+      "spent": 37964,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -4041,7 +4382,14 @@
      "social": {
       "facebook": "https://www.facebook.com/Justin-Schumacher-For-Wisconsin-61593595764842/"
      },
-     "issuesUrl": "https://www.justinschumacherforwisconsin.org/issues"
+     "issuesUrl": "https://www.justinschumacherforwisconsin.org/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12229718",
+      "raised": 8303,
+      "spent": 971,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -4062,6 +4410,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Joy_Goeben",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JoyGoeben2022.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "663797",
+      "raised": 27285,
+      "spent": 14241,
+      "through": "09/23/2026"
      }
     },
     {
@@ -4090,6 +4445,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/David_Schupbach",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DavidSchupbach2.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11964896",
+      "raised": 2035,
+      "spent": 499,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4128,6 +4490,13 @@
      "ballotpedia": "https://ballotpedia.org/Shirley_Hinze",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61591147061872"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1149763",
+      "raised": 1000,
+      "spent": 180,
+      "through": "09/23/2026"
      }
     },
     {
@@ -4149,6 +4518,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Elijah_Behnke",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Elijah_Behnke.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "664423",
+      "raised": 8104,
+      "spent": 10309,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4199,7 +4575,14 @@
       "link": "https://ballotpedia.org/Karen_Kirsch",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/KarenKirsch.jpg"
      },
-     "issuesUrl": "https://www.karenforassembly.com/issues"
+     "issuesUrl": "https://www.karenforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "999194",
+      "raised": 14990,
+      "spent": 13502,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -4217,6 +4600,13 @@
       "credit": "Lee Whiting (their campaign site)",
       "link": "https://www.leewhitingforassembly.com",
       "from": "https://static.wixstatic.com/media/42d216_16232638c87b416f81bed82115f06dcc~mv2.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "7620603",
+      "raised": 6801,
+      "spent": 5548,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4276,7 +4666,14 @@
       "link": "https://ballotpedia.org/Ismael_Luna",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IsmaelLuna-Headshot2_20260619_202344_30171_1.png"
      },
-     "issuesUrl": "https://www.ismaelluna.com/priorities"
+     "issuesUrl": "https://www.ismaelluna.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "12183906",
+      "raised": 148167,
+      "spent": 114099,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -4287,6 +4684,13 @@
      "ballotpedia": "https://ballotpedia.org/Angel_Sanchez",
      "social": {
       "facebook": "https://www.facebook.com/angel.sanchez.75641297/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "2159346",
+      "raised": 944,
+      "spent": 962,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4335,6 +4739,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Priscilla_Prado",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/PriscillaPrado2024.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "999177",
+      "raised": 32523,
+      "spent": 22914,
+      "through": "07/27/2026"
      }
     },
     {
@@ -4356,7 +4767,14 @@
       "link": "https://ballotpedia.org/Samuel_Guerrero",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Sam-Guerrero001-WEB_20260825_215820_33169_1.jpg"
      },
-     "issuesUrl": "https://guerreroforwisconsin.com/issues"
+     "issuesUrl": "https://guerreroforwisconsin.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12230230",
+      "raised": 1595,
+      "spent": 0,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -4483,6 +4901,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Sequanna_Taylor",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/photo-upload-ready_20260930_041054_61175_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "999181",
+      "raised": 17216,
+      "spent": 9498,
+      "through": "09/23/2026"
      }
     },
     {
@@ -4515,6 +4940,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Shandowlyon_Hendricks_Reaves",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Shandowlyon-Headshot-1024_20260625_184101_42470_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226745",
+      "raised": 8625,
+      "spent": 3902,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4574,7 +5006,14 @@
       "link": "https://ballotpedia.org/Russell_Goodwin_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/REPGOODWIN-copy_20260707_161814_44537_1.jpeg"
      },
-     "issuesUrl": "https://goodwinforassembly.com/issues"
+     "issuesUrl": "https://goodwinforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "1149729",
+      "raised": 7259,
+      "spent": 6129,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -4628,6 +5067,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Amy_Zimmerman_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Amy_Zimmerman_20260415_081040.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11948217",
+      "raised": 72582,
+      "spent": 59111,
+      "through": "09/23/2026"
      }
     },
     {
@@ -4651,6 +5097,13 @@
       "facebook": "https://www.facebook.com/MikeMorganWisconsin",
       "x": "https://x.com/Tosalandia",
       "linkedin": "https://www.linkedin.com/in/mikemorgan44/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228277",
+      "raised": 13649,
+      "spent": 6921,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4701,7 +5154,14 @@
       "link": "https://ballotpedia.org/Angelito_Tenorio",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Sep2720211220PM_104500298_AngelitoHeadshot.jpg"
      },
-     "issuesUrl": "https://www.angelitotenorio.com/priorities"
+     "issuesUrl": "https://www.angelitotenorio.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "1147110",
+      "raised": 26008,
+      "spent": 22251,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -4776,6 +5236,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Stephen_Tryon_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tryon-AD15v2_20260714_163715_31322_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11964924",
+      "raised": 16553,
+      "spent": 8747,
+      "through": "09/23/2026"
      }
     },
     {
@@ -4799,6 +5266,13 @@
       "credit": "WAUKESHAGOP · CC BY-SA 4.0 · Wikimedia Commons",
       "link": "https://commons.wikimedia.org/wiki/File:Representative_Adam_Neylon.jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Representative_Adam_Neylon.jpg/500px-Representative_Adam_Neylon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "17043",
+      "raised": 11709,
+      "spent": 20900,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4849,7 +5323,14 @@
       "link": "https://ballotpedia.org/Kalan_Haywood",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Kalan_Haywood_20230601_085420.jpg"
      },
-     "issuesUrl": "https://haywoodforwi.com/issues/"
+     "issuesUrl": "https://haywoodforwi.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "16325",
+      "raised": 53292,
+      "spent": 20772,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -4860,6 +5341,13 @@
      "ballotpedia": "https://ballotpedia.org/Alciro_Deacon",
      "social": {
       "facebook": "https://www.facebook.com/DeaconForSenate/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "7620630",
+      "raised": 67,
+      "spent": 0,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -4912,7 +5400,14 @@
       "link": "https://ballotpedia.org/Supreme_Moore_Omokunde",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Supreme-Moore-Omokunde.jpg"
      },
-     "issuesUrl": "https://www.supremeforassembly.com/issues"
+     "issuesUrl": "https://www.supremeforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "16245",
+      "raised": 1210,
+      "spent": 2097,
+      "through": "07/27/2026"
+     }
     },
     {
      "ballot": 2,
@@ -4931,6 +5426,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Charlene_Abughrin",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Screenshot-20260725-163551-Instagram_20260725_214614_31865_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12230244",
+      "raised": 3051,
+      "spent": 700,
+      "through": "07/27/2026"
      }
     }
    ],
@@ -4979,6 +5481,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Margaret_Arney",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Brennan_Balestrieri_20240808_094539.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "613274",
+      "raised": 23207,
+      "spent": 18285,
+      "through": "09/23/2026"
      }
     },
     {
@@ -5055,6 +5564,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Ryan_Clancy",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Clancy-headshot-2mb_20260929_143212_60364_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "999244",
+      "raised": 73600,
+      "spent": 34970,
+      "through": "10/19/2026"
      }
     },
     {
@@ -5083,6 +5599,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Yasmine_Outlaw",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Yasmine_Outlaw_26.JPG"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226252",
+      "raised": 5842,
+      "spent": 2879,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5133,7 +5656,14 @@
       "link": "https://ballotpedia.org/Christine_Sinicki",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Christine_Sinicki_20230601_085411.jpg"
      },
-     "issuesUrl": "https://www.votesinicki.org/issues"
+     "issuesUrl": "https://www.votesinicki.org/issues",
+     "money": {
+      "source": "WISC",
+      "id": "15747",
+      "raised": 24645,
+      "spent": 20993,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -5142,7 +5672,14 @@
      "profile": "https://ballotpedia.org/Kyle_Cleary",
      "ballotpediaRead": "2026-10-25",
      "ballotpedia": "https://ballotpedia.org/Kyle_Cleary",
-     "website": "https://www.clearyforwisconsin.com/"
+     "website": "https://www.clearyforwisconsin.com/",
+     "money": {
+      "source": "WISC",
+      "id": "12230199",
+      "raised": 5905,
+      "spent": 1696,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -5188,6 +5725,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Dan_Bukiewicz",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/bdan_2026-10-08_042022.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12066647",
+      "raised": 451642,
+      "spent": 256835,
+      "through": "09/23/2026"
      }
     },
     {
@@ -5209,7 +5753,14 @@
       "link": "https://ballotpedia.org/Dylan_Pfaffenbach",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/PfaffenbachHeadshot_20260624_193836_30419_1.jpg"
      },
-     "issuesUrl": "https://www.dylanforassembly.com/priorities"
+     "issuesUrl": "https://www.dylanforassembly.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "12227330",
+      "raised": 299037,
+      "spent": 29170,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -5264,6 +5815,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Dana_Glasstein",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Dana_Glasstein.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "843082",
+      "raised": 72428,
+      "spent": 28518,
+      "through": "09/23/2026"
      }
     },
     {
@@ -5285,6 +5843,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Paul_Melotik",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Paul-Melotik.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "664015",
+      "raised": 77165,
+      "spent": 57559,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -5345,6 +5910,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Deb_Andraca",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Deb_Andraca_20230521_075041.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16226",
+      "raised": 89199,
+      "spent": 48887,
+      "through": "09/23/2026"
      }
     },
     {
@@ -5359,6 +5931,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Aleaner_Pabonnie",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-1251_20260910_023810_33878_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226257",
+      "raised": 2411,
+      "spent": 611,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5399,6 +5978,13 @@
      "social": {
       "facebook": "https://www.facebook.com/MattForWisconsin/",
       "linkedin": "https://www.linkedin.com/in/matt-brown-608314a8"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1147683",
+      "raised": 4283,
+      "spent": 1993,
+      "through": "09/23/2026"
      }
     },
     {
@@ -5420,7 +6006,14 @@
       "link": "https://ballotpedia.org/Daniel_Knodl",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Daniel-Knodl.PNG"
      },
-     "issuesUrl": "https://www.danknodl.org/issues.html"
+     "issuesUrl": "https://www.danknodl.org/issues.html",
+     "money": {
+      "source": "WISC",
+      "id": "664207",
+      "raised": 56047,
+      "spent": 15461,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -5460,6 +6053,13 @@
      "social": {
       "facebook": "https://www.facebook.com/able.vote4assembly/",
       "instagram": "https://www.instagram.com/able.vote4assembly/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12225682",
+      "raised": 28233,
+      "spent": 18556,
+      "through": "10/19/2026"
      }
     },
     {
@@ -5482,6 +6082,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Paul_Tittl",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Paul_Tittl.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16158",
+      "raised": 19096,
+      "spent": 10737,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5532,7 +6139,14 @@
       "link": "https://ballotpedia.org/Joe_Sheehan_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JoeSheehan.jpg"
      },
-     "issuesUrl": "https://sheehanforassembly.com/priorities/"
+     "issuesUrl": "https://sheehanforassembly.com/priorities/",
+     "money": {
+      "source": "WISC",
+      "id": "16434",
+      "raised": 195558,
+      "spent": 76878,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -5550,6 +6164,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/John_Belanger",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/johnbelanger_2026-10-08_042712.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12230167",
+      "raised": 54987,
+      "spent": 33788,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5599,6 +6220,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Lindee_Brill",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/LindeeBrill.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1717424",
+      "raised": 20177,
+      "spent": 4618,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5645,7 +6273,14 @@
       "link": "https://ballotpedia.org/Robin_Lillesve",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/semi-professional-20260521-180451_1_-_2__20261008_155340_36487_1.jpg"
      },
-     "issuesUrl": "https://www.robin4wisconsin.com/priorities"
+     "issuesUrl": "https://www.robin4wisconsin.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "12230218",
+      "raised": 2691,
+      "spent": 697,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -5665,7 +6300,14 @@
       "link": "https://ballotpedia.org/Rob_Kreibich",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RobKreibich.jpg"
      },
-     "issuesUrl": "https://www.kreibichforassembly.com/issues"
+     "issuesUrl": "https://www.kreibichforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "663805",
+      "raised": 20135,
+      "spent": 11699,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -5710,6 +6352,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Chris_Danou",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Danou_chris.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "17086",
+      "raised": 11385,
+      "spent": 1985,
+      "through": "09/23/2026"
      }
     },
     {
@@ -5729,6 +6378,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Treig_Pronschinske",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Treig_Pronschinske_portrait.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16496",
+      "raised": 18085,
+      "spent": 25033,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5776,7 +6432,14 @@
       "link": "https://ballotpedia.org/Kevin_Knoke",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-2679-_1__20260821_183039_32993_1.jpg"
      },
-     "issuesUrl": "https://www.kevinknoke.com/issues"
+     "issuesUrl": "https://www.kevinknoke.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12154548",
+      "raised": 456975,
+      "spent": 106763,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -5798,6 +6461,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Shannon_Zimmerman_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Zimmerman.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15969",
+      "raised": 953101,
+      "spent": 120142,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5854,6 +6524,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/John_Perryman",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-1465_20260624_185646_42334_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11957402",
+      "raised": 57808,
+      "spent": 35699,
+      "through": "10/19/2026"
      }
     },
     {
@@ -5876,6 +6553,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Tyler_August",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tyler_August.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16263",
+      "raised": 229519,
+      "spent": 139784,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -5916,7 +6600,14 @@
      "social": {
       "facebook": "https://www.facebook.com/greg.miller.816426"
      },
-     "issuesUrl": "https://gregmiller32assembly.com/issues/"
+     "issuesUrl": "https://gregmiller32assembly.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "12228352",
+      "raised": 9368,
+      "spent": 2525,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -5937,7 +6628,14 @@
       "link": "https://ballotpedia.org/Amanda_Nedweski",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Amanda-Nedweski_20261007_003455_36298_1.jpeg"
      },
-     "issuesUrl": "https://www.nedweski4assembly.com/platform"
+     "issuesUrl": "https://www.nedweski4assembly.com/platform",
+     "money": {
+      "source": "WISC",
+      "id": "30346",
+      "raised": 51474,
+      "spent": 30206,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -5982,6 +6680,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Maria_Elena_Bisabarros",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/headshot_20260920_174016_34669_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228300",
+      "raised": 9337,
+      "spent": 4810,
+      "through": "09/23/2026"
      }
     },
     {
@@ -6011,6 +6716,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Steve_Wicklund",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Wicklund-Ballotpedia-1-Primary_20260707_140302_44517_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12184685",
+      "raised": 58597,
+      "spent": 51913,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -6080,7 +6792,14 @@
       "link": "https://ballotpedia.org/Rob_Swearingen",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Rob_Swearingen.jpeg"
      },
-     "issuesUrl": "https://www.robswearingen.com/issues.html"
+     "issuesUrl": "https://www.robswearingen.com/issues.html",
+     "money": {
+      "source": "WISC",
+      "id": "15572",
+      "raised": 71878,
+      "spent": 31630,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -6126,7 +6845,14 @@
       "link": "https://ballotpedia.org/Elizabeth_McCrank",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Copy-of-ADmccrank-_6000__4000__20260812_215246_32628_1.jpg"
      },
-     "issuesUrl": "https://www.mccrankforthepeople.com/on-the-issues"
+     "issuesUrl": "https://www.mccrankforthepeople.com/on-the-issues",
+     "money": {
+      "source": "WISC",
+      "id": "1149722",
+      "raised": 9239,
+      "spent": 6007,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -6157,7 +6883,14 @@
       "link": "https://ballotpedia.org/Calvin_Callahan",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/CalvinCallahan26_2026-10-16_130702.jpg"
      },
-     "issuesUrl": "https://www.callahanforwisconsin.com/general-5"
+     "issuesUrl": "https://www.callahanforwisconsin.com/general-5",
+     "money": {
+      "source": "WISC",
+      "id": "16222",
+      "raised": 44630,
+      "spent": 27129,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -6204,6 +6937,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Jeffrey_Mursau",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JeffreyMursau.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15735",
+      "raised": 18324,
+      "spent": 12250,
+      "through": "10/19/2026"
      }
     },
     {
@@ -6232,7 +6972,14 @@
       "link": "https://ballotpedia.org/Shena_Chapman",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-3657_20260702_025719_43711_1.jpeg"
      },
-     "issuesUrl": "https://www.chapmanforassembly.org/issues"
+     "issuesUrl": "https://www.chapmanforassembly.org/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12226977",
+      "raised": 1657,
+      "spent": 602,
+      "through": "10/19/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -6281,6 +7028,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/LaToya_Bates",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/LaToya_Bates_20240808_094344.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1149791",
+      "raised": 5002,
+      "spent": 2069,
+      "through": "09/23/2026"
      }
     },
     {
@@ -6301,6 +7055,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Mark_Born_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mark_Born.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16575",
+      "raised": 261784,
+      "spent": 170477,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -6358,6 +7119,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Terri_Wenkman",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Terri-Wenkman-Final_20261001_144206_60063_1.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12156696",
+      "raised": 35300,
+      "spent": 17865,
+      "through": "09/23/2026"
      }
     },
     {
@@ -6378,6 +7146,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/William_Penterman",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/wpenterman.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16045",
+      "raised": 34324,
+      "spent": 14797,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -6418,6 +7193,13 @@
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61591173569080",
       "instagram": "https://www.instagram.com/ilikemike4wi/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12229971",
+      "raised": 10279,
+      "spent": 6489,
+      "through": "09/23/2026"
      }
     },
     {
@@ -6440,6 +7222,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Alex_Dallman",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Alex-Dallman.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15943",
+      "raised": 124259,
+      "spent": 117873,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -6488,6 +7277,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Karen_DeSanto",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Karen_DeSanto_20241106_112902.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16487",
+      "raised": 46991,
+      "spent": 19002,
+      "through": "09/23/2026"
      }
     },
     {
@@ -6515,6 +7311,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Julie_Helmer",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Julie_Helmer_26.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "3109314+11948185",
+      "raised": 33978,
+      "spent": 17186,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -6553,6 +7356,13 @@
      "ballotpedia": "https://ballotpedia.org/Zach_Commons",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61589519518618"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228056",
+      "raised": 1245,
+      "spent": 83,
+      "through": "10/19/2026"
      }
     },
     {
@@ -6575,7 +7385,14 @@
       "link": "https://ballotpedia.org/Tony_Kurtz",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/TonyKurtz2014.png"
      },
-     "issuesUrl": "https://kurtzforassembly.com/issues/"
+     "issuesUrl": "https://kurtzforassembly.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "16281",
+      "raised": 192170,
+      "spent": 71670,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -6623,6 +7440,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Maureen_McCarville",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/MaureenMcCarville.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16847",
+      "raised": 23895,
+      "spent": 12598,
+      "through": "09/23/2026"
      }
     },
     {
@@ -6713,6 +7537,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Paul_McGraw",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Paul_McGraw_26.jpg.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11948316",
+      "raised": 74254,
+      "spent": 19589,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -6772,7 +7603,14 @@
       "link": "https://ballotpedia.org/Ann_Roe",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ann_Roe_20250206_084747.jpg"
      },
-     "issuesUrl": "https://www.annroeforwi.org/priorities"
+     "issuesUrl": "https://www.annroeforwi.org/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "1149157",
+      "raised": 48687,
+      "spent": 15013,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -6784,6 +7622,13 @@
      "website": "https://ronwoodman.com/",
      "social": {
       "facebook": "https://www.facebook.com/woodmanforassembly/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226729",
+      "raised": 5470,
+      "spent": 837,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -6833,7 +7678,14 @@
       "link": "https://ballotpedia.org/Clinton_Anderson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ClintonAnderson4.jpg"
      },
-     "issuesUrl": "https://www.clintonforassembly.com/issues"
+     "issuesUrl": "https://www.clintonforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "16373",
+      "raised": 48091,
+      "spent": 40989,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -6889,6 +7741,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Joan_Fitzgerald",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JoanFitzgerald.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16212",
+      "raised": 75040,
+      "spent": 38995,
+      "through": "10/19/2026"
      }
     },
     {
@@ -6908,6 +7767,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/John_Donohue",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Photo-Donohue-with-Flag-2-2026-05-02_20260831_200714_33407_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12229965",
+      "raised": 6453,
+      "spent": 3110,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -6966,7 +7832,14 @@
       "link": "https://ballotpedia.org/Randy_Udell",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RandyUdell2024.jpg"
      },
-     "issuesUrl": "https://www.udellforassembly.com/issues"
+     "issuesUrl": "https://www.udellforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "1149184",
+      "raised": 53312,
+      "spent": 12604,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -6977,6 +7850,13 @@
      "ballotpedia": "https://ballotpedia.org/Sandy_Bakk",
      "social": {
       "facebook": "https://www.facebook.com/Sandy-Bakk-for-Assembly-District-47-61591386217668/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "5296411",
+      "raised": 9720,
+      "spent": 610,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7026,7 +7906,14 @@
       "link": "https://ballotpedia.org/Andrew_Hysell",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Andrew_Hysell_20241222_075006.jpg"
      },
-     "issuesUrl": "https://hysellforassembly.com/issues"
+     "issuesUrl": "https://hysellforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "1147623",
+      "raised": 37129,
+      "spent": 15319,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -7039,6 +7926,13 @@
      "social": {
       "facebook": "https://www.facebook.com/votemarkkjorlie/",
       "linkedin": "https://www.linkedin.com/in/mark-kjorlie-p-e-81933313"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12229804",
+      "raised": 15732,
+      "spent": 10163,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7094,6 +7988,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/John_Rindy",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/John-Rindy-for-Assembly-49-Headshot-PNG-copy_2__20260702_192150_43863_1.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12164720",
+      "raised": 21724,
+      "spent": 13483,
+      "through": "10/19/2026"
      }
     },
     {
@@ -7117,7 +8018,14 @@
       "link": "https://ballotpedia.org/Travis_Tranel",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Travis_Tranel.jpg"
      },
-     "issuesUrl": "https://travistranel.com/the-issues/"
+     "issuesUrl": "https://travistranel.com/the-issues/",
+     "money": {
+      "source": "WISC",
+      "id": "15899",
+      "raised": 32253,
+      "spent": 19835,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -7173,7 +8081,14 @@
       "link": "https://ballotpedia.org/Bill_Oemichen",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Bill-Oemichen-Photo_20260804_022803_49181_1.jpg"
      },
-     "issuesUrl": "https://billforwisconsinassembly.com/issues"
+     "issuesUrl": "https://billforwisconsinassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12200319",
+      "raised": 43598,
+      "spent": 27671,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -7201,6 +8116,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Jon_Aleckson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/fu_gx6wbnd5yr7nsd8_20260524_210622_37834_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12050369",
+      "raised": 50365,
+      "spent": 27160,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7248,7 +8170,14 @@
       "link": "https://ballotpedia.org/Ben_Gruber",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ben_Gruber_2026-08-06_011500.jpeg"
      },
-     "issuesUrl": "https://www.ben-gruber.com/issues"
+     "issuesUrl": "https://www.ben-gruber.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12037721",
+      "raised": 782725,
+      "spent": 115294,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -7271,7 +8200,14 @@
       "link": "https://ballotpedia.org/Todd_Novak",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Todd_Novak.jpg"
      },
-     "issuesUrl": "https://www.novakforwisconsin.com/"
+     "issuesUrl": "https://www.novakforwisconsin.com/",
+     "money": {
+      "source": "WISC",
+      "id": "17280",
+      "raised": 859878,
+      "spent": 91013,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 3,
@@ -7290,7 +8226,14 @@
       "link": "https://ballotpedia.org/Nathan_Tataje",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Nathan-Tataje_20260611_135103_29755_1.jpg"
      },
-     "issuesUrl": "https://www.tatajeforassembly.com/policies"
+     "issuesUrl": "https://www.tatajeforassembly.com/policies",
+     "money": {
+      "source": "WISC",
+      "id": "12227065",
+      "raised": 675,
+      "spent": 71,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -7340,7 +8283,14 @@
       "link": "https://ballotpedia.org/Lee_Snodgrass",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Lee-Snodgrass.jpg"
      },
-     "issuesUrl": "https://www.votesnodgrass.com/issues"
+     "issuesUrl": "https://www.votesnodgrass.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "16130",
+      "raised": 75573,
+      "spent": 61831,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -7362,6 +8312,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Reive_Pullen",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Reive_Pullen_20250919_013848.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11948245",
+      "raised": 33297,
+      "spent": 2298,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7409,7 +8366,14 @@
       "link": "https://ballotpedia.org/Becky_Nichols",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Becky_Nichols_2026-09-24_010722.jpg"
      },
-     "issuesUrl": "https://www.beckynicholsforassembly.com/issues"
+     "issuesUrl": "https://www.beckynicholsforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "11682588",
+      "raised": 475653,
+      "spent": 41175,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -7428,6 +8392,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/David_Daniels_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/danielsdavidone_2026-10-08_053345.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12227977",
+      "raised": 1167534,
+      "spent": 28667,
+      "through": "10/19/2026"
      }
     },
     {
@@ -7460,6 +8431,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Rachael_Dowling",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Dowling-Headshot-2026_-small-file_20260928_012921_59461_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12229665",
+      "raised": 1753,
+      "spent": 100,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7509,7 +8487,14 @@
       "link": "https://ballotpedia.org/Lori_Palmeri",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/LoriPalmeri.jpg"
      },
-     "issuesUrl": "https://www.palmeriforassembly.com/issues"
+     "issuesUrl": "https://www.palmeriforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "15530",
+      "raised": 63922,
+      "spent": 35225,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -7521,6 +8506,13 @@
      "website": "https://www.timpatersonforassembly.com/",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61560269695284"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "8110587",
+      "raised": 19240,
+      "spent": 4166,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7583,6 +8575,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Nate_Gustafson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ngustafson.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "30951",
+      "raised": 26662,
+      "spent": 17696,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7624,6 +8623,13 @@
       "facebook": "https://www.facebook.com/profile.php?id=61568978935410",
       "instagram": "https://www.instagram.com/graceabitz56/",
       "tiktok": "https://www.tiktok.com/@abitz4assembly56"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226778",
+      "raised": 12525,
+      "spent": 9944,
+      "through": "09/23/2026"
      }
     },
     {
@@ -7642,6 +8648,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Anthony_Phillips_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Anthony_Phillips_20241008_044630.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "5202401",
+      "raised": 104319,
+      "spent": 79859,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -7697,6 +8710,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Joey_Marschall",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Joey_Marschall_20250720_091825.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12169632",
+      "raised": 5916,
+      "spent": 3481,
+      "through": "09/23/2026"
      }
     },
     {
@@ -7715,6 +8735,13 @@
       "credit": "Kevin Krentz (their campaign site)",
       "link": "https://www.krentzforassembly.com/",
       "from": "https://irp.cdn-website.com/59c48841/dms3rep/multi/opt/Krentz+HS-712h.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12187974",
+      "raised": 81443,
+      "spent": 71049,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7754,6 +8781,13 @@
      "website": "https://www.degenhardt4assembly.com/",
      "social": {
       "facebook": "https://www.facebook.com/DegenhardtForAssembly/"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1150578",
+      "raised": 7124,
+      "spent": 2077,
+      "through": "09/23/2026"
      }
     },
     {
@@ -7781,6 +8815,13 @@
       "credit": "Bernie Newman (their campaign site)",
       "link": "https://bernienewmanforwi.com/",
       "from": "https://bernienewmanforwi.com/wp-content/uploads/2026/05/f4d6c-bernie-head-pic-1-1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226473",
+      "raised": 14371,
+      "spent": 12769,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7826,6 +8867,13 @@
       "credit": "Jack Holzman (their campaign site)",
       "link": "https://www.jackforwi.com/",
       "from": "https://images.squarespace-cdn.com/content/v1/666c633b58722d214d3b2918/cd005adc-d222-4ce3-b76e-041aa11d690f/Copy+of+Jack+Headshot.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "843212",
+      "raised": 13270,
+      "spent": 5690,
+      "through": "09/23/2026"
      }
     },
     {
@@ -7838,6 +8886,13 @@
      "website": "https://votebradleypetersen.com/",
      "social": {
       "facebook": "https://www.facebook.com/votebradleypetersen"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226048",
+      "raised": 31885,
+      "spent": 7857,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -7908,7 +8963,14 @@
       "link": "https://ballotpedia.org/Tiffany_Brault",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tiffany-Brault-Headshot-Square_20260910_041028_33884_1.jpg"
      },
-     "issuesUrl": "https://www.tiffanybraultforwi.com/issues"
+     "issuesUrl": "https://www.tiffanybraultforwi.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12226484",
+      "raised": 7540,
+      "spent": 5163,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -7965,7 +9027,14 @@
       "link": "https://ballotpedia.org/Ben_Brist",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/WhatsApp-Image-2026-01-20-at-9_33_06-PM-_4_-_2__20260629_184708_43131_1.jpeg"
      },
-     "issuesUrl": "https://www.bristforassembly.com/issues"
+     "issuesUrl": "https://www.bristforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12160243",
+      "raised": 518337,
+      "spent": 42825,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -7986,6 +9055,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Robert_G._Donovan_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RobertDonovan2.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16491",
+      "raised": 632719,
+      "spent": 131252,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8034,6 +9110,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Angelina_Cruz",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AngelinaCruz.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16430",
+      "raised": 29397,
+      "spent": 9279,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8045,6 +9128,13 @@
      "ballotpedia": "https://ballotpedia.org/Mike_Bellagio",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61589763536855"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12229884",
+      "raised": 1102,
+      "spent": 1204,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -8102,6 +9192,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Eddie_Phanichkul",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Phanichkul-AD63-2mb_20260707_150326_44522_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228955",
+      "raised": 11422,
+      "spent": 3621,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8123,7 +9220,14 @@
       "link": "https://ballotpedia.org/Robert_Wittke",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Robert_Wittke_20230531_084613.jpg"
      },
-     "issuesUrl": "https://wittkeforassembly.com/issues/"
+     "issuesUrl": "https://wittkeforassembly.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "16172",
+      "raised": 51945,
+      "spent": 31870,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -8184,6 +9288,13 @@
       "facebook": "https://www.facebook.com/profile.php?id=61590474760835",
       "instagram": "https://www.instagram.com/ed4wiassembly/",
       "linkedin": "https://www.linkedin.com/in/edhibsch"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "30359",
+      "raised": 1662,
+      "spent": 511,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8231,6 +9342,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Ben_DeSmidt",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ben_DeSmidt_20240808_100327.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15509",
+      "raised": 53167,
+      "spent": 37793,
+      "through": "10/19/2026"
      }
     },
     {
@@ -8251,6 +9369,13 @@
       "credit": "Valerie Kretchmer (their campaign site)",
       "link": "https://vkretchmer4district65.com/",
       "from": "https://vkretchmer4district65.com/wp-content/uploads/2026/06/Val-Profile-Homepage-copy-scaled.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12225838",
+      "raised": 10424,
+      "spent": 3261,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8300,6 +9425,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Greta_Neubauer",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/gneubauer.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "17223",
+      "raised": 174064,
+      "spent": 121889,
+      "through": "10/19/2026"
      }
     },
     {
@@ -8322,6 +9454,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Gina_Cefalu_Paulick",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Gina-RE-pic-lean_20260614_140635_29885_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228169",
+      "raised": 96457,
+      "spent": 48012,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8377,6 +9516,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Indiana_Thompson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Indiana_Thompson_20260406_043626.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12044310",
+      "raised": 9195,
+      "spent": 5254,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8398,6 +9544,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/David_Armstrong_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David-Armstrong-Wisconsin.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16037",
+      "raised": 19270,
+      "spent": 10776,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8439,6 +9592,13 @@
       "facebook": "https://www.facebook.com/profile.php?id=61579941646548",
       "instagram": "https://www.instagram.com/elishakingwi68/",
       "tiktok": "https://www.tiktok.com/@elishakingforwisc"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11957212",
+      "raised": 7198,
+      "spent": 4186,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8460,7 +9620,14 @@
       "link": "https://ballotpedia.org/Rob_Summerfield",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RobSummerfield.jpg"
      },
-     "issuesUrl": "https://www.robsummerfield4assembly.org/issues.html"
+     "issuesUrl": "https://www.robsummerfield4assembly.org/issues.html",
+     "money": {
+      "source": "WISC",
+      "id": "16005",
+      "raised": 45155,
+      "spent": 33019,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -8506,6 +9673,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Roger_Halls",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/rhalls.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1149741",
+      "raised": 412,
+      "spent": 254,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8527,6 +9701,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Karen_Hurd",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Karen_Hurd.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "17168",
+      "raised": 45895,
+      "spent": 37873,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8535,7 +9716,14 @@
      "party": "Independent",
      "profile": "https://ballotpedia.org/Joshua_Kelley_(Wisconsin)",
      "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Joshua_Kelley_(Wisconsin)"
+     "ballotpedia": "https://ballotpedia.org/Joshua_Kelley_(Wisconsin)",
+     "money": {
+      "source": "WISC",
+      "id": "11932682",
+      "raised": 211,
+      "spent": 211,
+      "through": "10/19/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -8591,6 +9779,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Stephanie_Stuve_Bodeen",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-4939_20260629_120257_30604_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226321",
+      "raised": 13898,
+      "spent": 6874,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8610,6 +9805,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Nancy_VanderMeer",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Nancy-VanderMeer.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15590",
+      "raised": 71742,
+      "spent": 28522,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8671,6 +9873,13 @@
      "social": {
       "facebook": "https://www.facebook.com/disherforassembly/",
       "instagram": "https://www.instagram.com/jeffdisherforassembly"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228972",
+      "raised": 26842,
+      "spent": 5548,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -8727,6 +9936,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Christine_Maltese",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Christine_Maltese_2026-06-26_124007.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228933",
+      "raised": 15999,
+      "spent": 9871,
+      "through": "10/19/2026"
      }
     },
     {
@@ -8748,6 +9964,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Scott_Krug",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Scott_Krug_20230531_084608.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16180",
+      "raised": 50698,
+      "spent": 38833,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8797,7 +10020,14 @@
       "link": "https://ballotpedia.org/Angela_Stroud",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AngelaStroud.jpg"
      },
-     "issuesUrl": "https://stroudforwisconsin.com/issues/"
+     "issuesUrl": "https://stroudforwisconsin.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "16446",
+      "raised": 80877,
+      "spent": 45559,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -8808,6 +10038,13 @@
      "ballotpedia": "https://ballotpedia.org/Frank_Kostka",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61564206027091"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1170162",
+      "raised": 6792,
+      "spent": 2238,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -8853,6 +10090,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Paul_Johnson_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/image_20261006_021031_36158_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226466",
+      "raised": 4000,
+      "spent": 2768,
+      "through": "09/23/2026"
      }
     },
     {
@@ -8873,6 +10117,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Chanz_Green",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Chanz_Green_20230521_075004.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16734",
+      "raised": 60677,
+      "spent": 47870,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -8929,7 +10180,14 @@
       "link": "https://ballotpedia.org/Keith_Mogel",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mogel-AD75-1024x1024_20260719_221738_31579_1.jpg"
      },
-     "issuesUrl": "https://keithmogelforwisconsinstateassembly75.com/issues/"
+     "issuesUrl": "https://keithmogelforwisconsinstateassembly75.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "12229744",
+      "raised": 7001,
+      "spent": 5647,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -9014,7 +10272,14 @@
      "party": "Republican",
      "profile": "https://ballotpedia.org/Nina_Chat",
      "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Nina_Chat"
+     "ballotpedia": "https://ballotpedia.org/Nina_Chat",
+     "money": {
+      "source": "WISC",
+      "id": "12230231",
+      "raised": 1760,
+      "spent": 222,
+      "through": "10/19/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -9024,7 +10289,7 @@
     {
      "name": "Francesca Hong",
      "party": "Democratic",
-     "note": "Francesca Hong (D–Madison), representing district 76 since 2021, is retiring to run for governor.",
+     "note": "Francesca Hong (D–Madison), representing district 76 since 2021, is retiring to run for governor. They are in no race in this guide.",
      "source": {
       "name": "Wikipedia: 2026 Wisconsin State Assembly election",
       "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_State_Assembly_election#Seeking_other_office"
@@ -9063,7 +10328,14 @@
       "link": "https://ballotpedia.org/Renuka_Mayadev",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Renuka_Mayadev_20240808_092901.jpg"
      },
-     "issuesUrl": "https://mayadevforwi.com/issues"
+     "issuesUrl": "https://mayadevforwi.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "1149237",
+      "raised": 80960,
+      "spent": 18626,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -9133,7 +10405,14 @@
       "link": "https://ballotpedia.org/Shelia_Stubbs",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/shelia_headshot.jpg"
      },
-     "issuesUrl": "https://www.sheliastubbsforassembly.com/issues"
+     "issuesUrl": "https://www.sheliastubbsforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "15805",
+      "raised": 29443,
+      "spent": 20318,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -9141,7 +10420,14 @@
      "party": "Republican",
      "profile": "https://ballotpedia.org/Henry_Johnson_(Wisconsin)",
      "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Henry_Johnson_(Wisconsin)"
+     "ballotpedia": "https://ballotpedia.org/Henry_Johnson_(Wisconsin)",
+     "money": {
+      "source": "WISC",
+      "id": "12230001",
+      "raised": 0,
+      "spent": 0,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -9190,6 +10476,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Lisa_Subeck",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/LisaSubeck.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16953",
+      "raised": 53103,
+      "spent": 51430,
+      "through": "09/23/2026"
      }
     },
     {
@@ -9209,6 +10502,13 @@
       "credit": "John Fons (their campaign site)",
       "link": "https://johnthefons.com/",
       "from": "https://johnthefons.com/wp-content/uploads/2026/02/john-fons-portrait.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12227039",
+      "raised": 1546,
+      "spent": 1498,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -9259,7 +10559,14 @@
       "link": "https://ballotpedia.org/Mike_Bare",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/MikeBare2024.jpeg"
      },
-     "issuesUrl": "https://www.votebare.com/priorities"
+     "issuesUrl": "https://www.votebare.com/priorities",
+     "money": {
+      "source": "WISC",
+      "id": "16787",
+      "raised": 68587,
+      "spent": 44383,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -9279,6 +10586,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Simran_Arora",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-5523_20260907_211232_33755_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226240",
+      "raised": 8943,
+      "spent": 7626,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -9338,6 +10652,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Alex_Joers",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DSCF2387_20260629_162044_43090_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16808",
+      "raised": 63188,
+      "spent": 58294,
+      "through": "10/19/2026"
      }
     },
     {
@@ -9353,6 +10674,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Mark_Maier",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-0010_20260701_145112_30751_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12229724",
+      "raised": 32388,
+      "spent": 12743,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -9408,6 +10736,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Enrique_Camacho",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-0978_20260930_100656_61303_1.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11959800",
+      "raised": 13964,
+      "spent": 8477,
+      "through": "09/23/2026"
      }
     },
     {
@@ -9427,7 +10762,14 @@
       "link": "https://ballotpedia.org/Bryson_Reyes",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/reyesbryson_2026-10-08_054810.jpg"
      },
-     "issuesUrl": "https://www.brysonforwisconsin.com/issues"
+     "issuesUrl": "https://www.brysonforwisconsin.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12226234",
+      "raised": 178067,
+      "spent": 19047,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -9476,7 +10818,14 @@
       "link": "https://ballotpedia.org/Dave_Maxey",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Dave_Maxey_20250206_074258.jpg"
      },
-     "issuesUrl": "https://www.maxeyforassembly.com/issue"
+     "issuesUrl": "https://www.maxeyforassembly.com/issue",
+     "money": {
+      "source": "WISC",
+      "id": "664296",
+      "raised": 12455,
+      "spent": 16453,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -9526,7 +10875,14 @@
       "link": "https://ballotpedia.org/Chuck_Wichgers",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ChuckWichgers.jpg"
      },
-     "issuesUrl": "https://www.chuckwichgers.com/issues"
+     "issuesUrl": "https://www.chuckwichgers.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "664174",
+      "raised": 10194,
+      "spent": 6724,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -9574,7 +10930,14 @@
       "link": "https://ballotpedia.org/John_Kroll",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/krolljohn_2026-10-08_055431.jpg"
      },
-     "issuesUrl": "https://www.krollforwi.com/issues"
+     "issuesUrl": "https://www.krollforwi.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12049265",
+      "raised": 507340,
+      "spent": 125272,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -9596,6 +10959,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Patrick_Snyder",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/snyderpat_2026-10-08_055219.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "17078",
+      "raised": 1079648,
+      "spent": 89882,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -9641,6 +11011,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Andy_Wuethrich",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/678395706-10163537488082935-5393674699978745128-n_20260812_171014_32609_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12229986",
+      "raised": 14995,
+      "spent": 6693,
+      "through": "09/23/2026"
      }
     },
     {
@@ -9664,7 +11041,14 @@
       "link": "https://ballotpedia.org/John_Spiros",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/John_Spiros.jpg"
      },
-     "issuesUrl": "https://www.spirosforassembly.com/issues"
+     "issuesUrl": "https://www.spirosforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "16730",
+      "raised": 28787,
+      "spent": 16754,
+      "through": "10/19/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -9709,6 +11093,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Bob_Look",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/BobLook.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1147691",
+      "raised": 2900,
+      "spent": 650,
+      "through": "09/23/2026"
      }
     },
     {
@@ -9777,6 +11168,13 @@
       "seat": "House District 87",
       "source": "Wisconsin Legislature, via govbot",
       "asOf": "2026-10-25"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15639",
+      "raised": 46423,
+      "spent": 38459,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -9823,6 +11221,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Brandy_Tollefson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/tollefsonbrandy_2026-10-08_060104.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "11965003",
+      "raised": 862703,
+      "spent": 107360,
+      "through": "09/23/2026"
      }
     },
     {
@@ -9845,7 +11250,14 @@
       "link": "https://ballotpedia.org/Benjamin_Franklin_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/BenFranklin2024.png"
      },
-     "issuesUrl": "https://www.franklinforwisconsin.com/issues.html"
+     "issuesUrl": "https://www.franklinforwisconsin.com/issues.html",
+     "money": {
+      "source": "WISC",
+      "id": "664158",
+      "raised": 1589023,
+      "spent": 61875,
+      "through": "10/19/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -9895,7 +11307,14 @@
       "link": "https://ballotpedia.org/Ryan_Spaude",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ryan_Spaude_20240808_093050.jpg"
      },
-     "issuesUrl": "https://www.standwithspaude.com/"
+     "issuesUrl": "https://www.standwithspaude.com/",
+     "money": {
+      "source": "WISC",
+      "id": "16271",
+      "raised": 1625743,
+      "spent": 122674,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -9913,6 +11332,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Bobby_Lindsey",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/lindseybobby_2026-10-08_060429.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226525",
+      "raised": 813200,
+      "spent": 32646,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -9963,7 +11389,14 @@
       "link": "https://ballotpedia.org/Amaad_Rivera-Wagner",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AmaadRivera-Wagner.jpg"
      },
-     "issuesUrl": "https://www.amaadforgb.com/issues"
+     "issuesUrl": "https://www.amaadforgb.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "16408",
+      "raised": 29479,
+      "spent": 15235,
+      "through": "10/19/2026"
+     }
     },
     {
      "ballot": 2,
@@ -9982,6 +11415,13 @@
       "credit": "Jessica Henderson (their campaign site)",
       "link": "https://www.henderson4wisconsin.com/",
       "from": "https://static.wixstatic.com/media/ef1607_c7d20ee72d1844838be5d173573b647e~mv2.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "8110596",
+      "raised": 1833,
+      "spent": 966,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -10030,6 +11470,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Jodi_Emerson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Emerson_Jodi_2018-6-min.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15871",
+      "raised": 286093,
+      "spent": 178993,
+      "through": "10/19/2026"
      }
     },
     {
@@ -10049,7 +11496,14 @@
       "link": "https://ballotpedia.org/Bruce_Stabenow",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/stabenowbruce_2026-10-08_062240.jpg"
      },
-     "issuesUrl": "https://www.votebrucestabenow.com/issues"
+     "issuesUrl": "https://www.votebrucestabenow.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12228349",
+      "raised": 123432,
+      "spent": 120997,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -10095,7 +11549,14 @@
       "link": "https://ballotpedia.org/Jeremiah_Fredrickson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/fredricksonjeremiah_2026-10-08_062613.jpg"
      },
-     "issuesUrl": "https://www.jeremiahfredricksonforstateassembly.com/issues"
+     "issuesUrl": "https://www.jeremiahfredricksonforstateassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12161639",
+      "raised": 358166,
+      "spent": 72907,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -10117,7 +11578,14 @@
       "link": "https://ballotpedia.org/Clint_Moses",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Clint-Moses.jpg"
      },
-     "issuesUrl": "https://www.mosesforwi.com/priorities.html"
+     "issuesUrl": "https://www.mosesforwi.com/priorities.html",
+     "money": {
+      "source": "WISC",
+      "id": "15939",
+      "raised": 692186,
+      "spent": 105009,
+      "through": "09/23/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -10167,7 +11635,14 @@
       "link": "https://ballotpedia.org/Christian_Phelps",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Christian_Phelps_20250111_094234.jpg"
      },
-     "issuesUrl": "https://phelpscampaign.com/issues/"
+     "issuesUrl": "https://phelpscampaign.com/issues/",
+     "money": {
+      "source": "WISC",
+      "id": "16364",
+      "raised": 94003,
+      "spent": 18174,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -10178,6 +11653,13 @@
      "ballotpedia": "https://ballotpedia.org/Michael_Ayala_(Wisconsin)",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61591926664027"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12230207",
+      "raised": 1727,
+      "spent": 0,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -10226,7 +11708,14 @@
       "link": "https://ballotpedia.org/Steve_Doyle",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Steve_Doyle.jpg"
      },
-     "issuesUrl": "https://www.doyleforassembly.com/issues"
+     "issuesUrl": "https://www.doyleforassembly.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "16691",
+      "raised": 1317622,
+      "spent": 351724,
+      "through": "09/23/2026"
+     }
     },
     {
      "ballot": 2,
@@ -10244,6 +11733,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Keith_Purnell",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/purnellkeith_2026-10-08_063156.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12226899",
+      "raised": 187725,
+      "spent": 35148,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -10292,6 +11788,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Jill_Billings",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jill_Billings_20240809_093225.jpeg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "15842",
+      "raised": 120632,
+      "spent": 54547,
+      "through": "10/19/2026"
      }
     },
     {
@@ -10310,6 +11813,13 @@
       "credit": "Cedric Schnitzler (their campaign site)",
       "link": "https://www.schnitzlerforassembly.com/",
       "from": "https://static.wixstatic.com/media/542f1c_997e7b6f60404b7a9e053d538294e985~mv2.png"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "1927630",
+      "raised": 28873,
+      "spent": 16037,
+      "through": "10/19/2026"
      }
     },
     {
@@ -10380,6 +11890,13 @@
      "ballotpedia": "https://ballotpedia.org/Jim_Green_(Wisconsin)",
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61590136121782"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12228940",
+      "raised": 15854,
+      "spent": 4279,
+      "through": "10/19/2026"
      }
     }
    ],
@@ -10431,7 +11948,14 @@
       "link": "https://ballotpedia.org/Cindi_Duchow",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cindi_Duchow_20250206_070107.jpg"
      },
-     "issuesUrl": "https://www.cindiduchow.com/"
+     "issuesUrl": "https://www.cindiduchow.com/",
+     "money": {
+      "source": "WISC",
+      "id": "16901",
+      "raised": 32314,
+      "spent": 24987,
+      "through": "10/19/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -10488,6 +12012,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Matt_Philibert",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/20260418-171833_20260609_032324_39959_1.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "12184882",
+      "raised": 2593,
+      "spent": 1077,
+      "through": "09/23/2026"
      }
     },
     {
@@ -10511,6 +12042,13 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Jim_Piwowarczyk",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jim_Piwowarczyk_20240814_075459.jpg"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "6622927",
+      "raised": 25931,
+      "spent": 22178,
+      "through": "09/23/2026"
      }
     }
    ],
@@ -10561,7 +12099,14 @@
       "link": "https://ballotpedia.org/Barbara_Dittrich",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Barbara_Dittrich.jpeg"
      },
-     "issuesUrl": "https://www.dittrich4wi.com/issues"
+     "issuesUrl": "https://www.dittrich4wi.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "16176",
+      "raised": 39345,
+      "spent": 18932,
+      "through": "10/19/2026"
+     }
     }
    ],
    "writeIn": true,
@@ -10611,13 +12156,1796 @@
    "plain": "A “yes” writes into the constitution that state and local government, the UW System, technical colleges and school districts may not discriminate against, or give preference to, anyone based on race, sex, color, ethnicity or national origin in public jobs, education, contracts or administration; it keeps exceptions for federal program requirements and bona fide sex-based qualifications. A “no” leaves the constitution as it is."
   }
  ],
- "changes": [],
+ "changes": [
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "governor-and-lieutenant-governor",
+   "what": "Governor and Lieutenant Governor",
+   "kind": "money",
+   "name": "David Crowley & Sarah Godlewski",
+   "raised": 15135190
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "governor-and-lieutenant-governor",
+   "what": "Governor and Lieutenant Governor",
+   "kind": "money",
+   "name": "Tom Tiffany & David Varnam",
+   "raised": 44045471
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "attorney-general",
+   "what": "Attorney General",
+   "kind": "money",
+   "name": "Josh Kaul",
+   "raised": 2450159
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "attorney-general",
+   "what": "Attorney General",
+   "kind": "money",
+   "name": "Eric Toney",
+   "raised": 1949170
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "secretary-of-state",
+   "what": "Secretary of State",
+   "kind": "money",
+   "name": "Jay Schroeder",
+   "raised": 40661
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "secretary-of-state",
+   "what": "Secretary of State",
+   "kind": "money",
+   "name": "Pete Karas",
+   "raised": 68642
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "state-treasurer",
+   "what": "State Treasurer",
+   "kind": "money",
+   "name": "John Leiber",
+   "raised": 48839
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-1",
+   "what": "State Senator, District 1",
+   "kind": "money",
+   "name": "Nic Cravillion",
+   "raised": 147857
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-1",
+   "what": "State Senator, District 1",
+   "kind": "money",
+   "name": "Mark Becker",
+   "raised": 51551
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-3",
+   "what": "State Senator, District 3",
+   "kind": "money",
+   "name": "Tim Carpenter",
+   "raised": 56501
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-5",
+   "what": "State Senator, District 5",
+   "kind": "money",
+   "name": "Robyn Vining",
+   "raised": 529937
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-5",
+   "what": "State Senator, District 5",
+   "kind": "money",
+   "name": "Mike Roberts",
+   "raised": 432359
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-7",
+   "what": "State Senator, District 7",
+   "kind": "money",
+   "name": "Chris Larson",
+   "raised": 88053
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-7",
+   "what": "State Senator, District 7",
+   "kind": "money",
+   "name": "Mike Moeller",
+   "raised": 28820
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-9",
+   "what": "State Senator, District 9",
+   "kind": "money",
+   "name": "Amy Binsfeld",
+   "raised": 66659
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-9",
+   "what": "State Senator, District 9",
+   "kind": "money",
+   "name": "Christian Ellis",
+   "raised": 329376
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-11",
+   "what": "State Senator, District 11",
+   "kind": "money",
+   "name": "Adam Duda",
+   "raised": 52371
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-11",
+   "what": "State Senator, District 11",
+   "kind": "money",
+   "name": "Ellen Schutt",
+   "raised": 147035
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-13",
+   "what": "State Senator, District 13",
+   "kind": "money",
+   "name": "Sasha Ripley",
+   "raised": 32775
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-13",
+   "what": "State Senator, District 13",
+   "kind": "money",
+   "name": "John Jagler",
+   "raised": 49860
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-15",
+   "what": "State Senator, District 15",
+   "kind": "money",
+   "name": "Mark Spreitzer",
+   "raised": 167590
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-15",
+   "what": "State Senator, District 15",
+   "kind": "money",
+   "name": "Scott Fleming",
+   "raised": 20665
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-15",
+   "what": "State Senator, District 15",
+   "kind": "money",
+   "name": "Christopher Dean",
+   "raised": 3213
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-17",
+   "what": "State Senator, District 17",
+   "kind": "money",
+   "name": "Jenna Jacobson",
+   "raised": 1521535
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-17",
+   "what": "State Senator, District 17",
+   "kind": "money",
+   "name": "Howard Marklein",
+   "raised": 1088115
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-19",
+   "what": "State Senator, District 19",
+   "kind": "money",
+   "name": "Emily Tseffos",
+   "raised": 102949
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-19",
+   "what": "State Senator, District 19",
+   "kind": "money",
+   "name": "Rachael Cabral-Guevara",
+   "raised": 131267
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-21",
+   "what": "State Senator, District 21",
+   "kind": "money",
+   "name": "Trevor Jung",
+   "raised": 1585000
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-21",
+   "what": "State Senator, District 21",
+   "kind": "money",
+   "name": "Jim Croft",
+   "raised": 1560903
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-23",
+   "what": "State Senator, District 23",
+   "kind": "money",
+   "name": "Romaine Quinn",
+   "raised": 150376
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-25",
+   "what": "State Senator, District 25",
+   "kind": "money",
+   "name": "Charly Ray",
+   "raised": 854139
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-25",
+   "what": "State Senator, District 25",
+   "kind": "money",
+   "name": "Erik Severson",
+   "raised": 351820
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-27",
+   "what": "State Senator, District 27",
+   "kind": "money",
+   "name": "Dianne Hesselbein",
+   "raised": 186519
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-27",
+   "what": "State Senator, District 27",
+   "kind": "money",
+   "name": "Nathan Kalmoe",
+   "raised": 2105
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-29",
+   "what": "State Senator, District 29",
+   "kind": "money",
+   "name": "Gillian Battino",
+   "raised": 215368
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-29",
+   "what": "State Senator, District 29",
+   "kind": "money",
+   "name": "Cory Tomczyk",
+   "raised": 178939
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-31",
+   "what": "State Senator, District 31",
+   "kind": "money",
+   "name": "Jeff Smith",
+   "raised": 667901
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-31",
+   "what": "State Senator, District 31",
+   "kind": "money",
+   "name": "Michele Magadance Skinner",
+   "raised": 826118
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-33",
+   "what": "State Senator, District 33",
+   "kind": "money",
+   "name": "Mike Van Someren",
+   "raised": 80451
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldu-33",
+   "what": "State Senator, District 33",
+   "kind": "money",
+   "name": "Chris Kapenga",
+   "raised": 33213
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-1",
+   "what": "Representative to the Assembly, District 1",
+   "kind": "money",
+   "name": "Renee Paplham",
+   "raised": 37898
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-1",
+   "what": "Representative to the Assembly, District 1",
+   "kind": "money",
+   "name": "Joel Kitchens",
+   "raised": 54993
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-2",
+   "what": "Representative to the Assembly, District 2",
+   "kind": "money",
+   "name": "Alicia Saunders",
+   "raised": 9907
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-2",
+   "what": "Representative to the Assembly, District 2",
+   "kind": "money",
+   "name": "Shae Sortwell",
+   "raised": 34627
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-3",
+   "what": "Representative to the Assembly, District 3",
+   "kind": "money",
+   "name": "Michael Goodwin",
+   "raised": 9257
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-3",
+   "what": "Representative to the Assembly, District 3",
+   "kind": "money",
+   "name": "Ron Tusler",
+   "raised": 65581
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-4",
+   "what": "Representative to the Assembly, District 4",
+   "kind": "money",
+   "name": "Alexia Unertl",
+   "raised": 11453
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-4",
+   "what": "Representative to the Assembly, District 4",
+   "kind": "money",
+   "name": "David Steffen",
+   "raised": 74065
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-5",
+   "what": "Representative to the Assembly, District 5",
+   "kind": "money",
+   "name": "Justin Schumacher",
+   "raised": 8303
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-5",
+   "what": "Representative to the Assembly, District 5",
+   "kind": "money",
+   "name": "Joy Goeben",
+   "raised": 27285
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-5",
+   "what": "Representative to the Assembly, District 5",
+   "kind": "money",
+   "name": "David Schupbach",
+   "raised": 2035
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-6",
+   "what": "Representative to the Assembly, District 6",
+   "kind": "money",
+   "name": "Shirley Hinze",
+   "raised": 1000
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-6",
+   "what": "Representative to the Assembly, District 6",
+   "kind": "money",
+   "name": "Elijah Behnke",
+   "raised": 8104
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-7",
+   "what": "Representative to the Assembly, District 7",
+   "kind": "money",
+   "name": "Karen Kirsch",
+   "raised": 14990
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-7",
+   "what": "Representative to the Assembly, District 7",
+   "kind": "money",
+   "name": "Lee Whiting",
+   "raised": 6801
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-8",
+   "what": "Representative to the Assembly, District 8",
+   "kind": "money",
+   "name": "Ismael Luna",
+   "raised": 148167
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-8",
+   "what": "Representative to the Assembly, District 8",
+   "kind": "money",
+   "name": "Angel Sanchez",
+   "raised": 944
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-9",
+   "what": "Representative to the Assembly, District 9",
+   "kind": "money",
+   "name": "Priscilla Prado",
+   "raised": 32523
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-9",
+   "what": "Representative to the Assembly, District 9",
+   "kind": "money",
+   "name": "Samuel Guerrero",
+   "raised": 1595
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-11",
+   "what": "Representative to the Assembly, District 11",
+   "kind": "money",
+   "name": "Sequanna Taylor",
+   "raised": 17216
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-11",
+   "what": "Representative to the Assembly, District 11",
+   "kind": "money",
+   "name": "Shandowlyon Hendricks Reaves",
+   "raised": 8625
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-12",
+   "what": "Representative to the Assembly, District 12",
+   "kind": "money",
+   "name": "Russell Goodwin",
+   "raised": 7259
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-13",
+   "what": "Representative to the Assembly, District 13",
+   "kind": "money",
+   "name": "Amy Zimmerman",
+   "raised": 72582
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-13",
+   "what": "Representative to the Assembly, District 13",
+   "kind": "money",
+   "name": "Mike Morgan",
+   "raised": 13649
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-14",
+   "what": "Representative to the Assembly, District 14",
+   "kind": "money",
+   "name": "Angelito Tenorio",
+   "raised": 26008
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-15",
+   "what": "Representative to the Assembly, District 15",
+   "kind": "money",
+   "name": "Stephen Tryon",
+   "raised": 16553
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-15",
+   "what": "Representative to the Assembly, District 15",
+   "kind": "money",
+   "name": "Adam Neylon",
+   "raised": 11709
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-16",
+   "what": "Representative to the Assembly, District 16",
+   "kind": "money",
+   "name": "Kalan Haywood",
+   "raised": 53292
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-16",
+   "what": "Representative to the Assembly, District 16",
+   "kind": "money",
+   "name": "Alciro Deacon",
+   "raised": 67
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-17",
+   "what": "Representative to the Assembly, District 17",
+   "kind": "money",
+   "name": "Supreme Moore Omokunde",
+   "raised": 1210
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-17",
+   "what": "Representative to the Assembly, District 17",
+   "kind": "money",
+   "name": "Charlene Abughrin",
+   "raised": 3051
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-18",
+   "what": "Representative to the Assembly, District 18",
+   "kind": "money",
+   "name": "Margaret Arney",
+   "raised": 23207
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-19",
+   "what": "Representative to the Assembly, District 19",
+   "kind": "money",
+   "name": "Ryan Clancy",
+   "raised": 73600
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-19",
+   "what": "Representative to the Assembly, District 19",
+   "kind": "money",
+   "name": "Yasmine Outlaw",
+   "raised": 5842
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-20",
+   "what": "Representative to the Assembly, District 20",
+   "kind": "money",
+   "name": "Christine Sinicki",
+   "raised": 24645
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-20",
+   "what": "Representative to the Assembly, District 20",
+   "kind": "money",
+   "name": "Kyle Cleary",
+   "raised": 5905
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-21",
+   "what": "Representative to the Assembly, District 21",
+   "kind": "money",
+   "name": "Dan Bukiewicz",
+   "raised": 451642
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-21",
+   "what": "Representative to the Assembly, District 21",
+   "kind": "money",
+   "name": "Dylan Pfaffenbach",
+   "raised": 299037
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-22",
+   "what": "Representative to the Assembly, District 22",
+   "kind": "money",
+   "name": "Dana Glasstein",
+   "raised": 72428
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-22",
+   "what": "Representative to the Assembly, District 22",
+   "kind": "money",
+   "name": "Paul Melotik",
+   "raised": 77165
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-23",
+   "what": "Representative to the Assembly, District 23",
+   "kind": "money",
+   "name": "Deb Andraca",
+   "raised": 89199
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-23",
+   "what": "Representative to the Assembly, District 23",
+   "kind": "money",
+   "name": "Aleaner Pabonnie",
+   "raised": 2411
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-24",
+   "what": "Representative to the Assembly, District 24",
+   "kind": "money",
+   "name": "Matt Brown",
+   "raised": 4283
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-24",
+   "what": "Representative to the Assembly, District 24",
+   "kind": "money",
+   "name": "Daniel Knodl",
+   "raised": 56047
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-25",
+   "what": "Representative to the Assembly, District 25",
+   "kind": "money",
+   "name": "Christopher Able",
+   "raised": 28233
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-25",
+   "what": "Representative to the Assembly, District 25",
+   "kind": "money",
+   "name": "Paul Tittl",
+   "raised": 19096
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-26",
+   "what": "Representative to the Assembly, District 26",
+   "kind": "money",
+   "name": "Joe Sheehan",
+   "raised": 195558
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-26",
+   "what": "Representative to the Assembly, District 26",
+   "kind": "money",
+   "name": "John Belanger",
+   "raised": 54987
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-27",
+   "what": "Representative to the Assembly, District 27",
+   "kind": "money",
+   "name": "Lindee Brill",
+   "raised": 20177
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-28",
+   "what": "Representative to the Assembly, District 28",
+   "kind": "money",
+   "name": "Robin Lillesve",
+   "raised": 2691
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-28",
+   "what": "Representative to the Assembly, District 28",
+   "kind": "money",
+   "name": "Rob Kreibich",
+   "raised": 20135
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-29",
+   "what": "Representative to the Assembly, District 29",
+   "kind": "money",
+   "name": "Chris Danou",
+   "raised": 11385
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-29",
+   "what": "Representative to the Assembly, District 29",
+   "kind": "money",
+   "name": "Treig Pronschinske",
+   "raised": 18085
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-30",
+   "what": "Representative to the Assembly, District 30",
+   "kind": "money",
+   "name": "Kevin Knoke",
+   "raised": 456975
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-30",
+   "what": "Representative to the Assembly, District 30",
+   "kind": "money",
+   "name": "Shannon Zimmerman",
+   "raised": 953101
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-31",
+   "what": "Representative to the Assembly, District 31",
+   "kind": "money",
+   "name": "John Perryman",
+   "raised": 57808
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-31",
+   "what": "Representative to the Assembly, District 31",
+   "kind": "money",
+   "name": "Tyler August",
+   "raised": 229519
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-32",
+   "what": "Representative to the Assembly, District 32",
+   "kind": "money",
+   "name": "Greg Miller",
+   "raised": 9368
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-32",
+   "what": "Representative to the Assembly, District 32",
+   "kind": "money",
+   "name": "Amanda Nedweski",
+   "raised": 51474
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-33",
+   "what": "Representative to the Assembly, District 33",
+   "kind": "money",
+   "name": "Maria Elena Bisabarros",
+   "raised": 9337
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-33",
+   "what": "Representative to the Assembly, District 33",
+   "kind": "money",
+   "name": "Steve Wicklund",
+   "raised": 58597
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-34",
+   "what": "Representative to the Assembly, District 34",
+   "kind": "money",
+   "name": "Rob Swearingen",
+   "raised": 71878
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-35",
+   "what": "Representative to the Assembly, District 35",
+   "kind": "money",
+   "name": "Elizabeth McCrank",
+   "raised": 9239
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-35",
+   "what": "Representative to the Assembly, District 35",
+   "kind": "money",
+   "name": "Calvin Callahan",
+   "raised": 44630
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-36",
+   "what": "Representative to the Assembly, District 36",
+   "kind": "money",
+   "name": "Jeffrey Mursau",
+   "raised": 18324
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-36",
+   "what": "Representative to the Assembly, District 36",
+   "kind": "money",
+   "name": "Shena Chapman",
+   "raised": 1657
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-37",
+   "what": "Representative to the Assembly, District 37",
+   "kind": "money",
+   "name": "LaToya Bates",
+   "raised": 5002
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-37",
+   "what": "Representative to the Assembly, District 37",
+   "kind": "money",
+   "name": "Mark Born",
+   "raised": 261784
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-38",
+   "what": "Representative to the Assembly, District 38",
+   "kind": "money",
+   "name": "Terri Wenkman",
+   "raised": 35300
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-38",
+   "what": "Representative to the Assembly, District 38",
+   "kind": "money",
+   "name": "William Penterman",
+   "raised": 34324
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-39",
+   "what": "Representative to the Assembly, District 39",
+   "kind": "money",
+   "name": "Michael Skivington",
+   "raised": 10279
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-39",
+   "what": "Representative to the Assembly, District 39",
+   "kind": "money",
+   "name": "Alex Dallman",
+   "raised": 124259
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-40",
+   "what": "Representative to the Assembly, District 40",
+   "kind": "money",
+   "name": "Karen DeSanto",
+   "raised": 46991
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-40",
+   "what": "Representative to the Assembly, District 40",
+   "kind": "money",
+   "name": "Julie Helmer",
+   "raised": 33978
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-41",
+   "what": "Representative to the Assembly, District 41",
+   "kind": "money",
+   "name": "Zach Commons",
+   "raised": 1245
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-41",
+   "what": "Representative to the Assembly, District 41",
+   "kind": "money",
+   "name": "Tony Kurtz",
+   "raised": 192170
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-42",
+   "what": "Representative to the Assembly, District 42",
+   "kind": "money",
+   "name": "Maureen McCarville",
+   "raised": 23895
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-43",
+   "what": "Representative to the Assembly, District 43",
+   "kind": "money",
+   "name": "Paul McGraw",
+   "raised": 74254
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-44",
+   "what": "Representative to the Assembly, District 44",
+   "kind": "money",
+   "name": "Ann Roe",
+   "raised": 48687
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-44",
+   "what": "Representative to the Assembly, District 44",
+   "kind": "money",
+   "name": "Ron Woodman",
+   "raised": 5470
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-45",
+   "what": "Representative to the Assembly, District 45",
+   "kind": "money",
+   "name": "Clinton Anderson",
+   "raised": 48091
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-45",
+   "what": "Representative to the Assembly, District 45",
+   "kind": "money",
+   "name": "Jocelyn Jordan",
+   "raised": 0
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-46",
+   "what": "Representative to the Assembly, District 46",
+   "kind": "money",
+   "name": "Joan Fitzgerald",
+   "raised": 75040
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-46",
+   "what": "Representative to the Assembly, District 46",
+   "kind": "money",
+   "name": "John Donohue",
+   "raised": 6453
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-47",
+   "what": "Representative to the Assembly, District 47",
+   "kind": "money",
+   "name": "Randy Udell",
+   "raised": 53312
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-47",
+   "what": "Representative to the Assembly, District 47",
+   "kind": "money",
+   "name": "Sandy Bakk",
+   "raised": 9720
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-48",
+   "what": "Representative to the Assembly, District 48",
+   "kind": "money",
+   "name": "Andrew Hysell",
+   "raised": 37129
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-48",
+   "what": "Representative to the Assembly, District 48",
+   "kind": "money",
+   "name": "Mark Kjorlie",
+   "raised": 15732
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-49",
+   "what": "Representative to the Assembly, District 49",
+   "kind": "money",
+   "name": "John Rindy",
+   "raised": 21724
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-49",
+   "what": "Representative to the Assembly, District 49",
+   "kind": "money",
+   "name": "Travis Tranel",
+   "raised": 32253
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-50",
+   "what": "Representative to the Assembly, District 50",
+   "kind": "money",
+   "name": "Bill Oemichen",
+   "raised": 43598
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-50",
+   "what": "Representative to the Assembly, District 50",
+   "kind": "money",
+   "name": "Jon Aleckson",
+   "raised": 50365
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-51",
+   "what": "Representative to the Assembly, District 51",
+   "kind": "money",
+   "name": "Ben Gruber",
+   "raised": 782725
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-51",
+   "what": "Representative to the Assembly, District 51",
+   "kind": "money",
+   "name": "Todd Novak",
+   "raised": 859878
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-51",
+   "what": "Representative to the Assembly, District 51",
+   "kind": "money",
+   "name": "Nathan Tataje",
+   "raised": 675
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-52",
+   "what": "Representative to the Assembly, District 52",
+   "kind": "money",
+   "name": "Lee Snodgrass",
+   "raised": 75573
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-52",
+   "what": "Representative to the Assembly, District 52",
+   "kind": "money",
+   "name": "Reive Pullen",
+   "raised": 33297
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-53",
+   "what": "Representative to the Assembly, District 53",
+   "kind": "money",
+   "name": "Becky Nichols",
+   "raised": 475653
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-53",
+   "what": "Representative to the Assembly, District 53",
+   "kind": "money",
+   "name": "David Daniels",
+   "raised": 1167534
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-53",
+   "what": "Representative to the Assembly, District 53",
+   "kind": "money",
+   "name": "Rachael Dowling",
+   "raised": 1753
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-54",
+   "what": "Representative to the Assembly, District 54",
+   "kind": "money",
+   "name": "Lori Palmeri",
+   "raised": 63922
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-54",
+   "what": "Representative to the Assembly, District 54",
+   "kind": "money",
+   "name": "Tim Paterson",
+   "raised": 19240
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-55",
+   "what": "Representative to the Assembly, District 55",
+   "kind": "money",
+   "name": "Nate Gustafson",
+   "raised": 26662
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-56",
+   "what": "Representative to the Assembly, District 56",
+   "kind": "money",
+   "name": "Grace Abitz",
+   "raised": 12525
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-56",
+   "what": "Representative to the Assembly, District 56",
+   "kind": "money",
+   "name": "Anthony Phillips",
+   "raised": 104319
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-57",
+   "what": "Representative to the Assembly, District 57",
+   "kind": "money",
+   "name": "Joey Marschall",
+   "raised": 5916
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-57",
+   "what": "Representative to the Assembly, District 57",
+   "kind": "money",
+   "name": "Kevin Krentz",
+   "raised": 81443
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-58",
+   "what": "Representative to the Assembly, District 58",
+   "kind": "money",
+   "name": "Dennis Degenhardt",
+   "raised": 7124
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-58",
+   "what": "Representative to the Assembly, District 58",
+   "kind": "money",
+   "name": "Bernie Newman",
+   "raised": 14371
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-59",
+   "what": "Representative to the Assembly, District 59",
+   "kind": "money",
+   "name": "Jack Holzman",
+   "raised": 13270
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-59",
+   "what": "Representative to the Assembly, District 59",
+   "kind": "money",
+   "name": "Bradley Petersen",
+   "raised": 31885
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-60",
+   "what": "Representative to the Assembly, District 60",
+   "kind": "money",
+   "name": "Tiffany Brault",
+   "raised": 7540
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-61",
+   "what": "Representative to the Assembly, District 61",
+   "kind": "money",
+   "name": "Ben Brist",
+   "raised": 518337
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-61",
+   "what": "Representative to the Assembly, District 61",
+   "kind": "money",
+   "name": "Robert Donovan",
+   "raised": 632719
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-62",
+   "what": "Representative to the Assembly, District 62",
+   "kind": "money",
+   "name": "Angelina Cruz",
+   "raised": 29397
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-62",
+   "what": "Representative to the Assembly, District 62",
+   "kind": "money",
+   "name": "Mike Bellagio",
+   "raised": 1102
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-63",
+   "what": "Representative to the Assembly, District 63",
+   "kind": "money",
+   "name": "Eddie Phanichkul",
+   "raised": 11422
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-63",
+   "what": "Representative to the Assembly, District 63",
+   "kind": "money",
+   "name": "Robert Wittke",
+   "raised": 51945
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-64",
+   "what": "Representative to the Assembly, District 64",
+   "kind": "money",
+   "name": "Ed Hibsch",
+   "raised": 1662
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-65",
+   "what": "Representative to the Assembly, District 65",
+   "kind": "money",
+   "name": "Ben DeSmidt",
+   "raised": 53167
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-65",
+   "what": "Representative to the Assembly, District 65",
+   "kind": "money",
+   "name": "Valerie Kretchmer",
+   "raised": 10424
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-66",
+   "what": "Representative to the Assembly, District 66",
+   "kind": "money",
+   "name": "Greta Neubauer",
+   "raised": 174064
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-66",
+   "what": "Representative to the Assembly, District 66",
+   "kind": "money",
+   "name": "Gina Cefalu Paulick",
+   "raised": 96457
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-67",
+   "what": "Representative to the Assembly, District 67",
+   "kind": "money",
+   "name": "Indiana Thompson",
+   "raised": 9195
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-67",
+   "what": "Representative to the Assembly, District 67",
+   "kind": "money",
+   "name": "David Armstrong",
+   "raised": 19270
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-68",
+   "what": "Representative to the Assembly, District 68",
+   "kind": "money",
+   "name": "Elisha King",
+   "raised": 7198
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-68",
+   "what": "Representative to the Assembly, District 68",
+   "kind": "money",
+   "name": "Rob Summerfield",
+   "raised": 45155
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-69",
+   "what": "Representative to the Assembly, District 69",
+   "kind": "money",
+   "name": "Roger Halls",
+   "raised": 412
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-69",
+   "what": "Representative to the Assembly, District 69",
+   "kind": "money",
+   "name": "Karen Hurd",
+   "raised": 45895
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-69",
+   "what": "Representative to the Assembly, District 69",
+   "kind": "money",
+   "name": "Joshua Kelley",
+   "raised": 211
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-70",
+   "what": "Representative to the Assembly, District 70",
+   "kind": "money",
+   "name": "Stephanie Stuve Bodeen",
+   "raised": 13898
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-70",
+   "what": "Representative to the Assembly, District 70",
+   "kind": "money",
+   "name": "Nancy VanderMeer",
+   "raised": 71742
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-71",
+   "what": "Representative to the Assembly, District 71",
+   "kind": "money",
+   "name": "Jeff Disher",
+   "raised": 26842
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-72",
+   "what": "Representative to the Assembly, District 72",
+   "kind": "money",
+   "name": "Christine Maltese",
+   "raised": 15999
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-72",
+   "what": "Representative to the Assembly, District 72",
+   "kind": "money",
+   "name": "Scott Krug",
+   "raised": 50698
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-73",
+   "what": "Representative to the Assembly, District 73",
+   "kind": "money",
+   "name": "Angela Stroud",
+   "raised": 80877
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-73",
+   "what": "Representative to the Assembly, District 73",
+   "kind": "money",
+   "name": "Frank Kostka",
+   "raised": 6792
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-74",
+   "what": "Representative to the Assembly, District 74",
+   "kind": "money",
+   "name": "Paul Johnson",
+   "raised": 4000
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-74",
+   "what": "Representative to the Assembly, District 74",
+   "kind": "money",
+   "name": "Chanz Green",
+   "raised": 60677
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-75",
+   "what": "Representative to the Assembly, District 75",
+   "kind": "money",
+   "name": "Keith Mogel",
+   "raised": 7001
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-76",
+   "what": "Representative to the Assembly, District 76",
+   "kind": "money",
+   "name": "Nina Chat",
+   "raised": 1760
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-77",
+   "what": "Representative to the Assembly, District 77",
+   "kind": "money",
+   "name": "Renuka Mayadev",
+   "raised": 80960
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-78",
+   "what": "Representative to the Assembly, District 78",
+   "kind": "money",
+   "name": "Shelia Stubbs",
+   "raised": 29443
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-78",
+   "what": "Representative to the Assembly, District 78",
+   "kind": "money",
+   "name": "Henry Johnson",
+   "raised": 0
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-79",
+   "what": "Representative to the Assembly, District 79",
+   "kind": "money",
+   "name": "Lisa Subeck",
+   "raised": 53103
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-79",
+   "what": "Representative to the Assembly, District 79",
+   "kind": "money",
+   "name": "John Fons",
+   "raised": 1546
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-80",
+   "what": "Representative to the Assembly, District 80",
+   "kind": "money",
+   "name": "Mike Bare",
+   "raised": 68587
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-80",
+   "what": "Representative to the Assembly, District 80",
+   "kind": "money",
+   "name": "Simran Arora",
+   "raised": 8943
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-81",
+   "what": "Representative to the Assembly, District 81",
+   "kind": "money",
+   "name": "Alex Joers",
+   "raised": 63188
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-81",
+   "what": "Representative to the Assembly, District 81",
+   "kind": "money",
+   "name": "Mark Maier",
+   "raised": 32388
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-82",
+   "what": "Representative to the Assembly, District 82",
+   "kind": "money",
+   "name": "Enrique Camacho",
+   "raised": 13964
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-82",
+   "what": "Representative to the Assembly, District 82",
+   "kind": "money",
+   "name": "Bryson Reyes",
+   "raised": 178067
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-83",
+   "what": "Representative to the Assembly, District 83",
+   "kind": "money",
+   "name": "Dave Maxey",
+   "raised": 12455
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-84",
+   "what": "Representative to the Assembly, District 84",
+   "kind": "money",
+   "name": "Chuck Wichgers",
+   "raised": 10194
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-85",
+   "what": "Representative to the Assembly, District 85",
+   "kind": "money",
+   "name": "John Kroll",
+   "raised": 507340
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-85",
+   "what": "Representative to the Assembly, District 85",
+   "kind": "money",
+   "name": "Patrick Snyder",
+   "raised": 1079648
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-86",
+   "what": "Representative to the Assembly, District 86",
+   "kind": "money",
+   "name": "Andy Wuethrich",
+   "raised": 14995
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-86",
+   "what": "Representative to the Assembly, District 86",
+   "kind": "money",
+   "name": "John Spiros",
+   "raised": 28787
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-87",
+   "what": "Representative to the Assembly, District 87",
+   "kind": "money",
+   "name": "Bob Look",
+   "raised": 2900
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-87",
+   "what": "Representative to the Assembly, District 87",
+   "kind": "money",
+   "name": "Brent Jacobson",
+   "raised": 46423
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-88",
+   "what": "Representative to the Assembly, District 88",
+   "kind": "money",
+   "name": "Brandy Tollefson",
+   "raised": 862703
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-88",
+   "what": "Representative to the Assembly, District 88",
+   "kind": "money",
+   "name": "Benjamin Franklin",
+   "raised": 1589023
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-89",
+   "what": "Representative to the Assembly, District 89",
+   "kind": "money",
+   "name": "Ryan Spaude",
+   "raised": 1625743
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-89",
+   "what": "Representative to the Assembly, District 89",
+   "kind": "money",
+   "name": "Bobby Lindsey",
+   "raised": 813200
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-90",
+   "what": "Representative to the Assembly, District 90",
+   "kind": "money",
+   "name": "Amaad Rivera-Wagner",
+   "raised": 29479
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-90",
+   "what": "Representative to the Assembly, District 90",
+   "kind": "money",
+   "name": "Jessica Henderson",
+   "raised": 1833
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-91",
+   "what": "Representative to the Assembly, District 91",
+   "kind": "money",
+   "name": "Jodi Emerson",
+   "raised": 286093
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-91",
+   "what": "Representative to the Assembly, District 91",
+   "kind": "money",
+   "name": "Bruce Stabenow",
+   "raised": 123432
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-92",
+   "what": "Representative to the Assembly, District 92",
+   "kind": "money",
+   "name": "Jeremiah Fredrickson",
+   "raised": 358166
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-92",
+   "what": "Representative to the Assembly, District 92",
+   "kind": "money",
+   "name": "Clint Moses",
+   "raised": 692186
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-93",
+   "what": "Representative to the Assembly, District 93",
+   "kind": "money",
+   "name": "Christian Phelps",
+   "raised": 94003
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-93",
+   "what": "Representative to the Assembly, District 93",
+   "kind": "money",
+   "name": "Michael Ayala",
+   "raised": 1727
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-94",
+   "what": "Representative to the Assembly, District 94",
+   "kind": "money",
+   "name": "Steve Doyle",
+   "raised": 1317622
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-94",
+   "what": "Representative to the Assembly, District 94",
+   "kind": "money",
+   "name": "Keith Purnell",
+   "raised": 187725
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-95",
+   "what": "Representative to the Assembly, District 95",
+   "kind": "money",
+   "name": "Jill Billings",
+   "raised": 120632
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-95",
+   "what": "Representative to the Assembly, District 95",
+   "kind": "money",
+   "name": "Cedric Schnitzler",
+   "raised": 28873
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-96",
+   "what": "Representative to the Assembly, District 96",
+   "kind": "money",
+   "name": "Tara Johnson",
+   "raised": 0
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-96",
+   "what": "Representative to the Assembly, District 96",
+   "kind": "money",
+   "name": "Jim Green",
+   "raised": 15854
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-97",
+   "what": "Representative to the Assembly, District 97",
+   "kind": "money",
+   "name": "Cindi Duchow",
+   "raised": 32314
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-98",
+   "what": "Representative to the Assembly, District 98",
+   "kind": "money",
+   "name": "Matt Philibert",
+   "raised": 2593
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-98",
+   "what": "Representative to the Assembly, District 98",
+   "kind": "money",
+   "name": "Jim Piwowarczyk",
+   "raised": 25931
+  },
+  {
+   "at": "2026-10-25T05:32:14.891Z",
+   "id": "sldl-99",
+   "what": "Representative to the Assembly, District 99",
+   "kind": "money",
+   "name": "Barbara Dittrich",
+   "raised": 39345
+  }
+ ],
  "news": [
   {
-   "at": "2026-10-25T00:30:21.000Z",
+   "at": "2026-10-25T03:30:21.000Z",
    "title": "Wisconsin Midterm Elections 2026: Key Races, Candidates and Past Results",
    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE16LXVQNkpxaU5MZkdHTU5YbS1jbm83VzlEUnI2TFVRSWFzdmZ0a2hmcV9vOW9sWFlYWDBucWlJYmhDbHFvTVlzVm9FUHhVNk1HSmNTTXJWOGZGTXhiWVNKMGxBanNqUFZEcl80QXNrVmZZWkk?oc=5",
    "source": "NBC News"
+  },
+  {
+   "at": "2026-10-24T20:50:09.000Z",
+   "title": "Latest Governor Polls: Election 2026",
+   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAxQ1V3Wmo0azVsV1dIb0Y3Qjd2ZGptMDZEVF9MeU43MXFpY0k0U2NLejlfeXBqS0lUSlpwWGhuY2ZpM0RJNmxRNzZnVUV3TDRXSjNVMUROX3JwZ3M2dGdmcXM2X2lwTU1mZ1BzeHpTNUlWTGkt?oc=5",
+   "source": "The New York Times"
   },
   {
    "at": "2026-10-24T20:45:00.000Z",
@@ -10626,16 +13954,16 @@
    "source": "Wisconsin State Journal"
   },
   {
-   "at": "2026-10-24T20:22:12.000Z",
-   "title": "Latest Governor Polls: Election 2026",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAxQ1V3Wmo0azVsV1dIb0Y3Qjd2ZGptMDZEVF9MeU43MXFpY0k0U2NLejlfeXBqS0lUSlpwWGhuY2ZpM0RJNmxRNzZnVUV3TDRXSjNVMUROX3JwZ3M2dGdmcXM2X2lwTU1mZ1BzeHpTNUlWTGkt?oc=5",
-   "source": "The New York Times"
-  },
-  {
    "at": "2026-10-24T18:34:32.000Z",
    "title": "Election 2026: Wisconsin voters reminded to check photo ID requirements",
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE92YlVkQUVncDhHS2gxbGFadm82b3ljVzB1Z2g3aWRYbm1JYlZfMy1lTDJmWTFRNXp2RHM3d3lja2o5dmlYTGVZVWFuT1p4dl9mOERHdnFn?oc=5",
    "source": "Door County Daily News"
+  },
+  {
+   "at": "2026-10-24T15:25:00.000Z",
+   "title": "David Crowley, Tom Tiffany answer readers’ questions",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMDNvUkl6YUdZOUhjcWJOMjE3bXZNM2dNOXdKU1N4Z1FpY2xEMXBiak1Fem81bUVFWWNmSWIwbzZVV2NRZHVILTJtb2lEZFNzd0h6NlVSZXhfZ1hqM3VIS3hES3VXOVdyU0JCdUd6cVNIR05ING5idEtzSmR2NkJ2bnpqZEwtUVFnQS1ULXNwY0dtbXdlbGRVclRYYWFxVTFEbjh4dXo5ZjFCcEs4TmhHamRQVlM0bDhZSHln?oc=5",
+   "source": "Wisconsin State Journal"
   },
   {
    "at": "2026-10-24T13:00:00.000Z",
@@ -10648,12 +13976,6 @@
    "title": "Can unarmed ICE agents watch voting? In Wisconsin that depends on who you ask",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNWdvczVfSzBmOWNILVR5aUFoekN4UGcxQks4bXV2RlR5eEtqN2RNMzltZ1VxakhtOE5UQnV3VG1iVXFGQTBjZm5DZl9NV0htbnVxR2hic1dJWjJ6OXdNUXNVOWUzMElHdGFlaXZCMWlhNjJXRnNOYlRRQ0NqRlBHZTlVSlJOTnpmdnFkUXJHODlsMHZ0cEJ6OFVTZnFjQVZvQkdMTmhwUnlScktPVm4wMFpiWDlySEZGa3pv?oc=5",
    "source": "Wisconsin Watch"
-  },
-  {
-   "at": "2026-10-24T09:30:00.000Z",
-   "title": "Wisconsin discrimination, DEI referendum in Nov. 3 election, explained",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNY3BFZi1VbUFMMm1ZQWlCZUc3WTRIWXZ2RENVWU0zQjFmMWhTeFlEcGk3Q3QtNUNPY2x4eGd2YkJTSjhEMHJrOW80UkZSeTdjSzVheG5ZOE1ZN2ZXU21xdHlWX1pQZnBFRkZkb2wxcmNkLS1SV1BZQjBHRkxNSjZZOHFXYlk1d293aThFQUJkSjJhcGhvUHJ3cA?oc=5",
-   "source": "Kenosha News"
   },
   {
    "at": "2026-10-24T01:39:14.000Z",
@@ -10680,6 +14002,12 @@
    "source": "Wisconsin Watch"
   },
   {
+   "at": "2026-10-23T22:39:35.000Z",
+   "title": "Inside Wisconsin Politics Live",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNU2NSZzRtbmdETnFxVllZeEhtU2IzVVJfbmJFRTdRcXBZMHBraWxHRjhVVWI5NHRVaGNzQy1zQkhfNkF5ZDVWTzBWczFkUHl5ZXVuOFExczBHVFJkN29wRFJnc1lnOXU5X21QZFh6SXlqbUN2R3BaeHh0WU44YUxtWVpLZTZQVTBEU05fVEc1WFo?oc=5",
+   "source": "Isthmus | Madison, Wisconsin"
+  },
+  {
    "at": "2026-10-23T21:00:00.000Z",
    "title": "Finding Joy in the Fight",
    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5JZkJ0b2h1ZE9ablgtRW55MEd1OXdsdzVtSS1rbFJ4UG5DaUROX2diY0RkaHdpTG1KMTgzdmVscGdIVy13MU9BRC10TmJjUkdxa3A3ZkowcWV2NXQydVA5cmQ0LUMtQVUxaGZIcG83SEE5Y3hXekE?oc=5",
@@ -10699,23 +14027,11 @@
    "source": "Milwaukee Journal Sentinel"
   },
   {
-   "at": "2026-10-23T17:06:58.000Z",
-   "title": "Tom Tiffany Tries to Distance Himself From Trump in Wisconsin Governor’s Race",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcGVraGFEZDZBQW0ySTdRcFJRREx2Zm11bWZnUTNOZkFjSG5mNm1maGZXQW82aXI2cmctYmJxRlN2N0c4LTZ5c01YQ2ZaQk1iNjlDdzNrYUZaMjh6ak42MkdpOXZvaG1MdFhyR0lOaHFRNFdoMzA0VVhsTm9LMFNObGlPd1BWbmlxY0pjb1h3?oc=5",
-   "source": "The New York Times"
-  },
-  {
    "at": "2026-10-23T16:36:23.000Z",
    "title": "Kaul outraises Toney in Wisconsin attorney general race",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNmdhOUpEOWd4NGFSVk44azd2bHdDT1oyR3lQdzdzUzZ6eFlkSEp4T0dreTQzZFpSSk5sbWp4ZVh2RF92blJaN2JrWFJibFBlZHFGQ2lPbG8tVEZOMmwzRHc5SVJXdVI0NGdZdGlRRFdaZERBM2YxSGtKQlhtNEI3cmdJZ0FvN2Y1eURCeU9uWFlDa2JSd2swdQ?oc=5",
    "source": "Wisconsin Law Journal",
    "topic": "money"
-  },
-  {
-   "at": "2026-10-23T16:32:00.000Z",
-   "title": "Next Wisconsin governor could replace scores of unconfirmed appointees",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOendKSTZkbDNpR3Z0bGlQYWRxVjdNRmVpc3BCc05rMTM4TmprczZkLXVPTngwbTRKeTdVOThYTXF1X1lFbm5zQTdzYllvWnlLd0NZVVdUQ0x6M2lFRGtzZFZlUzlqTmhrUWJjQ0diY0lqRzAyd0wxZnprVUk4Qy1pdHhybmYyZ2h2MmwzeDNtTG1DNjB1bGdwMjlhZTJ4UmFaQWlfQkJleUdzRk9sdUg2cjJ3emxHRTlnVDhn?oc=5",
-   "source": "Wisconsin State Journal"
   },
   {
    "at": "2026-10-23T16:00:00.000Z",
@@ -10736,6 +14052,12 @@
    "source": "WMTV 15 NEWS"
   },
   {
+   "at": "2026-10-23T14:01:31.000Z",
+   "title": "Tom Tiffany Tries to Distance Himself From Trump in Wisconsin Governor’s Race",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcGVraGFEZDZBQW0ySTdRcFJRREx2Zm11bWZnUTNOZkFjSG5mNm1maGZXQW82aXI2cmctYmJxRlN2N0c4LTZ5c01YQ2ZaQk1iNjlDdzNrYUZaMjh6ak42MkdpOXZvaG1MdFhyR0lOaHFRNFdoMzA0VVhsTm9LMFNObGlPd1BWbmlxY0pjb1h3?oc=5",
+   "source": "The New York Times"
+  },
+  {
    "at": "2026-10-23T12:12:00.000Z",
    "title": "Here's what to know about the 3 constitutional amendments on the Nov. 3 ballot",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNUUhPNU1OUGVlc0MtT3hZTzI4d3I0ZzJLLVlMdWdYWENQVl9USTJpTlpMbTBDUEFtTkl1cTU4TmpINGJManl3NW9UX1BEYXlmSWVDOHZrOHRGU1Fmb2tlVXJRUVZQVDd4blFYZ2h1SjFRN2l2SEtXVUhqNURJdl9tMWNvRjAtU1ZxZW5zaXp3aFlYbnE5RFFRUnRKNDdLLVBRcXNTa05JQ0FldnFTMmc1YVJkYUNudlh0aGVR?oc=5",
@@ -10752,6 +14074,13 @@
    "title": "Opinion | The gigantic — but underdiscussed — threat of Tom Tiffany",
    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPRHBPTHVsZGQxNnZHQzZGeDllVllHRFBWdXcxYzM5aDQtS1hrWkZtQWhMOVNaamZzbnJlLVVOVnFlNE9TYnBnU2NMUlpYR0RqZ3VUSEF2VVo4RnBvdTA0RHd2U0hLSURTUU9uYnlaUkZzazhkQjBzLVR4am4wZHpPVWlWT0xTa3lrUVdaRi1zazBrUVdhaW9aSkpyWDNLMzJQby05UWc4OE9XRHMtaVhxMEp5MU5iY3MycmZiUDlfcHBGSWVVQWhPeURLM1JfclExdDhhZWhtZXBCMm5JTTJld0VrNEtlUmRv?oc=5",
    "source": "The Capital Times"
+  },
+  {
+   "at": "2026-10-23T08:02:45.000Z",
+   "title": "Commentary: What are the Uihleins getting for their massive investment in Tom Tiffany?",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOejhoSm9zN0s1NFROZG00VUN6OFV0SWJYbWJnM25KcTRYWnhjWFIxQ1YyWEljbGIzUUphM0NCZjZEamRGQnUxMWF5aEhEeVUtTk8xZ2VUdUNtQjhLTGZ5U1lUZGN5OGlmd25KVmdldTVPS2E0WDI4cGV3dlg3LTZWeXUwdUxtZE5FbEd5SVFTYURpc2x4YVhVS3R6bGhmVVlYRkd2b3YxZ3MyV2dETzI4ZFBQQ2s4Zw?oc=5",
+   "source": "Wisconsin Examiner",
+   "topic": "money"
   },
   {
    "at": "2026-10-23T00:52:58.000Z",
@@ -10840,6 +14169,13 @@
    "source": "Racine County Eye"
   },
   {
+   "at": "2026-10-22T15:22:00.000Z",
+   "title": "David Crowley, Tom Tiffany clash on taxes, abortion and private school vouchers in Wisconsin governor debate",
+   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONzJaWWdUR19sWDJyZkNuLTctLW85TkU0MlFZc21nb0NUc0hNNW96bG9GS0hSbUFJbm5GZkZKZDZaZ0Q2OTNKN01YMXJNYXRRZEpYaEZmNjNFNnBsT1oxWmpBckhDUDJhV1FkOHlQdllncVRCN2JTRlFUZUlkVnZ1cVEtQ0kxTFVCcmNiVk5sMjZhZEFrYjVOV3ZhY3JhSE9iZWs4ZnMxYzhLUXozWDl2d09MdmEzSnhVenBpQmpUWmlTM0RpM2RVeVRkc2ZiSEx2bjlQV2dMM1I4em9n?oc=5",
+   "source": "Civic Media",
+   "topic": "money"
+  },
+  {
    "at": "2026-10-22T14:58:34.000Z",
    "title": "In-person absentee voting surges amid declines in ballots arriving by mail",
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQk52R20zN1VIUVNKbV9EdFRqSkJZY29LR0paMGN0OUNibC1EQUIwTkJQZWpZdjR5bTZMX1I5dDFYUXAtdGo4U2FMR0RMalJ1aWFVakdEUDBYZUQtWjVZM2JUSThHZzdvVnVRWTJpYzZJMXR6VTBjdncweHIzb19pRHU5V243UjhsazdUZFRTdFhkUWhkSWNWVmZUdS1GcENl?oc=5",
@@ -10924,13 +14260,6 @@
    "source": "WDIO.com"
   },
   {
-   "at": "2026-10-22T05:09:23.000Z",
-   "title": "David Crowley, Tom Tiffany clash on taxes, abortion and private school vouchers in Wisconsin governor debate",
-   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQclE1NmFQRVhYTWQycTZXR0ZudkE3Y1NCU2ZpMGFrRlU3bE5oV0dieHpyNTV4VDN3ZTZhZUJiX0RxaDdncTRac293eFQ3eUtwVFZhVHlxbXRDbndaeWhaN3pESnpGS3hIY1lEMFBmOE1ZWktEOEF6V0QxZFdJNEZsYTN2eE0tOUNBNUJXQlYtcUwyQWFlQjY5ZG1kcDc5am5zT2dwSjNoVlI0V004ZTVqdkswTk84QXNBekViVXVlWGZxa3dLaE1DNzUybkFLcDI1Q1lIYkktcHI4Zw?oc=5",
-   "source": "Wisconsin Watch",
-   "topic": "money"
-  },
-  {
    "at": "2026-10-22T04:27:00.000Z",
    "title": "Get the Facts: What are the 3 constitutional amendments on the 2026 Wisconsin ballots?",
    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNS1JKb3lNQVFpY00yalF4bm01WlgzYWdkM1hLUzN3Z2NmTlhWZkJrU3ZVOHhaUG55bG1RR0UzMW10dWIzcUVEWVp2NGRfSjR5dTQxWFhmRlpXaDBMTUJUVXd6Zi1BbFkxTmtVT1BPbjR0cVNPdUpZNjc4ZHoyM3JkeEc5SEhDWGxrbmhtdA?oc=5",
@@ -10971,12 +14300,6 @@
    "title": "CORRECTION Election 2026 Wisconsin Governor",
    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQZGFlSmpGM1MySFFJTjNDbU5jZ1lQdzJsVEZyYzJsdDdhaS1fM0hZRS1kTmpteEJISEpFZGpnSE5sXzhNaDRYWkdhb19fYjdsM05OcFM1SHdKSWRBMjZFUDJwSjdrSmhTeEdEblVlbnRXSDFBWFBRRFdid3ZRU1V5SUtJOVlqbHZacHliSGdIWi1vN1JzVl9CMWJRX0NzUEV3S3IxbjBIbDZJRDRFUHVpRHg0LWFhR2xkT1hJQkRNNHNsamhNU1VqTTFTQ1RnT3o5M2czLVFoUQ?oc=5",
    "source": "Clinton Herald"
-  },
-  {
-   "at": "2026-10-22T03:31:48.000Z",
-   "title": "Crowley, Tiffany meet for gubernatorial campaign’s sole debate",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPY1R2aFhLcDNOdnBNRW8ySFhMVDQ2ZkhHNXR5TEFTRjJTMl83Tk5SQUZrMlVMdVRzNmNMaDhQSy1YYnBzNGJnTjlmMURZM2J2N2UwSzZENXA2dEx2bnVOSE1pTi1rU1BadWo1Vk1rZWwwWUdiTXY2aUxRRHJnVUYxYUdFU2dHbkN4UnU2T1c1MHduV0RYbWtmNlZNN2o2ZmMtanl4Nw?oc=5",
-   "source": "Wisconsin Examiner"
   }
  ],
  "laws": [

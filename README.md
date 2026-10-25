@@ -87,7 +87,7 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 <summary><b>🌲 Minnesota</b></summary>
 
 - **Who's on the ballot:** Ballotpedia's race pages (the statewide offices, the U.S. House delegation, both legislative chambers, the Supreme Court and Court of Appeals seats), CC BY-SA and linked from the app's Sources. Governor tickets take their running mate from the race page, else Wikipedia's article. The Secretary of State's candidate filings are the official source.
-- **Campaign money:** federal races from the FEC. State races aren't in yet; the app links the Campaign Finance Board.
+- **Campaign money:** federal races from the FEC; state races from the Campaign Finance Board's candidate viewer (`scripts/minnesota/cfb.mjs`: each committee's financial summary, receipts and expenditures summed over 2025 and 2026, with the latest cash balance; a committee is used only when its own record names the candidate's office and district). Affidavit-only candidates (under $750) show none.
 - **Photos, websites & social accounts, who's in office, in their words, endorsements, records:** the same steps as Michigan (`scripts/state.mjs` with `scripts/minnesota/config.mjs`).
 - **The amendment:** the permanent-school-fund amendment in the Legislature's ballot wording, with a plain-English note (`scripts/minnesota/measures.mjs`), including that a blank counts as a no.
 - **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, state House (lettered: 1A, 1B) and county lines. Any of the 87 counties can be browsed without an address.
@@ -98,7 +98,7 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 <summary><b>🧀 Wisconsin</b></summary>
 
 - **Who's on the ballot:** Ballotpedia's race pages (the statewide offices, the U.S. House delegation, the 17 odd-numbered Senate districts and all 99 Assembly districts), CC BY-SA and linked from the app's Sources. No U.S. Senate seat and no statewide judges are up this November. The Elections Commission's certified candidate list is the official source.
-- **Campaign money:** federal races from the FEC. State races aren't in yet; the app links the Campaign Finance Information System.
+- **Campaign money:** federal races from the FEC; state races from the Ethics Commission's campaign finance system (`scripts/wisconsin/sunshine.mjs`: the JSON calls its public pages make, each committee's year-by-year contributions and disbursements summed over 2025 and 2026; a committee is used only when its registration names the candidate's office and district and its name carries the candidate's). No cash-on-hand figure exists there.
 - **Photos, websites & social accounts, who's in office, in their words, endorsements, records:** the same steps as Michigan (`scripts/state.mjs` with `scripts/wisconsin/config.mjs`).
 - **The questions:** the three constitutional amendments in the Legislature's ballot wording, with a plain-English note on each (`scripts/wisconsin/measures.mjs`).
 - **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, Assembly and county lines. Any of the 72 counties can be browsed without an address.
