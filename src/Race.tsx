@@ -666,8 +666,9 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
             );
           })}
         </div>
+        {/* Scrolls away with the columns (and stays put while they scroll sideways). */}
+        <p className="sticky left-0 mt-4 text-[15px] text-[var(--gb-text)]">{compareNote} Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.</p>
       </div>
-      <p className="mt-4 shrink-0 text-[15px] text-[var(--gb-text)]">{compareNote} Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.</p>
     </Dialog>
   );
 }
