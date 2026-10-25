@@ -56,6 +56,13 @@
       "link": "https://commons.wikimedia.org/wiki/File:David_Crowley.jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/David_Crowley.jpg/500px-David_Crowley.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
+     "money": {
+      "source": "WISC",
+      "id": "16295",
+      "raised": 15135190,
+      "spent": 9214725,
+      "through": "09/23/2026"
+     },
      "endorsements": {
       "groups": [
        {
@@ -115,13 +122,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_gubernatorial_election"
       },
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "16295",
-      "raised": 15135190,
-      "spent": 9214725,
-      "through": "09/23/2026"
      }
     },
     {
@@ -145,6 +145,13 @@
       "credit": "U.S. House of Representatives - Office of the Clerk · Public domain · Wikimedia Commons",
       "link": "https://commons.wikimedia.org/wiki/File:Tom_Tiffany_(WI-07).jpg",
       "from": "https://upload.wikimedia.org/wikipedia/commons/2/21/Tom_Tiffany_%28WI-07%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+     },
+     "money": {
+      "source": "WISC",
+      "id": "16621",
+      "raised": 44045471,
+      "spent": 29444284,
+      "through": "09/23/2026"
      },
      "endorsements": {
       "groups": [
@@ -281,13 +288,6 @@
       "seat": "U.S. House · WI-7",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "16621",
-      "raised": 44045471,
-      "spent": 29444284,
-      "through": "09/23/2026"
      }
     }
    ],
@@ -344,6 +344,13 @@
       "link": "https://commons.wikimedia.org/wiki/File:Josh_Kaul-13_-_44610449305_(3x4b).jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Josh_Kaul-13_-_44610449305_%283x4b%29.jpg/500px-Josh_Kaul-13_-_44610449305_%283x4b%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
+     "money": {
+      "source": "WISC",
+      "id": "16762",
+      "raised": 2450159,
+      "spent": 653083,
+      "through": "09/23/2026"
+     },
      "endorsements": {
       "groups": [
        {
@@ -373,13 +380,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_Attorney_General_election"
       },
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "16762",
-      "raised": 2450159,
-      "spent": 653083,
-      "through": "09/23/2026"
      }
     },
     {
@@ -412,6 +412,13 @@
       "link": "https://ballotpedia.org/Eric_Toney",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Toney-Headshot-102426_20261001_025206_61750_1.jpg"
      },
+     "money": {
+      "source": "WISC",
+      "id": "16017",
+      "raised": 1949170,
+      "spent": 725024,
+      "through": "09/23/2026"
+     },
      "endorsements": {
       "groups": [
        {
@@ -433,13 +440,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_Attorney_General_election"
       },
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "16017",
-      "raised": 1949170,
-      "spent": 725024,
-      "through": "09/23/2026"
      }
     }
    ],
@@ -633,6 +633,13 @@
       "link": "https://ballotpedia.org/Pete_Karas",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Pete_Karas_20260219_061420.png"
      },
+     "money": {
+      "source": "WISC",
+      "id": "10042337",
+      "raised": 68642,
+      "spent": 55746,
+      "through": "10/19/2026"
+     },
      "endorsements": {
       "groups": [
        {
@@ -650,13 +657,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_Secretary_of_State_election"
       },
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "10042337",
-      "raised": 68642,
-      "spent": 55746,
-      "through": "10/19/2026"
      }
     }
    ],
@@ -773,6 +773,13 @@
       "link": "https://ballotpedia.org/John_Leiber",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/State-Treasurer-John-Leiber-x-small_2__20260922_152253_34839_1.jpg"
      },
+     "money": {
+      "source": "WISC",
+      "id": "16108",
+      "raised": 48839,
+      "spent": 28800,
+      "through": "09/23/2026"
+     },
      "endorsements": {
       "groups": [
        {
@@ -788,13 +795,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_State_Treasurer_election"
       },
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "16108",
-      "raised": 48839,
-      "spent": 28800,
-      "through": "09/23/2026"
      }
     }
    ],
@@ -863,6 +863,24 @@
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mitchell_Berman.png"
      },
      "issuesUrl": "https://www.bermanforcongress.com/priorities",
+     "outside": {
+      "support": 1269,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 1222,
+        "oppose": 0
+       },
+       {
+        "name": "GRASSROOTS NORTH SHORE",
+        "support": 47,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI01283&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -915,24 +933,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_1"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 1269,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "FIELD TEAM 6, INC.",
-        "support": 1222,
-        "oppose": 0
-       },
-       {
-        "name": "GRASSROOTS NORTH SHORE",
-        "support": 47,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI01283&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1095,6 +1095,19 @@
       "link": "https://bioguide.congress.gov/search/bio/P000607",
       "from": "https://unitedstates.github.io/images/congress/450x550/P000607.jpg"
      },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2WI02124&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -1173,19 +1186,6 @@
       "seat": "U.S. House · WI-2",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 10,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2WI02124&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -1251,6 +1251,29 @@
       "credit": "UpNorthNews · CC BY 3.0 · Wikimedia Commons",
       "link": "https://commons.wikimedia.org/wiki/File:Rebecca_Cooke_on_UpNorthNews_March_2025_(cropped).jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Rebecca_Cooke_on_UpNorthNews_March_2025_%28cropped%29.jpg/500px-Rebecca_Cooke_on_UpNorthNews_March_2025_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     },
+     "outside": {
+      "support": 250070,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "PRO-CHOICE MAJORITY ACTION",
+        "support": 249122,
+        "oppose": 0
+       },
+       {
+        "name": "FIELD TEAM 6, INC.",
+        "support": 823,
+        "oppose": 0
+       },
+       {
+        "name": "THE PEOPLE UNITED PAC",
+        "support": 125,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2WI03130&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -1357,29 +1380,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_3"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 250070,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "PRO-CHOICE MAJORITY ACTION",
-        "support": 249122,
-        "oppose": 0
-       },
-       {
-        "name": "FIELD TEAM 6, INC.",
-        "support": 823,
-        "oppose": 0
-       },
-       {
-        "name": "THE PEOPLE UNITED PAC",
-        "support": 125,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2WI03130&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1413,6 +1413,44 @@
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Congressman_dvo.jpg/500px-Congressman_dvo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "issuesUrl": "https://www.vanordenforcongress.com/issues/",
+     "outside": {
+      "support": 173880,
+      "oppose": 112738,
+      "groups": [
+       {
+        "name": "LAW ENFORCEMENT FOR A SAFER AMERICA PAC",
+        "support": 153880,
+        "oppose": 0
+       },
+       {
+        "name": "THE WISCO PROJECT PAC",
+        "support": 0,
+        "oppose": 66576
+       },
+       {
+        "name": "BACK THE BOLD",
+        "support": 0,
+        "oppose": 35722
+       },
+       {
+        "name": "SPECIAL OPERATIONS FOR AMERICA",
+        "support": 20000,
+        "oppose": 0
+       },
+       {
+        "name": "DEMOCRATIC PARTY OF WISCONSIN FEDERAL",
+        "support": 0,
+        "oppose": 4117
+       },
+       {
+        "name": "ACTIVATE AMERICA",
+        "support": 0,
+        "oppose": 2928
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0WI03175&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -1490,44 +1528,6 @@
       "seat": "U.S. House · WI-3",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 173880,
-      "oppose": 112738,
-      "groups": [
-       {
-        "name": "LAW ENFORCEMENT FOR A SAFER AMERICA PAC",
-        "support": 153880,
-        "oppose": 0
-       },
-       {
-        "name": "THE WISCO PROJECT PAC",
-        "support": 0,
-        "oppose": 66576
-       },
-       {
-        "name": "BACK THE BOLD",
-        "support": 0,
-        "oppose": 35722
-       },
-       {
-        "name": "SPECIAL OPERATIONS FOR AMERICA",
-        "support": 20000,
-        "oppose": 0
-       },
-       {
-        "name": "DEMOCRATIC PARTY OF WISCONSIN FEDERAL",
-        "support": 0,
-        "oppose": 4117
-       },
-       {
-        "name": "ACTIVATE AMERICA",
-        "support": 0,
-        "oppose": 2928
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0WI03175&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1637,6 +1637,24 @@
       "link": "https://bioguide.congress.gov/search/bio/M001160",
       "from": "https://unitedstates.github.io/images/congress/450x550/M001160.jpg"
      },
+     "outside": {
+      "support": 161,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GRASSROOTS NORTH SHORE",
+        "support": 151,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4WI04183&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -1715,24 +1733,6 @@
       "seat": "U.S. House · WI-4",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 161,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "GRASSROOTS NORTH SHORE",
-        "support": 151,
-        "oppose": 0
-       },
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4WI04183&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2009,6 +2009,19 @@
       "link": "https://ballotpedia.org/Bradley_Smith_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/BradleySmithWI2.jpeg"
      },
+     "outside": {
+      "support": 18,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GRASSROOTS NORTH SHORE",
+        "support": 18,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI06191&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -2032,19 +2045,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_6"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 18,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "GRASSROOTS NORTH SHORE",
-        "support": 18,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI06191&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2369,6 +2369,24 @@
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/alfonsomichael_2026-05-28_022242.jpg"
      },
      "issuesUrl": "https://www.alfonsoforwisconsin.com/issues/",
+     "outside": {
+      "support": 2248565,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "NORTHWOODS FUTURE PAC",
+        "support": 2239746,
+        "oppose": 0
+       },
+       {
+        "name": "TURNING POINT PAC INC.",
+        "support": 8819,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI07223&cycle=2026&data_type=processed"
+     },
      "endorsements": {
       "groups": [
        {
@@ -2410,24 +2428,6 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin#District_7"
       },
       "asOf": "2026-10-25"
-     },
-     "outside": {
-      "support": 2248565,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "NORTHWOODS FUTURE PAC",
-        "support": 2239746,
-        "oppose": 0
-       },
-       {
-        "name": "TURNING POINT PAC INC.",
-        "support": 8819,
-        "oppose": 0
-       }
-      ],
-      "through": "09/30/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6WI07223&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -3344,6 +3344,13 @@
       "link": "https://ballotpedia.org/Jenna_Jacobson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jenna_Jacobson.jpg"
      },
+     "money": {
+      "source": "WISC",
+      "id": "16793",
+      "raised": 1521535,
+      "spent": 1389441,
+      "through": "09/23/2026"
+     },
      "record": {
       "sponsored": 22,
       "bills": [
@@ -3391,13 +3398,6 @@
       "seat": "House District 50",
       "source": "Wisconsin Legislature, via govbot",
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "16793",
-      "raised": 1521535,
-      "spent": 1389441,
-      "through": "09/23/2026"
      }
     },
     {
@@ -3594,18 +3594,18 @@
       "facebook": "https://www.facebook.com/CroftForSenate/",
       "instagram": "https://www.instagram.com/jimcroftforsenate/"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/jim-croft-sldu-21.jpg",
-      "credit": "Jim Croft (their campaign site)",
-      "link": "https://croftforsenate.com/",
-      "from": "https://croftforsenate.com/wp-content/uploads/bb-plugin/cache/673960830_122096303000627340_3497119187687940343_n-square-fa86f63ff66eded27365fbd695add046-80c64wd2azlr.jpg"
-     },
      "money": {
       "source": "WISC",
       "id": "12226367",
       "raised": 1560903,
       "spent": 1056488,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/jim-croft-sldu-21.jpg",
+      "credit": "Jim Croft (their campaign site)",
+      "link": "https://croftforsenate.com/",
+      "from": "https://croftforsenate.com/wp-content/uploads/bb-plugin/cache/673960830_122096303000627340_3497119187687940343_n-square-fa86f63ff66eded27365fbd695add046-80c64wd2azlr.jpg"
      }
     }
    ],
@@ -4736,18 +4736,18 @@
      "social": {
       "facebook": "https://www.facebook.com/lw518/"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/lee-whiting-sldl-7.jpg",
-      "credit": "Lee Whiting (their campaign site)",
-      "link": "https://www.leewhitingforassembly.com",
-      "from": "https://static.wixstatic.com/media/42d216_16232638c87b416f81bed82115f06dcc~mv2.png"
-     },
      "money": {
       "source": "WISC",
       "id": "7620603",
       "raised": 6801,
       "spent": 5548,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/lee-whiting-sldl-7.jpg",
+      "credit": "Lee Whiting (their campaign site)",
+      "link": "https://www.leewhitingforassembly.com",
+      "from": "https://static.wixstatic.com/media/42d216_16232638c87b416f81bed82115f06dcc~mv2.png"
      }
     }
    ],
@@ -6143,9 +6143,9 @@
      },
      "photo": {
       "file": "kyb-photos/wisconsin/daniel-knodl-sldl-24.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Daniel_Knodl",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Daniel-Knodl.PNG"
+      "credit": "Gage Skidmore · CC BY-SA 3.0 · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Dan_Knodl_by_Gage_Skidmore.jpg",
+      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Dan_Knodl_by_Gage_Skidmore.jpg/500px-Dan_Knodl_by_Gage_Skidmore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "issuesUrl": "https://www.danknodl.org/issues.html",
      "money": {
@@ -6358,9 +6358,9 @@
      },
      "photo": {
       "file": "kyb-photos/wisconsin/lindee-brill-sldl-27.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Lindee_Brill",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/LindeeBrill.jpg"
+      "credit": "Wisconsin State government · Public domain · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Representative_Brill.jpg",
+      "from": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Representative_Brill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
      },
      "money": {
       "source": "WISC",
@@ -6490,9 +6490,9 @@
      },
      "photo": {
       "file": "kyb-photos/wisconsin/chris-danou-sldl-29.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Chris_Danou",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Danou_chris.jpg"
+      "credit": "WisPolitics.com · CC BY-SA 2.0 · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Chris_Danou_2009.jpg",
+      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Chris_Danou_2009.jpg/500px-Chris_Danou_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "money": {
       "source": "WISC",
@@ -6672,7 +6672,8 @@
       "raised": 57808,
       "spent": 35699,
       "through": "10/19/2026"
-     }
+     },
+     "issuesUrl": "https://perryman4assembly.com/platform-1"
     },
     {
      "ballot": 2,
@@ -6691,9 +6692,9 @@
      },
      "photo": {
       "file": "kyb-photos/wisconsin/tyler-august-sldl-31.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Tyler_August",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tyler_August.jpg"
+      "credit": "The White House from Washington, DC · Public domain · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:President_Trump_in_Wisconsin_(48267929356).jpg",
+      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/President_Trump_in_Wisconsin_%2848267929356%29.jpg/500px-President_Trump_in_Wisconsin_%2848267929356%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "money": {
       "source": "WISC",
@@ -7643,14 +7644,16 @@
       "instagram": "https://www.instagram.com/brienneforwisconsin",
       "x": "https://x.com/brienne_brown",
       "youtube": "https://www.youtube.com/@yogaguerrillas2830",
-      "linkedin": "https://www.linkedin.com/in/brienne-d-brown-023331/"
+      "linkedin": "https://www.linkedin.com/in/brienne-d-brown-023331/",
+      "tiktok": "https://www.tiktok.com/@brienne4wisconsin"
      },
      "photo": {
       "file": "kyb-photos/wisconsin/brienne-brown-sldl-43.jpg",
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Brienne_Brown",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Brienne_Brown_20250207_062403.jpg"
-     }
+     },
+     "issuesUrl": "https://brienneforwisconsin.com/issues"
     },
     {
      "ballot": 2,
@@ -8537,7 +8540,7 @@
      "money": {
       "source": "WISC",
       "id": "12227977",
-      "raised": 1167534,
+      "raised": 1170926,
       "spent": 28667,
       "through": "10/19/2026"
      }
@@ -8713,9 +8716,9 @@
      },
      "photo": {
       "file": "kyb-photos/wisconsin/nate-gustafson-sldl-55.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Nate_Gustafson",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ngustafson.jpg"
+      "credit": "Gage Skidmore · CC BY-SA 3.0 · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Nate_Gustafson_by_Gage_Skidmore.jpg",
+      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Nate_Gustafson_by_Gage_Skidmore.jpg/500px-Nate_Gustafson_by_Gage_Skidmore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "money": {
       "source": "WISC",
@@ -8737,8 +8740,7 @@
       "name": "Wikipedia: 2026 Wisconsin State Assembly election",
       "url": "https://en.wikipedia.org/wiki/2026_Wisconsin_State_Assembly_election#Retirements"
      },
-     "asOf": "2026-10-25",
-     "ballot": 2
+     "asOf": "2026-10-25"
     }
    ]
   },
@@ -8871,18 +8873,18 @@
      "social": {
       "facebook": "https://www.facebook.com/KrentzforAssembly"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/kevin-krentz-sldl-57.jpg",
-      "credit": "Kevin Krentz (their campaign site)",
-      "link": "https://www.krentzforassembly.com/",
-      "from": "https://irp.cdn-website.com/59c48841/dms3rep/multi/opt/Krentz+HS-712h.jpg"
-     },
      "money": {
       "source": "WISC",
       "id": "12187974",
       "raised": 81443,
       "spent": 71049,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/kevin-krentz-sldl-57.jpg",
+      "credit": "Kevin Krentz (their campaign site)",
+      "link": "https://www.krentzforassembly.com/",
+      "from": "https://irp.cdn-website.com/59c48841/dms3rep/multi/opt/Krentz+HS-712h.jpg"
      }
     }
    ],
@@ -8951,18 +8953,18 @@
      "social": {
       "facebook": "https://www.facebook.com/bernienewmanforwi/"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/bernie-newman-sldl-58.jpg",
-      "credit": "Bernie Newman (their campaign site)",
-      "link": "https://bernienewmanforwi.com/",
-      "from": "https://bernienewmanforwi.com/wp-content/uploads/2026/05/f4d6c-bernie-head-pic-1-1.jpg"
-     },
      "money": {
       "source": "WISC",
       "id": "12226473",
       "raised": 14371,
       "spent": 12769,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/bernie-newman-sldl-58.jpg",
+      "credit": "Bernie Newman (their campaign site)",
+      "link": "https://bernienewmanforwi.com/",
+      "from": "https://bernienewmanforwi.com/wp-content/uploads/2026/05/f4d6c-bernie-head-pic-1-1.jpg"
      }
     }
    ],
@@ -9003,18 +9005,18 @@
      "social": {
       "facebook": "https://www.facebook.com/JackFor59/"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/jack-holzman-sldl-59.jpg",
-      "credit": "Jack Holzman (their campaign site)",
-      "link": "https://www.jackforwi.com/",
-      "from": "https://images.squarespace-cdn.com/content/v1/666c633b58722d214d3b2918/cd005adc-d222-4ce3-b76e-041aa11d690f/Copy+of+Jack+Headshot.jpeg"
-     },
      "money": {
       "source": "WISC",
       "id": "843212",
       "raised": 13270,
       "spent": 5690,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/jack-holzman-sldl-59.jpg",
+      "credit": "Jack Holzman (their campaign site)",
+      "link": "https://www.jackforwi.com/",
+      "from": "https://images.squarespace-cdn.com/content/v1/666c633b58722d214d3b2918/cd005adc-d222-4ce3-b76e-041aa11d690f/Copy+of+Jack+Headshot.jpeg"
      }
     },
     {
@@ -9505,18 +9507,18 @@
       "instagram": "https://www.instagram.com/vkretchm/",
       "youtube": "https://www.youtube.com/@ValerieKretchmerfor65th"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/valerie-kretchmer-sldl-65.jpg",
-      "credit": "Valerie Kretchmer (their campaign site)",
-      "link": "https://vkretchmer4district65.com/",
-      "from": "https://vkretchmer4district65.com/wp-content/uploads/2026/06/Val-Profile-Homepage-copy-scaled.png"
-     },
      "money": {
       "source": "WISC",
       "id": "12225838",
       "raised": 10424,
       "spent": 3261,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/valerie-kretchmer-sldl-65.jpg",
+      "credit": "Valerie Kretchmer (their campaign site)",
+      "link": "https://vkretchmer4district65.com/",
+      "from": "https://vkretchmer4district65.com/wp-content/uploads/2026/06/Val-Profile-Homepage-copy-scaled.png"
      }
     }
    ],
@@ -9950,7 +9952,7 @@
      "money": {
       "source": "WISC",
       "id": "15590",
-      "raised": 71742,
+      "raised": 79986,
       "spent": 28522,
       "through": "09/23/2026"
      }
@@ -10465,9 +10467,9 @@
      },
      "photo": {
       "file": "kyb-photos/wisconsin/renuka-mayadev-sldl-77.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Renuka_Mayadev",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Renuka_Mayadev_20240808_092901.jpg"
+      "credit": "LaShawnda Jones · CC BY-SA 4.0 · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Rep_Renuka_Mayadev_at_Black_Advocacy_Day_at_the_Capital,_Madison,_WI_022626.jpg",
+      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Rep_Renuka_Mayadev_at_Black_Advocacy_Day_at_the_Capital%2C_Madison%2C_WI_022626.jpg/500px-Rep_Renuka_Mayadev_at_Black_Advocacy_Day_at_the_Capital%2C_Madison%2C_WI_022626.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "issuesUrl": "https://mayadevforwi.com/issues",
      "money": {
@@ -10568,6 +10570,12 @@
       "raised": 0,
       "spent": 0,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/henry-johnson-sldl-78.jpg",
+      "credit": "Halford Erickson, compiler of the 1903 Wisconsin Blue Book (Life time: 1973) · Public domain · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Henry_Johnson_Treasurer.jpeg",
+      "from": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Henry_Johnson_Treasurer.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
      }
     }
    ],
@@ -10638,18 +10646,18 @@
       "facebook": "https://www.facebook.com/profile.php?id=61587229745386",
       "linkedin": "https://www.linkedin.com/in/john-fons-3010b1a2/"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/john-fons-sldl-79.jpg",
-      "credit": "John Fons (their campaign site)",
-      "link": "https://johnthefons.com/",
-      "from": "https://johnthefons.com/wp-content/uploads/2026/02/john-fons-portrait.png"
-     },
      "money": {
       "source": "WISC",
       "id": "12227039",
       "raised": 1546,
       "spent": 1498,
       "through": "10/19/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/john-fons-sldl-79.jpg",
+      "credit": "John Fons (their campaign site)",
+      "link": "https://johnthefons.com/",
+      "from": "https://johnthefons.com/wp-content/uploads/2026/02/john-fons-portrait.png"
      }
     }
    ],
@@ -11262,6 +11270,13 @@
       "link": "https://ballotpedia.org/Brent_Jacobson_(Wisconsin)",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/BrentJacobson.jpg"
      },
+     "money": {
+      "source": "WISC",
+      "id": "15639",
+      "raised": 46423,
+      "spent": 38459,
+      "through": "09/23/2026"
+     },
      "record": {
       "sponsored": 49,
       "bills": [
@@ -11309,13 +11324,6 @@
       "seat": "House District 87",
       "source": "Wisconsin Legislature, via govbot",
       "asOf": "2026-10-25"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "15639",
-      "raised": 46423,
-      "spent": 38459,
-      "through": "09/23/2026"
      }
     }
    ],
@@ -11551,18 +11559,18 @@
       "facebook": "https://www.facebook.com/profile.php?id=61558396204596"
      },
      "issuesUrl": "https://www.henderson4wisconsin.com/",
-     "photo": {
-      "file": "kyb-photos/wisconsin/jessica-henderson-sldl-90.jpg",
-      "credit": "Jessica Henderson (their campaign site)",
-      "link": "https://www.henderson4wisconsin.com/",
-      "from": "https://static.wixstatic.com/media/ef1607_c7d20ee72d1844838be5d173573b647e~mv2.jpg"
-     },
      "money": {
       "source": "WISC",
       "id": "8110596",
       "raised": 1833,
       "spent": 966,
       "through": "09/23/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/jessica-henderson-sldl-90.jpg",
+      "credit": "Jessica Henderson (their campaign site)",
+      "link": "https://www.henderson4wisconsin.com/",
+      "from": "https://static.wixstatic.com/media/ef1607_c7d20ee72d1844838be5d173573b647e~mv2.jpg"
      }
     }
    ],
@@ -11949,18 +11957,18 @@
      "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61562112701409"
      },
-     "photo": {
-      "file": "kyb-photos/wisconsin/cedric-schnitzler-sldl-95.jpg",
-      "credit": "Cedric Schnitzler (their campaign site)",
-      "link": "https://www.schnitzlerforassembly.com/",
-      "from": "https://static.wixstatic.com/media/542f1c_997e7b6f60404b7a9e053d538294e985~mv2.png"
-     },
      "money": {
       "source": "WISC",
       "id": "1927630",
       "raised": 28873,
       "spent": 16037,
       "through": "10/19/2026"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/cedric-schnitzler-sldl-95.jpg",
+      "credit": "Cedric Schnitzler (their campaign site)",
+      "link": "https://www.schnitzlerforassembly.com/",
+      "from": "https://static.wixstatic.com/media/542f1c_997e7b6f60404b7a9e053d538294e985~mv2.png"
      }
     },
     {
@@ -12236,9 +12244,9 @@
      },
      "photo": {
       "file": "kyb-photos/wisconsin/barbara-dittrich-sldl-99.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Barbara_Dittrich",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Barbara_Dittrich.jpeg"
+      "credit": "Milwaukee VA Medical Center · Public domain · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Barbara_Dittrich_(cropped).jpg",
+      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Barbara_Dittrich_%28cropped%29.jpg/500px-Barbara_Dittrich_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "issuesUrl": "https://www.dittrich4wi.com/issues",
      "money": {
@@ -14077,16 +14085,34 @@
  ],
  "news": [
   {
-   "at": "2026-10-25T03:30:21.000Z",
+   "at": "2026-10-25T15:12:00.000Z",
+   "title": "Get to know the candidates ahead of Wisconsin's Nov. 3 election",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOd05Sb1dnd05SenNTdTM0ZW5rZU1mTnViNGxZTDFadnVxc3E1SnRYNl9NV25xcmNJeFNCZVJfOV9TVWlCY1g1NTRBbzBBa3lScGI1Tmhya2M3RUY4TVlucnpRUlhkc0U3OERxR2M1MlVUcTlwX3dRN3gzNlJsbUtHVGd0Q3hrYzA5bXR0d0VBWjdieklLZ0NROXhJbXV2b1BFRFoxNzhLYXJsbDNfNU9NZ29JQQ?oc=5",
+   "source": "Wisconsin State Journal"
+  },
+  {
+   "at": "2026-10-25T12:30:21.000Z",
    "title": "Wisconsin Midterm Elections 2026: Key Races, Candidates and Past Results",
    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE16LXVQNkpxaU5MZkdHTU5YbS1jbm83VzlEUnI2TFVRSWFzdmZ0a2hmcV9vOW9sWFlYWDBucWlJYmhDbHFvTVlzVm9FUHhVNk1HSmNTTXJWOGZGTXhiWVNKMGxBanNqUFZEcl80QXNrVmZZWkk?oc=5",
    "source": "NBC News"
   },
   {
-   "at": "2026-10-24T20:50:09.000Z",
-   "title": "Latest Governor Polls: Election 2026",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAxQ1V3Wmo0azVsV1dIb0Y3Qjd2ZGptMDZEVF9MeU43MXFpY0k0U2NLejlfeXBqS0lUSlpwWGhuY2ZpM0RJNmxRNzZnVUV3TDRXSjNVMUROX3JwZ3M2dGdmcXM2X2lwTU1mZ1BzeHpTNUlWTGkt?oc=5",
-   "source": "The New York Times"
+   "at": "2026-10-25T10:00:00.000Z",
+   "title": "Wisconsin partial veto referendum in Nov. 3 election, explained",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPRmxnblpiVVVNYm9LZ3YxNURzOGw4X2FlQnJlS05kWF9UNHdMcTRSNEtxNjNrQkdCcmdGbzZ5ak1fR1FiVWdCOVc0U0RaQlF2NGpySWlpMWpxS1JYLVZiTE1QWGdxN093bkxZOVFQVGZQZFhxZ09LY0ZvNjlmeERDcHk5cGljN2o1Wkx5WDZBTWpvZmtjb3RoQUx3?oc=5",
+   "source": "Journal Times"
+  },
+  {
+   "at": "2026-10-25T06:21:53.000Z",
+   "title": "Incumbent Josh Kaul slightly outraising Eric Toney in Wisconsin AG rematch",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE11SE5XcDk0Qk1LX3BySmVEVWdCMk9BNXotWTNJWE96R3VaQ0pNbklySXJGY1c0SjJVT1lZaFR3dzdLank3T29zWURXQ0JIaXpjLWR5ZW9zMFNNSmIxN182QWluV1UxaV9UdVBtUEV1MjJFbFdZY0tLODBYWTVHd1HSAYQBQVVfeXFMT0plaTBsS1pqX3B3US1FQzNGa1hHa2NBd1JrT1dHcFVHMzl5djVuWXhLa3Q1WEY5MENReXRtSDhQd1I5NkMtQ0d3ZjFieDEyc1ZrNmQ4ODFyWVR2cnpDckJYbGh4TUNWU1hiNlNKblNTd09jZ3VQRlh1cDdwT0hKQjBmWEpN?oc=5",
+   "source": "WIZM 92.3FM 106.7FM 1410AM"
+  },
+  {
+   "at": "2026-10-24T21:33:07.000Z",
+   "title": "Crowley campaigns with Georgia Sen. Raphael Warnock",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcGkzMUJfWUgwRUwwZTB1RDN2b3N1TTd2dS16T0I0SUVxdEdPZHhUbVZqUGNlS2hzcTBmaTRIS21BNFhmUFNWNEpqaWVPVGJNUnRNcndkeHdYRTVJN3dQZWN6QjM5SnVLeUxxM2xnby1MSWdXcUdaRHhqTTJKTUVBMXpXZjl4S0tXTFJjbkxVZHRicXN5LXB3?oc=5",
+   "source": "Wisconsin Examiner"
   },
   {
    "at": "2026-10-24T20:45:00.000Z",
@@ -14095,10 +14121,11 @@
    "source": "Wisconsin State Journal"
   },
   {
-   "at": "2026-10-24T18:34:32.000Z",
-   "title": "Election 2026: Wisconsin voters reminded to check photo ID requirements",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE92YlVkQUVncDhHS2gxbGFadm82b3ljVzB1Z2g3aWRYbm1JYlZfMy1lTDJmWTFRNXp2RHM3d3lja2o5dmlYTGVZVWFuT1p4dl9mOERHdnFn?oc=5",
-   "source": "Door County Daily News"
+   "at": "2026-10-24T15:53:00.000Z",
+   "title": "Michael Alfonso accepted thousands from donors with business before his father-in-law, Secretary of Transportation Sean Duffy",
+   "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNZTBaN2xtR0l3MERQRGF3Y2FrNU9HYzZUanpOcDJUZzYxNDZVemxzUzBIU21oU3luNXp5M0Z2clRxNVJSdW5QUVRPTWgyNGVhX0pZRFY0TkNkYWtOUzNXNXdxZzZMQ2FOSnpsVS1CZDRsRDRSNjRkVkJuS1VqeFFTdHp2U014M2kxWVpqaUVqdUZxOW1pOUJ2SndzWVN5dzRHSUF4RFh3UFlzcUN2UVlOWlRtWHZLRm5JdkY5YWc0ckxSVEJRNlhndGxBd3RGWlZERWhDUVl1T0gtY0tDeUNab0YzcDBjNkM2bFl3V2VHanc1RjJHa3ZybnZfS0ptZw?oc=5",
+   "source": "The Milwaukee Courier",
+   "topic": "money"
   },
   {
    "at": "2026-10-24T15:25:00.000Z",
@@ -14119,22 +14146,16 @@
    "source": "Wisconsin Watch"
   },
   {
+   "at": "2026-10-24T06:35:10.000Z",
+   "title": "Election 2026: Wisconsin voters reminded to check photo ID requirements",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE92YlVkQUVncDhHS2gxbGFadm82b3ljVzB1Z2g3aWRYbm1JYlZfMy1lTDJmWTFRNXp2RHM3d3lja2o5dmlYTGVZVWFuT1p4dl9mOERHdnFn?oc=5",
+   "source": "Door County Daily News"
+  },
+  {
    "at": "2026-10-24T01:39:14.000Z",
    "title": "Wisconsin governor candidates David Crowley, Tom Tiffany clash on taxes, schools in only debate",
    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQa1dsNTkzWi05NzhlUy1YRW9zNWVMOUs0dlduM1ZWZmdHVW5kTFR4c0lRQlRCUGxpcGV4UFdJRXJIODZvUFBtSGpVRktKdnVUX2RteFBiUHFMN29UQnplb1lMU2pjMVI4YTV6ZWxBMFVaQVVmRHRzMGV1R3ZxLWQ2NzFvVkthXzZLUHhkdzNDejlvZGhyRlJJSHIyWjZka1VKX19yWUxOTDZoSWRnVTFyVjd6VC1QNGNMVkVicTFzempLd1dTZlBDNzJn?oc=5",
    "source": "TMJ4 News"
-  },
-  {
-   "at": "2026-10-24T01:02:47.000Z",
-   "title": "Wisconsin 3rd Congressional District 2026: Latest Polls",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPaUpJb21WWFFaRzhXTFpoZDRuRVRza2NydW85VWgtY0ZkRmJLSUt4eE93c09ETEFOYldKTWxBWE5iVmhhRi1pTGdDTkRVTm1uSkxyOEw1am42QmxSQ1E2ODdzNE5lUUlxMUdZTU1oLWhZcE9xc1ViMDM4VS1UV3FNN0hyM2Y?oc=5",
-   "source": "The New York Times"
-  },
-  {
-   "at": "2026-10-23T23:40:15.000Z",
-   "title": "Early voting underway nationwide",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQcEMtX3BYQWhHSDN4Rm5tQ1dYWV9jSXVWZFNXRzZjOGEzYlVNRDdOLThTUGxtWmp0LXNKdVljNkxiV19jcnN1VEFOOUpQNlBEQk5pQm5Rc2dJRDdVLTdXSFlTLXpmUmQtRWxYWnRnQjJfaDJXZ2diRG8yc1loWlVXeVRpN0xMWHQ5QVFrd3ZVZ2NEaFhP0gGaAUFVX3lxTE5kdVpBUUZWLVFIMjkxbmVFMHdocmdIdE82am5ONXN1RVF5TmVBY2tpSExickJ0bjhLU1VyZk9HaDRmOW4yR3J0emJla0FvekhxTWRkNUhIaEppVnI3aU1rN2tWSk5LZXJNckxVYm1IUkhBcFk2bnJod29HTUdvQjRUSG5yZXNhT3lXcGZZY19mNU9FVmNuNlRBVkE?oc=5",
-   "source": "FOX 9 Minneapolis-St. Paul"
   },
   {
    "at": "2026-10-23T22:50:49.000Z",
@@ -14156,23 +14177,23 @@
    "topic": "money"
   },
   {
-   "at": "2026-10-23T19:38:00.000Z",
-   "title": "Abortion issue could reemerge. Here's where Crowley and Tiffany stand",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNbzk2VFF6TlNERVBBVmFYWlZsaFZJRFJqaG9fd1NGdVYtdUd6TkFBMTZjb3loN3FZNU40Vm1PVkFEV2wwNS1ER3N2LVM2UXhlR1BVVGpPT0RSUGNDRHY2MGY0Qk5Eb1VkcHhsM3FqLWphc2o3WkY1cFlUZXJxLTRmVzZvVmdLcWFFVGgtNmVhUHo4VGpVYnlpdGRTWDkwWDBMUGpuS2hKM1dfSTdiMEdaLTlUTjNTZS0wTG9uQ3dvb0Qya2s4b3dyNHVOWnd1dw?oc=5",
-   "source": "Milwaukee Journal Sentinel"
-  },
-  {
    "at": "2026-10-23T17:50:00.000Z",
    "title": "Here are the big donors fueling Wisconsin's race for governor",
    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNOUtVNGJDQnNXcXlObXg5dEFvWF9JVlJCMVRmc0pRU1RoQnJlMDE0Y055T1NfLXhUaldKeVl3dDdSakM1TnEtM0NMeXBmRjNrbnd1ZUg4aHlwNU5FLUluVkVkdzJKSmZrQ3Vad21KejlDbGJlTzVhaUFJSzd2Z2RyOFdTWWdYMFMtUHc2SlgyX25GWXpkZmRwTFlMNHlRalJHWWNWMnNJQUlrdFRFOGFvd2dNWFNtZ0F6SE4yTWdraGNsVWE4ZTV4bmdfQ2dQZl9qUDRJUUpB?oc=5",
-   "source": "Milwaukee Journal Sentinel"
+   "source": "Milwaukee Journal Sentinel",
+   "topic": "money"
   },
   {
    "at": "2026-10-23T16:36:23.000Z",
    "title": "Kaul outraises Toney in Wisconsin attorney general race",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNmdhOUpEOWd4NGFSVk44azd2bHdDT1oyR3lQdzdzUzZ6eFlkSEp4T0dreTQzZFpSSk5sbWp4ZVh2RF92blJaN2JrWFJibFBlZHFGQ2lPbG8tVEZOMmwzRHc5SVJXdVI0NGdZdGlRRFdaZERBM2YxSGtKQlhtNEI3cmdJZ0FvN2Y1eURCeU9uWFlDa2JSd2swdQ?oc=5",
-   "source": "Wisconsin Law Journal",
-   "topic": "money"
+   "source": "Wisconsin Law Journal"
+  },
+  {
+   "at": "2026-10-23T16:32:00.000Z",
+   "title": "Next Wisconsin governor could replace scores of unconfirmed appointees",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOendKSTZkbDNpR3Z0bGlQYWRxVjdNRmVpc3BCc05rMTM4TmprczZkLXVPTngwbTRKeTdVOThYTXF1X1lFbm5zQTdzYllvWnlLd0NZVVdUQ0x6M2lFRGtzZFZlUzlqTmhrUWJjQ0diY0lqRzAyd0wxZnprVUk4Qy1pdHhybmYyZ2h2MmwzeDNtTG1DNjB1bGdwMjlhZTJ4UmFaQWlfQkJleUdzRk9sdUg2cjJ3emxHRTlnVDhn?oc=5",
+   "source": "Wisconsin State Journal"
   },
   {
    "at": "2026-10-23T16:00:00.000Z",
@@ -14211,12 +14232,6 @@
    "source": "Greater Milwaukee Today"
   },
   {
-   "at": "2026-10-23T10:00:00.000Z",
-   "title": "Opinion | The gigantic — but underdiscussed — threat of Tom Tiffany",
-   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPRHBPTHVsZGQxNnZHQzZGeDllVllHRFBWdXcxYzM5aDQtS1hrWkZtQWhMOVNaamZzbnJlLVVOVnFlNE9TYnBnU2NMUlpYR0RqZ3VUSEF2VVo4RnBvdTA0RHd2U0hLSURTUU9uYnlaUkZzazhkQjBzLVR4am4wZHpPVWlWT0xTa3lrUVdaRi1zazBrUVdhaW9aSkpyWDNLMzJQby05UWc4OE9XRHMtaVhxMEp5MU5iY3MycmZiUDlfcHBGSWVVQWhPeURLM1JfclExdDhhZWhtZXBCMm5JTTJld0VrNEtlUmRv?oc=5",
-   "source": "The Capital Times"
-  },
-  {
    "at": "2026-10-23T08:02:45.000Z",
    "title": "Commentary: What are the Uihleins getting for their massive investment in Tom Tiffany?",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOejhoSm9zN0s1NFROZG00VUN6OFV0SWJYbWJnM25KcTRYWnhjWFIxQ1YyWEljbGIzUUphM0NCZjZEamRGQnUxMWF5aEhEeVUtTk8xZ2VUdUNtQjhLTGZ5U1lUZGN5OGlmd25KVmdldTVPS2E0WDI4cGV3dlg3LTZWeXUwdUxtZE5FbEd5SVFTYURpc2x4YVhVS3R6bGhmVVlYRkd2b3YxZ3MyV2dETzI4ZFBQQ2s4Zw?oc=5",
@@ -14224,15 +14239,15 @@
    "topic": "money"
   },
   {
-   "at": "2026-10-23T00:52:58.000Z",
+   "at": "2026-10-23T00:52:57.000Z",
    "title": "Wisconsin 2026 Election Results",
-   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBydExfZWJ0QWg1OVJzVkFHeDBmOUlWMGFCY0RFNHpjZ052SlFQQU9SUDBtQ3pnTkhTaHV0QzNfZlJoMVpDdHFJNVk2M01vTVB4WmVzTWRYT21FeW9uWnhFdG9hU1p3ZjAtd2c?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAzWHczZVd5a2F6VnBzZmlzOE4ydjQ2SVVaMjBBYW1vdUtCczA2R1FnNHF5eFhsMm5sSlRJajNhcmJOWlpxcVRJcElDV3lkX20yUTlDb3gwZndmcnJyVE11NlpmZDRZY0I1am93a0FqdGw?oc=5",
    "source": "MultiState"
   },
   {
    "at": "2026-10-22T22:54:00.000Z",
    "title": "What to know about Wisconsin’s November constitutional amendments",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRHRiVXVaeHNvTXFJTy1ocklfa3BvSEJRbjE4TnJ1RFBYZE1udGh4WnNkVzNENFg1VlNNWkZrU0FHZ0FkeFhsanJENXAtQmNzTVFiSzdqVGVPbDZwRUJJSEM2TEZra2I1bjBlWXlqdEFWOExxU1o2U3AxeUExT1Z2XzVMN3dJdDUxYlZjOEhzbXV0LVIxN0VyMGJB?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRHRiVXVaeHNvTXFJTy1ocklfa3BvSEJRbjE4TnJ1RFBYZE1udGh4WnNkVzNENFg1VlNNWkZrU0FHZ0FkeFhsanJENXAtQmNzTVFiSzdqVGVPbDZwRUJJSEM2TEZra2I1bjBlWXlqdEFWOExxU1o2U3AxeUExT1Z2XzVMN3dJdDUxYlZjOEhzbXV0LVIxN0VyMGJB0gGuAUFVX3lxTE5TNXN5X1AteExYXy1adWotYkJjMHI3TjJ2ZWFpX25iQTFGQl9tOGJCZDBjUmhQbFdPek5RREFoLTVra0VRRk9VR2locFU4bmFuYldaWFlZZmdvQmN4VkpUMDc5dUNPZDNUQTFpT0lWM01rYk84MTdmbTRKUGNfMGN0a2hsVVFlVExNSDRWdnpsVURqM3NwbWJya0NHRXlBUndhUFFTdi10Z0tIbDRtUQ?oc=5",
    "source": "WSAW"
   },
   {
@@ -14275,7 +14290,7 @@
    "at": "2026-10-22T18:22:27.000Z",
    "title": "Fact Check Team: Can Republican campaign cash keep the GOP competitive in 2026 midterms?",
    "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQWjhHZE9TZ2t0d3VrSHN2XzROVmtEYlEyd3pWU3pPcnFLY3ZBY3JWMElOalJJSHl4aGlfNFRQdFZnT2dqcGJPRGx4d1NaMkNaSVMzOHZKME1sa0ZFTXFfTmNYY080by1EYlprYklXbHVkei1nMXEtby05VWY5dFNUSjZFZFdGTnNtNERoYmtSbk1Fd0N4ejhUNjRoekRNSFdzQ2F1MUI4OWFyc2NRTGxUR1lJZzRqd3JjSWZ3bjhmVU9pTEd2Q3NXMjNYRUxBbDJGcDUtNEhfQXh3MTlucmoxY1RnZHZYQQ?oc=5",
-   "source": "The National Desk",
+   "source": "The National News Desk",
    "topic": "money"
   },
   {
@@ -14298,12 +14313,6 @@
    "source": "WSAW"
   },
   {
-   "at": "2026-10-22T16:34:27.000Z",
-   "title": "Crowley vs. Tiffany: Wisconsin Governor Debate Highlights",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMmR3Z2JZRDc3ZloydHlUSnYxYzVteEI5VDZPTFg5bXFOYy1qd3RrY0UxSTNEUDByX2ZPZmJEQnlUczFqWG5EXzItRERPZC1hNUVuZ3BUQzRZeGRJekl3UmlGUGR2NzNoTjh4bTQwNlN4OUFIRTdkaDVrNWI1U0l4WGxjeDNTUmcydHRRZkFfX3Yya1drenBHRUtSQW54X2RMcms4N1M4UVFaaWc?oc=5",
-   "source": "Hoodline"
-  },
-  {
    "at": "2026-10-22T16:25:53.000Z",
    "title": "Crowley, Tiffany meet for gubernatorial campaign’s sole debate Oct 21, 2026",
    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9FLW9MaUhZSHdFS0tGTEtQMC1qSXJjTENqTk1xWnItV1RaWUZfdFhtVFZhajdvY1ExVkhLRUg4SVpYdXZzUTdmSlpNX3hHVG5McGJ0MGJEbkJuZXJuRmM4cEluaFozY3ZZMTdOcTBPb0NTVHdxT3pkNTZadlE?oc=5",
@@ -14315,12 +14324,6 @@
    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONzJaWWdUR19sWDJyZkNuLTctLW85TkU0MlFZc21nb0NUc0hNNW96bG9GS0hSbUFJbm5GZkZKZDZaZ0Q2OTNKN01YMXJNYXRRZEpYaEZmNjNFNnBsT1oxWmpBckhDUDJhV1FkOHlQdllncVRCN2JTRlFUZUlkVnZ1cVEtQ0kxTFVCcmNiVk5sMjZhZEFrYjVOV3ZhY3JhSE9iZWs4ZnMxYzhLUXozWDl2d09MdmEzSnhVenBpQmpUWmlTM0RpM2RVeVRkc2ZiSEx2bjlQV2dMM1I4em9n?oc=5",
    "source": "Civic Media",
    "topic": "money"
-  },
-  {
-   "at": "2026-10-22T14:58:34.000Z",
-   "title": "In-person absentee voting surges amid declines in ballots arriving by mail",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQk52R20zN1VIUVNKbV9EdFRqSkJZY29LR0paMGN0OUNibC1EQUIwTkJQZWpZdjR5bTZMX1I5dDFYUXAtdGo4U2FMR0RMalJ1aWFVakdEUDBYZUQtWjVZM2JUSThHZzdvVnVRWTJpYzZJMXR6VTBjdncweHIzb19pRHU5V243UjhsazdUZFRTdFhkUWhkSWNWVmZUdS1GcENl?oc=5",
-   "source": "WPR"
   },
   {
    "at": "2026-10-22T13:30:05.000Z",
@@ -14421,8 +14424,8 @@
   {
    "at": "2026-10-22T03:56:00.000Z",
    "title": "David Crowley and Tom Tiffany square off in lone debate for Wisconsin governor's race",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNMEFrMEMyUjQ3SWs1U2hrZTM0N01sVlF5LVJpUVJMX3E2dkFJbTZoQkt4M0VmZGtjaVpXdi1WMHVMZGp5aFdEZWdadmxST3RWYkVjdDF4MXotQmRTRXE1UGpyNWYwRWYtZ3p1dVZ2SV9DY0hDNkZGLUdzNG01OExkWURJbS1IUmlaS1hrX2dGakhuQ1UzTlBLSDNvdFFLelNjSUlmdnZHdkNzSmFFZTBrcTZaNlh4R2lh?oc=5",
-   "source": "Live 5 News"
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQd2NsVWg4VXFDcnpDelgzMDZxS01kRzA2TC1kTG1jemRlYTNmeHhLTGE3NHVjYUV4MUVfa0x0M09EYnh0NUJjbTFXSXRZLUUxTXZKa0k3UnJwWGd2MDl4dzhqLVlGcnRGdlhtalNfSk55VHhIN1ZNTDZlVEJwdzhpdF9nWUdWSU9veERsYkNtVnFvcHprZkJPYl81QUNhMTZWQ0lUck9jZjI1YWgycXpRUHA3bUdSZ2c?oc=5",
+   "source": "AZ Family"
   },
   {
    "at": "2026-10-22T03:54:34.000Z",
@@ -14441,6 +14444,12 @@
    "title": "CORRECTION Election 2026 Wisconsin Governor",
    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQZGFlSmpGM1MySFFJTjNDbU5jZ1lQdzJsVEZyYzJsdDdhaS1fM0hZRS1kTmpteEJISEpFZGpnSE5sXzhNaDRYWkdhb19fYjdsM05OcFM1SHdKSWRBMjZFUDJwSjdrSmhTeEdEblVlbnRXSDFBWFBRRFdid3ZRU1V5SUtJOVlqbHZacHliSGdIWi1vN1JzVl9CMWJRX0NzUEV3S3IxbjBIbDZJRDRFUHVpRHg0LWFhR2xkT1hJQkRNNHNsamhNU1VqTTFTQ1RnT3o5M2czLVFoUQ?oc=5",
    "source": "Clinton Herald"
+  },
+  {
+   "at": "2026-10-22T03:31:48.000Z",
+   "title": "Crowley, Tiffany meet for gubernatorial campaign’s sole debate",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPY1R2aFhLcDNOdnBNRW8ySFhMVDQ2ZkhHNXR5TEFTRjJTMl83Tk5SQUZrMlVMdVRzNmNMaDhQSy1YYnBzNGJnTjlmMURZM2J2N2UwSzZENXA2dEx2bnVOSE1pTi1rU1BadWo1Vk1rZWwwWUdiTXY2aUxRRHJnVUYxYUdFU2dHbkN4UnU2T1c1MHduV0RYbWtmNlZNN2o2ZmMtanl4Nw?oc=5",
+   "source": "Wisconsin Examiner"
   }
  ],
  "laws": [
