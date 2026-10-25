@@ -74,7 +74,7 @@ export function audit(races, members) {
       if (keepers.length === 1 && keepers[0].c === c) continue;
       if (key === 'website') drop(c, r, ['website', ...(c.issuesUrl ? ['issuesUrl'] : [])], `shared with ${who.filter((x) => x.c !== c).map((x) => x.c.name).join(', ')}`);
       else if (key === 'account') { for (const [k, v] of Object.entries(c.social ?? {})) if (v.toLowerCase() === value.toLowerCase()) delete c.social[k]; if (c.social && !Object.keys(c.social).length) delete c.social; log.push(`${r.office} | ${c.name}: dropped account ${value} (shared)`); }
-      else if (key === 'money id') drop(c, r, ['money'], `shared id ${value}`);
+      else if (key === 'money id') drop(c, r, ['money', ...(c.outside ? ['outside'] : [])], `shared id ${value}`);
       else drop(c, r, ['photo'], 'the same photo as another candidate');
     }
   }

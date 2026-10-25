@@ -1,8 +1,16 @@
 // Campaign money for federal candidates, from the FEC's key-free bulk
-// "all candidates" summary (weball26.txt, pipe-delimited, no header).
+// "all candidates" summary (weball26.txt, pipe-delimited, no header), and
+// the outside spending for or against them: the "contributions from
+// committees to candidates & independent expenditures" file (itpas2.txt),
+// whose 24E rows are independent expenditures supporting a candidate and
+// 24A rows ones opposing them, named by the committee master (cm.txt).
 // https://www.fec.gov/campaign-finance-data/all-candidates-file-description/
+// https://www.fec.gov/campaign-finance-data/contributions-committees-candidates-file-description/
+// https://www.fec.gov/campaign-finance-data/committee-master-file-description/
 
+import { readFileSync } from 'node:fs';
 import { namesAgree } from '../ballotpedia-profiles.mjs';
+import { mdy } from '../money-names.mjs';
 
 const COL = { id: 0, name: 1, ici: 2, receipts: 5, spent: 7, cash: 10, state: 18, district: 19, through: 27 };
 const SUFFIX = /^(jr|sr|ii|iii|iv|mr|mrs|ms|dr)$/;
@@ -87,4 +95,114 @@ export function addFederalMoney(races, records, state = 'IL') {
     }
   }
   return { matched, total };
+}
+
+// ---- outside spending ---------------------------------------------------------
+
+export const FEC_PAS2 = 'https://www.fec.gov/files/bulk-downloads/2026/pas226.zip';
+export const FEC_COMMITTEES = 'https://www.fec.gov/files/bulk-downloads/2026/cm26.zip';
+const PAS = { cmte: 0, type: 5, date: 13, amount: 14, cand: 16, memo: 19 };
+const TOP = 6;
+
+/** Committee id -> name, from cm.txt. */
+export function parseCommittees(text) {
+  const out = new Map();
+  for (const line of text.split('\n')) { const f = line.split('|'); if (f[0] && f[1]) out.set(f[0], f[1].trim()); }
+  return out;
+}
+
+/** The independent expenditures in itpas2.txt: [{ cmte, cand, support, amount, date: 'YYYY-MM-DD' }]. */
+export function parsePas2(text) {
+  const out = [];
+  for (const line of text.split('\n')) {
+    const f = line.split('|');
+    const type = f[PAS.type];
+    if (type !== '24A' && type !== '24E') continue;
+    // A memo row restates a figure already in another row (the FEC leaves it out of totals).
+    if (f[PAS.memo] === 'X') continue;
+    const d = f[PAS.date] ?? '';
+    out.push({ cmte: f[PAS.cmte], cand: f[PAS.cand], support: type === '24E', amount: Number(f[PAS.amount]) || 0, date: d.length === 8 ? `${d.slice(4)}-${d.slice(0, 2)}-${d.slice(2, 4)}` : '' });
+  }
+  return out;
+}
+
+/**
+ * Attach `outside` to each federal candidate with an FEC id: what outside
+ * groups (PACs, parties) spent for and against them this cycle, with the
+ * biggest spenders. Groups may not coordinate with the campaign; the
+ * figures are the FEC's processed filings, so they lag the 24/48-hour
+ * reports by days.
+ */
+export function addOutsideSpending(races, rows, names) {
+  const today = new Date().toISOString().slice(0, 10);
+  const byCand = new Map();
+  let through = '';
+  for (const r of rows) {
+    if (!r.cand || r.date > today) continue;
+    if (r.date > through) through = r.date;
+    let m = byCand.get(r.cand);
+    if (!m) { m = new Map(); byCand.set(r.cand, m); }
+    const g = m.get(r.cmte) ?? { name: names.get(r.cmte) ?? r.cmte, support: 0, oppose: 0 };
+    g[r.support ? 'support' : 'oppose'] += r.amount;
+    m.set(r.cmte, g);
+  }
+  const through_ = mdy(through);
+  let matched = 0, total = 0;
+  for (const race of races) for (const c of race.candidates) {
+    if (c.money?.source !== 'FEC') continue;
+    total++;
+    delete c.outside;
+    const groups = [...(byCand.get(c.money.id)?.values() ?? [])].map((g) => ({ name: g.name, support: Math.max(0, Math.round(g.support)), oppose: Math.max(0, Math.round(g.oppose)) })).filter((g) => g.support || g.oppose);
+    if (!groups.length) continue;
+    groups.sort((a, b) => b.support + b.oppose - a.support - a.oppose);
+    c.outside = {
+      support: groups.reduce((n, g) => n + g.support, 0),
+      oppose: groups.reduce((n, g) => n + g.oppose, 0),
+      groups: groups.slice(0, TOP),
+      through: through_,
+      url: `https://www.fec.gov/data/independent-expenditures/?candidate_id=${c.money.id}&cycle=2026&data_type=processed`,
+    };
+    matched++;
+  }
+  return { matched, total, through: through_ };
+}
+
+/** Download and read the two files into `dir`; returns what addOutsideSpending needs. */
+export async function fetchOutside(dir, download, unzip) {
+  await download(FEC_PAS2, `${dir}/pas2.zip`);
+  await download(FEC_COMMITTEES, `${dir}/cm.zip`);
+  unzip(`${dir}/pas2.zip`, dir);
+  unzip(`${dir}/cm.zip`, dir);
+  return { rows: parsePas2(readFileSync(`${dir}/itpas2.txt`, 'utf8')), names: parseCommittees(readFileSync(`${dir}/cm.txt`, 'latin1')) };
+}
+
+/** Yesterday's `outside` for everyone, when today's file couldn't be read. */
+export function keepOutsideForward(races, prev) {
+  const before = new Map((prev?.races ?? []).flatMap((r) => r.candidates.filter((c) => c.outside).map((c) => [`${r.id}|${c.name}`, c.outside])));
+  let kept = 0;
+  for (const r of races) for (const c of r.candidates) {
+    const old = before.get(`${r.id}|${c.name}`);
+    if (old && !c.outside) { c.outside = old; kept++; }
+  }
+  return kept;
+}
+
+// Standalone: `node scripts/illinois/fec.mjs <illinois|michigan|minnesota|wisconsin> [--write]` attaches outside spending to the committed data.
+if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
+  const { writeFileSync, mkdtempSync, createWriteStream } = await import('node:fs');
+  const { execFileSync } = await import('node:child_process');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { Readable } = await import('node:stream');
+  const { pipeline } = await import('node:stream/promises');
+  const state = process.argv[2];
+  const file = new URL(`../../src/data/${state}/ballot.json`, import.meta.url);
+  const data = JSON.parse(readFileSync(file, 'utf8'));
+  const work = mkdtempSync(join(tmpdir(), 'fec-'));
+  const download = async (url, out) => { const res = await fetch(url, { redirect: 'follow' }); if (!res.ok) throw new Error(`${url} -> HTTP ${res.status}`); await pipeline(Readable.fromWeb(res.body), createWriteStream(out)); };
+  const { rows, names } = await fetchOutside(work, download, (zip, dir) => execFileSync('unzip', ['-o', '-q', zip, '-d', dir]));
+  const r = addOutsideSpending(data.races, rows, names);
+  console.log(`Outside spending: ${r.matched}/${r.total} federal candidates, through ${r.through}`);
+  for (const race of data.races) for (const c of race.candidates) if (c.outside) console.log(`  ${race.id} | ${c.name}: $${c.outside.support} for, $${c.outside.oppose} against; ${c.outside.groups.slice(0, 3).map((g) => `${g.name} (${g.support ? '+' + g.support : ''}${g.oppose ? '-' + g.oppose : ''})`).join('; ')}`);
+  if (process.argv.includes('--write')) writeFileSync(file, JSON.stringify(data, null, 1) + '\n');
 }

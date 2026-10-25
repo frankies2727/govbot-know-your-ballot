@@ -23,6 +23,18 @@ export interface Money {
   recentThrough?: string;
 }
 
+/** Independent expenditures reported to the FEC: spending by PACs and parties that may not coordinate with the campaign. */
+export interface OutsideSpending {
+  support: number;
+  oppose: number;
+  /** The biggest spenders, most first. */
+  groups: { name: string; support: number; oppose: number }[];
+  /** MM/DD/YYYY, the latest expenditure in the FEC's processed data. */
+  through: string;
+  /** The FEC's own list of every expenditure. */
+  url: string;
+}
+
 export interface Candidate {
   ballot: number;
   name: string;
@@ -34,6 +46,8 @@ export interface Candidate {
   /** Campaign website: their State Board filing, else their official homepage. */
   website?: string;
   money?: Money;
+  /** What outside groups spent for and against them this cycle (federal candidates; scripts/illinois/fec.mjs). */
+  outside?: OutsideSpending;
   /** Their social media accounts (scripts/know-your-ballot/illinois/social.mjs says where each comes from). */
   social?: Partial<Record<SocialPlatform, string>>;
   /** A profile written by someone else: Injustice Watch (Illinois judges), Ballotpedia (Michigan). */

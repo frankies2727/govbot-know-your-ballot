@@ -35,7 +35,7 @@ import { explainMeasures } from './illinois/measures-plain.mjs';
 import { addSocial } from './illinois/social.mjs';
 import { addPhotos } from './illinois/photos.mjs';
 import { parseCandidateList } from './illinois/candidates.mjs';
-import { parseWeball, addFederalMoney } from './illinois/fec.mjs';
+import { addFederalMoney, addOutsideSpending, fetchOutside, keepOutsideForward, parseWeball } from './illinois/fec.mjs';
 import { ISBE_BASE, ISBE_FILES, ISBE_RECEIPTS, addStateMoney } from './illinois/isbe.mjs';
 import { addStateList, fetchCertifiedList } from './illinois/statewide.mjs';
 import { buildDistricts, buildStateDistricts, placesIn, touchesCook } from './illinois/districts.mjs';
@@ -161,6 +161,11 @@ async function main() {
   await download(FEC_WEBALL, join(work, 'weball.zip'));
   execFileSync('unzip', ['-o', '-q', join(work, 'weball.zip'), '-d', work]);
   const money = addFederalMoney(ballot.races, parseWeball(readFileSync(join(work, 'weball26.txt'), 'utf8')));
+  try {
+    const { rows, names } = await fetchOutside(work, download, (zip, dir) => execFileSync('unzip', ['-o', '-q', zip, '-d', dir]));
+    const outside = addOutsideSpending(ballot.races, rows, names);
+    console.log(`Outside spending: ${outside.matched}/${outside.total} federal candidates, through ${outside.through}`);
+  } catch (e) { console.warn(`outside spending: ${e.message}; ${keepOutsideForward(ballot.races, prev)} candidates keep yesterday's`); }
   console.log(`FEC: matched ${money.matched}/${money.total} federal candidates`);
 
   for (const f of ISBE_FILES) await download(`${ISBE_BASE}${f}.txt`, join(work, `${f}.txt`));

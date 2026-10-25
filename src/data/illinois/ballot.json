@@ -285,6 +285,44 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Illinois"
       },
       "asOf": "2026-10-24"
+     },
+     "outside": {
+      "support": 9082587,
+      "oppose": 10489093,
+      "groups": [
+       {
+        "name": "FAIRSHAKE",
+        "support": 0,
+        "oppose": 10000405
+       },
+       {
+        "name": "ILLINOIS FUTURE PAC",
+        "support": 8860843,
+        "oppose": 0
+       },
+       {
+        "name": "DLGA",
+        "support": 221734,
+        "oppose": 0
+       },
+       {
+        "name": "PROGRESSIVE VALUES ILLINOIS",
+        "support": 0,
+        "oppose": 197725
+       },
+       {
+        "name": "THE IMPACT FUND",
+        "support": 0,
+        "oppose": 171121
+       },
+       {
+        "name": "PROTECT PROGRESS",
+        "support": 0,
+        "oppose": 119842
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=S6IL00458&cycle=2026&data_type=processed"
      }
     },
     {
@@ -1341,6 +1379,39 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Illinois#District_2"
       },
       "asOf": "2026-10-24"
+     },
+     "outside": {
+      "support": 4482705,
+      "oppose": 3153,
+      "groups": [
+       {
+        "name": "AFFORDABLE CHICAGO NOW! (ACN)",
+        "support": 4379237,
+        "oppose": 0
+       },
+       {
+        "name": "ADPAC INDEPENDENT EXPENDITURES COMMITTEE",
+        "support": 103087,
+        "oppose": 0
+       },
+       {
+        "name": "THE PEOPLE'S LOBBY",
+        "support": 0,
+        "oppose": 2503
+       },
+       {
+        "name": "PROGRESSIVE CHANGE CAMPAIGN COMMITTEE",
+        "support": 0,
+        "oppose": 650
+       },
+       {
+        "name": "DMFI PAC",
+        "support": 381,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6IL02355&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -1873,6 +1944,19 @@
       "seat": "U.S. House · IL-5",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0IL05096&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2090,6 +2174,24 @@
       "seat": "U.S. House · IL-6",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 12097,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "NATIONAL ASSOCIATION OF REALTORS POLITICAL ACTION COMMITTEE",
+        "support": 12087,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8IL06139&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2303,6 +2405,19 @@
       "seat": "House District 8",
       "source": "Illinois General Assembly, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 0,
+      "oppose": 2479130,
+      "groups": [
+       {
+        "name": "FAIRSHAKE",
+        "support": 0,
+        "oppose": 2479130
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6IL07354&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2472,6 +2587,44 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Illinois#District_8"
       },
       "asOf": "2026-10-24"
+     },
+     "outside": {
+      "support": 5478089,
+      "oppose": 59594,
+      "groups": [
+       {
+        "name": "ELECT CHICAGO WOMEN AKA ECW",
+        "support": 3985686,
+        "oppose": 0
+       },
+       {
+        "name": "NEW DEMOCRAT MAJORITY",
+        "support": 935000,
+        "oppose": 0
+       },
+       {
+        "name": "PROTECT PROGRESS",
+        "support": 557012,
+        "oppose": 0
+       },
+       {
+        "name": "JUSTICE DEMOCRATS PAC",
+        "support": 0,
+        "oppose": 56750
+       },
+       {
+        "name": "THE PEOPLE'S LOBBY",
+        "support": 0,
+        "oppose": 2194
+       },
+       {
+        "name": "PROGRESSIVE CHANGE CAMPAIGN COMMITTEE",
+        "support": 0,
+        "oppose": 650
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6IL08329&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2681,6 +2834,44 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Illinois#District_9"
       },
       "asOf": "2026-10-24"
+     },
+     "outside": {
+      "support": 1219425,
+      "oppose": 1426376,
+      "groups": [
+       {
+        "name": "ELECT CHICAGO WOMEN AKA ECW",
+        "support": 0,
+        "oppose": 1426376
+       },
+       {
+        "name": "CONGRESSIONAL PROGRESSIVE CAUCUS PAC",
+        "support": 546796,
+        "oppose": 0
+       },
+       {
+        "name": "314 ACTION FUND",
+        "support": 409807,
+        "oppose": 0
+       },
+       {
+        "name": "J STREET ACTION FUND",
+        "support": 149772,
+        "oppose": 0
+       },
+       {
+        "name": "MEDICARE FOR ALL",
+        "support": 98040,
+        "oppose": 0
+       },
+       {
+        "name": "LOCAL 881 UNITED FOOD AND COMMERCIAL WORKERS POLITICAL ACTION FUND",
+        "support": 15000,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6IL09228&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -18601,6 +18792,24 @@
       "seat": "U.S. House · IL-10",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 11352,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "NATIONAL ASSOCIATION OF REALTORS POLITICAL ACTION COMMITTEE",
+        "support": 11342,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2IL10068&cycle=2026&data_type=processed"
      }
     },
     {
@@ -19530,6 +19739,24 @@
       "seat": "U.S. House · IL-17",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 166,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 156,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2IL17147&cycle=2026&data_type=processed"
      }
     },
     {
@@ -20385,6 +20612,29 @@
       "seat": "U.S. House · IL-15",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 13008,
+      "oppose": 1770,
+      "groups": [
+       {
+        "name": "FREEDOM CAUCUS FUND",
+        "support": 9303,
+        "oppose": 0
+       },
+       {
+        "name": "ILLINOIS AGRICULTURAL ASSOCIATION ACTIVATOR POLITICAL INVOLVEMENT FUND (FED) 'ACTIVATOR'/'ILLINOIS FARM BUREAU ACTIVATOR'",
+        "support": 3705,
+        "oppose": 0
+       },
+       {
+        "name": "MAHA PAC",
+        "support": 0,
+        "oppose": 1770
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0IL15129&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -20898,6 +21148,19 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Illinois#District_12"
       },
       "asOf": "2026-10-24"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6IL12131&cycle=2026&data_type=processed"
      }
     },
     {
@@ -21375,6 +21638,19 @@
       "seat": "U.S. House · IL-13",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 83860,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "PROTECT PROGRESS",
+        "support": 83860,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2IL13153&cycle=2026&data_type=processed"
      }
     },
     {
@@ -23185,6 +23461,19 @@
       "seat": "U.S. House · IL-11",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8IL14067&cycle=2026&data_type=processed"
      }
     },
     {
@@ -23417,6 +23706,19 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Illinois#District_16"
       },
       "asOf": "2026-10-24"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6IL16108&cycle=2026&data_type=processed"
      }
     },
     {
@@ -23515,6 +23817,19 @@
       "seat": "U.S. House · IL-16",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 0,
+      "oppose": 1040,
+      "groups": [
+       {
+        "name": "CITIZENS FOR THE 16TH",
+        "support": 0,
+        "oppose": 1040
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6IL18088&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -25832,6 +26147,24 @@
       "seat": "U.S. House · IL-14",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-21"
+     },
+     "outside": {
+      "support": 35,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "GIVEGREEN UNITED ACTION",
+        "support": 25,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8IL14174&cycle=2026&data_type=processed"
      }
     },
     {

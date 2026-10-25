@@ -1505,6 +1505,24 @@
       "seat": "U.S. House · MN-1",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 0,
+      "oppose": 2005,
+      "groups": [
+       {
+        "name": "TAKEACTION MN FEDERAL FUND",
+        "support": 0,
+        "oppose": 1199
+       },
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 806
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2MN01223&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -1632,6 +1650,34 @@
        "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Minnesota#District_2"
       },
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 405404,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "MEDICARE FOR ALL",
+        "support": 200000,
+        "oppose": 0
+       },
+       {
+        "name": "CONGRESSIONAL PROGRESSIVE CAUCUS PAC",
+        "support": 144000,
+        "oppose": 0
+       },
+       {
+        "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+        "support": 61394,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN02230&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2017,6 +2063,19 @@
       "seat": "U.S. House · MN-4",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN04049&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2244,6 +2303,34 @@
       "seat": "U.S. House · MN-5",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 3794,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "WORKING FAMILIES PARTY PAC",
+        "support": 3699,
+        "oppose": 0
+       },
+       {
+        "name": "TAKEACTION MN FEDERAL FUND",
+        "support": 48,
+        "oppose": 0
+       },
+       {
+        "name": "THE PEOPLE UNITED PAC",
+        "support": 37,
+        "oppose": 0
+       },
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN05239&cycle=2026&data_type=processed"
      }
     },
     {
@@ -2521,6 +2608,19 @@
       "seat": "U.S. House · MN-6",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 0,
+      "oppose": 547,
+      "groups": [
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 547
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MN06087&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2711,6 +2811,19 @@
       "seat": "U.S. House · MN-7",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 0,
+      "oppose": 171,
+      "groups": [
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 171
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN07091&cycle=2026&data_type=processed"
      }
     }
    ],
@@ -2905,6 +3018,19 @@
       "seat": "U.S. House · MN-8",
       "source": "Congress.gov, via govbot",
       "asOf": "2026-10-25"
+     },
+     "outside": {
+      "support": 0,
+      "oppose": 554,
+      "groups": [
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 554
+       }
+      ],
+      "through": "09/30/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN08043&cycle=2026&data_type=processed"
      }
     }
    ],
