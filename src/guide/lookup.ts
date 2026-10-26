@@ -1,5 +1,5 @@
 import { getMaps, lookIn, type Maps } from '../lookup';
-import type { Districts, Race } from '../types';
+import type { AreaType, Districts, Race } from '../types';
 import type { StateData } from './types';
 
 // Address -> coordinates -> districts, for a whole-state guide. Photon
@@ -20,7 +20,7 @@ export interface LookupSpec {
   /** "MI" and "Michigan": how the geocoders name the state. */
   abbr: string;
   name: string;
-  /** Anything the state adds to the matched districts (Michigan's Court of Appeals district, from the county). */
+  /** Anything the state adds to the matched districts (Michigan's Court of Appeals district and Minnesota's judicial district, from the county). */
   decorate?: (d: Districts, data: StateData) => void;
 }
 
@@ -93,9 +93,10 @@ export function ballotFor(data: StateData, d: Districts | null) {
  */
 export function ballotForCounty(data: StateData, county: string) {
   const here = new Set(data.counties?.[county] ?? []);
-  const coa = data.coa?.[county];
+  // The districts a whole county sits in, where the state has them.
+  const ofCounty: Partial<Record<AreaType, string | undefined>> = { coa: data.coa?.[county], jd: data.jd?.[county] };
   return {
-    races: data.races.filter((r) => (!r.area ? true : r.area.type === 'coa' ? r.area.id === coa : here.has(`${r.area.type}:${r.area.id}`))),
+    races: data.races.filter((r) => (!r.area ? true : r.area.type in ofCounty ? r.area.id === ofCounty[r.area.type] : here.has(`${r.area.type}:${r.area.id}`))),
     retentions: [],
     measures: data.measures,
   };

@@ -11,6 +11,7 @@
 //   node scripts/minnesota/filings.mjs --snapshot <file.txt>  save a browser-downloaded copy as the fallback (no addresses)
 import { readFileSync, writeFileSync } from 'node:fs';
 import { mergeOfficial } from '../official.mjs';
+import { districtCourtRaces, districtSeat, raceId as districtCourtId } from './courts.mjs';
 
 export const SITE = 'https://candidates.sos.mn.gov/';
 const UA = 'KnowYourBallot/1.0';
@@ -19,7 +20,7 @@ const FILE_BUTTON = 'ctl00$ContentPlaceHolder1$lbGenStateMediaFile'; // the gene
 // The abbreviations the file uses, to the party names the ballot prints.
 const PARTIES = { DFL: 'Democratic-Farmer-Labor', R: 'Republican', GP: 'Green', LIB: 'Libertarian', IND: 'Independent', NP: 'Nonpartisan', FI: 'Forward Independence', UNI: 'United New Independence', PM: 'People of Minnesota', LMN: 'Legal Marijuana Now', GLC: 'Grassroots-Legalize Cannabis' };
 
-/** The race id a filing's office title belongs to, or null for an office the guide doesn't carry (county, district court). */
+/** The race id a filing's office title belongs to, or null for an office the guide doesn't carry (county and local). */
 export function raceIdFor(title) {
   const t = title.replace(/\s+/g, ' ').trim();
   let m;
@@ -33,6 +34,7 @@ export function raceIdFor(title) {
   if ((m = t.match(/^State Representative.*?(\d+)([A-Z])/i))) return `sldl-${m[1]}${m[2].toLowerCase()}`;
   if ((m = t.match(/Supreme Court.*?(\d+)/i))) return `associate-justice-of-the-supreme-court-seat-${m[1]}`;
   if ((m = t.match(/Court of Appeals.*?(\d+)/i))) return `judge-of-the-court-of-appeals-seat-${m[1]}`;
+  if ((m = districtSeat(t))) return districtCourtId(m.district, m.seat);
   return null;
 }
 
@@ -103,7 +105,8 @@ export async function read() {
     rows = snap.rows.map((r) => ({ ...r, raceId: raceIdFor(r.title) }));
     note = ` (the site said "${e.message}"; using the ${snap.savedOn} snapshot)`;
   }
-  return { source: SITE, byRace: byRace(rows), rows, note };
+  // The district court seats exist only in this file (Ballotpedia has no page for them): they come as whole races.
+  return { source: SITE, byRace: byRace(rows), rows, note, races: districtCourtRaces(rows) };
 }
 
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
@@ -121,7 +124,7 @@ if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop()
     ].join('\r\n');
     const rows = parseFilings(sample);
     const ids = rows.map((r) => r.raceId);
-    const want = ['governor-and-lieutenant-governor', 'governor-and-lieutenant-governor', 'u-s-senator', 'cd-5', 'sldl-23b', 'sldu-12', 'associate-justice-of-the-supreme-court-seat-4', null, null];
+    const want = ['governor-and-lieutenant-governor', 'governor-and-lieutenant-governor', 'u-s-senator', 'cd-5', 'sldl-23b', 'sldu-12', 'associate-justice-of-the-supreme-court-seat-4', 'district-court-4-seat-10', null];
     if (JSON.stringify(ids) !== JSON.stringify(want)) throw new Error(`race ids: ${JSON.stringify(ids)}`);
     if (rows[0].name !== 'Amy Klobuchar & Ben Schierer' || rows[0].party !== 'Democratic-Farmer-Labor' || rows[0].website !== 'www.example.org' || rows[2].party !== 'Democratic-Farmer-Labor' || rows[2].website !== 'www.example.org' || rows[5].party !== 'Independent') throw new Error('name/party/website ' + JSON.stringify(rows[0]));
     const races = [

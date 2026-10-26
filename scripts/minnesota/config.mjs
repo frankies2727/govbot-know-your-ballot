@@ -1,9 +1,11 @@
 // Know Your Ballot: Minnesota. What scripts/state.mjs needs to build the
 // Nov 3, 2026 ballot: Ballotpedia's pages and the office wording Minnesota's
 // ballot uses, the Supreme Court and Court of Appeals seats (statewide, no
-// party), and the constitutional amendment.
+// party), the district court seats (by judicial district, from the county)
+// and the constitutional amendment.
 
 import { addStateMoney, CFB_VIEWER } from './cfb.mjs';
+import { judicialDistrictOf } from './courts.mjs';
 import { read as readFilings } from './filings.mjs';
 import { MEASURES, MEASURES_SOURCE } from './measures.mjs';
 
@@ -39,6 +41,8 @@ export const CONFIG = {
   stateMoney: { name: 'CFB', url: CFB_VIEWER, add: (races) => addStateMoney(races) },
   // The Secretary of State's candidate filings decide who is on the ballot (scripts/minnesota/filings.mjs).
   officialList: { name: 'Secretary of State filings', read: readFilings },
+  // County -> judicial district, so an address or a browsed county finds its district court seats.
+  extraData: (districts) => ({ jd: Object.fromEntries(districts.layers.county.map((c) => [c.id, judicialDistrictOf(c.id)])) }),
   measures: { list: MEASURES, source: MEASURES_SOURCE },
   news: ['Minnesota election 2026', 'Minnesota governor race Klobuchar Demuth', 'Minnesota Senate race Flanagan Tafoya', 'Minnesota constitutional amendment school fund 2026', 'Minnesota attorney general race Ellison Schutz'],
   moneyNews: ['Minnesota governor campaign fundraising', 'Minnesota election campaign donations super PAC', 'Minnesota Senate race campaign money', 'Minnesota Campaign Finance Board'],

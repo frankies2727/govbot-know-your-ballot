@@ -17,6 +17,8 @@ export interface StateData {
   measures: Measure[];
   /** Michigan: county name -> Court of Appeals election district. */
   coa?: Record<string, string>;
+  /** Minnesota: county name -> judicial district (its district court seats). */
+  jd?: Record<string, string>;
   /** The districts ("cd:6", "sldu:21") that reach into each county, for browsing a county without an address. */
   counties?: Record<string, string[]>;
   /** What the daily refresh found different, newest last. */

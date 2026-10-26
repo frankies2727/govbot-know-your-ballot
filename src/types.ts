@@ -3,7 +3,7 @@
 export type Section = 'federal' | 'state' | 'county' | 'judicial' | 'school' | 'legislature' | 'education';
 
 /** Which voters see a contest. `null` on a race = every voter in Cook County. */
-export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa';
+export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa' | 'jd';
 export interface Area { type: AreaType; id: string }
 
 /** Campaign totals this cycle (since Jan 1, 2025), from official filings. */
@@ -41,6 +41,8 @@ export interface Candidate {
   party: string;
   /** Only set when official records (FEC or ISBE) say so. */
   incumbent?: boolean;
+  /** Ballotpedia's spelling of the name when the state's ballot prints it differently ("Liish" / "Alicia Kozlowski"). */
+  aka?: string;
   /** Nonpartisan-section candidates (Michigan judges): the party that nominated them. */
   nominatedBy?: string;
   /** Campaign website: their State Board filing, else their official homepage. */

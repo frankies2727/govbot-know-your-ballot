@@ -53,18 +53,24 @@ async function download(url, file) {
   await pipeline(Readable.fromWeb(res.body), createWriteStream(file));
 }
 
-/** Every race and its candidates, read from Ballotpedia (and the config's extra sources) today. */
-async function gatherRaces(cfg) {
-  // These ballots don't number candidates: `ballot` only identifies picks.
-  // Major parties first, as the ballot lists them, then the rest alphabetically.
+/**
+ * A race as ballot.json stores it. These ballots don't number candidates:
+ * `ballot` only identifies picks. Major parties first, as the ballot lists
+ * them, then the rest alphabetically.
+ */
+function raceBuilder(cfg) {
   const order = (c) => { const i = cfg.partyOrder.indexOf(c.nominatedBy ?? c.party); return i < 0 ? cfg.partyOrder.length : i; };
   const party = (p) => cfg.partyNames?.[p] ?? p;
-  const race = ({ id, office, section, area = null, seats = 1, candidates, source }) => {
+  return ({ id, office, section, area = null, seats = 1, candidates, source }) => {
     const list = [...candidates].map((c) => ({ ...c, party: party(c.party) })).sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))
       .map((c, i) => ({ ballot: i + 1, name: c.name, party: c.party, ...(c.nominatedBy ? { nominatedBy: c.nominatedBy } : {}), ...(c.incumbent ? { incumbent: true } : {}), ...(c.profile ? { profile: c.profile } : {}) }));
     return { id: slug(id), office, section, area, voteFor: seats, candidates: list, writeIn: cfg.writeIn ?? true, numbered: false, source };
   };
+}
 
+/** Every race and its candidates, read from Ballotpedia (and the config's extra sources) today. */
+async function gatherRaces(cfg) {
+  const race = raceBuilder(cfg);
   const races = [];
   const pages = {};
   const fetched = new Map(); // several statewide races can share a page (Minnesota's judges)
@@ -142,10 +148,13 @@ export async function build(cfg) {
     console.warn(`Candidates: ${e.message}; keeping yesterday's ${prev.races.length} races`);
     ({ races, sources: { candidates: { pages, asOf } } } = structuredClone(prev));
   }
-  // The state's own candidate list, where the build can read it, decides who is on the ballot (scripts/official.mjs).
+  // The state's own candidate list, where the build can read it, decides who is on the ballot
+  // (scripts/official.mjs), and brings the races only it carries (Minnesota's district court seats).
   if (cfg.officialList) {
     try {
-      const { byRace, source, note = '' } = await cfg.officialList.read();
+      const { byRace, source, note = '', races: own = [] } = await cfg.officialList.read();
+      const race = raceBuilder(cfg);
+      for (const r of own) if (!races.some((x) => x.id === r.id)) races.push(race({ ...r, source }));
       const r = mergeOfficial(races, byRace);
       pages[cfg.officialList.name] = source;
       console.log(`${cfg.officialList.name}: ${r.covered} races checked, ${r.added} candidates added, ${r.dropped} dropped${note}`);

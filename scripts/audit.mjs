@@ -41,7 +41,7 @@ export function audit(races, members) {
       if (c.website && LEGISLATURE_SITE.test(c.website) && !legislator) drop(c, race, ['website', 'issuesUrl', 'social'].filter((k) => c[k]), 'a legislature site, but no sitting legislator has this name');
       if (c.issuesUrl && c.website && !c.issuesUrl.startsWith(new URL(c.website).origin)) drop(c, race, ['issuesUrl'], 'not on their campaign site');
       for (const k of ['ballotpedia', 'profile']) {
-        if (c[k] && /ballotpedia\.org\//.test(c[k]) && !sameName(c.name, titleOf(c[k]))) drop(c, race, [k, ...(k === 'ballotpedia' && c.stances ? ['stances'] : [])], 'a Ballotpedia page with another name');
+        if (c[k] && /ballotpedia\.org\//.test(c[k]) && !sameName(c.name, titleOf(c[k])) && !(c.aka && sameName(c.aka, titleOf(c[k])))) drop(c, race, [k, ...(k === 'ballotpedia' && c.stances ? ['stances'] : [])], 'a Ballotpedia page with another name');
       }
       if (c.stances && c.ballotpedia && c.stances.url !== c.ballotpedia) drop(c, race, ['stances'], 'survey answers from a different page than their profile');
       if (c.record && !legislator) drop(c, race, ['record'], 'a legislative record, but no sitting legislator has this name');
