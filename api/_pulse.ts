@@ -61,28 +61,29 @@ function tcp(url: string): Redis {
 /** The visitor's address as an opaque key: HMAC with the store's own token, so it can't be reversed or matched across sites. */
 export const addressKey = (ip: string, secret: string) => createHmac('sha256', secret).update(ip).digest('hex').slice(0, 24);
 
-const centralDay = (now: number) => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(now);
+export interface Pulse { here: number; total: number; hearts: number; heartAt: number }
 
-export interface Pulse { here: number; today: number; hearts: number; heartAt: number }
-
-/** Counts this tab as here, and reads the numbers. A tab is "here" for a minute after its last ping. */
+/**
+ * Counts this tab as here, and reads the numbers. A tab is "here" for a minute
+ * after its last ping; `total` is every distinct tab ever counted (a HyperLogLog,
+ * so a few kilobytes however many, and exact at small numbers). It counts people
+ * who opened the guide, nothing about what they did next.
+ */
 export async function ping(redis: Redis, id: string, ip: string, now = Date.now()): Promise<Pulse> {
-  const day = `kyb:day:${centralDay(now)}`;
   const rate = `kyb:ping:${ip}`;
   const [count] = await redis([['INCR', rate], ['EXPIRE', rate, 60, 'NX']]);
   // Over the limit: still answer, but don't count this tab again.
   const counting = Number(count) <= PINGS_PER_MINUTE;
-  const [, , here, , , today, hearts, heartAt] = await redis([
+  const [, , here, , total, hearts, heartAt] = await redis([
     counting ? ['ZADD', 'kyb:here', now, id] : ['PING'],
     ['ZREMRANGEBYSCORE', 'kyb:here', 0, now - HERE_WINDOW_MS],
     ['ZCARD', 'kyb:here'],
-    counting ? ['PFADD', day, id] : ['PING'],
-    ['EXPIRE', day, 172_800],
-    ['PFCOUNT', day],
+    counting ? ['PFADD', 'kyb:all', id] : ['PING'],
+    ['PFCOUNT', 'kyb:all'],
     ['GET', 'kyb:hearts'],
     ['GET', 'kyb:heart-at'],
   ]);
-  return { here: Number(here) || 0, today: Number(today) || 0, hearts: Number(hearts) || 0, heartAt: Number(heartAt) || 0 };
+  return { here: Number(here) || 0, total: Number(total) || 0, hearts: Number(hearts) || 0, heartAt: Number(heartAt) || 0 };
 }
 
 /** One more heart, unless this address has hearted five times in the last hour. */
