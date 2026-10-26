@@ -145,10 +145,10 @@ export async function build(cfg) {
   // The state's own candidate list, where the build can read it, decides who is on the ballot (scripts/official.mjs).
   if (cfg.officialList) {
     try {
-      const { byRace, source } = await cfg.officialList.read();
+      const { byRace, source, note = '' } = await cfg.officialList.read();
       const r = mergeOfficial(races, byRace);
       pages[cfg.officialList.name] = source;
-      console.log(`${cfg.officialList.name}: ${r.covered} races checked, ${r.added} candidates added, ${r.dropped} dropped`);
+      console.log(`${cfg.officialList.name}: ${r.covered} races checked, ${r.added} candidates added, ${r.dropped} dropped${note}`);
       for (const line of r.log) console.log(`  ${line}`);
     } catch (e) { console.warn(`${cfg.officialList.name}: ${e.message}; keeping Ballotpedia's lists`); }
   }

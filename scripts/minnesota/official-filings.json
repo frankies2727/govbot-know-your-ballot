@@ -1,0 +1,8274 @@
+{
+ "savedOn": "2026-10-26",
+ "source": "https://candidates.sos.mn.gov/",
+ "rows": [
+  {
+   "name": "Michele Tafoya",
+   "party": "Republican",
+   "title": "U.S. Senator",
+   "website": "MicheleTafoya.com"
+  },
+  {
+   "name": "Peggy Flanagan",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Senator",
+   "website": "www.peggyflanagan.com"
+  },
+  {
+   "name": "Marisa Simonetti",
+   "party": "Independent",
+   "title": "U.S. Senator",
+   "website": "marisasimonetti.com"
+  },
+  {
+   "name": "Rebecca Whiting",
+   "party": "Libertarian",
+   "title": "U.S. Senator",
+   "website": "whiting4senate.us"
+  },
+  {
+   "name": "Brad Finstad",
+   "party": "Republican",
+   "title": "U.S. Representative District 1",
+   "website": "www.finstadforcongress.com"
+  },
+  {
+   "name": "Jake Johnson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 1",
+   "website": "jakejohnsonforcongress.com"
+  },
+  {
+   "name": "Eric Pratt",
+   "party": "Republican",
+   "title": "U.S. Representative District 2",
+   "website": "www.EricPrattMN.com"
+  },
+  {
+   "name": "Matt Little",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 2",
+   "website": "WWW.LITTLEFORCONGRESS.COM"
+  },
+  {
+   "name": "Tyler Bass",
+   "party": "Republican",
+   "title": "U.S. Representative District 3",
+   "website": "http://bassforcongress.com"
+  },
+  {
+   "name": "Kelly Morrison",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 3",
+   "website": "kellyforcongress.org"
+  },
+  {
+   "name": "Paul Wikstrom",
+   "party": "Republican",
+   "title": "U.S. Representative District 4",
+   "website": "WikstromForCongress.com"
+  },
+  {
+   "name": "Betty McCollum",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 4",
+   "website": "www.mccollumforcongress.com"
+  },
+  {
+   "name": "John Nagel",
+   "party": "Republican",
+   "title": "U.S. Representative District 5",
+   "website": "NagelForCongress.com"
+  },
+  {
+   "name": "Ilhan Omar",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 5",
+   "website": "https://ilhanomar.com/"
+  },
+  {
+   "name": "DeVelle L. Jackson",
+   "party": "Independent",
+   "title": "U.S. Representative District 5",
+   "website": "www.JacksonforCongress.us"
+  },
+  {
+   "name": "Tom Emmer",
+   "party": "Republican",
+   "title": "U.S. Representative District 6",
+   "website": ""
+  },
+  {
+   "name": "Doug Chapin",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 6",
+   "website": "chapinforcongress.com"
+  },
+  {
+   "name": "Michelle Fischbach",
+   "party": "Republican",
+   "title": "U.S. Representative District 7",
+   "website": "FischbachForCongress.com"
+  },
+  {
+   "name": "Erik Osberg",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 7",
+   "website": "www.erikosberg.com"
+  },
+  {
+   "name": "Pete Stauber",
+   "party": "Republican",
+   "title": "U.S. Representative District 8",
+   "website": "https://petestauberforcongress.com/"
+  },
+  {
+   "name": "Trina Swanson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "U.S. Representative District 8",
+   "website": "www.trinaforcongress.com"
+  },
+  {
+   "name": "Mark Johnson",
+   "party": "Republican",
+   "title": "State Senator District 1",
+   "website": ""
+  },
+  {
+   "name": "Bjorn Solberg",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 1",
+   "website": "www.bjornforminnesota.com"
+  },
+  {
+   "name": "Steve Green",
+   "party": "Republican",
+   "title": "State Senator District 2",
+   "website": ""
+  },
+  {
+   "name": "Dan R. Rogers",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 2",
+   "website": "danrogersmn.com"
+  },
+  {
+   "name": "Calvin Larson Jr",
+   "party": "United New Independence",
+   "title": "State Senator District 2",
+   "website": ""
+  },
+  {
+   "name": "Andrea Zupancich",
+   "party": "Republican",
+   "title": "State Senator District 3",
+   "website": "www.andreaformn.com"
+  },
+  {
+   "name": "Grant Hauschild",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 3",
+   "website": "grantformn.com"
+  },
+  {
+   "name": "Austin Peterson",
+   "party": "Republican",
+   "title": "State Senator District 4",
+   "website": "www.austin4mn.com"
+  },
+  {
+   "name": "Rob Kupec",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 4",
+   "website": "kupec4mnsenate.com"
+  },
+  {
+   "name": "Mike Wiener",
+   "party": "Republican",
+   "title": "State Senator District 5",
+   "website": ""
+  },
+  {
+   "name": "Skylar Fynboh",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 5",
+   "website": "skylarfynboh.com"
+  },
+  {
+   "name": "Keri Heintzeman",
+   "party": "Republican",
+   "title": "State Senator District 6",
+   "website": "HeintzemanForSenate.com"
+  },
+  {
+   "name": "Denise Slipy",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 6",
+   "website": "slipy4senate.com"
+  },
+  {
+   "name": "Robert Farnsworth",
+   "party": "Republican",
+   "title": "State Senator District 7",
+   "website": "www.robfarnsworth.org"
+  },
+  {
+   "name": "Kim (Kotonias) McLaughlin",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 7",
+   "website": "kimforsd7.com"
+  },
+  {
+   "name": "Darrick Law",
+   "party": "Republican",
+   "title": "State Senator District 8",
+   "website": "darrickformnsenate.com"
+  },
+  {
+   "name": "Jen McEwen",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 8",
+   "website": "www.votemcewen.com"
+  },
+  {
+   "name": "Jordan Rasmusson",
+   "party": "Republican",
+   "title": "State Senator District 9",
+   "website": "www.jordanrasmusson.com"
+  },
+  {
+   "name": "Krystyne M. Knutson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 9",
+   "website": "Krystyneforsd9.com"
+  },
+  {
+   "name": "Nathan Wesenberg",
+   "party": "Republican",
+   "title": "State Senator District 10",
+   "website": "wesenbergforsenate.com"
+  },
+  {
+   "name": "Tara Killen",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 10",
+   "website": ""
+  },
+  {
+   "name": "Jason Rarick",
+   "party": "Republican",
+   "title": "State Senator District 11",
+   "website": ""
+  },
+  {
+   "name": "Mary Carlson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 11",
+   "website": "www.maryforminnesota.com"
+  },
+  {
+   "name": "Monique Doward",
+   "party": "Forward Independence",
+   "title": "State Senator District 11",
+   "website": "dowardforsenate.com"
+  },
+  {
+   "name": "Torrey Westrom",
+   "party": "Republican",
+   "title": "State Senator District 12",
+   "website": "torreywestrom.com"
+  },
+  {
+   "name": "Kari Dorry",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 12",
+   "website": "www.kari4mnsenate.com"
+  },
+  {
+   "name": "Jared J. Gapinski",
+   "party": "Republican",
+   "title": "State Senator District 13",
+   "website": "gapinskiformnsenate.com"
+  },
+  {
+   "name": "Trent C Dilks",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 13",
+   "website": "www.trentformn13.com"
+  },
+  {
+   "name": "Bernie Perryman",
+   "party": "Republican",
+   "title": "State Senator District 14",
+   "website": "bernieperryman.com"
+  },
+  {
+   "name": "Aric Putnam",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 14",
+   "website": "aricformn.com"
+  },
+  {
+   "name": "Braxton John Seifert",
+   "party": "Republican",
+   "title": "State Senator District 15",
+   "website": "seifertforsenate.com"
+  },
+  {
+   "name": "Andrea Boettger",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 15",
+   "website": "www.boettgerformnsenate.com"
+  },
+  {
+   "name": "Andrew R. Lang",
+   "party": "Republican",
+   "title": "State Senator District 16",
+   "website": "LangforSenate.com"
+  },
+  {
+   "name": "Kathy Jorgenson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 16",
+   "website": ""
+  },
+  {
+   "name": "Glenn H Gruenhagen",
+   "party": "Republican",
+   "title": "State Senator District 17",
+   "website": "glenngruenhagen.com"
+  },
+  {
+   "name": "Julie Kelzer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 17",
+   "website": "juliekelzer4mnsenate.com"
+  },
+  {
+   "name": "Jackie Henry",
+   "party": "Republican",
+   "title": "State Senator District 18",
+   "website": ""
+  },
+  {
+   "name": "Nick Frentz",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 18",
+   "website": "www.frentzformnsenate.com"
+  },
+  {
+   "name": "John R. Jasinski",
+   "party": "Republican",
+   "title": "State Senator District 19",
+   "website": "www.jasinskiforsenate.com"
+  },
+  {
+   "name": "Sam Powell",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 19",
+   "website": ""
+  },
+  {
+   "name": "Steven E Jacob",
+   "party": "Republican",
+   "title": "State Senator District 20",
+   "website": ""
+  },
+  {
+   "name": "Jason Lohmann",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 20",
+   "website": "www.lohmannformnsenate20.com"
+  },
+  {
+   "name": "Chris Knoll",
+   "party": "Republican",
+   "title": "State Senator District 21",
+   "website": "knollformnsenate.com"
+  },
+  {
+   "name": "Caitlyn Sanow-Minett",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 21",
+   "website": "sanowminett.com"
+  },
+  {
+   "name": "Jeremy Munson",
+   "party": "Republican",
+   "title": "State Senator District 22",
+   "website": "www.jeremymunson.com"
+  },
+  {
+   "name": "Marisa Ulmen",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 22",
+   "website": "ulmenforsenate.org"
+  },
+  {
+   "name": "Gene Dornink",
+   "party": "Republican",
+   "title": "State Senator District 23",
+   "website": ""
+  },
+  {
+   "name": "Angie Hanson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 23",
+   "website": "www.angiehansonmnsenate.com"
+  },
+  {
+   "name": "Nels T. Pierson",
+   "party": "Republican",
+   "title": "State Senator District 24",
+   "website": "www.nels.com"
+  },
+  {
+   "name": "Simon Glaser",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 24",
+   "website": "www.Simonglaser.com"
+  },
+  {
+   "name": "John Howie",
+   "party": "Republican",
+   "title": "State Senator District 25",
+   "website": "howieforsenate.com"
+  },
+  {
+   "name": "Liz Boldon",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 25",
+   "website": "LizBoldon.com"
+  },
+  {
+   "name": "Cherie Johnson",
+   "party": "Republican",
+   "title": "State Senator District 26",
+   "website": "www.cheriejohnsonforsenate.com"
+  },
+  {
+   "name": "Jack Hedin",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 26",
+   "website": "www.jackhedin.org"
+  },
+  {
+   "name": "Andrew Mathews",
+   "party": "Republican",
+   "title": "State Senator District 27",
+   "website": "andrewmathews.com"
+  },
+  {
+   "name": "Brandon Van Dover",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 27",
+   "website": ""
+  },
+  {
+   "name": "Mark Koran",
+   "party": "Republican",
+   "title": "State Senator District 28",
+   "website": "www.markkoranmn.com"
+  },
+  {
+   "name": "Max Glenna",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 28",
+   "website": "maxforminnesota.com"
+  },
+  {
+   "name": "Michael Holmstrom Jr",
+   "party": "Republican",
+   "title": "State Senator District 29",
+   "website": "mike4mnsenate.com"
+  },
+  {
+   "name": "Louis McNutt",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 29",
+   "website": "louismcnuttformnsenate.com"
+  },
+  {
+   "name": "Eric Lucero",
+   "party": "Republican",
+   "title": "State Senator District 30",
+   "website": "www.ericlucero.com"
+  },
+  {
+   "name": "Leah Temple",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 30",
+   "website": "www.leahtemple.com"
+  },
+  {
+   "name": "Calvin Bahr",
+   "party": "Republican",
+   "title": "State Senator District 31",
+   "website": ""
+  },
+  {
+   "name": "Gadisa Berkessa",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 31",
+   "website": ""
+  },
+  {
+   "name": "Michael Kreun",
+   "party": "Republican",
+   "title": "State Senator District 32",
+   "website": "MichaelForMNSenate.com"
+  },
+  {
+   "name": "Chris Ford",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 32",
+   "website": "Chrisfordformn.com"
+  },
+  {
+   "name": "Karin Housley",
+   "party": "Republican",
+   "title": "State Senator District 33",
+   "website": "housleyforsenate.com"
+  },
+  {
+   "name": "Nat Smith",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 33",
+   "website": "www.natsmithformn.com"
+  },
+  {
+   "name": "Karen Attia",
+   "party": "Republican",
+   "title": "State Senator District 34",
+   "website": "attiaforsenate.org"
+  },
+  {
+   "name": "John Hoffman",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 34",
+   "website": "www.johnhoffmanmn.com"
+  },
+  {
+   "name": "Jim Abeler",
+   "party": "Republican",
+   "title": "State Senator District 35",
+   "website": "jimabeler.com"
+  },
+  {
+   "name": "Angela Nelson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 35",
+   "website": "nelsonformn.com"
+  },
+  {
+   "name": "Heidi Heino",
+   "party": "Republican",
+   "title": "State Senator District 36",
+   "website": "www.heidiheino.com"
+  },
+  {
+   "name": "Heather Gustafson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 36",
+   "website": "voteheathergustafson.com"
+  },
+  {
+   "name": "Brady Hoag",
+   "party": "Republican",
+   "title": "State Senator District 37",
+   "website": "bradyhoag.com"
+  },
+  {
+   "name": "Kristy Janigo",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 37",
+   "website": "kristyjanigoformn.com"
+  },
+  {
+   "name": "Brad Olson",
+   "party": "Republican",
+   "title": "State Senator District 38",
+   "website": "https://www.olson4mnsenate.com/"
+  },
+  {
+   "name": "Susan Pha",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 38",
+   "website": "susanphaforsenate.com"
+  },
+  {
+   "name": "Pam Wolf",
+   "party": "Republican",
+   "title": "State Senator District 39",
+   "website": ""
+  },
+  {
+   "name": "Mary K Kunesh",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 39",
+   "website": ""
+  },
+  {
+   "name": "Ngone Saliou Niang",
+   "party": "Green",
+   "title": "State Senator District 39",
+   "website": "https://niangforsenate.nationbuilder.com"
+  },
+  {
+   "name": "Rachel Japuntich",
+   "party": "Republican",
+   "title": "State Senator District 40",
+   "website": "Rachel4MN.com"
+  },
+  {
+   "name": "John Marty",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 40",
+   "website": "johnmarty.org"
+  },
+  {
+   "name": "Tom Dippel",
+   "party": "Republican",
+   "title": "State Senator District 41",
+   "website": "www.DippelforMN.com"
+  },
+  {
+   "name": "Judy Seeberger",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 41",
+   "website": "judyforsenate.com"
+  },
+  {
+   "name": "Kevin Peterson",
+   "party": "Republican",
+   "title": "State Senator District 42",
+   "website": "www.kpformn.com"
+  },
+  {
+   "name": "Bonnie Westlin",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 42",
+   "website": "backbonnie.com"
+  },
+  {
+   "name": "Mike Freiberg",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 43",
+   "website": "www.mikefreiberg.com"
+  },
+  {
+   "name": "James Tacheny",
+   "party": "Republican",
+   "title": "State Senator District 44",
+   "website": ""
+  },
+  {
+   "name": "Sam Rosemark",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 44",
+   "website": "samrosemark.com"
+  },
+  {
+   "name": "Shannon Bruce",
+   "party": "Republican",
+   "title": "State Senator District 45",
+   "website": "www.ShannonForMNStateSenate.com"
+  },
+  {
+   "name": "Ann Johnson Stewart",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 45",
+   "website": "www.annjohnsonstewart.com"
+  },
+  {
+   "name": "Kayla Wright",
+   "party": "Republican",
+   "title": "State Senator District 46",
+   "website": "www.wrightformn.org"
+  },
+  {
+   "name": "Ron Latz",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 46",
+   "website": "ronlatz.org"
+  },
+  {
+   "name": "Brian Stalboerger",
+   "party": "Republican",
+   "title": "State Senator District 47",
+   "website": "www.brianformn.com"
+  },
+  {
+   "name": "Amanda Hemmingsen-Jaeger",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 47",
+   "website": "www.amandaformn.com"
+  },
+  {
+   "name": "Julia Coleman",
+   "party": "Republican",
+   "title": "State Senator District 48",
+   "website": "colemanforsenate.com"
+  },
+  {
+   "name": "Dan Kessler",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 48",
+   "website": "kesslerforsenate.com"
+  },
+  {
+   "name": "Dustin R. DuFault",
+   "party": "Republican",
+   "title": "State Senator District 49",
+   "website": "www.DuFaultForMN.com"
+  },
+  {
+   "name": "Krish Subrahmanian",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 49",
+   "website": "www.krishforsenate.com"
+  },
+  {
+   "name": "Kris Babler",
+   "party": "Independent",
+   "title": "State Senator District 49",
+   "website": "krisbabler.com"
+  },
+  {
+   "name": "Owen Michaelson",
+   "party": "Republican",
+   "title": "State Senator District 50",
+   "website": "www.Owen4Senate.com"
+  },
+  {
+   "name": "Karla Hult",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 50",
+   "website": "karlahultforsenate.com"
+  },
+  {
+   "name": "Juline Birgersson",
+   "party": "Republican",
+   "title": "State Senator District 51",
+   "website": "https://juline4senate.com"
+  },
+  {
+   "name": "Simon Trautmann Cordova",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 51",
+   "website": "simonfor51.com"
+  },
+  {
+   "name": "Brady O'Neil",
+   "party": "Republican",
+   "title": "State Senator District 52",
+   "website": "bradyoneil.com"
+  },
+  {
+   "name": "Liz Reyer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 52",
+   "website": "lizreyer.com"
+  },
+  {
+   "name": "Todd Podgorski",
+   "party": "Republican",
+   "title": "State Senator District 53",
+   "website": "ToddPodgorski.com"
+  },
+  {
+   "name": "Paul Cumings",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 53",
+   "website": "paulcumings.com"
+  },
+  {
+   "name": "Ben Bakeberg",
+   "party": "Republican",
+   "title": "State Senator District 54",
+   "website": "www.BenBakebergMN.com"
+  },
+  {
+   "name": "Rick Olson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 54",
+   "website": "https://rickformn.com"
+  },
+  {
+   "name": "Van Holston",
+   "party": "Republican",
+   "title": "State Senator District 55",
+   "website": ""
+  },
+  {
+   "name": "Lindsey Port",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 55",
+   "website": "www.lindseyportmn.com"
+  },
+  {
+   "name": "Raymond David Petersen",
+   "party": "Republican",
+   "title": "State Senator District 56",
+   "website": "rayforsenate.com"
+  },
+  {
+   "name": "Erin Maye Quade",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 56",
+   "website": ""
+  },
+  {
+   "name": "Zach Duckworth",
+   "party": "Republican",
+   "title": "State Senator District 57",
+   "website": "voteduckworth.com"
+  },
+  {
+   "name": "Steven Schroer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 57",
+   "website": "https://stevenschroermn.org"
+  },
+  {
+   "name": "Bill Lieske",
+   "party": "Republican",
+   "title": "State Senator District 58",
+   "website": "lieske4senate.com"
+  },
+  {
+   "name": "Mark Legvold",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 58",
+   "website": "legvold4mnsenate58.com"
+  },
+  {
+   "name": "Bobby Joe Champion",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 59",
+   "website": ""
+  },
+  {
+   "name": "Abigail Wolters",
+   "party": "Republican",
+   "title": "State Senator District 60",
+   "website": "abigailwolters.com"
+  },
+  {
+   "name": "Doron Clark",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 60",
+   "website": "www.DoronForSenate.com"
+  },
+  {
+   "name": "Scott Dibble",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 61",
+   "website": "www.scottdibble.com"
+  },
+  {
+   "name": "Omar Fateh",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 62",
+   "website": ""
+  },
+  {
+   "name": "Diane Napper",
+   "party": "Republican",
+   "title": "State Senator District 63",
+   "website": "dianenapper.com"
+  },
+  {
+   "name": "Zaynab Mohamed",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 63",
+   "website": "zaynabmohamed.org"
+  },
+  {
+   "name": "Robert Bushard",
+   "party": "Republican",
+   "title": "State Senator District 64",
+   "website": ""
+  },
+  {
+   "name": "Erin Murphy",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 64",
+   "website": "murphyfor64.com"
+  },
+  {
+   "name": "_ Rocco",
+   "party": "Republican",
+   "title": "State Senator District 65",
+   "website": ""
+  },
+  {
+   "name": "Robyn Gulley",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 65",
+   "website": "www.robyngulley.com"
+  },
+  {
+   "name": "Kathleen Bart",
+   "party": "Republican",
+   "title": "State Senator District 66",
+   "website": "kathleenbartforsenate.com"
+  },
+  {
+   "name": "Clare Oumou Verbeten",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 66",
+   "website": "clareoumou.com"
+  },
+  {
+   "name": "Toby Hesselgrave",
+   "party": "Republican",
+   "title": "State Senator District 67",
+   "website": ""
+  },
+  {
+   "name": "Foung Hawj",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Senator District 67",
+   "website": "www.founghawj.com"
+  },
+  {
+   "name": "John Burkel",
+   "party": "Republican",
+   "title": "State Representative District 1A",
+   "website": "www.burkelforhouse.com"
+  },
+  {
+   "name": "Leanna Sandahl",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 1A",
+   "website": "sandahlformn.com"
+  },
+  {
+   "name": "Steve Gander",
+   "party": "Republican",
+   "title": "State Representative District 1B",
+   "website": "stevegander.com"
+  },
+  {
+   "name": "Jennifer Compeau",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 1B",
+   "website": ""
+  },
+  {
+   "name": "Bidal Duran Jr",
+   "party": "Republican",
+   "title": "State Representative District 2A",
+   "website": "duranforhouse.com"
+  },
+  {
+   "name": "Reed J. Olson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 2A",
+   "website": "www.VoteReedOlson.com"
+  },
+  {
+   "name": "Matt Bliss",
+   "party": "Republican",
+   "title": "State Representative District 2B",
+   "website": "WWW.MATTBLISS.US"
+  },
+  {
+   "name": "Emily Thabes",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 2B",
+   "website": "emilythabesformn.com"
+  },
+  {
+   "name": "Roger J. Skraba",
+   "party": "Republican",
+   "title": "State Representative District 3A",
+   "website": "SKRABAforHouse.com"
+  },
+  {
+   "name": "Aaron Kania",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 3A",
+   "website": "https://kaniaforhouse.com"
+  },
+  {
+   "name": "Natalie Zeleznikar",
+   "party": "Republican",
+   "title": "State Representative District 3B",
+   "website": "natalieforhouse.com"
+  },
+  {
+   "name": "Aaron Schweiger",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 3B",
+   "website": "www.AARONFORMN.com"
+  },
+  {
+   "name": "Andrew Rockhold",
+   "party": "Republican",
+   "title": "State Representative District 4A",
+   "website": "www.rockholdforhouse.com"
+  },
+  {
+   "name": "Erika Yoney",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 4A",
+   "website": "yoney4mnhouse.com"
+  },
+  {
+   "name": "Jim Joy",
+   "party": "Republican",
+   "title": "State Representative District 4B",
+   "website": "jimjoymn.com"
+  },
+  {
+   "name": "Thaddeus Laugisch",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 4B",
+   "website": ""
+  },
+  {
+   "name": "Krista Knudsen",
+   "party": "Republican",
+   "title": "State Representative District 5A",
+   "website": ""
+  },
+  {
+   "name": "Dan S. Mitchell",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 5A",
+   "website": ""
+  },
+  {
+   "name": "Jonathan Claussen",
+   "party": "Republican",
+   "title": "State Representative District 5B",
+   "website": "claussenforhouse.org"
+  },
+  {
+   "name": "Maggie Evers",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 5B",
+   "website": ""
+  },
+  {
+   "name": "Ben Davis",
+   "party": "Republican",
+   "title": "State Representative District 6A",
+   "website": ""
+  },
+  {
+   "name": "Samuel Grigsby",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 6A",
+   "website": ""
+  },
+  {
+   "name": "Josh Heintzeman",
+   "party": "Republican",
+   "title": "State Representative District 6B",
+   "website": "JoshHeintzeman.com"
+  },
+  {
+   "name": "Nicky Hardy",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 6B",
+   "website": "www.nickyhardy.com"
+  },
+  {
+   "name": "Spencer Igo",
+   "party": "Republican",
+   "title": "State Representative District 7A",
+   "website": "www.spencerigo.com"
+  },
+  {
+   "name": "Erin McCabe Ningen",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 7A",
+   "website": "teamerin7a.com"
+  },
+  {
+   "name": "Cal Warwas",
+   "party": "Republican",
+   "title": "State Representative District 7B",
+   "website": "www.calwarwas.com"
+  },
+  {
+   "name": "Dan Horoshak",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 7B",
+   "website": "horoshak2026.com"
+  },
+  {
+   "name": "Allan Kehr II",
+   "party": "Republican",
+   "title": "State Representative District 8A",
+   "website": ""
+  },
+  {
+   "name": "Peter Johnson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 8A",
+   "website": "www.VotePete8A.com"
+  },
+  {
+   "name": "Shawn Savela",
+   "party": "Republican",
+   "title": "State Representative District 8B",
+   "website": "shawnsavela.com"
+  },
+  {
+   "name": "Liish Kozlowski",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 8B",
+   "website": "www.liishforduluth.com"
+  },
+  {
+   "name": "Jeff Backer",
+   "party": "Republican",
+   "title": "State Representative District 9A",
+   "website": "JeffBacker.com"
+  },
+  {
+   "name": "Nicholas Hanson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 9A",
+   "website": ""
+  },
+  {
+   "name": "Tom Murphy",
+   "party": "Republican",
+   "title": "State Representative District 9B",
+   "website": "www.tommurphymn.com"
+  },
+  {
+   "name": "Owen Werner",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 9B",
+   "website": ""
+  },
+  {
+   "name": "Mark Striemer",
+   "party": "Republican",
+   "title": "State Representative District 10A",
+   "website": "https://www.striemerforhouse.com"
+  },
+  {
+   "name": "Melissa Maertens",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 10A",
+   "website": "mmformn.com"
+  },
+  {
+   "name": "Isaac Schultz",
+   "party": "Republican",
+   "title": "State Representative District 10B",
+   "website": "isaacschultzmn.com"
+  },
+  {
+   "name": "Jeff Larson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 10B",
+   "website": "jefflarsonforhouse.com"
+  },
+  {
+   "name": "Jeff Dotseth",
+   "party": "Republican",
+   "title": "State Representative District 11A",
+   "website": "www.dotsethmn.com"
+  },
+  {
+   "name": "Chris Swanson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 11A",
+   "website": "chrisswansonforhouse.com"
+  },
+  {
+   "name": "Nathan Nelson",
+   "party": "Republican",
+   "title": "State Representative District 11B",
+   "website": "www.nathannelsonmn.com"
+  },
+  {
+   "name": "Jack L'Heureux",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 11B",
+   "website": "www.jackformnhouse.com"
+  },
+  {
+   "name": "Paul H. Anderson",
+   "party": "Republican",
+   "title": "State Representative District 12A",
+   "website": ""
+  },
+  {
+   "name": "Talitha Anderson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 12A",
+   "website": "talithaformnhouse.org"
+  },
+  {
+   "name": "Mary Franson",
+   "party": "Republican",
+   "title": "State Representative District 12B",
+   "website": "www.teamfranson.com"
+  },
+  {
+   "name": "Michael Gardner",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 12B",
+   "website": ""
+  },
+  {
+   "name": "Tanja Goering",
+   "party": "Republican",
+   "title": "State Representative District 13A",
+   "website": "tanjagoeringformn.com"
+  },
+  {
+   "name": "Arlis Sayler",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 13A",
+   "website": "arlisformn.com"
+  },
+  {
+   "name": "Dawn Loberg",
+   "party": "Republican",
+   "title": "State Representative District 13B",
+   "website": "lobergformnhouse.com"
+  },
+  {
+   "name": "Justin Doyle",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 13B",
+   "website": ""
+  },
+  {
+   "name": "Mike Conway",
+   "party": "Republican",
+   "title": "State Representative District 14A",
+   "website": ""
+  },
+  {
+   "name": "Abdi Daisane",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 14A",
+   "website": "www.daisaneformn.com"
+  },
+  {
+   "name": "Sue Ek",
+   "party": "Republican",
+   "title": "State Representative District 14B",
+   "website": "ekforhouse.com"
+  },
+  {
+   "name": "Zachary \"Zach\" Dorholt",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 14B",
+   "website": "www.zacharydorholt.com"
+  },
+  {
+   "name": "Bradley L Hennen",
+   "party": "Republican",
+   "title": "State Representative District 15A",
+   "website": "hennen4house.com"
+  },
+  {
+   "name": "Nathan Schmig",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 15A",
+   "website": "schmigforminnesota.com"
+  },
+  {
+   "name": "Geri Theis",
+   "party": "Republican",
+   "title": "State Representative District 15B",
+   "website": "Theisforhouse.com"
+  },
+  {
+   "name": "Keith R. Klawitter",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 15B",
+   "website": "KlawitterforHouse.com"
+  },
+  {
+   "name": "Scott Van Binsbergen",
+   "party": "Republican",
+   "title": "State Representative District 16A",
+   "website": ""
+  },
+  {
+   "name": "David J Torgelson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 16A",
+   "website": ""
+  },
+  {
+   "name": "Dave Baker",
+   "party": "Republican",
+   "title": "State Representative District 16B",
+   "website": ""
+  },
+  {
+   "name": "Julie Henslin",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 16B",
+   "website": ""
+  },
+  {
+   "name": "Dawn Gillman",
+   "party": "Republican",
+   "title": "State Representative District 17A",
+   "website": "gillmanforhouse.com"
+  },
+  {
+   "name": "Mali Anderson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 17A",
+   "website": ""
+  },
+  {
+   "name": "Bobbie Harder",
+   "party": "Republican",
+   "title": "State Representative District 17B",
+   "website": "harderforhouse.com"
+  },
+  {
+   "name": "Ben Wieman",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 17B",
+   "website": "www.benformnhouse.com"
+  },
+  {
+   "name": "Erica Schwartz",
+   "party": "Republican",
+   "title": "State Representative District 18A",
+   "website": "www.ericaformn.org"
+  },
+  {
+   "name": "Leah Hanson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 18A",
+   "website": "www.Leahhansonforhouse.com"
+  },
+  {
+   "name": "Luke Frederick",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 18B",
+   "website": "www.frederickforhouse.com"
+  },
+  {
+   "name": "Keith Allen",
+   "party": "Republican",
+   "title": "State Representative District 19A",
+   "website": "VoteKeithAllen.com"
+  },
+  {
+   "name": "Martha Brown",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 19A",
+   "website": "https://www.marthabrown19a.com/"
+  },
+  {
+   "name": "Thomas J. Sexton",
+   "party": "Republican",
+   "title": "State Representative District 19B",
+   "website": ""
+  },
+  {
+   "name": "Zack Meyman",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 19B",
+   "website": "MEYMANFORMN.COM"
+  },
+  {
+   "name": "Pam Altendorf",
+   "party": "Republican",
+   "title": "State Representative District 20A",
+   "website": "pamaltendorf.com"
+  },
+  {
+   "name": "Heather Arndt",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 20A",
+   "website": "heatherforhouse20a.org"
+  },
+  {
+   "name": "Sara Bertschinger",
+   "party": "Republican",
+   "title": "State Representative District 20B",
+   "website": "bertschingerforhouse.com"
+  },
+  {
+   "name": "Steve Holm",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 20B",
+   "website": "holmforhouse.com"
+  },
+  {
+   "name": "Krist Wollum",
+   "party": "Republican",
+   "title": "State Representative District 21A",
+   "website": "wollum4house.com"
+  },
+  {
+   "name": "LS Rusty Nelson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 21A",
+   "website": "Nelsonfor21A.com"
+  },
+  {
+   "name": "Marj J Fogelman",
+   "party": "Republican",
+   "title": "State Representative District 21B",
+   "website": "marjformnhouse.com"
+  },
+  {
+   "name": "Jon Wilson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 21B",
+   "website": "jonwilsonformnhouse21b.com"
+  },
+  {
+   "name": "Bjorn Olson",
+   "party": "Republican",
+   "title": "State Representative District 22A",
+   "website": ""
+  },
+  {
+   "name": "Sonja L. Denn",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 22A",
+   "website": "sonjadennfor22a.com"
+  },
+  {
+   "name": "Terry Matthew Stier",
+   "party": "Republican",
+   "title": "State Representative District 22B",
+   "website": "stierforhouse.com"
+  },
+  {
+   "name": "Mary Nesgoda",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 22B",
+   "website": "mnesgoda22b.org"
+  },
+  {
+   "name": "Nick Ronnenberg",
+   "party": "Republican",
+   "title": "State Representative District 23A",
+   "website": "www.ronnenbergformn.com"
+  },
+  {
+   "name": "Joe Staloch",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 23A",
+   "website": "www.Joe23A.com"
+  },
+  {
+   "name": "Patricia Mueller",
+   "party": "Republican",
+   "title": "State Representative District 23B",
+   "website": "muellerforminnesota.com"
+  },
+  {
+   "name": "Christoph Dundas",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 23B",
+   "website": "dundasformnhouse.com"
+  },
+  {
+   "name": "Duane Quam",
+   "party": "Republican",
+   "title": "State Representative District 24A",
+   "website": "duanequam.com"
+  },
+  {
+   "name": "Heather Holmes",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 24A",
+   "website": "holmesformn.com"
+  },
+  {
+   "name": "John Michael Ajouri",
+   "party": "Republican",
+   "title": "State Representative District 24B",
+   "website": "www.ajouri.org"
+  },
+  {
+   "name": "Tina Liebling",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 24B",
+   "website": "www.tinaliebling.com"
+  },
+  {
+   "name": "Brad Trahan",
+   "party": "Republican",
+   "title": "State Representative District 25A",
+   "website": "www.TrahanMN25A.com"
+  },
+  {
+   "name": "Kim Hicks",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 25A",
+   "website": "www.kimhicksformnhouse25a.com"
+  },
+  {
+   "name": "Wes Lund",
+   "party": "Republican",
+   "title": "State Representative District 25B",
+   "website": ""
+  },
+  {
+   "name": "Andy Smith",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 25B",
+   "website": "andysmithmn.com"
+  },
+  {
+   "name": "Aaron Repinski",
+   "party": "Republican",
+   "title": "State Representative District 26A",
+   "website": "repinskiforhouse.com"
+  },
+  {
+   "name": "Dan Wilson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 26A",
+   "website": "DanWilsonforHouse.com"
+  },
+  {
+   "name": "Gregory M. Davids",
+   "party": "Republican",
+   "title": "State Representative District 26B",
+   "website": ""
+  },
+  {
+   "name": "Allie Wolf",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 26B",
+   "website": "alliewolfformnhouse.org"
+  },
+  {
+   "name": "Shane Mekeland",
+   "party": "Republican",
+   "title": "State Representative District 27A",
+   "website": ""
+  },
+  {
+   "name": "Vanessa Davenport",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 27A",
+   "website": "www.davenportmn27a.house"
+  },
+  {
+   "name": "Bryan Lawrence",
+   "party": "Republican",
+   "title": "State Representative District 27B",
+   "website": ""
+  },
+  {
+   "name": "Charles A. McConaughay",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 27B",
+   "website": "charlesforMN.com"
+  },
+  {
+   "name": "James \"Jimmy\" Gordon",
+   "party": "Republican",
+   "title": "State Representative District 28A",
+   "website": "www.jimmyforhouse.com"
+  },
+  {
+   "name": "Tim Dummer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 28A",
+   "website": "TimDummerForMN.com"
+  },
+  {
+   "name": "Max Rymer",
+   "party": "Republican",
+   "title": "State Representative District 28B",
+   "website": "MaxRymer.com"
+  },
+  {
+   "name": "Daniel Colten Schmidt",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 28B",
+   "website": "elect-schmidt.org"
+  },
+  {
+   "name": "Joe McDonald",
+   "party": "Republican",
+   "title": "State Representative District 29A",
+   "website": "joemcdonaldmn.com"
+  },
+  {
+   "name": "Emily Dahlgren",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 29A",
+   "website": ""
+  },
+  {
+   "name": "Marion (O'Neill) Rarick",
+   "party": "Republican",
+   "title": "State Representative District 29B",
+   "website": ""
+  },
+  {
+   "name": "Colton Kratky",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 29B",
+   "website": "kratky4mn.com"
+  },
+  {
+   "name": "Walter Hudson",
+   "party": "Republican",
+   "title": "State Representative District 30A",
+   "website": "hudsonformn.com"
+  },
+  {
+   "name": "Joey Smyth",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 30A",
+   "website": "www.smythforstatehouse.com"
+  },
+  {
+   "name": "Chad Westberg",
+   "party": "Republican",
+   "title": "State Representative District 30B",
+   "website": "chadwestbergforMN.com"
+  },
+  {
+   "name": "Keenan Gentry",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 30B",
+   "website": "www.gentryforMNHouse.org"
+  },
+  {
+   "name": "Harry Niska",
+   "party": "Republican",
+   "title": "State Representative District 31A",
+   "website": "harryniska.com"
+  },
+  {
+   "name": "Brian Walker",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 31A",
+   "website": "WALKERFORWARD.com"
+  },
+  {
+   "name": "Peggy Scott",
+   "party": "Republican",
+   "title": "State Representative District 31B",
+   "website": "peggy4house.com"
+  },
+  {
+   "name": "Jen Bloomquist",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 31B",
+   "website": "https://www.jenformnhouse.com/"
+  },
+  {
+   "name": "Nolan West",
+   "party": "Republican",
+   "title": "State Representative District 32A",
+   "website": "nolanwest.com"
+  },
+  {
+   "name": "Amanda Matchett",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 32A",
+   "website": "matchett4minnesota.com"
+  },
+  {
+   "name": "Leslie Larson",
+   "party": "Republican",
+   "title": "State Representative District 32B",
+   "website": "LeslieLarsonforMN.com"
+  },
+  {
+   "name": "Matt Norris",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 32B",
+   "website": "www.votefornorris.com"
+  },
+  {
+   "name": "Stacey Stout",
+   "party": "Republican",
+   "title": "State Representative District 33A",
+   "website": "staceystout.com"
+  },
+  {
+   "name": "Angela Thompson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 33A",
+   "website": "angelathompsonformnhouse.com"
+  },
+  {
+   "name": "Jessica L. Johnson",
+   "party": "Republican",
+   "title": "State Representative District 33B",
+   "website": "www.JessicaforMNHouse.com"
+  },
+  {
+   "name": "Josiah Hill",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 33B",
+   "website": "josiahhill.org"
+  },
+  {
+   "name": "Danny Nadeau",
+   "party": "Republican",
+   "title": "State Representative District 34A",
+   "website": "www.dannynadeau.com"
+  },
+  {
+   "name": "Jason Heaser",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 34A",
+   "website": "www.heaserforhouse.com"
+  },
+  {
+   "name": "Ruth Bittner",
+   "party": "Republican",
+   "title": "State Representative District 34B",
+   "website": "www.RuthBittnerMN.com"
+  },
+  {
+   "name": "Xp Lee",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 34B",
+   "website": "xpleeformnhouse.com"
+  },
+  {
+   "name": "Josh Jungling",
+   "party": "Republican",
+   "title": "State Representative District 35A",
+   "website": "www.JoshJungling.com"
+  },
+  {
+   "name": "Zack Stephenson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 35A",
+   "website": "www.zack.mn"
+  },
+  {
+   "name": "Steve Pape",
+   "party": "Republican",
+   "title": "State Representative District 35B",
+   "website": "www.PAPEFORMNHOUSE.com"
+  },
+  {
+   "name": "Kari Rehrauer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 35B",
+   "website": "kariformn.com"
+  },
+  {
+   "name": "Sebastian Stoss",
+   "party": "Republican",
+   "title": "State Representative District 36A",
+   "website": "stossforhouse.com"
+  },
+  {
+   "name": "Jim DeMay",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 36A",
+   "website": "demayforhouse.com"
+  },
+  {
+   "name": "Patty Bradway",
+   "party": "Republican",
+   "title": "State Representative District 36B",
+   "website": "bradway4house.com"
+  },
+  {
+   "name": "Brion Curran",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 36B",
+   "website": "brioncurran.com"
+  },
+  {
+   "name": "Tom McKee",
+   "party": "Republican",
+   "title": "State Representative District 37A",
+   "website": "tommckeemn.com"
+  },
+  {
+   "name": "Darci Smith",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 37A",
+   "website": "smithformnhouse.com"
+  },
+  {
+   "name": "Luke Doerer",
+   "party": "Republican",
+   "title": "State Representative District 37B",
+   "website": "www.votelukedoerermn.com"
+  },
+  {
+   "name": "Kristin Bahner",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 37B",
+   "website": "www.bahnerforhouse.com"
+  },
+  {
+   "name": "Charlie Kistler",
+   "party": "Republican",
+   "title": "State Representative District 38A",
+   "website": "www.kistlerforhouse.com"
+  },
+  {
+   "name": "Huldah Momanyi-Hiltsley",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 38A",
+   "website": "huldahforhouse.com"
+  },
+  {
+   "name": "Robert Marvin",
+   "party": "Republican",
+   "title": "State Representative District 38B",
+   "website": "marvinforhouse.com"
+  },
+  {
+   "name": "Samantha Vang",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 38B",
+   "website": "samanthavang.org"
+  },
+  {
+   "name": "Andy Macko",
+   "party": "Republican",
+   "title": "State Representative District 39A",
+   "website": ""
+  },
+  {
+   "name": "Aaron Klemz",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 39A",
+   "website": "www.Aaronklemz.com"
+  },
+  {
+   "name": "KT Jacobs",
+   "party": "Republican",
+   "title": "State Representative District 39B",
+   "website": "www.KTForHouse.com"
+  },
+  {
+   "name": "Amáda Márquez Simula",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 39B",
+   "website": "www.voteamada.com"
+  },
+  {
+   "name": "Luis Withrow",
+   "party": "Republican",
+   "title": "State Representative District 40A",
+   "website": "www.luisfor40A.com"
+  },
+  {
+   "name": "Aisha Elmquist",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 40A",
+   "website": "www.voteelmquist.com"
+  },
+  {
+   "name": "Allen Shen",
+   "party": "Republican",
+   "title": "State Representative District 40B",
+   "website": "allenshenformn.com"
+  },
+  {
+   "name": "David Gottfried",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 40B",
+   "website": "www.david-gottfried.com"
+  },
+  {
+   "name": "Wayne A Johnson",
+   "party": "Republican",
+   "title": "State Representative District 41A",
+   "website": "waynejohnsonformn.com"
+  },
+  {
+   "name": "Cole Birkeland",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 41A",
+   "website": "www.colebirkeland.com"
+  },
+  {
+   "name": "William Beck",
+   "party": "Republican",
+   "title": "State Representative District 41B",
+   "website": "BeckforHouse.com"
+  },
+  {
+   "name": "Jen Fox",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 41B",
+   "website": "jenfoxforhouse.com"
+  },
+  {
+   "name": "Kathy Burkett",
+   "party": "Republican",
+   "title": "State Representative District 42A",
+   "website": ""
+  },
+  {
+   "name": "Ned Carroll",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 42A",
+   "website": "nedformn.com"
+  },
+  {
+   "name": "Ginny Klevorn",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 42B",
+   "website": "GinnyKlevorn.com"
+  },
+  {
+   "name": "Todd Hesemann",
+   "party": "Republican",
+   "title": "State Representative District 43A",
+   "website": "https://todd4mnhouse.com"
+  },
+  {
+   "name": "Kyrstin Schuette",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 43A",
+   "website": "kyrstinforminnesota.com"
+  },
+  {
+   "name": "Jess Lewis",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 43B",
+   "website": "www.votejesslewis.com"
+  },
+  {
+   "name": "Justin Middaugh",
+   "party": "Republican",
+   "title": "State Representative District 44A",
+   "website": "www.justinforhouse.us"
+  },
+  {
+   "name": "Peter M Fischer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 44A",
+   "website": "https://www.fischerforrep.com"
+  },
+  {
+   "name": "Leon M. Lillie",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 44B",
+   "website": ""
+  },
+  {
+   "name": "TJ Hawthorne",
+   "party": "Independent",
+   "title": "State Representative District 44B",
+   "website": ""
+  },
+  {
+   "name": "Andrew Myers",
+   "party": "Republican",
+   "title": "State Representative District 45A",
+   "website": "VoteAndrewMyers.com"
+  },
+  {
+   "name": "Tracey Breazeale",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 45A",
+   "website": "traceyformnhouse.com"
+  },
+  {
+   "name": "Thomas Bergerson",
+   "party": "Republican",
+   "title": "State Representative District 45B",
+   "website": "tombergersonformn.com"
+  },
+  {
+   "name": "Patty Acomb",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 45B",
+   "website": "www.pattyacomb.com"
+  },
+  {
+   "name": "Karl Olson",
+   "party": "Republican",
+   "title": "State Representative District 46A",
+   "website": "MNKarlOlson.org"
+  },
+  {
+   "name": "Larry Kraft",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 46A",
+   "website": "Larrykraftslp.org"
+  },
+  {
+   "name": "Kim Rich",
+   "party": "Republican",
+   "title": "State Representative District 46B",
+   "website": "www.kimrichformn.org"
+  },
+  {
+   "name": "Cheryl Youakim",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 46B",
+   "website": ""
+  },
+  {
+   "name": "Shelley Buck",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 47A",
+   "website": "buckforhouse.com"
+  },
+  {
+   "name": "Ethan Cha",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 47B",
+   "website": "www.ethanchamnhouse.com"
+  },
+  {
+   "name": "Kim Wilson",
+   "party": "Independent",
+   "title": "State Representative District 47B",
+   "website": ""
+  },
+  {
+   "name": "Jim Nash",
+   "party": "Republican",
+   "title": "State Representative District 48A",
+   "website": "www.jimnashformn.com"
+  },
+  {
+   "name": "Joe Brothers",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 48A",
+   "website": "https://www.joebrothersforminnesota.com/"
+  },
+  {
+   "name": "Caleb Steffenhagen",
+   "party": "Republican",
+   "title": "State Representative District 48B",
+   "website": "www.calebformn.com"
+  },
+  {
+   "name": "Lucille \"Lucy\" Rehm",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 48B",
+   "website": "lucyrehm.com"
+  },
+  {
+   "name": "Jeff Houdek",
+   "party": "Republican",
+   "title": "State Representative District 49A",
+   "website": "HoudekforMN.com"
+  },
+  {
+   "name": "Alex Falconer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 49A",
+   "website": "www.alexforhouse.org"
+  },
+  {
+   "name": "Wendy Cregg",
+   "party": "Republican",
+   "title": "State Representative District 49B",
+   "website": "creggformn.com"
+  },
+  {
+   "name": "Carlie Kotyza-Witthuhn",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 49B",
+   "website": "www.carlieforhouse.com"
+  },
+  {
+   "name": "Chris Wedum",
+   "party": "Republican",
+   "title": "State Representative District 50A",
+   "website": "https://www.wedum4mn.com/"
+  },
+  {
+   "name": "Julie Greene",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 50A",
+   "website": "www.greeneforminnesota.com"
+  },
+  {
+   "name": "Steve Elkins",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 50B",
+   "website": "www.elkinsforhouse.com"
+  },
+  {
+   "name": "Frank Pafko",
+   "party": "Republican",
+   "title": "State Representative District 51A",
+   "website": ""
+  },
+  {
+   "name": "Michael Howard",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 51A",
+   "website": "MichaelHowardMN.com"
+  },
+  {
+   "name": "Jim Lund",
+   "party": "Republican",
+   "title": "State Representative District 51B",
+   "website": ""
+  },
+  {
+   "name": "Nathan Coulter",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 51B",
+   "website": "www.neighborsfornathan.com"
+  },
+  {
+   "name": "George Gilmour",
+   "party": "Republican",
+   "title": "State Representative District 52A",
+   "website": "gilmourformnhouse.com"
+  },
+  {
+   "name": "Christos Roy Jensen",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 52A",
+   "website": "www.votechristos.com"
+  },
+  {
+   "name": "Tom Lopac",
+   "party": "Republican",
+   "title": "State Representative District 52B",
+   "website": "LopacMNHouse.com"
+  },
+  {
+   "name": "Bianca Virnig",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 52B",
+   "website": "www.biancavirnig.com"
+  },
+  {
+   "name": "AJ Gubash",
+   "party": "Republican",
+   "title": "State Representative District 53A",
+   "website": "ajgubashforhouse.com"
+  },
+  {
+   "name": "Mary Frances Clardy",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 53A",
+   "website": "clardyforhouse.com"
+  },
+  {
+   "name": "Patti Mikulski",
+   "party": "Republican",
+   "title": "State Representative District 53B",
+   "website": "mikulski4house.com"
+  },
+  {
+   "name": "Rick Hansen",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 53B",
+   "website": "www.votehansen.com"
+  },
+  {
+   "name": "Aaron Paul",
+   "party": "Republican",
+   "title": "State Representative District 54A",
+   "website": ""
+  },
+  {
+   "name": "Brad Tabke",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 54A",
+   "website": ""
+  },
+  {
+   "name": "Natalie Barnes",
+   "party": "Republican",
+   "title": "State Representative District 54B",
+   "website": "www.nursenatalieformn.com"
+  },
+  {
+   "name": "Christopher Kartschoke",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 54B",
+   "website": "ck4mn.com"
+  },
+  {
+   "name": "Pam Myhra",
+   "party": "Republican",
+   "title": "State Representative District 55A",
+   "website": "pamforhouse.com"
+  },
+  {
+   "name": "Jessica Hanson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 55A",
+   "website": "www.jesshansonforhouse.com"
+  },
+  {
+   "name": "Todd Buchwald",
+   "party": "Republican",
+   "title": "State Representative District 55B",
+   "website": "Toddformn.com"
+  },
+  {
+   "name": "Hunter Cantrell",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 55B",
+   "website": "www.hunterCantrell.com"
+  },
+  {
+   "name": "A.J. Prospect",
+   "party": "Republican",
+   "title": "State Representative District 56A",
+   "website": "AJProspectForMN.com"
+  },
+  {
+   "name": "Robert Bierman",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 56A",
+   "website": "ElectRobertBierman.com"
+  },
+  {
+   "name": "Andrew Hattaway",
+   "party": "Republican",
+   "title": "State Representative District 56B",
+   "website": "andrewhattawayformn.com"
+  },
+  {
+   "name": "John Huot",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 56B",
+   "website": "huotforhouse.com"
+  },
+  {
+   "name": "Jon Koznick",
+   "party": "Republican",
+   "title": "State Representative District 57A",
+   "website": "www.jonkoznick.com"
+  },
+  {
+   "name": "JD Delgado",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 57A",
+   "website": "jdformn.com"
+  },
+  {
+   "name": "Jeff Witte",
+   "party": "Republican",
+   "title": "State Representative District 57B",
+   "website": "www.witteforhouse.com"
+  },
+  {
+   "name": "Brian Cohn",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 57B",
+   "website": "https://briancohn4mn.com"
+  },
+  {
+   "name": "Steven E. Cherney",
+   "party": "Republican",
+   "title": "State Representative District 58A",
+   "website": "cherneyformn.com"
+  },
+  {
+   "name": "Kristi Pursell",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 58A",
+   "website": "www.kristipursell.com"
+  },
+  {
+   "name": "Drew Roach",
+   "party": "Republican",
+   "title": "State Representative District 58B",
+   "website": "drewforhouse.com"
+  },
+  {
+   "name": "Ed Fellows",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 58B",
+   "website": "fellows4mnhouse58b.com"
+  },
+  {
+   "name": "Fue Lee",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 59A",
+   "website": "WWW.FUELEE.ORG"
+  },
+  {
+   "name": "Kenneth Smoron",
+   "party": "Republican",
+   "title": "State Representative District 59B",
+   "website": "www.smoronformnhouse.com"
+  },
+  {
+   "name": "Esther Agbaje",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 59B",
+   "website": "www.estheragbaje.com"
+  },
+  {
+   "name": "John Holmberg",
+   "party": "Republican",
+   "title": "State Representative District 60A",
+   "website": ""
+  },
+  {
+   "name": "Sydney Jordan",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 60A",
+   "website": "sydneyjordan.org"
+  },
+  {
+   "name": "Mohamud Noor",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 60B",
+   "website": ""
+  },
+  {
+   "name": "Katie Jones",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 61A",
+   "website": "www.katiejones.org"
+  },
+  {
+   "name": "Jamie Long",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 61B",
+   "website": "www.jamielong.com"
+  },
+  {
+   "name": "Aisha Gomez",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 62A",
+   "website": "Aishagomez.com"
+  },
+  {
+   "name": "Bob Sullentrop",
+   "party": "Republican",
+   "title": "State Representative District 62B",
+   "website": ""
+  },
+  {
+   "name": "Anquam Mahamoud",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 62B",
+   "website": "anquam62b.com"
+  },
+  {
+   "name": "Kyle Bragg",
+   "party": "Republican",
+   "title": "State Representative District 63A",
+   "website": ""
+  },
+  {
+   "name": "Samantha Sencer-Mura",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 63A",
+   "website": "www.sencer-mura.org"
+  },
+  {
+   "name": "Nicholas Peters",
+   "party": "Republican",
+   "title": "State Representative District 63B",
+   "website": ""
+  },
+  {
+   "name": "Emma Greenman",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 63B",
+   "website": "emmagreenman.com"
+  },
+  {
+   "name": "Meg Luger-Nikolai",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 64A",
+   "website": "megfor64A.com"
+  },
+  {
+   "name": "Dave Pinto",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 64B",
+   "website": "www.davepinto.com"
+  },
+  {
+   "name": "Samakab Hussein",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 65A",
+   "website": "samakabhussein.com"
+  },
+  {
+   "name": "Sebastian Ellefson",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 65B",
+   "website": "www.teamellefson.com"
+  },
+  {
+   "name": "Mark Born",
+   "party": "Republican",
+   "title": "State Representative District 66A",
+   "website": "MarkBornformn.com"
+  },
+  {
+   "name": "Leigh Finke",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 66A",
+   "website": "leighformn.com"
+  },
+  {
+   "name": "Mary O'Neal",
+   "party": "Republican",
+   "title": "State Representative District 66B",
+   "website": ""
+  },
+  {
+   "name": "Athena Hollins",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 66B",
+   "website": "www.athenahollins.com"
+  },
+  {
+   "name": "Jennifer McPherson",
+   "party": "Republican",
+   "title": "State Representative District 67A",
+   "website": "votejennifermcpherson67a.com"
+  },
+  {
+   "name": "Liz Lee",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 67A",
+   "website": "LizLee.org"
+  },
+  {
+   "name": "Jay Xiong",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Representative District 67B",
+   "website": ""
+  },
+  {
+   "name": "Lisa Demuth & Ryan Wilson",
+   "party": "Republican",
+   "title": "Governor & Lt Governor",
+   "website": "LisaforMN.com"
+  },
+  {
+   "name": "Amy Klobuchar & Ben Schierer",
+   "party": "Democratic-Farmer-Labor",
+   "title": "Governor & Lt Governor",
+   "website": "https://www.amyklobuchar.com"
+  },
+  {
+   "name": "Steven Young & Jane Kirby",
+   "party": "Green",
+   "title": "Governor & Lt Governor",
+   "website": "steveformngov.info"
+  },
+  {
+   "name": "Tad Jude",
+   "party": "Republican",
+   "title": "Secretary of State",
+   "website": "tadjude.com"
+  },
+  {
+   "name": "Steve Simon",
+   "party": "Democratic-Farmer-Labor",
+   "title": "Secretary of State",
+   "website": "stevesimonmn.com"
+  },
+  {
+   "name": "Seth Kuhl-Stennes",
+   "party": "Green",
+   "title": "Secretary of State",
+   "website": "seth4mnsos.org"
+  },
+  {
+   "name": "George \"Chip\" Tangen",
+   "party": "Libertarian",
+   "title": "Secretary of State",
+   "website": "chipforsos.com"
+  },
+  {
+   "name": "Scott Jensen",
+   "party": "Republican",
+   "title": "State Auditor",
+   "website": "https://www.drscottjensen.com/"
+  },
+  {
+   "name": "Zack Filipovich",
+   "party": "Democratic-Farmer-Labor",
+   "title": "State Auditor",
+   "website": "WWW.ZACKFORMN.COM"
+  },
+  {
+   "name": "Jay Reeves",
+   "party": "Forward Independence",
+   "title": "State Auditor",
+   "website": "JayReevesforMN.com"
+  },
+  {
+   "name": "Ronald J. Schutz",
+   "party": "Republican",
+   "title": "Attorney General",
+   "website": "www.ronformnag.com"
+  },
+  {
+   "name": "Keith Ellison",
+   "party": "Democratic-Farmer-Labor",
+   "title": "Attorney General",
+   "website": "keithellison.org"
+  },
+  {
+   "name": "Andrew McFarlane",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Andy Carlson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Ann Skoe",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Annie Harala",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": "www.ANNIEHARALA.com"
+  },
+  {
+   "name": "Bob Kopitzke",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Casey J. Klipping",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Chad Zimmel",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Chris Meyer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Daniel Bergstrom",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Daniel Widmer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Dennis Pletcher",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Greg Renneke",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Jay Samuelson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Jim \"Ducky\" Duckstad",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Joe Baltich",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "John Heinrich",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": "Heinrichforanokacounty.com"
+  },
+  {
+   "name": "Justin Ohnstad",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Larry Anderson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Laura Phillipe Larson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Lonny Witkofsky",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Marie Dranttel",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Mark Titera",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Matt Gilbertson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Nathan Robert Streed",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Nathan Ryan",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Patrick J Rafferty",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Patty O'Connor",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Paul Gremmels",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Peter Ripka",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Ron Noon",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Tarryl L. Clark",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Terry Strege",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Thomas D Andries",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Tim MacMillan",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Timothy Catlin",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Timothy Mathews",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Abbie Raudabaugh",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": "raudabaughforcountycommissioner.com"
+  },
+  {
+   "name": "Adam Anderson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Colby Abazs",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": "vote.abazs.com"
+  },
+  {
+   "name": "Cory Smith",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Craig Gaasvig",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "David De La Hunt",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Erica Jepson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Gary Spatenka",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "John G Pioske",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Kris Eilers",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": "https://kriseilersforduluth.com/"
+  },
+  {
+   "name": "Matt Kelm",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Mike Slavik",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Neal Gaalswyk",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Shane Horner",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Wayne J. Grimmer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": "vote4grimmer.com"
+  },
+  {
+   "name": "Christine A Husom",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Debra K. White",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "J. Mark Wedel",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 1",
+   "website": ""
+  },
+  {
+   "name": "Ann Gustafson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Anton (Tony) Berg",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Bill B. Miller",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Bill Berg",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Chad Ryan",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Chrissy Ahola",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "www.ChrissyForCarverCounty.com"
+  },
+  {
+   "name": "Christian Lilienthal",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Dan Whitcomb",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "David Geray",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "David Meyer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Dawn Kaasa",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Dean Mierau",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "DeRon Brehmer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Doug Krueger",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Dwayne Voegeli",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Dwight Walvatne",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Edward \"Ed\" Popp",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Gene Metz",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Greg Young",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jaime Bleess",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jay Moore",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jeanne Ennen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Joe Atkins",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Joel A. Novak",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "John Berends",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "John Glynn",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "John Robinson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jon W. Lubke",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Josh Mathsen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Joshua Mohr",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Kayla Schmidt",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Keith Elbers",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Kevin L. Adee",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Leonard Vonasek",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Michael \"Mic\" VanDeVere",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Mike Robole",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "www.Vote4Robole.com"
+  },
+  {
+   "name": "Raeanne Danielowski",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Randy Dahl",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Regan Birr",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "www.Reganforcountycommissioner.com"
+  },
+  {
+   "name": "Rick Greene",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Rick Powers",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Russel E Wilson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Sharon El-Amin",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "sharonelamin.org"
+  },
+  {
+   "name": "Stan Karwoski",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "stankarwoskicommissioner.com"
+  },
+  {
+   "name": "Tiffany Lesmeister-Knott",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Tim Denny",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Troy Kennedy",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Troy Stafford",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Wade Athey",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Wayne D. Johnson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "waynejohnson4ottertail.com"
+  },
+  {
+   "name": "Brian Kirkham",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "electkirkham.com"
+  },
+  {
+   "name": "Chris DuBose",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Danny Geronsin",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Danny O. Lundell",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "David H. Senjem",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Dawn L. Johansen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Denise Weis",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Dennis Hartman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Don Wachal",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Edison Vizuete",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Edward Pederson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Eric Johnson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Heidi Wersal",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jacob Vold",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jamie Rezac",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jeff Gontarek",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "jeffgontarek.com"
+  },
+  {
+   "name": "Jesse M. Lee",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jim Muelken",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Julie Anderson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Patrick Moga",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Ricky Roche",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Rodney Altena",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Tim Tjosaas",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Tom Workman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Tony Compo",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Curtis Knutson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Gabe Perkins",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Jim Reeder",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Thomas Haag",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Danny O'Keefe",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": ""
+  },
+  {
+   "name": "Irene Fernando",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 2",
+   "website": "voteirene.com"
+  },
+  {
+   "name": "Aaron Young",
+   "party": "Nonpartisan",
+   "title": "Special Election for County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Al Kokesch",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Bill Stearns",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Brad Milbrath",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Cory Aukes",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Cyle Cramer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Dale H. Anderson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "David Mills",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Dennis Welgraven",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Donna L. Gravley",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Eric Mickelson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Garrison McMurtrey",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "electgarrison.com"
+  },
+  {
+   "name": "Jack Kolars",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "James Checkel",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Jason Duffy",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Jeanne Holland",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Jeff Bertram",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Jeff Reinert",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Jessica Tabatt",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "www.jessicatabatt.com"
+  },
+  {
+   "name": "Joseph Grund",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Joshua Iverson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Kevin Troupe",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Larry P. Nybladh",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Laurie Halverson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Levi M Novacek",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Loren Younggren",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Marion Greene",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "mariongreene.org"
+  },
+  {
+   "name": "Mark Swanson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Patrick Murphy",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Paul Graupmann",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Richard \"Rick\" Hogenson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Robert Preble",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Roger D. Pohlman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "www.pohlmancommissioner.com"
+  },
+  {
+   "name": "Sam Temple",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "samuelftemple.com"
+  },
+  {
+   "name": "Scott Winger",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Steven J. Heinen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Stuart Dukek",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Thomas Berglind",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "tom4clay.com"
+  },
+  {
+   "name": "Tyler Anderson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Angela Nelson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Cletus Gewerth",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Donn Hoffman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Gerry Hoisington",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Greg Copeland",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Gregg Felber",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "voteforfelber.com"
+  },
+  {
+   "name": "Jack Considine",
+   "party": "Nonpartisan",
+   "title": "Special Election for County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Jenny L. Mongeau",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Joe Landherr",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "John A. Johnson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Larry Olson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Marlys L. Dunne",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "dunnefordistrict 3.com"
+  },
+  {
+   "name": "Melissa \"Mel\" Lawlis",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "mellawlisforcountycommissioner.com"
+  },
+  {
+   "name": "Neil Peterson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Roger Westerlind",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Ryan Dunlap",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "www.rjdunlap.com"
+  },
+  {
+   "name": "Tad A. Erickson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Travis J. Leiviska",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "tinyurl.com/travisforaitkin"
+  },
+  {
+   "name": "Tyson VanPeursem",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Dave Karge",
+   "party": "Nonpartisan",
+   "title": "Special Election for County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Naomi Larson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Andrew Jossund",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Leslie Bouchonville",
+   "party": "Nonpartisan",
+   "title": "Special Election for County Commissioner District 3",
+   "website": ""
+  },
+  {
+   "name": "Abdihakim Arabow Ibrahim",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 3",
+   "website": "www.abdihakimibrahim.com"
+  },
+  {
+   "name": "Allen Remick",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Angela Conley",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "voteconley.com"
+  },
+  {
+   "name": "Arron Kalis",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Ashley Martin",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Ben Bothun",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Bill LaValley",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Bob Johnson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Bob Schuldt",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Brian H. Braun",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Brian Mueller",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Charlie Meyer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Christopher Niles Shoff",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Dan Sparks",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Dave Beer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "voteforbeer.com"
+  },
+  {
+   "name": "David Salberg",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Dawn Espe",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "DeAnne (De) Malterer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Deb Gruber",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Dennis R. Boucher",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Gary Howard Gray",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Greg Snow",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Jaime Guardado Jr.",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Jason Sjoblom",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Jennae Hoffman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Jeremy Michael Hurd",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Jim Stewart",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "facebook.com/JimStewartforDistrict4OtterTailCountyCommission"
+  },
+  {
+   "name": "Jim Warren",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Joe Drietz",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Judy Onken LaBoda",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Julie Laue",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Karla Bigham",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "www.karlabigham.com"
+  },
+  {
+   "name": "Kevin Dather",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Kevin Paap",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "PaapforCommissioner.com"
+  },
+  {
+   "name": "Larry Lindor",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Lew Noska",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Nadine Schoen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Pat Saum",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Paul McDonald",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Phil Nasby",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Rena Moran",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Ron Antony",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Roy Sourdif",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Scott Westman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Shona Langseth",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "langseth-campaign.com"
+  },
+  {
+   "name": "Steve Underdahl",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Steven Arnhalt",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Susan (Sue) Zmyslony",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "suezmyslony.com"
+  },
+  {
+   "name": "Tim Lynch",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Tom Walsh",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Tyler Seifert",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Curt Keyes",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Dan Delaney",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "James Jawaski",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Jennifer (Jenny) Geisler",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "GeislerforAnokaCounty.com"
+  },
+  {
+   "name": "Jerrel Olson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Joe Swiers",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Julian Dahlquist",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Justin Redalen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Larry Mahoney",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Laurel Stinson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Mark Hlady",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Mark Thell",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Michael (Mike) Wedin",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Mike Wobbe",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Rhonda Toquam",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Richard Allan Koons",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Robert F Kasper",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Roger Tellinghuisen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Sherri Thompson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Thomas Opheim",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Travis Bowman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "David Preisler",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "preisler4commissioner.org"
+  },
+  {
+   "name": "Drew Scherber",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "scherber4commissioner.com"
+  },
+  {
+   "name": "Jerry Koch",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "https://jerrykoch.com/"
+  },
+  {
+   "name": "John Hintz",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Rosemary Franzen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Scott D Bruns",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Scott Steffes",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Tina Starkey",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Jacob Kral",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": ""
+  },
+  {
+   "name": "Stephen Springer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 4",
+   "website": "facebook.com/Springer4Commissioner"
+  },
+  {
+   "name": "Brad Krause",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Brian McCoy",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "www.brian-mccoy.com"
+  },
+  {
+   "name": "Casey Venema",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Chris Dybevick",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Christopher Homyak",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Cory Kubista",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Craig Smith",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Daryl Wicklund",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "David Lieser",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Drew Christensen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "drewforsavage.com"
+  },
+  {
+   "name": "Duane Anderson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Gary A. Kiesow",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Greg Blaine",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "James Kunze",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Jeff Klages",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Jeffrey Veerkamp",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "John P. Fahey",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "faheyforcommissioner.com"
+  },
+  {
+   "name": "Jon Kangas",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Justin Peterson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Kaitlyn Becker",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Kip Bruender",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Kurt Zins",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Marcia L. Ward",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Mark Larson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Michael L. Kearney",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Mike Ankeny",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Patricia Lesmeister Nelson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Paul Wildman",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Shane Schmidt",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Steve Schmitt",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Ted Van Kempen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Tom Appel",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Tom Dahl",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Bob Redig",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Casey Faken",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Cindy McGrath",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Jon Dorau",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "www.jondorau.com"
+  },
+  {
+   "name": "Khai Tran",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "khaiforcarvercounty.com"
+  },
+  {
+   "name": "Kristi L. LaRowe",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "María Isa Pérez-Vega",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "https://votemariaisa.org"
+  },
+  {
+   "name": "Simi Patnaik",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "www.votesimi.com"
+  },
+  {
+   "name": "Tina King",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "www.king4commissioner.us"
+  },
+  {
+   "name": "Tom Roeschlein",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "A. Bradley \"Brad\" DeBoer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Joseph Fischer",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Kenneth Warning",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Rebecca Noecker",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": "www.rebeccanoecker.org"
+  },
+  {
+   "name": "Bob Coughlen",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Mai Chong Xiong",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 6",
+   "website": "www.maichongxiong.org"
+  },
+  {
+   "name": "Michael Wojcik",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 6",
+   "website": ""
+  },
+  {
+   "name": "Timothy Mattson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 6",
+   "website": ""
+  },
+  {
+   "name": "Bob Hopkins",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 6",
+   "website": "bobhopkins.org"
+  },
+  {
+   "name": "Chris Johnson",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 6",
+   "website": ""
+  },
+  {
+   "name": "Jacob Borealis",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 6",
+   "website": "borealisformn.org"
+  },
+  {
+   "name": "Mary Liz Holberg",
+   "party": "Nonpartisan",
+   "title": "County Commissioner District 6",
+   "website": "www.MaryLiz.org"
+  },
+  {
+   "name": "Amy Sylling",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Austin M. Rohling",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Braidy Powers",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Brittney Jordan",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Carolyn Rempel",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Chelsi Wilbright",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Christine Scherbing",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": "https://christinescherbing.com"
+  },
+  {
+   "name": "Deborah Vierhuf",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Heather Olson",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Heidi E. Winter",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Jean Price",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Joan Nelson",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "JoDee Treat",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Kara Eastlund",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Kelly Pauling",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Kit Johnson",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Nancy Nilsen",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Niki Broten",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Randy R Schreifels",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Scott Peters",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Shannon Coyle",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Stephanie Buss",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Stephanie Rust",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Vicki Doehling",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Denise Gaida",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Mary Lewandowski",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Taylor Engelstad",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Kim Frederick",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Amy Rosing",
+   "party": "Nonpartisan",
+   "title": "County Auditor/Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Chad Van Santen",
+   "party": "Nonpartisan",
+   "title": "County Auditor",
+   "website": ""
+  },
+  {
+   "name": "Michael Tonsager",
+   "party": "Nonpartisan",
+   "title": "County Auditor",
+   "website": "sherburnecountyauditor.com"
+  },
+  {
+   "name": "Brenda Davis",
+   "party": "Nonpartisan",
+   "title": "County Auditor",
+   "website": "davisforsherburnecountyauditor.com"
+  },
+  {
+   "name": "Jamie Kruize",
+   "party": "Nonpartisan",
+   "title": "County Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Lori A. Grams",
+   "party": "Nonpartisan",
+   "title": "County Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Nick Knott",
+   "party": "Nonpartisan",
+   "title": "County Treasurer",
+   "website": ""
+  },
+  {
+   "name": "Amy Gewerth",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Annette Deyo",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Holly Menke",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "HollyJo Wevley",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Jennifer (Jenny) Sanders",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Karen L. Brown",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Karla K Doll",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Kathy Dietz",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Kimberly Bosl",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Lindsay K. Frank",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Mary Schreiner",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Mary Skillings",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Michelle Duncan",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Michelle Facile",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Michelle Werner",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Nichole Olson Mahoney",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Nicolle Zuehlke",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Rodney C. Knutson",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Sarah Green",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Sharon J. Budin",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Susan J. Ney",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Susan R. Horkey",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Tara L. Snyder",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Tracy Renee Myers",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Bob Bambenek",
+   "party": "Nonpartisan",
+   "title": "County Recorder",
+   "website": ""
+  },
+  {
+   "name": "Aaron Ammerman",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "ammermanforsheriff.com"
+  },
+  {
+   "name": "Adam A. Gast",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Andrew Messner",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Andy Miller",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Anthony (Tony) Harris",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Ben Fall",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Ben Hallberg",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "benhallbergforsheriff.com"
+  },
+  {
+   "name": "Benjamin Zawacki",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Bob Fletcher",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "fletcherforsheriff.com"
+  },
+  {
+   "name": "Bobby Lambert",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "BobbyLambert4Sheriff.com"
+  },
+  {
+   "name": "Brad Johnson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Brad Wise",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Brandon Thyen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "thyenforsheriff.com"
+  },
+  {
+   "name": "Brett V.P. Mason",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Brian Benck",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Brian Cruze",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Brian R. Mueller",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "https://www.muellerforsheriff.com"
+  },
+  {
+   "name": "Brian R. Smith",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Brian Swedberg",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Casey Namken",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Chad Honetschlager",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Chad Walsh",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Charles Rolbiecki",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "rolbiecki4sheriff.com"
+  },
+  {
+   "name": "Christopher Albers",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Clarence LaCroix",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "lacroixforsheriff.com"
+  },
+  {
+   "name": "Corey R. Sik",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Daniel Guida",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Dawanna Witt",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "Sheriffwitt.org"
+  },
+  {
+   "name": "Denley Kompelien",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Derek Olson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Eric Klang",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "Klangforsheriff.com"
+  },
+  {
+   "name": "Eric Tollefson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "tollefsonforsheriff.com"
+  },
+  {
+   "name": "Eric Wallen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "WallenforSheriff.com"
+  },
+  {
+   "name": "Gary Fish",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Gordon Scott Ramsay",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Heath Landsman",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jared Bergeman",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jason Bade",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jason J. Purrington",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jason Jacobson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jason Peterson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jason Riggs",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jason S. Seidl",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.seidl4sheriff.com"
+  },
+  {
+   "name": "Jay Dulas",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jeff Wersal",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jennifer Vipond",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jimmy Hansen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Joe Dasovich",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Joel M Schmidt",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "JoelSchmidtforSheriff.com"
+  },
+  {
+   "name": "John DeGeorge",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.degeorge4sheriff.com"
+  },
+  {
+   "name": "Josh Guenther",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Kyle A. Burton",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Lon Thiele",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Luke Sweere",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "lukesweereforsheriff.com"
+  },
+  {
+   "name": "Luke W. Hennen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Mark Brown",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Mark Empting",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Marty Kelly",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Matt Owens",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Matt Treichler",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "treichlerforsheriff.com"
+  },
+  {
+   "name": "Matt Vig",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Matthew Sorenson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Mike Allen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Mike DeJong",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "dejongforsheriff.com"
+  },
+  {
+   "name": "Mike Hoffman",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Mike Norland",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Nathan Brecht",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Nathan Budin",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "budinforsheriff.com"
+  },
+  {
+   "name": "Perryn Hedlund",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Reed Reinbold",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "facebook.com/ReedReinboldforOTCSheriff"
+  },
+  {
+   "name": "Ryan Kruger",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Ryan Shea",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Scott D. Hable",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Scott Grice",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Scott Rose",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Seth Vettleson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Shawn Larsen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Steve Soyka",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Steven J. Gust",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Steven Sandvik",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.sandvik4sheriff.com"
+  },
+  {
+   "name": "Tim Langenfeld",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Tim Luoma",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Tim Parkin",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "timparkin4sheriff.com"
+  },
+  {
+   "name": "Wayne Seiberlich",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Aaron Borchardt",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "borchardt4sheriff.com"
+  },
+  {
+   "name": "Aaron Petersen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.petersenforsheriff.com"
+  },
+  {
+   "name": "Adam Edward Kasprowicz",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Adam Gunderson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "gundersonforsheriff.com"
+  },
+  {
+   "name": "Adam Koch",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Anthony (Tony) Petrie",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "tonypetrie4sheriffgmail.com"
+  },
+  {
+   "name": "Bryan Savaloja",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Bryan Welk",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Cole Weick",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "D.J. Bullerman",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Dan Danielson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Dustin Anderson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Edison Dengler",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.DenglerForSheriff.org"
+  },
+  {
+   "name": "Greg Forcier",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "James \"Jay\" Dingmann",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "dingmannforsheriff.com"
+  },
+  {
+   "name": "Jason Dingman",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jeff Stratton",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jeremy Bolen",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.bolenforsheriff.com"
+  },
+  {
+   "name": "Joe Leko",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "joelekoforsheriff.com"
+  },
+  {
+   "name": "John Hazelton",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "https://hazeltonforsheriff.com/"
+  },
+  {
+   "name": "John Reigstad",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Joseph Banks",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "banks4sheriff.com"
+  },
+  {
+   "name": "Joshua Stehr",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Kelly Brekke",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Mark Ellerbusch",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Michael Jenson",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Patrick Barry",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "patrickbarryforcarvercountysheriff.com"
+  },
+  {
+   "name": "Rob Mossman",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.voteforrobforsheriff.com"
+  },
+  {
+   "name": "Shane Richard",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "www.shanerichardforsheriff.com"
+  },
+  {
+   "name": "Terry Frost",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "facebook.com/terryfrostforotcsheriff"
+  },
+  {
+   "name": "TJ Lynch",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "TJLynchforSheriff.com"
+  },
+  {
+   "name": "Ty Backlund",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Wayne Nagel",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "nagel4sheriff.com"
+  },
+  {
+   "name": "Dustin Seiler",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Jessica Heger",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": "jessicahegerforsheriff.com"
+  },
+  {
+   "name": "Milo Scott",
+   "party": "Nonpartisan",
+   "title": "County Sheriff",
+   "website": ""
+  },
+  {
+   "name": "Abby Wikelius",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Barbara McFadden (Kraemer)",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Benjamin T. Lindstrom",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "www.benlindstrom.com"
+  },
+  {
+   "name": "Brad Johnson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "www.AnokaCountyAttorney.com"
+  },
+  {
+   "name": "Braden Hoefert",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Brandi L. Schiefelbein",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Brent Christian",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Brett Corson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Brian Lutes",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Brian Melton",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "melton4clay.com"
+  },
+  {
+   "name": "Brian Middendorf",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Brian Mortenson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "votemortenson.com"
+  },
+  {
+   "name": "Brian W. McDonald",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Cameron Davis",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Christopher Rokke",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Chuck Hanson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Corey Haller",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Damain D. Sandy",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Daniel Coogan",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "David Louis Hanson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "David Walker",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Dawn Nyhus",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "www.nyhusforcountyattorney.com"
+  },
+  {
+   "name": "Devin J. Gorski",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Donald Everett Lannoye",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Elizabeth Brainard",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "George Hanson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Glen A. Petersen",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Gregory Widseth",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "James (Jim) Ratz",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Janelle Kendall",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "www.janellekendall.com"
+  },
+  {
+   "name": "Janet Reiter",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Jason M. Hastings",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Jeanne Peterson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Jeffrey Boucher",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Jeffrey L. Haubrich",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Jeffrey R. Edblad",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Jeffrey S. Naglosky",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "John A. Olson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "John Choi",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "johnchoi.org"
+  },
+  {
+   "name": "John Eric Lindemann",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Joseph P. Glasrud",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Julie M. Kelley",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Justin R. Anderson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kailee Thompson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Karen MacLaughlin",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "maclaughlin4oca.com"
+  },
+  {
+   "name": "Karin R. Hughes",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kathleen Reuter",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kathy Keena",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "kathykeena.com"
+  },
+  {
+   "name": "Kelsey Hopps",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "Kelseyhopps.com"
+  },
+  {
+   "name": "Kelsie Kingstrom",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kevin M. Magnuson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "https://kevinmagnuson.com"
+  },
+  {
+   "name": "Kimberly J. Maki",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kristen Nelsen",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kristi L. Meyeraan",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kristy Kjos",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Kyra L. Ladd",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Lara R.M. Nygaard",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Mark Gruenes",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Mark Metz",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Matthew C. Stinson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Matthew Franzese",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Matthew Haugen",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Michelle Marie Eldien",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Michelle Zehnder Fischer",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Nathan Haase",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Neil Nelson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Nicholas Anderson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Pat McDermott",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Rachel V. Cornelius",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Rebecca Church",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "churchforcountyattorney.com"
+  },
+  {
+   "name": "Rebecca Trapp",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Reese Frederickson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Richard G. Stulz",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Robert Jarrett",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Ron Hocevar",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "ronhocevar.com"
+  },
+  {
+   "name": "Ryan Hansch",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Shane Baker",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Shannon Ness",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Stephen (Steve) O'Keefe",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Stephen Knudsen",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "knudsenforcountyattorney.com"
+  },
+  {
+   "name": "Taylor McGowan",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Travis J. Smith",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Amber Gustafson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "www.amber4clayattorney.com"
+  },
+  {
+   "name": "Cassidy Villeneuve",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Chad Larson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "ReElectChadLarson.com"
+  },
+  {
+   "name": "Crysta Parkin",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Hans Larson",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "larsonforsherburne.com"
+  },
+  {
+   "name": "Jeffrey Sheridan",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "www.jeffsheridan.org"
+  },
+  {
+   "name": "Michael Walters",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "waltersforolmsted.com"
+  },
+  {
+   "name": "Sunny D. Resnick",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": ""
+  },
+  {
+   "name": "Allen Andersen",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "allenandersen.com"
+  },
+  {
+   "name": "Cedrick Frazier",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "cedrickfrazier.org"
+  },
+  {
+   "name": "Anders Folk",
+   "party": "Nonpartisan",
+   "title": "County Attorney",
+   "website": "www.andersfolk.com"
+  },
+  {
+   "name": "Ben Madsen",
+   "party": "Nonpartisan",
+   "title": "County Surveyor",
+   "website": ""
+  },
+  {
+   "name": "Marge Beard",
+   "party": "Nonpartisan",
+   "title": "County Park Commissioner District 1",
+   "website": "margebeard.com"
+  },
+  {
+   "name": "Declan McCrory",
+   "party": "Nonpartisan",
+   "title": "County Park Commissioner District 1",
+   "website": "declanforthreerivers.com"
+  },
+  {
+   "name": "Rachel Braaten",
+   "party": "Nonpartisan",
+   "title": "County Park Commissioner District 3",
+   "website": "RachelForParks.com"
+  },
+  {
+   "name": "Erin Kolb",
+   "party": "Nonpartisan",
+   "title": "County Park Commissioner District 3",
+   "website": "ERINFORPARKS.COM"
+  },
+  {
+   "name": "John F Gibbs",
+   "party": "Nonpartisan",
+   "title": "County Park Commissioner District 5",
+   "website": "commissionerjohngibbs.org"
+  },
+  {
+   "name": "Dan Rasmussen",
+   "party": "Nonpartisan",
+   "title": "County Park Commissioner District 5",
+   "website": ""
+  },
+  {
+   "name": "Barbara James",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Brian Romsdahl",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Charles W. Mathews",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Courtney Holst",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Curtis R. Ballard",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "David Bucklin",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Douglas R. Schoenecker",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Earl Hauge",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Elizabeth Davis",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1 (East)",
+   "website": ""
+  },
+  {
+   "name": "Greg Entinger",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "James Sloan",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Jeff Potter",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Jerry Welke",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Jesse O'Driscoll",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Karli Wittner",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Kathleen Thies",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Keith Olsen",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Kenneth Berg",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Kevin W. Reich",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Kyle McClure",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Lance Petersen",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Margaret (Peggy) Pearson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1 (North)",
+   "website": ""
+  },
+  {
+   "name": "Mark Comstock",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Mark Ihlenfeld",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Matthew VanGrootheest",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Michael W. Zieska",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Michelle Overholser",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Nick Pederson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Paul Barsness",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Paul Posthuma",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Ralph Lewis",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Ray Hendrickson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Ross L. Greden",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Sally Sedgwick",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Thomas Fasteland",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Timothy M Gossman",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Tom Kuschel",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Chad Van Beck",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Keith Nygaard",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Kevin Connelly",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Lynn Zabel",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Pernell Meier",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1",
+   "website": ""
+  },
+  {
+   "name": "Allen Deutz",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Benjamin Tabert",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Brett Dailey",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Bruce Nelson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Calin Eisenlohr",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Chantill A. Kahler Royer",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Cheryl Stuntebeck",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Christine Jurek",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Dan Riley",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "David Kiecker",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2 (East)",
+   "website": ""
+  },
+  {
+   "name": "Diane Jacobson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Diane M. Blake",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Donald Schliep",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Donnel Williamson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Doug S. Lande",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Earle Traxler",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Ed Delaney",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2 (East)",
+   "website": ""
+  },
+  {
+   "name": "Eric Annexstad",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Francis Dierickx",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Greg Fynboh",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Jason Wetzel",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Jim Lindahl",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Joe Driscoll",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Joe Murphy",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Joel Cohrs",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Joseph Jordan",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Josh Ossefoort",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Julianne Motis",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Lance Flores",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Matthew Sommers",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Michael Humburg",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Norma J Heggernes",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Paul Wiemann",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Rich Enger",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Ricky A Peterson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Ryan Stene",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Sheri Gades",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Stanley W. Tull",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Tom Anderson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Alecia Cox",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2",
+   "website": ""
+  },
+  {
+   "name": "Alisyn Keil",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2 (East)",
+   "website": ""
+  },
+  {
+   "name": "Alan Golden",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Andrew Muir",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Anthony Conrad",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Anthony Dwire",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Beth Hippert",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Bryan Simon",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Cory Seehausen",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Dale Katterhagen",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Daryl Tasler",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "David Tollberg",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Debbie Anderson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Eli Berry",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Frank Michael Modich",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3 (North)",
+   "website": ""
+  },
+  {
+   "name": "Garret Niska",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Gary A. Hartmann",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Glenda Meixell",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Gregg Weller",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Jake Janski",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "James Kellogg",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Jeffrey Peterson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Jeremiah Kern",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "John Gaukerud",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "John Haffley",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "John Pesonen Johnson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "John Pries",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "John Sopkowiak",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Joseph Peterson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Kaleb Torgerson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Larry Muff",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Lyle E. Dittmann",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3 (East)",
+   "website": ""
+  },
+  {
+   "name": "Mark D. Ditlevson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Mark E. Portner",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Mark Zabel",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Preston Bauer",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Randall Feist",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Randy Schellack",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Rodney Froemming",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Roger Waytashek",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Scott Saehr",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Vickie Heers",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Victor Eiynck",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "William Daluge",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Casey Roeker",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Charlie Borrell",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "James Tully",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Kevin F. Wilde",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Marv Stutz",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Robert Fox",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Mike Schultz",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3",
+   "website": ""
+  },
+  {
+   "name": "Barry Walton",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Bradley Nere",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Curt Helland",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Dale Scholl",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Darwyn Bach",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Daryl Schutte",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "David \"Joe\" Ste. Marie",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Dennis Barsness",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Douglas Alan Sloan",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Eric Passe",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Eugene Pavelko",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Gail A. Gieseke",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Holly Hatlewick",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Isaac Sowers",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Jan P Miller",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Jason Selvog",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Jessica Dolan",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "John Lanoue",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Jon Sanford",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Joshua Osland",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Kenneth K. Kalish",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Mary-Jean Becker",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Nolan Kittleson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Paul E. Nelson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Randy Mitteness",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Randy Smith",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Richard Nelsen",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Rick Gronseth",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Robert Anderson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Roger Krause",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Ross Anderson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Scott Singlestad",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Shannon Wohlman",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Steve L. Peterson",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Steven Martin",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Tim Behrends",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Tim Kosel",
+   "party": "Nonpartisan",
+   "title": "Special Election for Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Tom Scarponcini",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "William (Bill) Folger",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "WM Scott Schmokel",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Alex Formo",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Bruce Johnson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Jerald Butenhoff",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Jeremy Richard Nase",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Marjorie Sella",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Keith Loe",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 4",
+   "website": ""
+  },
+  {
+   "name": "Amy Bacigalupo",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Bill Anderson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Bradley Kruisselbrink",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Brandon Smith",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Calvin I. Saari",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Carol Jacobs",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Chester Raguse",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "David Alan Webster",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "David Medvecky",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "David Nuccio",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Derek Nelson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Eric Fultz",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Gerald Telker",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jacob Quade",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jason Kreemer",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jayne Hager Dee",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jeff Sons",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jennifer O'Neill",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jerry D. Handyside",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jim Veldkamp",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jody Reller",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Jonathan Hoff",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Joshua Deal",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Mark W. Johnson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Mary Peichel",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Paul W Langseth",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Philip Smith",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Randy C. Larson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Randy Larson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Richard F Peterson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Thomas Gregory",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Tyler Ask",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Carol Lynn Swaggert",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Lon Moen",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "Sarah Schulze",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5",
+   "website": ""
+  },
+  {
+   "name": "David L. Johnson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1 (West)",
+   "website": ""
+  },
+  {
+   "name": "Eric McWalter",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 1 (West)",
+   "website": ""
+  },
+  {
+   "name": "James Kruse",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2 (South)",
+   "website": ""
+  },
+  {
+   "name": "Richard E. Drevlow",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 2 (West)",
+   "website": ""
+  },
+  {
+   "name": "Albert Moline",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3 (South)",
+   "website": ""
+  },
+  {
+   "name": "Johnathan Sorenson",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 3 (West)",
+   "website": ""
+  },
+  {
+   "name": "Caleb Langworthy",
+   "party": "Nonpartisan",
+   "title": "Soil and Water Supervisor District 5 (South)",
+   "website": ""
+  },
+  {
+   "name": "Sarah Hennesy",
+   "party": "Nonpartisan",
+   "title": "Associate Justice - Supreme Court 1",
+   "website": "justicesarahhennesy.com"
+  },
+  {
+   "name": "Paul Thissen",
+   "party": "Nonpartisan",
+   "title": "Associate Justice - Supreme Court 4",
+   "website": "paulthissen.com"
+  },
+  {
+   "name": "Elizabeth Bentley",
+   "party": "Nonpartisan",
+   "title": "Judge - Court of Appeals 1",
+   "website": "electjudgebentley.com"
+  },
+  {
+   "name": "Rachel Bond",
+   "party": "Nonpartisan",
+   "title": "Judge - Court of Appeals 7",
+   "website": "www.judgebond.com"
+  },
+  {
+   "name": "Jeanne Cochran",
+   "party": "Nonpartisan",
+   "title": "Judge - Court of Appeals 13",
+   "website": "judgejeannecochran.com"
+  },
+  {
+   "name": "Kevin G. Ross",
+   "party": "Nonpartisan",
+   "title": "Judge - Court of Appeals 15",
+   "website": "judgekevinross.com"
+  },
+  {
+   "name": "JaPaul J. Harris",
+   "party": "Nonpartisan",
+   "title": "Judge - Court of Appeals 18",
+   "website": "https://www.japaulharris.com"
+  },
+  {
+   "name": "Ann M. Offermann",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 1",
+   "website": ""
+  },
+  {
+   "name": "Krista M. Marks",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 2",
+   "website": "KristaMarksforJudge.com"
+  },
+  {
+   "name": "Dannia L. Edwards",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 3",
+   "website": ""
+  },
+  {
+   "name": "Tracy Perzel",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 4",
+   "website": ""
+  },
+  {
+   "name": "Kelly A. Staples",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 6",
+   "website": ""
+  },
+  {
+   "name": "Matthew Schmidt",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 7",
+   "website": ""
+  },
+  {
+   "name": "Patrick Goggins",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 9",
+   "website": ""
+  },
+  {
+   "name": "Michael D. Wentzell",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 12",
+   "website": "www.judgewentzell.com"
+  },
+  {
+   "name": "Lauren M. Johnson",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 15",
+   "website": ""
+  },
+  {
+   "name": "Luis Morales",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 16",
+   "website": "JudgeLuisMorales.com"
+  },
+  {
+   "name": "Christian Sean Wilton",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 18",
+   "website": ""
+  },
+  {
+   "name": "Tanya Olympia O'Brien",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 27",
+   "website": ""
+  },
+  {
+   "name": "Christopher D. Bates",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 34",
+   "website": "judgebates.com"
+  },
+  {
+   "name": "Adam Johnson",
+   "party": "Nonpartisan",
+   "title": "Judge - 1st District Court 36",
+   "website": ""
+  },
+  {
+   "name": "Leonardo Castro",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 1",
+   "website": ""
+  },
+  {
+   "name": "Victoria Gardner",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 8",
+   "website": ""
+  },
+  {
+   "name": "Stacy Stennes",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 13",
+   "website": "judgestacystennes.com"
+  },
+  {
+   "name": "Jessica Bierwerth",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 14",
+   "website": ""
+  },
+  {
+   "name": "Sophia Vuelo",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 15",
+   "website": "reelectjudgevuelo.org"
+  },
+  {
+   "name": "Veena Iyer",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 24",
+   "website": "veenaiyer.com"
+  },
+  {
+   "name": "Der Yang",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 26",
+   "website": "votejudgederyang.org"
+  },
+  {
+   "name": "Kelly Olmstead",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 27",
+   "website": ""
+  },
+  {
+   "name": "Jennifer L. Verdeja",
+   "party": "Nonpartisan",
+   "title": "Judge - 2nd District Court 28",
+   "website": ""
+  },
+  {
+   "name": "Jacob C. Allen",
+   "party": "Nonpartisan",
+   "title": "Judge - 3rd District Court 4",
+   "website": ""
+  },
+  {
+   "name": "Karen R. Duncan",
+   "party": "Nonpartisan",
+   "title": "Judge - 3rd District Court 6",
+   "website": ""
+  },
+  {
+   "name": "Dwight Luhmann",
+   "party": "Nonpartisan",
+   "title": "Judge - 3rd District Court 7",
+   "website": ""
+  },
+  {
+   "name": "Erin Lindhart Felten",
+   "party": "Nonpartisan",
+   "title": "Judge - 3rd District Court 15",
+   "website": ""
+  },
+  {
+   "name": "Christopher A Neisen",
+   "party": "Nonpartisan",
+   "title": "Judge - 3rd District Court 17",
+   "website": ""
+  },
+  {
+   "name": "Jeffrey M Johnson",
+   "party": "Nonpartisan",
+   "title": "Judge - 3rd District Court 22",
+   "website": ""
+  },
+  {
+   "name": "William H. Koch",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 1",
+   "website": "www.reelectjudgekoch.org"
+  },
+  {
+   "name": "Kerry W. Meyer",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 5",
+   "website": ""
+  },
+  {
+   "name": "Dean Eyler",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 14",
+   "website": ""
+  },
+  {
+   "name": "Jane Maschka",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 16",
+   "website": ""
+  },
+  {
+   "name": "Gina M Brandt",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 19",
+   "website": ""
+  },
+  {
+   "name": "Daniel C. Moreno",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 20",
+   "website": "Judgedanielmoreno.com"
+  },
+  {
+   "name": "Michelle A. Hatcher",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 25",
+   "website": ""
+  },
+  {
+   "name": "Matthew M. Wilcox",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 27",
+   "website": "www.judgemattwilcox.com"
+  },
+  {
+   "name": "Dominick D. Mathews",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 28",
+   "website": ""
+  },
+  {
+   "name": "Todd M. Fellman",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 29",
+   "website": "toddfellmanforjudge.com"
+  },
+  {
+   "name": "Jennifer Olson",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 30",
+   "website": "www.judgejenniferolson.com"
+  },
+  {
+   "name": "Mariam Mokri",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 32",
+   "website": "www.judgeMariamMokri.com"
+  },
+  {
+   "name": "Sarah S. West",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 35",
+   "website": ""
+  },
+  {
+   "name": "Luis A. Bartolomei",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 42",
+   "website": ""
+  },
+  {
+   "name": "Bridget Ann Sullivan",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 43",
+   "website": ""
+  },
+  {
+   "name": "Kristen Marttila",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 47",
+   "website": ""
+  },
+  {
+   "name": "Emily J. Froehle",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 54",
+   "website": ""
+  },
+  {
+   "name": "Carrie Ryan Gallia",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 56",
+   "website": ""
+  },
+  {
+   "name": "Jeannice M. Reding",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 57",
+   "website": ""
+  },
+  {
+   "name": "Andrew Tweeten",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 61",
+   "website": "www.judgetweeten.com"
+  },
+  {
+   "name": "Angela Willms",
+   "party": "Nonpartisan",
+   "title": "Judge - 4th District Court 63",
+   "website": ""
+  },
+  {
+   "name": "Kayla M. Johnson",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 2",
+   "website": ""
+  },
+  {
+   "name": "Christopher Cain",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 5",
+   "website": "https://cainforjudge.com/"
+  },
+  {
+   "name": "Christina M. Wietzema",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 5",
+   "website": ""
+  },
+  {
+   "name": "Paul J. Gunderson",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 8",
+   "website": ""
+  },
+  {
+   "name": "Stephen J. Ferrazzano II",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 11",
+   "website": ""
+  },
+  {
+   "name": "Patrick Rohland",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 12",
+   "website": ""
+  },
+  {
+   "name": "Troy G. Timmerman",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 13",
+   "website": ""
+  },
+  {
+   "name": "Robert Docherty",
+   "party": "Nonpartisan",
+   "title": "Judge - 5th District Court 15",
+   "website": ""
+  },
+  {
+   "name": "Rachel C. Sullivan",
+   "party": "Nonpartisan",
+   "title": "Judge - 6th District Court 1",
+   "website": ""
+  },
+  {
+   "name": "Robert C. Friday",
+   "party": "Nonpartisan",
+   "title": "Judge - 6th District Court 2",
+   "website": ""
+  },
+  {
+   "name": "Jessica J. Fralich",
+   "party": "Nonpartisan",
+   "title": "Judge - 6th District Court 4",
+   "website": ""
+  },
+  {
+   "name": "Steven Bradley Hanke",
+   "party": "Nonpartisan",
+   "title": "Judge - 6th District Court 11",
+   "website": ""
+  },
+  {
+   "name": "Rebekka Lynn Stumme",
+   "party": "Nonpartisan",
+   "title": "Judge - 6th District Court 14",
+   "website": ""
+  },
+  {
+   "name": "Michael Leeser",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 2",
+   "website": ""
+  },
+  {
+   "name": "Matthew E. Engelking",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 8",
+   "website": ""
+  },
+  {
+   "name": "Michelle Winkis Lawson",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 9",
+   "website": ""
+  },
+  {
+   "name": "Andrew Pearson",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 11",
+   "website": ""
+  },
+  {
+   "name": "Kevin M. Miller",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 12",
+   "website": ""
+  },
+  {
+   "name": "Michelle Clark",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 13",
+   "website": ""
+  },
+  {
+   "name": "Meriel Lester",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 14",
+   "website": ""
+  },
+  {
+   "name": "Ole Tvedten",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 15",
+   "website": ""
+  },
+  {
+   "name": "Robert J. Raupp",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 21",
+   "website": ""
+  },
+  {
+   "name": "Doug Clark",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 22",
+   "website": ""
+  },
+  {
+   "name": "Karl L. Schmidt",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 24",
+   "website": ""
+  },
+  {
+   "name": "Mark J. Herzing",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 26",
+   "website": ""
+  },
+  {
+   "name": "Tammy L. Merkins",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 27",
+   "website": ""
+  },
+  {
+   "name": "Antoinette C. Wetzel",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 28",
+   "website": ""
+  },
+  {
+   "name": "Jade M. Rosenfeldt",
+   "party": "Nonpartisan",
+   "title": "Judge - 7th District Court 30",
+   "website": ""
+  },
+  {
+   "name": "Stephanie L. Beckman",
+   "party": "Nonpartisan",
+   "title": "Judge - 8th District Court 2",
+   "website": ""
+  },
+  {
+   "name": "Melissa Listug",
+   "party": "Nonpartisan",
+   "title": "Judge - 8th District Court 4",
+   "website": ""
+  },
+  {
+   "name": "Laurence J. Stratton",
+   "party": "Nonpartisan",
+   "title": "Judge - 8th District Court 7",
+   "website": ""
+  },
+  {
+   "name": "Benjamin Charles Pieh",
+   "party": "Nonpartisan",
+   "title": "Judge - 8th District Court 10",
+   "website": ""
+  },
+  {
+   "name": "Allison T. Whalen",
+   "party": "Nonpartisan",
+   "title": "Judge - 8th District Court 11",
+   "website": ""
+  },
+  {
+   "name": "Matti Adam",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 1",
+   "website": ""
+  },
+  {
+   "name": "Henry C. Ambelang",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 2",
+   "website": ""
+  },
+  {
+   "name": "Matthew R. Mallie",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 2",
+   "website": ""
+  },
+  {
+   "name": "Charles D. Halverson",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 4",
+   "website": ""
+  },
+  {
+   "name": "Kimberly Wimmer",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 5",
+   "website": ""
+  },
+  {
+   "name": "Sarah L. McBroom",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 12",
+   "website": ""
+  },
+  {
+   "name": "Daniel M. Hawley",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 13",
+   "website": ""
+  },
+  {
+   "name": "Kathryn A. Lorsbach",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 14",
+   "website": ""
+  },
+  {
+   "name": "Tamara L. Yon",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 15",
+   "website": ""
+  },
+  {
+   "name": "Jana Austad",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 19",
+   "website": ""
+  },
+  {
+   "name": "Michael Patrick Grover",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 20",
+   "website": ""
+  },
+  {
+   "name": "Patricia A. Aanes",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 21",
+   "website": ""
+  },
+  {
+   "name": "Seamus P. Duffy",
+   "party": "Nonpartisan",
+   "title": "Judge - 9th District Court 22",
+   "website": ""
+  },
+  {
+   "name": "Juanita C. Freeman",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 1",
+   "website": ""
+  },
+  {
+   "name": "Carrie A. Doom",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 2",
+   "website": "www.judgecarriedoom.com"
+  },
+  {
+   "name": "Suzanne M Brown",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 4",
+   "website": ""
+  },
+  {
+   "name": "Stoney L. Hiljus",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 6",
+   "website": ""
+  },
+  {
+   "name": "Viet-Hanh Winchell",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 7",
+   "website": ""
+  },
+  {
+   "name": "Laura A. Pietan",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 8",
+   "website": ""
+  },
+  {
+   "name": "Sheridan Hawley",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 9",
+   "website": ""
+  },
+  {
+   "name": "Justin Collins",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 14",
+   "website": ""
+  },
+  {
+   "name": "Thomas Robert Lehmann",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 15",
+   "website": ""
+  },
+  {
+   "name": "Patrick W. Flanagan",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 17",
+   "website": ""
+  },
+  {
+   "name": "Tricia Loehr",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 19",
+   "website": ""
+  },
+  {
+   "name": "Melissa Saterbak",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 22",
+   "website": ""
+  },
+  {
+   "name": "Catherine (Kate) McPherson",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 23",
+   "website": ""
+  },
+  {
+   "name": "Karin L. McCarthy",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 24",
+   "website": ""
+  },
+  {
+   "name": "Karen B. Schommer",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 28",
+   "website": ""
+  },
+  {
+   "name": "Jacob Fischmann",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 29",
+   "website": ""
+  },
+  {
+   "name": "Elizabeth H. Strand",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 32",
+   "website": ""
+  },
+  {
+   "name": "Ben Lacy",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 38",
+   "website": "www.lacyforjudge.com"
+  },
+  {
+   "name": "Rebecca A. Waxse",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 38",
+   "website": "https://waxseforjudge.com/"
+  },
+  {
+   "name": "Heather Pipenhagen",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 43",
+   "website": ""
+  },
+  {
+   "name": "Jennifer D. Peterson",
+   "party": "Nonpartisan",
+   "title": "Judge - 10th District Court 45",
+   "website": ""
+  }
+ ]
+}
