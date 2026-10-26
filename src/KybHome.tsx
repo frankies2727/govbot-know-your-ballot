@@ -1,3 +1,4 @@
+import { Github } from 'lucide-react';
 import { navigate } from './lib/router';
 import { useDocumentMeta } from './Bits';
 import ilOutline from './data/illinois/outline.json';
@@ -65,8 +66,8 @@ export function KybHome() {
             <div className="mx-auto max-w-[62ch] space-y-3 text-[15px] leading-relaxed">
               <p><strong>This is an open-source project, built by and for everyone.</strong> Anyone can help a state arrive sooner: research where its candidate lists, campaign money and district maps come from, add a photo, translate the guide, or tell us when something is wrong. You don&rsquo;t need to write code.</p>
               <p className="flex flex-wrap justify-center gap-3">
-                <a className="inline-flex min-h-[46px] items-center rounded-xl border-2 border-[var(--gb-text)] px-5 font-black no-underline text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" href={`${REPO}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noopener">How to contribute ↗</a>
-                <a className="inline-flex min-h-[46px] items-center rounded-xl border-2 border-[var(--gb-text)] px-5 font-black no-underline text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" href={`${REPO}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22`} target="_blank" rel="noopener">Pick something to help with ↗</a>
+                <a className="inline-flex min-h-[46px] items-center rounded-xl border-2 border-[var(--gb-text)] px-5 font-black no-underline text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" href={`${REPO}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noopener"><Github className="mr-2 h-5 w-5" aria-hidden="true" />How to contribute ↗</a>
+                <a className="inline-flex min-h-[46px] items-center rounded-xl border-2 border-[var(--gb-text)] px-5 font-black no-underline text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" href={`${REPO}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22`} target="_blank" rel="noopener"><Github className="mr-2 h-5 w-5" aria-hidden="true" />Pick something to help with ↗</a>
               </p>
             </div>
           </section>
