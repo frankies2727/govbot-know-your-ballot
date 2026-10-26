@@ -1414,6 +1414,23 @@
       "cash": 603622,
       "through": "10/14/2026"
      },
+     "ballotpediaRead": "2026-10-26",
+     "ballotpedia": "https://ballotpedia.org/Brad_Finstad",
+     "website": "https://finstadforcongress.com",
+     "social": {
+      "facebook": "https://www.facebook.com/BradFinstadforCongress",
+      "x": "https://x.com/BradFinstad",
+      "instagram": "https://www.instagram.com/repfinstad/",
+      "youtube": "https://www.youtube.com/@repfinstad",
+      "linkedin": "https://www.linkedin.com/in/brad-finstad-593588aa/"
+     },
+     "photo": {
+      "file": "kyb-photos/minnesota/brad-finstad-cd-1.jpg",
+      "credit": "Official portrait, U.S. Congress (public domain)",
+      "link": "https://bioguide.congress.gov/search/bio/F000475",
+      "from": "https://unitedstates.github.io/images/congress/450x550/F000475.jpg"
+     },
+     "issuesUrl": "https://finstadforcongress.com/issues/",
      "outside": {
       "support": 42285,
       "oppose": 19802,
@@ -1442,23 +1459,6 @@
       "through": "10/14/2026",
       "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H2MN01223&cycle=2026&data_type=processed"
      },
-     "ballotpediaRead": "2026-10-26",
-     "ballotpedia": "https://ballotpedia.org/Brad_Finstad",
-     "website": "https://finstadforcongress.com",
-     "social": {
-      "facebook": "https://www.facebook.com/BradFinstadforCongress",
-      "x": "https://x.com/BradFinstad",
-      "instagram": "https://www.instagram.com/repfinstad/",
-      "youtube": "https://www.youtube.com/@repfinstad",
-      "linkedin": "https://www.linkedin.com/in/brad-finstad-593588aa/"
-     },
-     "photo": {
-      "file": "kyb-photos/minnesota/brad-finstad-cd-1.jpg",
-      "credit": "Official portrait, U.S. Congress (public domain)",
-      "link": "https://bioguide.congress.gov/search/bio/F000475",
-      "from": "https://unitedstates.github.io/images/congress/450x550/F000475.jpg"
-     },
-     "issuesUrl": "https://finstadforcongress.com/issues/",
      "endorsements": {
       "groups": [
        {
@@ -1576,6 +1576,33 @@
       "cash": 205276,
       "through": "10/14/2026"
      },
+     "ballotpediaRead": "2026-10-26",
+     "ballotpedia": "https://ballotpedia.org/Matt_Little",
+     "stances": {
+      "messages": [
+       "Working families are fighting harder than ever just to stay afloat. Housing, health care, childcare, and groceries have outpaced paychecks for decades. The problem isn’t a lack of resources; it’s too much power and wealth in the hands of a few who have corrupted our nation and rigged the system against working families. I’ll fight to build more housing, expand the Child Tax Credit and childcare assistance, cap student loan interest, establish universal pre-K, and make the ultra-wealthy pay their fair share. And I’ll fight for Medicare for All, because I watched my mom battle our insurance company for years just to get the care she needed. No family should have to go through that.",
+       "I can’t be bought and I can’t be bullied. My campaign is powered by people, not corporate PACS, AIPAC, super PACs, Big Pharma, or Big Oil. Trump’s corruption is beyond anything in American history, but when politicians of any party take corporate money and trade stocks, it sends the corrosive message to voters that nobody can be trusted. I’ll fight for the strongest anti-corruption laws in American history: overturn Citizens United, ban congressional stock trading, get dark money out of politics, and hold this administration and ICE accountable. That independence is also why I’ve taken the strongest stance in this race against taxpayer handouts for Big Tech data centers.",
+       "I love this place and know the people of this district. In 2016, I won a State Senate district where Hilary Clinton got 37% by showing up, listening, and talking about the issues with my neighbors. In the Senate, I authored or co-authored over 60 bipartisan bills, made insulin affordable, brought Metro Mobility to Lakeville, and prevented cuts to veterans’ services. I invite anyone who disagrees with me, from any party, to talk it through over breakfast. The issues hurting people most cut across party lines: whether they can afford their rent, whether their parents have good care, whether their kids are going to be okay, and whether their neighbors are doing alright. That’s what drove me…"
+      ],
+      "asOf": "2026-09-27",
+      "url": "https://ballotpedia.org/Matt_Little"
+     },
+     "website": "https://littleforcongress.com",
+     "social": {
+      "facebook": "https://www.facebook.com/MattMLittle",
+      "x": "https://x.com/LittleCongress",
+      "instagram": "https://www.instagram.com/mattlittleforcongress",
+      "youtube": "https://www.youtube.com/@LittleForCongress",
+      "tiktok": "https://www.tiktok.com/@littlecongress",
+      "linkedin": "https://www.linkedin.com/in/mattmlittle/",
+      "bluesky": "https://bsky.app/profile/littleforcongress.bsky.social"
+     },
+     "photo": {
+      "file": "kyb-photos/minnesota/matt-little-cd-2.jpg",
+      "credit": "Skylervilt · CC BY-SA 4.0 · Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg",
+      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg/500px-Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     },
      "outside": {
       "support": 476836,
       "oppose": 17392,
@@ -1613,33 +1640,6 @@
       ],
       "through": "10/14/2026",
       "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN02230&cycle=2026&data_type=processed"
-     },
-     "ballotpediaRead": "2026-10-26",
-     "ballotpedia": "https://ballotpedia.org/Matt_Little",
-     "stances": {
-      "messages": [
-       "Working families are fighting harder than ever just to stay afloat. Housing, health care, childcare, and groceries have outpaced paychecks for decades. The problem isn’t a lack of resources; it’s too much power and wealth in the hands of a few who have corrupted our nation and rigged the system against working families. I’ll fight to build more housing, expand the Child Tax Credit and childcare assistance, cap student loan interest, establish universal pre-K, and make the ultra-wealthy pay their fair share. And I’ll fight for Medicare for All, because I watched my mom battle our insurance company for years just to get the care she needed. No family should have to go through that.",
-       "I can’t be bought and I can’t be bullied. My campaign is powered by people, not corporate PACS, AIPAC, super PACs, Big Pharma, or Big Oil. Trump’s corruption is beyond anything in American history, but when politicians of any party take corporate money and trade stocks, it sends the corrosive message to voters that nobody can be trusted. I’ll fight for the strongest anti-corruption laws in American history: overturn Citizens United, ban congressional stock trading, get dark money out of politics, and hold this administration and ICE accountable. That independence is also why I’ve taken the strongest stance in this race against taxpayer handouts for Big Tech data centers.",
-       "I love this place and know the people of this district. In 2016, I won a State Senate district where Hilary Clinton got 37% by showing up, listening, and talking about the issues with my neighbors. In the Senate, I authored or co-authored over 60 bipartisan bills, made insulin affordable, brought Metro Mobility to Lakeville, and prevented cuts to veterans’ services. I invite anyone who disagrees with me, from any party, to talk it through over breakfast. The issues hurting people most cut across party lines: whether they can afford their rent, whether their parents have good care, whether their kids are going to be okay, and whether their neighbors are doing alright. That’s what drove me…"
-      ],
-      "asOf": "2026-09-27",
-      "url": "https://ballotpedia.org/Matt_Little"
-     },
-     "website": "https://littleforcongress.com",
-     "social": {
-      "facebook": "https://www.facebook.com/MattMLittle",
-      "x": "https://x.com/LittleCongress",
-      "instagram": "https://www.instagram.com/mattlittleforcongress",
-      "youtube": "https://www.youtube.com/@LittleForCongress",
-      "tiktok": "https://www.tiktok.com/@littlecongress",
-      "linkedin": "https://www.linkedin.com/in/mattmlittle/",
-      "bluesky": "https://bsky.app/profile/littleforcongress.bsky.social"
-     },
-     "photo": {
-      "file": "kyb-photos/minnesota/matt-little-cd-2.jpg",
-      "credit": "Skylervilt · CC BY-SA 4.0 · Wikimedia Commons",
-      "link": "https://commons.wikimedia.org/wiki/File:Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg",
-      "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg/500px-Senator_Matt_Little_presides_over_the_Committee_on_Banned_Bills.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
      },
      "endorsements": {
       "groups": [
@@ -1714,19 +1714,6 @@
       "cash": 173430,
       "through": "10/14/2026"
      },
-     "outside": {
-      "support": 285,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "MINNESOTA CITIZENS CONCERNED FOR LIFE, INC. FEDERAL PAC",
-        "support": 285,
-        "oppose": 0
-       }
-      ],
-      "through": "10/14/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN02263&cycle=2026&data_type=processed"
-     },
      "ballotpediaRead": "2026-10-26",
      "ballotpedia": "https://ballotpedia.org/Eric_Pratt_(Minnesota)",
      "website": "https://www.ericprattmn.com",
@@ -1743,6 +1730,19 @@
       "credit": "Minnesota Senate Republican Caucus · CC BY 2.0 · Wikimedia Commons",
       "link": "https://commons.wikimedia.org/wiki/File:Minnesota_State_Senator_Eric_Pratt.jpg",
       "from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Minnesota_State_Senator_Eric_Pratt.jpg/500px-Minnesota_State_Senator_Eric_Pratt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     },
+     "outside": {
+      "support": 285,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "MINNESOTA CITIZENS CONCERNED FOR LIFE, INC. FEDERAL PAC",
+        "support": 285,
+        "oppose": 0
+       }
+      ],
+      "through": "10/14/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN02263&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -1986,19 +1986,6 @@
       "cash": 526264,
       "through": "10/14/2026"
      },
-     "outside": {
-      "support": 10,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "SIERRA CLUB INDEPENDENT ACTION",
-        "support": 10,
-        "oppose": 0
-       }
-      ],
-      "through": "10/14/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN04049&cycle=2026&data_type=processed"
-     },
      "ballotpediaRead": "2026-10-26",
      "ballotpedia": "https://ballotpedia.org/Betty_McCollum",
      "stances": {
@@ -2024,6 +2011,19 @@
       "credit": "Official portrait, U.S. Congress (public domain)",
       "link": "https://bioguide.congress.gov/search/bio/M001143",
       "from": "https://unitedstates.github.io/images/congress/450x550/M001143.jpg"
+     },
+     "outside": {
+      "support": 10,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "SIERRA CLUB INDEPENDENT ACTION",
+        "support": 10,
+        "oppose": 0
+       }
+      ],
+      "through": "10/14/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN04049&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -2125,19 +2125,6 @@
       "cash": 18548,
       "through": "10/14/2026"
      },
-     "outside": {
-      "support": 285,
-      "oppose": 0,
-      "groups": [
-       {
-        "name": "MINNESOTA CITIZENS CONCERNED FOR LIFE, INC. FEDERAL PAC",
-        "support": 285,
-        "oppose": 0
-       }
-      ],
-      "through": "10/14/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN04293&cycle=2026&data_type=processed"
-     },
      "ballotpediaRead": "2026-10-26",
      "ballotpedia": "https://ballotpedia.org/Paul_Wikstrom",
      "stances": {
@@ -2162,6 +2149,19 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Paul_Wikstrom",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Wikstrom-Photo-high-res_20260627_020636_42311_1.jpg"
+     },
+     "outside": {
+      "support": 285,
+      "oppose": 0,
+      "groups": [
+       {
+        "name": "MINNESOTA CITIZENS CONCERNED FOR LIFE, INC. FEDERAL PAC",
+        "support": 285,
+        "oppose": 0
+       }
+      ],
+      "through": "10/14/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H6MN04293&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -2221,6 +2221,33 @@
       "cash": 3003684,
       "through": "10/14/2026"
      },
+     "ballotpediaRead": "2026-10-26",
+     "ballotpedia": "https://ballotpedia.org/Ilhan_Omar",
+     "stances": {
+      "messages": [
+       "We must abolish ICE. Minnesotans saw firsthand what a tyrant in the White House can do with an unaccountable paramilitary force. Masked agents roamed our streets, kidnapped our neighbors, and killed American citizens who were exercising their constitutional rights. At least 52 people have died in ICE custody since Trump started his second term, and hundreds of thousands more are being held in squalid conditions in violation of their human rights. The politicization of immigration courts have eroded any semblance of due process or equal protection under the law. There is no reforming an agency that will ignore the Constitution and kill Americans and prevent any meaningful investigation…",
+       "We must make life affordable for Americans. I helped develop the affordability agenda for the Progressive Caucus to lower prescription drug costs, crack down on utility companies that overcharge families, curb excess oil profits, cap child care costs at 7% of income, expand rental assistance, and help first-time homebuyers with $20,000 in down payment assistance. We also need to cancel student debt and make college and trade school tuition-free so the next generation can thrive in a rapidly changing economy. The answer to rising costs is taking on corporate greed and investing in working people.",
+       "We must end forever wars and build a foreign policy grounded in human rights. No president should be able to launch military attacks without congressional authorization or dismantle congressionally approved foreign aid by executive action. Our foreign policy should serve people—not corporations or special interests. I’m fighting for a just foreign policy where we prioritize diplomacy, public health, human rights, and lasting peace."
+      ],
+      "asOf": "2026-07-13",
+      "url": "https://ballotpedia.org/Ilhan_Omar"
+     },
+     "website": "https://ilhanomar.com/",
+     "social": {
+      "facebook": "https://www.facebook.com/IlhanMN",
+      "x": "https://x.com/IlhanMN",
+      "instagram": "https://www.instagram.com/ilhanmn/",
+      "youtube": "https://www.youtube.com/@rep.ilhanomar2703",
+      "tiktok": "https://www.tiktok.com/@ilhanmn",
+      "linkedin": "https://www.linkedin.com/in/ilhan-omar-a6433644/"
+     },
+     "photo": {
+      "file": "kyb-photos/minnesota/ilhan-omar-cd-5.jpg",
+      "credit": "Official portrait, U.S. Congress (public domain)",
+      "link": "https://bioguide.congress.gov/search/bio/O000173",
+      "from": "https://unitedstates.github.io/images/congress/450x550/O000173.jpg"
+     },
+     "issuesUrl": "https://ilhanomar.com/visions/",
      "outside": {
       "support": 3794,
       "oppose": 0,
@@ -2249,33 +2276,6 @@
       "through": "10/14/2026",
       "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN05239&cycle=2026&data_type=processed"
      },
-     "ballotpediaRead": "2026-10-26",
-     "ballotpedia": "https://ballotpedia.org/Ilhan_Omar",
-     "stances": {
-      "messages": [
-       "We must abolish ICE. Minnesotans saw firsthand what a tyrant in the White House can do with an unaccountable paramilitary force. Masked agents roamed our streets, kidnapped our neighbors, and killed American citizens who were exercising their constitutional rights. At least 52 people have died in ICE custody since Trump started his second term, and hundreds of thousands more are being held in squalid conditions in violation of their human rights. The politicization of immigration courts have eroded any semblance of due process or equal protection under the law. There is no reforming an agency that will ignore the Constitution and kill Americans and prevent any meaningful investigation…",
-       "We must make life affordable for Americans. I helped develop the affordability agenda for the Progressive Caucus to lower prescription drug costs, crack down on utility companies that overcharge families, curb excess oil profits, cap child care costs at 7% of income, expand rental assistance, and help first-time homebuyers with $20,000 in down payment assistance. We also need to cancel student debt and make college and trade school tuition-free so the next generation can thrive in a rapidly changing economy. The answer to rising costs is taking on corporate greed and investing in working people.",
-       "We must end forever wars and build a foreign policy grounded in human rights. No president should be able to launch military attacks without congressional authorization or dismantle congressionally approved foreign aid by executive action. Our foreign policy should serve people—not corporations or special interests. I’m fighting for a just foreign policy where we prioritize diplomacy, public health, human rights, and lasting peace."
-      ],
-      "asOf": "2026-07-13",
-      "url": "https://ballotpedia.org/Ilhan_Omar"
-     },
-     "website": "https://ilhanomar.com/",
-     "social": {
-      "facebook": "https://www.facebook.com/IlhanMN",
-      "x": "https://x.com/IlhanMN",
-      "instagram": "https://www.instagram.com/ilhanmn/",
-      "youtube": "https://www.youtube.com/@rep.ilhanomar2703",
-      "tiktok": "https://www.tiktok.com/@ilhanmn",
-      "linkedin": "https://www.linkedin.com/in/ilhan-omar-a6433644/"
-     },
-     "photo": {
-      "file": "kyb-photos/minnesota/ilhan-omar-cd-5.jpg",
-      "credit": "Official portrait, U.S. Congress (public domain)",
-      "link": "https://bioguide.congress.gov/search/bio/O000173",
-      "from": "https://unitedstates.github.io/images/congress/450x550/O000173.jpg"
-     },
-     "issuesUrl": "https://ilhanomar.com/visions/",
      "endorsements": {
       "groups": [
        {
@@ -2563,19 +2563,6 @@
       "cash": 2971245,
       "through": "10/14/2026"
      },
-     "outside": {
-      "support": 0,
-      "oppose": 547,
-      "groups": [
-       {
-        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
-        "support": 0,
-        "oppose": 547
-       }
-      ],
-      "through": "10/14/2026",
-      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MN06087&cycle=2026&data_type=processed"
-     },
      "ballotpediaRead": "2026-10-26",
      "ballotpedia": "https://ballotpedia.org/Tom_Emmer",
      "website": "https://emmerforcongress.com/",
@@ -2591,6 +2578,19 @@
       "credit": "Official portrait, U.S. Congress (public domain)",
       "link": "https://bioguide.congress.gov/search/bio/E000294",
       "from": "https://unitedstates.github.io/images/congress/450x550/E000294.jpg"
+     },
+     "outside": {
+      "support": 0,
+      "oppose": 547,
+      "groups": [
+       {
+        "name": "MINNESOTA DEMOCRATIC-FARMER-LABOR PARTY",
+        "support": 0,
+        "oppose": 547
+       }
+      ],
+      "through": "10/14/2026",
+      "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H4MN06087&cycle=2026&data_type=processed"
      },
      "endorsements": {
       "groups": [
@@ -2765,6 +2765,23 @@
       "cash": 866362,
       "through": "10/14/2026"
      },
+     "ballotpediaRead": "2026-10-26",
+     "ballotpedia": "https://ballotpedia.org/Michelle_Fischbach",
+     "website": "https://www.fischbachforcongress.com/",
+     "social": {
+      "facebook": "https://www.facebook.com/MichelleFischbachForCongress",
+      "x": "https://x.com/FischbachMN7",
+      "instagram": "https://www.instagram.com/fischbachmn7/",
+      "youtube": "https://www.youtube.com/@fischbachmn7",
+      "linkedin": "https://www.linkedin.com/in/michelle-fischbach-06335351/"
+     },
+     "photo": {
+      "file": "kyb-photos/minnesota/michelle-fischbach-cd-7.jpg",
+      "credit": "Official portrait, U.S. Congress (public domain)",
+      "link": "https://bioguide.congress.gov/search/bio/F000470",
+      "from": "https://unitedstates.github.io/images/congress/450x550/F000470.jpg"
+     },
+     "issuesUrl": "https://www.fischbachforcongress.com/issues",
      "outside": {
       "support": 285,
       "oppose": 171,
@@ -2783,23 +2800,6 @@
       "through": "10/14/2026",
       "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H0MN07091&cycle=2026&data_type=processed"
      },
-     "ballotpediaRead": "2026-10-26",
-     "ballotpedia": "https://ballotpedia.org/Michelle_Fischbach",
-     "website": "https://www.fischbachforcongress.com/",
-     "social": {
-      "facebook": "https://www.facebook.com/MichelleFischbachForCongress",
-      "x": "https://x.com/FischbachMN7",
-      "instagram": "https://www.instagram.com/fischbachmn7/",
-      "youtube": "https://www.youtube.com/@fischbachmn7",
-      "linkedin": "https://www.linkedin.com/in/michelle-fischbach-06335351/"
-     },
-     "photo": {
-      "file": "kyb-photos/minnesota/michelle-fischbach-cd-7.jpg",
-      "credit": "Official portrait, U.S. Congress (public domain)",
-      "link": "https://bioguide.congress.gov/search/bio/F000470",
-      "from": "https://unitedstates.github.io/images/congress/450x550/F000470.jpg"
-     },
-     "issuesUrl": "https://www.fischbachforcongress.com/issues",
      "endorsements": {
       "groups": [
        {
@@ -2980,6 +2980,21 @@
       "cash": 1086287,
       "through": "10/14/2026"
      },
+     "ballotpediaRead": "2026-10-26",
+     "ballotpedia": "https://ballotpedia.org/Pete_Stauber",
+     "website": "https://petestauberforcongress.com/",
+     "social": {
+      "facebook": "https://www.facebook.com/PeteStauberMN",
+      "x": "https://x.com/PeteStauber",
+      "instagram": "https://www.instagram.com/petestaubermn",
+      "youtube": "https://www.youtube.com/@PeteStauberforCongress"
+     },
+     "photo": {
+      "file": "kyb-photos/minnesota/pete-stauber-cd-8.jpg",
+      "credit": "Official portrait, U.S. Congress (public domain)",
+      "link": "https://bioguide.congress.gov/search/bio/S001212",
+      "from": "https://unitedstates.github.io/images/congress/450x550/S001212.jpg"
+     },
      "outside": {
       "support": 285,
       "oppose": 554,
@@ -2997,21 +3012,6 @@
       ],
       "through": "10/14/2026",
       "url": "https://www.fec.gov/data/independent-expenditures/?candidate_id=H8MN08043&cycle=2026&data_type=processed"
-     },
-     "ballotpediaRead": "2026-10-26",
-     "ballotpedia": "https://ballotpedia.org/Pete_Stauber",
-     "website": "https://petestauberforcongress.com/",
-     "social": {
-      "facebook": "https://www.facebook.com/PeteStauberMN",
-      "x": "https://x.com/PeteStauber",
-      "instagram": "https://www.instagram.com/petestaubermn",
-      "youtube": "https://www.youtube.com/@PeteStauberforCongress"
-     },
-     "photo": {
-      "file": "kyb-photos/minnesota/pete-stauber-cd-8.jpg",
-      "credit": "Official portrait, U.S. Congress (public domain)",
-      "link": "https://bioguide.congress.gov/search/bio/S001212",
-      "from": "https://unitedstates.github.io/images/congress/450x550/S001212.jpg"
      },
      "endorsements": {
       "groups": [
@@ -26122,40 +26122,126 @@
  ],
  "news": [
   {
-   "at": "2026-10-26T00:57:54.000Z",
-   "title": "What to make of Vikings' 16-10 win over Colts, 6-0 start | Vikings Now Podcast",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1WeGc4UDctVXVRc3BoZjFvT2JLeWNJOGhKajcyN1N0aWw4RENjOGM2QkNxaTM0aWJjc3RDdzhUemJySmxvdGdld2dYTlNzd2NjQ09ta2tjWkZWRFXSAWBBVV95cUxNV3J3Q2JBOGpZRWZGcll4bTZfSExyNUMyVFZsUXRKNkNrQ0dVRmhBZWVxbTU5Uk1lcFFsdUEwdTU1U1g5OXlKVmNONGxuN1YzTGdxNnJfZlFXeUtyZ3RocDc?oc=5",
-   "source": "FOX 9 Minneapolis-St. Paul"
+   "at": "2026-10-26T17:19:46.000Z",
+   "title": "Minnesota Senate Race: Where Flanagan and Tafoya Stand",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOR1NFd1ZrRUpCM2IwMUpPbUJlY1FYdVU0dGNhcWxKYnJhTmRtYWVyRDBVaUdyOTV6ZGxFR1dWY2J4UmFuWnpRWDA3MmJyR3RBVTh1U01BRVAwWFlOdkJYVFlmNU1VTGV3MHI5Rlg4amtUY2x3R2ItbE9lMlpTcjBNbkJEeVM1Ql9Nc3lLVTdaSQ?oc=5",
+   "source": "Minnesota Spokesman-Recorder"
   },
   {
-   "at": "2026-10-26T00:10:13.000Z",
+   "at": "2026-10-26T17:00:00.000Z",
+   "title": "The 2026 midterms will also decide who runs elections in 29 states",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMnYxbEE3WS1fYVFacW1rUWVrSnNYS1dCdVdvYmh3VUxFZW5lNW52RGlTeUtlUVc2SjZPaFR4R1dIZ3Z4TlZtanhoVUFibGROWVF4dUhuZ2F4azY0UDctVEVRaTRYUDJGNDZ3QzlvV3lWekdVOVFDVHY0bXphMWtnV0JDT0hTWlFScGRScE03TFlMMjR2aVlfa3ZiUjRZV2pMM0t6TnhQZkpCSFZ2TXgycmhuTm92M3MydDQ2NjdEem90bkI3WDR2SA?oc=5",
+   "source": "MinnPost"
+  },
+  {
+   "at": "2026-10-26T16:57:07.000Z",
+   "title": "Minnesota Governor Race: Where Klobuchar and Demuth Stand",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNZFJ2cmphZ0hTM1hWR3d5UjhPWlV0X2RuQzZqeGNSQXhCalZwNW13SWZ5MHlzNHFPNTRjdUpEM0U2V2NLRmE1eWJpakVkeTRXQUhqMVlpelBzUVlBRUplTUNfSll6allyYTZTQU1VcjRuOTdKWVZOM3pSRTA3Y2JUczZYd012OU02LThCSmltV2FNX2M?oc=5",
+   "source": "Minnesota Spokesman-Recorder"
+  },
+  {
+   "at": "2026-10-26T16:26:00.000Z",
+   "title": "Sanders rallies in Minnesota as U.S. Senate race tightens",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOVkRocVlEZ0hoaG92Si1RR3M2bWtjODhyTEtmVHYtaFJTRGxldFlFaUNzYzRQN2dvdmUzQmdOQVlZVHdhQ2ZoczN4N015eGptNlZqcFFZZXhndHRDamFiUGlJMFdTVG92Y2lQM2pRTU5hd2NhV1BpR1dXN29JS0FoMHFiUjlweW5BMDVQSEQ2VkRxZHRBM3BTMlNhNDA?oc=5",
+   "source": "North Penn Now"
+  },
+  {
+   "at": "2026-10-26T15:44:35.000Z",
+   "title": "Barack Obama endorses Peggy Flanagan in tight Minnesota’s US Senate race",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORWI5eEl1NkU5MUhxaTVFUWJ4bVlRcHhDUENlLUlLYXYzSWxzRUcxOUtQZjd4ZDhLZ3dxeEI1WWhJcG1PQ2I5RGVaNlBaRTcxUXhpOW5JUVhRNWNicUo3MFliazl0MHo2eUVaY1Vqb2hHWGhVX2lYOFZZc0lKWkJ4WU44bDdBYzQyVHRCZHpoaFAwTFp5OG0xWjNsTWN6dlAzSjU1a0tsbVdGM2Ny?oc=5",
+   "source": "5 EYEWITNESS NEWS"
+  },
+  {
+   "at": "2026-10-26T15:30:21.000Z",
+   "title": "Tracking the 2026 Early Vote: Midterm Elections",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNDhGdFFLbHU0dnFMZGZ5T2Z4LVNzYk5Mb0lHNXZhQW56U09sX1RmWmRLZmlvRnQtOHNHUlZlS3NZckF2WHF0LXVZOHROTTBCMnQzbkM2X1JCYkY5RGpwamRubEc4M3lPaFE?oc=5",
+   "source": "NBC News"
+  },
+  {
+   "at": "2026-10-26T15:15:38.000Z",
+   "title": "Obama endorses Flanagan as U.S. Senate race closes in on election day",
+   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1mZi1ZVmI3a1hENTRJLWp4ZFA2cWFPX2h3WkxILWtzOXJQTGpULVg5UVpzUWU4Sy1FemRrdTJXR0UyZ2l0TEJyMXgxcGo?oc=5",
+   "source": "The Mighty 790 KFGO"
+  },
+  {
+   "at": "2026-10-26T15:00:21.000Z",
    "title": "Minnesota Midterm Elections 2026: Key Races, Candidates and Past Results",
    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9tcm9zOTJpaDhaUmRNYzJwNFRudHdjd05icGVNNmJjLTUyYVBuWFZoTm5jNDI0Um1XX1dxS3NvbFVnaU1mR0JPaDJNNUtpS1lURjQ1X2FrZ1M5UXY4eEVhLWVhR2tXN0FlQXUySjlLbXp1Nm8?oc=5",
    "source": "NBC News"
   },
   {
-   "at": "2026-10-25T23:37:17.000Z",
-   "title": "How to stop your Halloween pumpkin from rotting",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1YSGZ2UFhIR3o0ZWpnZjJ4Y0dISHdWV0VsME04azlSaS0wNXNSU3VHVUlIdlV6cmptaWV6Q2kta3JHaUx6T0pNWFVJYU5GUzhLOEJ5Vy1zU1BHaGfSAWBBVV95cUxPTU9hQV8xemlydllnU3VYUElvQXp6cTNyQktjaW93VzBFSjBJNkZDSUNCUWVJbHJVUVFBTmtDMXlJYW83Z1owSlNzLUdSSjk1S2laN1JFX2JaS0dyd0JmYzk?oc=5",
-   "source": "FOX 9 Minneapolis-St. Paul"
+   "at": "2026-10-26T14:12:41.000Z",
+   "title": "Minnesota’s political shuffle might not end on Election Day",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQQjZnRXVzRzJHUEhPRjFTRGhLZkJYVVVDa2dxZUVNVEExNzQtbnVub194N2VRenB1Mm5LdXdsVHRRTWJhcERYSjFDWmZsN2x4b1g0TEJTY1FTM2pVelFLNlE0d3A1bjMySWY5eUZ6RHFtbWVLd1RSdlN5Znd3TDk1Xw?oc=5",
+   "source": "Star Tribune",
+   "topic": "money"
   },
   {
-   "at": "2026-10-25T23:28:17.000Z",
-   "title": "Minnesota fraud is result of ‘single-party rule,’ Michele Tafoya says",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5kY1lQTl9lUFBBZWlIc3pTaUJBdDB2M25XNkxwdmRJd2xaemxXY1dxQ2o0QjJaY1Z5d3c2VW4ySDBXWlVwR0o1c3pIaWw0dG9NSUszYmV3?oc=5",
-   "source": "Fox News"
+   "at": "2026-10-26T13:00:21.000Z",
+   "title": "Commentary: Here’s what to know about potential election related litigation, here and beyond",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQd0xOVnhTMzNVSmZmOVUtT3VnSUE3cnhxWFBuMjRKa1ZKXy1ZQWphV0RmSlpHc1liZ3ItbDR5d184YlBHOTFJOVVmdDhXTTFQejZHR3M5aGhOOWdjdTZjMV82WGdpbG5MM1RoWXRkZHE3Y2JyQUpQTjZtbDNnaEdFdlJ6bFJoQzNZalB2MmxFVmxLYWdfa2dQbVRCN3p0MmFWR28yN2llQllNNFNLbWpYSXI3QXN4TkJmcVpjWQ?oc=5",
+   "source": "Minnesota Reformer"
+  },
+  {
+   "at": "2026-10-26T12:06:05.000Z",
+   "title": "Behind the Ballot: Minnesota’s fiercely contested attorney general’s race is nearly dead even",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNQ1VkNGVuNlhOeVIzVHlCRmViQnV5dl9MNWVHOXFjWnFJajdQbWIwd1lBczZTTWdMdDJMempvb245MFdFelU4S0drOWdocE1wczNnZThuMU9PbUJwSGlqaktZNEsyZGY5ZmNvQU92U2NjejJXMzlNYmJHX21ERGhUalZheHNwUUNlOVp1NmVOamR6bk5oajVYZ2NBMXBqMW8tUUZFN3hGa0tnV0lUUXh4OWljTWxJM2xyU3lv?oc=5",
+   "source": "The Mighty 790 KFGO"
+  },
+  {
+   "at": "2026-10-26T11:04:00.000Z",
+   "title": "Amy Klobuchar faces scrutiny over leadership style in MN governor race",
+   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSmF3YXY4eEUzY2dscUVuY01kMFRidGhFb29Bd2pxQncxWlR4emd4b1FRbVFYQktvNWFMLXRyUFJlU1hOV3dPc0xESmxyUjYzeDFTX0xkekJmWHh5TUVBRnUxZVhEazBuQ2JDdTJyRGQxYVNucnQ4Q3hBVVZRblRFcjRhMGU3MUR1ZGF5MGJPMVk4Z0tocnB4ZzhqQmhWRVpfd3ZWeU5HU0p1R1Y1dy1oYUJJdlJJZEhScXdvRVVDMlM3ZW9ZX05CVGgtNjA3MU5YN3pMYVRFTjA5d09XdzBKRDg0V2JuMURzMC1hNkF4dkZ6bVJlYjhTT0tlSjNhSHBFdEE?oc=5",
+   "source": "St. Cloud Times"
+  },
+  {
+   "at": "2026-10-26T10:30:00.000Z",
+   "title": "Minnesota Senate Race Pits an Education and Child Advocate Against a Sportscaster",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVW5uV0VuSWNqdkItTjNycFFEWlpzd1VSWE1LRjk5Z0s4NFFBNXVUajl5N3NFclNyNVNpRk4wZGhuV3BuM083MTAxNGRiUWVGTVcwcV8wNm1pMmJrVklGUkFxd043bFFOOU1kcmxqSDhZWVBZU2o2S3hnckN3dnZxN3hHN1ljT1BKbDNXWVlZUlJtc3dSMERzUzRLbWlTX3lPcFQ3Q0tMb2NTTDJQTjJhaVpjQnM1RjViSDNn?oc=5",
+   "source": "The 74"
+  },
+  {
+   "at": "2026-10-26T10:15:00.000Z",
+   "title": "POLL: Who will you vote for to be Minnesota's next attorney general?",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNclpvTWFfT0pNNW5Ga3ktWEhSRlNQM1cxczJIclRvODZwMmd6ajR2cnJ1Y2NZM09EdmFpcTNGaklwa0Q1ZWdObnQ2SXVQZGJsT214WTlYNVplakh5SGJibjRkOEdyY0tVY09lQ3ZGdjlNWGZsWEQzOWNBZ3E3aXpIOGRNLUIwSkpvcUc3V0FGYTktQWtxd19oOEQxRXdwT2d4c3JhN3hiSlNjSVlVVHhLag?oc=5",
+   "source": "Chippewa Herald"
+  },
+  {
+   "at": "2026-10-26T09:00:00.000Z",
+   "title": "Minnesota state auditor race: 4 questions, answered",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQWGtGOE5zMkJmZGhxNHg0WndSZ3BsbjFBNnpUdU1CSHlyMHdUc2NVOTN5TFZYQ0FjYlFYYVRIZm9KbTNkU2JsWEZvR2RfVFg2NWo3MEc1enJRVThSMFJwSnh0cldEZHk1WHlRV2x6OVZySXB0ZHByUnN5Q25QeXo0X0E1VFJ3RW8xSnFXenNjdFdsMHNm?oc=5",
+   "source": "MPR News"
+  },
+  {
+   "at": "2026-10-26T09:00:00.000Z",
+   "title": "Minnesota candidates try to avoid the cloud of outside, outsized figures",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUnNYeTRTMFlWVGNFYk5MNkVadTFjYnh3OHpTd1ZZTlptYTJGbDYwOFVfclNwajVWZ0QzbWFkX2h2N3VrNlY5cjQ3dXNzWXdkbzlWaE5XRWlUTnBFaE1HS2JhU1R1eUVzMzlGbElwQ0h1N2Qzc1RiNGNQV1JiTHQtUE5YdDg3YzdqeC1UVlhGOEVOREd4T2V5Q0tkSXZuRXNxamFtdG5wX0piaHBNdk5lSFJ6QjhfSGJtUWdfTTlGazRJUVk?oc=5",
+   "source": "MPR News"
+  },
+  {
+   "at": "2026-10-26T03:57:17.000Z",
+   "title": "Musk gave $445mn ahead of midterms: Election money rules in US, and other democracies | HT Explainers",
+   "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQd1ctSmhMUzFiQmcwTTR2Z2RrQ3RveVB1a0JoU1F4SlpyVWRTaW5QdUk2NWxGTi1OMVd4U0N5MmFWYkZqd3F6LW03M1FROTlRTjZFaUx1UTBvcEVSUlJxZ0p3SHVlS1Y5NUpFbXE5S3UyMjlUUGNMYktKYk1FS0w0V05XQVlZZEZuYnY0VDRldFNIZmJUX25STEprYjQ4Snp0SzFzaW5kOTZ3alRHY1FQX2tJeDFxMWk0RWp6MEpEWUJabWxMOWx6UXU2d1hiNi1pX3pMTVM0dDhydVpXN0cwaGJn0gHnAUFVX3lxTFB4VWVLaGplNDFYemhBUkN2OW92MlVGcG44U2JpV0MxV3ZLU2hoRGhncUtrci1FM3VheHhqWDczMmRDYnZvZXdzenJxNFlFM3F2dUNMelFnX0JTVUJDaTNENFB6SE51aGlRYXpCM0N5RGZYdmlUVmhTTl9JQ29BVm9xSUZXM3pBYl9CV2VoN3BuaUVycmJrWUsyMTZmNm5VTjNieXhoWjlDMjdxNm54dm9TVDJla0pHRWdwVDFHaFIyTUYxR29KR0tLakdwTE5qM1dOMU55WlVHVHdKdFF6aGR3SE52TVNTaw?oc=5",
+   "source": "Hindustan Times",
+   "topic": "money"
+  },
+  {
+   "at": "2026-10-26T03:45:53.000Z",
+   "title": "At Issue: Oct. 25 — Minnesota DFL and GOP chairs speak out ahead of Election Day",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdFlhUVZzR1p6OG05ajNmMzd3UWsza01mTVpOR2l3djlRS05sZHRNNXlQQ0dJakdWdXU4eEJWSGo1X1ltOEx3NnJXNnRsTGpUc3ljcmpBV3M2T2lZWHBCMEF1OGU3NWRKNklTRVE0WVV2WF9kOG5pSllGa19lWkdRdm10Skh6T3Y0YTJvX2xYUnhjNlZZNUtVZDZJTmp2UzdfZHdwMEVCT2RMZ2hfamwtNm53?oc=5",
+   "source": "5 EYEWITNESS NEWS"
+  },
+  {
+   "at": "2026-10-25T22:38:00.000Z",
+   "title": "A Fight Over Felon Voting Prompts a Free Speech Debate",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPeGtJbEx2UmRMakpfb05objdCdUYxOVlweldwZmxJVU81WHRab0VpNWZtV2F3RS03RFZ3UXRhMEE2NWR3UURmc2VSajdqY3RlaEFVN184eXBYRHJ5TVJTUmF5MG5yMGs2YXNJNVZQUzNXeEphOGZES1A5clMzWko0N0c0cHo2dFlUYWJrYU8zakhHMFl4YThPRQ?oc=5",
+   "source": "The New York Times"
   },
   {
    "at": "2026-10-25T22:22:04.000Z",
    "title": "Election Results",
    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9ic2lqR19TWm82Vk4ycDZrcXJocDQzekZBNEZxSDVGOFZiV19KeFRzTU42QXJWRUNqcUFLTFBRcWpmMk5LZGhZVWlGekRoMDZ2UEE?oc=5",
    "source": "kaaltv.com"
-  },
-  {
-   "at": "2026-10-25T21:38:50.000Z",
-   "title": "Vikings locker room reacts after 16-10 win over Colts, 6-0 start",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9tQjVsM3Btc0phMnJUTlJQeFhueFBOSFFHaTBlTTRaMTJMcHQ5S3VzWjlUeTc3TlpnVFJ6OTllbFplNTZBUmRaNF9jMjN2V0ozTGZPX2FaTGNoRlnSAWBBVV95cUxNR1prUzNyWjlXWDU0THo0Y0VlYzFnSDVJQnBFa1BNN2dzeEtEVnhNdXkya2pVc1N6eko0VUExNmJIX3VkcDdpOU50d2xJVXBtWVgyVUNramc5bmx5dGhUQ2w?oc=5",
-   "source": "FOX 9 Minneapolis-St. Paul"
   },
   {
    "at": "2026-10-25T21:01:38.000Z",
@@ -26176,10 +26262,10 @@
    "source": "MultiState"
   },
   {
-   "at": "2026-10-25T15:01:37.000Z",
-   "title": "Minnesota governor's race: Parents of slain Annunciation student endorse Klobuchar and say Demuth ‘lied to us’",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOZm5QS0RPQjNjOTQ2WjFGTVlWQXhIbUt1aEtabzFQazJOcUY4b2hURHI2b2dWVW5IQUZyZUp2ZllGWGQxTDUtNHp6aVFjcFlzLVh4a0xmYXgxV1JOZzRfZG5XakVsa2FMWEtqWVB3b1prX0IxMldGLVI3MGxvczl5aFlGZUdtUFk4MXJfaTBRQ0lIUQ?oc=5",
-   "source": "Lodinews.com"
+   "at": "2026-10-25T10:00:37.000Z",
+   "title": "Voters to decide constitutional amendment on school funds, district levy proposals",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNOW1KaGtmeEUwekVDZVRqTnEyMjY4STJuTEJyeHA4ZG5iTGltUUhqUjU0dDZ5U0ZjRm5TczFLazFBUEs3UE4wTFp1cjk2OUJKUFU5OHI3a2I3MTRCTTdSdW14cGk3Y25YTW1hZGJ6TW5sOEdIM1lGZDBhcnhjcEZxbzQ5NTBXOTlfRFpKQ3pudUdsZXBFTVF4ZzlLVTQzSklHTThtTXF5cnplR0J3OWVr?oc=5",
+   "source": "Pioneer Press"
   },
   {
    "at": "2026-10-25T10:00:00.000Z",
@@ -26188,16 +26274,11 @@
    "source": "Star Tribune"
   },
   {
-   "at": "2026-10-25T04:36:32.000Z",
-   "title": "Bernie Sanders joins Peggy Flanagan at Duluth rally",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxONXJaTWt6WWFVMTZjNnp3UzZPYlk3bmNTTHpjSUhNZXR5S3M0ZVJlMzNNellaUVFXUW1YTy1BRWJsdHdlbmtSX1JGOUZHZEZicE9ubnYtSm43LTQ2eUhkWmt1d2tjaEdIVEdJdURreDNZNldCSTNpeGVVY2hFWlk5TFJfWXVLZ2g3czI0YlpB?oc=5",
-   "source": "WDIO.com"
-  },
-  {
-   "at": "2026-10-25T04:17:00.000Z",
-   "title": "Sen. Bernie Sanders promotes Peggy Flanagan, Keith Ellison at Duluth rally",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNnh2OFRRSzVZMXh0eVFxSXFobl9wa3JJZ2VFQXRUN3RiZk5wTGR4SjhjZF9aTnY4azhjZUs0T3hmVFhNMVBfeGYtVnZHUms3eDRVMmdBdXYxOEEzaTcwRHd5eFZhYkZuSjJPMjF4bjBvWjh3QTRiV0tYWkh0aTRnTGpTX3RiTUZSZEF5NGxZa2VFcHV0OG91QUJEZlN4a1M5amJFVTJfOHZiM0pQRVAtMF9iVdIBxwFBVV95cUxPNjk3M2t4NmpVREUxV01hQmhQVXl1anV0Z1ZkQmI4cm1FNklHbXQ2SmdLcGlPSFNlZHlKdURlLWdnNGhUalZhYTIyRXNZTXVtZDBiNzVubnRPeGpfVF8wbVp1VFd1NkFoVXFNTV9UUmN3TUNHQl9kTGZHWG9oSTdXWjVuVXpRNnllS29qajBiRWU2TDJBRV9QMFRqQkd6MjA2R1ozdTBoSjJLeFBZZ1pYZEZfSjV1UFN6emJiTjBheHZNVEtyU3lr?oc=5",
-   "source": "Northern News Now"
+   "at": "2026-10-25T06:56:16.000Z",
+   "title": "Minnesota 2020 U.S. Senate Race Donors & Demographics",
+   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxORG1VTk5USzIycFFBZnFRODB2NDRYR1lzSHg3d1dNVUxhTUFOUGtmcVROamhSZFdnYlhjdlQyNDRXdlBXWlkxVmVXMnloR2hSWkZsajQ2MnVnQ3ZkcEgzSlA5Ulo1T0MwRXRkTDIzX2RSQklSeFVSNDlnTnNKMFFGQnlfVzZYZjNYTDQ5SFk1cDhidlRLWlZyMXpnNXB3M2lJWjE3czJoY3ZBX1lSR1EydU9jYVhQOUNvZGd1Z2xjbk5sNlp5bmNkUTNmejNZbURpUzFQQWpheDRVSkk?oc=5",
+   "source": "OpenSecrets",
+   "topic": "money"
   },
   {
    "at": "2026-10-25T03:48:13.000Z",
@@ -26206,16 +26287,28 @@
    "source": "Star Tribune"
   },
   {
-   "at": "2026-10-25T01:49:28.000Z",
+   "at": "2026-10-25T02:19:43.000Z",
    "title": "Election 2026 Minnesota Senate",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQdWtydWVSVFM2ZVZIZVJ5bVkyQi1sdzZ3SE9Uc3JEZ0VBZDJ4clRITzV5S19tWGpWNVFKV0lUNWRuWmF0cUl1Rmt2UjcwZGhDYUNTRjlETHd4U2RaUjdBNGtHS1BxRHJoU0E1TU82ZHNnUmY3Tl9RNGRpelRsWHA2WThFb1JmNk13RVBNc2RsMmJtMjZ2UWp6Nm1oS0J2YkRkNjVEY0szeTZoM2hj?oc=5",
-   "source": "The Herald Journal"
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPbE5ZaTRqZEt4V2V6YXdXSzlQcnZma2NKNmRqQm5PNzJ4aGl5SjBIV2pMTnZpZnM0VHlJWmw0OW1YcUl2dVJBb1d1X3BiMlhtZHFTbHJQLTRrb0FfQ3lZTUlNSGJtSDk4dVd4OFc2a3ZNbUFIX3lCeEhqWWNQNjROSUFWa0daelc1TnkxR182SWhiOFA0ZUp2d3o1aUY0SVFSWjVTZzh5OGM1ajV6Z0daTjc0M3VfRGlGY3pv?oc=5",
+   "source": "Times Argus"
+  },
+  {
+   "at": "2026-10-24T22:56:57.000Z",
+   "title": "Who Is Ahead in the Minnesota Governor's Race? Latest 2026 Election Polls",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNMzFJTExUa2lBYTVMWFNGLVo0Q2pwTDZEb1BFamZocU56OGpodHpfQko0WGZ2RXN4SDZ6NHVOVzRIM2FIMVgzam9hSzJFcEtxMHJBU3N6dXBaZnA4WHZodGFaMEZFVTRvMWJMZEszQ0ZMeW5yY1FmTllxa0JaZzZpbWg3UlB5dVlrZHZJNEt3?oc=5",
+   "source": "The New York Times"
   },
   {
    "at": "2026-10-24T19:55:53.000Z",
    "title": "Parents of Annunciation shooting victim endorse Klobuchar, claim Demuth lied to them about gun control legislation",
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPVGdPVjdnT0ZEM0UtN2ZUQk16ZWE2T3c5cFVQYVN3RGVoeUFub0dlTWFJalkzTXlVSHJjU0dmaTJFSDh3b0pnbk5VdjlYOWdrNzlHeW5kMTh4TmRqcU1UU2I2ZkF1UVdKZy1VdkVIWnB6d2xwbWM0ZUw1S25PQ25JZUNGSkZtNlRCclh6SVJONzZVM3JHVUNkWW1WZzdwa21keXRhWkU5QQ?oc=5",
    "source": "Yahoo"
+  },
+  {
+   "at": "2026-10-24T19:30:29.000Z",
+   "title": "Election Rumor Rundown for October 24: Emerging election integrity stories from Washington, Minnesota and Arizona",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTWNDemptWGtMQ1BfY1oxYndTQjFuX1FpbGRRRUQ3TGppNHVHcXI2YVY4V3dnUkd6U3V3c1pBX3Q2d0hBeWhBRVBDWW1KdmpONC1sd2VNYnp1NU9NSWF6S0JzbjRVQjcwUTBVY3FaM0poVE5nZXZWMTJUZXlUdkpSUGtlOHZiQ21TQk5HYmhDZGdiUXU0aFA3QlF3?oc=5",
+   "source": "Center for an Informed Public"
   },
   {
    "at": "2026-10-24T17:51:00.000Z",
@@ -26237,10 +26330,16 @@
    "source": "Yahoo"
   },
   {
-   "at": "2026-10-24T12:00:32.000Z",
-   "title": "Minnesota Attorney General race TV ads go through the Truth Test",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUEtBeE1MWnRLc1RKZnZMajRpUE1PaTYzTWp1cFRzNld3M09sd3FKY1NySmcyVGh3dGdFQmREaUY0czFfN0JpMTVjR2RNTURKZkpncFR3ZUN2UVVXa0JadG5Fb1ZIT2JkZm1jN2t4MEdMeXl1UER0LWNzb0lkTDZqNzhJNmZvTUFRcWFmMkZfU3EtUE9SRVRiUjhmUGk2aXc?oc=5",
-   "source": "WDIO.com"
+   "at": "2026-10-24T13:05:26.000Z",
+   "title": "Endorsement: Elect Amy Klobuchar as governor to meet Minnesotans' needs",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPU3ZPbzBhX2s1OTFpT2p5SmJtZUQxa0JvTWhueUxFVVRHdDFlemJWbTBudnQ3alZSUURpTFlLQ2NnNjkzYXBWU1pEVVZOZFAtYS1wUU5EUDJTUjlUSFdQaDVUQlhmN3lnZl9rbmxJbnRaZ0JfVWZZcVNlVjJscVl5N2tVVlU4NWtVWnJrSEh3OW1hUzVNUkpMN19ZbFZkOWNrS1h2V2d4d09xcnBtZTl5TDBiNk8?oc=5",
+   "source": "Alexandria Echo Press"
+  },
+  {
+   "at": "2026-10-24T12:00:31.000Z",
+   "title": "Minnesota students poised to lose out on hundreds of millions as Klobuchar stays quiet",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQY29lSWw3Sl9nWEsyRWI3VTZSWFduNWQ3SEJnNWo5X1JRQTZ3QUZncWxWNEk5T2psYVV6U0ltV05DeXlNUGhnSG5PZ21PNm1fbFFoNHlBZDlTeGpra2Iwem01d2oyMk82WkQxNGZ2LTh5ZTBmcURuUVZKbTB0MW5EclBjVmo0TnQ5SWZjcW51aUhaTDlJTncwV2dQVkxUdXk0OTNZT3QwMTk3M1dLVVE?oc=5",
+   "source": "Alpha News MN"
   },
   {
    "at": "2026-10-24T11:00:00.000Z",
@@ -26250,22 +26349,10 @@
    "topic": "money"
   },
   {
-   "at": "2026-10-24T10:30:00.000Z",
-   "title": "Who's running for the Minnesota House seats in the St. Cloud area?",
-   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPeTJDSUEydExHdUVhRklBTVBtaEFlQ19jS2ZzeGZOQk04NTZhbDNrNDVFVFd0czVDVGtkeHA2cDFDeHgzRC16SUNrcUozXzlEUG9IOXJmME5obnhpbkRHN3FGQWpSeDZUeUpQemZTQmM4YzVRMHJDQ0hfT29ObFZuV25YTnRhZm13Vi1CdmVZQVIyWTJvT3Z6b3UzRzd5d0liRW5FY1BqUGUwcG5rUElIVXBIWjk5NV83OE9HZlVaeHkweFlCdC1oRllVcTZ2OWJUUHFlUXM4UmVuNFE?oc=5",
-   "source": "St. Cloud Times"
-  },
-  {
    "at": "2026-10-24T10:00:00.000Z",
    "title": "Why a blue wave might miss Minnesota’s Senate race",
    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZ1hoVnlha1ZKN21QMm5HY3B1V0tCazlldV9WYmhCLWhCNU9NSHlkdTh1bF82LUVkNUJmVUJGTUdSMzZURlBZSlUwbU9RYUtLb3MzVzVKOVZ5ZUZ6R1R1VVZmRUF0a0dGY1FCZDR6dElYUFQyTGxKcHJ2WklxZXVoOVBkYUtTQdIBiwFBVV95cUxNbVFYUE9UbXcwYVlMdk5SMlZ0eGI5UVk4N0RVZDhWR19pWEdMTkFmeWxobjgyUE1RcHk1MnBJb3c4NVk1UmY0cy16bkxTZUo1YnZfT0lJYVJ3eWZNSDUxU2pTMTVSbWQwcGVFUU1ZekZCQ2EtdFEtVWdhYlpTQ2lFN1hJTjg2ZjdKcjkw?oc=5",
    "source": "The Hill"
-  },
-  {
-   "at": "2026-10-24T03:07:00.000Z",
-   "title": "'Off the charts': Early voting in 2026 outpacing 2022 in Minnesota",
-   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNNWwxUW0zS2g1S1U4eVNKZVV0X3QzQlZrT3F6RE5RWndNbUhQdEVySXVmb0pGSDFTOGVkVXdWcWN0NlhFVWVEeUYwSHgtUzcwYnFORVQzTEVzdER5aUc4TlN6NVFTcHZpcGhla3hYeVl4QUczY244c1NNX3R1ZlNIOU5nWnJJZjk0TW52SzNpc0RMVVpIMzNPRFhZdXNrcnZaWGF6dm5RMDRHZEVuNTdXUzdrakxYaGFfN05tVmhqQkdsbzNGeEl1VDlYM0xTOVMxSW5XNGhadjJIc2xkRWU4?oc=5",
-   "source": "kare11.com"
   },
   {
    "at": "2026-10-24T02:13:42.000Z",
@@ -26274,10 +26361,10 @@
    "source": "FOX 9 Minneapolis-St. Paul"
   },
   {
-   "at": "2026-10-24T00:04:46.000Z",
-   "title": "Poll: Democrat Peggy Flanagan Narrowly Leads Republican Michele Tafoya in Minnesota U.S. Senate Race",
-   "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdWlhdkVtYWtUMGJoQzJQc1d3bjBwVm84MXZWZW5zb3R3Ui1icGpFWlp1YjNBU1hWeGYtcVM2czQwZnBaMk9TekhlMG9PVV81MWpjYlNobGNvQ1pTb2ZnVWRHdnJBdUN5ekpfMmQwU0R5RWJMOWZGNXlBcnRSVXRyUmxZSTM2UnRzazRrNG5DYURTNFZVdkgzTDROSGg3YjFyYjJzTmF3MjZUX0phc2lJaWxGaTBmc1NpcENZU3dNdmpVV2NkWmVQN0JOUElBNU9SMkprUDJ3RjZ5Z2NUOEHSAeMBQVVfeXFMTWozYlpjVkVrcDBoM3VtWjI2RnYweFV0UkR6bXNsZ0xzRkJuUVFtcVFfVHZvVlFhSDVSbno5T2NPNEJ2WUJkbEtiSzF3ODk3ZFZmOHJNM215QUpaNWZtOG54R0JqTEVkcjg4ajNtQi1IRjZKVGFnekdmQ01KSHlYZWdtLTJ2SnZXaXM3czktLTEzYXVab19NT2hBS0VwbC1SM2RIREZlN1VCMF9sRm9MTzU3dmlETmY2VXdJb0FjZGVOZFRVWHJWMmRSdkN1bHd0My1ZaWViRE52VEVrRTJKcXpiVTQ?oc=5",
-   "source": "Breitbart"
+   "at": "2026-10-24T01:49:53.000Z",
+   "title": "Minnesota Attorney General race TV ads go through the Truth Test",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUEtBeE1MWnRLc1RKZnZMajRpUE1PaTYzTWp1cFRzNld3M09sd3FKY1NySmcyVGh3dGdFQmREaUY0czFfN0JpMTVjR2RNTURKZkpncFR3ZUN2UVVXa0JadG5Fb1ZIT2JkZm1jN2t4MEdMeXl1UER0LWNzb0lkTDZqNzhJNmZvTUFRcWFmMkZfU3EtUE9SRVRiUjhmUGk2aXc?oc=5",
+   "source": "WDIO.com"
   },
   {
    "at": "2026-10-23T20:56:00.000Z",
@@ -26286,22 +26373,10 @@
    "source": "St. Cloud Times"
   },
   {
-   "at": "2026-10-23T20:41:28.000Z",
-   "title": "Why is Trump questioning Ilhan Omar’s name?",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWVZ0Q3VHeUVBMW5YTVMzcFg0UDZpQzlaUTRVQVhWMHRrZEcteFVzQl83Y3BTLUtQUnhzOGM1T2hHNXg3TmFRX2dnUGJ1bXpIY3FmZ3pqQjFqbXZrRHVsR0ZkS0pPeXJkSEZ3V0RXUGIyNXdhRGZHQ1FXNzY2WFVBbGZXeW5pTllJbkxV0gGQAUFVX3lxTFBVcjlBN2NldmdyUVB3aHR0clMzbVRjMUdHRUs1SkRTMDlwNlpLeGJwdThwbUMzZjByMEFuaktMN0NWNF8wY1ZLYVhyaWp1RUVRQUY1TkNpVVBsSlljeVBJc3hob29vbTV0aEo4VzJpaDVoWDdRRG12YW1tVDd0Vld4NE1RQVRENEZxSEZZWmdCSw?oc=5",
-   "source": "Al Jazeera"
-  },
-  {
    "at": "2026-10-23T20:20:59.000Z",
    "title": "Breast cancer awareness: Being your own advocate when navigating a diagnosis",
    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5CUF9VckxKclMyNnlpczhaVmYwRkMzVElYeS0wQU1RT3JBVGxrOVdTTWIzNE1ON3FreERnZkFCcDRQZTlObFlnOERCOTc3dFFHaHlmNExycUJYMkXSAWBBVV95cUxNMTBLNGJFY1ZjQTZsX0xKNFFLQXA1NGppSzU5NFZJWTRFaktkdUdsOGRWV1NOMFdjbWJmR0hRWGw5YjdacFhHNXZXeEJEN3BrZzQ2U1ZlUE1zV18taUxJeG0?oc=5",
    "source": "FOX 9 Minneapolis-St. Paul"
-  },
-  {
-   "at": "2026-10-23T20:04:00.000Z",
-   "title": "Minnesota early voting turnout nearly double last midterm",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOekVmWjYySlpHNTRuQXk1cmtmZWRIcGRPTXlSYnNtenVuQjJqWE5ZRGtaZ2dCaWRPM0llWjZlenhBOTdtemV5bm1FSDF0ZXNwSUplN19hVl9GZnptbkY0dGV0NzR5Nm5TTkFhMk4zazZfeVVGWWo4MUFPeUdFY3ZUWWdwVEMwZkFYcnVPSEc0a3FwQmVibjYtZ3h6bXNLUUE2VXhB0gG3AUFVX3lxTFBDa0tvSm10RkZGSmFlWGU5NHNEN2FqaFNyUjBfOUlCRDViZC1nNlU4RElMNkpNTVhpWU05VWtvemZRU1l4MGZ3d25mQjZteVZldkhwSjMyd1p5XzN0RWVlOFVscW5oTlY3akZNZVlGZm5NQ1l0clppb1YwQ1ktRHBTMlNrZlltRFk4V2RxSXZ3VDV0b0FrWHAzdVlRWTk1eUVHQ3A3NlNqaE1TRk9oYnR6UXIxR0JOTQ?oc=5",
-   "source": "Northern News Now"
   },
   {
    "at": "2026-10-23T20:02:44.000Z",
@@ -26309,12 +26384,6 @@
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRHdrQlNJWjNPZVh3bUVHbTJSWDV2M0NWQWJrTVhiaDBRS21rVHl4bkVBTEJ3NkJRWGZVLUNtaGloSVRPT01NNXloM0ZJRFlFZTl5Z0hZcFlQenZETmFiNUtlNGs0MVpfZk0tXzFlX1kzWnEzaVVBa2FoVGNwUXVzR0s5M3BjRExFWmhPUXEyczh1aDhoakpKcEVJaHZsOXVnZW42d3JpRXc1aGpKUVF4RWhFZXV5Zw?oc=5",
    "source": "Star Tribune",
    "topic": "money"
-  },
-  {
-   "at": "2026-10-23T19:57:49.000Z",
-   "title": "Some Wisconsin high school football teams shift state tournament game for World Series",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9USjhjUzJTSVZzVlNQZ0tJcGkxUVhhMGRzSlZpVzRkMnl4ZnV2S0JGNlhlYnlGNm9WeUlrVm9ZZXREQ0EtNkNkb2tjcm5jN0pTNE9EM0xkMEV0b03SAWBBVV95cUxPVUQ1ZGVTNmJyblBPWEdLRFVTYURGanFsc3F4STlSZ0IybzVPNzdwOFVUcGdYV2d0bG5XRFdRa1ZQU21lV1k5X0xQb19nTHpMd0hURnVkdkdqZC1LNjhUYWQ?oc=5",
-   "source": "FOX 9 Minneapolis-St. Paul"
   },
   {
    "at": "2026-10-23T18:31:49.000Z",
@@ -26329,52 +26398,22 @@
    "source": "Pioneer Press"
   },
   {
-   "at": "2026-10-23T16:01:53.000Z",
-   "title": "Ahead of “Vote Early Day,” Minnesotans Achieve Over 419,000 Early Votes",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxORFNhUVlyTktvOXdHbDF2NFNNUVQ1SXFpa3dVM29vR0dCMnhEdDJzaVFRR0ZGT3NmQ2hPcV9CQmlEZGx0cWVHbjh6X3owWm9EMm5Mam9jX0Q5d1J3bVNmSTRiaUt3OVpLVjYyYTlSSG5ocXp6MWF3akwwNUV5Yi1hazMyZVVFWmRjeWhCVA?oc=5",
-   "source": "Minnesota DFL"
-  },
-  {
-   "at": "2026-10-23T15:44:08.000Z",
-   "title": "Are voters meh on Operation Metro Surge? Tax cuts under Klobuchar? Thoughts on the governor debates",
-   "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQSGx1ZU5WdEZucDhzak9iNVB5bjVIVlBWdjlDYkVUUkphc3M3N0lQQ1lpMk12THNkdVhHSGxYQWxOU3J6NUNPX3owbHBOV2lrM0xyZUdhcmlXdEFnWWlLa2ZCc0ExX0FqZUJVMTBWVEdkOU5TZ3pxTUswbEllNEx4eDFfd0RhczJWd0c5VGVpZmMwVjBjcEM4Wmh4T0tmZEUzSE1VeHc5YUZfRGktMDZfeERwT1psV0Z3eWNoT0VDTWVpcFFPaUV4OUdtV2N5Ylpkb1I5bE9BdDNmekN0bGQ1dEYxU195dmVBRHJLQm4xNWtGUTlMUDFxdENiM1J2QUU?oc=5",
-   "source": "MinnPost"
-  },
-  {
    "at": "2026-10-23T15:40:00.000Z",
    "title": "What could governor’s race mean for abortion law? Candidates differ",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPcjNOaS1QeHZ2QUJCdE1acFAwcGZsVlRhQnhLeGgtd2dYU0hFZ3ZLaXFYMVYtYmtFUzZFSUpoN1F4MlBfZ1NveVdaZnZQcEwwV1BRWHhyRVBIRVc3dGVqakpCaDhyMWwtb3VTamFvY1JFeHp2QnZfQjNhYjZsdTNRZU1aRUljbmVuRWFqYkdhUzQwRDBiYW5rSlZJN0otSE10bXNBOV9fNlNBOXVBTWM5WGw1U3dQclE?oc=5",
    "source": "MPR News"
   },
   {
-   "at": "2026-10-23T15:35:00.000Z",
-   "title": "Minnesota 2026 voting already laps 2022 midterm turnout",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPZ2JVemJnbFJKNHJxQW5fUVFxa3oxSXpXd2ExYm9hSU1HZWJ5SFQtMEEybW9xRDgtbjNZOVZBUGJvWUViMTBZNWgwVmdJZno5WXhmMWpKN2ZDbzExbEhrTmtKN2dzWHlrMHVIcm9yM3ZnRTVBV2hBcHpXS3pMWUFzbGEyM3p6VnBDT3pZb01vdjlKTTlJSTAzVUszckd4MUttNlpJOHZ6RHRfNldGWms1bWxSd05wUFhzSndnZWV0b25iTVNISFM2Y0FYMA?oc=5",
-   "source": "KIMT"
-  },
-  {
-   "at": "2026-10-23T14:52:35.000Z",
-   "title": "Ballot rejections soared in rural counties after USPS reduced mail service",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbUtncXBnLVJwX2xjb0NyVFZkbG5yUFZRTTM3al9PM0VnUDNqd0w5aWd0LTVsVG1OMk9YUmRBYnVFQ0dxWWdOeHlxU2xiTjZRU2NiVTRFVlVCT2JMQzdROTVOOGJ2aE1kVDg2NU9XTy04Tzl0Q292M05nd1RYSDFiREpiQVhKWDRnMWxmTE1TdjYwcXU2WTV0YzYwYkxRRzFnZHY3ZFpmcUpURExndkZxZ1Y3emlvUEE?oc=5",
-   "source": "Minnesota Reformer"
-  },
-  {
-   "at": "2026-10-23T12:31:11.000Z",
-   "title": "Where Minnesota's top governor candidates stand on DFL trifecta laws",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOQ01BR2FfODFsa0N3cmVkMUVqTm1XUmZNSFE5czRaTXo0Tk55aEtqak9jOE5LYVEySHVLdW54amk5V1dnNGR0bVAwOEY2V2k2dmxfdXV3VmNHZjJPMk95dkkzMUN2RUwwUU5wcUQ4dXpvQzcxYTJ5NGcwOUIwMkpIOVItRlRaTmFTOW56eWtqQlYxNXpfYThQbGQ2SFlRVExqbW0yaWR2bUZzSm82c1d3UFJYa1FUc0dKU2hhX0RWczdYOFRQdzRoaW00dw?oc=5",
-   "source": "Axios"
+   "at": "2026-10-23T11:00:00.000Z",
+   "title": "Where they stand: Amy Klobuchar and Lisa Demuth on mining",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOX0lzSldLTTdPSWMwdldPQmJPaGdqRnNQeXhjNkF1WGR0Z2RkRkNqYXVUMjBRdXAxWEVtUzA1ZWo3X1d1bkJ0MFV1bEI1a2tBT01fdXhLQVFvS3pMMG5Cbmh4T0x6ZmUtLVVNVEVjR0hVa0pBQlVxSmJwLXpyZGs5UkpjMWowMzU5YVdPSi1DUGU4eDBBYy0yaE5SOEJWWHJKbkNaR1VtckpzUQ?oc=5",
+   "source": "Star Tribune"
   },
   {
    "at": "2026-10-23T11:00:00.000Z",
    "title": "Where they stand: Michele Tafoya and Peggy Flanagan on Trump’s tariffs",
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdTFPWjdVMmhkMzI2X1drN2JuR3VYSUlqdy1iREkxdUlTWHk3d1Rfa3RkNHRyWFFSaUJHdG85eWpmdV9IN0w2aHVsckpNTjlnQU5XY1g5M2l3TVpsQTRfQldWYVppTVpIcDVOcEtpdlc5SEdvMmxHcVJvR0V0bEZaQXpsZTNWUjEtUTFRN3dJZ3JxcjFZUEVpZlVEQmQ2T1pRTzFfMnRrNklUdw?oc=5",
    "source": "Star Tribune"
-  },
-  {
-   "at": "2026-10-23T09:00:00.000Z",
-   "title": "Political, union groups endorse Minnesota school board candidates",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQ01SQUJkS1NycGIzSDhXUGFncTRTbkVadGphdm1iYThfSm4wWkE5MVFrVU1pV2lBVnJDaDc3dFNvQlE5aV9XV3ZOdk55a2RJQ2VPaHJ0czJOd2ZxR2FWTFE3ODNuQk5IVExyUWpIVk1BdVNraWxKbFM5RFZjXzZ1eXJsY2VQZGRvTUVwZ3hSd1FrUDI4NDFFa3lKSnhlVk51N21EeDB4YXJJZ0hab2VIZUhlRG1TeEl0ODhvNg?oc=5",
-   "source": "MPR News"
   },
   {
    "at": "2026-10-23T04:28:29.000Z",
@@ -26384,22 +26423,10 @@
    "topic": "money"
   },
   {
-   "at": "2026-10-23T03:38:00.000Z",
-   "title": "Parents of girl killed in Annunciation shooting claim GOP gubernatorial candidate lied to them",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNb0o3M0NuVFVFOWNwWC1CSUZwX3lkTXFZWFpKdXlnOFVjQ1RCWWx1R1h6X0RjeU9YZFhvQkVPaHJyTmhHcGpPS3RXb1diTEp0TF9SQzl0VklSVUJKVm5NUkE2SjVOWmRaek5DSzFUeTZJN2VGc3NJaUNwd01zdHc3a2hsQWdNcTg0RnlSZmRLUmZNbDdmSmJkamExR0VKdlMyOHo5c0xxSERtQnZvcHE2TEw0dHNKYlRa?oc=5",
-   "source": "CBS News"
-  },
-  {
    "at": "2026-10-23T03:16:32.000Z",
    "title": "Demuth and Klobuchar clash in MN governor race",
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxObXlhRU41a1BMRVVmZkdIX2doSEVpT3Q3RmhkRVdiMVJZeHk2cmw3S0xLWDAwYWZzQjZ4RzltRUhFZHZ5OC1Td3R0TkpLcDI2TkZUQ082SUR3UGt6VG5LdFVRMkFWajZjZk5yV3M2dDRLcmlIWVRuSm5rWXBpUnBTY3pZcFViQ1dVYjh6dVMwemZIZElSNWxWS21vZl9IX2tDQUHSAacBQVVfeXFMTkF3ekVGN0w3NFlYeGVyeFR6Q0ZMeVpOcHUxb3doMEMzRDV3UHNrTUJNVXZ1RkVLTURrdTIxYWtHV3VTSl9kWEdzZXk0YXlhVDBTRjgxanRkVXluYmprS0ZRUUV6TGlRdnRFVmRDX3dKc3B5WFJxR29DamFTd1FoMWxRTlpMd1lUSTIwOFFicTJMb2pfZ25rb1pGRnV4WlNTbnVCdnJ4Nm8?oc=5",
    "source": "FOX 9 Minneapolis-St. Paul"
-  },
-  {
-   "at": "2026-10-23T03:16:00.000Z",
-   "title": "Minnesota gun control fight: Annunciation victim's parents fault Lisa Demuth",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPWFE5RExTLWN4U1FXWlQwdXBTYWNleFhMWVozRjFGQXhvQlY1b2E3RnhiWmltT2dmUDN5cjFTcTJQYmhlNDlYNFZBc3ZJWFVEZFFHNWduN0xiWXBfZ3k0VGRlWENOclczMzZOUE1FWUVoTzN1aFIwV2otSVFYRmVTOURJd2tmNlpuTGpkUVBhdTFRNFBBem5Na1FjbGllSlplblE?oc=5",
-   "source": "Yahoo"
   },
   {
    "at": "2026-10-23T03:06:20.000Z",
@@ -26414,16 +26441,10 @@
    "source": "MPR News"
   },
   {
-   "at": "2026-10-22T23:28:00.000Z",
-   "title": "Parents of Harper Moyski backing Amy Klobuchar for governor",
-   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNeTFOa1pYcXl3WVFaVkRpN2xvWGRmREpsM2VGY2tTQmFBUjNGUFhDaFBBWEwtdE5ub3RqVEROYktHNV9FQXFoM0lWcmV6QmxCaHRsVHNIUm8zQl9CeEFnWTFPdTdMRk5HcktkSmp6Ry13bGtMcFdfXzctMTdoTGQzUlh1dEhvbF9lRDRFN3BJbmx1anV2amlENy1Da3RXSUtGZlhzLWtJRWZyRTYtZzZBM1pxMXhwZGFfOHhBeXV3bUp6cnFDa2c1MEp3YThGLTJ0RFpsdWxZbUh1clFL?oc=5",
-   "source": "kare11.com"
-  },
-  {
-   "at": "2026-10-22T23:00:09.000Z",
-   "title": "Trump continues nationwide campaign tour in Iowa",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBxN1RJdC1BUEEtWFd6YmN4cjFjUW05UmZ1SjM4Mk9peDRrTVRPY0R1Vzh5b1hBQ3NaSHVFWTNTc3BjdWJpTmRCa2xmTUtLRWFiaHRDUWw0cE1sSm_SAWBBVV95cUxQUXVEQWp5OHMtZ2hpeXlrNnZ6MGg1Wmdla19LTXhrdmdtMWFlTkhMTHhvMmRpYjdCOEY4aWpxeDRIb2plMUY4Sll6a09ENWZvWnNmSWJqQ0NuUFhaS0FUNTg?oc=5",
-   "source": "FOX 9 Minneapolis-St. Paul"
+   "at": "2026-10-23T00:17:00.000Z",
+   "title": "Minnesota governor's race: Parents of slain Annunciation student endorse Klobuchar and say Demuth ‘lied to us’",
+   "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxQa2RtZzdLUTNaVnYtTF9JWnZXTWdPZEZyUzBMUktrdVZ4UkFBM0JRZHhaVms4MDNMdVdRUlZHajVZeUR0bjVxYXhreFgxcDQyWTZ0QlJhaDVVVkdLX1BuZTUyNlQ1RGJHUVRIdGJBZkJPTjJ5UXhvem14dXp2V3puZjE1T0plUkVqQ2pEZUhBLW16bkxqTHByVGlDWVVTTkxNaElScktyLTNiTlV6eFZVTnFmcGVwQWJseE1OLU1oeUo2dUFhWTNLZDRNbmhxZ2FacktJTHpUM3dQOE5nTndZN2NuaUdFYmYzb1hhdXNoeFNnWmlJTUZQT3NPWUphLXYwbU5iQlB6MUhuZlZwRXROdHBjSDlENzhEUE1lNlJSOFfSAaYCQVVfeXFMTXF4RzhfcTVDckFsOGlwaGtnTUQzdWNkNk9wSEFkaXNFNkhrY3g2VjM0ZXEyNjUyZkV1RFlBYVRHeS1Gd0JBMno1dEo0N2IwRFlKeGpnOG14NEhUcFpXZ1Y5MGNwRkVpOFo4S3hiOEZMeGZzWlpZSTJIaWNYbUEwOVEyQzQxSXY4R1Q3MDJWenVzTlI4STBrOEprNU5wdERBb05XTFVsSDZkWU9hb2x1VEF6akt5NE9jbEVsYm50c2lhNzRYR0JQc0hwejdEcjJpbW91WEdvVkxUSnlrTnJuWlFzX2RuY2xRREFrNXhrS1hmZ0dKMnVtMlF2Tjd1RmI0TlU3ZWhzQ3JLQmJlRHpfaG9fNWxyNWhmdllsdlVDRURrNHJ4c0p3?oc=5",
+   "source": "Hanford Sentinel"
   },
   {
    "at": "2026-10-22T22:45:00.000Z",
@@ -26439,22 +26460,10 @@
    "source": "FOX 9 Minneapolis-St. Paul"
   },
   {
-   "at": "2026-10-22T21:46:00.000Z",
-   "title": "'Very few people will encounter issues': Voting rights expert on election monitors",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPci1vLW9JMGxjZUEwVGl1WFVaUkNhaDlQYkxfdDhRejZKaE5PNGs0TjVmalZ4Y19YN0V1RG1ZekJhNXhIYXFIQW95V3lncjlEODNfYVllRVRaOGxTN2RqVW1BMzFCYXdkRlpCZ25LMUNPeUdjMHNKU0d5YlJVQXhuWkVxcUFxeVNGcXB5ZkU4amFhSVBnc2szbDE1aEFjNXgzZUlrYm1VM2hWTkM4bWZ6MkxjUWdqTjk4UUZzVg?oc=5",
-   "source": "MPR News"
-  },
-  {
-   "at": "2026-10-22T21:18:14.000Z",
-   "title": "Senate Race in Minnesota Tightens as Peggy Flanagan and Michele Tafoya Face Off",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOZkU3V1oyMF9FUjRlVEUyVnA5RlozQlpUMS0yT1FLOVNtYU51S09kcDJ1ZlczdTM3MmZ3OFJrcFVySXJ4RmtQM2JGY2lrTHBnVmNuSHYxdjNZS0tMNkxqd2N5R1pFTUlQTktSYXQ1QnFSZVlxUXdHWUc1TlpLejBrcThaU3V4ZENyRkZ0RDEzd2lzY1ZaSkpMVlVhaWNtT05QVlRZbG5wLUhRQQ?oc=5",
-   "source": "SSBCrack"
-  },
-  {
-   "at": "2026-10-22T21:10:00.000Z",
-   "title": "Minnesota GOP Senate candidate Michele Tafoya on where she would break with Trump if elected",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNbEZJZVdyTnZtWll4UEpIT0xKNXhqajVsQ3AwejZLNnNnRGdXWXlEMkd3d2I3ZnhXTTJqTTlfeElHVW5pXzAzMzBuMVNlRzhjMTJyZUUyZDVDVHhLUmdVb3R1cGozQ19Zc0Q4X1p0SVJCdnFrRkVkZ2FFVDFBbXptbVJfV0swcmE2VTdUOE44dE04eWVRQ3hnS1cxMEx2NzZxM3RFYVlKYWg?oc=5",
-   "source": "CBS News"
+   "at": "2026-10-22T19:22:37.000Z",
+   "title": "Minnesota Senate: Democrat Flanagan Still Holds Slender Lead",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPalBfcDFiNmhyejFQeVJpU0hpckI3U190T09FekpVQlplVkd6TkVfMjdyOTlkQlg0UFZEUjhTV1A4VTBrTXN5WVpmQUlheUNJM19RaVAyTWhfNEhTSldGN1E5bHB4VFpEc3FjVEY0Y2huUGhOb1RxWXFfR2Nndk0taGhjcXpHVXhiZzdraXQxeGdMNTJYcVIwNGhBQzZCcXVNM25mZVZ4YTI5YkxHR1NlR0dOYU5uVjR0VFpTNXJXSk9CTC12UWdhOQ?oc=5",
+   "source": "Rasmussen Reports"
   },
   {
    "at": "2026-10-22T19:20:00.000Z",
@@ -26470,22 +26479,16 @@
    "source": "MultiState"
   },
   {
-   "at": "2026-10-22T18:47:00.000Z",
-   "title": "Minnesota Now: Oct. 22, 2026",
-   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE43VERndEVnMHBkMmpHb3JORnlhUlZYNGE2eVJJVVhYcmZwVTNUMFNDWWkycjJ1WnUtbk8wbjBmTGJZaDFWLW9ESDdfOWRLZGRybFJ6cW81SHppUHlCVTdXZ2xHUE95X292OUtPWFhiSzZUZTJxRW1F?oc=5",
-   "source": "MPR News"
-  },
-  {
-   "at": "2026-10-22T17:29:34.000Z",
-   "title": "MN weather: Back-to-back beautiful days",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0ycHBaMXIxaVhxUXI4ZmE4bnJwMmc3U0w3NmtDWkFvSDJ6UG5OSE42US1JdWNDUkhEaDIwNHhZVWF5cEVuZEpXYVQ1MlpVb0o1OU52N3Y5aGx3ZG_SAWBBVV95cUxOLUlRMzh6SmdLZUFGbFpsMTc2UDY0UlhJZnl4WXdZR0VNTHRoVlRqOWxwWXpXUzJ5WjViVFZLQlNzN0RzQWtEdnhtbU1JNWh2bHppWmpyQTQ1QjRWYzA5dDg?oc=5",
+   "at": "2026-10-22T18:29:43.000Z",
+   "title": "Moriarty calls out police failures in Lussier case",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1kRlAxTmFVdy1STVpJY0VaZ0JDRFpEOHM4RjN6ZlpGMWR0RU9wNXkwREdHbTVxbDZFenhsOUQtdGl3U1ctZG5rVXlETVEtamJieV9fb3g5Mm1wMTTSAWBBVV95cUxQMTVQY0pWTVB5WTg3MWYyQzhvVThDQWc2XzMtNml0eHc1bEphZk9iaV81YzN5c080TUNYZG9jX3p5d0ZoMVFWTUZ0R1p2a2ZzRHVReU1mZ2thelpjZ1BlbE0?oc=5",
    "source": "FOX 9 Minneapolis-St. Paul"
   },
   {
-   "at": "2026-10-22T16:59:32.000Z",
-   "title": "Attorney General Ellison opposes Trump DOJ’s frivolous challenge to California’s elections",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQM2N1OUc2UmxkZ3JJMmVLemhFSkJoVWV4UVkzMGJOdTNnSlNSWk9lbFJTNV83NnhtQVVsV1E0QkF5VTUtUnYtWUU0U21Pb2hDaUpkc3RMOHNXbUhadUdEcDhEdElka2ViSGhINWxKcDVzYUNZRUdVT211eVRiUnR4RDE5SXoxVFRtSTEyVg?oc=5",
-   "source": "Minnesota Attorney General's Office"
+   "at": "2026-10-22T16:43:05.000Z",
+   "title": "The Jason Show: 'Glee' reboot, 'The Golden Life,' circus performers",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1MVVRZMkQ3OUJCQWgtaDExdGQ0T1ZEU0ZXMVZ4aG9fbG14ZjhNdzV0a3ZqdVZfV05uWWUyNU5PbUNQVnZTem1tTXFEZmw1S1BPdDcwR3lOLTFvOVXSAWBBVV95cUxOWnBmT1ZXU0dFMl9KS2RSTXR5eWd4c0JFQ19wWWNDcTBGTnAtLTJXRk40V1dsc0JMazVJTFpNVmM1WlVIX29UNU1ZVHdwNWNteXhOcHFCREpUckVaaUtSRlQ?oc=5",
+   "source": "FOX 9 Minneapolis-St. Paul"
   }
  ],
  "laws": [
