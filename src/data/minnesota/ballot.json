@@ -31,6 +31,11 @@
   "proposals": {
    "ballotpedia": "https://ballotpedia.org/Minnesota_2026_ballot_measures",
    "official": "https://www.sos.mn.gov/elections-voting/"
+  },
+  "officialList": {
+   "name": "Secretary of State filings",
+   "url": "https://candidates.sos.mn.gov/",
+   "asOf": "2026-10-26"
   }
  },
  "races": [
@@ -8771,28 +8776,6 @@
       "link": "https://ballotpedia.org/Rocco",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Rocco_2026-07-16_142314.jpg"
      }
-    },
-    {
-     "ballot": 3,
-     "name": "Natasha Bennett",
-     "party": "Unaffiliated",
-     "profile": "https://ballotpedia.org/Natasha_Bennett",
-     "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Natasha_Bennett",
-     "website": "https://natashabennettforsd65.com/",
-     "social": {
-      "facebook": "https://www.facebook.com/profile.php?id=61590487209838",
-      "youtube": "https://www.youtube.com/@natashaBennett-y2w",
-      "instagram": "https://www.instagram.com/tashachange/",
-      "linkedin": "https://www.linkedin.com/in/natasha-bennett-mpna-aa0808107/"
-     },
-     "photo": {
-      "file": "kyb-photos/minnesota/natasha-bennett-sldu-65.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Natasha_Bennett",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Natasha_Bennett_2026-09-23_192333.png"
-     },
-     "issuesUrl": "https://natashabennettforsd65.com/issues"
     }
    ],
    "writeIn": true,
@@ -10255,7 +10238,35 @@
    "candidates": [
     {
      "ballot": 1,
-     "name": "Alicia Kozlowski",
+     "name": "Shawn Savela",
+     "party": "Republican",
+     "profile": "https://ballotpedia.org/Shawn_Savela",
+     "money": {
+      "source": "MNCFB",
+      "id": "19151",
+      "raised": 9593,
+      "spent": 8082,
+      "cash": 2004,
+      "through": "07/20/2026"
+     },
+     "ballotpediaRead": "2026-10-25",
+     "ballotpedia": "https://ballotpedia.org/Shawn_Savela",
+     "website": "https://shawnsavela.com/",
+     "social": {
+      "facebook": "https://www.facebook.com/SavelaForHouse/",
+      "x": "https://x.com/SavelaForHouse",
+      "instagram": "https://www.instagram.com/savelaforhouse/"
+     },
+     "photo": {
+      "file": "kyb-photos/minnesota/shawn-savela-sldl-8b.jpg",
+      "credit": "Ballotpedia",
+      "link": "https://ballotpedia.org/Shawn_Savela",
+      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Shawn_Savela_20240621_015311.png"
+     }
+    },
+    {
+     "ballot": 2,
+     "name": "Liish Kozlowski",
      "party": "Democratic-Farmer-Labor",
      "incumbent": true,
      "profile": "https://ballotpedia.org/Alicia_Kozlowski",
@@ -10281,34 +10292,6 @@
       "credit": "Ballotpedia",
       "link": "https://ballotpedia.org/Alicia_Kozlowski",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Alicia_Kozlowski.gif"
-     }
-    },
-    {
-     "ballot": 2,
-     "name": "Shawn Savela",
-     "party": "Republican",
-     "profile": "https://ballotpedia.org/Shawn_Savela",
-     "money": {
-      "source": "MNCFB",
-      "id": "19151",
-      "raised": 9593,
-      "spent": 8082,
-      "cash": 2004,
-      "through": "07/20/2026"
-     },
-     "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Shawn_Savela",
-     "website": "https://shawnsavela.com/",
-     "social": {
-      "facebook": "https://www.facebook.com/SavelaForHouse/",
-      "x": "https://x.com/SavelaForHouse",
-      "instagram": "https://www.instagram.com/savelaforhouse/"
-     },
-     "photo": {
-      "file": "kyb-photos/minnesota/shawn-savela-sldl-8b.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Shawn_Savela",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Shawn_Savela_20240621_015311.png"
      }
     }
    ],
@@ -12344,7 +12327,24 @@
    "candidates": [
     {
      "ballot": 1,
-     "name": "Rusty Nelson",
+     "name": "Krist Wollum",
+     "party": "Republican",
+     "profile": "https://ballotpedia.org/Krist_Wollum",
+     "money": {
+      "source": "MNCFB",
+      "id": "19526",
+      "raised": 7770,
+      "spent": 3624,
+      "cash": 4146,
+      "through": "07/20/2026"
+     },
+     "ballotpediaRead": "2026-10-25",
+     "ballotpedia": "https://ballotpedia.org/Krist_Wollum",
+     "website": "https://wollum4house.com/"
+    },
+    {
+     "ballot": 2,
+     "name": "LS Rusty Nelson",
      "party": "Democratic-Farmer-Labor",
      "profile": "https://ballotpedia.org/Rusty_Nelson",
      "money": {
@@ -12376,23 +12376,6 @@
       "link": "https://ballotpedia.org/Rusty_Nelson",
       "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/IMG-9774_20260602_225834_39593_1.jpeg"
      }
-    },
-    {
-     "ballot": 2,
-     "name": "Krist Wollum",
-     "party": "Republican",
-     "profile": "https://ballotpedia.org/Krist_Wollum",
-     "money": {
-      "source": "MNCFB",
-      "id": "19526",
-      "raised": 7770,
-      "spent": 3624,
-      "cash": 4146,
-      "through": "07/20/2026"
-     },
-     "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Krist_Wollum",
-     "website": "https://wollum4house.com/"
     }
    ],
    "writeIn": true,

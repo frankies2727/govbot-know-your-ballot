@@ -48,7 +48,10 @@ export function mergeOfficial(races, byRace) {
       } else { kept.push({ name: o.name, party: o.party }); added++; log.push(`${race.office} | ${o.name} (${o.party}): on the state's list, not Ballotpedia's; added`); }
     }
     for (const c of race.candidates) if (!used.has(c)) { dropped++; log.push(`${race.office} | ${c.name}: on Ballotpedia's list, not the state's; dropped`); }
-    race.candidates = kept.map((c, i) => ({ ...c, ballot: i + 1 }));
+    // The guide's own order (its party order, then name) stays; someone new goes last.
+    const at = (c) => { const i = race.candidates.indexOf(c); return i < 0 ? Infinity : i; };
+    const was = new Map(kept.map((c) => [c, at(race.candidates.find((x) => x.name === c.name || x === c) ?? c)]));
+    race.candidates = kept.sort((a, b) => (was.get(a) ?? Infinity) - (was.get(b) ?? Infinity)).map((c, i) => ({ ...c, ballot: i + 1 }));
   }
   return { covered, added, dropped, log };
 }

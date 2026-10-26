@@ -23,6 +23,11 @@
   "proposals": {
    "ballotpedia": "https://ballotpedia.org/Wisconsin_2026_ballot_measures",
    "official": "https://elections.wi.gov/"
+  },
+  "officialList": {
+   "name": "Elections Commission list",
+   "url": "https://elections.wi.gov/candidates-and-committees/candidates",
+   "asOf": "2026-10-26"
   }
  },
  "races": [
@@ -3838,42 +3843,6 @@
       "id": "16771",
       "raised": 186519,
       "spent": 203991,
-      "through": "09/23/2026"
-     }
-    },
-    {
-     "ballot": 2,
-     "name": "Nathan Kalmoe",
-     "party": "Democratic",
-     "profile": "https://ballotpedia.org/Nathan_Kalmoe",
-     "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Nathan_Kalmoe",
-     "stances": {
-      "messages": [
-       "Good healthcare is a human right. We need Medicare for all at the federal level. Until then, we need a public option through BadgerCare that offers better care at a lower price compared to for-profit insurance.",
-       "Money corrupts politics. My opponent takes money from corporate PACs & the rich. My campaign is limiting individual donations to $200 max for the whole campaign. We need public funding & bans on corporate spending in politics.",
-       "We need to make big corporations & the rich pay their fair share. My opponent doesn't see a need, but she uses the lack of funds as an excuse not to support the programs to produce the basic levels of wellbeing that all of us deserve."
-      ],
-      "asOf": "2026-09-06",
-      "url": "https://ballotpedia.org/Nathan_Kalmoe"
-     },
-     "website": "https://www.nathan-kalmoe.com/",
-     "social": {
-      "facebook": "https://www.facebook.com/NathanForWISenate/",
-      "tiktok": "https://www.tiktok.com/@nathankalmoeforsenate",
-      "x": "https://x.com/NathanKalmoe"
-     },
-     "photo": {
-      "file": "kyb-photos/wisconsin/nathan-kalmoe-sldu-27.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Nathan_Kalmoe",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Big-Profile-Pic_20260906_154541_53879_1.jpeg"
-     },
-     "money": {
-      "source": "WISC",
-      "id": "12417817",
-      "raised": 2105,
-      "spent": 511,
       "through": "09/23/2026"
      }
     }
@@ -10861,7 +10830,33 @@
    "candidates": [
     {
      "ballot": 1,
-     "name": "Enrique Camacho",
+     "name": "Bryson Reyes",
+     "party": "Republican",
+     "profile": "https://ballotpedia.org/Bryson_Reyes",
+     "ballotpediaRead": "2026-10-25",
+     "ballotpedia": "https://ballotpedia.org/Bryson_Reyes",
+     "website": "https://www.brysonforwisconsin.com/",
+     "social": {
+      "facebook": "https://www.facebook.com/profile.php?id=61572121265493"
+     },
+     "photo": {
+      "file": "kyb-photos/wisconsin/bryson-reyes-sldl-82.jpg",
+      "credit": "Ballotpedia",
+      "link": "https://ballotpedia.org/Bryson_Reyes",
+      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/reyesbryson_2026-10-08_054810.jpg"
+     },
+     "issuesUrl": "https://www.brysonforwisconsin.com/issues",
+     "money": {
+      "source": "WISC",
+      "id": "12226234",
+      "raised": 178067,
+      "spent": 19047,
+      "through": "09/23/2026"
+     }
+    },
+    {
+     "ballot": 2,
+     "name": "Rico Camacho",
      "party": "Democratic",
      "profile": "https://ballotpedia.org/Enrique_Camacho",
      "ballotpediaRead": "2026-10-25",
@@ -10891,32 +10886,6 @@
       "id": "11959800",
       "raised": 13964,
       "spent": 8477,
-      "through": "09/23/2026"
-     }
-    },
-    {
-     "ballot": 2,
-     "name": "Bryson Reyes",
-     "party": "Republican",
-     "profile": "https://ballotpedia.org/Bryson_Reyes",
-     "ballotpediaRead": "2026-10-25",
-     "ballotpedia": "https://ballotpedia.org/Bryson_Reyes",
-     "website": "https://www.brysonforwisconsin.com/",
-     "social": {
-      "facebook": "https://www.facebook.com/profile.php?id=61572121265493"
-     },
-     "photo": {
-      "file": "kyb-photos/wisconsin/bryson-reyes-sldl-82.jpg",
-      "credit": "Ballotpedia",
-      "link": "https://ballotpedia.org/Bryson_Reyes",
-      "from": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/reyesbryson_2026-10-08_054810.jpg"
-     },
-     "issuesUrl": "https://www.brysonforwisconsin.com/issues",
-     "money": {
-      "source": "WISC",
-      "id": "12226234",
-      "raised": 178067,
-      "spent": 19047,
       "through": "09/23/2026"
      }
     }
