@@ -30,6 +30,7 @@ const OFFICE = {
   'State Representative': 'House',
   'Associate Justice of the Supreme Court': 'Sup Court',
   'Judge of the Court of Appeals': 'App Court',
+  'Judge of the District Court': 'Dist Court',
 };
 const LABEL = /^(.+?) (Gov|Lt Gov|Senate|House|Atty Gen|Sec of State|State Aud|Sup Court|App Court|Dist Court)(?: (Committee)| \((Affidavit Only)\))? - (\d+)( \(Terminated\))?$/;
 
