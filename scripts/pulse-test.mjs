@@ -31,10 +31,13 @@ let p = await ping(redis, 'tab-aaaaaaaa', 'ip1', t0);
 p = await ping(redis, 'tab-bbbbbbbb', 'ip2', t0 + 1_000);
 p = await ping(redis, 'tab-aaaaaaaa', 'ip1', t0 + 2_000);
 p = await ping(redis, 'tab-cccccccc', 'ip3', t0 + 3_000);
-eq([p.here, p.today], [3, 3], 'three tabs, one repeated');
-// A minute later only the tab that pinged again is still here; today keeps all three.
+eq([p.here, p.total], [3, 3], 'three tabs, one repeated');
+// A minute later only the tab that pinged again is still here; the total keeps all three.
 p = await ping(redis, 'tab-cccccccc', 'ip3', t0 + 65_000);
-eq([p.here, p.today], [1, 3], 'a tab that stopped pinging is gone after a minute');
+eq([p.here, p.total], [1, 3], 'a tab that stopped pinging is gone after a minute, the total keeps everyone');
+// A day later the total still counts everyone, once.
+p = await ping(redis, 'tab-aaaaaaaa', 'ip1', t0 + 86_400_000);
+eq(p.total, 3, 'the total is all-time, a returning tab counts once');
 // One address can't inflate the count: past 120 pings a minute, new ids are read but not counted.
 for (let i = 0; i < 125; i++) await ping(redis, `bot-${String(i).padStart(8, '0')}`, 'ip-bot', t0 + 70_000);
 p = await ping(redis, 'tab-dddddddd', 'ip4', t0 + 71_000);

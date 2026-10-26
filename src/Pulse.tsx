@@ -12,7 +12,7 @@ import { Heart } from 'lucide-react';
 const EVERY_MS = 25_000;
 const HEARTED_KEY = 'kyb-hearted';
 
-interface Pulse { here: number; today: number; hearts: number; heartAt: number }
+interface Pulse { here: number; total: number; hearts: number; heartAt: number }
 const fmt = (n: number) => n.toLocaleString('en-US');
 const read = (): boolean => { try { return localStorage.getItem(HEARTED_KEY) === '1'; } catch { return false; } };
 
@@ -76,7 +76,7 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
 
   if (!pulse) return null;
   const heartIcon = (on: boolean, size = 'h-5 w-5') => <Heart className={`${size} ${on ? 'kyb-heart-on fill-[var(--gb-red,#E5484D)] text-[var(--gb-red,#E5484D)]' : ''}`} aria-hidden="true" />;
-  const here = `${fmt(pulse.here)} ${pulse.here === 1 ? 'person is' : 'people are'} using the guide right now`;
+  const used = `${fmt(pulse.total)} ${pulse.total === 1 ? 'person has' : 'people have'} used the Govbot guide to vote more informed`;
   const box = 'border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-lg';
   const likeButton = (
     <button type="button" onClick={tap} aria-pressed={mine} disabled={mine}
@@ -86,12 +86,11 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
     </button>
   );
   const counter = (
-    <p role="status" aria-label={`${here}, ${fmt(pulse.today)} today`} className={`flex min-h-[44px] items-center gap-2 rounded-full px-3 text-[13px] font-bold ${box}`}>
+    <p role="status" aria-label={`${used}. ${fmt(pulse.here)} here right now`} className={`flex max-w-[19rem] items-center gap-2 rounded-2xl px-3 py-2 text-[13px] font-bold leading-snug sm:max-w-none ${box}`}>
       <span className="kyb-live-dot h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--gb-primary)]" aria-hidden="true" />
       <span aria-hidden="true">
-        <span className="font-black">{fmt(pulse.here)}</span> <span className="sm:hidden">using it now</span>
-        <span className="hidden sm:inline">{pulse.here === 1 ? 'person is' : 'people are'} using the guide right now</span>
-        <span className="hidden md:inline"> · {fmt(pulse.today)} today</span>
+        <span className="font-black">{fmt(pulse.total)}</span> {pulse.total === 1 ? 'person has' : 'people have'} used the Govbot guide to vote more informed
+        <span className="hidden md:inline"> · {fmt(pulse.here)} here now</span>
       </span>
     </p>
   );
@@ -106,13 +105,13 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
         <>
           {open && <div id="kyb-pulse-panel" className="flex flex-col items-end gap-2">{counter}{likeButton}</div>}
           <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-controls="kyb-pulse-panel"
-            aria-label={`${open ? 'Hide' : 'Show'} the live count and heart. ${here}`}
+            aria-label={`${open ? 'Hide' : 'Show'} the message and heart. ${used}`}
             className={`flex h-11 w-11 items-center justify-center rounded-full hover:bg-[var(--kyb-chip)] ${box}`}>
             {heartIcon(mine)}
           </button>
         </>
       ) : (
-        <div className="flex items-center gap-2">{counter}{likeButton}</div>
+        <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center">{counter}{likeButton}</div>
       )}
     </div>
   );
