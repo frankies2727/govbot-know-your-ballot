@@ -18,7 +18,7 @@ const sources = (d: StateData): SourceCard[] => {
   const pages = Object.entries(s.candidates.pages);
   return [
     { emoji: '🗳️', title: 'Who’s running', status: `Live · daily · read ${s.candidates.asOf}`,
-      body: 'Every statewide, congressional, legislative, Supreme Court and Court of Appeals contest from Ballotpedia’s race pages (CC BY-SA), with incumbents and each candidate’s profile. The Secretary of State’s certified candidate filings are the official source; check them if a name looks off.',
+      body: 'Every statewide, congressional, legislative, Supreme Court and Court of Appeals contest from Ballotpedia’s race pages (CC BY-SA), with incumbents and each candidate’s profile. The Secretary of State’s candidate filings decide who is on each ballot, with each name as the ballot prints it; Ballotpedia fills in the rest.',
       links: [...pages.slice(0, 3).map(([office, url]) => [office, url] as [string, string]), ['Official candidate filings', 'https://candidates.sos.mn.gov/']] },
     { emoji: '💵', title: 'Campaign money', status: 'Live · daily',
       body: 'Federal races: raised, spent and cash on hand from each campaign’s latest FEC report, plus what outside groups (PACs, parties) spent for and against each candidate, from the FEC’s independent-expenditure filings. State races: each committee’s financial summary from the Campaign Finance Board’s candidate viewer, receipts and expenditures summed over 2025 and 2026 with the cash balance and date of the latest report. Both attached only on a confident name, office and district match; a candidate on file as affidavit-only (under $750) shows none.',

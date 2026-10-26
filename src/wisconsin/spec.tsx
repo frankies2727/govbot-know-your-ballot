@@ -18,7 +18,7 @@ const sources = (d: StateData): SourceCard[] => {
   const pages = Object.entries(s.candidates.pages);
   return [
     { emoji: '🗳️', title: 'Who’s running', status: `Live · daily · read ${s.candidates.asOf}`,
-      body: 'Every statewide, congressional and legislative contest from Ballotpedia’s race pages (CC BY-SA), with incumbents and each candidate’s profile. The Elections Commission’s certified candidate list is the official source; check it if a name looks off.',
+      body: 'Every statewide, congressional and legislative contest from Ballotpedia’s race pages (CC BY-SA), with incumbents and each candidate’s profile. The Elections Commission’s “Candidates on Ballot” list decides who is on each ballot, with each name as the ballot prints it; Ballotpedia fills in the rest.',
       links: [...pages.slice(0, 3).map(([office, url]) => [office, url] as [string, string]), ['Official candidate lists', 'https://elections.wi.gov/candidates-and-committees/candidates']] },
     { emoji: '💵', title: 'Campaign money', status: 'Live · daily',
       body: 'Federal races: raised, spent and cash on hand from each campaign’s latest FEC report, plus what outside groups (PACs, parties) spent for and against each candidate, from the FEC’s independent-expenditure filings. State races: each committee’s contributions and disbursements from the Ethics Commission’s campaign finance system, summed over 2025 and 2026 through its latest report (the system carries no cash-on-hand figure). Both attached only on a confident name, office and district match.',

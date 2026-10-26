@@ -32,7 +32,7 @@ jobs:
       # campaign site from a flyer.
       - name: Install tools
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick
+          sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick poppler-utils
           pip install --quiet "opencv-python-headless<5"
 
       # govbot's header, footer, stylesheet and script are a copy of the live
