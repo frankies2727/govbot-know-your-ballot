@@ -150,3 +150,12 @@
 .kyb-hscroll::-webkit-scrollbar { height: 12px; width: 12px; }
 .kyb-hscroll::-webkit-scrollbar-track { background: var(--kyb-chip); border-radius: 999px; }
 .kyb-hscroll::-webkit-scrollbar-thumb { background: var(--gb-text); border-radius: 999px; border: 3px solid var(--kyb-chip); }
+
+/* The live-count dot breathes and a fresh heart pops: transform and opacity only, still under reduced motion. */
+@keyframes kyb-live { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.55; } }
+.kyb-live-dot { animation: kyb-live 2.4s ease-in-out infinite; }
+@keyframes kyb-heart-in { 0% { transform: translateY(8px) scale(0.9); opacity: 0; } 100% { transform: none; opacity: 1; } }
+.kyb-heart-toast { animation: kyb-heart-in .25s ease-out; }
+@keyframes kyb-heart-pop { 0% { transform: scale(0.6); } 60% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.kyb-heart-on { animation: kyb-heart-pop .4s ease-out; }
+@media (prefers-reduced-motion: reduce) { .kyb-live-dot, .kyb-heart-toast, .kyb-heart-on { animation: none; } }

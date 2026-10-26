@@ -791,7 +791,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
             That address is outside Illinois. This guide covers Illinois voters. Illinois voters away from home can look up their registration and polling place with the <a className="underline text-[var(--gb-amber-hi)]" href={LINKS.stateLookup} target="_blank" rel="noreferrer noopener">State Board of Elections ↗</a>.
           </p>
         )}
-        <p className="text-sm leading-relaxed text-[var(--gb-text)]">🔒 Your address goes once to Cook County’s address lookup (or OpenStreetMap, for the rest of Illinois or if the county’s is down) to find your districts. It’s saved only on your device, and never shared or stored anywhere.</p>
+        <p className="text-sm leading-relaxed text-[var(--gb-text)]">🔒 Your address goes once to Cook County’s address lookup (or OpenStreetMap, for the rest of Illinois or if the county’s is down) to find your districts. It’s saved only on your device, and never shared or stored anywhere. The live count and heart are anonymous too: nothing about you is kept.</p>
       </form>
 
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3">

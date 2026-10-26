@@ -619,7 +619,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
             That address is outside {spec.name}. This guide covers {spec.name} voters; {others.map((g, i) => <span key={g.id}>{i > 0 ? (i === others.length - 1 ? ' and ' : ', ') : ''}<a className="underline text-[var(--gb-amber-hi)]" href={guideUrl(g.id)}>{g.name}</a></span>)} voters have their own guides.
           </p>
         )}
-        <p className="text-sm leading-relaxed">🔒 Your address goes once to OpenStreetMap’s address search to find your districts, then matching happens on your device. It’s saved only on your device, and never shared or stored anywhere.</p>
+        <p className="text-sm leading-relaxed">🔒 Your address goes once to OpenStreetMap’s address search to find your districts, then matching happens on your device. It’s saved only on your device, and never shared or stored anywhere. The live count and heart are anonymous too: nothing about you is kept.</p>
       </form>
 
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">

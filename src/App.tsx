@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { useRoute } from './lib/router';
+import { Pulse } from './Pulse';
 
 // One screen per address: /illinois, /michigan, /minnesota and /wisconsin
 // (and their /ballot pages) open that state's guide; everything else is the
@@ -24,5 +25,5 @@ export default function App() {
   const route = useRoute();
   const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin)(\/|$)/)?.[1];
   const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : KybHome;
-  return <Suspense fallback={<Loading />}><Screen /></Suspense>;
+  return <><Suspense fallback={<Loading />}><Screen /></Suspense><Pulse /></>;
 }
