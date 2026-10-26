@@ -46,10 +46,11 @@ const EXPLAINERS: [RegExp, string][] = [
   [/^State Representative/, 'Your seat in the Minnesota House. Writes and votes on state laws and the state budget in St. Paul. 2-year term. Each Senate district is split into an A and a B House district; you pick 1 for yours.'],
   [/^Associate Justice of the Supreme Court/, 'Minnesota’s highest court: the final word on state law. Justices are elected statewide without party labels for 6-year terms; most first reach the court by the governor’s appointment, then stand for election. The sitting justice is marked “incumbent” on the ballot. You pick 1, or leave it blank.'],
   [/^Judge of the Court of Appeals/, 'Hears appeals from Minnesota’s district courts; for most cases it is the last stop. Its 19 judges are elected statewide without party labels for 6-year terms, and sitting judges usually run unopposed. You pick 1, or leave it blank.'],
+  [/^Judge of the District Court/, 'Your local trial court: the judges who hear criminal cases, lawsuits, family, juvenile and probate matters at your county courthouse. Minnesota has ten judicial districts, each a group of counties, and the district’s voters elect its judges seat by seat without party labels for 6-year terms; most first reach the bench by the governor’s appointment, and the sitting judge is marked “incumbent” on the ballot. Most run unopposed. You pick 1, or leave it blank.'],
 ];
 const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
 
-const AREA_LABEL: Record<string, string> = { cd: 'Congressional District', sldu: 'State Senate District', sldl: 'State House District' };
+const AREA_LABEL: Record<string, string> = { cd: 'Congressional District', sldu: 'State Senate District', sldl: 'State House District', jd: 'Judicial District' };
 const areaLabel = (r: Race) => (r.area ? `${AREA_LABEL[r.area.type] ?? r.area.type} ${r.area.id}` : 'Statewide');
 
 const q = encodeURIComponent;
@@ -84,5 +85,5 @@ export const MINNESOTA: StateConfig = {
 
 /** A district's number as a chip: "Congress 4", "County Hennepin". */
 export const DISTRICT_CHIPS: [string, string][] = [
-  ['county', 'County'], ['cd', 'Congress'], ['sldu', 'State Senate'], ['sldl', 'State House'],
+  ['county', 'County'], ['cd', 'Congress'], ['sldu', 'State Senate'], ['sldl', 'State House'], ['jd', 'Judicial District'],
 ];

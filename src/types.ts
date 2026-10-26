@@ -3,7 +3,7 @@
 export type Section = 'federal' | 'state' | 'county' | 'judicial' | 'school' | 'legislature' | 'education';
 
 /** Which voters see a contest. `null` on a race = every voter in Cook County. */
-export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa';
+export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa' | 'jd';
 export interface Area { type: AreaType; id: string }
 
 /** Campaign totals this cycle (since Jan 1, 2025), from official filings. */

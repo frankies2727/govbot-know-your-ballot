@@ -20,7 +20,7 @@
 |---|---|---|
 | 🗳️ Illinois | [/illinois](https://govbot-know-your-ballot.vercel.app/illinois) | Every contest on any Chicago or suburban Cook ballot on Nov 3, 2026, from U.S. Senate to judges, plus every county browsable without an address |
 | 🧤 Michigan | [/michigan](https://govbot-know-your-ballot.vercel.app/michigan) | Governor, U.S. Senate, Congress, every seat in Lansing, the Supreme Court and Court of Appeals, the university boards and both statewide proposals |
-| 🌲 Minnesota | [/minnesota](https://govbot-know-your-ballot.vercel.app/minnesota) | Governor, U.S. Senate, Congress, every seat in St. Paul, the Supreme Court and Court of Appeals seats and the school-fund amendment |
+| 🌲 Minnesota | [/minnesota](https://govbot-know-your-ballot.vercel.app/minnesota) | Governor, U.S. Senate, Congress, every seat in St. Paul, the Supreme Court, Court of Appeals and district court seats and the school-fund amendment |
 | 🧀 Wisconsin | [/wisconsin](https://govbot-know-your-ballot.vercel.app/wisconsin) | Governor, Congress, the odd-numbered Senate districts and every Assembly seat, and all three constitutional questions |
 
 **More states are welcome.** Read [CONTRIBUTING.md](CONTRIBUTING.md) and open a [new-state issue](.github/ISSUE_TEMPLATE/new-state.md).
@@ -86,12 +86,12 @@ To rebuild a state's data (what the daily workflow runs): `npm run data:illinois
 <details>
 <summary><b>🌲 Minnesota</b></summary>
 
-- **Who's on the ballot:** Ballotpedia's race pages (the statewide offices, the U.S. House delegation, both legislative chambers, the Supreme Court and Court of Appeals seats), CC BY-SA and linked from the app's Sources. Governor tickets take their running mate from the race page, else Wikipedia's article. The Secretary of State's candidate filings (`scripts/minnesota/filings.mjs`, the site's own downloadable text file) are the official list: they decide who is on each ballot, with Ballotpedia's spelling kept for the same person and anyone the state lists but Ballotpedia doesn't added; on a day the filings site's bot check turns the build away, Ballotpedia's lists stand.
+- **Who's on the ballot:** Ballotpedia's race pages (the statewide offices, the U.S. House delegation, both legislative chambers, the Supreme Court and Court of Appeals seats), CC BY-SA and linked from the app's Sources. Governor tickets take their running mate from the race page, else Wikipedia's article. The Secretary of State's candidate filings (`scripts/minnesota/filings.mjs`, the site's own downloadable text file) are the official list: they decide who is on each ballot, with Ballotpedia's spelling kept for the same person and anyone the state lists but Ballotpedia doesn't added; on a day the filings site's bot check turns the build away, Ballotpedia's lists stand. The 114 district court seats on the ballot come only from the filings (`scripts/minnesota/courts.mjs`): one race per seat, placed by judicial district, with the county-to-district table from Minn. Stat. § 2.722.
 - **Campaign money:** federal races from the FEC; state races from the Campaign Finance Board's candidate viewer (`scripts/minnesota/cfb.mjs`: each committee's financial summary, receipts and expenditures summed over 2025 and 2026, with the latest cash balance; a committee is used only when its own record names the candidate's office and district). Affidavit-only candidates (under $750) show none.
 - **Photos, websites & social accounts, who's in office, in their words, endorsements, records:** the same steps as Michigan (`scripts/state.mjs` with `scripts/minnesota/config.mjs`).
 - **The amendment:** the permanent-school-fund amendment in the Legislature's ballot wording, with a plain-English note (`scripts/minnesota/measures.mjs`), including that a blank counts as a no.
-- **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, state House (lettered: 1A, 1B) and county lines. Any of the 87 counties can be browsed without an address.
-- **Not here yet:** county and local offices, school boards, district court judges and local questions. The app points voters to the Minnesota Voter Information Portal.
+- **Your districts:** Photon (Nominatim as fallback) and pre-baked Census maps of the congressional, state Senate, state House (lettered: 1A, 1B) and county lines; the county gives the judicial district. Any of the 87 counties can be browsed without an address.
+- **Not here yet:** county and local offices, school boards and local questions. The app points voters to the Minnesota Voter Information Portal.
 </details>
 
 <details>
