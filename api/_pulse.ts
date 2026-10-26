@@ -2,9 +2,9 @@
 // heart (api/pulse.ts, api/heart.ts). Everything is anonymous: a tab is a random
 // id it makes up and forgets, nobody is asked who they are, no cookie is set, and
 // the only thing kept about a connection is an HMAC of its address that expires
-// within the hour, so one address can't inflate the numbers. The store is Upstash
-// Redis (Vercel Marketplace); with none connected the endpoints answer 503 and
-// the page simply shows nothing.
+// within the hour, so one address can't inflate the numbers. The store is a Redis
+// connected through Vercel (Upstash, or Vercel's own Redis); with none connected
+// the endpoints answer 503 and the page simply shows nothing.
 
 import { createHmac } from 'node:crypto';
 
@@ -16,18 +16,46 @@ export const HERE_WINDOW_MS = 60_000;
 const PINGS_PER_MINUTE = 120;   // one address; a school or office behind one still fits
 const HEARTS_PER_HOUR = 5;
 
-/** The store named by Vercel's integration (KV_REST_API_*, UPSTASH_REDIS_REST_*, or either behind a custom prefix), or null. */
+/**
+ * The store Vercel's integration connected, or null. Two kinds are understood:
+ * Upstash over HTTPS (KV_REST_API_URL + KV_REST_API_TOKEN, or UPSTASH_REDIS_REST_*)
+ * and Vercel's own Redis over a connection string (REDIS_URL / KV_URL), each also
+ * behind a custom prefix. `secret` keys the address hash; it never leaves the server.
+ */
 export function connect(env: Record<string, string | undefined> = process.env): { redis: Redis; secret: string } | null {
   const find = (...suffixes: string[]) => { const k = Object.keys(env).find((n) => suffixes.some((s) => n === s || n.endsWith(`_${s}`)) && env[n]); return k ? env[k]! : ''; };
   const url = find('KV_REST_API_URL', 'UPSTASH_REDIS_REST_URL');
   const token = find('KV_REST_API_TOKEN', 'UPSTASH_REDIS_REST_TOKEN');
-  if (!/^https:\/\//.test(url) || !token) return null;
-  const redis: Redis = async (cmds) => {
-    const r = await fetch(`${url.replace(/\/$/, '')}/pipeline`, { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify(cmds), signal: AbortSignal.timeout(4_000) });
-    if (!r.ok) throw new Error(`store ${r.status}`);
-    return ((await r.json()) as { result?: unknown; error?: string }[]).map((x) => { if (x.error) throw new Error(x.error); return x.result; });
+  if (/^https:\/\//.test(url) && token) {
+    const redis: Redis = async (cmds) => {
+      const r = await fetch(`${url.replace(/\/$/, '')}/pipeline`, { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify(cmds), signal: AbortSignal.timeout(4_000) });
+      if (!r.ok) throw new Error(`store ${r.status}`);
+      return ((await r.json()) as { result?: unknown; error?: string }[]).map((x) => { if (x.error) throw new Error(x.error); return x.result; });
+    };
+    return { redis, secret: token };
+  }
+  const conn = find('REDIS_URL');
+  if (/^rediss?:\/\//.test(conn)) return { redis: tcp(conn), secret: conn };
+  return null;
+}
+
+/** One connection per server instance, opened on first use and opened again if it drops. */
+function tcp(url: string): Redis {
+  type Client = { connect(): Promise<unknown>; multi(): { addCommand(c: string[]): unknown; execAsPipeline(): Promise<unknown[]> }; destroy(): void; on(e: string, f: () => void): unknown };
+  let client: Promise<Client> | null = null;
+  const open = () => (client ??= import('redis').then(async ({ createClient }) => {
+    const c = createClient({ url, socket: { connectTimeout: 4_000, reconnectStrategy: false } }) as unknown as Client;
+    c.on('error', () => { client = null; try { c.destroy(); } catch { /* already closed */ } });
+    await c.connect();
+    return c;
+  }).catch((e) => { client = null; throw e; }));
+  return async (cmds) => {
+    const m = (await open()).multi();
+    for (const c of cmds) m.addCommand(c.map(String));
+    const out = await m.execAsPipeline();
+    for (const r of out) if (r instanceof Error) throw r;
+    return out;
   };
-  return { redis, secret: token };
 }
 
 /** The visitor's address as an opaque key: HMAC with the store's own token, so it can't be reversed or matched across sites. */

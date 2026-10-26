@@ -58,6 +58,8 @@ eq(connect({ KV_REST_API_URL: 'https://x.upstash.io', KV_REST_API_TOKEN: 't' }) 
 eq(connect({ STORAGE_KV_REST_API_URL: 'https://x.upstash.io', STORAGE_KV_REST_API_TOKEN: 't' }) !== null, true, 'custom prefix');
 eq(connect({ UPSTASH_REDIS_REST_URL: 'https://x.upstash.io', UPSTASH_REDIS_REST_TOKEN: 't' }) !== null, true, 'upstash names');
 eq(connect({ KV_REST_API_URL: 'http://insecure', KV_REST_API_TOKEN: 't' }), null, 'a non-https store is refused');
+eq(connect({ REDIS_URL: 'rediss://default:pw@host:6379' }) !== null && connect({ STORAGE_REDIS_URL: 'redis://host:6379' }) !== null, true, 'Vercel Redis connection string, with or without a prefix');
+eq(connect({ REDIS_URL: 'http://not-redis' }), null, 'a non-redis URL is refused');
 // Only this site's own pages may call it.
 const origin = (o) => ourOrigin({ headers: o ? { origin: o } : {} });
 eq([origin(''), origin('https://govbot-know-your-ballot.vercel.app'), origin('http://localhost:5173'), origin('https://govbot-know-your-ballot-git-x-frankies2727.vercel.app'), origin('https://someone-elses-app.vercel.app'), origin('https://evil.example')], [true, true, true, true, false, false], 'origins');
