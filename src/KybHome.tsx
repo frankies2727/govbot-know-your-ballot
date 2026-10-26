@@ -1,3 +1,4 @@
+import { Github } from 'lucide-react';
 import { navigate } from './lib/router';
 import { useDocumentMeta } from './Bits';
 import ilOutline from './data/illinois/outline.json';
@@ -13,6 +14,10 @@ import './minnesota/minnesota.css';
 import './wisconsin/wisconsin.css';
 
 const IL_MAP = { fill: ['var(--gb-blue-hi)', 'var(--gb-primary)', 'var(--gb-blue)'] as [string, string, string], stroke: 'var(--kyb-gold)', pin: 'var(--kyb-gold)', pinStroke: 'var(--gb-bg)' };
+
+const REPO = 'https://github.com/frankies2727/govbot-know-your-ballot';
+/** States with a tracking issue (research, then build) and no guide yet. */
+const COMING = [{ name: 'Ohio', issue: 8 }, { name: 'Pennsylvania', issue: 9 }, { name: 'Georgia', issue: 11 }];
 
 /** The root of the Know Your Ballot site: pick your state. Each guide is one tap away at /illinois, /michigan, /minnesota or /wisconsin. */
 export function KybHome() {
@@ -47,6 +52,25 @@ export function KybHome() {
               </li>
             ))}
           </ul>
+          <section aria-labelledby="soon-h" className="rounded-2xl border-[3px] border-dashed border-[var(--gb-text)] bg-[var(--gb-surface)] p-6 space-y-5 text-center">
+            <h2 id="soon-h" className="font-serif font-black text-3xl">Coming soon</h2>
+            <ul className="flex flex-wrap justify-center gap-3" aria-label="States coming soon">
+              {COMING.map((c) => (
+                <li key={c.name}>
+                  <a href={`${REPO}/issues/${c.issue}`} target="_blank" rel="noopener" className="inline-flex min-h-[46px] items-center gap-2 rounded-xl border-2 border-[var(--gb-text)] px-5 font-black no-underline text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+                    {c.name} <span className="text-sm font-bold">coming soon ↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mx-auto max-w-[62ch] space-y-3 text-[15px] leading-relaxed">
+              <p><strong>This is an open-source project, built by and for everyone.</strong> Anyone can help a state arrive sooner: research where its candidate lists, campaign money and district maps come from, add a photo, translate the guide, or tell us when something is wrong. You don&rsquo;t need to write code.</p>
+              <p className="flex flex-wrap justify-center gap-3">
+                <a className="inline-flex min-h-[46px] items-center rounded-xl border-2 border-[var(--gb-text)] px-5 font-black no-underline text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" href={`${REPO}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noopener"><Github className="mr-2 h-5 w-5" aria-hidden="true" />How to contribute ↗</a>
+                <a className="inline-flex min-h-[46px] items-center rounded-xl border-2 border-[var(--gb-text)] px-5 font-black no-underline text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" href={`${REPO}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22`} target="_blank" rel="noopener"><Github className="mr-2 h-5 w-5" aria-hidden="true" />Pick something to help with ↗</a>
+              </p>
+            </div>
+          </section>
           <p className="text-center text-[15px]">Free, open source and non-partisan. <a className="underline font-bold" href="https://chihacknight.github.io/govbot/" target="_blank" rel="noopener">Built on Govbot ↗</a></p>
         </div>
       </div>
