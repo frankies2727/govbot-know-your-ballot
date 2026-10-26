@@ -29,6 +29,7 @@ import { addFederalMoney, addOutsideSpending, fetchOutside, keepOutsideForward, 
 import { fetchPage, parseHouseLists, parsePartisanTable, parseVoteboxes } from './michigan/ballotpedia.mjs';
 import { buildDistricts, buildOutline } from './michigan/districts.mjs';
 import { addProfiles } from './ballotpedia-profiles.mjs';
+import { mergeOfficial } from './official.mjs';
 import { recentNews } from './news.mjs';
 import { recentBills } from './illinois/govbot.mjs';
 import { keepMoneyForward } from './money-forward.mjs';
@@ -140,6 +141,16 @@ export async function build(cfg) {
     if (!prev?.races?.length) throw e;
     console.warn(`Candidates: ${e.message}; keeping yesterday's ${prev.races.length} races`);
     ({ races, sources: { candidates: { pages, asOf } } } = structuredClone(prev));
+  }
+  // The state's own candidate list, where the build can read it, decides who is on the ballot (scripts/official.mjs).
+  if (cfg.officialList) {
+    try {
+      const { byRace, source } = await cfg.officialList.read();
+      const r = mergeOfficial(races, byRace);
+      pages[cfg.officialList.name] = source;
+      console.log(`${cfg.officialList.name}: ${r.covered} races checked, ${r.added} candidates added, ${r.dropped} dropped`);
+      for (const line of r.log) console.log(`  ${line}`);
+    } catch (e) { console.warn(`${cfg.officialList.name}: ${e.message}; keeping Ballotpedia's lists`); }
   }
 
   // Federal money.
