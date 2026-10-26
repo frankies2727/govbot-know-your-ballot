@@ -1,6 +1,6 @@
 // GET /api/pulse?id=<random tab id> — counts this tab as using the guide right
 // now and returns { here, today, hearts, heartAt }. See api/_pulse.ts.
-import { addressKey, clientIp, connect, ourOrigin, ping, type Req, type Res } from './_pulse';
+import { addressKey, clientIp, connect, ourOrigin, ping, type Req, type Res } from './_pulse.js';
 
 const ID = /^[a-z0-9-]{8,40}$/i;
 

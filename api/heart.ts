@@ -1,6 +1,6 @@
 // POST /api/heart — one more heart for the site; returns { counted, hearts, heartAt }.
 // See api/_pulse.ts.
-import { addressKey, clientIp, connect, heart, ourOrigin, type Req, type Res } from './_pulse';
+import { addressKey, clientIp, connect, heart, ourOrigin, type Req, type Res } from './_pulse.js';
 
 export default async function handler(req: Req, res: Res) {
   res.setHeader('cache-control', 'no-store');
