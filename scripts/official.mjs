@@ -3,8 +3,9 @@
 // name is kept when it is the same person (every later step — profiles,
 // photos, money, yesterday's data — keys on that spelling), someone the
 // state lists and Ballotpedia doesn't is added, and someone Ballotpedia
-// lists but the state doesn't is dropped. `byRace` maps a race id to
-// [{ name, party }] as the state publishes them.
+// lists but the state doesn't is dropped (a renamed person keeps Ballotpedia's
+// spelling as `aka`, so the audit still knows their profile page is theirs).
+// `byRace` maps a race id to [{ name, party }] as the state publishes them.
 import { parts, sameName } from './money-names.mjs';
 
 const first = (n) => parts(n)[0] ?? '';
@@ -43,7 +44,7 @@ export function mergeOfficial(races, byRace) {
       const ours = race.candidates.filter((c) => !used.has(c) && last(c.name) === last(o.name) && c.party === o.party);
       const theirs = pending.filter((x) => last(x.name) === last(o.name) && x.party === o.party);
       if (ours.length === 1 && theirs.length === 1) {
-        used.add(ours[0]); kept.push({ ...ours[0], name: o.name });
+        used.add(ours[0]); kept.push({ ...ours[0], name: o.name, aka: ours[0].name });
         log.push(`${race.office} | ${ours[0].name}: the state lists them as ${o.name}; renamed`);
       } else { kept.push({ name: o.name, party: o.party }); added++; log.push(`${race.office} | ${o.name} (${o.party}): on the state's list, not Ballotpedia's; added`); }
     }

@@ -41,6 +41,8 @@ export interface Candidate {
   party: string;
   /** Only set when official records (FEC or ISBE) say so. */
   incumbent?: boolean;
+  /** Ballotpedia's spelling of the name when the state's ballot prints it differently ("Liish" / "Alicia Kozlowski"). */
+  aka?: string;
   /** Nonpartisan-section candidates (Michigan judges): the party that nominated them. */
   nominatedBy?: string;
   /** Campaign website: their State Board filing, else their official homepage. */
