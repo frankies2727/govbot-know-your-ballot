@@ -115,13 +115,17 @@ Every federal candidate with an FEC id also carries what outside groups spent fo
 
 ### Privacy
 
-The address is sent once to the public address locator named in the app and nowhere else. Picks, plans and progress stay in the browser's local storage. The share card shows progress, never picks. No analytics, no cookies.
+The address is sent once to the public address locator named in the app and nowhere else. Picks, plans and progress stay in the browser's local storage. The share card shows progress, never picks. No analytics, no cookies. The live count and heart below are anonymous too: a tab's random id lives in memory only, and the one thing kept about a connection is a keyed hash of its address, which expires within the hour.
 
 ## Reports from readers
 
 Every race, candidate, judge and measure carries a **Report a mistake** link. It opens a short form (what it shows, what is correct, a link to a source) that `api/report.ts`, a Vercel function, files as a GitHub issue labelled `wrong-information` and `from-site`, so a reader needs no GitHub account. Against spam it uses a hidden honeypot field, a minimum fill time, length and link checks, and a per-address limit; dropped reports still answer "thank you" so a bot learns nothing.
 
 The function needs one secret in the Vercel project (Settings → Environment Variables): `GITHUB_REPORT_TOKEN`, a fine-grained GitHub token with **Issues: read and write** on this repository only. Without it the form answers that reports aren't set up and offers GitHub's own form instead.
+
+## Live count and heart
+
+Every page floats two small things: how many people are using the guide right now (all four states together, plus how many today) and a heart anyone can tap, which everyone else sees as "Someone just hearted this page". `src/Pulse.tsx` polls `api/pulse.ts` every 25 seconds while the tab is visible; `api/heart.ts` adds a heart. A tab counts as "here" for a minute after its last ping. The numbers live in a Redis store connected to the Vercel project (Storage → Marketplace): either **Upstash** (Vercel adds `KV_REST_API_URL` and `KV_REST_API_TOKEN`) or Vercel's own **Redis** (it adds `REDIS_URL`, read over a normal connection by the `redis` package, opened on first use and again if it drops). A custom prefix works for both. One address can't inflate them (120 pings a minute, 5 hearts an hour, keyed by an HMAC of the address that expires), and a page from another site can't call the endpoints. It is a vanity number, not a measurement of who voted. With no store connected the endpoints answer 503 and the floaters aren't drawn. The logic is tested offline: `node --experimental-strip-types scripts/pulse-test.mjs`.
 
 ## Contributing
 
