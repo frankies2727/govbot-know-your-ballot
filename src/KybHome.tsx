@@ -71,7 +71,7 @@ export function KybHome() {
               </p>
             </div>
           </section>
-          <p className="text-center text-[15px]">Free, open source and non-partisan. <a className="underline font-bold" href="https://chihacknight.github.io/govbot/" target="_blank" rel="noopener">Built on Govbot ↗</a></p>
+          <p className="text-center text-[15px]">Free, open source and non-partisan. The live count and the heart are anonymous: no names, no cookies, nothing about you is kept. <a className="underline font-bold" href="https://chihacknight.github.io/govbot/" target="_blank" rel="noopener">Built on Govbot ↗</a></p>
         </div>
       </div>
     </GovbotChrome>
