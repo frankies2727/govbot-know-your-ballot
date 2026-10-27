@@ -1,51 +1,88 @@
-/* The pick-your-state page (KybHome): a hero with a voter casting a ballot
-   into a glowing box (BallotBox.tsx), then one lit tile per state. Colours
-   are govbot's tokens, so both themes work (ballot.css, govbot/govbot.css). */
+/* The pick-your-state page (KybHome): a hero of ballots dropping into a
+   glowing box (BallotBox.tsx), then one lit tile per state. Colours are
+   govbot's tokens, so both themes work (ballot.css, govbot/govbot.css). */
 
 .kyb-box { display: block; width: 100%; height: auto; }
+/* The scene fades out at its edges rather than ending in a hard line; ballots emerge from the left edge. */
+.kyb-box {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 93%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 93%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 93%, transparent);
+  mask-composite: intersect;
+}
 /* Paused by the button under it; outranks each part's own animation shorthand. */
 .kyb-box.kyb-box-paused * { animation-play-state: paused; }
 
-/* The ballot's trip, on a 4.4s loop: held, carried to the slot while it
-   turns upright, dropped in (the clip hides it below the slot), gone while
-   the ring and the light answer, then the next one fades in at the hand.
-   Transforms only, so the compositor does the work. */
-.kyb-ballot { transform-box: fill-box; transform-origin: 50% 100%; animation: kyb-cast 4.4s ease-in-out infinite; }
-@keyframes kyb-cast {
-  0%   { transform: translate(0, 0) rotate(-14deg); opacity: 1; }
-  24%  { transform: translate(0, 0) rotate(-14deg); opacity: 1; }
-  48%  { transform: translate(58px, 34px) rotate(-78deg); opacity: 1; }
-  64%  { transform: translate(58px, 130px) rotate(-82deg); opacity: 1; }
-  66%  { transform: translate(58px, 130px) rotate(-82deg); opacity: 0; }
-  86%  { transform: translate(0, 0) rotate(-14deg); opacity: 0; }
-  100% { transform: translate(0, 0) rotate(-14deg); opacity: 1; }
+/* Two scenes round the same ballots: a dark "hologram" and a light
+   "daylight", chosen by the site's theme (GovbotChrome sets data-theme;
+   without one, the system's preference). The hidden one doesn't animate. */
+.kyb-sc-light { display: none; }
+:root[data-theme="light"] .kyb-sc-dark { display: none; }
+:root[data-theme="light"] .kyb-sc-light { display: inline; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .kyb-sc-dark { display: none; }
+  :root:not([data-theme]) .kyb-sc-light { display: inline; }
 }
-/* The ring pulses out of the slot as the ballot lands. */
-.kyb-ring { transform-box: fill-box; transform-origin: center; transform: scale(0.3); opacity: 0; animation: kyb-ring 4.4s ease-out infinite; }
-@keyframes kyb-ring {
-  0%, 58% { transform: scale(0.3); opacity: 0; }
-  62%     { transform: scale(0.4); opacity: 1; }
-  88%     { transform: scale(2.6); opacity: 0; }
-  100%    { transform: scale(2.6); opacity: 0; }
+.kyb-box-dark { filter: drop-shadow(0 18px 40px color-mix(in srgb, var(--gb-primary) 28%, transparent)); }
+
+/* Five ballots, one every 4s of a 20s loop (--d). Each flies in from the left,
+   has three options circled in pen as it arrives, hovers over the slot, then
+   drops in. Transforms and opacity only, so the compositor does the work. */
+.kyb-bl { opacity: 0; transform-origin: 0 -64px; animation: kyb-ball 20s linear infinite both; animation-delay: var(--d, 0s); }
+@keyframes kyb-ball {
+  0%    { transform: translate(-620px, -190px) rotate(-40deg); opacity: 0; animation-timing-function: ease-in-out; }
+  1%    { transform: translate(-620px, -190px) rotate(-40deg); opacity: 1; animation-timing-function: ease-in-out; }
+  8%    { transform: translate(-300px, -150px) rotate(-22deg); animation-timing-function: ease-out; }
+  12%   { transform: translate(-70px, -70px) rotate(8deg); animation-timing-function: ease-out; }
+  14.5% { transform: translate(0, -34px) rotate(-2deg); animation-timing-function: ease-in-out; }
+  17%   { transform: translate(0, -34px) rotate(0deg); animation-timing-function: ease-in; }
+  19.6% { transform: translate(0, 130px) rotate(0deg); opacity: 1; }
+  19.9%, 100% { transform: translate(0, 130px) rotate(0deg); opacity: 0; }
 }
-/* The slot's light brightens as the ballot goes in; the box's light blinks once it's counted. */
-.kyb-slot-light { opacity: 0.5; animation: kyb-slot 4.4s ease-in-out infinite; }
-@keyframes kyb-slot { 0%, 40% { opacity: 0.5; } 60% { opacity: 1; } 80%, 100% { opacity: 0.5; } }
-.kyb-box-led { transform-box: fill-box; transform-origin: center; animation: kyb-led 4.4s ease-out infinite; }
-@keyframes kyb-led { 0%, 60% { opacity: 0.7; transform: scale(1); } 66% { opacity: 1; transform: scale(1.7); } 80%, 100% { opacity: 0.7; transform: scale(1); } }
-/* Counted ballots rise out of the box as motes. */
-.kyb-motes circle { transform-box: fill-box; transform-origin: center; animation: kyb-mote 3.9s linear infinite; }
-@keyframes kyb-mote {
-  0%   { transform: translateY(0); opacity: 0; }
-  15%  { opacity: 0.9; }
-  100% { transform: translateY(-150px); opacity: 0; }
+/* The pen: each circle is drawn in turn, half a second apart (--c). */
+.kyb-pen { stroke-dasharray: 1 1.1; stroke-dashoffset: 1.02; animation: kyb-draw 20s linear infinite both; animation-delay: calc(var(--d, 0s) + var(--c, 0s)); }
+@keyframes kyb-draw { 0%, 9% { stroke-dashoffset: 1.02; } 11.5%, 100% { stroke-dashoffset: 0; } }
+
+/* The box answers every ballot on a 4s beat that lands with each drop. */
+.kyb-check { transform-box: fill-box; transform-origin: center; opacity: 0; animation: kyb-check 4s ease-out infinite; }
+@keyframes kyb-check {
+  0%   { transform: translateY(-10px) scale(1); opacity: 1; }
+  22%  { transform: translateY(-70px) scale(1); opacity: 1; }
+  30%  { transform: translateY(-110px) scale(.9); opacity: 0; }
+  97%  { transform: translateY(0) scale(.5); opacity: 0; }
+  98.5% { transform: translateY(-4px) scale(.9); opacity: 1; }
+  100% { transform: translateY(-10px) scale(1); opacity: 1; }
 }
+.kyb-beam { animation: kyb-beam 4s ease-in-out infinite; }
+@keyframes kyb-beam { 0% { opacity: 1; } 25%, 82% { opacity: .45; } 92%, 100% { opacity: 1; } }
+.kyb-slot { animation: kyb-slot 4s ease-in-out infinite; }
+@keyframes kyb-slot { 0% { opacity: 1; } 25%, 80% { opacity: .5; } 90%, 100% { opacity: 1; } }
+.kyb-ring { transform-box: fill-box; transform-origin: center; animation: kyb-ring 4s ease-in-out infinite; }
+@keyframes kyb-ring { 0% { opacity: .5; transform: scale(1.04); } 30%, 88% { opacity: .18; transform: scale(1); } 98%, 100% { opacity: .5; transform: scale(1.04); } }
+.kyb-led { transform-box: fill-box; transform-origin: center; animation: kyb-led 4s ease-out infinite; }
+@keyframes kyb-led { 0% { opacity: 1; transform: scale(1.8); } 20%, 94% { opacity: .6; transform: scale(1); } 98%, 100% { opacity: 1; transform: scale(1.8); } }
+.kyb-motes circle { transform-box: fill-box; transform-origin: center; animation: kyb-mote 4.2s linear infinite; }
+@keyframes kyb-mote { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: .95; } 100% { transform: translateY(-230px); opacity: 0; } }
+.kyb-confetti { transform-box: fill-box; transform-origin: center; opacity: 0; animation: kyb-confetti 4s ease-out infinite; }
+@keyframes kyb-confetti {
+  0%   { transform: translate(0, -4px) rotate(10deg); opacity: 1; }
+  30%  { transform: translate(var(--dx), -110px) rotate(220deg); opacity: 0; }
+  97%  { transform: translate(0, 0) rotate(0); opacity: 0; }
+  98.5% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  100% { transform: translate(0, -4px) rotate(10deg); opacity: 1; }
+}
+.kyb-shadow { transform-box: fill-box; transform-origin: center; animation: kyb-shadow 4s ease-in-out infinite; }
+@keyframes kyb-shadow { 0% { transform: scale(1.06); } 25%, 90% { transform: scale(1); } 98%, 100% { transform: scale(1.06); } }
+/* Ballots drifting in the dark behind the scene. */
+.kyb-ghost { transform-box: fill-box; transform-origin: center; animation: kyb-float 7s ease-in-out infinite alternate; }
+@keyframes kyb-float { 0% { transform: translateY(0) rotate(0); } 100% { transform: translateY(-16px) rotate(4deg); } }
+
 @media (prefers-reduced-motion: reduce) {
-  .kyb-ballot, .kyb-ring, .kyb-slot-light, .kyb-box-led, .kyb-motes circle { animation: none; }
-  .kyb-ballot { transform: translate(58px, 34px) rotate(-78deg); }
-  .kyb-ring { display: none; }
-  .kyb-motes { display: none; }
-  .kyb-slot-light { opacity: 1; }
+  .kyb-bl, .kyb-pen, .kyb-check, .kyb-beam, .kyb-slot, .kyb-ring, .kyb-led, .kyb-motes circle, .kyb-confetti, .kyb-shadow, .kyb-ghost { animation: none; }
+  .kyb-bl:not(.kyb-first) { opacity: 0; }
+  .kyb-first { opacity: 1; transform: translate(0, -34px); }
+  .kyb-pen { stroke-dashoffset: 0; }
+  .kyb-check, .kyb-motes, .kyb-confetti { display: none; }
 }
 
 /* One tile per state: the outline glows in the state's colour; hovering or
