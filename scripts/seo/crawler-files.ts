@@ -21,15 +21,6 @@ export const robotsTxt = (site: string) => [
   '',
 ].join('\n');
 
-/** "2026-10-26", or "9/11/2026 3:47:15 PM" (Illinois's own format), as YYYY-MM-DD; undefined when it isn't a date we can read. */
-export function isoDate(s: unknown): string | undefined {
-  if (typeof s !== 'string') return undefined;
-  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (iso) return `${iso[1]}-${iso[2]}-${iso[3]}`;
-  const us = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
-  return us ? `${us[3]}-${us[1].padStart(2, '0')}-${us[2].padStart(2, '0')}` : undefined;
-}
-
 export interface SitePage { path: string; lastmod?: string }
 
 /** One entry per page; `lastmod` only when the data says when it last changed, never the build time. */
@@ -66,6 +57,7 @@ export function llmsTxt(site: string, states: StateFacts[]) {
     '## About',
     '',
     `- [Home](${site}/): pick a state.`,
+    `- [Full text for AI assistants](${site}/llms-full.txt): every state's key dates, statewide races with candidates, what each office does, ballot questions and how the ballot works, in one file.`,
     '- [Govbot](https://chihacknight.github.io/govbot/): the open civic data this is built on, from Chi Hack Night.',
     '- [Source code and data pipeline](https://github.com/frankies2727/govbot-know-your-ballot): MIT licensed; corrections and new states welcome.',
     '',
