@@ -50,15 +50,18 @@ const rgb = (c: RGB, op: 'rg' | 'RG') => `${c.map(num).join(' ')} ${op}\n`;
 export class Pdf {
   readonly W = 612;
   readonly H = 792;
-  private pages: string[] = [''];
+  private pages: string[];
   private links: { page: number; x: number; y: number; w: number; h: number; url: string }[] = [];
   private cur = 0;
 
-  constructor(private title: string) {}
+  /** `background`: a colour to fill every page with (leave it out for plain white, which prints without spending ink). */
+  constructor(private title: string, private background?: RGB) { this.pages = [this.blank()]; }
+
+  private blank() { return this.background ? `${rgb(this.background, 'rg')}0 0 ${this.W} ${this.H} re f\n` : ''; }
 
   get pageCount() { return this.pages.length; }
   get page() { return this.cur; }
-  newPage() { this.pages.push(''); this.cur = this.pages.length - 1; }
+  newPage() { this.pages.push(this.blank()); this.cur = this.pages.length - 1; }
   /** Go back to a finished page (to add footers once the page count is known). */
   goTo(i: number) { this.cur = i; }
 
