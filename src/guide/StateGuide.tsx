@@ -8,6 +8,9 @@ import { routeHref } from '../lib/router';
 import { billItems, billUrl, changeItems, dateItems, Feed, newsItems } from '../Feed';
 import { Laws } from '../Laws';
 import { Headliners } from '../Headliners';
+import { CommonQuestions } from '../CommonQuestions';
+import { faqDates, faqFor } from '../seo/faq';
+import { isoDate } from '../seo/format';
 import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
 import { earnedTrophies, streak, Trophies } from '../Progress';
@@ -546,6 +549,8 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   daysLeft: number; saved: number; onStartFresh: () => void;
 }) {
   const { data, sections: SECTIONS, config, copy, links, Map } = spec;
+  // The questions voters ask, from the same sourced data and copy as the rest of the page (the page's FAQ markup says these words too).
+  const faq = useMemo(() => faqFor({ slug: spec.slug, races: data.races, measures: data.measures, asOf: isoDate(data.sources.candidates.asOf), explainOffice: config.explainOffice, keyDates: faqDates(spec.keyDates) }), [spec, data, config]);
   // The statewide races everyone votes on, for the quick tour; the rest of
   // the ballot by section, for the cards under them; the questions as a card
   // among the statewide races.
@@ -644,6 +649,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
       <SectionCards cards={more} heading="Everything else on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
 
       <div className="pt-2 space-y-8">
+        <CommonQuestions items={faq} />
         <SourcesCard spec={spec} />
         <div role="separator" aria-label="Beyond your ballot" className="flex items-center gap-4">
           <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />

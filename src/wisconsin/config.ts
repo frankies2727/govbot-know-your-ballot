@@ -41,7 +41,7 @@ const EXPLAINERS: [RegExp, string][] = [
   [/^State Senator/, 'Your seat in the Wisconsin Senate. Writes and votes on state laws and the two-year state budget in Madison. 4-year term. Only the 17 odd-numbered districts are on the ballot this year; if yours is, you pick 1.'],
   [/^Representative to the Assembly/, 'Your seat in the Wisconsin Assembly. Writes and votes on state laws and the state budget in Madison. 2-year term. Every Assembly seat is on the ballot this year; you pick 1 for yours.'],
 ];
-const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
+export const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
 
 const AREA_LABEL: Record<string, string> = { cd: 'Congressional District', sldu: 'State Senate District', sldl: 'Assembly District' };
 const areaLabel = (r: Race) => (r.area ? `${AREA_LABEL[r.area.type] ?? r.area.type} ${r.area.id}` : 'Statewide');

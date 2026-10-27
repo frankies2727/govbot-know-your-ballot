@@ -1,4 +1,5 @@
 import mapsUrl from '../data/minnesota/districts.json?url';
+import { HowItems } from '../CommonQuestions';
 import rawData from '../data/minnesota/ballot.json';
 import { makeLookup } from '../guide/lookup';
 import type { GuideSpec, SourceCard } from '../guide/spec';
@@ -96,12 +97,7 @@ export const MINNESOTA_GUIDE: GuideSpec = {
     legislature: 'Minnesota Legislature',
     howItWorks: {
       title: 'How a Minnesota ballot works',
-      body: <>
-        <p><strong>Top to bottom.</strong> Federal offices first (U.S. Senate, U.S. House), then the state offices, your state senator and representative, county and local offices, school board, the judges, and the constitutional amendment at the end.</p>
-        <p><strong>No straight-party box.</strong> Minnesota has none; every race is marked on its own. Party labels print next to each name in the partisan races (Democratic-Farmer-Labor is Minnesota’s Democratic Party).</p>
-        <p><strong>Judges.</strong> Listed without party; the sitting judge is marked “incumbent”. Most run unopposed, and there’s a write-in line.</p>
-        <p><strong>The amendment counts blanks as no.</strong> It passes only with a majority of everyone voting in the election, so leaving it empty is the same as voting no.</p>
-      </>,
+      body: <HowItems slug="minnesota" />,
     },
     notesLine: 'Minnesota voters may bring notes or a marked sample ballot into the voting booth.',
     sources,

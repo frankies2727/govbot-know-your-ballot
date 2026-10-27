@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { defineConfig } from 'vite';
-import { isoDate, llmsTxt, robotsTxt, sitemapXml, type SitePage, type StateFacts } from './scripts/seo/crawler-files';
+import { llmsTxt, robotsTxt, sitemapXml, type SitePage, type StateFacts } from './scripts/seo/crawler-files';
+import { BODY_CSS, homeBody, jsonLd, jsonScript, llmsFull, readState, stateBody } from './scripts/seo/page-body';
+import { STATE_SLUGS } from './src/seo/copy';
 
 // What a shared link shows (the title, description and picture social apps
 // read from the HTML itself, before any script runs): one set per page, the
@@ -56,18 +58,24 @@ function siteMeta() {
     transformIndexHtml: (html: string) => html.replace(TITLE, metaFor('')),
     closeBundle() {
       // robots.txt, sitemap.xml and llms.txt, for crawlers and AI assistants.
-      const asOf = (slug: string) => isoDate(JSON.parse(readFileSync(`src/data/${slug}/ballot.json`, 'utf8')).sources?.candidates?.asOf);
-      const states: StateFacts[] = STATES.map((s) => ({ ...s, asOf: asOf(s.slug) }));
+      const pagesData = STATE_SLUGS.map(readState);
+      const states: StateFacts[] = STATES.map((s) => ({ ...s, asOf: pagesData.find((p) => p.slug === s.slug)?.asOf }));
       const dates = states.map((s) => s.asOf).filter((d): d is string => !!d).sort();
       const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: `/${s.slug}`, lastmod: s.asOf }))];
       writeFileSync(path.join(outDir, 'robots.txt'), robotsTxt(SITE));
       writeFileSync(path.join(outDir, 'sitemap.xml'), sitemapXml(SITE, pages));
       writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, states));
+      writeFileSync(path.join(outDir, 'llms-full.txt'), llmsFull(SITE, pagesData));
       const shell = readFileSync(path.join(outDir, 'index.html'), 'utf8');
+      // Each page: its own head tags, structured data, and the readable text inside the root (the app's first render replaces it).
+      const readable = (html: string, body: string, ld: unknown) => html.replace('<div id="root"></div>', `<div id="root">${body}</div>`).replace('</head>', `${BODY_CSS}\n    ${jsonScript(ld)}\n  </head>`);
       for (const page of Object.keys(PAGES).filter(Boolean)) {
+        const f = pagesData.find((p) => p.slug === page)!;
         mkdirSync(path.join(outDir, page), { recursive: true });
-        writeFileSync(path.join(outDir, page, 'index.html'), shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaFor(page)));
+        const html = shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaFor(page));
+        writeFileSync(path.join(outDir, page, 'index.html'), readable(html, stateBody(f, SITE, PAGES[page].desc), jsonLd(SITE, f, PAGES[page].desc, pagesData)));
       }
+      writeFileSync(path.join(outDir, 'index.html'), readable(shell, homeBody(pagesData, SITE, PAGES[''].desc), jsonLd(SITE, null, PAGES[''].desc, pagesData)));
     },
   };
 }

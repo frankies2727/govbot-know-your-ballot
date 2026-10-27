@@ -1,4 +1,5 @@
 import mapsUrl from '../data/michigan/districts.json?url';
+import { HowItems } from '../CommonQuestions';
 import rawData from '../data/michigan/ballot.json';
 import { makeLookup } from '../guide/lookup';
 import type { GuideSpec, SourceCard } from '../guide/spec';
@@ -98,12 +99,7 @@ export const MICHIGAN_GUIDE: GuideSpec = {
     legislature: 'Michigan Legislature',
     howItWorks: {
       title: 'How a Michigan ballot works',
-      body: <>
-        <p><strong>Three parts.</strong> The partisan section (Congress, governor, Lansing, the school and university boards), the nonpartisan section (judges, plus local offices like city council in many places) and the proposals.</p>
-        <p><strong>The straight-party box.</strong> At the top, one mark votes for every candidate of that party in the partisan section. You can still mark individual races, and those marks win for that race. It never touches the nonpartisan section or the proposals, so look at those either way.</p>
-        <p><strong>“Vote for not more than 2.”</strong> Boards and the Supreme Court elect two seats at once; pick up to two names.</p>
-        <p><strong>Judges with no opponent.</strong> Court of Appeals judges usually run unopposed. Marking them is still a vote; leaving them blank is fine too.</p>
-      </>,
+      body: <HowItems slug="michigan" />,
     },
     notesLine: 'Michigan voters may bring notes or a marked sample ballot into the voting booth.',
     sources,
