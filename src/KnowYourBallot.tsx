@@ -28,7 +28,9 @@ import { billItems, changeItems, dateItems, Feed, newsItems } from './Feed';
 import { billUrl } from './Feed';
 import { forVoter, NOV_3 } from './dates';
 import { drawShareCard, shareCard } from './share';
-import { daysUntil, hasProgress, isDecided, today, readResumeLink, resumeLink, useOpen, useSaved, type Choice, type Saved } from './store';
+import { PdfCard } from './components/PdfCard';
+import type { PdfSummary } from './ballotPdf';
+import { daysUntil, hasProgress, isDecided, today, readResumeLink, resumeLink, useOpen, useSaved, type Choice, type Saved, choiceState } from './store';
 import type { BallotData, Candidate, Districts, Outline, Race } from './types';
 
 const data = rawData as unknown as BallotData;
@@ -422,6 +424,21 @@ export function KnowYourBallot() {
     window.scrollTo({ top: 0 });
   };
 
+  /** What the PDF carries: the voter's districts, their plan and every contest on their ballot with their pick. */
+  const pdfSummary = (): PdfSummary => ({
+    state: 'Illinois', region,
+    districts: districts ? DISTRICT_CHIPS.filter(([k]) => districts[k]).map(([k, label]) => `${label} ${districtNumber(k, districts[k]!)}`) : [],
+    electionDate: data.election.date, daysLeft, url: SHARE_URL,
+    sections: sections.map((s) => ({
+      title: s.title, color: cssColor(s.color),
+      rows: s.ids.map((id) => ({ ...describePick(id, saved.picks[id], chicago), state: choiceState(saved.picks[id]) })),
+    })),
+    plan: saved.plan,
+    dates: forVoter(NOV_3, chicago),
+    notes: 'Illinois voters may use sample ballots and notes while voting.',
+    official: chicago ? { label: 'Chicago Board of Elections', url: LINKS.myInfo } : { label: cook ? 'Cook County Clerk' : 'Your county clerk', url: clerk },
+  });
+
   const doShare = async () => {
     setShareMsg('');
     try {
@@ -646,6 +663,7 @@ export function KnowYourBallot() {
                   {linkMsg && <p role="status" className="font-bold">{linkMsg}</p>}
                   <p className="text-sm text-[var(--gb-text)]">🔒 The link holds your picks and districts, not your street address. Keep it to yourself.</p>
                 </section>
+                <PdfCard summary={pdfSummary} accent="var(--gb-blue-hi)" disabled={total === 0} />
                 <h2 className="text-2xl font-black leading-tight">Get your people to look up theirs</h2>
                 <p className="text-[15px] leading-relaxed text-[var(--gb-text)]">Share a card with your progress: how many races you’ve researched, section by section. <strong className="text-[var(--gb-text)]">It never shows who you picked.</strong></p>
                 <div className="rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-5 space-y-3">

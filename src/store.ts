@@ -99,6 +99,8 @@ export function useSaved(key = ILLINOIS_KEY) {
 }
 
 export const isDecided = (c: Choice | undefined) => c !== undefined && (!Array.isArray(c) || c.length > 0);
+/** A contest as a summary shows it: a pick, a deliberate skip, or still open. */
+export const choiceState = (c: Choice | undefined): 'picked' | 'skipped' | 'open' => (c === 'skip' ? 'skipped' : isDecided(c) ? 'picked' : 'open');
 export const hasProgress = (s: Saved) => Object.keys(s.picks).length > 0;
 
 // ---- resume links ------------------------------------------------------------------

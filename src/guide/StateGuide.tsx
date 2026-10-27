@@ -14,9 +14,11 @@ import { earnedTrophies, streak, Trophies } from '../Progress';
 import { CandidateSheet, Compare, MeasureCard, RaceCard } from '../Race';
 import { BallotSearch, type Hit } from '../Search';
 import { drawShareCard, shareCard } from '../share';
+import { PdfCard } from '../components/PdfCard';
+import type { PdfSummary } from '../ballotPdf';
 import { ReadOnlyContext, StateContext } from '../state';
 import { GovbotChrome } from '../GovbotChrome';
-import { daysUntil, hasProgress, isDecided, readResumeLink, resumeLink, today, useNow, useOpen, useSaved, type Choice, type Saved } from '../store';
+import { daysUntil, hasProgress, isDecided, readResumeLink, resumeLink, today, useNow, useOpen, useSaved, type Choice, type Saved, choiceState } from '../store';
 import type { Candidate, Districts, Race } from '../types';
 import { MoreGuides } from '../PlanToVote';
 import '../ballot.css';
@@ -286,6 +288,21 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
       if ((e as Error).name !== 'AbortError') setLinkMsg('Couldn’t copy automatically on this device. Try “Send it to myself”.');
     }
   };
+  /** What the PDF carries: the voter's districts, their plan and every contest on their ballot with their pick. */
+  const pdfSummary = (): PdfSummary => ({
+    state: spec.name, region,
+    districts: districts ? spec.districtChips.filter(([k]) => districts[k as keyof Districts]).map(([k, label]) => `${label} ${districts[k as keyof Districts]}`) : [],
+    electionDate: data.election.date, daysLeft, url: shareUrl,
+    sections: sections.map((s) => ({
+      title: s.title, color: cssColor(s.color),
+      rows: s.ids.map((id) => ({ ...describePick(id, saved.picks[id]), state: choiceState(saved.picks[id]) })),
+    })),
+    plan: saved.plan,
+    dates: spec.keyDates,
+    notes: copy.notesLine,
+    official: { label: links.myInfoLabel.replace(/^./, (c) => c.toUpperCase()), url: links.myInfo },
+  });
+
   const doShare = async () => {
     setShareMsg('');
     try {
@@ -479,6 +496,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                     {linkMsg && <p role="status" className="font-bold">{linkMsg}</p>}
                     <p className="text-sm">🔒 The link holds your picks and districts, not your street address. Keep it to yourself.</p>
                   </section>
+                  <PdfCard summary={pdfSummary} accent="var(--kyb-accent)" disabled={total === 0} />
                   <h2 className="text-2xl font-black leading-tight">Get your people to look up theirs</h2>
                   <p className="text-[15px] leading-relaxed">Share a card with your progress: how many races you’ve researched, section by section. <strong>It never shows who you picked.</strong></p>
                   <div className="rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-5 space-y-3">

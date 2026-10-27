@@ -27,7 +27,7 @@
 
 ## What a voter gets
 
-Enter an address (it never leaves the browser except to the public address locator) and see the ballot, one race at a time: what the job is, who's running with photo and party, how much each campaign raised and spent, who holds the seat now and, when they aren't running, why. Open a candidate for their own words (survey answers, their issues page), their endorsements, their record in office, and links to dig deeper. Judges carry every bar association's rating and, in Illinois, the full Injustice Watch profile. Decide race by race, skip what you want, plan how you'll vote, print your picks or a full sample ballot, and share a progress card, never your picks.
+Enter an address (it never leaves the browser except to the public address locator) and see the ballot, one race at a time: what the job is, who's running with photo and party, how much each campaign raised and spent, who holds the seat now and, when they aren't running, why. Open a candidate for their own words (survey answers, their issues page), their endorsements, their record in office, and links to dig deeper. Judges carry every bar association's rating and, in Illinois, the full Injustice Watch profile. Decide race by race, skip what you want, plan how you'll vote, print your picks or a full sample ballot, download your picks as a PDF with an overview, and share a progress card, never your picks.
 
 Everything shown comes from an official or documented public source named next to it. Nothing is summarized, rated or editorialized by us; a candidate's "words" are quoted verbatim with the date and a link.
 
