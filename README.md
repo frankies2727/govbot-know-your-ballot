@@ -125,7 +125,13 @@ The function needs one secret in the Vercel project (Settings → Environment Va
 
 ## Search engines and AI assistants
 
-`robots.txt` (everyone welcome, AI crawlers named, `/api/` kept out), `sitemap.xml` and `llms.txt` (a plain summary an AI assistant reads first) are written into the build by the Vite plugin in `vite.config.ts` from `scripts/seo/crawler-files.ts`, with the site's address in one constant, `SITE`. Each page's `lastmod` is its candidate list's own date, never the build time. The address-specific `/<state>/ballot` pages send `X-Robots-Tag: noindex, follow` (in `vercel.json`) so only the state pages are listed. Check it offline with `node --experimental-strip-types scripts/seo-test.mjs` after a build.
+What a crawler or an AI assistant reads, before any script runs, is built from the same sourced data and copy the app shows.
+
+- **Files:** `robots.txt` (everyone welcome, AI crawlers named, `/api/` kept out), `sitemap.xml` (each page's `lastmod` is its candidate list's own date, never the build time), `llms.txt` (a plain summary an AI reads first) and `llms-full.txt` (every state's key dates, statewide races with candidates, what each office does, ballot questions and how the ballot works). The Vite plugin in `vite.config.ts` writes them from `scripts/seo/`; the site's address is one constant, `SITE`.
+- **Text in each page:** `scripts/seo/page-body.ts` writes readable text inside `<div id="root">` of the home page and each state page (election date, key dates, the statewide races with candidates in the data's own order, what each office does, ballot questions, how the ballot works, common questions). The app's first render replaces it, so it is the same facts in a different dress, never hidden text; layout shift stays under 0.01. The `<head>` carries JSON-LD (the site and its organization; for a state also the page, the election, breadcrumbs and the questions).
+- **One copy of the words:** `src/seo/copy.ts` holds "How a ballot works" (the app's panel renders from it), the official voter portals and the two questions about the site. `src/seo/faq.ts` builds every question from the ballot data, the offices' explainers and the key dates, never from fresh writing, and the same function feeds the visible "Common questions" section, the page text and the FAQ markup, so they cannot disagree. Only statewide ballot questions are called statewide; local ones are counted separately.
+- The address-specific `/<state>/ballot` pages send `X-Robots-Tag: noindex, follow` (in `vercel.json`) so only the state pages are listed.
+- **Check it:** after `npm run build`, `npx esbuild scripts/seo-test.mjs --bundle --platform=node --format=esm --outfile=/tmp/seo-test.mjs && node /tmp/seo-test.mjs` reads the built pages (every FAQ answer appears verbatim in the page text, the JSON-LD parses, `llms-full.txt` covers every state).
 
 ## Live count and heart
 

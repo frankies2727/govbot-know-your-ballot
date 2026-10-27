@@ -3,6 +3,9 @@ import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } fro
 import rawData from './data/illinois/ballot.json';
 import { ballotFor, ballotForCounty, ballotIdsFor, districtsAt, geocode, inChicago, inCook, inIllinois, prefetchDistricts } from './lookup';
 import { explainOffice, RETENTION_EXPLAINER } from './offices';
+import { CommonQuestions, HowItems } from './CommonQuestions';
+import { faqDates, faqFor } from './seo/faq';
+import { isoDate } from './seo/format';
 import { stakes } from './stakes';
 import { BallotSearch, type Hit } from './Search';
 import { GovbotChrome } from './GovbotChrome';
@@ -34,6 +37,11 @@ import { daysUntil, hasProgress, isDecided, today, readResumeLink, resumeLink, u
 import type { BallotData, Candidate, Districts, Outline, Race } from './types';
 
 const data = rawData as unknown as BallotData;
+/** The questions voters ask, from the same sourced data and copy the rest of the page uses (the page's FAQ markup says these words too). */
+const FAQ = faqFor({
+  slug: 'illinois', races: data.races, measures: data.measures, asOf: isoDate(data.sources.candidates.asOf), explainOffice,
+  keyDates: faqDates(NOV_3),
+});
 const ballotIds = (d: Districts) => ballotIdsFor(data, d);
 const everything = ballotFor(data, null);
 // The races every Illinois voter sees, for the landing page's cards.
@@ -607,12 +615,7 @@ export function KnowYourBallot() {
             {tab === 'how' && (
               <div className="pt-6">
                 <HowBallotWorks storageKey="kyb-il-how-open" defaultOpen title="How an Illinois ballot works">
-                  <p><strong>Three parts.</strong> Candidates by office, in the order the Board of Elections sets (federal first, then state, county, judges and school board); the judges up for retention; then the referenda.</p>
-                  <p><strong>No straight-party box.</strong> Illinois dropped it: every race is marked on its own.</p>
-                  <p><strong>Ballot numbers.</strong> On a Chicago ballot each candidate has a number; the print view lists them so you can find names fast in the booth. Suburban Cook ballots order candidates differently.</p>
-                  <p><strong>“Vote for not more than N.”</strong> Some contests (the Water Reclamation District, some judicial vacancies) fill several seats at once; pick up to that many.</p>
-                  <p><strong>Keep these judges?</strong> Retention is a yes or no on each sitting judge, with no opponent; a judge stays with at least 60% yes.</p>
-                  <p><strong>Referenda.</strong> Yes or no on each question; which ones you see depends on your ward or precinct.</p>
+                  <HowItems slug="illinois" />
                 </HowBallotWorks>
               </div>
             )}
@@ -834,6 +837,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
           <SectionCards cards={MORE} heading="Everything else on your ballot" intro="By district, ward or precinct: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
         </div>
         <div className="mt-12 space-y-8">
+          <CommonQuestions items={FAQ} />
           <Sources />
           <div role="separator" aria-label="Beyond your ballot" className="flex items-center gap-4">
             <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />

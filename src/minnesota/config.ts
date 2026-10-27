@@ -48,7 +48,7 @@ const EXPLAINERS: [RegExp, string][] = [
   [/^Judge of the Court of Appeals/, 'Hears appeals from Minnesota’s district courts; for most cases it is the last stop. Its 19 judges are elected statewide without party labels for 6-year terms, and sitting judges usually run unopposed. You pick 1, or leave it blank.'],
   [/^Judge of the District Court/, 'Your local trial court: the judges who hear criminal cases, lawsuits, family, juvenile and probate matters at your county courthouse. Minnesota has ten judicial districts, each a group of counties, and the district’s voters elect its judges seat by seat without party labels for 6-year terms; most first reach the bench by the governor’s appointment, and the sitting judge is marked “incumbent” on the ballot. Most run unopposed. You pick 1, or leave it blank.'],
 ];
-const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
+export const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
 
 const AREA_LABEL: Record<string, string> = { cd: 'Congressional District', sldu: 'State Senate District', sldl: 'State House District', jd: 'Judicial District' };
 const areaLabel = (r: Race) => (r.area ? `${AREA_LABEL[r.area.type] ?? r.area.type} ${r.area.id}` : 'Statewide');

@@ -54,7 +54,7 @@ const EXPLAINERS: [RegExp, string][] = [
 ];
 // A race whose name carries its seat count ("Judge of the Court of Appeals, 1st
 // District (3 seats)") also says how many to pick.
-const explainOffice = (office: string) => {
+export const explainOffice = (office: string) => {
   const text = EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
   const seats = office.match(/\((\d+) seats?\)/);
   if (!text || !seats) return text;

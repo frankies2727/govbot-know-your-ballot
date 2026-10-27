@@ -1,4 +1,5 @@
 import mapsUrl from '../data/wisconsin/districts.json?url';
+import { HowItems } from '../CommonQuestions';
 import rawData from '../data/wisconsin/ballot.json';
 import { makeLookup } from '../guide/lookup';
 import type { GuideSpec, SourceCard } from '../guide/spec';
@@ -94,12 +95,7 @@ export const WISCONSIN_GUIDE: GuideSpec = {
     legislature: 'Wisconsin Legislature',
     howItWorks: {
       title: 'How a Wisconsin ballot works',
-      body: <>
-        <p><strong>Top to bottom.</strong> Federal offices first (your U.S. House seat), then the state offices, your state senator (odd-numbered districts only this year) and Assembly representative, county offices, and the referendum questions at the end.</p>
-        <p><strong>No straight-party box.</strong> Wisconsin dropped it in 2011; every race is marked on its own. Party labels print next to each name.</p>
-        <p><strong>No judges this November.</strong> Wisconsin elects its judges, without party labels, at the spring election in April; the next is Apr 6, 2027.</p>
-        <p><strong>The three questions.</strong> Each amends the state constitution and passes with a majority of the votes cast on that question. A blank on a question just isn’t counted.</p>
-      </>,
+      body: <HowItems slug="wisconsin" />,
     },
     notesLine: 'Wisconsin voters may bring notes or a marked sample ballot into the voting booth.',
     sources,
