@@ -14,6 +14,8 @@
 
 **Your exact ballot by address: every race, judge and question explained, who's running and who's funding them.** Free, open source, non-partisan, built on [Govbot](https://chihacknight.github.io/govbot/), Chi Hack Night's open civic data.
 
+Govbot is an open-source project of Chi Hack Night that turns every U.S. legislature's activity into open data anyone can clone, query and build on. Know Your Ballot is a free, nonpartisan voter guide built on Govbot. More at [the Govbot website](https://chihacknight.github.io/govbot/) and [Govbot on GitHub](https://github.com/chihacknight/govbot).
+
 ### 👉 [govbot-know-your-ballot.vercel.app](https://govbot-know-your-ballot.vercel.app) 👈
 
 | State | Guide | Covers |
