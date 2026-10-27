@@ -56,6 +56,8 @@ export function llmsTxt(site: string, states: StateFacts[]) {
     '',
     '## About',
     '',
+    'Govbot is an open-source project of Chi Hack Night that turns every U.S. legislature\'s activity into open data anyone can clone, query and build on. Know Your Ballot is a free, nonpartisan voter guide built on Govbot.',
+    '',
     `- [Home](${site}/): pick a state.`,
     `- [Full text for AI assistants](${site}/llms-full.txt): every state's key dates, statewide races with candidates, what each office does, ballot questions and how the ballot works, in one file.`,
     '- [Govbot](https://chihacknight.github.io/govbot/): the open civic data this is built on, from Chi Hack Night.',
