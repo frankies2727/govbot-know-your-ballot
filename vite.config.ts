@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { defineConfig } from 'vite';
+import { isoDate, llmsTxt, robotsTxt, sitemapXml, type SitePage, type StateFacts } from './scripts/seo/crawler-files';
 
 // What a shared link shows (the title, description and picture social apps
 // read from the HTML itself, before any script runs): one set per page, the
@@ -17,6 +18,13 @@ const PAGES: Record<string, { title: string; desc: string; img: string }> = {
   minnesota: { title: 'Know Your Minnesota Ballot', desc: 'Every race, judge and the amendment on your Nov 3, 2026 Minnesota ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'minnesota' },
   wisconsin: { title: 'Know Your Wisconsin Ballot', desc: 'Every race and question on your Nov 3, 2026 Wisconsin ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'wisconsin' },
 };
+/** The four guides: where voters confirm their own ballot, per state. */
+const STATES = [
+  { slug: 'illinois', name: 'Illinois', portal: { name: 'Illinois State Board of Elections voter lookup', url: 'https://ova.elections.il.gov/RegistrationLookup.aspx' } },
+  { slug: 'michigan', name: 'Michigan', portal: { name: 'Michigan.gov/vote', url: 'https://www.michigan.gov/vote' } },
+  { slug: 'minnesota', name: 'Minnesota', portal: { name: 'Minnesota Voter Information Portal', url: 'https://mnvotes.sos.mn.gov/' } },
+  { slug: 'wisconsin', name: 'Wisconsin', portal: { name: 'MyVote Wisconsin', url: 'https://myvote.wi.gov/' } },
+];
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const metaFor = (page: string) => {
   const { title, desc, img } = PAGES[page];
@@ -47,6 +55,14 @@ function siteMeta() {
     configResolved(c: { build: { outDir: string } }) { outDir = c.build.outDir; },
     transformIndexHtml: (html: string) => html.replace(TITLE, metaFor('')),
     closeBundle() {
+      // robots.txt, sitemap.xml and llms.txt, for crawlers and AI assistants.
+      const asOf = (slug: string) => isoDate(JSON.parse(readFileSync(`src/data/${slug}/ballot.json`, 'utf8')).sources?.candidates?.asOf);
+      const states: StateFacts[] = STATES.map((s) => ({ ...s, asOf: asOf(s.slug) }));
+      const dates = states.map((s) => s.asOf).filter((d): d is string => !!d).sort();
+      const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: `/${s.slug}`, lastmod: s.asOf }))];
+      writeFileSync(path.join(outDir, 'robots.txt'), robotsTxt(SITE));
+      writeFileSync(path.join(outDir, 'sitemap.xml'), sitemapXml(SITE, pages));
+      writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, states));
       const shell = readFileSync(path.join(outDir, 'index.html'), 'utf8');
       for (const page of Object.keys(PAGES).filter(Boolean)) {
         mkdirSync(path.join(outDir, page), { recursive: true });
