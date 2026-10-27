@@ -1,0 +1,52 @@
+/* The pick-your-state page (KybHome): the picker is drawn as a paper ballot.
+   Each state is one line with an oval; hovering or focusing the line fills
+   the oval in that state's colour, and choosing it opens the guide. States
+   still in research sit on the write-in line. Colours are govbot's tokens,
+   so both themes work (ballot.css, govbot/govbot.css). */
+
+/* The paper: a sharper corner than the site's cards, a heavy rule on top as
+   a printed ballot has, and a soft lift off the page. */
+.kyb-paper {
+  background: var(--gb-surface);
+  border: 1px solid var(--gb-border-strong);
+  border-top: 6px solid var(--gb-text);
+  border-radius: 6px;
+  box-shadow: var(--gb-shadow);
+}
+
+/* One line of the ballot. */
+.kyb-line {
+  display: grid;
+  grid-template-columns: 34px 56px 1fr;
+  align-items: center;
+  column-gap: 14px;
+  padding: 16px 18px;
+  border-top: 1px solid var(--gb-border);
+  color: var(--gb-text);
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: background-color .15s;
+}
+.kyb-line:hover { background: var(--gb-hover); color: var(--gb-text); }
+.kyb-line:focus-visible { outline: 3px solid var(--ink); outline-offset: -3px; border-radius: 0; }
+
+/* The oval, filled when the line is hovered, focused or being pressed. */
+.kyb-oval {
+  width: 30px; height: 18px;
+  border: 2px solid var(--gb-text);
+  border-radius: 999px;
+  background: transparent;
+  transition: background-color .15s, border-color .15s;
+}
+.kyb-line:hover .kyb-oval, .kyb-line:focus-visible .kyb-oval, .kyb-line:active .kyb-oval {
+  background: var(--ink); border-color: var(--ink);
+}
+.kyb-oval-dashed { border-style: dashed; }
+.kyb-line-write { grid-template-columns: 34px auto 1fr; }
+
+/* The state's outline on its line: no glow here, it's a mark on paper. */
+.kyb-line .kyb-map { filter: none; max-height: 56px; width: auto; margin: 0 auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kyb-line, .kyb-oval { transition: none; }
+}
