@@ -23,8 +23,6 @@ const OVALS = ROWS.map((y) => `M-30.5 ${y}a4.5 3 0 1 0 9 0a4.5 3 0 1 0 -9 0`).jo
 const RING = 'M-31 -2C-22 -8 24 -8 30 -1C33 5 8 7 -22 5C-35 4 -33 -5 -10 -7';
 const GHOSTS = [
   { at: 'translate(150 170) rotate(-14)', delay: '0s', lines: 'M10 16h42M10 30h30M10 44h38M10 58h26' },
-  { at: 'translate(226 330) rotate(9)', delay: '-2.5s', lines: 'M10 16h42M10 30h34M10 44h22M10 58h40' },
-  { at: 'translate(138 408) rotate(-6)', delay: '-4.5s', lines: 'M10 16h42M10 30h26M10 44h36M10 58h30' },
   { at: 'translate(290 130) rotate(16)', delay: '-1s', lines: 'M10 16h42M10 30h36M10 44h28M10 58h34' },
 ];
 

@@ -11,7 +11,7 @@
   mask-composite: intersect;
 }
 /* Paused by the button under it; outranks each part's own animation shorthand. */
-.kyb-box.kyb-box-paused * { animation-play-state: paused; }
+.kyb-box.kyb-box-paused *, .kyb-gv.kyb-box-paused * { animation-play-state: paused; }
 
 /* Two scenes round the same ballots: a dark "hologram" and a light
    "daylight", chosen by the site's theme (GovbotChrome sets data-theme;
@@ -77,12 +77,21 @@
 .kyb-ghost { transform-box: fill-box; transform-origin: center; animation: kyb-float 7s ease-in-out infinite alternate; }
 @keyframes kyb-float { 0% { transform: translateY(0) rotate(0); } 100% { transform: translateY(-16px) rotate(4deg); } }
 
+/* "GO VOTE": the cubes drop in one after another (--i), then hop in a wave
+   every 8s, the first hop landing with a ballot dropping into the box. */
+.kyb-gv { display: block; }
+.kyb-gv-in { animation: kyb-gv-in .75s cubic-bezier(.2, .9, .3, 1.25) both; animation-delay: calc(var(--i) * .09s + .2s); }
+@keyframes kyb-gv-in { 0% { transform: translateY(-150px); opacity: 0; } 45% { opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
+.kyb-gv-hop { animation: kyb-gv-hop 8s ease-in-out infinite; animation-delay: calc(3.8s + var(--i) * .12s); }
+@keyframes kyb-gv-hop { 0% { transform: translateY(0); } 2% { transform: translateY(-10px); } 4% { transform: translateY(0); } 5% { transform: translateY(-2px); } 6%, 100% { transform: translateY(0); } }
+
 @media (prefers-reduced-motion: reduce) {
   .kyb-bl, .kyb-pen, .kyb-check, .kyb-beam, .kyb-slot, .kyb-ring, .kyb-led, .kyb-motes circle, .kyb-confetti, .kyb-shadow, .kyb-ghost { animation: none; }
   .kyb-bl:not(.kyb-first) { opacity: 0; }
   .kyb-first { opacity: 1; transform: translate(0, -34px); }
   .kyb-pen { stroke-dashoffset: 0; }
   .kyb-check, .kyb-motes, .kyb-confetti { display: none; }
+  .kyb-gv-in, .kyb-gv-hop { animation: none; }
 }
 
 /* One tile per state: the outline glows in the state's colour; hovering or

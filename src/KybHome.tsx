@@ -4,6 +4,7 @@ import { navigate } from './lib/router';
 import { useDocumentMeta } from './Bits';
 import ilOutline from './data/illinois/outline.json';
 import { BallotBox } from './BallotBox';
+import { GoVote } from './GoVote';
 import { GovbotChrome } from './GovbotChrome';
 import { StateMap } from './Hero';
 import { MichiganMap } from './michigan/Hero';
@@ -50,6 +51,7 @@ export function KybHome() {
             </div>
             <div className="relative mx-auto w-full max-w-[640px]">
               <BallotBox className={paused ? 'kyb-box-paused' : ''} />
+              <GoVote className={`pointer-events-none absolute bottom-[2%] left-0 w-[42%] lg:-left-[5%] lg:w-[47%] ${paused ? 'kyb-box-paused' : ''}`} />
               <button type="button" onClick={() => setPaused((p) => !p)} aria-pressed={paused}
                 className="absolute bottom-0 right-0 inline-flex min-h-[40px] items-center gap-1.5 rounded-full border border-[var(--gb-border-strong)] bg-[var(--gb-surface)] px-3 text-[13px] font-bold hover:bg-[var(--kyb-chip)]">
                 {paused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
