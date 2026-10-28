@@ -38,7 +38,7 @@ export function KybHome() {
   return (
     <GovbotChrome>
       <div className="kyb min-h-[100dvh] bg-[var(--gb-bg)] text-[var(--gb-text)]">
-        <div className="mx-auto max-w-[1140px] px-4 pb-28 pt-8 sm:px-6 sm:pt-12">
+        <div className="mx-auto max-w-[1920px] px-4 pb-28 pt-8 sm:px-[clamp(1.5rem,4vw,4rem)] sm:pt-12">
           <section className="grid items-center gap-8 lg:grid-cols-[minmax(0,6fr)_minmax(0,7fr)] lg:gap-12">
             <div className="max-w-[52ch] space-y-6 text-[17px] leading-relaxed">
               <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Know what&rsquo;s on your ballot before you vote.</h1>
