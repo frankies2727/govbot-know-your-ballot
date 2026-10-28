@@ -503,7 +503,7 @@ export function KnowYourBallot() {
     <div className="kyb min-h-[100dvh] bg-[var(--gb-bg)] text-[var(--gb-text)] selection:bg-[var(--gb-blue-hi)] selection:text-[var(--gb-bg)]">
       <GaugeDefs />
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-24 print:hidden">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-[clamp(1.5rem,4vw,4rem)] pb-24 print:hidden">
         {!showBallot ? (
           <Landing
             address={address} setAddress={setAddress} status={status} onSubmit={lookUp} onLocate={useLocation}
@@ -524,19 +524,19 @@ export function KnowYourBallot() {
                 way down the page (its height feeds --kyb-bar, so the contents
                 column and jumped-to races sit just below it). */}
             <div ref={barRef} className="sticky top-[calc(var(--kyb-top)+6px)] z-30 -mx-2 sm:-mx-3 px-4 sm:px-6 py-2 lg:py-3 kyb-glass">
-            <div className="max-w-[1100px] mx-auto">
+            <div className="">
               <ProgressHead wide={wide} onContents={() => setContentsOpen(true)} done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />
               {/* Wide screens keep the views, search and notice in the sticky bar; phones let them scroll so the ballot gets the screen. */}
               {wide && tools}
             </div>
             </div>
-            {!wide && <div className="max-w-[1100px] mx-auto pt-3"><ProgressLine done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />{tools}</div>}
+            {!wide && <div className="pt-3"><ProgressLine done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />{tools}</div>}
             {!wide && !saved.place && <BrowsingBadge region="Chicago or suburban Cook" onAddAddress={changeAddress} />}
-            <div className="lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 lg:items-start max-w-[1100px] mx-auto pt-4">
+            <div className="lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 lg:items-start pt-4">
             <ContentsColumn {...contents} />
             {/* In the drawer a section just opens its list; the page moves when a race is picked. */}
             <ContentsDrawer {...contents} onSection={(id) => { setTab('ballot'); setChosenSection(id); }} open={contentsOpen} onClose={closeContents} />
-            <div className="min-w-0 max-w-3xl">
+            <div className="min-w-0">
 
             {tab === 'ballot' && (
               <div className="space-y-8 pt-6">
@@ -690,7 +690,7 @@ export function KnowYourBallot() {
 
         {/* The ballot view ends with the sources; the landing page carries them above "Beyond your ballot". */}
         {showBallot && (
-          <div className="max-w-[1100px] mx-auto mt-12 space-y-8">
+          <div className="mt-12 space-y-8">
             <hr className="border-0 h-[3px] rounded-full bg-[var(--gb-text)]" />
             <Sources />
           </div>
