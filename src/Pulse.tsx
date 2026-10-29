@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Heart } from 'lucide-react';
 
 // The two floating bits on every page: how many people are using the guide
@@ -12,17 +12,25 @@ import { Heart } from 'lucide-react';
 const EVERY_MS = 25_000;
 const HEARTED_KEY = 'kyb-hearted';
 
+/** The hearts that float up from a tap: how far each drifts sideways (px) and its start delay (s). */
+const BURST: [number, number][] = [[-34, 0], [-14, 0.06], [4, 0.02], [22, 0.1], [40, 0.04]];
+
 interface Pulse { here: number; total: number; hearts: number; heartAt: number }
 const fmt = (n: number) => n.toLocaleString('en-US');
 const read = (): boolean => { try { return localStorage.getItem(HEARTED_KEY) === '1'; } catch { return false; } };
 
-/** `compact`: on a state's pages only a heart shows; tapping it opens and closes the live count and the button that gives a heart. */
+/**
+ * `compact`: on a state's pages only a heart shows; tapping it opens and closes the live count and the button that gives a heart.
+ * Otherwise (the landing page) one heart does both at once: a tap hearts the page, with a burst of hearts, and opens or closes the live count.
+ */
 export function Pulse({ compact = false }: { compact?: boolean }) {
   const [pulse, setPulse] = useState<Pulse | null>(null);
   const [mine, setMine] = useState(read);
   const [toast, setToast] = useState(false);
-  const [open, setOpen] = useState(false);
+  // The landing page starts with the live count showing; a state's pages start with only the heart.
+  const [open, setOpen] = useState(!compact);
   const [pop, setPop] = useState(0);
+  const [burst, setBurst] = useState(0);
   const lastHeart = useRef<number | null>(null);   // when the newest heart seen so far happened
   const off = useRef(false);
 
@@ -54,15 +62,15 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
   }, []);
 
   useEffect(() => {
-    if (!compact || !open) return;
+    if (!open) return;
     const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
     document.addEventListener('keydown', esc);
     return () => document.removeEventListener('keydown', esc);
-  }, [compact, open]);
+  }, [open]);
 
   const tap = async () => {
     if (mine || !pulse) return;
-    setMine(true); setPulse({ ...pulse, hearts: pulse.hearts + 1 });
+    setMine(true); setBurst((n) => n + 1); setPulse({ ...pulse, hearts: pulse.hearts + 1 });
     try { localStorage.setItem(HEARTED_KEY, '1'); } catch { /* private mode: the heart still counts */ }
     try {
       const r = await fetch('/api/heart', { method: 'POST', cache: 'no-store', signal: AbortSignal.timeout(8_000) });
@@ -86,7 +94,7 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
     </button>
   );
   const counter = (
-    <p role="status" aria-label={`${used}. ${fmt(pulse.here)} here right now`} className={`flex max-w-[19rem] items-center gap-2 rounded-2xl px-3 py-2 text-[13px] font-bold leading-snug sm:max-w-none ${box}`}>
+    <p id="kyb-pulse-msg" role="status" aria-label={`${used}. ${fmt(pulse.here)} here right now`} className={`${compact ? '' : 'kyb-heart-toast '}flex max-w-[19rem] items-center gap-2 rounded-2xl px-3 py-2 text-[13px] font-bold leading-snug sm:max-w-none ${box}`}>
       <span className="kyb-live-dot h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--gb-primary)]" aria-hidden="true" />
       <span aria-hidden="true">
         <span className="font-black">{fmt(pulse.total)}</span> {pulse.total === 1 ? 'person has' : 'people have'} used the Govbot guide to vote more informed
@@ -111,7 +119,21 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
           </button>
         </>
       ) : (
-        <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center">{counter}{likeButton}</div>
+        <>
+          {open && counter}
+          <div className="relative">
+            <button type="button" onClick={() => { void tap(); setOpen((o) => !o); }} aria-expanded={open} aria-controls="kyb-pulse-msg"
+              aria-label={`${mine ? 'You hearted this page' : 'Heart this page'}. ${open ? 'Hide' : 'Show'} the message. ${fmt(pulse.hearts)} hearts`}
+              className={`flex min-h-[44px] items-center gap-1.5 rounded-full px-3 text-[13px] font-black hover:bg-[var(--kyb-chip)] ${box}`}>
+              {heartIcon(mine)}{fmt(pulse.hearts)}
+            </button>
+            {burst > 0 && (
+              <span key={burst} aria-hidden="true" className="pointer-events-none absolute inset-0">
+                {BURST.map(([dx, dl]) => <Heart key={dx} className="kyb-heart-float h-4 w-4 fill-[var(--gb-red,#E5484D)] text-[var(--gb-red,#E5484D)]" style={{ '--dx': `${dx}px`, '--dl': `${dl}s` } as CSSProperties} />)}
+              </span>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

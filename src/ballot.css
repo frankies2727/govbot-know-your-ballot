@@ -158,4 +158,7 @@
 .kyb-heart-toast { animation: kyb-heart-in .25s ease-out; }
 @keyframes kyb-heart-pop { 0% { transform: scale(0.6); } 60% { transform: scale(1.35); } 100% { transform: scale(1); } }
 .kyb-heart-on { animation: kyb-heart-pop .4s ease-out; }
-@media (prefers-reduced-motion: reduce) { .kyb-live-dot, .kyb-heart-toast, .kyb-heart-on { animation: none; } }
+/* A tap on the landing page's heart sends a few small hearts floating up. */
+@keyframes kyb-heart-float { 0% { transform: translate(-50%, 0) scale(.5); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(calc(-50% + var(--dx)), -72px) scale(1.1); opacity: 0; } }
+.kyb-heart-float { position: absolute; left: 50%; top: 25%; opacity: 0; animation: kyb-heart-float .95s ease-out forwards; animation-delay: var(--dl, 0s); }
+@media (prefers-reduced-motion: reduce) { .kyb-live-dot, .kyb-heart-toast, .kyb-heart-on { animation: none; } .kyb-heart-float { display: none; } }
