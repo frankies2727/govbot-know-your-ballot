@@ -67,7 +67,16 @@ function cityTitle(r: CityRace) {
 }
 
 /** This voter's 2027 city races: citywide, plus their ward and police district once we know them. */
-function CityRaces({ city, districts }: { city: CityRace[]; districts: Districts | null }) {
+const BOARD_CANDIDATES = 'https://chicagoelections.gov/getting-ballot/candidates';
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/** "10/30/2026 3:54:49 PM" (the Board's own stamp) as "Oct 30, 3:54 PM"; anything else as written. */
+function listTime(asOf: string): string {
+  const m = asOf.match(/^(\d{1,2})\/(\d{1,2})\/\d{4}\s+(\d{1,2}:\d{2}):\d{2}\s*([AP]M)$/i);
+  return m && MONTH_NAMES[Number(m[1]) - 1] ? `${MONTH_NAMES[Number(m[1]) - 1]} ${Number(m[2])}, ${m[3]} ${m[4].toUpperCase()}` : asOf;
+}
+
+function CityRaces({ city, districts, listAsOf }: { city: CityRace[]; districts: Districts | null; listAsOf?: string }) {
   const mine = city.filter((r) => r.group === 'citywide'
     || (r.group === 'council' && r.district === districts?.ward)
     || (r.group === 'police_district_council' && r.district === districts?.police));
@@ -84,6 +93,9 @@ function CityRaces({ city, districts }: { city: CityRace[]; districts: Districts
           </li>
         ))}
       </ul>
+      {listAsOf && mine.some((r) => r.candidates.length > 0) && (
+        <p className="text-sm text-[var(--gb-text)]">Names are from the <a className="font-bold underline" href={BOARD_CANDIDATES} target="_blank" rel="noreferrer noopener">Chicago Board of Elections’ candidate list</a> as of {listTime(listAsOf)}. It changes if a filing is challenged or withdrawn.</p>
+      )}
       {!districts && <p className="text-[15px] text-[var(--gb-text)]">Plus a race for your ward’s alderperson and your police district council. Enter your address to see yours.</p>}
     </div>
   );
@@ -94,11 +106,11 @@ function CityRaces({ city, districts }: { city: CityRace[]; districts: Districts
  * yet: `chicago` unset. With `city`, Chicago voters (and anyone without an
  * address yet) see their 2027 races right there.
  */
-export function NextElectionNote({ chicago, city, districts = null }: { chicago?: boolean; city?: CityRace[]; districts?: Districts | null }) {
+export function NextElectionNote({ chicago, city, districts = null, listAsOf }: { chicago?: boolean; city?: CityRace[]; districts?: Districts | null; /** When the Board's 2027 list was last updated. */ listAsOf?: string }) {
   const showRaces = city && chicago !== false;
   return (
     <NextUp date={NEXT_ELECTION} title="Get ready for Feb 23, 2027 too!" lead={NEXT_UP[chicago === undefined ? 'either' : chicago ? 'chicago' : 'suburbs']}>
-      {showRaces && <CityRaces city={city} districts={districts} />}
+      {showRaces && <CityRaces city={city} districts={districts} listAsOf={listAsOf} />}
     </NextUp>
   );
 }

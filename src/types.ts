@@ -209,6 +209,8 @@ export interface Govbot {
   laws: Law[];
   /** Chicago's Feb 23, 2027 city races. */
   city: CityRace[];
+  /** Where the 2027 candidates came from: the Board's list, and when it was last updated (as the Board writes it). */
+  cityList?: { url: string; asOf: string };
   /** govbot's race ids (its search and old #race= links) -> ours, or "2027" for Feb 2027 races. */
   legacy?: Record<string, string>;
 }

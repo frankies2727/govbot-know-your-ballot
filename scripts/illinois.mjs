@@ -14,7 +14,8 @@
 // Needs `pdftotext` (poppler-utils) and `unzip` on PATH. Run by
 // .github/workflows/know-your-ballot-illinois.yml; locally: `node scripts/illinois.mjs`.
 // CANDIDATE_PDF=<url or path> skips the page lookup (handy if the Board's site
-// is blocking automated requests).
+// is blocking automated requests); CITY_PDF=<url or path> does the same for the
+// Feb 23, 2027 city list.
 
 import { execFileSync } from 'node:child_process';
 import { createWriteStream, mkdtempSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -35,6 +36,8 @@ import { explainMeasures } from './illinois/measures-plain.mjs';
 import { addSocial } from './illinois/social.mjs';
 import { addPhotos } from './illinois/photos.mjs';
 import { parseCandidateList } from './illinois/candidates.mjs';
+import { addCityCandidates, parseCityList } from './illinois/city.mjs';
+import { electionDate, listFor, pdfLinks } from './illinois/lists.mjs';
 import { addFederalMoney, addOutsideSpending, fetchOutside, keepOutsideForward, parseWeball } from './illinois/fec.mjs';
 import { ISBE_BASE, ISBE_FILES, ISBE_RECEIPTS, addStateMoney } from './illinois/isbe.mjs';
 import { addStateList, fetchCertifiedList } from './illinois/statewide.mjs';
@@ -46,6 +49,9 @@ import { recentNews } from './news.mjs';
 import { buildOutline } from './michigan/districts.mjs';
 
 const OUT = 'src/data/illinois';
+// The election this build is for, and the next one whose candidate list the Board also posts.
+const ELECTION = '2026-11-03';
+const CITY_ELECTION = '2027-02-23';
 const PHOTOS_DIR = 'public/kyb-photos/illinois';
 const CANDIDATES_PAGE = 'https://chicagoelections.gov/getting-ballot/candidates';
 const EARLY_VOTING_PAGE = 'https://chicagoelections.gov/voting/early-votingvote-centers';
@@ -78,15 +84,44 @@ async function fetchPage(url, looksRight) {
   throw new Error(`${url} never got past the bot check`);
 }
 
-// The candidate-list PDF gets a new URL every time the Board updates it, so
-// read the current link off the candidates page.
-async function findCandidatePdf() {
-  if (process.env.CANDIDATE_PDF) return process.env.CANDIDATE_PDF;
-  // The page's HTML spells the space in the file name literally.
-  const link = /https:\/\/[^"']+Candidate(?:%20| )List[^"']+\.pdf/i;
-  const url = ((await fetchPage(CANDIDATES_PAGE, (h) => link.test(h))).match(link) || [])[0]?.replace(/ /g, '%20');
-  if (!url) throw new Error('No candidate-list PDF link found on ' + CANDIDATES_PAGE);
-  return url;
+/** A candidate list's text, read from a URL or a local path. */
+async function readList(src, name) {
+  const file = /^https?:/.test(src) ? await download(src, join(work, `${name}.pdf`)) : src;
+  execFileSync('pdftotext', ['-layout', file, join(work, `${name}.txt`)]);
+  return { url: src, text: readFileSync(join(work, `${name}.txt`), 'utf8') };
+}
+
+// The Board links one candidate-list PDF per election it runs, each under a new
+// URL whenever it updates, all named alike. Read each one's own heading to know
+// which election it is: this build needs November's, and the Feb 2027 city list
+// (if it's there) fills in that election's races. Never trust the file name or
+// the order of the links.
+async function candidateLists(lastUrl) {
+  if (process.env.CANDIDATE_PDF) {
+    return { nov: await readList(process.env.CANDIDATE_PDF, 'nov'), city: process.env.CITY_PDF ? await readList(process.env.CITY_PDF, 'city') : null };
+  }
+  const html = await fetchPage(CANDIDATES_PAGE, (h) => pdfLinks(h).length > 0);
+  const found = [];
+  for (const [i, url] of pdfLinks(html).entries()) {
+    try {
+      const list = await readList(url, `list${i}`);
+      found.push({ ...list, date: electionDate(list.text) });
+    } catch (e) { console.warn(`Candidate list ${url}: ${e.message}; skipped`); }
+  }
+  console.log(`Candidate lists on the Board's page: ${found.map((f) => f.date ?? 'no election named').join(', ') || 'none'}`);
+  let city = null;
+  try { city = listFor(found, CITY_ELECTION); } catch (e) { console.warn(`${CITY_ELECTION}: ${e.message}`); }
+  let nov;
+  try { nov = listFor(found, ELECTION); } catch (e) {
+    // The Board can take an election's list down once the next one is posted:
+    // read the list the last build used, if it is still there and is November's.
+    if (!lastUrl) throw e;
+    console.warn(`${e.message}; trying the list the last build used: ${lastUrl}`);
+    const list = await readList(lastUrl, 'last').catch(() => null);
+    if (!list || electionDate(list.text) !== ELECTION) throw e;
+    nov = { ...list, date: ELECTION };
+  }
+  return { nov, city };
 }
 
 // Each ward's early voting / vote center site, from the table on the Board's
@@ -110,11 +145,10 @@ async function main() {
   let prev = null;
   try { prev = JSON.parse(readFileSync(join(OUT, 'ballot.json'), 'utf8')); } catch { /* first build */ }
 
-  const pdfUrl = await findCandidatePdf();
+  const lists = await candidateLists(prev?.sources?.candidates?.url);
+  const pdfUrl = lists.nov.url;
   console.log('Candidate list:', pdfUrl);
-  const pdf = /^https?:/.test(pdfUrl) ? await download(pdfUrl, join(work, 'candidates.pdf')) : pdfUrl;
-  execFileSync('pdftotext', ['-layout', pdf, join(work, 'candidates.txt')]);
-  const ballot = parseCandidateList(readFileSync(join(work, 'candidates.txt'), 'utf8'));
+  const ballot = parseCandidateList(lists.nov.text);
   // Guard against a reformatted PDF silently emptying the app.
   if (ballot.races.length < 50 || ballot.retentions.length < 10) {
     throw new Error(`Parsed only ${ballot.races.length} races / ${ballot.retentions.length} retentions — refusing to overwrite.`);
@@ -255,10 +289,28 @@ async function main() {
   try { govbot = await govbotSlices(ballot.races); } catch (e) { console.warn(`govbot: ${e.message}; keeping the last copy`); }
   if (!govbot) throw new Error('No govbot data (Springfield bills, 2027 races) and no earlier copy');
   console.log(`govbot: ${govbot.laws.length} bills, ${govbot.city.length} 2027 races (as of ${govbot.asOf})`);
+  // Who has filed for those 2027 races, from the Board's own list. A bad or
+  // missing list never holds up the ballot: the last names stay.
+  let cityList = govbot.cityList ?? null;
+  try {
+    if (!lists.city) throw new Error('no 2027 candidate list on the Board\'s page');
+    const read = parseCityList(lists.city.text);
+    const filed = addCityCandidates(govbot.city, read);
+    cityList = { url: lists.city.url, asOf: read.asOf };
+    console.log(`2027 candidates: ${filed.named} filings in ${filed.races} of ${govbot.city.length} races (list as of ${read.asOf})`);
+    for (const [status, n] of Object.entries(filed.skipped)) console.log(`  ${n} filing${n === 1 ? '' : 's'} with status "${status}" left out`);
+    if (filed.unknown.length) console.warn(`  headings that match no race: ${filed.unknown.join('; ')}`);
+  } catch (e) {
+    const before = new Map((prev?.govbot?.city ?? []).map((r) => [r.id, r.candidates]));
+    let kept = 0;
+    for (const r of govbot.city) if (!r.candidates.length && before.get(r.id)?.length) { r.candidates = before.get(r.id); kept += r.candidates.length; }
+    console.warn(`2027 candidates: ${e.message}; keeping the last copy (${kept} names)`);
+  }
+  if (cityList) govbot.cityList = cityList;
   console.log(`Changes since last refresh: ${changes.length - (prev?.changes?.length ?? 0)} new, ${changes.length} kept`);
 
   writeFileSync(join(OUT, 'ballot.json'), JSON.stringify({
-    election: { name: 'General Election', date: '2026-11-03' },
+    election: { name: 'General Election', date: ELECTION },
     sources: {
       candidates: { url: pdfUrl, page: CANDIDATES_PAGE, asOf: ballot.asOf },
       stateCandidates: { url: certified.url },

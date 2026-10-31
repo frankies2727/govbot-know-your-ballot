@@ -15,7 +15,8 @@
     "data:michigan": "node scripts/state.mjs michigan",
     "data:minnesota": "node scripts/state.mjs minnesota",
     "data:wisconsin": "node scripts/state.mjs wisconsin",
-    "audit": "node scripts/audit.mjs"
+    "audit": "node scripts/audit.mjs",
+    "test:data": "node --test scripts/illinois/lists.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.546.0",

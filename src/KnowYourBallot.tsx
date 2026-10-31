@@ -845,7 +845,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
             <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />
           </div>
           <Laws laws={data.govbot.laws} state={{ code: 'IL', name: 'Illinois', capital: 'Springfield', rss: 'https://chihacknight.github.io/govbot/dashboard/elections/springfield.xml' }} />
-          <NextElectionNote city={data.govbot.city} />
+          <NextElectionNote city={data.govbot.city} listAsOf={data.govbot.cityList?.asOf} />
         </div>
       </div>
     </div>
