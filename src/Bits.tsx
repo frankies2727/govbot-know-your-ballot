@@ -431,7 +431,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
       <ul ref={list} className="kyb-scroll-bar max-h-[480px] overflow-y-auto rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
         {groups.map((g) => (
           <li key={g.key}>
-            <div className="sticky top-0 z-10 border-b border-[var(--gb-border)] bg-[var(--gb-surface)] px-3 py-2">
+            <div className="kyb-sticky-head sticky top-0 z-10 border-b border-[var(--gb-border)] bg-[var(--gb-surface)] px-3 py-2">
               <p className="text-[15px] font-black leading-snug">{g.label} <span className="font-bold">· {g.items.length}</span></p>
               {g.about && <p className="text-[13px] leading-snug">{g.about}</p>}
             </div>

@@ -305,10 +305,11 @@ export function KnowYourBallot() {
     // where things land, is right.
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const el = document.getElementById(`race-${id}`);
-      // Races sit in their section's own scroll box: bring the whole box into
-      // view under the pinned bar, then scroll the race to the top of the box.
+      // On desktop races sit in their section's own scroll box: bring the whole
+      // box into view under the pinned bar, then scroll the race to the top of
+      // the box. Below 1024px the page is the only scroll: go straight to the race.
       const box = el?.closest<HTMLElement>('.kyb-scroll');
-      if (el && box) {
+      if (el && box && getComputedStyle(box).overflowY !== 'visible') {
         // The box jumps straight there (two smooth scrolls at once can cancel
         // each other); the page glides.
         box.scrollTop = el.offsetTop - 8;

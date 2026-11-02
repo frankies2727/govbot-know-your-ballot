@@ -207,8 +207,9 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     // Two frames: the section has to render, and the pinned bar has to settle.
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const el = document.getElementById(`race-${id}`);
+      // Desktop: races sit in their section's scroll box. Below 1024px the page is the only scroll.
       const box = el?.closest<HTMLElement>('.kyb-scroll');
-      if (el && box) { box.scrollTop = el.offsetTop - 8; scrollTo(box); } else scrollTo(el);
+      if (el && box && getComputedStyle(box).overflowY !== 'visible') { box.scrollTop = el.offsetTop - 8; scrollTo(box); } else scrollTo(el);
       el?.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
     }));
   };
