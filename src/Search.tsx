@@ -74,12 +74,16 @@ interface Props {
   onJump: (hit: Hit) => void;
   /** When set, each result is a link to that address (opened in a new tab) instead of a jump on this page. */
   hrefFor?: (hit: Hit) => string;
+  /** Take focus when it appears (the search opened from a button). */
+  autoFocus?: boolean;
+  /** Called when the search is done with: Escape on an empty box, or a result chosen. */
+  onClose?: () => void;
 }
 
 const SHOWN_ELSEWHERE = 5;
 const list = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
 
-export function BallotSearch({ ballot, everywhere, sections, places, onJump, hrefFor }: Props) {
+export function BallotSearch({ ballot, everywhere, sections, places, onJump, hrefFor, autoFocus, onClose }: Props) {
   const [q, setQ] = useState('');
   const config = useStateConfig();
   const mine = useMemo(() => index(ballot, sections, config), [ballot, sections, config]);
@@ -87,7 +91,7 @@ export function BallotSearch({ ballot, everywhere, sections, places, onJump, hre
   // Only built the first time a search comes up empty.
   const all = useMemo(() => (everywhere && q && !hits.length ? index(everywhere, sections, config, places) : null), [everywhere, sections, config, places, q, hits.length]);
   const elsewhere = useMemo(() => (all ? find(all, q) : []), [all, q]);
-  const go = (h: Hit) => { setQ(''); if (hrefFor) window.open(hrefFor(h), '_blank', 'noopener'); else onJump(h); };
+  const go = (h: Hit) => { setQ(''); if (hrefFor) window.open(hrefFor(h), '_blank', 'noopener'); else onJump(h); onClose?.(); };
 
   return (
     // The results float over the page rather than push it down: the search sits
@@ -98,9 +102,9 @@ export function BallotSearch({ ballot, everywhere, sections, places, onJump, hre
       <div className="relative">
         <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--gb-text)] pointer-events-none" aria-hidden="true" />
         <input
-          id="kyb-search" type="text" inputMode="search" enterKeyHint="search" value={q} autoComplete="off"
+          id="kyb-search" type="text" autoFocus={autoFocus} inputMode="search" enterKeyHint="search" value={q} autoComplete="off"
           onChange={(e) => setQ(e.target.value)}
-          onKeyDown={(e) => { if (e.key === 'Enter' && hits[0]) go(hits[0]); if (e.key === 'Escape') setQ(''); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' && hits[0]) go(hits[0]); if (e.key === 'Escape') { if (q) setQ(''); else onClose?.(); } }}
           placeholder="Search races, candidates, judges or questions"
           className="w-full min-h-[52px] rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] pl-12 pr-12 font-bold text-[var(--gb-text)] focus:border-[var(--gb-blue-hi)] focus:outline-none"
         />

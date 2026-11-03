@@ -1,4 +1,4 @@
-import { ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { ClearButton } from '../components/ClearButton';
 import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionPanel, useBallotView, useDocumentMeta, BackToTop, ReportLink, SavedPicks, type SectionCard } from '../Bits';
@@ -348,12 +348,16 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
   const wide = useWide();
   // The view tabs, search and browsing notice: in the sticky bar on wide screens, scrolling under it on phones so the ballot gets the screen.
+  // On phones the search is in the pinned bar instead, behind a button there (`searching`).
+  const [searching, setSearching] = useState(false);
+  const search = (inBar: boolean) => (
+    <BallotSearch ballot={browsingCounty ? everything : ballot} everywhere={districts ? everything : undefined} sections={sectionTitles} onJump={(h) => jumpTo(h.section, h.id)}
+      autoFocus={inBar} onClose={inBar ? () => setSearching(false) : undefined} />
+  );
   const tools = (
     <>
       <div className="mt-3 grid grid-cols-3 sm:grid-cols-5 gap-2">{views}</div>
-      <div className="mt-3">
-        <BallotSearch ballot={browsingCounty ? everything : ballot} everywhere={districts ? everything : undefined} sections={sectionTitles} onJump={(h) => jumpTo(h.section, h.id)} />
-      </div>
+      {wide && <div className="mt-3">{search(false)}</div>}
       {!saved.place && <BrowsingNotice region={region} onAddAddress={changeAddress}
         counties={COUNTIES.length ? { list: COUNTIES, value: county, onChange: setCounty, all: `All of ${spec.name}` } : undefined} />}
     </>
@@ -384,8 +388,25 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
           <>
             <div ref={barRef} className="sticky top-[calc(var(--kyb-top)+6px)] z-30 -mx-2 sm:-mx-3 px-4 sm:px-6 py-2 lg:py-3 kyb-glass">
               <div className="">
-                <ProgressHead wide={wide} onContents={() => setContentsOpen(true)} done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />
-                {/* Wide screens keep the views, search and notice in the sticky bar; phones let them scroll so the ballot gets the screen. */}
+                {/* Phones: the progress row, with a button that swaps it for the search (same height, so the bar doesn't jump). */}
+                {!wide && searching ? (
+                  <div className="flex items-center gap-2">
+                    <div className="min-w-0 flex-1">{search(true)}</div>
+                    <button type="button" onClick={() => setSearching(false)} aria-label="Close search"
+                    className="shrink-0 w-11 h-11 rounded-xl border-2 border-[var(--gb-text)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+                    <ArrowLeft className="w-5 h-5" aria-hidden="true" />
+                  </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-3">
+                    <div className="min-w-0 flex-1"><ProgressHead wide={wide} onContents={() => setContentsOpen(true)} done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} /></div>
+                    {!wide && <button type="button" onClick={() => setSearching(true)} aria-label="Search races, candidates, judges or questions"
+                    className="shrink-0 w-11 h-11 rounded-xl border-2 border-[var(--gb-text)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+                    <Search className="w-5 h-5" aria-hidden="true" />
+                  </button>}
+                  </div>
+                )}
+                {/* Wide screens keep the views, search and notice in the sticky bar; phones let the views and notice scroll so the ballot gets the screen. */}
                 {wide && tools}
               </div>
             </div>
