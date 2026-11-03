@@ -418,7 +418,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
     </ul>
   );
   return (
-    <li className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3" style={{ borderColor: card.color }}>
+    <li id={`kyb-card-${card.id}`} className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: card.color }}>
       <div className="flex items-start gap-3">
         <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
         <span className="min-w-0 flex-1">
@@ -495,7 +495,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
 export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onCompare, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
   if (!cards.length) return null;
   return (
-    <section aria-labelledby="kyb-more" className="space-y-4">
+    <section id="kyb-else" aria-labelledby="kyb-more" className="space-y-4 scroll-mt-[var(--kyb-bar,0px)]">
       <div className="space-y-1">
         <h2 id="kyb-more" className="text-2xl sm:text-3xl leading-[1.05]">{heading}</h2>
         <p className="text-[15px]">{intro}</p>

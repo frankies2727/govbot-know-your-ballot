@@ -8,6 +8,7 @@ import { faqDates, faqFor } from './seo/faq';
 import { isoDate } from './seo/format';
 import { stakes } from './stakes';
 import { BallotSearch, type Hit } from './Search';
+import { LandingBar, landingItems } from './LandingBar';
 import { GovbotChrome } from './GovbotChrome';
 import { guideUrl } from './hosts';
 import { routeHref } from './lib/router';
@@ -761,6 +762,10 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   }, []);
   return (
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
+      {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
+      <LandingBar items={landingItems(MORE)}>
+        <BallotSearch ballot={everything} sections={SECTION_TITLES} onJump={onSearchJump} hrefFor={(h) => `${BALLOT_HREF}#race=${encodeURIComponent(h.id)}`} />
+      </LandingBar>
       <header className="flex flex-col-reverse md:flex-row md:items-center gap-4 md:gap-10">
         <div className="min-w-0 flex-1 space-y-3">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em]">Illinois · 2026 midterms</p>
@@ -783,7 +788,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         <div className="w-[190px] md:w-[300px] md:max-w-[36%] shrink-0 self-center"><StateMap outline={outline as Outline} name="Illinois" colors={IL_MAP} id="il" /></div>
       </header>
 
-      <form onSubmit={onSubmit} className="space-y-3">
+      <form id="kyb-find" onSubmit={onSubmit} className="space-y-3 scroll-mt-[var(--kyb-bar,0px)]">
         <label htmlFor="kyb-address" className="block font-black text-lg">Your address in Illinois</label>
         <div className="flex gap-2">
           <div className="relative flex-1 min-w-0">
@@ -828,8 +833,6 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         ))}
       </ul>
 
-      <BallotSearch ballot={everything} sections={SECTION_TITLES} onJump={onSearchJump} hrefFor={(h) => `${BALLOT_HREF}#race=${encodeURIComponent(h.id)}`} />
-
       <div className="kyb-wide pt-4">
         <Headliners races={STATEWIDE} sections={SECTIONS} overline="On every Illinois ballot" heading="The statewide races"
           intro={`These ${STATEWIDE.length} contests are on every ballot in Illinois. Tap a face to meet a candidate, or Compare to see them side by side; your address adds Congress, Springfield, Cook County, the judges and your ballot questions.`}
@@ -840,7 +843,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         <div className="mt-12 space-y-8">
           <CommonQuestions items={FAQ} />
           <Sources />
-          <div role="separator" aria-label="Beyond your ballot" className="flex items-center gap-4">
+          <div id="kyb-beyond" role="separator" aria-label="Beyond your ballot" className="flex items-center gap-4 scroll-mt-[var(--kyb-bar,0px)]">
             <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />
             <span className="text-sm font-black uppercase tracking-[0.18em]">Beyond your ballot</span>
             <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />
@@ -995,7 +998,7 @@ function Sources() {
       links: [['Find your county clerk', ELECTION_AUTHORITIES]] },
   ];
   return (
-    <section id="kyb-sources" aria-labelledby="kyb-sources-h" className="scroll-mt-[calc(var(--kyb-top)+var(--kyb-bar,260px)+16px)] rounded-2xl border-2 border-[var(--gb-primary)] bg-[var(--gb-surface)] p-3 sm:p-4 text-[var(--gb-text)]">
+    <section id="kyb-sources" aria-labelledby="kyb-sources-h" className="scroll-mt-[var(--kyb-bar,0px)] rounded-2xl border-2 border-[var(--gb-primary)] bg-[var(--gb-surface)] p-3 sm:p-4 text-[var(--gb-text)]">
       <h2 id="kyb-sources-h" className="text-lg">
         <button type="button" onClick={toggle} aria-expanded={open} aria-controls="kyb-sources-body" className="inline-flex min-h-[44px] items-center gap-2 text-left">
           📂 Sources

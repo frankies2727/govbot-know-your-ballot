@@ -114,8 +114,8 @@
   .kyb-scroll { max-height: none; overflow: visible; padding-right: 0; scrollbar-gutter: auto; }
   .kyb-scroll [id^="race-"] { scroll-margin-top: calc(var(--kyb-top) + var(--kyb-bar, 260px) + 16px); }
   .kyb-scroll-bar { max-height: none; overflow-y: visible; padding-right: 0; }
-  /* (The landing page has no pinned bar, so --kyb-bar is unset there: just clear govbot's header.) */
-  .kyb-scroll-bar details[data-race] { scroll-margin-top: calc(var(--kyb-top) + var(--kyb-bar, 0px) + 16px); }
+  /* The page already keeps scroll-padding for govbot's header, so only the pinned bar is added. */
+  .kyb-scroll-bar details[data-race] { scroll-margin-top: var(--kyb-bar, 0px); }
   /* An office's header only stays put while its own list scrolls. */
   .kyb-sticky-head { position: static; }
 }

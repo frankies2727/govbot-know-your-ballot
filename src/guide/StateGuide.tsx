@@ -16,6 +16,7 @@ import { ContentsColumn, ContentsDrawer } from '../Contents';
 import { earnedTrophies, streak, Trophies } from '../Progress';
 import { CandidateSheet, Compare, MeasureCard, RaceCard } from '../Race';
 import { BallotSearch, type Hit } from '../Search';
+import { LandingBar, landingItems } from '../LandingBar';
 import { drawShareCard, shareCard } from '../share';
 import { PdfCard } from '../components/PdfCard';
 import type { PdfSummary } from '../ballotPdf';
@@ -598,6 +599,10 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   const others = GUIDES.filter((g) => g.id !== spec.slug);
   return (
     <div className="space-y-10 pt-4">
+      {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
+      <LandingBar items={landingItems(more, questions)}>
+        <BallotSearch ballot={everything} sections={sectionTitles} onJump={onSearchJump} hrefFor={(h) => `${ballotHref}#race=${encodeURIComponent(h.id)}`} />
+      </LandingBar>
       <header className="flex flex-col-reverse md:flex-row md:items-center gap-6 md:gap-12">
         <div className="min-w-0 flex-1 space-y-3">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em]">{copy.overline}</p>
@@ -613,7 +618,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         <div className="w-[240px] md:w-[380px] md:max-w-[42%] shrink-0 self-center"><Map /></div>
       </header>
 
-      <form onSubmit={onSubmit} className="space-y-3 max-w-3xl">
+      <form id="kyb-find" onSubmit={onSubmit} className="space-y-3 max-w-3xl scroll-mt-[var(--kyb-bar,0px)]">
         <label htmlFor="kyb-address" className="block font-black text-lg">Your address in {spec.name}</label>
         <div className="flex gap-2">
           <div className="relative flex-1 min-w-0">
@@ -655,10 +660,6 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         ))}
       </ul>
 
-      <div className="max-w-3xl">
-        <BallotSearch ballot={everything} sections={sectionTitles} onJump={onSearchJump} hrefFor={(h) => `${ballotHref}#race=${encodeURIComponent(h.id)}`} />
-      </div>
-
       <Headliners races={headliners} sections={SECTIONS} overline={`On every ${spec.name} ballot`} heading="The statewide races"
         intro={`These ${headliners.length} contests are on every ${spec.name} ballot. Tap a face to meet a candidate, or Compare to see them side by side; your address adds your own ${copy.districtKinds} races from the ${byDistrict} by district.`}
         onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare}>
@@ -670,7 +671,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
       <div className="pt-2 space-y-8">
         <CommonQuestions items={faq} />
         <SourcesCard spec={spec} />
-        <div role="separator" aria-label="Beyond your ballot" className="flex items-center gap-4">
+        <div id="kyb-beyond" role="separator" aria-label="Beyond your ballot" className="flex items-center gap-4 scroll-mt-[var(--kyb-bar,0px)]">
           <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />
           <span className="text-sm font-black uppercase tracking-[0.18em]">Beyond your ballot</span>
           <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />
@@ -726,7 +727,7 @@ function SourcesCard({ spec }: { spec: GuideSpec }) {
   const [open, toggle] = useOpen(`kyb-${spec.code.toLowerCase()}-sources-open`);
   const cards = spec.copy.sources(spec.data);
   return (
-    <section id="kyb-sources" aria-labelledby="kyb-sources-h" className="scroll-mt-[calc(var(--kyb-top)+var(--kyb-bar,0px)+16px)] rounded-2xl border-2 border-[var(--gb-primary)] bg-[var(--gb-surface)] p-3 sm:p-4">
+    <section id="kyb-sources" aria-labelledby="kyb-sources-h" className="scroll-mt-[var(--kyb-bar,0px)] rounded-2xl border-2 border-[var(--gb-primary)] bg-[var(--gb-surface)] p-3 sm:p-4">
       <h2 id="kyb-sources-h" className="text-lg">
         <button type="button" onClick={toggle} aria-expanded={open} aria-controls="kyb-sources-body" className="inline-flex min-h-[44px] items-center gap-2 text-left">
           📂 Sources

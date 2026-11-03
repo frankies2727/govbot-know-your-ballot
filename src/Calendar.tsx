@@ -120,7 +120,7 @@ export function NextUp({ date, title, lead, children }: { date: string; title: s
   const days = daysUntil(date, useNow());
   if (days < 0) return null;
   return (
-    <aside id="kyb-next" aria-label="Next election" className="rounded-2xl border-[3px] border-[var(--kyb-gold)] bg-[var(--gb-surface)] px-4 py-4 space-y-3">
+    <aside id="kyb-next" aria-label="Next election" className="scroll-mt-[var(--kyb-bar,0px)] rounded-2xl border-[3px] border-[var(--kyb-gold)] bg-[var(--gb-surface)] px-4 py-4 space-y-3">
       <div className="flex items-center gap-4">
         <p className="min-w-0 flex-1 text-[15px] leading-relaxed text-[var(--gb-text)]">
           <strong className="text-[var(--gb-text)]">{title}</strong> {lead} We’ll be here with everything nice and tidy for you.

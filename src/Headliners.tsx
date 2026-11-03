@@ -56,7 +56,7 @@ function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; 
 export function Headliners({ races, sections, overline, heading, intro, onOpen, onOpenRace, onCompare, children }: Props) {
   if (!races.length) return null;
   return (
-    <section aria-labelledby="kyb-headliners" className="space-y-4">
+    <section id="kyb-statewide" aria-labelledby="kyb-headliners" className="space-y-4 scroll-mt-[var(--kyb-bar,0px)]">
       <div className="space-y-1">
         <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--gb-primary)]">{overline}</p>
         <h2 id="kyb-headliners" className="text-3xl sm:text-4xl leading-[1.05]">{heading}</h2>
