@@ -1,20 +1,24 @@
-import { ListChecks, X } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ListChecks, Search, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
-import { usePinnedBar, type SectionCard } from './Bits';
+import { usePinnedBar, useWide, type SectionCard } from './Bits';
 
 // The landing page is long: the address form, the statewide races, a card for
 // every kind of district, the questions, the sources, what's beyond the
 // ballot. This pins a bar to the top the way the ballot view does (the glass
 // bar, the contents button) with the page's search beside it, so the table of
-// contents and the search are always one tap away. The contents are a drawer of
-// the page's sections, the district cards listed under "Everything else"; the
-// section you're in is marked, and named in the bar on wide screens.
+// contents and the search are always one tap away. The contents button names
+// the section you're in, so it is both "where am I" and the way to anywhere
+// else: it opens a drawer of the page's sections, the district cards listed
+// under "Everything else", with yours marked. On phones the search folds behind
+// an icon (as in the ballot view) so the section's name gets the room.
 
 export interface LandingItem {
   /** The id of the element on the page the item scrolls to. */
   id: string;
   emoji: string;
   label: string;
+  /** A shorter name for the bar on phones, where the full one wouldn't fit. */
+  short?: string;
   /** Sections under it, shown as a short list (the cards under "Everything else"). */
   sub?: { id: string; emoji: string; label: string; color: string; n?: number }[];
 }
@@ -25,7 +29,7 @@ export function landingItems(more: SectionCard[], questions?: SectionCard): Land
   return [
     { id: 'kyb-find', emoji: '📍', label: 'Find my ballot' },
     { id: 'kyb-statewide', emoji: '🗳️', label: 'The statewide races', sub: questions ? [card(questions)] : undefined },
-    { id: 'kyb-else', emoji: '🧭', label: 'Everything else on your ballot', sub: more.map(card) },
+    { id: 'kyb-else', emoji: '🧭', label: 'Everything else on your ballot', short: 'Everything else', sub: more.map(card) },
     { id: 'kyb-faq', emoji: '❓', label: 'Common questions' },
     { id: 'kyb-sources', emoji: '📂', label: 'Sources' },
     { id: 'kyb-beyond', emoji: '🏛️', label: 'Beyond your ballot' },
@@ -56,8 +60,13 @@ function useCurrent(ids: string[], bar: RefObject<HTMLElement | null>): string |
   return current;
 }
 
-/** The pinned bar: the contents button, where you are (wide screens) and the search (`children`). */
-export function LandingBar({ items, children }: { items: LandingItem[]; children: ReactNode }) {
+/** What the page's search needs from the bar: focus when it opens from the icon, and a way to close it. */
+export interface SearchSlot { autoFocus: boolean; onClose?: () => void }
+
+/** The pinned bar: the contents button (which names the section you're in) and the search (`search` draws it). */
+export function LandingBar({ items, search }: { items: LandingItem[]; search: (slot: SearchSlot) => ReactNode }) {
+  const wide = useWide();
+  const [searching, setSearching] = useState(false);
   const [open, setOpen] = useState(false);
   const pinned = usePinnedBar();
   const bar = useRef<HTMLDivElement | null>(null);
@@ -81,12 +90,34 @@ export function LandingBar({ items, children }: { items: LandingItem[]; children
       {/* kyb-wide: the Illinois landing narrows its other children; the bar spans the page. */}
       <div ref={setBar} className="kyb-wide sticky top-[calc(var(--kyb-top)+6px)] z-30 -mx-2 sm:-mx-3 px-4 sm:px-6 py-2 lg:py-3 kyb-glass">
         <div className="flex items-center gap-3">
-          <button ref={trigger} type="button" onClick={() => setOpen(true)} aria-label="Contents" aria-haspopup="dialog" aria-expanded={open}
-            className="shrink-0 w-11 h-11 rounded-xl border-2 border-[var(--gb-text)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
-            <ListChecks className="w-5 h-5" aria-hidden="true" />
-          </button>
-          {here && <p aria-hidden="true" className="hidden lg:block shrink-0 max-w-[16rem] truncate font-black">{here.emoji} {here.label}</p>}
-          <div className="min-w-0 flex-1 lg:ml-auto lg:max-w-2xl">{children}</div>
+          {!wide && searching ? (
+            <>
+              <div className="min-w-0 flex-1">{search({ autoFocus: true, onClose: () => setSearching(false) })}</div>
+              <button type="button" onClick={() => setSearching(false)} aria-label="Close search"
+                className="shrink-0 w-11 h-11 rounded-xl border-2 border-[var(--gb-text)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+                <ArrowLeft className="w-5 h-5" aria-hidden="true" />
+              </button>
+            </>
+          ) : (
+            <>
+              {/* One button: the contents icon, the section you're in, and a chevron saying it opens. */}
+              <button ref={trigger} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open}
+                className={`min-h-[52px] min-w-0 rounded-xl border-2 border-[var(--gb-text)] px-3 flex items-center gap-2.5 text-left text-[var(--gb-text)] hover:bg-[var(--kyb-chip)] ${wide ? 'max-w-[22rem]' : 'flex-1'}`}>
+                <ListChecks className="w-5 h-5 shrink-0" aria-hidden="true" />
+                <span className="sr-only">Contents: </span>
+                <span className="min-w-0 flex-1 truncate font-black leading-tight">{here ? `${here.emoji} ${wide ? here.label : here.short ?? here.label}` : 'Contents'}</span>
+                <ChevronDown className="w-4 h-4 shrink-0" aria-hidden="true" />
+              </button>
+              {wide ? (
+                <div className="min-w-0 flex-1 ml-auto max-w-2xl">{search({ autoFocus: false })}</div>
+              ) : (
+                <button type="button" onClick={() => setSearching(true)} aria-label="Search races, candidates, judges or questions"
+                  className="shrink-0 w-11 h-11 rounded-xl border-2 border-[var(--gb-text)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+                  <Search className="w-5 h-5" aria-hidden="true" />
+                </button>
+              )}
+            </>
+          )}
         </div>
       </div>
       {open && <Drawer items={items} current={current} onGo={go} onClose={close} />}

@@ -784,9 +784,9 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   return (
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
-      <LandingBar items={landingItems(MORE)}>
-        <BallotSearch ballot={everything} sections={SECTION_TITLES} onJump={onSearchJump} hrefFor={(h) => `${BALLOT_HREF}#race=${encodeURIComponent(h.id)}`} />
-      </LandingBar>
+      <LandingBar items={landingItems(MORE)} search={(slot) => (
+        <BallotSearch ballot={everything} sections={SECTION_TITLES} onJump={onSearchJump} hrefFor={(h) => `${BALLOT_HREF}#race=${encodeURIComponent(h.id)}`} {...slot} />
+      )} />
       <header className="flex flex-col-reverse md:flex-row md:items-center gap-4 md:gap-10">
         <div className="min-w-0 flex-1 space-y-3">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em]">Illinois · 2026 midterms</p>
