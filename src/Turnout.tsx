@@ -24,6 +24,8 @@ interface Cycle {
   /** The Election Lab's figures are still preliminary; `estimate` when the ballots are its rounded first estimate. */
   preliminary?: boolean;
   estimate?: boolean;
+  /** The figures are the state's own unofficial count, not the Lab's (Minnesota 2026). */
+  state?: boolean;
   /** The state's own count of registered voters for that election, and the share of them who voted. */
   registered?: number | null;
   regPct?: number | null;
@@ -62,7 +64,7 @@ export function Turnout({ state, name, ink }: { state: StateId; name: string; in
     <section aria-label={`${name}: voter turnout`} className="mb-4 min-w-0 rounded-[14px] border border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 text-[13.5px] leading-snug sm:p-4" style={{ '--ink': ink } as React.CSSProperties}>
       <p className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[12px] font-bold uppercase tracking-wider">
         <span>{head.year} turnout</span>
-        {head.preliminary && <span className="rounded-full border border-[var(--gb-border-strong)] px-1.5 py-px text-[11px] normal-case tracking-normal">{head.estimate ? 'First estimate' : 'Preliminary'}</span>}
+        {head.preliminary && <span className="rounded-full border border-[var(--gb-border-strong)] px-1.5 py-px text-[11px] normal-case tracking-normal">{head.estimate ? 'First estimate' : head.state ? 'Unofficial count' : 'Preliminary'}</span>}
       </p>
       <p className="mt-1 font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{head.pct.toFixed(1)}%</p>
       <p className="mt-1">of eligible voters voted</p>
@@ -126,7 +128,7 @@ export function Turnout({ state, name, ink }: { state: StateId; name: string; in
       </details>
       <p className="mt-2 text-[12px]">
         Sources: <a className="underline decoration-1 underline-offset-2 hover:text-[var(--gb-link)]" href={turnout.lab.url} target="_blank" rel="noopener">{turnout.lab.name}</a>{head.preliminary && <> (as of {new Date(`${turnout.asOf}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })})</>}
-        {cycles.some((c) => c.registered != null) && <>; registered voters, <a className="underline decoration-1 underline-offset-2 hover:text-[var(--gb-link)]" href={t.office.url} target="_blank" rel="noopener">{t.office.name}</a></>}
+        {cycles.some((c) => c.registered != null || c.state) && <>; state figures, <a className="underline decoration-1 underline-offset-2 hover:text-[var(--gb-link)]" href={t.office.url} target="_blank" rel="noopener">{t.office.name}</a></>}
       </p>
     </section>
   );

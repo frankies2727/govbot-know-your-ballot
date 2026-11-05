@@ -140,7 +140,7 @@
   "minnesota": {
    "office": {
     "name": "Minnesota Secretary of State",
-    "url": "https://www.sos.state.mn.us/election-administration-campaigns/data-maps/historical-voter-turnout-statistics/"
+    "url": "https://electionresults.sos.state.mn.us/Results/CountyStatisticsStatewide/Index?ersElectionId=201"
    },
    "cycles": [
     {
@@ -182,13 +182,16 @@
     },
     {
      "year": 2026,
-     "ballots": 2870000,
+     "ballots": 2842099,
      "eligible": 4404656,
-     "pct": 65.16,
+     "pct": 64.52,
      "preliminary": true,
-     "estimate": true
+     "registered": 3927901,
+     "regPct": null,
+     "state": true
     }
-   ]
+   ],
+   "regNote": "Minnesota’s 2026 votes are the Secretary of State’s unofficial count with every precinct in; Registered is voters on the rolls at 7 a.m. on Election Day (people can also register at the polls, so there’s no share of registered voters). The state’s historical file doesn’t keep earlier 7 a.m. counts."
   },
   "wisconsin": {
    "office": {
