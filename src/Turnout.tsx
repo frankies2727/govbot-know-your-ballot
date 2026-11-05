@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import data from './data/turnout.json';
+import { compact as short } from './lib/format';
 
 // Under each state's tile on the home page: how many voted in each November
 // general election since 2014 and how that compares with the elections before.
@@ -41,8 +42,14 @@ interface StateTurnout {
 const turnout = data as { lab: { name: string; url: string }; asOf: string; states: Record<StateId, StateTurnout> };
 
 const midterm = (y: number) => y % 4 === 2;
+/** The general election's date, "Nov. 3, 2026": the Tuesday after the first Monday of November. */
+function electionDay(y: number) {
+  const d = new Date(y, 10, 2);
+  while (d.getDay() !== 2) d.setDate(d.getDate() + 1);
+  return `Nov. ${d.getDate()}, ${y}`;
+}
 const full = (n: number) => n.toLocaleString('en-US');
-const short = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(2)}M` : `${Math.round(n / 1e3)}K`);
+
 /** One decimal with its sign; rounded first, so a hair's difference reads ±0.0, not +0.0. */
 const signed = (n: number) => { const r = Math.round(n * 10) / 10; return `${r > 0 ? '+' : r < 0 ? '−' : '±'}${Math.abs(r).toFixed(1)}`; };
 /** Change from `b` to `a` in percent. */
@@ -63,7 +70,7 @@ export function Turnout({ state, name, ink }: { state: StateId; name: string; in
   return (
     <section aria-label={`${name}: voter turnout`} className="mb-4 min-w-0 rounded-[14px] border border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 text-[13.5px] leading-snug sm:p-4" style={{ '--ink': ink } as React.CSSProperties}>
       <p className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[12px] font-bold uppercase tracking-wider">
-        <span>{head.year} turnout</span>
+        <span>{electionDay(head.year)} {midterm(head.year) ? 'midterm' : 'presidential'} turnout</span>
         {head.preliminary && <span className="rounded-full border border-[var(--gb-border-strong)] px-1.5 py-px text-[11px] normal-case tracking-normal">{head.estimate ? 'First estimate' : head.state ? 'Unofficial count' : 'Preliminary'}</span>}
       </p>
       <p className="mt-1 font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{head.pct.toFixed(1)}%</p>

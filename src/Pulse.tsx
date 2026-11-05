@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Heart } from 'lucide-react';
+import { compact as count } from './lib/format';
 
 // The two floating bits on every page: how many people are using the guide
 // right now (all four states together), and a heart anyone can tap, which
@@ -16,6 +17,7 @@ const HEARTED_KEY = 'kyb-hearted';
 const BURST: [number, number][] = [[-34, 0], [-14, 0.06], [4, 0.02], [22, 0.1], [40, 0.04]];
 
 interface Pulse { here: number; total: number; hearts: number; heartAt: number }
+// On screen the counts are short (1.00k, via count); the labels read to screen readers keep the whole number (fmt).
 const fmt = (n: number) => n.toLocaleString('en-US');
 const read = (): boolean => { try { return localStorage.getItem(HEARTED_KEY) === '1'; } catch { return false; } };
 
@@ -90,15 +92,15 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
     <button type="button" onClick={tap} aria-pressed={mine} disabled={mine}
       aria-label={mine ? `You hearted this page. ${fmt(pulse.hearts)} hearts` : `Heart this page. ${fmt(pulse.hearts)} hearts so far`}
       className={`flex min-h-[44px] items-center gap-1.5 rounded-full px-3 text-[13px] font-black hover:bg-[var(--kyb-chip)] disabled:cursor-default disabled:hover:bg-[var(--gb-surface)] ${box}`}>
-      {heartIcon(mine)}{fmt(pulse.hearts)}{compact && <span className="font-bold">{mine ? 'Thanks!' : 'Give it a heart'}</span>}
+      {heartIcon(mine)}{count(pulse.hearts)}{compact && <span className="font-bold">{mine ? 'Thanks!' : 'Give it a heart'}</span>}
     </button>
   );
   const counter = (
     <p id="kyb-pulse-msg" role="status" aria-label={`${used}. ${fmt(pulse.here)} here right now`} className={`${compact ? '' : 'kyb-heart-toast '}flex max-w-[19rem] items-center gap-2 rounded-2xl px-3 py-2 text-[13px] font-bold leading-snug sm:max-w-none ${box}`}>
       <span className="kyb-live-dot h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--gb-primary)]" aria-hidden="true" />
       <span aria-hidden="true">
-        <span className="font-black">{fmt(pulse.total)}</span> {pulse.total === 1 ? 'person has' : 'people have'} used the Govbot guide to vote more informed
-        <span className="hidden md:inline"> · {fmt(pulse.here)} here now</span>
+        <span className="font-black">{count(pulse.total)}</span> {pulse.total === 1 ? 'person has' : 'people have'} used the Govbot guide to vote more informed
+        <span className="hidden md:inline"> · {count(pulse.here)} here now</span>
       </span>
     </p>
   );
@@ -125,7 +127,7 @@ export function Pulse({ compact = false }: { compact?: boolean }) {
             <button type="button" onClick={() => { void tap(); setOpen((o) => !o); }} aria-expanded={open} aria-controls="kyb-pulse-msg"
               aria-label={`${mine ? 'You hearted this page' : 'Heart this page'}. ${open ? 'Hide' : 'Show'} the message. ${fmt(pulse.hearts)} hearts`}
               className={`flex min-h-[44px] items-center gap-1.5 rounded-full px-3 text-[13px] font-black hover:bg-[var(--kyb-chip)] ${box}`}>
-              {heartIcon(mine)}{fmt(pulse.hearts)}
+              {heartIcon(mine)}{count(pulse.hearts)}
             </button>
             {burst > 0 && (
               <span key={burst} aria-hidden="true" className="pointer-events-none absolute inset-0">
