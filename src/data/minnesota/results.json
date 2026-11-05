@@ -1,17 +1,18 @@
 {
- "source": {
-  "name": "Minnesota Secretary of State",
-  "url": "https://electionresults.sos.state.mn.us/"
- },
- "asOf": "2026-11-05T21:38:33.000Z",
- "official": false,
+ "sources": [
+  {
+   "name": "Minnesota Secretary of State",
+   "url": "https://electionresults.sos.state.mn.us/"
+  }
+ ],
+ "asOf": "2026-11-05T22:08:26.000Z",
  "races": {
   "u-s-senator": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2831777,
+   "total": 2831776,
    "votes": {
-    "1": 1520868,
+    "1": 1520867,
     "2": 1233462,
     "3": 32492,
     "4": 41574
@@ -31,9 +32,9 @@
   "cd-2": {
    "reporting": 260,
    "precincts": 260,
-   "total": 375226,
+   "total": 375225,
    "votes": {
-    "1": 214255,
+    "1": 214254,
     "2": 160636
    },
    "writeIn": 335
@@ -102,10 +103,10 @@
   "governor-and-lieutenant-governor": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2830147,
+   "total": 2830146,
    "votes": {
     "1": 1569695,
-    "2": 1206575,
+    "2": 1206574,
     "3": 51403
    },
    "writeIn": 2474
@@ -113,11 +114,11 @@
   "state-auditor": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2784714,
+   "total": 2784713,
    "votes": {
     "1": 1473981,
     "2": 1230202,
-    "3": 79001
+    "3": 79000
    },
    "writeIn": 1530
   },
@@ -527,10 +528,10 @@
   "sldu-41": {
    "reporting": 32,
    "precincts": 32,
-   "total": 48773,
+   "total": 48772,
    "votes": {
     "1": 25547,
-    "2": 23184
+    "2": 23183
    },
    "writeIn": 42
   },
@@ -1493,10 +1494,10 @@
   "sldl-41a": {
    "reporting": 17,
    "precincts": 17,
-   "total": 27492,
+   "total": 27491,
    "votes": {
     "1": 14869,
-    "2": 12611
+    "2": 12610
    },
    "writeIn": 12
   },
@@ -2019,63 +2020,63 @@
   "associate-justice-of-the-supreme-court-seat-1": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1657289,
+   "total": 1657288,
    "votes": {
-    "1": 1639648
+    "1": 1639647
    },
    "writeIn": 17641
   },
   "associate-justice-of-the-supreme-court-seat-4": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1637062,
+   "total": 1637061,
    "votes": {
-    "1": 1620664
+    "1": 1620663
    },
    "writeIn": 16398
   },
   "judge-of-the-court-of-appeals-seat-1": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1615743,
+   "total": 1615742,
    "votes": {
-    "1": 1600248
+    "1": 1600247
    },
    "writeIn": 15495
   },
   "judge-of-the-court-of-appeals-seat-7": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1601012,
+   "total": 1601011,
    "votes": {
-    "1": 1585712
+    "1": 1585711
    },
    "writeIn": 15300
   },
   "judge-of-the-court-of-appeals-seat-13": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1594440,
+   "total": 1594439,
    "votes": {
-    "1": 1579417
+    "1": 1579416
    },
    "writeIn": 15023
   },
   "judge-of-the-court-of-appeals-seat-15": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1590548,
+   "total": 1590547,
    "votes": {
-    "1": 1575938
+    "1": 1575937
    },
    "writeIn": 14610
   },
   "judge-of-the-court-of-appeals-seat-18": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1580494,
+   "total": 1580493,
    "votes": {
-    "1": 1565017
+    "1": 1565016
    },
    "writeIn": 15477
   },
@@ -2930,126 +2931,126 @@
   "district-court-10-seat-1": {
    "reporting": 409,
    "precincts": 409,
-   "total": 262841,
+   "total": 262840,
    "votes": {
-    "1": 259788
+    "1": 259787
    },
    "writeIn": 3053
   },
   "district-court-10-seat-2": {
    "reporting": 409,
    "precincts": 409,
-   "total": 262214,
+   "total": 262213,
    "votes": {
-    "1": 259326
+    "1": 259325
    },
    "writeIn": 2888
   },
   "district-court-10-seat-4": {
    "reporting": 409,
    "precincts": 409,
-   "total": 261901,
+   "total": 261900,
    "votes": {
-    "1": 259106
+    "1": 259105
    },
    "writeIn": 2795
   },
   "district-court-10-seat-6": {
    "reporting": 409,
    "precincts": 409,
-   "total": 260169,
+   "total": 260168,
    "votes": {
-    "1": 257300
+    "1": 257299
    },
    "writeIn": 2869
   },
   "district-court-10-seat-7": {
    "reporting": 409,
    "precincts": 409,
-   "total": 258759,
+   "total": 258758,
    "votes": {
-    "1": 255252
+    "1": 255251
    },
    "writeIn": 3507
   },
   "district-court-10-seat-8": {
    "reporting": 409,
    "precincts": 409,
-   "total": 260546,
+   "total": 260545,
    "votes": {
-    "1": 257693
+    "1": 257692
    },
    "writeIn": 2853
   },
   "district-court-10-seat-9": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259065,
+   "total": 259064,
    "votes": {
-    "1": 256283
+    "1": 256282
    },
    "writeIn": 2782
   },
   "district-court-10-seat-14": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259402,
+   "total": 259401,
    "votes": {
-    "1": 256802
+    "1": 256801
    },
    "writeIn": 2600
   },
   "district-court-10-seat-15": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259336,
+   "total": 259335,
    "votes": {
-    "1": 256683
+    "1": 256682
    },
    "writeIn": 2653
   },
   "district-court-10-seat-17": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259150,
+   "total": 259149,
    "votes": {
-    "1": 255865
+    "1": 255864
    },
    "writeIn": 3285
   },
   "district-court-10-seat-19": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259059,
+   "total": 259058,
    "votes": {
-    "1": 256229
+    "1": 256228
    },
    "writeIn": 2830
   },
   "district-court-10-seat-22": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259399,
+   "total": 259398,
    "votes": {
-    "1": 256637
+    "1": 256636
    },
    "writeIn": 2762
   },
   "district-court-10-seat-23": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259178,
+   "total": 259177,
    "votes": {
-    "1": 256443
+    "1": 256442
    },
    "writeIn": 2735
   },
   "district-court-10-seat-24": {
    "reporting": 409,
    "precincts": 409,
-   "total": 258800,
+   "total": 258799,
    "votes": {
-    "1": 255989
+    "1": 255988
    },
    "writeIn": 2811
   },
@@ -3065,27 +3066,27 @@
   "district-court-10-seat-29": {
    "reporting": 409,
    "precincts": 409,
-   "total": 258548,
+   "total": 258547,
    "votes": {
-    "1": 255921
+    "1": 255920
    },
    "writeIn": 2627
   },
   "district-court-10-seat-32": {
    "reporting": 409,
    "precincts": 409,
-   "total": 259243,
+   "total": 259242,
    "votes": {
-    "1": 256571
+    "1": 256570
    },
    "writeIn": 2672
   },
   "district-court-10-seat-38": {
    "reporting": 409,
    "precincts": 409,
-   "total": 327010,
+   "total": 327008,
    "votes": {
-    "1": 145873,
+    "1": 145871,
     "2": 179265
    },
    "writeIn": 1872
@@ -3093,27 +3094,27 @@
   "district-court-10-seat-43": {
    "reporting": 409,
    "precincts": 409,
-   "total": 258712,
+   "total": 258711,
    "votes": {
-    "1": 255968
+    "1": 255967
    },
    "writeIn": 2744
   },
   "district-court-10-seat-45": {
    "reporting": 409,
    "precincts": 409,
-   "total": 257535,
+   "total": 257534,
    "votes": {
-    "1": 254811
+    "1": 254810
    },
    "writeIn": 2724
   },
   "attorney-general": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2801411,
+   "total": 2801410,
    "votes": {
-    "1": 1520971,
+    "1": 1520970,
     "2": 1276214
    },
    "writeIn": 4226
@@ -3121,9 +3122,9 @@
   "secretary-of-state": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2795197,
+   "total": 2795196,
    "votes": {
-    "1": 1529173,
+    "1": 1529172,
     "2": 1168651,
     "3": 41389,
     "4": 54693

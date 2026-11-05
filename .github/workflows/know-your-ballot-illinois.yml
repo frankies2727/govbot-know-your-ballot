@@ -53,6 +53,12 @@ jobs:
       - name: Build ballot data
         run: node scripts/illinois.mjs
 
+      # The election's results on the landing page (scripts/results.mjs):
+      # Chicago's and suburban Cook's counts for the county's own races, the
+      # State Board's official totals once posted. Fail-soft.
+      - name: Refresh results
+        run: node scripts/results.mjs illinois
+
       - name: Redraw the README badges
         run: node scripts/badges.mjs
         env:

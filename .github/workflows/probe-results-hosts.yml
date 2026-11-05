@@ -1,8 +1,8 @@
 name: Probe results hosts (temporary)
 
-# One-off: save one copy of Chicago's and Cook County's results pages, which
-# GitHub's runners can reach, so the results reader can be built against
-# them. Commits them to this branch under samples/. Deleted once read.
+# One-off: run the Illinois results reader where Chicago's and Cook County's
+# sites answer (GitHub's runners), and commit its results.json to this branch.
+# Deleted once read.
 
 on:
   push:
@@ -18,22 +18,14 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Save the results pages
-        run: |
-          mkdir -p samples && cd samples
-          UA='Mozilla/5.0 (KnowYourBallot; +https://github.com/frankies2727/govbot-know-your-ballot)'
-          get() { curl -sS -L -m 60 -A "$UA" -o "$1" -w "$2 -> %{http_code} %{size_download}\n" "$2" || true; sleep 3; }
-          get chicago-home.html https://chicagoelections.gov/
-          get chicago-results.html https://chicagoelections.gov/election-results
-          get cook-electionnight.html https://electionnight.cookcountyclerkil.gov/
-          # Chicago's Nov. 3 downloads, as its home page links them (TXT/PDF/HTML results).
-          grep -o -i -E 'href="[^"]*(results|summary)[^"]*\.(txt|htm|html|csv|json|xml)"' chicago-home.html | sed 's/href="//;s/"$//' | sort -u | head -6 > chicago-links.txt || true
-          cat chicago-links.txt
-          n=0; while read -r l; do n=$((n+1)); case "$l" in http*) u="$l";; /*) u="https://chicagoelections.gov$l";; *) u="https://chicagoelections.gov/$l";; esac; get "chicago-file-$n" "$u"; done < chicago-links.txt
-          ls -la
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Read Illinois' results
+        run: node scripts/results.mjs illinois
       - name: Commit them
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add samples
-          git commit -m "Temporary: results page samples [skip ci]" && git push || echo "nothing to commit"
+          git add src/data/illinois/results.json
+          git commit -m "Illinois results, read on a runner [skip ci]" && git push || echo "nothing to commit"

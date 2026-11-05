@@ -20,9 +20,11 @@ const races = [
   { id: 'attorney-general', candidates: [{ ballot: 1, name: 'Keith Ellison' }, { ballot: 2, name: 'Ron Schutz' }] },
 ];
 
-test('a person is their first and last name; a ticket, each of its people', () => {
+test('a person is their first and last name; a ticket, the person at its head', () => {
   assert.equal(personKey('Sarah E. Hennesy'), personKey('Sarah Hennesy'));
   assert.equal(personKey('Amy Klobuchar & Ben Schierer'), personKey('Amy Klobuchar and Ben Schierer'));
+  assert.equal(personKey('JB Pritzker & Christian Mitchell'), personKey('JB PRITZKER'));
+  assert.equal(personKey('Steven Q. McKenzie'), personKey('STEVEN Q. McKENZIE'));
   assert.equal(personKey('Allan Kehr II'), 'allan kehr');
   assert.equal(personKey('George "Chip" Tangen', true), personKey('Chip Tangen', true));
   assert.equal(personKey('Julie Vossen-Henslin', true), 'henslin');

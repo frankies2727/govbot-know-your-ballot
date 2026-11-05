@@ -5,7 +5,7 @@ import type { Candidate, Race } from './types';
 import { navigate, useRoute } from './lib/router';
 import { useOpen } from './store';
 import { githubIssueUrl, sendReport, type ReportAbout } from './report';
-import { RaceResults } from './results';
+import { QuestionResults, RaceResults } from './results';
 
 // Small pieces every state's guide shows: the progress ring in the pinned
 // bar, and the confetti when a ballot is finished.
@@ -482,6 +482,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
             </div>
             {it.plain && <p>{it.plain}</p>}
             <p className="rounded-lg bg-[var(--kyb-chip)] p-2.5"><span className="block text-[11px] font-black uppercase tracking-wide">Official ballot text</span>“{it.question}”</p>
+            <QuestionResults id={it.id} color={card.color} />
             <button type="button" onClick={() => onJump(card.id, it.id)} className="font-bold underline underline-offset-2">Decide on the ballot →</button>
           </li>
         ) : (
@@ -490,6 +491,8 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
               <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
               <span className="block text-xs">{it.sub}</span>
             </button>
+            {/* A judge retention's count (Illinois). */}
+            <div className="px-3 pb-3 empty:hidden"><QuestionResults id={it.id} color={card.color} retention={it.id.startsWith('retain-')} /></div>
           </li>
         ))}
       </ul>
