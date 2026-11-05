@@ -619,7 +619,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   return (
     <div className="space-y-10 pt-4">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
-      <LandingBar items={landingItems(more, questions)} search={(slot) => (
+      <LandingBar items={landingItems(more, headliners, SECTIONS, questions)} search={(slot) => (
         <BallotSearch ballot={everything} sections={sectionTitles} onJump={onSearchJump} hrefFor={(h) => `${ballotHref}#race=${encodeURIComponent(h.id)}`} {...slot} />
       )} />
       <header className="flex flex-col-reverse md:flex-row md:items-center gap-6 md:gap-12">

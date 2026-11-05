@@ -367,6 +367,24 @@ export interface SectionItem {
 }
 export interface SectionCard { id: string; title: string; emoji: string; color: string; ink: string; n: number; hint: string; items: SectionItem[] }
 
+/** A card's races by office (races sharing an explainer share a group, in the order they first appear), and the rest (questions). */
+export function officeGroups(card: SectionCard) {
+  const groups: { key: string; label: string; about: string; items: SectionItem[] }[] = [];
+  const rest: SectionItem[] = [];
+  // The seat-count sentence ("3 seats in your district…") is each district's own; the header carries the office's explainer without it.
+  const shared = (about: string) => about.replace(/ (?:One seat|\d+ seats) in your district [^.]*\./, '');
+  for (const it of card.items) {
+    if (!it.race) { rest.push(it); continue; }
+    const about = shared(it.about ?? '');
+    const key = about || officeOf(it.title);
+    const g = groups.find((x) => x.key === key);
+    if (g) g.items.push(it); else groups.push({ key, label: officeOf(it.title), about, items: [it] });
+  }
+  return { groups, rest };
+}
+/** The id of an office's group inside a card, for the landing page's contents to jump to. */
+export const officeId = (card: SectionCard, i: number) => `kyb-office-${card.id}-${i}`;
+
 /** A race's office without its district: "State Senator, 27th District" → "State Senator". */
 const officeOf = (title: string) => title.replace(/,.*$/, '').replace(/\s*\(.*$/, '').trim();
 /** A district as a number: "Congressional District 1" → "#1", "School Subdistrict 1A" → "#1A"; anything without a number stays as is. */
@@ -391,18 +409,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
     el.scrollIntoView({ block: 'start', behavior: STILL ? 'auto' : 'smooth' });
     el.classList.remove('kyb-flash'); void el.offsetWidth; el.classList.add('kyb-flash');
   };
-  // Races sharing an explainer share a group, in the order they first appear.
-  const groups: { key: string; label: string; about: string; items: SectionItem[] }[] = [];
-  const rest: SectionItem[] = [];
-  // The seat-count sentence ("3 seats in your district…") is each district's own; the header carries the office's explainer without it.
-  const shared = (about: string) => about.replace(/ (?:One seat|\d+ seats) in your district [^.]*\./, '');
-  for (const it of card.items) {
-    if (!it.race) { rest.push(it); continue; }
-    const about = shared(it.about ?? '');
-    const key = about || officeOf(it.title);
-    const g = groups.find((x) => x.key === key);
-    if (g) g.items.push(it); else groups.push({ key, label: officeOf(it.title), about, items: [it] });
-  }
+  const { groups, rest } = officeGroups(card);
   const candidates = (it: SectionItem) => (
     <ul className="space-y-1">
       {it.race!.candidates.map((c) => (
@@ -429,8 +436,8 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
       </div>
       {faces.length > 0 && <FaceStrip people={faces} names max={400} size="w-9 h-9 text-xs" color={card.color} onPick={jump} />}
       <ul ref={list} className="kyb-scroll-bar max-h-[480px] overflow-y-auto rounded-xl border border-[var(--gb-border)]" style={{ ['--scroll' as string]: card.color }}>
-        {groups.map((g) => (
-          <li key={g.key}>
+        {groups.map((g, i) => (
+          <li key={g.key} id={officeId(card, i)} className="scroll-mt-[var(--kyb-bar,0px)]">
             <div className="kyb-sticky-head sticky top-0 z-10 border-b border-[var(--gb-border)] bg-[var(--gb-surface)] px-3 py-2">
               <p className="text-[15px] font-black leading-snug">{g.label} <span className="font-bold">· {g.items.length}</span></p>
               {g.about && <p className="text-[13px] leading-snug">{g.about}</p>}

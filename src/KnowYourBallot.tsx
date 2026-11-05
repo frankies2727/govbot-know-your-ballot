@@ -773,7 +773,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   return (
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
-      <LandingBar items={landingItems(MORE)} search={(slot) => (
+      <LandingBar items={landingItems(MORE, STATEWIDE, SECTIONS)} search={(slot) => (
         <BallotSearch ballot={everything} sections={SECTION_TITLES} onJump={onSearchJump} hrefFor={(h) => `${BALLOT_HREF}#race=${encodeURIComponent(h.id)}`} {...slot} />
       )} />
       <header className="flex flex-col-reverse md:flex-row md:items-center gap-4 md:gap-10">

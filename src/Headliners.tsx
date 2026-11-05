@@ -26,15 +26,18 @@ interface Props {
   children?: ReactNode;
 }
 
-const title = (r: Race) => r.office.replace(/ \(\d+ seats\)$/, '');
+/** A statewide race's name on its card and in the landing page's contents: "Governor and Lieutenant Governor". */
+export const raceTitle = (r: Race) => r.office.replace(/ \(\d+ seats\)$/, '');
+/** The id of a statewide race's card. */
+export const statewideId = (r: Race) => `kyb-sw-${r.id}`;
 
 function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; race: Race; section: Section; onOpen: Props['onOpen']; onOpenRace: Props['onOpenRace']; onCompare: Props['onCompare'] }) {
   const { explainOffice } = useStateConfig();
   const why = stakes(race);
   return (
-    <li className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5" style={{ borderColor: section.color }}>
+    <li id={statewideId(race)} className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: section.color }}>
       <span className="inline-flex self-start items-center gap-1.5 rounded-full border-2 px-2.5 py-0.5 text-xs font-bold text-[var(--gb-text)]" style={{ borderColor: section.color, background: `color-mix(in srgb, ${section.color} 14%, transparent)` }}>{section.emoji} {section.title}</span>
-      <h3 className="text-lg font-black leading-tight">{title(race)}</h3>
+      <h3 className="text-lg font-black leading-tight">{raceTitle(race)}</h3>
       <p className="text-sm leading-snug">{explainOffice(race.office)}</p>
       {why && <p className="text-sm leading-snug"><span className="font-bold">Why it matters: </span>{why}</p>}
       <FaceStrip people={race.candidates} names info color={section.color} onPick={(c) => onOpen(race, c as Candidate)} />
