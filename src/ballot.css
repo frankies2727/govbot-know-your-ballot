@@ -89,30 +89,19 @@
   .kyb-pulse::after { animation: none; opacity: .7; }
 }
 
-/* A section's races scroll in their own box, sized to what's left of the
-   screen under the pinned bar; the scrollbar wears the section's colour.
-   Races inside it only need a small scroll margin (the page around the box
-   is scrolled separately). Desktop only: below 1024px the page is the one
-   scroll (the block after the box styles). */
-.kyb-scroll {
-  position: relative; display: flex; flex-direction: column; gap: 1rem;
-  max-height: max(340px, calc(100dvh - var(--kyb-top) - var(--kyb-bar, 260px) - 96px));
-  overflow-y: auto; padding-right: 6px; scrollbar-gutter: stable;
-  scroll-margin-top: calc(var(--kyb-top) + var(--kyb-bar, 260px) + 12px);
-}
-/* Cards keep their height and the box scrolls (in a column flexbox they'd
-   otherwise shrink to fit and clip their own buttons). */
-.kyb-scroll > * { flex-shrink: 0; }
-.kyb-scroll [id^="race-"] { scroll-margin-top: 8px; }
-.kyb-scroll, .kyb-scroll-bar { scrollbar-width: thin; scrollbar-color: var(--scroll) color-mix(in srgb, var(--scroll) 18%, transparent); }
+/* A section's races, one after another in the page: the page is the one
+   scroll at every width (desktop scrolls easily, so a long section is fine),
+   and a race the page jumps to clears govbot's header and the pinned bar. */
+.kyb-scroll { display: flex; flex-direction: column; gap: 1rem; }
+/* The page's scroll-padding already clears govbot's header, so only the pinned bar is added. */
+.kyb-scroll [id^="race-"] { scroll-margin-top: var(--kyb-bar, 260px); }
+.kyb-scroll-bar { scrollbar-width: thin; scrollbar-color: var(--scroll) color-mix(in srgb, var(--scroll) 18%, transparent); }
 
 /* Phones and tablets: one scroll bar, the page's. A section's races, the
    district lists, the sources and the news feed all sit in the page instead
    of each scrolling in a box of its own, and what the page jumps to (a race,
    a district) clears the pinned bar. */
 @media (max-width: 1023px) {
-  .kyb-scroll { max-height: none; overflow: visible; padding-right: 0; scrollbar-gutter: auto; }
-  .kyb-scroll [id^="race-"] { scroll-margin-top: calc(var(--kyb-top) + var(--kyb-bar, 260px) + 16px); }
   .kyb-scroll-bar { max-height: none; overflow-y: visible; padding-right: 0; }
   /* The page already keeps scroll-padding for govbot's header, so only the pinned bar is added. */
   .kyb-scroll-bar details[data-race] { scroll-margin-top: var(--kyb-bar, 0px); }

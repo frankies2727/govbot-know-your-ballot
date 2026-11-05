@@ -208,9 +208,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     // Two frames: the section has to render, and the pinned bar has to settle.
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const el = document.getElementById(`race-${id}`);
-      // Desktop: races sit in their section's scroll box. Below 1024px the page is the only scroll.
-      const box = el?.closest<HTMLElement>('.kyb-scroll');
-      if (el && box && getComputedStyle(box).overflowY !== 'visible') { box.scrollTop = el.offsetTop - 8; scrollTo(box); } else scrollTo(el);
+      scrollTo(el);
       el?.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
     }));
   };
@@ -452,7 +450,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                           <span className="rounded-full bg-[var(--gb-bg)] px-3 py-1 text-sm font-black text-[var(--gb-text)]">{s.done}/{s.ids.length}</span>
                         </div>
                         {copy.sectionNotes[s.id] && <p className="text-[15px] leading-relaxed">{copy.sectionNotes[s.id]}</p>}
-                        <div className="kyb-scroll" style={{ ['--scroll' as string]: s.color }}>
+                        <div className="kyb-scroll">
                           {s.id === 'measures'
                             ? ballot.measures.map((m) => <MeasureCard key={m.id} color={s.color} m={m} choice={saved.picks[m.id]} onChoose={choose} />)
                             : s.ids.map((id) => (

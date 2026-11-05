@@ -306,16 +306,7 @@ export function KnowYourBallot() {
     // where things land, is right.
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const el = document.getElementById(`race-${id}`);
-      // On desktop races sit in their section's own scroll box: bring the whole
-      // box into view under the pinned bar, then scroll the race to the top of
-      // the box. Below 1024px the page is the only scroll: go straight to the race.
-      const box = el?.closest<HTMLElement>('.kyb-scroll');
-      if (el && box && getComputedStyle(box).overflowY !== 'visible') {
-        // The box jumps straight there (two smooth scrolls at once can cancel
-        // each other); the page glides.
-        box.scrollTop = el.offsetTop - 8;
-        scrollTo(box);
-      } else scrollTo(el);
+      scrollTo(el);
       el?.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
     }));
   };
@@ -604,9 +595,7 @@ export function KnowYourBallot() {
                           )}
                         </div>
                       )}
-                      {/* The section's races scroll in their own box (scrollbar in the
-                          section's colour), so a long section doesn't stretch the page. */}
-                      <div className="kyb-scroll" style={{ ['--scroll' as string]: s.color }}>
+                      <div className="kyb-scroll">
                         {s.id === 'retention' && (
                           <div className="grid gap-3 sm:grid-cols-2">
                             {ballot.retentions.map((r) => <RetentionCard key={r.id} color={s.color} r={r} choice={saved.picks[r.id]} onChoose={choose} />)}
