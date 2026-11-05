@@ -1,0 +1,16 @@
+{
+ "races": {},
+ "pending": {
+  "note": "Each race here gets its count once the Illinois State Board of Elections posts the official totals after its canvass. The unofficial count is up now at",
+  "links": [
+   [
+    "the Chicago Board of Elections",
+    "https://chicagoelections.gov/"
+   ],
+   [
+    "the Cook County Clerk",
+    "https://electionnight.cookcountyclerkil.gov/"
+   ]
+  ]
+ }
+}

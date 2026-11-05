@@ -1,0 +1,3234 @@
+{
+ "source": {
+  "name": "Minnesota Secretary of State",
+  "url": "https://electionresults.sos.state.mn.us/"
+ },
+ "asOf": "2026-11-05T21:38:33.000Z",
+ "official": false,
+ "races": {
+  "u-s-senator": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 2831777,
+   "votes": {
+    "1": 1520868,
+    "2": 1233462,
+    "3": 32492,
+    "4": 41574
+   },
+   "writeIn": 3381
+  },
+  "cd-1": {
+   "reporting": 750,
+   "precincts": 750,
+   "total": 326182,
+   "votes": {
+    "1": 163057,
+    "2": 162734
+   },
+   "writeIn": 391
+  },
+  "cd-2": {
+   "reporting": 260,
+   "precincts": 260,
+   "total": 375226,
+   "votes": {
+    "1": 214255,
+    "2": 160636
+   },
+   "writeIn": 335
+  },
+  "cd-3": {
+   "reporting": 229,
+   "precincts": 229,
+   "total": 377997,
+   "votes": {
+    "1": 242079,
+    "2": 135505
+   },
+   "writeIn": 413
+  },
+  "cd-4": {
+   "reporting": 212,
+   "precincts": 212,
+   "total": 336244,
+   "votes": {
+    "1": 245699,
+    "2": 90068
+   },
+   "writeIn": 477
+  },
+  "cd-5": {
+   "reporting": 217,
+   "precincts": 217,
+   "total": 343508,
+   "votes": {
+    "1": 262702,
+    "2": 55765,
+    "3": 24110
+   },
+   "writeIn": 931
+  },
+  "cd-6": {
+   "reporting": 276,
+   "precincts": 276,
+   "total": 367344,
+   "votes": {
+    "1": 162213,
+    "2": 204704
+   },
+   "writeIn": 427
+  },
+  "cd-7": {
+   "reporting": 1327,
+   "precincts": 1327,
+   "total": 330817,
+   "votes": {
+    "1": 115823,
+    "2": 214674
+   },
+   "writeIn": 320
+  },
+  "cd-8": {
+   "reporting": 834,
+   "precincts": 834,
+   "total": 359455,
+   "votes": {
+    "1": 168427,
+    "2": 190669
+   },
+   "writeIn": 359
+  },
+  "governor-and-lieutenant-governor": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 2830147,
+   "votes": {
+    "1": 1569695,
+    "2": 1206575,
+    "3": 51403
+   },
+   "writeIn": 2474
+  },
+  "state-auditor": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 2784714,
+   "votes": {
+    "1": 1473981,
+    "2": 1230202,
+    "3": 79001
+   },
+   "writeIn": 1530
+  },
+  "sldu-1": {
+   "reporting": 315,
+   "precincts": 315,
+   "total": 35311,
+   "votes": {
+    "1": 11278,
+    "2": 24014
+   },
+   "writeIn": 19
+  },
+  "sldu-2": {
+   "reporting": 189,
+   "precincts": 189,
+   "total": 37799,
+   "votes": {
+    "1": 16695,
+    "2": 20443,
+    "3": 649
+   },
+   "writeIn": 12
+  },
+  "sldu-3": {
+   "reporting": 132,
+   "precincts": 132,
+   "total": 45823,
+   "votes": {
+    "1": 24883,
+    "2": 20865
+   },
+   "writeIn": 75
+  },
+  "sldu-4": {
+   "reporting": 68,
+   "precincts": 68,
+   "total": 36252,
+   "votes": {
+    "1": 18103,
+    "2": 18107
+   },
+   "writeIn": 42
+  },
+  "sldu-5": {
+   "reporting": 143,
+   "precincts": 143,
+   "total": 42676,
+   "votes": {
+    "1": 12197,
+    "2": 30380
+   },
+   "writeIn": 99
+  },
+  "sldu-6": {
+   "reporting": 80,
+   "precincts": 80,
+   "total": 44342,
+   "votes": {
+    "1": 16799,
+    "2": 27503
+   },
+   "writeIn": 40
+  },
+  "sldu-7": {
+   "reporting": 127,
+   "precincts": 127,
+   "total": 40018,
+   "votes": {
+    "1": 18222,
+    "2": 21773
+   },
+   "writeIn": 23
+  },
+  "sldu-8": {
+   "reporting": 33,
+   "precincts": 33,
+   "total": 41652,
+   "votes": {
+    "1": 31668,
+    "2": 9951
+   },
+   "writeIn": 33
+  },
+  "sldu-9": {
+   "reporting": 183,
+   "precincts": 183,
+   "total": 43227,
+   "votes": {
+    "1": 13113,
+    "2": 30083
+   },
+   "writeIn": 31
+  },
+  "sldu-10": {
+   "reporting": 123,
+   "precincts": 123,
+   "total": 42307,
+   "votes": {
+    "1": 11593,
+    "2": 30655
+   },
+   "writeIn": 59
+  },
+  "sldu-11": {
+   "reporting": 106,
+   "precincts": 106,
+   "total": 40198,
+   "votes": {
+    "1": 16937,
+    "2": 22240,
+    "3": 996
+   },
+   "writeIn": 25
+  },
+  "sldu-12": {
+   "reporting": 157,
+   "precincts": 157,
+   "total": 41798,
+   "votes": {
+    "1": 12814,
+    "2": 28960
+   },
+   "writeIn": 24
+  },
+  "sldu-13": {
+   "reporting": 49,
+   "precincts": 49,
+   "total": 43107,
+   "votes": {
+    "1": 14169,
+    "2": 28814
+   },
+   "writeIn": 124
+  },
+  "sldu-14": {
+   "reporting": 38,
+   "precincts": 38,
+   "total": 35175,
+   "votes": {
+    "1": 19678,
+    "2": 15448
+   },
+   "writeIn": 49
+  },
+  "sldu-15": {
+   "reporting": 171,
+   "precincts": 171,
+   "total": 37717,
+   "votes": {
+    "1": 12518,
+    "2": 25173
+   },
+   "writeIn": 26
+  },
+  "sldu-16": {
+   "reporting": 129,
+   "precincts": 129,
+   "total": 37194,
+   "votes": {
+    "1": 12261,
+    "2": 24917
+   },
+   "writeIn": 16
+  },
+  "sldu-17": {
+   "reporting": 76,
+   "precincts": 76,
+   "total": 42300,
+   "votes": {
+    "1": 13859,
+    "2": 28402
+   },
+   "writeIn": 39
+  },
+  "sldu-18": {
+   "reporting": 53,
+   "precincts": 53,
+   "total": 37053,
+   "votes": {
+    "1": 22003,
+    "2": 15021
+   },
+   "writeIn": 29
+  },
+  "sldu-19": {
+   "reporting": 53,
+   "precincts": 53,
+   "total": 37563,
+   "votes": {
+    "1": 14924,
+    "2": 22608
+   },
+   "writeIn": 31
+  },
+  "sldu-20": {
+   "reporting": 91,
+   "precincts": 91,
+   "total": 43336,
+   "votes": {
+    "1": 18430,
+    "2": 24874
+   },
+   "writeIn": 32
+  },
+  "sldu-21": {
+   "reporting": 209,
+   "precincts": 209,
+   "total": 34278,
+   "votes": {
+    "1": 11257,
+    "2": 23002
+   },
+   "writeIn": 19
+  },
+  "sldu-22": {
+   "reporting": 110,
+   "precincts": 110,
+   "total": 39845,
+   "votes": {
+    "1": 13863,
+    "2": 25947
+   },
+   "writeIn": 35
+  },
+  "sldu-23": {
+   "reporting": 113,
+   "precincts": 113,
+   "total": 35803,
+   "votes": {
+    "1": 16090,
+    "2": 19684
+   },
+   "writeIn": 29
+  },
+  "sldu-24": {
+   "reporting": 63,
+   "precincts": 63,
+   "total": 41527,
+   "votes": {
+    "1": 21082,
+    "2": 20403
+   },
+   "writeIn": 42
+  },
+  "sldu-25": {
+   "reporting": 56,
+   "precincts": 56,
+   "total": 39577,
+   "votes": {
+    "1": 26126,
+    "2": 13418
+   },
+   "writeIn": 33
+  },
+  "sldu-26": {
+   "reporting": 108,
+   "precincts": 108,
+   "total": 40165,
+   "votes": {
+    "1": 19509,
+    "2": 20630
+   },
+   "writeIn": 26
+  },
+  "sldu-27": {
+   "reporting": 32,
+   "precincts": 32,
+   "total": 41235,
+   "votes": {
+    "1": 12619,
+    "2": 28596
+   },
+   "writeIn": 20
+  },
+  "sldu-28": {
+   "reporting": 36,
+   "precincts": 36,
+   "total": 43312,
+   "votes": {
+    "1": 15149,
+    "2": 28084
+   },
+   "writeIn": 79
+  },
+  "sldu-29": {
+   "reporting": 37,
+   "precincts": 37,
+   "total": 43304,
+   "votes": {
+    "1": 15836,
+    "2": 27444
+   },
+   "writeIn": 24
+  },
+  "sldu-30": {
+   "reporting": 25,
+   "precincts": 25,
+   "total": 47296,
+   "votes": {
+    "1": 18743,
+    "2": 28534
+   },
+   "writeIn": 19
+  },
+  "sldu-31": {
+   "reporting": 28,
+   "precincts": 28,
+   "total": 45496,
+   "votes": {
+    "1": 17640,
+    "2": 27808
+   },
+   "writeIn": 48
+  },
+  "sldu-32": {
+   "reporting": 32,
+   "precincts": 32,
+   "total": 44776,
+   "votes": {
+    "1": 23761,
+    "2": 20978
+   },
+   "writeIn": 37
+  },
+  "sldu-33": {
+   "reporting": 27,
+   "precincts": 27,
+   "total": 47951,
+   "votes": {
+    "1": 23935,
+    "2": 23977
+   },
+   "writeIn": 39
+  },
+  "sldu-34": {
+   "reporting": 25,
+   "precincts": 25,
+   "total": 46961,
+   "votes": {
+    "1": 29217,
+    "2": 17704
+   },
+   "writeIn": 40
+  },
+  "sldu-35": {
+   "reporting": 30,
+   "precincts": 30,
+   "total": 39569,
+   "votes": {
+    "1": 21268,
+    "2": 18248
+   },
+   "writeIn": 53
+  },
+  "sldu-36": {
+   "reporting": 29,
+   "precincts": 29,
+   "total": 48219,
+   "votes": {
+    "1": 27492,
+    "2": 20698
+   },
+   "writeIn": 29
+  },
+  "sldu-37": {
+   "reporting": 23,
+   "precincts": 23,
+   "total": 51568,
+   "votes": {
+    "1": 27849,
+    "2": 23667
+   },
+   "writeIn": 52
+  },
+  "sldu-38": {
+   "reporting": 21,
+   "precincts": 21,
+   "total": 27592,
+   "votes": {
+    "1": 21015,
+    "2": 6511
+   },
+   "writeIn": 66
+  },
+  "sldu-39": {
+   "reporting": 30,
+   "precincts": 30,
+   "total": 36942,
+   "votes": {
+    "1": 26141,
+    "2": 9757,
+    "3": 1023
+   },
+   "writeIn": 21
+  },
+  "sldu-40": {
+   "reporting": 26,
+   "precincts": 26,
+   "total": 45371,
+   "votes": {
+    "1": 31233,
+    "2": 14092
+   },
+   "writeIn": 46
+  },
+  "sldu-41": {
+   "reporting": 32,
+   "precincts": 32,
+   "total": 48773,
+   "votes": {
+    "1": 25547,
+    "2": 23184
+   },
+   "writeIn": 42
+  },
+  "sldu-42": {
+   "reporting": 22,
+   "precincts": 22,
+   "total": 44745,
+   "votes": {
+    "1": 28366,
+    "2": 16343
+   },
+   "writeIn": 36
+  },
+  "sldu-43": {
+   "reporting": 26,
+   "precincts": 26,
+   "total": 35010,
+   "votes": {
+    "1": 34034
+   },
+   "writeIn": 976
+  },
+  "sldu-44": {
+   "reporting": 27,
+   "precincts": 27,
+   "total": 37479,
+   "votes": {
+    "1": 24793,
+    "2": 12603
+   },
+   "writeIn": 83
+  },
+  "sldu-45": {
+   "reporting": 38,
+   "precincts": 38,
+   "total": 51368,
+   "votes": {
+    "1": 29279,
+    "2": 22059
+   },
+   "writeIn": 30
+  },
+  "sldu-46": {
+   "reporting": 22,
+   "precincts": 22,
+   "total": 46477,
+   "votes": {
+    "1": 35832,
+    "2": 10522
+   },
+   "writeIn": 123
+  },
+  "sldu-47": {
+   "reporting": 19,
+   "precincts": 19,
+   "total": 45440,
+   "votes": {
+    "1": 29076,
+    "2": 16330
+   },
+   "writeIn": 34
+  },
+  "sldu-48": {
+   "reporting": 27,
+   "precincts": 27,
+   "total": 49299,
+   "votes": {
+    "1": 24141,
+    "2": 25122
+   },
+   "writeIn": 36
+  },
+  "sldu-49": {
+   "reporting": 29,
+   "precincts": 29,
+   "total": 46951,
+   "votes": {
+    "1": 29406,
+    "2": 15528,
+    "3": 2003
+   },
+   "writeIn": 14
+  },
+  "sldu-50": {
+   "reporting": 28,
+   "precincts": 28,
+   "total": 49002,
+   "votes": {
+    "1": 33770,
+    "2": 15185
+   },
+   "writeIn": 47
+  },
+  "sldu-51": {
+   "reporting": 25,
+   "precincts": 25,
+   "total": 39883,
+   "votes": {
+    "1": 29588,
+    "2": 10220
+   },
+   "writeIn": 75
+  },
+  "sldu-52": {
+   "reporting": 25,
+   "precincts": 25,
+   "total": 45211,
+   "votes": {
+    "1": 30349,
+    "2": 14837
+   },
+   "writeIn": 25
+  },
+  "sldu-53": {
+   "reporting": 30,
+   "precincts": 30,
+   "total": 42523,
+   "votes": {
+    "1": 26272,
+    "2": 16219
+   },
+   "writeIn": 32
+  },
+  "sldu-54": {
+   "reporting": 33,
+   "precincts": 33,
+   "total": 44248,
+   "votes": {
+    "1": 22360,
+    "2": 21848
+   },
+   "writeIn": 40
+  },
+  "sldu-55": {
+   "reporting": 23,
+   "precincts": 23,
+   "total": 39795,
+   "votes": {
+    "1": 24856,
+    "2": 14910
+   },
+   "writeIn": 29
+  },
+  "sldu-56": {
+   "reporting": 24,
+   "precincts": 24,
+   "total": 45187,
+   "votes": {
+    "1": 28435,
+    "2": 16709
+   },
+   "writeIn": 43
+  },
+  "sldu-57": {
+   "reporting": 23,
+   "precincts": 23,
+   "total": 48616,
+   "votes": {
+    "1": 22325,
+    "2": 26262
+   },
+   "writeIn": 29
+  },
+  "sldu-58": {
+   "reporting": 46,
+   "precincts": 46,
+   "total": 45150,
+   "votes": {
+    "1": 22889,
+    "2": 22226
+   },
+   "writeIn": 35
+  },
+  "sldu-59": {
+   "reporting": 24,
+   "precincts": 24,
+   "total": 29478,
+   "votes": {
+    "1": 28994
+   },
+   "writeIn": 484
+  },
+  "sldu-60": {
+   "reporting": 25,
+   "precincts": 25,
+   "total": 36860,
+   "votes": {
+    "1": 33261,
+    "2": 3550
+   },
+   "writeIn": 49
+  },
+  "sldu-61": {
+   "reporting": 29,
+   "precincts": 29,
+   "total": 44077,
+   "votes": {
+    "1": 43594
+   },
+   "writeIn": 483
+  },
+  "sldu-62": {
+   "reporting": 26,
+   "precincts": 26,
+   "total": 30559,
+   "votes": {
+    "1": 29733
+   },
+   "writeIn": 826
+  },
+  "sldu-63": {
+   "reporting": 31,
+   "precincts": 31,
+   "total": 50918,
+   "votes": {
+    "1": 44769,
+    "2": 6023
+   },
+   "writeIn": 126
+  },
+  "sldu-64": {
+   "reporting": 24,
+   "precincts": 24,
+   "total": 48353,
+   "votes": {
+    "1": 41957,
+    "2": 6339
+   },
+   "writeIn": 57
+  },
+  "sldu-65": {
+   "reporting": 24,
+   "precincts": 24,
+   "total": 30918,
+   "votes": {
+    "1": 26470,
+    "2": 4303
+   },
+   "writeIn": 145
+  },
+  "sldu-66": {
+   "reporting": 24,
+   "precincts": 24,
+   "total": 35273,
+   "votes": {
+    "1": 29868,
+    "2": 5342
+   },
+   "writeIn": 63
+  },
+  "sldu-67": {
+   "reporting": 23,
+   "precincts": 23,
+   "total": 23739,
+   "votes": {
+    "1": 19293,
+    "2": 4402
+   },
+   "writeIn": 44
+  },
+  "sldl-1a": {
+   "reporting": 174,
+   "precincts": 174,
+   "total": 18437,
+   "votes": {
+    "1": 5205,
+    "2": 13223
+   },
+   "writeIn": 9
+  },
+  "sldl-1b": {
+   "reporting": 141,
+   "precincts": 141,
+   "total": 16817,
+   "votes": {
+    "1": 5716,
+    "2": 11092
+   },
+   "writeIn": 9
+  },
+  "sldl-2a": {
+   "reporting": 64,
+   "precincts": 64,
+   "total": 18051,
+   "votes": {
+    "1": 8882,
+    "2": 9120
+   },
+   "writeIn": 49
+  },
+  "sldl-2b": {
+   "reporting": 125,
+   "precincts": 125,
+   "total": 19641,
+   "votes": {
+    "1": 7621,
+    "2": 12008
+   },
+   "writeIn": 12
+  },
+  "sldl-3a": {
+   "reporting": 102,
+   "precincts": 102,
+   "total": 22622,
+   "votes": {
+    "1": 10888,
+    "2": 11715
+   },
+   "writeIn": 19
+  },
+  "sldl-3b": {
+   "reporting": 30,
+   "precincts": 30,
+   "total": 23132,
+   "votes": {
+    "1": 12262,
+    "2": 10851
+   },
+   "writeIn": 19
+  },
+  "sldl-4a": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 16208,
+   "votes": {
+    "1": 10761,
+    "2": 5414
+   },
+   "writeIn": 33
+  },
+  "sldl-4b": {
+   "reporting": 55,
+   "precincts": 55,
+   "total": 19725,
+   "votes": {
+    "1": 7365,
+    "2": 12350
+   },
+   "writeIn": 10
+  },
+  "sldl-5a": {
+   "reporting": 78,
+   "precincts": 78,
+   "total": 23006,
+   "votes": {
+    "1": 7082,
+    "2": 15910
+   },
+   "writeIn": 14
+  },
+  "sldl-5b": {
+   "reporting": 65,
+   "precincts": 65,
+   "total": 19499,
+   "votes": {
+    "1": 5041,
+    "2": 14453
+   },
+   "writeIn": 5
+  },
+  "sldl-6a": {
+   "reporting": 55,
+   "precincts": 55,
+   "total": 23194,
+   "votes": {
+    "1": 8780,
+    "2": 14401
+   },
+   "writeIn": 13
+  },
+  "sldl-6b": {
+   "reporting": 25,
+   "precincts": 25,
+   "total": 21019,
+   "votes": {
+    "1": 8220,
+    "2": 12785
+   },
+   "writeIn": 14
+  },
+  "sldl-7a": {
+   "reporting": 70,
+   "precincts": 70,
+   "total": 19691,
+   "votes": {
+    "1": 8401,
+    "2": 11281
+   },
+   "writeIn": 9
+  },
+  "sldl-7b": {
+   "reporting": 57,
+   "precincts": 57,
+   "total": 20250,
+   "votes": {
+    "1": 9373,
+    "2": 10866
+   },
+   "writeIn": 11
+  },
+  "sldl-8b": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 22570,
+   "votes": {
+    "1": 5449,
+    "2": 17100
+   },
+   "writeIn": 21
+  },
+  "sldl-9a": {
+   "reporting": 106,
+   "precincts": 106,
+   "total": 19304,
+   "votes": {
+    "1": 6884,
+    "2": 12404
+   },
+   "writeIn": 16
+  },
+  "sldl-9b": {
+   "reporting": 77,
+   "precincts": 77,
+   "total": 23772,
+   "votes": {
+    "1": 7380,
+    "2": 16375
+   },
+   "writeIn": 17
+  },
+  "sldl-10a": {
+   "reporting": 73,
+   "precincts": 73,
+   "total": 21213,
+   "votes": {
+    "1": 6719,
+    "2": 14462
+   },
+   "writeIn": 32
+  },
+  "sldl-10b": {
+   "reporting": 50,
+   "precincts": 50,
+   "total": 21019,
+   "votes": {
+    "1": 4725,
+    "2": 16285
+   },
+   "writeIn": 9
+  },
+  "sldl-11a": {
+   "reporting": 57,
+   "precincts": 57,
+   "total": 20520,
+   "votes": {
+    "1": 11403,
+    "2": 9093
+   },
+   "writeIn": 24
+  },
+  "sldl-11b": {
+   "reporting": 49,
+   "precincts": 49,
+   "total": 19592,
+   "votes": {
+    "1": 6385,
+    "2": 13193
+   },
+   "writeIn": 14
+  },
+  "sldl-12a": {
+   "reporting": 125,
+   "precincts": 125,
+   "total": 20089,
+   "votes": {
+    "1": 5679,
+    "2": 14398
+   },
+   "writeIn": 12
+  },
+  "sldl-12b": {
+   "reporting": 32,
+   "precincts": 32,
+   "total": 21584,
+   "votes": {
+    "1": 6919,
+    "2": 14647
+   },
+   "writeIn": 18
+  },
+  "sldl-13a": {
+   "reporting": 27,
+   "precincts": 27,
+   "total": 22656,
+   "votes": {
+    "1": 6423,
+    "2": 16222
+   },
+   "writeIn": 11
+  },
+  "sldl-13b": {
+   "reporting": 22,
+   "precincts": 22,
+   "total": 20320,
+   "votes": {
+    "1": 7946,
+    "2": 12365
+   },
+   "writeIn": 9
+  },
+  "sldl-15b": {
+   "reporting": 77,
+   "precincts": 77,
+   "total": 18832,
+   "votes": {
+    "1": 6421,
+    "2": 12401
+   },
+   "writeIn": 10
+  },
+  "sldl-16a": {
+   "reporting": 86,
+   "precincts": 86,
+   "total": 18340,
+   "votes": {
+    "1": 5699,
+    "2": 12625
+   },
+   "writeIn": 16
+  },
+  "sldl-17a": {
+   "reporting": 36,
+   "precincts": 36,
+   "total": 20058,
+   "votes": {
+    "1": 6123,
+    "2": 13917
+   },
+   "writeIn": 18
+  },
+  "sldl-17b": {
+   "reporting": 40,
+   "precincts": 40,
+   "total": 22097,
+   "votes": {
+    "1": 7299,
+    "2": 14783
+   },
+   "writeIn": 15
+  },
+  "sldl-18a": {
+   "reporting": 35,
+   "precincts": 35,
+   "total": 20606,
+   "votes": {
+    "1": 10827,
+    "2": 9759
+   },
+   "writeIn": 20
+  },
+  "sldl-18b": {
+   "reporting": 18,
+   "precincts": 18,
+   "total": 12611,
+   "votes": {
+    "1": 12114
+   },
+   "writeIn": 497
+  },
+  "sldl-19a": {
+   "reporting": 26,
+   "precincts": 26,
+   "total": 18144,
+   "votes": {
+    "1": 7313,
+    "2": 10812
+   },
+   "writeIn": 19
+  },
+  "sldl-20a": {
+   "reporting": 40,
+   "precincts": 40,
+   "total": 21598,
+   "votes": {
+    "1": 9962,
+    "2": 11622
+   },
+   "writeIn": 14
+  },
+  "sldl-20b": {
+   "reporting": 51,
+   "precincts": 51,
+   "total": 21630,
+   "votes": {
+    "1": 8083,
+    "2": 13529
+   },
+   "writeIn": 18
+  },
+  "sldl-21a": {
+   "reporting": 126,
+   "precincts": 126,
+   "total": 19053,
+   "votes": {
+    "1": 13384,
+    "2": 5661
+   },
+   "writeIn": 8
+  },
+  "sldl-21b": {
+   "reporting": 83,
+   "precincts": 83,
+   "total": 15247,
+   "votes": {
+    "1": 5887,
+    "2": 9353
+   },
+   "writeIn": 7
+  },
+  "sldl-22a": {
+   "reporting": 75,
+   "precincts": 75,
+   "total": 18563,
+   "votes": {
+    "1": 6099,
+    "2": 12450
+   },
+   "writeIn": 14
+  },
+  "sldl-22b": {
+   "reporting": 35,
+   "precincts": 35,
+   "total": 21237,
+   "votes": {
+    "1": 7117,
+    "2": 14097
+   },
+   "writeIn": 23
+  },
+  "sldl-23a": {
+   "reporting": 70,
+   "precincts": 70,
+   "total": 18971,
+   "votes": {
+    "1": 7914,
+    "2": 11034
+   },
+   "writeIn": 23
+  },
+  "sldl-23b": {
+   "reporting": 43,
+   "precincts": 43,
+   "total": 16714,
+   "votes": {
+    "1": 7960,
+    "2": 8742
+   },
+   "writeIn": 12
+  },
+  "sldl-24a": {
+   "reporting": 34,
+   "precincts": 34,
+   "total": 21045,
+   "votes": {
+    "1": 8754,
+    "2": 12280
+   },
+   "writeIn": 11
+  },
+  "sldl-24b": {
+   "reporting": 29,
+   "precincts": 29,
+   "total": 20373,
+   "votes": {
+    "1": 12849,
+    "2": 7501
+   },
+   "writeIn": 23
+  },
+  "sldl-25a": {
+   "reporting": 28,
+   "precincts": 28,
+   "total": 21358,
+   "votes": {
+    "1": 13103,
+    "2": 8243
+   },
+   "writeIn": 12
+  },
+  "sldl-25b": {
+   "reporting": 28,
+   "precincts": 28,
+   "total": 18049,
+   "votes": {
+    "1": 12676,
+    "2": 5338
+   },
+   "writeIn": 35
+  },
+  "sldl-27a": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 20756,
+   "votes": {
+    "1": 6658,
+    "2": 14084
+   },
+   "writeIn": 14
+  },
+  "sldl-27b": {
+   "reporting": 18,
+   "precincts": 18,
+   "total": 20410,
+   "votes": {
+    "1": 5998,
+    "2": 14400
+   },
+   "writeIn": 12
+  },
+  "sldl-28a": {
+   "reporting": 17,
+   "precincts": 17,
+   "total": 21300,
+   "votes": {
+    "1": 7699,
+    "2": 13570
+   },
+   "writeIn": 31
+  },
+  "sldl-28b": {
+   "reporting": 19,
+   "precincts": 19,
+   "total": 22118,
+   "votes": {
+    "1": 8223,
+    "2": 13883
+   },
+   "writeIn": 12
+  },
+  "sldl-29a": {
+   "reporting": 23,
+   "precincts": 23,
+   "total": 23091,
+   "votes": {
+    "1": 7493,
+    "2": 15580
+   },
+   "writeIn": 18
+  },
+  "sldl-29b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 20099,
+   "votes": {
+    "1": 7708,
+    "2": 12377
+   },
+   "writeIn": 14
+  },
+  "sldl-30a": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 24169,
+   "votes": {
+    "1": 9864,
+    "2": 14292
+   },
+   "writeIn": 13
+  },
+  "sldl-30b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 22699,
+   "votes": {
+    "1": 8732,
+    "2": 13959
+   },
+   "writeIn": 8
+  },
+  "sldl-31a": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 22335,
+   "votes": {
+    "1": 10014,
+    "2": 12303
+   },
+   "writeIn": 18
+  },
+  "sldl-31b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 23166,
+   "votes": {
+    "1": 7909,
+    "2": 15238
+   },
+   "writeIn": 19
+  },
+  "sldl-32a": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 23666,
+   "votes": {
+    "1": 11811,
+    "2": 11833
+   },
+   "writeIn": 22
+  },
+  "sldl-32b": {
+   "reporting": 17,
+   "precincts": 17,
+   "total": 21011,
+   "votes": {
+    "1": 12026,
+    "2": 8966
+   },
+   "writeIn": 19
+  },
+  "sldl-33a": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 23751,
+   "votes": {
+    "1": 11180,
+    "2": 12558
+   },
+   "writeIn": 13
+  },
+  "sldl-33b": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 23954,
+   "votes": {
+    "1": 13289,
+    "2": 10634
+   },
+   "writeIn": 31
+  },
+  "sldl-34a": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 26752,
+   "votes": {
+    "1": 13897,
+    "2": 12836
+   },
+   "writeIn": 19
+  },
+  "sldl-34b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 20006,
+   "votes": {
+    "1": 13531,
+    "2": 6450
+   },
+   "writeIn": 25
+  },
+  "sldl-35a": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 19720,
+   "votes": {
+    "1": 11042,
+    "2": 8655
+   },
+   "writeIn": 23
+  },
+  "sldl-35b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 19743,
+   "votes": {
+    "1": 11021,
+    "2": 8702
+   },
+   "writeIn": 20
+  },
+  "sldl-36a": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 25212,
+   "votes": {
+    "1": 13189,
+    "2": 12002
+   },
+   "writeIn": 21
+  },
+  "sldl-36b": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 22813,
+   "votes": {
+    "1": 13267,
+    "2": 9521
+   },
+   "writeIn": 25
+  },
+  "sldl-37a": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 26558,
+   "votes": {
+    "1": 12728,
+    "2": 13808
+   },
+   "writeIn": 22
+  },
+  "sldl-37b": {
+   "reporting": 10,
+   "precincts": 10,
+   "total": 24700,
+   "votes": {
+    "1": 15055,
+    "2": 9620
+   },
+   "writeIn": 25
+  },
+  "sldl-38b": {
+   "reporting": 9,
+   "precincts": 9,
+   "total": 13643,
+   "votes": {
+    "1": 10794,
+    "2": 2820
+   },
+   "writeIn": 29
+  },
+  "sldl-39a": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 17286,
+   "votes": {
+    "1": 12074,
+    "2": 5183
+   },
+   "writeIn": 29
+  },
+  "sldl-40a": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 21942,
+   "votes": {
+    "1": 14328,
+    "2": 7597
+   },
+   "writeIn": 17
+  },
+  "sldl-40b": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 23041,
+   "votes": {
+    "1": 16640,
+    "2": 6379
+   },
+   "writeIn": 22
+  },
+  "sldl-41a": {
+   "reporting": 17,
+   "precincts": 17,
+   "total": 27492,
+   "votes": {
+    "1": 14869,
+    "2": 12611
+   },
+   "writeIn": 12
+  },
+  "sldl-41b": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 21052,
+   "votes": {
+    "1": 11363,
+    "2": 9656
+   },
+   "writeIn": 33
+  },
+  "sldl-42a": {
+   "reporting": 10,
+   "precincts": 10,
+   "total": 22593,
+   "votes": {
+    "1": 14054,
+    "2": 8529
+   },
+   "writeIn": 10
+  },
+  "sldl-42b": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 17093,
+   "votes": {
+    "1": 16239
+   },
+   "writeIn": 854
+  },
+  "sldl-43a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 19153,
+   "votes": {
+    "1": 13666,
+    "2": 5456
+   },
+   "writeIn": 31
+  },
+  "sldl-43b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 19283,
+   "votes": {
+    "1": 18834
+   },
+   "writeIn": 449
+  },
+  "sldl-44a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 17483,
+   "votes": {
+    "1": 12235,
+    "2": 5229
+   },
+   "writeIn": 19
+  },
+  "sldl-44b": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 18923,
+   "votes": {
+    "1": 12603,
+    "2": 6251
+   },
+   "writeIn": 69
+  },
+  "sldl-45a": {
+   "reporting": 20,
+   "precincts": 20,
+   "total": 25864,
+   "votes": {
+    "1": 12304,
+    "2": 13546
+   },
+   "writeIn": 14
+  },
+  "sldl-45b": {
+   "reporting": 18,
+   "precincts": 18,
+   "total": 25581,
+   "votes": {
+    "1": 16611,
+    "2": 8950
+   },
+   "writeIn": 20
+  },
+  "sldl-46a": {
+   "reporting": 10,
+   "precincts": 10,
+   "total": 23142,
+   "votes": {
+    "1": 18893,
+    "2": 4224
+   },
+   "writeIn": 25
+  },
+  "sldl-46b": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 23184,
+   "votes": {
+    "1": 16896,
+    "2": 6264
+   },
+   "writeIn": 24
+  },
+  "sldl-47a": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 15865,
+   "votes": {
+    "1": 15179
+   },
+   "writeIn": 686
+  },
+  "sldl-47b": {
+   "reporting": 8,
+   "precincts": 8,
+   "total": 23330,
+   "votes": {
+    "1": 14362,
+    "2": 8903
+   },
+   "writeIn": 65
+  },
+  "sldl-48a": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 25974,
+   "votes": {
+    "1": 11610,
+    "2": 14343
+   },
+   "writeIn": 21
+  },
+  "sldl-48b": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 23054,
+   "votes": {
+    "1": 12655,
+    "2": 10386
+   },
+   "writeIn": 13
+  },
+  "sldl-49a": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 24568,
+   "votes": {
+    "1": 16254,
+    "2": 8297
+   },
+   "writeIn": 17
+  },
+  "sldl-49b": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 22155,
+   "votes": {
+    "1": 13844,
+    "2": 8297
+   },
+   "writeIn": 14
+  },
+  "sldl-50a": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 24395,
+   "votes": {
+    "1": 17025,
+    "2": 7354
+   },
+   "writeIn": 16
+  },
+  "sldl-50b": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 18609,
+   "votes": {
+    "1": 17829
+   },
+   "writeIn": 780
+  },
+  "sldl-51a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 19992,
+   "votes": {
+    "1": 15841,
+    "2": 4117
+   },
+   "writeIn": 34
+  },
+  "sldl-51b": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 19808,
+   "votes": {
+    "1": 13883,
+    "2": 5899
+   },
+   "writeIn": 26
+  },
+  "sldl-52a": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 20726,
+   "votes": {
+    "1": 14208,
+    "2": 6503
+   },
+   "writeIn": 15
+  },
+  "sldl-52b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 24267,
+   "votes": {
+    "1": 15899,
+    "2": 8354
+   },
+   "writeIn": 14
+  },
+  "sldl-53a": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 22588,
+   "votes": {
+    "1": 14233,
+    "2": 8338
+   },
+   "writeIn": 17
+  },
+  "sldl-53b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 19771,
+   "votes": {
+    "1": 12683,
+    "2": 7068
+   },
+   "writeIn": 20
+  },
+  "sldl-54a": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 20910,
+   "votes": {
+    "1": 11938,
+    "2": 8937
+   },
+   "writeIn": 35
+  },
+  "sldl-54b": {
+   "reporting": 18,
+   "precincts": 18,
+   "total": 23292,
+   "votes": {
+    "1": 10307,
+    "2": 12972
+   },
+   "writeIn": 13
+  },
+  "sldl-55a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 21042,
+   "votes": {
+    "1": 12189,
+    "2": 8833
+   },
+   "writeIn": 20
+  },
+  "sldl-55b": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 18668,
+   "votes": {
+    "1": 12388,
+    "2": 6271
+   },
+   "writeIn": 9
+  },
+  "sldl-56a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 20697,
+   "votes": {
+    "1": 13895,
+    "2": 6784
+   },
+   "writeIn": 18
+  },
+  "sldl-56b": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 24431,
+   "votes": {
+    "1": 14839,
+    "2": 9578
+   },
+   "writeIn": 14
+  },
+  "sldl-57a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 23805,
+   "votes": {
+    "1": 9927,
+    "2": 13867
+   },
+   "writeIn": 11
+  },
+  "sldl-57b": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 24648,
+   "votes": {
+    "1": 13284,
+    "2": 11343
+   },
+   "writeIn": 21
+  },
+  "sldl-58a": {
+   "reporting": 17,
+   "precincts": 17,
+   "total": 22354,
+   "votes": {
+    "1": 12523,
+    "2": 9809
+   },
+   "writeIn": 22
+  },
+  "sldl-58b": {
+   "reporting": 29,
+   "precincts": 29,
+   "total": 22514,
+   "votes": {
+    "1": 10043,
+    "2": 12454
+   },
+   "writeIn": 17
+  },
+  "sldl-59a": {
+   "reporting": 10,
+   "precincts": 10,
+   "total": 11726,
+   "votes": {
+    "1": 11487
+   },
+   "writeIn": 239
+  },
+  "sldl-59b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 19314,
+   "votes": {
+    "1": 16831,
+    "2": 2446
+   },
+   "writeIn": 37
+  },
+  "sldl-60a": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 23143,
+   "votes": {
+    "1": 20646,
+    "2": 2465
+   },
+   "writeIn": 32
+  },
+  "sldl-60b": {
+   "reporting": 10,
+   "precincts": 10,
+   "total": 12486,
+   "votes": {
+    "1": 12319
+   },
+   "writeIn": 167
+  },
+  "sldl-61a": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 19725,
+   "votes": {
+    "1": 19479
+   },
+   "writeIn": 246
+  },
+  "sldl-61b": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 23839,
+   "votes": {
+    "1": 23609
+   },
+   "writeIn": 230
+  },
+  "sldl-62a": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 14252,
+   "votes": {
+    "1": 14047
+   },
+   "writeIn": 205
+  },
+  "sldl-62b": {
+   "reporting": 13,
+   "precincts": 13,
+   "total": 16896,
+   "votes": {
+    "1": 15408,
+    "2": 1422
+   },
+   "writeIn": 66
+  },
+  "sldl-63a": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 24538,
+   "votes": {
+    "1": 22580,
+    "2": 1925
+   },
+   "writeIn": 33
+  },
+  "sldl-63b": {
+   "reporting": 16,
+   "precincts": 16,
+   "total": 26202,
+   "votes": {
+    "1": 23248,
+    "2": 2928
+   },
+   "writeIn": 26
+  },
+  "sldl-64a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 19847,
+   "votes": {
+    "1": 19567
+   },
+   "writeIn": 280
+  },
+  "sldl-64b": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 21363,
+   "votes": {
+    "1": 20940
+   },
+   "writeIn": 423
+  },
+  "sldl-65a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 10685,
+   "votes": {
+    "1": 10363
+   },
+   "writeIn": 322
+  },
+  "sldl-65b": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 15410,
+   "votes": {
+    "1": 15064
+   },
+   "writeIn": 346
+  },
+  "sldl-66a": {
+   "reporting": 15,
+   "precincts": 15,
+   "total": 21929,
+   "votes": {
+    "1": 18711,
+    "2": 3172
+   },
+   "writeIn": 46
+  },
+  "sldl-66b": {
+   "reporting": 9,
+   "precincts": 9,
+   "total": 13159,
+   "votes": {
+    "1": 10962,
+    "2": 2173
+   },
+   "writeIn": 24
+  },
+  "sldl-67a": {
+   "reporting": 11,
+   "precincts": 11,
+   "total": 10918,
+   "votes": {
+    "1": 8825,
+    "2": 2070
+   },
+   "writeIn": 23
+  },
+  "sldl-67b": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 10726,
+   "votes": {
+    "1": 10439
+   },
+   "writeIn": 287
+  },
+  "associate-justice-of-the-supreme-court-seat-1": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 1657289,
+   "votes": {
+    "1": 1639648
+   },
+   "writeIn": 17641
+  },
+  "associate-justice-of-the-supreme-court-seat-4": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 1637062,
+   "votes": {
+    "1": 1620664
+   },
+   "writeIn": 16398
+  },
+  "judge-of-the-court-of-appeals-seat-1": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 1615743,
+   "votes": {
+    "1": 1600248
+   },
+   "writeIn": 15495
+  },
+  "judge-of-the-court-of-appeals-seat-7": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 1601012,
+   "votes": {
+    "1": 1585712
+   },
+   "writeIn": 15300
+  },
+  "judge-of-the-court-of-appeals-seat-13": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 1594440,
+   "votes": {
+    "1": 1579417
+   },
+   "writeIn": 15023
+  },
+  "judge-of-the-court-of-appeals-seat-15": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 1590548,
+   "votes": {
+    "1": 1575938
+   },
+   "writeIn": 14610
+  },
+  "judge-of-the-court-of-appeals-seat-18": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 1580494,
+   "votes": {
+    "1": 1565017
+   },
+   "writeIn": 15477
+  },
+  "district-court-1-seat-1": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 241873,
+   "votes": {
+    "1": 239701
+   },
+   "writeIn": 2172
+  },
+  "district-court-1-seat-2": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 240880,
+   "votes": {
+    "1": 238733
+   },
+   "writeIn": 2147
+  },
+  "district-court-1-seat-3": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 239873,
+   "votes": {
+    "1": 237636
+   },
+   "writeIn": 2237
+  },
+  "district-court-1-seat-4": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 240536,
+   "votes": {
+    "1": 238378
+   },
+   "writeIn": 2158
+  },
+  "district-court-1-seat-6": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 240570,
+   "votes": {
+    "1": 238400
+   },
+   "writeIn": 2170
+  },
+  "district-court-1-seat-7": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 239969,
+   "votes": {
+    "1": 237802
+   },
+   "writeIn": 2167
+  },
+  "district-court-1-seat-9": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 239731,
+   "votes": {
+    "1": 237504
+   },
+   "writeIn": 2227
+  },
+  "district-court-1-seat-12": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 239356,
+   "votes": {
+    "1": 237225
+   },
+   "writeIn": 2131
+  },
+  "district-court-1-seat-15": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 239612,
+   "votes": {
+    "1": 237458
+   },
+   "writeIn": 2154
+  },
+  "district-court-1-seat-16": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 239019,
+   "votes": {
+    "1": 236817
+   },
+   "writeIn": 2202
+  },
+  "district-court-1-seat-18": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 238070,
+   "votes": {
+    "1": 235947
+   },
+   "writeIn": 2123
+  },
+  "district-court-1-seat-27": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 239298,
+   "votes": {
+    "1": 237089
+   },
+   "writeIn": 2209
+  },
+  "district-court-1-seat-34": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 238387,
+   "votes": {
+    "1": 236254
+   },
+   "writeIn": 2133
+  },
+  "district-court-1-seat-36": {
+   "reporting": 357,
+   "precincts": 357,
+   "total": 238656,
+   "votes": {
+    "1": 236496
+   },
+   "writeIn": 2160
+  },
+  "district-court-2-seat-1": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 124743,
+   "votes": {
+    "1": 123113
+   },
+   "writeIn": 1630
+  },
+  "district-court-2-seat-8": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 123714,
+   "votes": {
+    "1": 122206
+   },
+   "writeIn": 1508
+  },
+  "district-court-2-seat-13": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 122988,
+   "votes": {
+    "1": 121487
+   },
+   "writeIn": 1501
+  },
+  "district-court-2-seat-14": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 122672,
+   "votes": {
+    "1": 121157
+   },
+   "writeIn": 1515
+  },
+  "district-court-2-seat-15": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 123391,
+   "votes": {
+    "1": 121896
+   },
+   "writeIn": 1495
+  },
+  "district-court-2-seat-24": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 121958,
+   "votes": {
+    "1": 120372
+   },
+   "writeIn": 1586
+  },
+  "district-court-2-seat-26": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 124042,
+   "votes": {
+    "1": 122512
+   },
+   "writeIn": 1530
+  },
+  "district-court-2-seat-27": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 123447,
+   "votes": {
+    "1": 121984
+   },
+   "writeIn": 1463
+  },
+  "district-court-2-seat-28": {
+   "reporting": 162,
+   "precincts": 162,
+   "total": 123490,
+   "votes": {
+    "1": 122026
+   },
+   "writeIn": 1464
+  },
+  "district-court-3-seat-4": {
+   "reporting": 441,
+   "precincts": 441,
+   "total": 150683,
+   "votes": {
+    "1": 149546
+   },
+   "writeIn": 1137
+  },
+  "district-court-3-seat-6": {
+   "reporting": 441,
+   "precincts": 441,
+   "total": 150400,
+   "votes": {
+    "1": 149165
+   },
+   "writeIn": 1235
+  },
+  "district-court-3-seat-7": {
+   "reporting": 441,
+   "precincts": 441,
+   "total": 150028,
+   "votes": {
+    "1": 148871
+   },
+   "writeIn": 1157
+  },
+  "district-court-3-seat-15": {
+   "reporting": 441,
+   "precincts": 441,
+   "total": 150105,
+   "votes": {
+    "1": 148880
+   },
+   "writeIn": 1225
+  },
+  "district-court-3-seat-17": {
+   "reporting": 441,
+   "precincts": 441,
+   "total": 150029,
+   "votes": {
+    "1": 148884
+   },
+   "writeIn": 1145
+  },
+  "district-court-3-seat-22": {
+   "reporting": 441,
+   "precincts": 441,
+   "total": 150406,
+   "votes": {
+    "1": 149220
+   },
+   "writeIn": 1186
+  },
+  "district-court-4-seat-1": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 310319,
+   "votes": {
+    "1": 306245
+   },
+   "writeIn": 4074
+  },
+  "district-court-4-seat-5": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 308741,
+   "votes": {
+    "1": 304912
+   },
+   "writeIn": 3829
+  },
+  "district-court-4-seat-14": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 307338,
+   "votes": {
+    "1": 303458
+   },
+   "writeIn": 3880
+  },
+  "district-court-4-seat-16": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 308343,
+   "votes": {
+    "1": 304497
+   },
+   "writeIn": 3846
+  },
+  "district-court-4-seat-19": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 308103,
+   "votes": {
+    "1": 304306
+   },
+   "writeIn": 3797
+  },
+  "district-court-4-seat-20": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 306673,
+   "votes": {
+    "1": 302917
+   },
+   "writeIn": 3756
+  },
+  "district-court-4-seat-25": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 307675,
+   "votes": {
+    "1": 303935
+   },
+   "writeIn": 3740
+  },
+  "district-court-4-seat-27": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304920,
+   "votes": {
+    "1": 301143
+   },
+   "writeIn": 3777
+  },
+  "district-court-4-seat-28": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304367,
+   "votes": {
+    "1": 300645
+   },
+   "writeIn": 3722
+  },
+  "district-court-4-seat-29": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304369,
+   "votes": {
+    "1": 300603
+   },
+   "writeIn": 3766
+  },
+  "district-court-4-seat-30": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 306261,
+   "votes": {
+    "1": 302643
+   },
+   "writeIn": 3618
+  },
+  "district-court-4-seat-32": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 305369,
+   "votes": {
+    "1": 301538
+   },
+   "writeIn": 3831
+  },
+  "district-court-4-seat-35": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 305689,
+   "votes": {
+    "1": 301250
+   },
+   "writeIn": 4439
+  },
+  "district-court-4-seat-42": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 303334,
+   "votes": {
+    "1": 299556
+   },
+   "writeIn": 3778
+  },
+  "district-court-4-seat-43": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304661,
+   "votes": {
+    "1": 300966
+   },
+   "writeIn": 3695
+  },
+  "district-court-4-seat-47": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304482,
+   "votes": {
+    "1": 300807
+   },
+   "writeIn": 3675
+  },
+  "district-court-4-seat-54": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304715,
+   "votes": {
+    "1": 301060
+   },
+   "writeIn": 3655
+  },
+  "district-court-4-seat-56": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304472,
+   "votes": {
+    "1": 300738
+   },
+   "writeIn": 3734
+  },
+  "district-court-4-seat-57": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 304790,
+   "votes": {
+    "1": 301053
+   },
+   "writeIn": 3737
+  },
+  "district-court-4-seat-61": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 300233,
+   "votes": {
+    "1": 296500
+   },
+   "writeIn": 3733
+  },
+  "district-court-4-seat-63": {
+   "reporting": 395,
+   "precincts": 395,
+   "total": 303326,
+   "votes": {
+    "1": 299644
+   },
+   "writeIn": 3682
+  },
+  "district-court-5-seat-2": {
+   "reporting": 471,
+   "precincts": 471,
+   "total": 92355,
+   "votes": {
+    "1": 91792
+   },
+   "writeIn": 563
+  },
+  "district-court-5-seat-5": {
+   "reporting": 471,
+   "precincts": 471,
+   "total": 100399,
+   "votes": {
+    "1": 61724,
+    "2": 38379
+   },
+   "writeIn": 296
+  },
+  "district-court-5-seat-8": {
+   "reporting": 471,
+   "precincts": 471,
+   "total": 92202,
+   "votes": {
+    "1": 91659
+   },
+   "writeIn": 543
+  },
+  "district-court-5-seat-11": {
+   "reporting": 471,
+   "precincts": 471,
+   "total": 91817,
+   "votes": {
+    "1": 91218
+   },
+   "writeIn": 599
+  },
+  "district-court-5-seat-12": {
+   "reporting": 471,
+   "precincts": 471,
+   "total": 91986,
+   "votes": {
+    "1": 91446
+   },
+   "writeIn": 540
+  },
+  "district-court-5-seat-13": {
+   "reporting": 471,
+   "precincts": 471,
+   "total": 92433,
+   "votes": {
+    "1": 91880
+   },
+   "writeIn": 553
+  },
+  "district-court-5-seat-15": {
+   "reporting": 471,
+   "precincts": 471,
+   "total": 92135,
+   "votes": {
+    "1": 91581
+   },
+   "writeIn": 554
+  },
+  "district-court-6-seat-1": {
+   "reporting": 239,
+   "precincts": 239,
+   "total": 90935,
+   "votes": {
+    "1": 90177
+   },
+   "writeIn": 758
+  },
+  "district-court-6-seat-2": {
+   "reporting": 239,
+   "precincts": 239,
+   "total": 90611,
+   "votes": {
+    "1": 89858
+   },
+   "writeIn": 753
+  },
+  "district-court-6-seat-4": {
+   "reporting": 239,
+   "precincts": 239,
+   "total": 90945,
+   "votes": {
+    "1": 90247
+   },
+   "writeIn": 698
+  },
+  "district-court-6-seat-11": {
+   "reporting": 239,
+   "precincts": 239,
+   "total": 90526,
+   "votes": {
+    "1": 89791
+   },
+   "writeIn": 735
+  },
+  "district-court-6-seat-14": {
+   "reporting": 239,
+   "precincts": 239,
+   "total": 90830,
+   "votes": {
+    "1": 90073
+   },
+   "writeIn": 757
+  },
+  "district-court-7-seat-2": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 148064,
+   "votes": {
+    "1": 147105
+   },
+   "writeIn": 959
+  },
+  "district-court-7-seat-8": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 147903,
+   "votes": {
+    "1": 146970
+   },
+   "writeIn": 933
+  },
+  "district-court-7-seat-9": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 147533,
+   "votes": {
+    "1": 146577
+   },
+   "writeIn": 956
+  },
+  "district-court-7-seat-11": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 147758,
+   "votes": {
+    "1": 146825
+   },
+   "writeIn": 933
+  },
+  "district-court-7-seat-12": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 147458,
+   "votes": {
+    "1": 146526
+   },
+   "writeIn": 932
+  },
+  "district-court-7-seat-13": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 147770,
+   "votes": {
+    "1": 146813
+   },
+   "writeIn": 957
+  },
+  "district-court-7-seat-14": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 146951,
+   "votes": {
+    "1": 145974
+   },
+   "writeIn": 977
+  },
+  "district-court-7-seat-15": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 146964,
+   "votes": {
+    "1": 145980
+   },
+   "writeIn": 984
+  },
+  "district-court-7-seat-21": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 146940,
+   "votes": {
+    "1": 145988
+   },
+   "writeIn": 952
+  },
+  "district-court-7-seat-22": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 146895,
+   "votes": {
+    "1": 145856
+   },
+   "writeIn": 1039
+  },
+  "district-court-7-seat-24": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 146746,
+   "votes": {
+    "1": 145804
+   },
+   "writeIn": 942
+  },
+  "district-court-7-seat-26": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 146887,
+   "votes": {
+    "1": 145906
+   },
+   "writeIn": 981
+  },
+  "district-court-7-seat-27": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 146904,
+   "votes": {
+    "1": 145917
+   },
+   "writeIn": 987
+  },
+  "district-court-7-seat-28": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 147176,
+   "votes": {
+    "1": 146128
+   },
+   "writeIn": 1048
+  },
+  "district-court-7-seat-30": {
+   "reporting": 493,
+   "precincts": 493,
+   "total": 147064,
+   "votes": {
+    "1": 146100
+   },
+   "writeIn": 964
+  },
+  "district-court-8-seat-2": {
+   "reporting": 383,
+   "precincts": 383,
+   "total": 56734,
+   "votes": {
+    "1": 56401
+   },
+   "writeIn": 333
+  },
+  "district-court-8-seat-4": {
+   "reporting": 383,
+   "precincts": 383,
+   "total": 56537,
+   "votes": {
+    "1": 56208
+   },
+   "writeIn": 329
+  },
+  "district-court-8-seat-7": {
+   "reporting": 383,
+   "precincts": 383,
+   "total": 56540,
+   "votes": {
+    "1": 56242
+   },
+   "writeIn": 298
+  },
+  "district-court-8-seat-10": {
+   "reporting": 383,
+   "precincts": 383,
+   "total": 56469,
+   "votes": {
+    "1": 56151
+   },
+   "writeIn": 318
+  },
+  "district-court-8-seat-11": {
+   "reporting": 383,
+   "precincts": 383,
+   "total": 56486,
+   "votes": {
+    "1": 56150
+   },
+   "writeIn": 336
+  },
+  "district-court-9-seat-1": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 106037,
+   "votes": {
+    "1": 105146
+   },
+   "writeIn": 891
+  },
+  "district-court-9-seat-2": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 118261,
+   "votes": {
+    "1": 44049,
+    "2": 73746
+   },
+   "writeIn": 466
+  },
+  "district-court-9-seat-4": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 106199,
+   "votes": {
+    "1": 105428
+   },
+   "writeIn": 771
+  },
+  "district-court-9-seat-5": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 106117,
+   "votes": {
+    "1": 105312
+   },
+   "writeIn": 805
+  },
+  "district-court-9-seat-12": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 106032,
+   "votes": {
+    "1": 105189
+   },
+   "writeIn": 843
+  },
+  "district-court-9-seat-13": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 105782,
+   "votes": {
+    "1": 105018
+   },
+   "writeIn": 764
+  },
+  "district-court-9-seat-14": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 105741,
+   "votes": {
+    "1": 104949
+   },
+   "writeIn": 792
+  },
+  "district-court-9-seat-15": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 106695,
+   "votes": {
+    "1": 105844
+   },
+   "writeIn": 851
+  },
+  "district-court-9-seat-19": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 106117,
+   "votes": {
+    "1": 105289
+   },
+   "writeIn": 828
+  },
+  "district-court-9-seat-20": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 105778,
+   "votes": {
+    "1": 104991
+   },
+   "writeIn": 787
+  },
+  "district-court-9-seat-21": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 105814,
+   "votes": {
+    "1": 105007
+   },
+   "writeIn": 807
+  },
+  "district-court-9-seat-22": {
+   "reporting": 755,
+   "precincts": 755,
+   "total": 105767,
+   "votes": {
+    "1": 104917
+   },
+   "writeIn": 850
+  },
+  "district-court-10-seat-1": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 262841,
+   "votes": {
+    "1": 259788
+   },
+   "writeIn": 3053
+  },
+  "district-court-10-seat-2": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 262214,
+   "votes": {
+    "1": 259326
+   },
+   "writeIn": 2888
+  },
+  "district-court-10-seat-4": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 261901,
+   "votes": {
+    "1": 259106
+   },
+   "writeIn": 2795
+  },
+  "district-court-10-seat-6": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 260169,
+   "votes": {
+    "1": 257300
+   },
+   "writeIn": 2869
+  },
+  "district-court-10-seat-7": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 258759,
+   "votes": {
+    "1": 255252
+   },
+   "writeIn": 3507
+  },
+  "district-court-10-seat-8": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 260546,
+   "votes": {
+    "1": 257693
+   },
+   "writeIn": 2853
+  },
+  "district-court-10-seat-9": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259065,
+   "votes": {
+    "1": 256283
+   },
+   "writeIn": 2782
+  },
+  "district-court-10-seat-14": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259402,
+   "votes": {
+    "1": 256802
+   },
+   "writeIn": 2600
+  },
+  "district-court-10-seat-15": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259336,
+   "votes": {
+    "1": 256683
+   },
+   "writeIn": 2653
+  },
+  "district-court-10-seat-17": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259150,
+   "votes": {
+    "1": 255865
+   },
+   "writeIn": 3285
+  },
+  "district-court-10-seat-19": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259059,
+   "votes": {
+    "1": 256229
+   },
+   "writeIn": 2830
+  },
+  "district-court-10-seat-22": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259399,
+   "votes": {
+    "1": 256637
+   },
+   "writeIn": 2762
+  },
+  "district-court-10-seat-23": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259178,
+   "votes": {
+    "1": 256443
+   },
+   "writeIn": 2735
+  },
+  "district-court-10-seat-24": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 258800,
+   "votes": {
+    "1": 255989
+   },
+   "writeIn": 2811
+  },
+  "district-court-10-seat-28": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 258772,
+   "votes": {
+    "1": 255938
+   },
+   "writeIn": 2834
+  },
+  "district-court-10-seat-29": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 258548,
+   "votes": {
+    "1": 255921
+   },
+   "writeIn": 2627
+  },
+  "district-court-10-seat-32": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 259243,
+   "votes": {
+    "1": 256571
+   },
+   "writeIn": 2672
+  },
+  "district-court-10-seat-38": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 327010,
+   "votes": {
+    "1": 145873,
+    "2": 179265
+   },
+   "writeIn": 1872
+  },
+  "district-court-10-seat-43": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 258712,
+   "votes": {
+    "1": 255968
+   },
+   "writeIn": 2744
+  },
+  "district-court-10-seat-45": {
+   "reporting": 409,
+   "precincts": 409,
+   "total": 257535,
+   "votes": {
+    "1": 254811
+   },
+   "writeIn": 2724
+  },
+  "attorney-general": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 2801411,
+   "votes": {
+    "1": 1520971,
+    "2": 1276214
+   },
+   "writeIn": 4226
+  },
+  "secretary-of-state": {
+   "reporting": 4105,
+   "precincts": 4105,
+   "total": 2795197,
+   "votes": {
+    "1": 1529173,
+    "2": 1168651,
+    "3": 41389,
+    "4": 54693
+   },
+   "writeIn": 1291
+  },
+  "sldl-8a": {
+   "reporting": 17,
+   "precincts": 17,
+   "total": 18877,
+   "votes": {
+    "1": 14302,
+    "2": 4551
+   },
+   "writeIn": 24
+  },
+  "sldl-14a": {
+   "reporting": 18,
+   "precincts": 18,
+   "total": 17760,
+   "votes": {
+    "1": 9163,
+    "2": 8570
+   },
+   "writeIn": 27
+  },
+  "sldl-14b": {
+   "reporting": 20,
+   "precincts": 20,
+   "total": 17398,
+   "votes": {
+    "1": 9896,
+    "2": 7480
+   },
+   "writeIn": 22
+  },
+  "sldl-15a": {
+   "reporting": 94,
+   "precincts": 94,
+   "total": 18737,
+   "votes": {
+    "1": 6350,
+    "2": 12374
+   },
+   "writeIn": 13
+  },
+  "sldl-19b": {
+   "reporting": 27,
+   "precincts": 27,
+   "total": 19263,
+   "votes": {
+    "1": 7856,
+    "2": 11394
+   },
+   "writeIn": 13
+  },
+  "sldl-26a": {
+   "reporting": 38,
+   "precincts": 38,
+   "total": 19453,
+   "votes": {
+    "1": 10704,
+    "2": 8742
+   },
+   "writeIn": 7
+  },
+  "sldl-26b": {
+   "reporting": 70,
+   "precincts": 70,
+   "total": 20731,
+   "votes": {
+    "1": 8438,
+    "2": 12253
+   },
+   "writeIn": 40
+  },
+  "sldl-39b": {
+   "reporting": 14,
+   "precincts": 14,
+   "total": 19273,
+   "votes": {
+    "1": 14638,
+    "2": 4595
+   },
+   "writeIn": 40
+  },
+  "sldl-16b": {
+   "reporting": 43,
+   "precincts": 43,
+   "total": 18911,
+   "votes": {
+    "1": 6207,
+    "2": 12694
+   },
+   "writeIn": 10
+  },
+  "sldl-38a": {
+   "reporting": 12,
+   "precincts": 12,
+   "total": 13721,
+   "votes": {
+    "1": 9852,
+    "2": 3840
+   },
+   "writeIn": 29
+  }
+ }
+}

@@ -1,3 +1,4 @@
+import type { Results } from '../results';
 import type { ComponentType, ReactNode } from 'react';
 import type { KeyDate } from '../dates';
 import type { GuideState } from '../hosts';
@@ -26,6 +27,8 @@ export interface GuideSpec {
   /** Where the legislature sits: "Lansing". */
   capital: string;
   data: StateData;
+  /** The election's results (src/data/<state>/results.json, scripts/results.mjs). */
+  results: Results;
   /** The state's outline, with an optional pin (Hero.tsx). */
   Map: ComponentType<{ at?: { lat: number; lng: number } | null; className?: string }>;
   /** The class carrying the state's palette (`--kyb-accent`, `--kyb-accent-ink`). */

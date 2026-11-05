@@ -43,6 +43,12 @@ jobs:
       - name: Build ballot data
         run: node scripts/state.mjs minnesota
 
+      # The election's results on the landing page (scripts/results.mjs):
+      # the Secretary of State's results files, matched to our races.
+      # Fail-soft: a file that can't be read keeps yesterday's results.
+      - name: Refresh results
+        run: node scripts/results.mjs minnesota
+
       - name: Redraw the README badges
         run: node scripts/badges.mjs
         env:

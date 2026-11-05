@@ -1,6 +1,7 @@
 import { ArrowRight, Scale } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { FaceStrip } from './Bits';
+import { RaceResults, ResultsNote } from './results';
 import { stakes } from './stakes';
 import { useStateConfig } from './state';
 import type { Candidate, Race } from './types';
@@ -35,11 +36,12 @@ function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; 
   const { explainOffice } = useStateConfig();
   const why = stakes(race);
   return (
-    <li id={statewideId(race)} className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: section.color }}>
+    <li id={statewideId(race)} className="min-w-0 rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: section.color }}>
       <span className="inline-flex self-start items-center gap-1.5 rounded-full border-2 px-2.5 py-0.5 text-xs font-bold text-[var(--gb-text)]" style={{ borderColor: section.color, background: `color-mix(in srgb, ${section.color} 14%, transparent)` }}>{section.emoji} {section.title}</span>
       <h3 className="text-lg font-black leading-tight">{raceTitle(race)}</h3>
       <p className="text-sm leading-snug">{explainOffice(race.office)}</p>
       {why && <p className="text-sm leading-snug"><span className="font-bold">Why it matters: </span>{why}</p>}
+      <RaceResults race={race} color={section.color} />
       <FaceStrip people={race.candidates} names info color={section.color} onPick={(c) => onOpen(race, c as Candidate)} />
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold">
         <span>{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} · <span className="rounded-md bg-[var(--kyb-chip)] px-1.5 py-0.5">{race.voteFor > 1 ? `pick up to ${race.voteFor}` : 'pick 1'}</span></span>
@@ -65,6 +67,7 @@ export function Headliners({ races, sections, overline, heading, intro, onOpen, 
         <h2 id="kyb-headliners" className="text-3xl sm:text-4xl leading-[1.05]">{heading}</h2>
         <p className="text-[15px]">{intro}</p>
       </div>
+      <ResultsNote />
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
         {races.map((r) => <Card key={r.id} race={r} section={sections.find((s) => s.id === r.section) ?? sections[0]} onOpen={onOpen} onOpenRace={onOpenRace} onCompare={onCompare} />)}
         {children}

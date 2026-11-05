@@ -1,0 +1,12 @@
+{
+ "races": {},
+ "pending": {
+  "note": "Each race here gets its count once the Board of State Canvassers certifies the count. Until then each county posts its unofficial count; the Secretary of State links them all on",
+  "links": [
+   [
+    "its results-by-county page",
+    "https://www.michigan.gov/sos/elections/election-results-and-data/candidate-listings-and-election-results-by-county"
+   ]
+  ]
+ }
+}

@@ -5,6 +5,7 @@ import type { Candidate, Race } from './types';
 import { navigate, useRoute } from './lib/router';
 import { useOpen } from './store';
 import { githubIssueUrl, sendReport, type ReportAbout } from './report';
+import { RaceResults } from './results';
 
 // Small pieces every state's guide shows: the progress ring in the pinned
 // bar, and the confetti when a ballot is finished.
@@ -425,7 +426,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
     </ul>
   );
   return (
-    <li id={`kyb-card-${card.id}`} className="rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: card.color }}>
+    <li id={`kyb-card-${card.id}`} className="min-w-0 rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-3 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: card.color }}>
       <div className="flex items-start gap-3">
         <span className="text-2xl" aria-hidden="true">{card.emoji}</span>
         <span className="min-w-0 flex-1">
@@ -451,10 +452,12 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
                       <span className="min-w-0 flex-1">
                         <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
                         <span className="block text-xs">{it.sub} · {it.race!.candidates.length} candidate{it.race!.candidates.length === 1 ? '' : 's'} · {it.race!.voteFor > 1 ? `pick up to ${it.race!.voteFor}` : 'pick 1'}</span>
+                        <RaceResults race={it.race!} color={card.color} compact />
                       </span>
                     </summary>
                     <div className="px-3 pb-3 space-y-2">
                       {it.why && <p className="text-[13px] leading-snug"><span className="font-bold">Why it matters: </span>{it.why}</p>}
+                      <RaceResults race={it.race!} color={card.color} />
                       {candidates(it)}
                       <div className="flex flex-wrap items-center gap-3">
                         <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>

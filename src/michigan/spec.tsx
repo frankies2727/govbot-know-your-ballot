@@ -1,6 +1,8 @@
 import mapsUrl from '../data/michigan/districts.json?url';
 import { HowItems } from '../CommonQuestions';
 import rawData from '../data/michigan/ballot.json';
+import results from '../data/michigan/results.json';
+import type { Results } from '../results';
 import { makeLookup } from '../guide/lookup';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
@@ -60,6 +62,7 @@ const sources = (d: StateData): SourceCard[] => {
 export const MICHIGAN_GUIDE: GuideSpec = {
   slug: 'michigan', code: 'MI', name: 'Michigan', capital: 'Lansing',
   data,
+  results: results as Results,
   Map: MichiganMap,
   cssClass: 'kyb-mi',
   config: MICHIGAN,

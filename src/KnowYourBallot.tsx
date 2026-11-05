@@ -9,6 +9,8 @@ import { isoDate } from './seo/format';
 import { stakes } from './stakes';
 import { BallotSearch, type Hit } from './Search';
 import { LandingBar, landingItems } from './LandingBar';
+import { ResultsProvider, type Results } from './results';
+import rawResults from './data/illinois/results.json';
 import { GovbotChrome } from './GovbotChrome';
 import { guideUrl } from './hosts';
 import { routeHref } from './lib/router';
@@ -36,6 +38,9 @@ import { PdfCard } from './components/PdfCard';
 import type { PdfSummary } from './ballotPdf';
 import { daysUntil, hasProgress, isDecided, today, readResumeLink, resumeLink, useOpen, useSaved, type Choice, type Saved, choiceState } from './store';
 import type { BallotData, Candidate, Districts, Outline, Race } from './types';
+
+/** The election's results (scripts/results.mjs); until Illinois' can be read, a note on when and where. */
+const RESULTS = rawResults as Results;
 
 const data = rawData as unknown as BallotData;
 /** The questions voters ask, from the same sourced data and copy the rest of the page uses (the page's FAQ markup says these words too). */
@@ -771,6 +776,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
     return () => cancelIdleCallback(id);
   }, []);
   return (
+    <ResultsProvider value={RESULTS}>
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(MORE, STATEWIDE, SECTIONS)} search={(slot) => (
@@ -863,6 +869,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         </div>
       </div>
     </div>
+    </ResultsProvider>
   );
 }
 

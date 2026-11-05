@@ -1,6 +1,8 @@
 import mapsUrl from '../data/wisconsin/districts.json?url';
 import { HowItems } from '../CommonQuestions';
 import rawData from '../data/wisconsin/ballot.json';
+import results from '../data/wisconsin/results.json';
+import type { Results } from '../results';
 import { makeLookup } from '../guide/lookup';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
@@ -60,6 +62,7 @@ const sources = (d: StateData): SourceCard[] => {
 export const WISCONSIN_GUIDE: GuideSpec = {
   slug: 'wisconsin', code: 'WI', name: 'Wisconsin', capital: 'Madison',
   data,
+  results: results as Results,
   Map: WisconsinMap,
   cssClass: 'kyb-wi',
   config: WISCONSIN,

@@ -17,6 +17,7 @@ import { earnedTrophies, streak, Trophies } from '../Progress';
 import { CandidateSheet, Compare, MeasureCard, RaceCard } from '../Race';
 import { BallotSearch, type Hit } from '../Search';
 import { LandingBar, landingItems } from '../LandingBar';
+import { ResultsProvider } from '../results';
 import { drawShareCard, shareCard } from '../share';
 import { PdfCard } from '../components/PdfCard';
 import type { PdfSummary } from '../ballotPdf';
@@ -617,6 +618,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   }, [spec]);
   const others = GUIDES.filter((g) => g.id !== spec.slug);
   return (
+    <ResultsProvider value={spec.results}>
     <div className="space-y-10 pt-4">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(more, headliners, SECTIONS, questions)} search={(slot) => (
@@ -699,6 +701,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         <spec.NextElectionNote />
       </div>
     </div>
+    </ResultsProvider>
   );
 }
 

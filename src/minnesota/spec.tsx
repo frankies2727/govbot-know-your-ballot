@@ -1,6 +1,8 @@
 import mapsUrl from '../data/minnesota/districts.json?url';
 import { HowItems } from '../CommonQuestions';
 import rawData from '../data/minnesota/ballot.json';
+import results from '../data/minnesota/results.json';
+import type { Results } from '../results';
 import { makeLookup } from '../guide/lookup';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
@@ -60,6 +62,7 @@ const sources = (d: StateData): SourceCard[] => {
 export const MINNESOTA_GUIDE: GuideSpec = {
   slug: 'minnesota', code: 'MN', name: 'Minnesota', capital: 'St. Paul',
   data,
+  results: results as Results,
   Map: MinnesotaMap,
   cssClass: 'kyb-mn',
   config: MINNESOTA,

@@ -1,0 +1,12 @@
+{
+ "races": {},
+ "pending": {
+  "note": "Each race here gets its count once the Wisconsin Elections Commission certifies the canvass. Wisconsin has no statewide unofficial count: each county clerk posts its own, and the official results will be at",
+  "links": [
+   [
+    "the Elections Commission’s results page",
+    "https://elections.wi.gov/elections/election-results"
+   ]
+  ]
+ }
+}
