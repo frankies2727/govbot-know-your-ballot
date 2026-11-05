@@ -196,7 +196,7 @@
   "wisconsin": {
    "office": {
     "name": "Wisconsin Elections Commission",
-    "url": "https://elections.wi.gov/"
+    "url": "https://elections.wi.gov/sites/default/files/documents/RegisteredVotersByCounty_11-01-2022.xlsx"
    },
    "cycles": [
     {
@@ -227,7 +227,9 @@
      "year": 2022,
      "ballots": 2673154,
      "eligible": 4431848,
-     "pct": 60.32
+     "pct": 60.32,
+     "registered": 3534794,
+     "regPct": null
     },
     {
      "year": 2024,
@@ -244,7 +246,8 @@
      "preliminary": true,
      "estimate": true
     }
-   ]
+   ],
+   "regNote": "Registered is the Elections Commission’s count of active registered voters on Nov. 1, 2022, the only month its files could be reached for; Wisconsin registers voters at the polls too and doesn’t measure turnout against registered voters."
   }
  }
 }
