@@ -113,4 +113,13 @@
 .kyb-tile:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
 .kyb-tile-name { text-decoration: underline 3px transparent; text-underline-offset: 6px; transition: text-decoration-color .2s; }
 .kyb-tile:hover .kyb-tile-name, .kyb-tile:focus-visible .kyb-tile-name { text-decoration-color: var(--ink); }
-@media (prefers-reduced-motion: reduce) { .kyb-tile, .kyb-tile .kyb-map, .kyb-tile-name { transition: none; } }
+/* Turnout under each tile (Turnout.tsx): one bar per election in the state's
+   colour, midterms filled and presidential years outlined; the one being read
+   is ringed. */
+.kyb-bar { display: block; width: 100%; max-width: 20px; border-radius: 4px 4px 0 0; transition: box-shadow .15s; }
+.kyb-bar-mid { background: var(--ink); }
+.kyb-bar-pres { background: color-mix(in srgb, var(--ink) 16%, transparent); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.kyb-bar-on { outline: 2px solid var(--gb-text); outline-offset: 2px; }
+.kyb-key { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+
+@media (prefers-reduced-motion: reduce) { .kyb-bar, .kyb-tile, .kyb-tile .kyb-map, .kyb-tile-name { transition: none; } }

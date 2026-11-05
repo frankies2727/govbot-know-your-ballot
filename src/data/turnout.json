@@ -1,0 +1,247 @@
+{
+ "lab": {
+  "name": "University of Florida Election Lab",
+  "url": "https://election.lab.ufl.edu/voter-turnout/"
+ },
+ "asOf": "2026-11-04",
+ "states": {
+  "illinois": {
+   "office": {
+    "name": "Illinois State Board of Elections",
+    "url": "https://www.elections.il.gov/ElectionOperations/VoterTurnout.aspx"
+   },
+   "cycles": [
+    {
+     "year": 2014,
+     "ballots": 3680417,
+     "eligible": 8986543,
+     "pct": 40.95,
+     "registered": 7483031,
+     "regPct": 49.18
+    },
+    {
+     "year": 2016,
+     "ballots": 5666118,
+     "eligible": 9005114,
+     "pct": 62.92,
+     "registered": 8029847,
+     "regPct": 70.56
+    },
+    {
+     "year": 2018,
+     "ballots": 4635541,
+     "eligible": 9041717,
+     "pct": 51.27,
+     "registered": 8099372,
+     "regPct": 57.23
+    },
+    {
+     "year": 2020,
+     "ballots": 6050000,
+     "eligible": 9095238,
+     "pct": 66.52,
+     "registered": 8364099,
+     "regPct": 72.92
+    },
+    {
+     "year": 2022,
+     "ballots": 4144125,
+     "eligible": 9019092,
+     "pct": 45.95,
+     "registered": 8115751,
+     "regPct": 51.06
+    },
+    {
+     "year": 2024,
+     "ballots": 5705246,
+     "eligible": 8982526,
+     "pct": 63.51,
+     "preliminary": true,
+     "registered": 8101424,
+     "regPct": 70.42
+    },
+    {
+     "year": 2026,
+     "ballots": 4300000,
+     "eligible": 9308092,
+     "pct": 46.2,
+     "preliminary": true,
+     "estimate": true
+    }
+   ],
+   "regNote": "Of reg. is the State Board of Elections’ own share of registered voters; it hasn’t posted 2026 yet."
+  },
+  "michigan": {
+   "office": {
+    "name": "Michigan Department of State",
+    "url": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/Election-Results-and-Statistics/General-Voter-Reg-Turnout-Stats.pdf"
+   },
+   "cycles": [
+    {
+     "year": 2014,
+     "ballots": 3188956,
+     "eligible": 7387039,
+     "pct": 43.17,
+     "registered": 7446280,
+     "regPct": null
+    },
+    {
+     "year": 2016,
+     "ballots": 4874619,
+     "eligible": 7437567,
+     "pct": 65.54,
+     "registered": 7514055,
+     "regPct": null
+    },
+    {
+     "year": 2018,
+     "ballots": 4341340,
+     "eligible": 7534678,
+     "pct": 57.62,
+     "registered": 7471088,
+     "regPct": null
+    },
+    {
+     "year": 2020,
+     "ballots": 5579317,
+     "eligible": 7615249,
+     "pct": 73.27,
+     "registered": 8105524,
+     "regPct": null
+    },
+    {
+     "year": 2022,
+     "ballots": 4500400,
+     "eligible": 7610641,
+     "pct": 59.13,
+     "registered": 8226745,
+     "regPct": null
+    },
+    {
+     "year": 2024,
+     "ballots": 5706503,
+     "eligible": 7624237,
+     "pct": 74.85,
+     "preliminary": true,
+     "registered": 8469342,
+     "regPct": null
+    },
+    {
+     "year": 2026,
+     "ballots": 4962000,
+     "eligible": 7795255,
+     "pct": 63.65,
+     "preliminary": true,
+     "estimate": true
+    }
+   ],
+   "regNote": "Registered is the state’s whole voter file, inactive voters included; Michigan reports turnout as a share of voting-age adults, not of registered voters."
+  },
+  "minnesota": {
+   "office": {
+    "name": "Minnesota Secretary of State",
+    "url": "https://www.sos.state.mn.us/election-administration-campaigns/data-maps/historical-voter-turnout-statistics/"
+   },
+   "cycles": [
+    {
+     "year": 2014,
+     "ballots": 1992613,
+     "eligible": 3918501,
+     "pct": 50.85
+    },
+    {
+     "year": 2016,
+     "ballots": 2968281,
+     "eligible": 3975066,
+     "pct": 74.67
+    },
+    {
+     "year": 2018,
+     "ballots": 2611365,
+     "eligible": 4067108,
+     "pct": 64.21
+    },
+    {
+     "year": 2020,
+     "ballots": 3292997,
+     "eligible": 4157411,
+     "pct": 79.21
+    },
+    {
+     "year": 2022,
+     "ballots": 2526646,
+     "eligible": 4166526,
+     "pct": 60.64
+    },
+    {
+     "year": 2024,
+     "ballots": 3272414,
+     "eligible": 4277436,
+     "pct": 76.5,
+     "preliminary": true
+    },
+    {
+     "year": 2026,
+     "ballots": 2870000,
+     "eligible": 4404656,
+     "pct": 65.16,
+     "preliminary": true,
+     "estimate": true
+    }
+   ]
+  },
+  "wisconsin": {
+   "office": {
+    "name": "Wisconsin Elections Commission",
+    "url": "https://elections.wi.gov/"
+   },
+   "cycles": [
+    {
+     "year": 2014,
+     "ballots": 2422248,
+     "eligible": 4248825,
+     "pct": 57.01
+    },
+    {
+     "year": 2016,
+     "ballots": 2993000,
+     "eligible": 4280628,
+     "pct": 69.92
+    },
+    {
+     "year": 2018,
+     "ballots": 2675000,
+     "eligible": 4332646,
+     "pct": 61.74
+    },
+    {
+     "year": 2020,
+     "ballots": 3310000,
+     "eligible": 4410780,
+     "pct": 75.04
+    },
+    {
+     "year": 2022,
+     "ballots": 2673154,
+     "eligible": 4431848,
+     "pct": 60.32
+    },
+    {
+     "year": 2024,
+     "ballots": 3437142,
+     "eligible": 4483698,
+     "pct": 76.66,
+     "preliminary": true
+    },
+    {
+     "year": 2026,
+     "ballots": 2760000,
+     "eligible": 4574796,
+     "pct": 60.33,
+     "preliminary": true,
+     "estimate": true
+    }
+   ]
+  }
+ }
+}

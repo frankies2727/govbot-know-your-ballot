@@ -7,6 +7,7 @@ import { BallotBox } from './BallotBox';
 import { GoVote } from './GoVote';
 import { GovbotChrome } from './GovbotChrome';
 import { StateMap } from './Hero';
+import { Turnout } from './Turnout';
 import { MichiganMap } from './michigan/Hero';
 import { MinnesotaMap } from './minnesota/Hero';
 import { WisconsinMap } from './wisconsin/Hero';
@@ -24,10 +25,10 @@ const REPO = 'https://github.com/frankies2727/govbot-know-your-ballot';
 const COMING = [{ name: 'Ohio', issue: 8 }, { name: 'Pennsylvania', issue: 9 }, { name: 'Georgia', issue: 11 }];
 
 const STATES = [
-  { id: 'illinois', name: 'Illinois', ink: 'var(--gb-amber-hi)', covers: 'Chicago and suburban Cook County, from U.S. Senate to the judges.', map: <StateMap outline={ilOutline as Outline} name="Illinois" colors={IL_MAP} id="il-home" /> },
-  { id: 'michigan', name: 'Michigan', ink: 'var(--gb-primary-hi)', covers: 'Governor to school board, the courts and both proposals.', map: <MichiganMap /> },
-  { id: 'minnesota', name: 'Minnesota', ink: 'var(--mn-teal)', covers: 'Governor to state representative, the courts and the amendment.', map: <MinnesotaMap /> },
-  { id: 'wisconsin', name: 'Wisconsin', ink: 'var(--wi-cardinal)', covers: 'Governor to Assembly seat and all three constitutional questions.', map: <WisconsinMap /> },
+  { id: 'illinois' as const, name: 'Illinois', ink: 'var(--gb-amber-hi)', covers: 'Chicago and suburban Cook County, from U.S. Senate to the judges.', map: <StateMap outline={ilOutline as Outline} name="Illinois" colors={IL_MAP} id="il-home" /> },
+  { id: 'michigan' as const, name: 'Michigan', ink: 'var(--gb-primary-hi)', covers: 'Governor to school board, the courts and both proposals.', map: <MichiganMap /> },
+  { id: 'minnesota' as const, name: 'Minnesota', ink: 'var(--mn-teal)', covers: 'Governor to state representative, the courts and the amendment.', map: <MinnesotaMap /> },
+  { id: 'wisconsin' as const, name: 'Wisconsin', ink: 'var(--wi-cardinal)', covers: 'Governor to Assembly seat and all three constitutional questions.', map: <WisconsinMap /> },
 ];
 
 const LINK = 'underline decoration-2 underline-offset-4 font-semibold text-[var(--gb-text)] hover:text-[var(--gb-link)]';
@@ -63,17 +64,19 @@ export function KybHome() {
           <section id="pick" aria-labelledby="pick-h" className="mt-16 scroll-mt-[calc(var(--kyb-top)+16px)] space-y-6 sm:mt-24">
             <div className="space-y-2">
               <h2 id="pick-h" className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Pick your state</h2>
-              <p className="max-w-[60ch] text-[17px]">Four guides are live for November. Each opens on the next screen and asks for your address there.</p>
+              <p className="max-w-[60ch] text-[17px]">Four guides are live for November. Each opens on the next screen and asks for your address there. Under each, how many voted this time and in every election since 2014.</p>
             </div>
-            <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4" aria-label="States with a guide">
+            {/* Each state is two rows of one subgrid (its tile, then its turnout), so tiles in a row match in height and so do their turnout panels. */}
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 lg:grid-cols-4" aria-label="States with a guide">
               {STATES.map((s) => (
-                <li key={s.id}>
+                <li key={s.id} className="row-span-2 grid grid-rows-subgrid">
                   <a href={`/${s.id}`} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(`projects/know-your-ballot-${s.id}`); }}
                     className="kyb-tile h-full" style={{ '--ink': s.ink } as React.CSSProperties}>
                     <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{s.map}</span>
                     <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">{s.name}</span>
                     <span className="block text-[15px] leading-snug">{s.covers}</span>
                   </a>
+                  <Turnout state={s.id} name={s.name} ink={s.ink} />
                 </li>
               ))}
             </ul>
