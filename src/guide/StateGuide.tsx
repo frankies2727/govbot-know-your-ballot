@@ -685,7 +685,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         <SectionPanel card={questions} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
       </Headliners>
 
-      <SectionCards cards={more} heading="Everything else on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
+      <SectionCards cards={more} heading="District and precinct races on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
 
       <div className="pt-2 space-y-8">
         <CommonQuestions items={faq} />
