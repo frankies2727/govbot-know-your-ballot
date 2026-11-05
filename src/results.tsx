@@ -158,7 +158,9 @@ export function QuestionResults({ id, color, retention = false }: { id: string; 
   const yes = pct(r.yes, all);
   const done = counted(r);
   const passes = retention ? yes >= RETAIN : r.yes > r.no;
-  const call = !done ? (passes ? 'Counting · on track to pass' : 'Counting · short so far') : retention ? (passes ? '✓ Retained' : 'Not retained') : passes ? '✓ Passes' : 'Fails';
+  const call = retention
+    ? (!done ? (passes ? 'Counting · on track to stay' : `Counting · short of ${RETAIN}% so far`) : passes ? '✓ Retained' : 'Not retained')
+    : (!done ? (passes ? 'Counting · yes leads' : 'Counting · no leads') : passes ? '✓ Passes' : 'Fails');
   return (
     <div className="rounded-xl border border-[var(--gb-border)] p-3 text-[13px]">
       <Head official={r.official} color={color} call={call} />
@@ -193,7 +195,7 @@ export function ResultsNote() {
   const when = results.asOf ? new Date(results.asOf).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) : null;
   return (
     <p className={box}>
-      <strong>📊 Results{official ? '' : ', unofficial'}:</strong> races below show their count from {links((results.sources ?? []).map((s) => [s.name, s.url]))}
+      <strong>📊 Results{official ? '' : ', unofficial'}:</strong> races below show their count from {links((results.sources ?? []).map((s) => [`the ${s.name}`, s.url]))}
       {when ? `, updated ${when}` : ''}.{' '}
       {official ? 'The counts are official.' : `Counts can still change until they’re certified; a race is called only with every precinct in and a lead of more than ${CLOSE} points.`}
       {results.gaps && <> {results.gaps}</>}
