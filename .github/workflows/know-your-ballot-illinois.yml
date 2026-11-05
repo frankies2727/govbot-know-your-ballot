@@ -3,7 +3,8 @@ name: Know Your Ballot Illinois – refresh data
 # Rebuilds src/data/illinois from official sources (Chicago Board of
 # Elections candidate list, FEC filings, district maps) and commits the result;
 # Vercel redeploys the site from main. Daily through Election Day: the candidate list can change
-# and new FEC reports land. See scripts/illinois.mjs.
+# and new FEC reports land. See scripts/illinois.mjs. Also refreshes the
+# home page's turnout (src/data/turnout.json) for all four states.
 
 on:
   workflow_dispatch:
@@ -43,6 +44,12 @@ jobs:
       - name: Refresh govbot's site shell
         run: node scripts/govbot-shell.mjs
 
+      # The home page's turnout panels, all four states (scripts/turnout.mjs):
+      # this year's figures while the count is canvassed. Fail-soft: a source
+      # that can't be read keeps yesterday's numbers.
+      - name: Refresh turnout
+        run: node scripts/turnout.mjs
+
       - name: Build ballot data
         run: node scripts/illinois.mjs
 
@@ -55,7 +62,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/illinois public/kyb-photos/illinois src/govbot public/badges
+          git add src/data/illinois public/kyb-photos/illinois src/govbot public/badges src/data/turnout.json
           if git diff --staged --quiet; then
             echo "No ballot data changes."
             echo "changed=false" >> "$GITHUB_OUTPUT"

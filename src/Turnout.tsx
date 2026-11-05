@@ -48,6 +48,8 @@ function electionDay(y: number) {
   while (d.getDay() !== 2) d.setDate(d.getDate() + 1);
   return `Nov. ${d.getDate()}, ${y}`;
 }
+/** An earlier election by name: "the Nov. 8, 2022 midterm". */
+const election = (y: number) => `the ${electionDay(y)} ${midterm(y) ? 'midterm' : 'presidential election'}`;
 const full = (n: number) => n.toLocaleString('en-US');
 
 /** One decimal with its sign; rounded first, so a hair's difference reads ±0.0, not +0.0. */
@@ -77,20 +79,20 @@ export function Turnout({ state, name, ink }: { state: StateId; name: string; in
       <p className="mt-1">of eligible voters voted</p>
       {same && (
         <p className="mt-1">
-          <strong className="whitespace-nowrap">{signed(head.pct - same.pct)} pts</strong> vs. {same.year}
+          <strong className="whitespace-nowrap">{signed(head.pct - same.pct)} pts</strong> vs. {election(same.year)}
         </p>
       )}
       <dl className="mt-3 grid grid-cols-1 gap-x-3 gap-y-1 sm:grid-cols-2">
         <Stat k="Voted" v={`${approx(head)}${short(head.ballots)}`} title={full(head.ballots)} />
         <Stat k="Eligible" v={short(head.eligible)} title={full(head.eligible)} />
-        {same && <Stat k={`Votes vs. ${same.year}`} v={`${signed(growth(head.ballots, same.ballots))}%`} />}
+        {same && <Stat k={`Votes vs. ${same.year} ${midterm(same.year) ? 'midterm' : 'presidential'}`} v={`${signed(growth(head.ballots, same.ballots))}%`} />}
         {head.registered != null && <Stat k="Registered" v={short(head.registered)} title={full(head.registered)} />}
       </dl>
 
       <Bars cycles={cycles} picked={sel.year} onPick={setPicked} name={name} />
       <p className="min-h-[3.9em] text-[12.5px]" aria-live="polite">
         <strong>{sel.year}</strong> {midterm(sel.year) ? 'midterm' : 'presidential'}: {sel.pct.toFixed(1)}% · {approx(sel)}{full(sel.ballots)} voted
-        {prev && <> · {signed(sel.pct - prev.pct)} pts, {signed(growth(sel.ballots, prev.ballots))}% votes vs. {prev.year}</>}
+        {prev && <> · {signed(sel.pct - prev.pct)} pts, {signed(growth(sel.ballots, prev.ballots))}% votes vs. {election(prev.year)}</>}
       </p>
 
       <details className="mt-1">

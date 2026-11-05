@@ -182,11 +182,11 @@
     },
     {
      "year": 2026,
-     "ballots": 2842099,
+     "ballots": 2849391,
      "eligible": 4404656,
-     "pct": 64.52,
+     "pct": 64.69,
      "preliminary": true,
-     "registered": 3927901,
+     "registered": 3927893,
      "regPct": null,
      "state": true
     }

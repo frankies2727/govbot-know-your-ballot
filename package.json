@@ -16,7 +16,8 @@
     "data:minnesota": "node scripts/state.mjs minnesota",
     "data:wisconsin": "node scripts/state.mjs wisconsin",
     "audit": "node scripts/audit.mjs",
-    "test:data": "node --test scripts/illinois/lists.test.mjs"
+    "test:data": "node --test scripts/illinois/lists.test.mjs scripts/turnout/parse.test.mjs",
+    "data:turnout": "node scripts/turnout.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.546.0",

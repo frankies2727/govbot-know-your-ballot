@@ -28,9 +28,11 @@ export interface LandingItem {
 }
 export interface LandingSub {
   id: string; emoji: string; label: string; color: string;
+  /** A shorter name for the bar on phones (a one-office card: just the office). */
+  short?: string;
   /** How many races (a card's count). */
   n?: number;
-  /** A card's offices, each jumping to its list inside the card. */
+  /** A card's offices when it has more than one, each jumping to its list inside the card. */
   offices?: { id: string; label: string; n: number }[];
 }
 
@@ -40,10 +42,15 @@ export interface LandingSub {
  * ballot-questions card some states show after the statewide races.
  */
 export function landingItems(more: SectionCard[], statewide: Race[], sections: readonly { id: string; emoji: string; color: string }[], questions?: SectionCard): LandingItem[] {
-  const card = (c: SectionCard): LandingSub => ({
-    id: `kyb-card-${c.id}`, emoji: c.emoji, label: c.title, color: c.color, n: c.n,
-    offices: officeGroups(c).groups.map((g, i) => ({ id: officeId(c, i), label: g.label, n: g.items.length })),
-  });
+  // A card of one office is named for it ("Federal: U.S. Representative"); a card of several lists them under it.
+  const card = (c: SectionCard): LandingSub => {
+    const { groups } = officeGroups(c);
+    const one = groups.length === 1 && groups[0].label !== c.title ? groups[0].label : null;
+    return {
+      id: `kyb-card-${c.id}`, emoji: c.emoji, label: one ? `${c.title}: ${one}` : c.title, short: one ?? undefined, color: c.color, n: c.n,
+      offices: groups.length > 1 ? groups.map((g, i) => ({ id: officeId(c, i), label: g.label, n: g.items.length })) : undefined,
+    };
+  };
   const race = (r: Race): LandingSub => {
     const s = sections.find((x) => x.id === r.section) ?? sections[0];
     return { id: statewideId(r), emoji: s.emoji, label: raceTitle(r), color: s.color };
@@ -107,7 +114,7 @@ export function LandingBar({ items, search }: { items: LandingItem[]; search: (s
   const trigger = useRef<HTMLButtonElement | null>(null);
   const setBar = useCallback((el: HTMLDivElement | null) => { bar.current = el; pinned(el); }, [pinned]);
   // Where you are, down to the race or card: each part, then what's under it, in page order.
-  const spots = items.flatMap((i) => [{ ...i, top: i }, ...(i.sub ?? []).map((s) => ({ ...s, short: undefined, top: i }))]);
+  const spots = items.flatMap((i) => [{ ...i, top: i }, ...(i.sub ?? []).map((s) => ({ ...s, top: i }))]);
   const jumped = useRef<string | null>(null);
   const [current, recheck] = useCurrent(spots.map((i) => i.id), bar, jumped);
   const here = spots.find((i) => i.id === current);
@@ -153,7 +160,7 @@ export function LandingBar({ items, search }: { items: LandingItem[]; search: (s
             <>
               {/* One button: the contents icon, the section you're in, and a chevron saying it opens. */}
               <button ref={trigger} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open}
-                className={`min-h-[52px] min-w-0 rounded-xl border-2 border-[var(--gb-text)] px-3 flex items-center gap-2.5 text-left text-[var(--gb-text)] hover:bg-[var(--kyb-chip)] ${wide ? 'max-w-[22rem]' : 'flex-1'}`}>
+                className={`min-h-[52px] min-w-0 rounded-xl border-2 border-[var(--gb-text)] px-3 flex items-center gap-2.5 text-left text-[var(--gb-text)] hover:bg-[var(--kyb-chip)] ${wide ? 'max-w-[26rem]' : 'flex-1'}`}>
                 <ListChecks className="w-5 h-5 shrink-0" aria-hidden="true" />
                 <span className="sr-only">Contents: </span>
                 <span className="min-w-0 flex-1 truncate font-black leading-tight">{here ? `${here.emoji} ${wide ? here.label : here.short ?? here.label}` : 'Contents'}</span>
@@ -217,8 +224,7 @@ function Drawer({ items, current, at, onGo, onClose }: { items: LandingItem[]; c
                             <span className="flex-1 leading-snug"><span aria-hidden="true">{s.emoji} </span>{s.label}</span>
                             {s.n != null && <span className="text-sm font-black">{s.n}</span>}
                           </button>
-                          {/* A card's offices, when there's more than the one the card is named for. */}
-                          {s.offices && s.offices.length > 1 && (
+                          {s.offices && (
                             <ul className="mb-1 ml-[2.1rem] border-l-2 pl-2" style={{ borderColor: s.color }}>
                               {s.offices.filter((o) => document.getElementById(o.id)).map((o) => (
                                 <li key={o.id}>
