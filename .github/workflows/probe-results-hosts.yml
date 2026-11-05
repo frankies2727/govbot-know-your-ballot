@@ -1,0 +1,34 @@
+name: Probe results hosts (temporary)
+
+# One-off: can GitHub's runners reach each state's official results pages?
+# One plain request each; prints the status and whether a bot check answered.
+# Deleted once read.
+
+on:
+  push:
+    branches: [claude/festive-mendel-p1z2x3]
+    paths: [.github/workflows/probe-results-hosts.yml]
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Request each page once
+        run: |
+          for u in \
+            https://chicagoelections.gov/ \
+            https://chicagoelections.gov/election-results \
+            https://results.chicagoelections.gov/ \
+            https://electionnight.cookcountyclerkil.gov/ \
+            https://www.cookcountyclerkil.gov/elections/election-results-archive-1998-2026 \
+            https://mielections.us/election/results/2026GEN_CENR.html \
+            https://elections.wi.gov/elections/election-results \
+            https://api.danecounty.gov/api/v1/elections/lastpublished/197 \
+            https://www.elections.il.gov/ElectionOperations/ElectionVoteTotals.aspx ; do
+            out=$(curl -sS -L -m 30 -A 'Mozilla/5.0 (KnowYourBallot; +https://github.com/frankies2727/govbot-know-your-ballot)' -o body.html -w '%{http_code} %{size_download} %{url_effective}' "$u" 2>&1 || true)
+            cf=$(grep -c -i -E 'just a moment|cf-chl|you have been blocked|captcha' body.html 2>/dev/null || true)
+            title=$(grep -o -i '<title>[^<]*' body.html 2>/dev/null | head -1 | cut -c8-90)
+            echo "$u -> $out | bot-check:$cf | title:$title"
+            sleep 3
+          done
