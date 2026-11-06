@@ -494,7 +494,6 @@ export function KnowYourBallot() {
             {/* Progress, views and search, pinned under govbot's header all the
                 way down the page (its height feeds --kyb-bar, so the contents
                 column and jumped-to races sit just below it). */}
-            <div className="pb-3 pt-2"><ElectionHeader date={data.election.date} /></div>
             <div ref={barRef} className="sticky top-[calc(var(--kyb-top)+6px)] z-30 -mx-2 sm:-mx-3 px-4 sm:px-6 py-2 lg:py-3 kyb-glass">
             <div className="">
               {/* Phones: the progress row, with a button that swaps it for the search (same height, so the bar doesn't jump). */}
@@ -519,6 +518,7 @@ export function KnowYourBallot() {
               {wide && tools}
             </div>
             </div>
+            <div className="pt-5"><ElectionHeader date={data.election.date} /></div>
             {!wide && <div className="pt-3"><ProgressLine done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />{tools}</div>}
             {!wide && !saved.place && <BrowsingBadge region="Chicago or suburban Cook" onAddAddress={changeAddress} />}
             <div className="lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 lg:items-start pt-4">
@@ -747,7 +747,6 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   return (
     <ResultsProvider value={RESULTS}>
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
-      <div className="pt-4"><ElectionHeader date={data.election.date} /></div>
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(MORE, STATEWIDE, SECTIONS)} search={(slot) => (
         <BallotSearch ballot={everything} sections={SECTION_TITLES} onJump={onSearchJump} hrefFor={(h) => `${BALLOT_HREF}#race=${encodeURIComponent(h.id)}`} {...slot} />

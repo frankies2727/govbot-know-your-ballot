@@ -359,7 +359,6 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
           />
         ) : (
           <>
-            <div className="pb-3 pt-2"><ElectionHeader date={data.election.date} /></div>
             <div ref={barRef} className="sticky top-[calc(var(--kyb-top)+6px)] z-30 -mx-2 sm:-mx-3 px-4 sm:px-6 py-2 lg:py-3 kyb-glass">
               <div className="">
                 {/* Phones: the progress row, with a button that swaps it for the search (same height, so the bar doesn't jump). */}
@@ -384,6 +383,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                 {wide && tools}
               </div>
             </div>
+              <div className="pt-5"><ElectionHeader date={data.election.date} /></div>
               {!wide && <div className="pt-3"><ProgressLine done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />{tools}</div>}
               {!wide && !saved.place && <BrowsingBadge region={region} onAddAddress={changeAddress} />}
             <div className="lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 lg:items-start pt-4">
@@ -594,7 +594,6 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   return (
     <ResultsProvider value={spec.results}>
     <div className="space-y-10 pt-4">
-      <div className="pt-4"><ElectionHeader date={data.election.date} /></div>
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(more, headliners, SECTIONS, questions)} search={(slot) => (
         <BallotSearch ballot={everything} sections={sectionTitles} onJump={onSearchJump} hrefFor={(h) => `${ballotHref}#race=${encodeURIComponent(h.id)}`} {...slot} />
