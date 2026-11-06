@@ -23,7 +23,7 @@ import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, Prog
 import { ReadOnlyContext } from './state';
 import { ContentsColumn, ContentsDrawer } from './Contents';
 import { Headliners } from './Headliners';
-import { MidtermsBanner } from './MidtermsBanner';
+import { ElectionHeader } from './ElectionHeader';
 import './ballot.css';
 import { ClearButton } from './components/ClearButton';
 import { KeyDates, NextElectionNote } from './Calendar';
@@ -182,8 +182,6 @@ export function KnowYourBallot() {
   // The details view has its own URL; with saved progress the first open goes straight there.
   const [showBallot, showView] = useBallotView('know-your-ballot-illinois');
   const browse = () => { setBrowsing(true); showView(true); };
-  // The banner's "See the results": back to the landing page, at the statewide races (each card has its count).
-  const showResults = () => { showView(false); requestAnimationFrame(() => requestAnimationFrame(() => scrollTo(document.getElementById('kyb-statewide')))); };
   const daysLeft = daysUntil(data.election.date);
 
   // ---- the voter's ballot and their progress through it --------------------
@@ -496,6 +494,7 @@ export function KnowYourBallot() {
             {/* Progress, views and search, pinned under govbot's header all the
                 way down the page (its height feeds --kyb-bar, so the contents
                 column and jumped-to races sit just below it). */}
+            <div className="pb-3 pt-2"><ElectionHeader date={data.election.date} /></div>
             <div ref={barRef} className="sticky top-[calc(var(--kyb-top)+6px)] z-30 -mx-2 sm:-mx-3 px-4 sm:px-6 py-2 lg:py-3 kyb-glass">
             <div className="">
               {/* Phones: the progress row, with a button that swaps it for the search (same height, so the bar doesn't jump). */}
@@ -541,7 +540,6 @@ export function KnowYourBallot() {
                   </div>
                 )}
                 {change && <ChangeReport change={change} onDismiss={() => setChange(null)} onNext={() => { setChange(null); nextUp(); }} />}
-                <MidtermsBanner date={data.election.date} onResults={showResults} />
                 <WhereYouVote districts={districts} chicago={chicago} cook={cook} onChange={changeAddress} />
                 {browsingCounty && <CountyNote county={browsingCounty} races={ballot.races.length} onChange={changeAddress} />}
 
@@ -749,6 +747,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   return (
     <ResultsProvider value={RESULTS}>
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
+      <div className="pt-4"><ElectionHeader date={data.election.date} /></div>
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(MORE, STATEWIDE, SECTIONS)} search={(slot) => (
         <BallotSearch ballot={everything} sections={SECTION_TITLES} onJump={onSearchJump} hrefFor={(h) => `${BALLOT_HREF}#race=${encodeURIComponent(h.id)}`} {...slot} />

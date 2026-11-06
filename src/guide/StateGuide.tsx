@@ -13,7 +13,7 @@ import { faqDates, faqFor } from '../seo/faq';
 import { isoDate } from '../seo/format';
 import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
-import { MidtermsBanner } from '../MidtermsBanner';
+import { ElectionHeader } from '../ElectionHeader';
 import { CandidateSheet, Compare, MeasureCard, RaceCard } from '../Race';
 import { BallotSearch, type Hit } from '../Search';
 import { LandingBar, landingItems } from '../LandingBar';
@@ -102,8 +102,6 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   // The details view has its own URL; with saved progress the first open goes straight there.
   const [showBallot, showView] = useBallotView(`know-your-ballot-${spec.slug}`);
   const browse = () => { setBrowsing(true); showView(true); };
-  // The banner's "See the results": back to the landing page, at the statewide races (each card has its count).
-  const showResults = () => { showView(false); requestAnimationFrame(() => requestAnimationFrame(() => scrollTo(document.getElementById('kyb-statewide')))); };
   const daysLeft = daysUntil(data.election.date);
 
   // ---- the voter's ballot and their progress through it --------------------
@@ -361,6 +359,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
           />
         ) : (
           <>
+            <div className="pb-3 pt-2"><ElectionHeader date={data.election.date} /></div>
             <div ref={barRef} className="sticky top-[calc(var(--kyb-top)+6px)] z-30 -mx-2 sm:-mx-3 px-4 sm:px-6 py-2 lg:py-3 kyb-glass">
               <div className="">
                 {/* Phones: the progress row, with a button that swaps it for the search (same height, so the bar doesn't jump). */}
@@ -404,7 +403,6 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                       </div>
                     </div>
                   )}
-                  <MidtermsBanner date={data.election.date} onResults={showResults} />
                   <WhereYouVote spec={spec} districts={districts} pin={pin} onChange={changeAddress} />
                   {browsingCounty && (
                     <div className="rounded-2xl border-[3px] border-[var(--gb-amber-hi)] bg-[var(--gb-surface)] p-4 space-y-2 text-[15px] leading-relaxed">
@@ -596,6 +594,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   return (
     <ResultsProvider value={spec.results}>
     <div className="space-y-10 pt-4">
+      <div className="pt-4"><ElectionHeader date={data.election.date} /></div>
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(more, headliners, SECTIONS, questions)} search={(slot) => (
         <BallotSearch ballot={everything} sections={sectionTitles} onJump={onSearchJump} hrefFor={(h) => `${ballotHref}#race=${encodeURIComponent(h.id)}`} {...slot} />
