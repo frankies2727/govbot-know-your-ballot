@@ -23,7 +23,7 @@ import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, Prog
 import { ReadOnlyContext } from './state';
 import { ContentsColumn, ContentsDrawer } from './Contents';
 import { Headliners } from './Headliners';
-import { earnedTrophies, streak, Trophies } from './Progress';
+import { MidtermsBanner } from './MidtermsBanner';
 import './ballot.css';
 import { ClearButton } from './components/ClearButton';
 import { KeyDates, NextElectionNote } from './Calendar';
@@ -164,11 +164,6 @@ export function KnowYourBallot() {
   const [toast, setToast] = useState('');
   const [party, setParty] = useState(false);
   const [shareMsg, setShareMsg] = useState('');
-  // A day on the streak.
-  useEffect(() => {
-    const d = today();
-    setSaved((s) => ({ ...s, days: s.days?.includes(d) ? s.days : [...(s.days ?? []), d].slice(-30) }));
-  }, [setSaved]);
 
   const districts = saved.place?.districts ?? null;
   // With no address, any Illinois county can be browsed: Cook shows every
@@ -187,6 +182,8 @@ export function KnowYourBallot() {
   // The details view has its own URL; with saved progress the first open goes straight there.
   const [showBallot, showView] = useBallotView('know-your-ballot-illinois');
   const browse = () => { setBrowsing(true); showView(true); };
+  // The banner's "See the results": back to the landing page, at the statewide races (each card has its count).
+  const showResults = () => { showView(false); requestAnimationFrame(() => requestAnimationFrame(() => scrollTo(document.getElementById('kyb-statewide')))); };
   const daysLeft = daysUntil(data.election.date);
 
   // ---- the voter's ballot and their progress through it --------------------
@@ -203,16 +200,9 @@ export function KnowYourBallot() {
   const done = sections.reduce((n, s) => n + s.done, 0);
   const allDone = total > 0 && done === total;
 
-  const choose = useCallback((id: string, c: Choice) => setSaved((s) => {
-    // A newly decided race counts toward today's goal.
-    const d = today();
-    const goal = !isDecided(s.picks[id]) && isDecided(c) ? { day: d, n: (s.goal?.day === d ? s.goal.n : 0) + 1 } : s.goal;
-    return { ...s, picks: { ...s.picks, [id]: c }, goal, best: Math.max(s.best ?? 0, goal?.day === d ? goal.n : 0) || undefined };
-  }), [setSaved]);
-  // Reading up on candidates counts toward the Researcher badge.
-  const lookedUp = useCallback(() => setSaved((s) => ({ ...s, looked: (s.looked ?? 0) + 1 })), [setSaved]);
-  const openSheet = useCallback((race: Race, c: Candidate) => { setSheet({ race, c }); lookedUp(); }, [lookedUp]);
-  const openCompare = useCallback((race: Race) => { setComparing(race); lookedUp(); }, [lookedUp]);
+  const choose = useCallback((id: string, c: Choice) => setSaved((s) => ({ ...s, picks: { ...s.picks, [id]: c } })), [setSaved]);
+  const openSheet = useCallback((race: Race, c: Candidate) => setSheet({ race, c }), []);
+  const openCompare = useCallback((race: Race) => setComparing(race), []);
   const setPlan = useCallback((k: string, v: boolean | string) => setSaved((s) => ({ ...s, plan: { ...s.plan, [k]: v } })), [setSaved]);
 
   // Cheer each section as it's finished, and the whole ballot once.
@@ -235,25 +225,6 @@ export function KnowYourBallot() {
     }
   }, [sections, allDone, saved.place]);
 
-  // The progress game: today's goal, streak and badges.
-  const day = today();
-  const gameCtx = {
-    done, total, allDone, looked: saved.looked ?? 0, plan: saved.plan,
-    visits: saved.days?.length ?? 0, streak: streak(saved.days, day), best: saved.best ?? 0,
-    hasPlace: !!saved.place, levels: sections,
-  };
-  const earned = earnedTrophies(gameCtx);
-  const earnedIds = earned.map((t) => t.id).join();
-  // A new trophy gets a toast; a different address (new levels) or a section
-  // finished (which has its own) doesn't count as news.
-  const prevEarned = useRef<{ ids: string; districts: Districts | null } | null>(null);
-  useEffect(() => {
-    const before = prevEarned.current;
-    prevEarned.current = { ids: earnedIds, districts };
-    if (!before || before.districts !== districts || !saved.place) return;
-    const fresh = earned.find((t) => t.id !== 'ready' && !t.id.startsWith('level-') && !before.ids.split(',').includes(t.id));
-    if (fresh) setToast(`${fresh.emoji} Trophy unlocked: ${fresh.name}!`);
-  }, [earnedIds]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(''), 3500); return () => clearTimeout(t); }, [toast]);
 
   // Opened from a resume link (or one pasted into this already-open tab, which
@@ -570,7 +541,7 @@ export function KnowYourBallot() {
                   </div>
                 )}
                 {change && <ChangeReport change={change} onDismiss={() => setChange(null)} onNext={() => { setChange(null); nextUp(); }} />}
-                {total > 0 && saved.place && <Trophies ctx={gameCtx} />}
+                <MidtermsBanner date={data.election.date} onResults={showResults} />
                 <WhereYouVote districts={districts} chicago={chicago} cook={cook} onChange={changeAddress} />
                 {browsingCounty && <CountyNote county={browsingCounty} races={ballot.races.length} onChange={changeAddress} />}
 

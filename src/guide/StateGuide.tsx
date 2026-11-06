@@ -13,7 +13,7 @@ import { faqDates, faqFor } from '../seo/faq';
 import { isoDate } from '../seo/format';
 import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
-import { earnedTrophies, streak, Trophies } from '../Progress';
+import { MidtermsBanner } from '../MidtermsBanner';
 import { CandidateSheet, Compare, MeasureCard, RaceCard } from '../Race';
 import { BallotSearch, type Hit } from '../Search';
 import { LandingBar, landingItems } from '../LandingBar';
@@ -91,10 +91,6 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   const [toast, setToast] = useState('');
   const [party, setParty] = useState(false);
   const [shareMsg, setShareMsg] = useState('');
-  useEffect(() => {
-    const d = today();
-    setSaved((s) => ({ ...s, days: s.days?.includes(d) ? s.days : [...(s.days ?? []), d].slice(-30) }));
-  }, [setSaved]);
 
   const districts = saved.place?.districts ?? null;
   // With no address, one county can be browsed: its statewide races plus the
@@ -106,6 +102,8 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   // The details view has its own URL; with saved progress the first open goes straight there.
   const [showBallot, showView] = useBallotView(`know-your-ballot-${spec.slug}`);
   const browse = () => { setBrowsing(true); showView(true); };
+  // The banner's "See the results": back to the landing page, at the statewide races (each card has its count).
+  const showResults = () => { showView(false); requestAnimationFrame(() => requestAnimationFrame(() => scrollTo(document.getElementById('kyb-statewide')))); };
   const daysLeft = daysUntil(data.election.date);
 
   // ---- the voter's ballot and their progress through it --------------------
@@ -119,14 +117,9 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   const done = sections.reduce((n, s) => n + s.done, 0);
   const allDone = total > 0 && done === total;
 
-  const choose = useCallback((id: string, c: Choice) => setSaved((s) => {
-    const d = today();
-    const goal = !isDecided(s.picks[id]) && isDecided(c) ? { day: d, n: (s.goal?.day === d ? s.goal.n : 0) + 1 } : s.goal;
-    return { ...s, picks: { ...s.picks, [id]: c }, goal, best: Math.max(s.best ?? 0, goal?.day === d ? goal.n : 0) || undefined };
-  }), [setSaved]);
-  const lookedUp = useCallback(() => setSaved((s) => ({ ...s, looked: (s.looked ?? 0) + 1 })), [setSaved]);
-  const openSheet = useCallback((race: Race, c: Candidate) => { setSheet({ race, c }); lookedUp(); }, [lookedUp]);
-  const openCompare = useCallback((race: Race) => { setComparing(race); lookedUp(); }, [lookedUp]);
+  const choose = useCallback((id: string, c: Choice) => setSaved((s) => ({ ...s, picks: { ...s.picks, [id]: c } })), [setSaved]);
+  const openSheet = useCallback((race: Race, c: Candidate) => setSheet({ race, c }), []);
+  const openCompare = useCallback((race: Race) => setComparing(race), []);
   const setPlan = useCallback((k: string, v: boolean | string) => setSaved((s) => ({ ...s, plan: { ...s.plan, [k]: v } })), [setSaved]);
 
   // Cheer each section as it's finished, and the whole ballot once.
@@ -147,23 +140,6 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     }
   }, [sections, allDone, saved.place, districts]);
 
-  // The progress game: today's goal, streak and trophies.
-  const day = today();
-  const gameCtx = {
-    done, total, allDone, looked: saved.looked ?? 0, plan: saved.plan,
-    visits: saved.days?.length ?? 0, streak: streak(saved.days, day), best: saved.best ?? 0,
-    hasPlace: !!saved.place, levels: sections,
-  };
-  const earned = earnedTrophies(gameCtx);
-  const earnedIds = earned.map((t) => t.id).join();
-  const prevEarned = useRef<{ ids: string; districts: Districts | null } | null>(null);
-  useEffect(() => {
-    const before = prevEarned.current;
-    prevEarned.current = { ids: earnedIds, districts };
-    if (!before || before.districts !== districts || !saved.place) return;
-    const fresh = earned.find((t) => t.id !== 'ready' && !t.id.startsWith('level-') && !before.ids.split(',').includes(t.id));
-    if (fresh) setToast(`${fresh.emoji} Trophy unlocked: ${fresh.name}!`);
-  }, [earnedIds]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(''), 3500); return () => clearTimeout(t); }, [toast]);
 
   // A #resume link (opened, or pasted into this tab): load it, asking first
@@ -428,7 +404,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                       </div>
                     </div>
                   )}
-                  {total > 0 && saved.place && <Trophies ctx={gameCtx} />}
+                  <MidtermsBanner date={data.election.date} onResults={showResults} />
                   <WhereYouVote spec={spec} districts={districts} pin={pin} onChange={changeAddress} />
                   {browsingCounty && (
                     <div className="rounded-2xl border-[3px] border-[var(--gb-amber-hi)] bg-[var(--gb-surface)] p-4 space-y-2 text-[15px] leading-relaxed">

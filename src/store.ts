@@ -13,15 +13,6 @@ export interface Saved {
   browsing?: boolean;
   /** When this device last opened the guide (ISO), for "since your last visit". */
   seen?: string;
-  // Progress game, kept on this device only (not in resume links):
-  /** Days (YYYY-MM-DD, Chicago) this device opened the guide, latest 30. */
-  days?: string[];
-  /** Candidate profiles and comparisons opened. */
-  looked?: number;
-  /** Decisions made on one day, for the daily goal. */
-  goal?: { day: string; n: number };
-  /** Most decisions made in one day. */
-  best?: number;
 }
 
 // Illinois keeps its original key so nobody's picks are lost; other states
@@ -61,13 +52,8 @@ function sanitize(raw: unknown): Saved {
     }
     place = { label: shortStr(raw.place.label, 120) ?? 'Your saved ballot', districts };
   }
-  const days = Array.isArray(raw.days) ? raw.days.filter((d): d is string => typeof d === 'string' && /^\d{4}-\d\d-\d\d$/.test(d)).slice(-30) : undefined;
-  const looked = Number.isInteger(raw.looked) && (raw.looked as number) >= 0 ? Math.min(raw.looked as number, 1e6) : undefined;
-  const g = isObj(raw.goal) ? raw.goal : null;
-  const goal = g && typeof g.day === 'string' && /^\d{4}-\d\d-\d\d$/.test(g.day) && Number.isInteger(g.n) && (g.n as number) >= 0 ? { day: g.day, n: Math.min(g.n as number, 1000) } : undefined;
-  const best = Number.isInteger(raw.best) && (raw.best as number) > 0 ? Math.min(raw.best as number, 1000) : undefined;
   const seen = typeof raw.seen === 'string' && /^\d{4}-\d\d-\d\dT[\d:.]{8,12}Z$/.test(raw.seen) ? raw.seen : undefined;
-  return { place, picks, plan, browsing: raw.browsing === true || undefined, seen, days, looked, goal, best };
+  return { place, picks, plan, browsing: raw.browsing === true || undefined, seen };
 }
 
 function load(key: string): Saved {
