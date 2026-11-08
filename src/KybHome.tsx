@@ -52,11 +52,11 @@ const STATES = [
 ];
 
 /** Spring 2027's guides, by Election Day: their card's map, what's on the ballot and when. */
-const SPRING: { id: GuideId; name: string; ink: string; map: React.ReactNode; covers: string; day: string; when: string; srName?: string }[] = [
-  { id: 'chicago-2027', name: 'Chicago', ink: 'var(--chi-blue)', map: <ChicagoMap />, covers: 'Mayor, clerk, treasurer, all 50 alderpersons and the police district councils.', day: CHICAGO_DAY, when: 'days to Election Day, Tue, Feb 23' },
-  { id: 'jacksonville-2027', name: 'Jacksonville', ink: STATE_INK.florida, map: <JacksonvilleMap />, covers: 'Mayor, sheriff, the county’s officers and all 19 City Council seats.', day: JACKSONVILLE_DAY, when: 'days to Election Day, Tue, Mar 9 (May 18 runoffs where needed)' },
-  { id: 'denver-2027', name: 'Denver', ink: STATE_INK.colorado, map: <DenverMap />, covers: 'Mayor, auditor, clerk and recorder and all 13 City Council seats.', day: DENVER_DAY, when: 'days to Election Day, Tue, Apr 6 (Jun 1 runoffs where needed)' },
-  { id: 'wisconsin-2027', name: 'Wisconsin', ink: STATE_INK.wisconsin, map: <WisconsinMap />, covers: 'An open Supreme Court seat, the Court of Appeals and circuit courts.', day: SPRING_DAY, when: 'days to Election Day, Tue, Apr 6 (a Feb 16 primary only where needed)', srName: 'Wisconsin’s spring election' },
+const SPRING: { id: GuideId; name: string; ink: string; map: React.ReactNode; event: string; covers: string; day: string; when: string; srName?: string }[] = [
+  { id: 'chicago-2027', name: 'Chicago', ink: 'var(--chi-blue)', map: <ChicagoMap />, event: 'Chicago’s city election, Tue, Feb 23', covers: 'Mayor, clerk, treasurer, all 50 alderpersons and the police district councils.', day: CHICAGO_DAY, when: 'days to Election Day' },
+  { id: 'jacksonville-2027', name: 'Jacksonville', ink: STATE_INK.florida, map: <JacksonvilleMap />, event: 'Jacksonville’s city election, Tue, Mar 9', covers: 'Mayor, sheriff, the county’s officers and all 19 City Council seats.', day: JACKSONVILLE_DAY, when: 'days to Election Day (May 18 runoffs where needed)' },
+  { id: 'denver-2027', name: 'Denver', ink: STATE_INK.colorado, map: <DenverMap />, event: 'Denver’s city election, Tue, Apr 6', covers: 'Mayor, auditor, clerk and recorder and all 13 City Council seats.', day: DENVER_DAY, when: 'days to Election Day (Jun 1 runoffs where needed)' },
+  { id: 'wisconsin-2027', name: 'Wisconsin', ink: STATE_INK.wisconsin, map: <WisconsinMap />, event: 'Wisconsin’s spring election, Tue, Apr 6', covers: 'An open Supreme Court seat, the Court of Appeals and circuit courts.', day: SPRING_DAY, when: 'days to Election Day (a Feb 16 primary only where needed)', srName: 'Wisconsin’s spring election' },
 ];
 
 /** The page's parts for the pinned bar's contents, in page order. */
@@ -74,8 +74,6 @@ const UNDER_BAR = 'scroll-mt-[var(--kyb-bar,0px)]';
 const openIn = (route: string) => (e: React.MouseEvent) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(route); };
 
 const LINK = 'underline decoration-2 underline-offset-4 font-semibold text-[var(--gb-text)] hover:text-[var(--gb-link)]';
-/** A guide's name in running text, opening that guide's landing page. */
-const GuideLink = ({ id, children }: { id: GuideId; children: React.ReactNode }) => <a className={LINK} href={guidePath(id)} onClick={openIn(`projects/know-your-ballot-${id}`)}>{children}</a>;
 
 /** The root of the Know Your Ballot site: the elections we cover, by year, and a way into each state's guide at /illinois, /michigan, /minnesota or /wisconsin. */
 export function KybHome() {
@@ -88,8 +86,8 @@ export function KybHome() {
           <LandingBar items={PARTS} searchLabel="Search elections and state guides" search={(slot) => <HomeSearch {...slot} />} />
           <section id="kyb-intro" className={`mt-8 grid sm:mt-10 ${UNDER_BAR} items-center gap-8 lg:grid-cols-[minmax(0,6fr)_minmax(0,7fr)] lg:gap-12`}>
             <div className="max-w-[52ch] space-y-6 text-[17px] leading-relaxed">
-              <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Know what&rsquo;s on your entire ballot before you vote.</h1>
-              <p className="text-pretty text-xl leading-snug">Here we show what each race is, who&rsquo;s running, who&rsquo;s funding them, what every question means, and more. Find the election you&rsquo;re voting in, or look back at a past one.</p>
+              <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Everything on Your Ballot. All in One Place.</h1>
+              <p className="text-pretty text-xl leading-snug">From presidential and statewide races to judges, school boards, and local ballot questions. Discover who&rsquo;s running, who&rsquo;s funding them, and what you need to know before Election Day.</p>
               <p>
                 <a href="#elections" className="inline-flex min-h-[48px] items-center rounded-full bg-[var(--gb-primary)] px-6 text-[16px] font-bold text-[var(--gb-on-primary)] no-underline hover:bg-[var(--gb-primary-hi)] focus-visible:outline-[var(--gb-text)]">Browse the elections</a>
               </p>
@@ -115,13 +113,14 @@ export function KybHome() {
                 <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Spring 2027</h2>
                 <ChevronDown className="kyb-cycle-chev h-7 w-7 shrink-0" aria-hidden="true" />
               </summary>
-              <p className="mt-2 max-w-[60ch] text-[17px]"><GuideLink id="chicago-2027">Chicago’s city election</GuideLink> on Tue, Feb 23, <GuideLink id="jacksonville-2027">Jacksonville’s</GuideLink> on Tue, Mar 9, and <GuideLink id="denver-2027">Denver’s</GuideLink> and <GuideLink id="wisconsin-2027">Wisconsin’s spring election</GuideLink> on Tue, Apr 6. Every race, who holds each seat now, and who’s running as the lists come out.</p>
+              <p className="mt-2 max-w-[60ch] text-[17px]">Every race, who holds each seat now, and who’s running as the lists come out.</p>
               <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="Guides for spring 2027">
                 {SPRING.map((g) => (
                   <li key={g.id} id={`kyb-home-${g.id}`} className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': g.ink } as React.CSSProperties}>
                     <a href={guidePath(g.id)} onClick={openIn(`projects/know-your-ballot-${g.id}`)} className="kyb-tile h-full">
                       <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{g.map}</span>
                       <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">{g.name}</span>
+                      <span className="block text-[15px] font-bold leading-snug">{g.event}</span>
                       <span className="block text-[15px] leading-snug">{g.covers}</span>
                     </a>
                     <p className="kyb-card-act">
