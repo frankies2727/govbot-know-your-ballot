@@ -37,7 +37,7 @@ export interface Election {
   guide?: { label: string; anchor?: string };
 }
 
-/** The midterm general the four guides are built for. */
+/** The midterm general the state guides are built for. */
 export const NOV_3 = '2026-11-03';
 const NOV_7_2028 = '2028-11-07';
 const GUIDE_2026 = { label: 'Open the 2026 ballot guide' };

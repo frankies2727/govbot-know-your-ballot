@@ -32,7 +32,7 @@ const PAGES: Record<string, { title: string; desc: string; img: string }> = {
   minnesota: { title: 'Know Your Minnesota Ballot', desc: guideDesc('Every race, judge and the amendment', 'Minnesota'), img: 'minnesota' },
   wisconsin: { title: 'Know Your Wisconsin Ballot', desc: guideDesc('Every race and question', 'Wisconsin'), img: 'wisconsin' },
 };
-/** The four guides: where voters confirm their own ballot, per state. */
+/** The guides: where voters confirm their own ballot, per state. */
 const STATES = [
   { slug: 'illinois', name: 'Illinois', portal: { name: 'Illinois State Board of Elections voter lookup', url: 'https://ova.elections.il.gov/RegistrationLookup.aspx' } },
   { slug: 'michigan', name: 'Michigan', portal: { name: 'Michigan.gov/vote', url: 'https://www.michigan.gov/vote' } },

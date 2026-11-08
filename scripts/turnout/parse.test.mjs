@@ -21,7 +21,7 @@ test('the Lab page names its CSV, its version and when it was updated', () => {
   assert.equal(labUpdated(LAB_PAGE, 2026), '2026-11-04');
 });
 
-test("the Lab's rows for our four states", () => {
+test("the Lab's rows for our states", () => {
   const rows = labRows(LAB_CSV);
   assert.deepEqual(rows.illinois, { ballots: 4300000, eligible: 9308092, pct: 46.2, estimate: true });
   assert.deepEqual(rows.wisconsin, { ballots: 2760000, eligible: 4574796, pct: 60.33, estimate: true });

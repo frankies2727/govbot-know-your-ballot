@@ -25,7 +25,7 @@ const STATES = [
 
 const PICTURES = [
   {
-    file: 'home', overline: 'Built on Govbot · four states', title: 'Know Your Ballot', maps: STATES.map((s) => s.id),
+    file: 'home', overline: 'Built on Govbot · several states', title: 'Know Your Ballot', maps: STATES.map((s) => s.id),
     text: 'Every race and question on your ballot, election by election. Past ballots stay as the record, with who won.',
     link: SITE,
   },

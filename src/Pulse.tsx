@@ -3,7 +3,7 @@ import { Heart } from 'lucide-react';
 import { compact as count } from './lib/format';
 
 // The two floating bits on every page: how many people are using the guide
-// right now (all four states together), and a heart anyone can tap, which
+// right now (every state together), and a heart anyone can tap, which
 // everyone else sees as "Someone just hearted this page". The numbers come from
 // /api/pulse and /api/heart (api/_pulse.ts). Anonymous by design: a tab makes up
 // a random id and forgets it, nothing is stored on the device but "I hearted".

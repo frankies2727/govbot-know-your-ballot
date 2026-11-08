@@ -126,7 +126,7 @@ export function jsonLd(site: string, f: StatePage | null, desc: string, states: 
   };
 }
 
-/** The long summary for AI assistants: everything the readable pages say, for all four states, in one Markdown file. */
+/** The long summary for AI assistants: everything the readable pages say, for every state, in one Markdown file. */
 export function llmsFull(site: string, states: StatePage[]): string {
   const out = ['# Govbot Know Your Ballot: full text', '', '> The same facts as each state\'s guide, in one file, for AI assistants. Candidate lists are as of the dates given; voters should confirm their own ballot with the official portal named for their state. Know Your Ballot never recommends or rates a candidate.', ''];
   for (const f of states) {
