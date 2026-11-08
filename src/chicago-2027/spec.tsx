@@ -13,6 +13,8 @@ import { CHICAGO_GUIDES, PlanToVote } from './PlanToVote';
 import './chicago.css';
 
 const data = rawData as unknown as StateData;
+/** Where a party comes from on a ballot that prints none. */
+const PARTY_NOTE = 'No party is printed on this ballot. A party shown here is the one the candidate lists on their campaign filing with the Illinois State Board of Elections, or else Wikidata’s record; “No party on file” means neither has one.';
 /** Wards with one candidate, for "How it works". */
 const unopposed = data.races.filter((r) => r.section === 'council' && r.candidates.length === 1).length;
 
@@ -30,6 +32,9 @@ const sources = (d: StateData): SourceCard[] => [
   { emoji: '📝', title: 'Petitions, and more on each candidate', status: 'Linked',
     body: 'Chicago Politics counts the signatures on each candidate’s nominating petition from the Board’s copy, and tracks sitting alderpersons’ votes and money. Each candidate links to their page there (data CC BY 4.0, Chicago Politics).',
     links: [['Chicago Politics: 2027 election', LINKS.chicagoPolitics]] },
+  { emoji: '🎗️', title: 'Party', status: 'Official where on file',
+    body: `${PARTY_NOTE} Wikidata is used only for the national parties, and only for someone it places in Chicago or Illinois.`,
+    links: [['ISBE candidate records', d.sources.money.file], ['Wikidata', 'https://www.wikidata.org/']] },
   { emoji: '📷', title: 'Photos, websites & social media', status: 'Live · daily',
     body: 'Sitting alderpersons’ photos are the City Clerk’s official portraits. For everyone else, Wikidata and the candidate’s own campaign site, matched on the whole name. Every photo is credited on the card; candidates with none show their initials.',
     links: [['Wikidata', 'https://www.wikidata.org/']] },
@@ -84,14 +89,16 @@ export const CHICAGO_2027_GUIDE: GuideSpec = {
       'Mayor, City Clerk and City Treasurer',
       'Your ward’s alderperson, one of 50',
       'Three members of your police district’s District Council',
-      'Nonpartisan: no party next to any name, and runoffs on Apr 6 where no one wins a majority',
+      'Nonpartisan: no party is printed next to any name, and runoffs on Apr 6 where no one wins a majority',
     ],
     addressPlaceholder: 'e.g. 121 N LaSalle St or 5800 N Lincoln Ave',
     exampleAddress: '121 N LaSalle St, Chicago',
     districtKinds: 'ward and police district',
     measuresLabel: 'citywide questions',
     sectionNotes: {
-      police: <>Each police district elects three members. You may vote for up to 3; the three with the most votes win, with no runoff. <Out href={LINKS.ccpsa}>About the District Councils</Out></>,
+      city: <>{PARTY_NOTE}</>,
+      council: <>{PARTY_NOTE}</>,
+      police: <>Each police district elects three members. You may vote for up to 3; the three with the most votes win, with no runoff. <Out href={LINKS.ccpsa}>About the District Councils</Out>. {PARTY_NOTE}</>,
     },
     countyScope: 'every race',
     notCarried: '',

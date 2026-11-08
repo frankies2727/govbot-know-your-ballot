@@ -37,13 +37,13 @@ function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; 
   const why = stakes(race, electionDate);
   return (
     <li id={statewideId(race)} className="min-w-0 rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: section.color }}>
-      <span className="inline-flex self-start items-center gap-1.5 rounded-full border-2 px-2.5 py-0.5 text-xs font-bold text-[var(--gb-text)]" style={{ borderColor: section.color, background: `color-mix(in srgb, ${section.color} 14%, transparent)` }}>{section.emoji} {section.title}</span>
-      <h3 className="text-lg font-black leading-tight">{raceTitle(race)}</h3>
-      <p className="text-sm leading-snug">{explainOffice(race.office)}</p>
-      {why && <p className="text-sm leading-snug"><span className="font-bold">Why it matters: </span>{why}</p>}
+      <span className="inline-flex self-start items-center gap-1.5 rounded-full border-2 px-2.5 py-0.5 text-sm font-bold text-[var(--gb-text)]" style={{ borderColor: section.color, background: `color-mix(in srgb, ${section.color} 14%, transparent)` }}>{section.emoji} {section.title}</span>
+      <h3 className="text-xl font-black leading-tight">{raceTitle(race)}</h3>
+      <p className="text-[16px] leading-relaxed">{explainOffice(race.office)}</p>
+      {why && <p className="text-[16px] leading-relaxed"><span className="font-bold">Why it matters: </span>{why}</p>}
       <RaceResults race={race} color={section.color} />
       <FaceStrip people={race.candidates} names info color={section.color} onPick={(c) => onOpen(race, c as Candidate)} />
-      <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-sm font-bold">
         <span>{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} · <span className="rounded-md bg-[var(--kyb-chip)] px-1.5 py-0.5">{race.voteFor > 1 ? `pick up to ${race.voteFor}` : 'pick 1'}</span></span>
         {race.candidates.length > 1 && (
           <button type="button" onClick={() => onCompare(race)} className="inline-flex items-center gap-1.5 min-h-[36px] rounded-lg border-2 border-[var(--gb-text)] px-2.5 text-[13px] font-bold hover:bg-[var(--kyb-chip)]">

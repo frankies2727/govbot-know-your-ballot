@@ -412,8 +412,8 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
         <li key={c.ballot}>
           <button type="button" onClick={() => onOpen(it.race!, c)} aria-label={`${c.name}: more about them`} className="w-full flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-left hover:bg-[var(--kyb-chip)]">
             <Face c={c} className="w-9 h-9 text-xs" />
-            <span className="min-w-0 flex-1 text-sm font-bold leading-tight">{c.name}</span>
-            {(c.nominatedBy ?? c.party) && <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">{c.nominatedBy ?? c.party}</span>}
+            <span className="min-w-0 flex-1 text-[15px] font-bold leading-tight">{c.name}</span>
+            {(c.nominatedBy ?? c.party) && <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[12px] font-bold">{c.nominatedBy ?? c.party}</span>}
             <Info className="w-5 h-5 shrink-0 text-[var(--gb-link)]" aria-hidden="true" />
           </button>
         </li>
@@ -435,8 +435,8 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
         {groups.map((g, i) => (
           <li key={g.key} id={officeId(card, i)} className="scroll-mt-[var(--kyb-bar,0px)]">
             <div className="kyb-sticky-head sticky top-0 z-10 border-b border-[var(--gb-border)] bg-[var(--gb-surface)] px-3 py-2">
-              <p className="text-[15px] font-black leading-snug">{g.label} <span className="font-bold">· {g.items.length}</span></p>
-              {g.about && <p className="text-[13px] leading-snug">{g.about}</p>}
+              <p className="text-[16px] font-black leading-snug">{g.label} <span className="font-bold">· {g.items.length}</span></p>
+              {g.about && <p className="text-[14.5px] leading-snug">{g.about}</p>}
             </div>
             <ul className="divide-y divide-[var(--kyb-chip)]">
               {g.items.map((it) => (
@@ -445,13 +445,13 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
                     <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
                       <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
                       <span className="min-w-0 flex-1">
-                        <span className="block text-[15px] font-bold leading-snug">{it.title}</span>
-                        <span className="block text-xs">{it.sub} · {it.race!.candidates.length} candidate{it.race!.candidates.length === 1 ? '' : 's'} · {it.race!.voteFor > 1 ? `pick up to ${it.race!.voteFor}` : 'pick 1'}</span>
+                        <span className="block text-[16px] font-bold leading-snug">{it.title}</span>
+                        <span className="block text-[13px]">{it.sub} · {it.race!.candidates.length} candidate{it.race!.candidates.length === 1 ? '' : 's'} · {it.race!.voteFor > 1 ? `pick up to ${it.race!.voteFor}` : 'pick 1'}</span>
                         <RaceResults race={it.race!} color={card.color} compact />
                       </span>
                     </summary>
                     <div className="px-3 pb-3 space-y-2">
-                      {it.why && <p className="text-[13px] leading-snug"><span className="font-bold">Why it matters: </span>{it.why}</p>}
+                      {it.why && <p className="text-[15px] leading-relaxed"><span className="font-bold">Why it matters: </span>{it.why}</p>}
                       <RaceResults race={it.race!} color={card.color} />
                       {candidates(it)}
                       <div className="flex flex-wrap items-center gap-3">
@@ -599,8 +599,8 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
       {info && <Info className="absolute -right-0.5 -bottom-0.5 w-4 h-4 rounded-full bg-[var(--gb-surface)] text-[var(--gb-link)]" aria-hidden="true" />}
     </span>
     {names && <>
-      <span className="mt-1 block w-full text-[12.5px] font-bold leading-tight line-clamp-2 text-[var(--gb-text)]">{c.name.split(' & ')[0]}</span>
-      {(c.nominatedBy ?? c.party) && <span className="block w-full line-clamp-2 break-words text-[11px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>}
+      <span className="mt-1 block w-full text-[13.5px] font-bold leading-tight line-clamp-2 text-[var(--gb-text)]">{c.name.split(' & ')[0]}</span>
+      {(c.nominatedBy ?? c.party) && <span className="block w-full line-clamp-2 break-words text-[12px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>}
       {c.note && <span className="block w-full truncate text-[11px] font-bold leading-tight text-[var(--gb-text)]">{c.note}</span>}
     </>}
   </>);

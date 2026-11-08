@@ -52,6 +52,15 @@ const CITYWIDE_NOW = {
   'city-treasurer': { name: 'Melissa Conyears-Ervin', source: { name: 'Office of the City Treasurer', url: 'https://www.chicago.gov/city/en/depts/treas.html' } },
 };
 
+// Why a sitting alderperson isn't on the ballot: the headline of the news
+// report of their announcement, word for word, with its link (checked Nov 8,
+// 2026). Shown only while they're absent from the Board's list.
+const NOT_RUNNING = {
+  13: { note: 'Alderman Marty Quinn to retire from Chicago City Council after 15 years', source: { name: 'ABC7 Chicago', url: 'https://abc7chicago.com/post/alderman-marty-quinn-southwest-side-13th-ward-retire-chicago-city-council-15-years/19471426/' } },
+  19: { note: 'Chicago Ald. Matt O\'Shea won\'t seek re-election after four terms', source: { name: 'FOX 32 Chicago', url: 'https://www.fox32chicago.com/news/chicago-ald-matt-oshea-wont-seek-re-election-after-four-terms' } },
+  22: { note: 'Ald. Mike Rodriguez not running for re-election', source: { name: 'FOX 32 Chicago', url: 'https://www.fox32chicago.com/video/fmc-87ikmitazt3y5l1v' } },
+};
+
 /** 1 -> "1st", 22 -> "22nd", 11 -> "11th". */
 export const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] ?? 'th'}`;
 const slug = (s) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/['’.]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -258,7 +267,9 @@ async function main() {
   for (const r of races.filter((x) => x.section === 'council')) {
     const o = wards?.get(r.area.id);
     if (!o) { if (prevById.get(r.id)?.incumbents) r.incumbents = prevById.get(r.id).incumbents; continue; }
-    r.incumbents = [incumbent(r, o.name, { name: 'City of Chicago: ward offices', url: WARD_OFFICES_PAGE })];
+    const now = incumbent(r, o.name, { name: 'City of Chicago: ward offices', url: WARD_OFFICES_PAGE });
+    const why = NOT_RUNNING[r.area.id];
+    r.incumbents = [now.ballot == null && why ? { ...now, note: why.note, source: why.source } : now];
     r.office_ = o; // used below for the official photo
   }
   let councils = 0;
@@ -286,12 +297,15 @@ async function main() {
   const isbe = await soft('ISBE', () => isbeFiles(work), null);
   if (isbe) {
     // Filed for 2027, or (a sitting alderperson's committee) for the same seat in 2023; who's in office comes from the City, not these files.
-    const m = await addStateMoney(races, isbe, { years: ['2027', '2023'], types: ['CP', 'CE'], incumbency: false });
+    const m = await addStateMoney(races, isbe, { years: ['2027', '2023'], types: ['CP', 'CE'], incumbency: false, party: true });
     console.log(`Money: ${m.matched} of ${m.total} candidates matched to a committee`);
   } else {
     // Couldn't read the files today: keep yesterday's figures.
     for (const r of races) for (const c of r.candidates) { const p = prevById.get(r.id)?.candidates.find((x) => x.name === c.name); if (p?.money) c.money = p.money; }
   }
+
+  // No party is printed on this ballot: a candidate with none on file (the State Board's records or Wikidata) says so, rather than looking unfinished.
+  for (const r of races) for (const c of r.candidates) if (!c.party) c.party = 'No party on file';
 
   // Each candidate's Chicago Politics page, where the sitemap lists one.
   const pages = await soft('chicagopolitics.org', chicagoPolitics, null);

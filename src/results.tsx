@@ -1,6 +1,8 @@
 import { Check } from 'lucide-react';
 import { createContext, useContext } from 'react';
-import { held } from './seo/faq';
+import { GUIDE_ELECTION_DAY } from './hosts';
+import { useStateConfig } from './state';
+import { daysUntil } from './store';
 import type { Race } from './types';
 
 // Election results on a state's landing page: each race's votes, who won (or
@@ -131,10 +133,12 @@ function Bar({ label, sub, votes, share, won, dim, color }: { label: string; sub
 /** A race's results: a bar per candidate, the call and the margin. `compact`: one line, for a district's row. */
 export function RaceResults({ race, color, compact = false }: { race: Race; color: string; compact?: boolean }) {
   const results = useResults();
+  const { electionDate } = useStateConfig();
   const r = results?.races[race.id];
   if (!r) {
     // No count, but no contest either: everyone running won their seat.
-    if (!results || !held() || !race.candidates.length || race.candidates.length > Math.max(1, race.voteFor)) return null;
+    // Only once this guide's own Election Day is past (Chicago's is Feb 23, 2027, not Nov 3).
+    if (!results || daysUntil(electionDate ?? GUIDE_ELECTION_DAY) >= 0 || !race.candidates.length || race.candidates.length > Math.max(1, race.voteFor)) return null;
     const names = race.candidates.map((c) => c.name).join(', ');
     return compact
       ? <span className="block text-xs font-bold">✓ {names} · elected unopposed</span>

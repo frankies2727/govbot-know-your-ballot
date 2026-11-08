@@ -91,7 +91,8 @@ const districtFits = (ballotOffice, fileDistrict) => {
  * 2027 "CP" or "CE", one committee or another, and a sitting alderperson's
  * committee may still be on file only for their 2023 race). With
  * `incumbency: false` the files' Inc/Chal marks aren't used (the build has
- * an official list of who holds each seat).
+ * an official list of who holds each seat); with `party: true` a candidate in
+ * a nonpartisan race gets the party they list on file, if any.
  */
 export async function addStateMoney(races, dir, election = { years: ['2026'], types: ['GE'], incumbency: true }) {
   // 1. Everyone on the election, and their status in it.
@@ -101,7 +102,7 @@ export async function addStateMoney(races, dir, election = { years: ['2026'], ty
   }
   const people = [];
   for await (const r of rows(`${dir}/Candidates.txt`)) {
-    if (status.has(r.ID)) people.push({ id: r.ID, last: words(r.LastName), first: words(r.FirstName), office: r.Office.toLowerCase(), district: r.District });
+    if (status.has(r.ID)) people.push({ id: r.ID, last: words(r.LastName), first: words(r.FirstName), office: r.Office.toLowerCase(), district: r.District, party: r.PartyAffiliation });
   }
 
   // 2. Their committees.
@@ -177,6 +178,12 @@ export async function addStateMoney(races, dir, election = { years: ['2026'], ty
       log.push(`${race.office} | ${c.name} -> ${hits.map((p) => `${p.office} ${p.district}`.trim()).join(', ')}`);
       const st = [...ids].map((id) => status.get(id)).find(Boolean);
       if (election.incumbency !== false && (st === 'Inc' || st === 'Ret')) c.incumbent = true;
+      // A nonpartisan race prints no party; with `party`, the one the candidate lists on file (none for "Non Partisan").
+      if (election.party) {
+        // "Non Partisan" (and its typos) is no party; a mixed entry ("Democratic/non-partisan") is left out rather than guessed.
+        const listed = [...new Set(hits.map((p) => p.party).filter((x) => x && !/^non[\s-]?partis/i.test(x) && !x.includes('/')))];
+        if (listed.length === 1) c.party = listed[0];
+      }
       // A person can have several committees over the years; the one carrying
       // this cycle's money is the one with the most raised.
       const best = [...ids].flatMap((id) => [...(committeesOf.get(id) ?? [])])

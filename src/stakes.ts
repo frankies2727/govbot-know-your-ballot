@@ -19,10 +19,15 @@ export function stakes(race: Race, electionDate = GUIDE_ELECTION_DAY): string {
     // The note names the person only sometimes ("Durbin announced…" vs "Lost the party's nomination…").
     const { name, note } = leaving[0];
     const surname = name.split(' & ')[0].trim().split(/\s+/).pop() ?? '';
-    return `Open seat. ${surname && note!.includes(surname) ? note : `${name}: ${note}`}`;
+    // A headline quoted as the reason has no full stop of its own.
+    const said = note!.replace(/([^.!?”"’])$/, '$1.');
+    return `Open seat. ${surname && said.includes(surname) ? said : `${name}: ${said}`}`;
   }
   const running = inc.filter((i) => i.ballot != null);
-  if (running.length) return `${running.map((i) => i.name).join(' and ')} ${keep(running.length)}`;
+  // A council of several seats: who is running to stay, and who isn't on the ballot.
+  const away = inc.filter((i) => i.ballot == null);
+  const absent = away.length ? ` ${away.map((i) => i.name).join(' and ')} ${away.length > 1 ? (held ? 'weren’t' : 'aren’t') : held ? 'wasn’t' : 'isn’t'} on the ballot.` : '';
+  if (running.length) return `${running.map((i) => i.name).join(' and ')} ${keep(running.length)}${absent}`;
   // The candidate list marks the incumbent (the roster may spell them differently: "Patty" / "Patricia").
   const marked = race.candidates.filter((c) => c.incumbent);
   if (marked.length) return `${marked.map((c) => c.name).join(' and ')} ${keep(marked.length)}`;

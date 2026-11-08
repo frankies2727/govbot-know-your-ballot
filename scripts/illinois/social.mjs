@@ -134,11 +134,22 @@ function openStates(work, st) {
 // ---- 3. Wikidata ------------------------------------------------------------------------
 const PROPS = { P2002: 'x', P2013: 'facebook', P2003: 'instagram', P2397: 'youtube', P7085: 'tiktok', P12361: 'bluesky' };
 
-const ROLE = /politician|judge|candidate|activist|businessman|businesswoman|attorney|lawyer|official|commissioner|educator|alderm|legislator|sheriff|clerk|assessor|treasurer/i;
-const isLocal = (desc, st) => /politician|judge|candidate|activist|businessman|businesswoman|attorney|lawyer|official|commissioner|educator|alderm|legislator/i.test(desc) && st.local.test(desc);
+const ROLE = /politician|judge|candidate|activist|businessman|businesswoman|attorney|lawyer|official|commissioner|educator|alderm|legislator|sheriff|clerk|assessor|treasurer|mayor|comptroller/i;
+const isLocal = (desc, st) => /politician|judge|candidate|activist|businessman|businesswoman|attorney|lawyer|official|commissioner|educator|alderm|legislator|mayor|comptroller/i.test(desc) && st.local.test(desc);
 const claim = (e, p) => e.claims?.[p]?.find((c) => c.rank !== 'deprecated')?.mainsnak?.datavalue?.value;
 
-/** An entity's social accounts and official website. */
+// Wikidata's items for the national parties ("member of political party", P102).
+const PARTIES = { Q29552: 'Democratic', Q29468: 'Republican', Q42183: 'Libertarian' };
+/** Their party now: the preferred statement, else the one with no end date; none when that's unclear or another party. */
+function partyOf(e) {
+  const all = (e.claims?.P102 ?? []).filter((c) => c.rank !== 'deprecated');
+  const now = all.filter((c) => c.rank === 'preferred');
+  const open = (now.length ? now : all).filter((c) => !c.qualifiers?.P582);
+  const ids = [...new Set(open.map((c) => c.mainsnak?.datavalue?.value?.id))];
+  return ids.length === 1 ? PARTIES[ids[0]] : undefined;
+}
+
+/** An entity's social accounts, official website, photo and party. */
 function accountsOf(e) {
   const social = {};
   for (const [p, key] of Object.entries(PROPS)) {
@@ -151,6 +162,7 @@ function accountsOf(e) {
     social,
     website: typeof site === 'string' && /^https?:\/\//.test(site) ? site : undefined,
     photo: typeof image === 'string' ? { commons: image } : undefined,
+    party: partyOf(e),
   };
 }
 
@@ -180,10 +192,17 @@ async function wikidataSearch(names, st) {
   const deadline = Date.now() + SEARCH_MINUTES * 60_000;
   let skipped = 0;
   await pool(names, 1, async (name) => { if (Date.now() > deadline) { skipped++; return; } try {
-    const q = new URLSearchParams({ action: 'wbsearchentities', search: name.replace(/["“”][^"“”]*["“”]/g, ' ').replace(/\s+/g, ' ').trim(), language: 'en', type: 'item', limit: '7', format: 'json' });
+    // The name as listed, then (if that finds no one) without middle initials: Wikidata has "Susana Mendoza", not "Susana A. Mendoza".
+    const plain = name.replace(/["“”][^"“”]*["“”]/g, ' ').replace(/\s+/g, ' ').trim();
+    const bare = plain.split(' ').filter((w, i, a) => i === 0 || i === a.length - 1 || !/^[A-Za-z]\.?$/.test(w)).join(' ');
     // A short description often just says "American politician": then the
     // opening of their Wikipedia article has to place them in Illinois.
-    const named = ((await json(`${WIKIDATA}?${q}`)).search ?? []).filter((h) => namesAgree(h.label ?? '', name) && ROLE.test(h.description ?? ''));
+    let named = [];
+    for (const search of [...new Set([plain, bare])]) {
+      const q = new URLSearchParams({ action: 'wbsearchentities', search, language: 'en', type: 'item', limit: '7', format: 'json' });
+      named = ((await json(`${WIKIDATA}?${q}`)).search ?? []).filter((h) => namesAgree(h.label ?? '', name) && ROLE.test(h.description ?? ''));
+      if (named.length) break;
+    }
     const hits = [];
     for (const h of named) {
       const g = new URLSearchParams({ action: 'wbgetentities', ids: h.id, props: 'claims|sitelinks', format: 'json' });
@@ -358,6 +377,8 @@ export async function addSocial(races, work, render, prev, code = 'IL') {
     const m = Object.fromEntries(Object.entries(merged[i]).filter(([, v]) => seen.get(v.toLowerCase()) === 1));
     if (Object.keys(m).length) { e.c.social = m; withSocial++; } else delete e.c.social;
     if (!e.c.website && e.website) e.c.website = e.website;
+    // A nonpartisan list prints no party: Wikidata's, where the list has none.
+    if (!e.c.party && e.wiki?.party) e.c.party = e.wiki.party;
     if (e.issues) e.c.issuesUrl = e.issues; else delete e.c.issuesUrl;
     const photo = e.member?.photo ?? e.legislator?.photo ?? e.wiki?.photo;
     if (photo) e.c.photoFrom = photo; else delete e.c.photoFrom;
