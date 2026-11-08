@@ -6,42 +6,30 @@
       "**": false
     }
   },
+  "redirects": [
+    {
+      "source": "/:state(illinois|michigan|minnesota|wisconsin)",
+      "destination": "/2026-11/:state",
+      "permanent": true
+    },
+    {
+      "source": "/:state(illinois|michigan|minnesota|wisconsin)/:rest*",
+      "destination": "/2026-11/:state/:rest*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
     {
-      "source": "/illinois",
-      "destination": "/illinois/index.html"
+      "source": "/2026-11/:state(illinois|michigan|minnesota|wisconsin)",
+      "destination": "/2026-11/:state/index.html"
     },
     {
-      "source": "/illinois/(.*)",
-      "destination": "/illinois/index.html"
-    },
-    {
-      "source": "/michigan",
-      "destination": "/michigan/index.html"
-    },
-    {
-      "source": "/michigan/(.*)",
-      "destination": "/michigan/index.html"
-    },
-    {
-      "source": "/minnesota",
-      "destination": "/minnesota/index.html"
-    },
-    {
-      "source": "/minnesota/(.*)",
-      "destination": "/minnesota/index.html"
-    },
-    {
-      "source": "/wisconsin",
-      "destination": "/wisconsin/index.html"
-    },
-    {
-      "source": "/wisconsin/(.*)",
-      "destination": "/wisconsin/index.html"
+      "source": "/2026-11/:state(illinois|michigan|minnesota|wisconsin)/:rest*",
+      "destination": "/2026-11/:state/index.html"
     },
     {
       "source": "/(.*)",
@@ -50,7 +38,7 @@
   ],
   "headers": [
     {
-      "source": "/:state(illinois|michigan|minnesota|wisconsin)/ballot",
+      "source": "/2026-11/:state(illinois|michigan|minnesota|wisconsin)/ballot",
       "headers": [
         {
           "key": "X-Robots-Tag",

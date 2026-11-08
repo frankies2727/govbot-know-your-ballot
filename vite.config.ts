@@ -6,11 +6,13 @@ import { defineConfig } from 'vite';
 import { llmsTxt, robotsTxt, sitemapXml, type SitePage, type StateFacts } from './scripts/seo/crawler-files';
 import { BODY_CSS, homeBody, jsonLd, jsonScript, llmsFull, readState, stateBody } from './scripts/seo/page-body';
 import { STATE_SLUGS } from './src/seo/copy';
+import { GUIDE_CYCLE, guidePath, type GuideState } from './src/hosts';
 
 // What a shared link shows (the title, description and picture social apps
 // read from the HTML itself, before any script runs): one set per page, the
 // root and each state's page. Each state's page is a copy of the app shell
-// with its own tags, which vercel.json serves for that path. The pictures are
+// with its own tags, written to dist/2026-11/<state>/ (its address, src/hosts.ts),
+// which vercel.json serves for that path. The pictures are
 // public/kyb-og/*.png.
 const SITE = 'https://govbot-know-your-ballot.vercel.app';
 const PAGES: Record<string, { title: string; desc: string; img: string }> = {
@@ -30,7 +32,7 @@ const STATES = [
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const metaFor = (page: string) => {
   const { title, desc, img } = PAGES[page];
-  const url = page ? `${SITE}/${page}` : `${SITE}/`;
+  const url = page ? `${SITE}${guidePath(page as GuideState)}` : `${SITE}/`;
   return [
     `<title>${esc(title)}</title>`,
     `<meta name="description" content="${esc(desc)}" />`,
@@ -59,9 +61,9 @@ function siteMeta() {
     closeBundle() {
       // robots.txt, sitemap.xml and llms.txt, for crawlers and AI assistants.
       const pagesData = STATE_SLUGS.map(readState);
-      const states: StateFacts[] = STATES.map((s) => ({ ...s, asOf: pagesData.find((p) => p.slug === s.slug)?.asOf }));
+      const states: StateFacts[] = STATES.map((s) => ({ ...s, path: guidePath(s.slug as GuideState), asOf: pagesData.find((p) => p.slug === s.slug)?.asOf }));
       const dates = states.map((s) => s.asOf).filter((d): d is string => !!d).sort();
-      const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: `/${s.slug}`, lastmod: s.asOf }))];
+      const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: guidePath(s.slug as GuideState), lastmod: s.asOf }))];
       writeFileSync(path.join(outDir, 'robots.txt'), robotsTxt(SITE));
       writeFileSync(path.join(outDir, 'sitemap.xml'), sitemapXml(SITE, pages));
       writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, states));
@@ -71,9 +73,9 @@ function siteMeta() {
       const readable = (html: string, body: string, ld: unknown) => html.replace('<div id="root"></div>', `<div id="root">${body}</div>`).replace('</head>', `${BODY_CSS}\n    ${jsonScript(ld)}\n  </head>`);
       for (const page of Object.keys(PAGES).filter(Boolean)) {
         const f = pagesData.find((p) => p.slug === page)!;
-        mkdirSync(path.join(outDir, page), { recursive: true });
+        mkdirSync(path.join(outDir, GUIDE_CYCLE, page), { recursive: true });
         const html = shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaFor(page));
-        writeFileSync(path.join(outDir, page, 'index.html'), readable(html, stateBody(f, SITE, PAGES[page].desc), jsonLd(SITE, f, PAGES[page].desc, pagesData)));
+        writeFileSync(path.join(outDir, GUIDE_CYCLE, page, 'index.html'), readable(html, stateBody(f, SITE, PAGES[page].desc), jsonLd(SITE, f, PAGES[page].desc, pagesData)));
       }
       writeFileSync(path.join(outDir, 'index.html'), readable(shell, homeBody(pagesData, SITE, PAGES[''].desc), jsonLd(SITE, null, PAGES[''].desc, pagesData)));
     },

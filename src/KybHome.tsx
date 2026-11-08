@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Pause, Play } from 'lucide-react';
+import { guidePath } from './hosts';
 import { navigate } from './lib/router';
 import { useDocumentMeta } from './Bits';
 import ilOutline from './data/illinois/outline.json';
@@ -77,7 +78,7 @@ export function KybHome() {
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2 lg:grid-cols-4" aria-label="States with a guide">
               {STATES.map((s) => (
                 <li key={s.id} className="row-span-2 grid grid-rows-subgrid">
-                  <a href={`/${s.id}`} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(`projects/know-your-ballot-${s.id}`); }}
+                  <a href={guidePath(s.id)} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(`projects/know-your-ballot-${s.id}`); }}
                     className="kyb-tile h-full" style={{ '--ink': s.ink } as React.CSSProperties}>
                     <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{s.map}</span>
                     <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">{s.name}</span>

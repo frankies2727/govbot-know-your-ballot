@@ -1,20 +1,32 @@
 import { useEffect, useState } from 'react';
+import { GUIDE_CYCLE } from '../hosts';
 
-// A tiny path-based router (no dependency). Each state's guide has a short
-// address: /illinois is its landing page, /illinois/ballot the ballot (the
-// same for /michigan, /minnesota and /wisconsin), and the root is the
-// pick-your-state page. Inside the
-// app a route is "projects/know-your-ballot-<state>[/ballot]", the name the
-// guides have always used (saved picks and resume links carry it); only the
-// address differs. Deep links and the browser's Back button work; vercel.json
-// sends every path to the app.
+// A tiny path-based router (no dependency). Each state's guide has an address
+// naming its election: /2026-11/illinois is its landing page,
+// /2026-11/illinois/ballot the ballot (the same for Michigan, Minnesota and
+// Wisconsin), and the root is the elections page. The old /illinois
+// addresses still open the guide and are rewritten to the new ones (the
+// server redirects them too, vercel.json). Inside the app a route is
+// "projects/know-your-ballot-<state>[/ballot]", the name the guides have
+// always used (saved picks and resume links carry it); only the address
+// differs. Deep links and the browser's Back button work.
 
 const BASE = '/';
 const KYB = 'projects/know-your-ballot-';
-const toRoute = (path: string) => (/^(illinois|michigan|minnesota|wisconsin)(\/|$)/.test(path) ? KYB + path : path);
-const toPath = (route: string) => (route.startsWith(KYB) ? route.slice(KYB.length) : route);
+const GUIDE = new RegExp(`^(?:${GUIDE_CYCLE}/)?((?:illinois|michigan|minnesota|wisconsin)(?:/.*)?)$`);
+const toRoute = (path: string) => { const m = path.match(GUIDE); return m ? KYB + m[1] : path; };
+const toPath = (route: string) => (route.startsWith(KYB) ? `${GUIDE_CYCLE}/${route.slice(KYB.length)}` : route);
+
+/** A guide opened at its old address (/michigan) moves to its new one (/2026-11/michigan), keeping the query and the #. */
+function canonical() {
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  const route = toRoute(path);
+  if (!route.startsWith(KYB) || path === toPath(route)) return;
+  window.history.replaceState(window.history.state, '', BASE + toPath(route) + window.location.search + window.location.hash);
+}
 
 export function currentRoute(): string {
+  canonical();
   return toRoute(window.location.pathname.replace(/^\/+|\/+$/g, ''));
 }
 

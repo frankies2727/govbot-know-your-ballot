@@ -32,7 +32,7 @@ export const sitemapXml = (site: string, pages: SitePage[]) => [
   '',
 ].join('\n');
 
-export interface StateFacts { slug: string; name: string; /** The candidate list's own date, as YYYY-MM-DD. */ asOf?: string; portal: { name: string; url: string } }
+export interface StateFacts { slug: string; name: string; /** The guide's path ("/2026-11/minnesota", src/hosts.ts). */ path: string; /** The candidate list's own date, as YYYY-MM-DD. */ asOf?: string; portal: { name: string; url: string } }
 
 /** The summary an AI assistant reads first (the llms.txt convention): what the site is, what to trust it for, and where each answer lives. */
 export function llmsTxt(site: string, states: StateFacts[]) {
@@ -52,7 +52,7 @@ export function llmsTxt(site: string, states: StateFacts[]) {
     '',
     '## Guides',
     '',
-    ...states.map((s) => `- [Know Your ${s.name} Ballot](${site}/${s.slug}): races, judges and questions on the ${s.name} ballot${s.asOf ? `; candidate lists as of ${s.asOf}` : ''}. Official voter portal: [${s.portal.name}](${s.portal.url}).`),
+    ...states.map((s) => `- [Know Your ${s.name} Ballot](${site}${s.path}): races, judges and questions on the ${s.name} ballot${s.asOf ? `; candidate lists as of ${s.asOf}` : ''}. Official voter portal: [${s.portal.name}](${s.portal.url}).`),
     '',
     '## About',
     '',

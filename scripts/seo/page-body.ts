@@ -22,6 +22,7 @@ import { ELECTION_DAY, faqDates, faqFor, headlineRaces, homeFaq, statewideMeasur
 import { aOrAn, isoDate, longDate, shortDate } from '../../src/seo/format';
 import type { Measure, Race } from '../../src/types';
 import { ELECTIONS, STATE_NAME, YEARS } from '../../src/electionIndex';
+import { guidePath } from '../../src/hosts';
 
 const EXPLAIN: Record<StateSlug, (office: string) => string> = { illinois: ilExplain, michigan: miExplain, minnesota: mnExplain, wisconsin: wiExplain };
 const DATES = { illinois: NOV_3, michigan: MI_DATES, minnesota: MN_DATES, wisconsin: WI_DATES };
@@ -70,7 +71,7 @@ export function stateBody(f: StatePage, site: string, desc: string): string {
     ...HOW[slug].map((i) => `<p><strong>${esc(i.lead)}</strong> ${esc(i.text)}</p>`),
     '<h2>Common questions</h2>',
     ...f.faq.map((x) => `<h3>${esc(x.q)}</h3><p>${esc(x.a)}</p>`),
-    `<p>Enter your address in the guide to see your own ballot, including your district's races and judges. <a href="${site}/">All states</a> · ${STATE_SLUGS.filter((s) => s !== slug).map((s) => `<a href="${site}/${s}">${STATE_NAMES[s]}</a>`).join(' · ')}</p>`,
+    `<p>Enter your address in the guide to see your own ballot, including your district's races and judges. <a href="${site}/">All states</a> · ${STATE_SLUGS.filter((s) => s !== slug).map((s) => `<a href="${site}${guidePath(s)}">${STATE_NAMES[s]}</a>`).join(' · ')}</p>`,
     '</main>',
   ].join('\n');
 }
@@ -82,12 +83,12 @@ export function homeBody(states: StatePage[], site: string, desc: string): strin
     '<h1>Govbot Know Your Ballot</h1>',
     `<p>${esc(desc)}</p>`,
     '<h2>The states</h2><ul>',
-    ...states.map((s) => `<li><a href="${site}/${s.slug}">Know Your ${esc(s.name)} Ballot</a>${s.asOf ? `, candidate lists as of ${s.asOf}` : ''}</li>`),
+    ...states.map((s) => `<li><a href="${site}${guidePath(s.slug)}">Know Your ${esc(s.name)} Ballot</a>${s.asOf ? `, candidate lists as of ${s.asOf}` : ''}</li>`),
     '</ul>',
     '<h2>Elections by year</h2>',
     ...YEARS.flatMap((y) => [
       `<h3>${y}</h3><ul>`,
-      ...ELECTIONS.filter((e) => e.date.startsWith(String(y))).map((e) => `<li>${esc(longDate(e.date))}: ${esc(STATE_NAME[e.state])} ${esc(e.title.toLowerCase())}. ${esc(e.what)}${e.guide ? ` <a href="${site}/${e.state}">${esc(STATE_NAME[e.state])} guide</a>` : ''}</li>`),
+      ...ELECTIONS.filter((e) => e.date.startsWith(String(y))).map((e) => `<li>${esc(longDate(e.date))}: ${esc(STATE_NAME[e.state])} ${esc(e.title.toLowerCase())}. ${esc(e.what)}${e.guide ? ` <a href="${site}${guidePath(e.state)}">${esc(STATE_NAME[e.state])} guide</a>` : ''}</li>`),
       '</ul>',
     ]),
     '<h2>Common questions</h2>',
@@ -109,7 +110,7 @@ export function jsonLd(site: string, f: StatePage | null, desc: string, states: 
   if (!f) {
     return { '@context': 'https://schema.org', '@graph': [website, org, { '@type': 'WebPage', '@id': `${site}/`, url: `${site}/`, name: 'Govbot Know Your Ballot', description: desc, isPartOf: { '@id': `${site}/#website` }, mainEntity: { '@type': 'FAQPage', mainEntity: homeFaq().map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) } }, { '@type': 'ItemList', name: 'State guides', itemListElement: states.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: `Know Your ${s.name} Ballot`, url: `${site}/${s.slug}` })) }] };
   }
-  const url = `${site}/${f.slug}`;
+  const url = `${site}${guidePath(f.slug)}`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -129,7 +130,7 @@ export function jsonLd(site: string, f: StatePage | null, desc: string, states: 
 export function llmsFull(site: string, states: StatePage[]): string {
   const out = ['# Govbot Know Your Ballot: full text', '', '> The same facts as each state\'s guide, in one file, for AI assistants. Candidate lists are as of the dates given; voters should confirm their own ballot with the official portal named for their state. Know Your Ballot never recommends or rates a candidate.', ''];
   for (const f of states) {
-    out.push(`## ${f.name}`, '', `Guide: ${site}/${f.slug}`, `Election: ${longDate(ELECTION_DAY)}.${f.asOf ? ` Candidate lists as of ${f.asOf}.` : ''}`, `Official portal: ${PORTAL[f.slug].name}, ${PORTAL[f.slug].url}`, '', '### Key dates', '');
+    out.push(`## ${f.name}`, '', `Guide: ${site}${guidePath(f.slug)}`, `Election: ${longDate(ELECTION_DAY)}.${f.asOf ? ` Candidate lists as of ${f.asOf}.` : ''}`, `Official portal: ${PORTAL[f.slug].name}, ${PORTAL[f.slug].url}`, '', '### Key dates', '');
     out.push(...faqDates(DATES[f.slug]).map((d) => `- ${shortDate(d.date)}${d.only ? ` (${d.only})` : ''}: ${d.title}.${d.detail ? ` ${d.detail}` : ''}`), '', '### The statewide races', '');
     for (const r of headlineRaces(f.races)) {
       const job = EXPLAIN[f.slug](r.office);
