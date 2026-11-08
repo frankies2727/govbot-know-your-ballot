@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, Pause, Play } from 'lucide-react';
 import { guidePath } from './hosts';
 import { navigate } from './lib/router';
-import { useDocumentMeta } from './Bits';
+import { BackToTop, useDocumentMeta } from './Bits';
 import ilOutline from './data/illinois/outline.json';
 import { BallotBox } from './BallotBox';
 import { GoVote } from './GoVote';
@@ -179,6 +179,7 @@ export function KybHome() {
             </div>
           </section>
         </div>
+        <BackToTop />
       </div>
     </GovbotChrome>
   );
