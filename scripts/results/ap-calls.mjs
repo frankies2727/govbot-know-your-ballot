@@ -1,12 +1,13 @@
-// A one-time import of the Associated Press's race calls (and its unofficial
-// vote counts) for the races a state hasn't certified yet, from the results
-// file The New York Times publishes (it carries the AP's calls). Not run on a
-// schedule: save the state's file by hand, then run
+// The Associated Press's race calls (and its unofficial vote counts) for the
+// races a state hasn't certified yet, from the results file The New York
+// Times publishes (it carries the AP's calls). Not run on a schedule: save the
+// state's file from a browser, then run
 //   node scripts/results/ap-calls.mjs michigan path/to/results-michigan.json
 // Each race keeps its count from the state's own sources where we have one;
-// only races without a result get the AP's, marked `call` (who called it and
-// when), and the official count replaces it when the state certifies
-// (scripts/results.mjs). A race the AP hasn't called is left out.
+// the others get the AP's, marked `call` (who called it and when), refreshed
+// on each run, until the official count replaces it (scripts/results.mjs). A
+// race the AP hasn't called is left out, and one missing from a newer file
+// keeps what it had.
 //
 // Contests are matched to our races by who's running (match.mjs). The AP
 // lists some minor candidates our ballot data doesn't; such a race still
@@ -53,8 +54,8 @@ const called = feed.races.filter((r) => r.outcome?.won?.length && r.outcome.call
 const contests = called.map(contest);
 const yesNo = (c) => c.rows.length === 2 && c.rows.every((r) => /^(yes|no)$/i.test(r.name.trim()));
 
-// Races without a result yet.
-const open = ballot.races.filter((r) => !results.races[r.id]);
+// Races without a count of the state's own: none yet, or the AP's from an earlier run.
+const open = ballot.races.filter((r) => !results.races[r.id] || results.races[r.id].call);
 const { matched, unmatched } = matchContests(contests.filter((c) => !yesNo(c)), open);
 const taken = new Set(matched.map((m) => m.race.id));
 
@@ -88,7 +89,7 @@ for (const { race, contest: c } of [...matched, ...loose]) {
 
 // Ballot questions and retentions without a result yet: by their titles, else
 // a statewide one by its number ("Proposal 2 - …" is our "Proposal 2026-2: …").
-const have = new Set(Object.keys(results.questions ?? {}));
+const have = new Set(Object.entries(results.questions ?? {}).filter(([, q]) => !q.call).map(([id]) => id));
 const numbered = (n) => (ballot.measures ?? []).filter((m) => !have.has(m.id) && new RegExp(`\\b(?:\\d{4}-)?${n}$`).test((m.title ?? '').split(':')[0]));
 let qs = 0;
 for (const c of contests.filter(yesNo)) {
@@ -111,4 +112,4 @@ if (races || qs) {
   delete results.pending;
 }
 writeFileSync(OUT, `${JSON.stringify(results, null, 1)}\n`);
-console.log(`${state}: ${called.length} races the AP has called; ${races} races and ${qs} questions added; ${unmatched.length - loose.length} not matched to a race still open here (already counted, or not on our ballot)`);
+console.log(`${state}: ${called.length} races the AP has called; ${races} races and ${qs} questions with the AP's count; ${unmatched.length - loose.length} not matched to a race still open here (already counted, or not on our ballot)`);
