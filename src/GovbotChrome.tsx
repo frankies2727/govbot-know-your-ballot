@@ -20,7 +20,9 @@ const fill = (template: string) =>
   template.slice(template.indexOf('-->') + 3)
     .replaceAll('{HOME}', SITE).replaceAll('{ROOT}', SITE).replaceAll('{DASH}', `${SITE}dashboard/`);
 // govbot's theme button makes way for the lab's own (ThemeToggle, below).
-const HEADER = fill(header).replace(/<button class="gb-icon-btn" data-gb-theme-toggle[\s\S]*?<\/button>/, '<span class="contents" data-kyb-theme></span>');
+const HEADER = fill(header).replace(/<button class="gb-icon-btn" data-gb-theme-toggle[\s\S]*?<\/button>/, '<span class="contents" data-kyb-theme></span>')
+// Phones' menu drawer sits outside govbot's header: give its links a landmark.
+  .replace('<div class="gb-drawer" data-gb-drawer>', '<div class="gb-drawer" data-gb-drawer role="navigation" aria-label="Menu">');
 const FOOTER = fill(footer);
 
 // Drawn once and never again: a re-render could rewrite the HTML and drop the
@@ -46,7 +48,7 @@ function startTheme(): Theme {
 function ThemeToggle({ theme, onToggle }: { theme: Theme; onToggle: () => void }) {
   const dark = theme === 'dark';
   return (
-    <button type="button" onClick={onToggle} className="gb-icon-btn" aria-pressed={dark}
+    <button type="button" onClick={onToggle} className="gb-icon-btn"
       aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'} title={dark ? 'Light theme' : 'Dark theme'}>
       {dark ? <Sun className="w-[18px] h-[18px]" aria-hidden="true" /> : <Moon className="w-[18px] h-[18px]" aria-hidden="true" />}
     </button>
@@ -75,6 +77,8 @@ function useGuideTheme() {
     const root = document.documentElement;
     root.classList.add('kyb-theme-switch');
     root.setAttribute('data-theme', theme);
+    // The browser's own chrome (address bar, status bar) takes the page's background.
+    document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]').forEach((m) => { m.removeAttribute('media'); m.content = theme === 'dark' ? '#080B12' : '#F6F7F5'; });
     const id = requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('kyb-theme-switch')));
     return () => { cancelAnimationFrame(id); root.classList.remove('kyb-theme-switch'); };
   }, [theme]);
@@ -117,9 +121,10 @@ export function GovbotChrome({ children }: { children: ReactNode }) {
   if (!styled) return null;
   return (
     <>
+      <a href="#main" className="kyb-skip">Skip to content</a>
       <Static html={HEADER} />
       {themeSlot && createPortal(<ThemeToggle theme={theme} onToggle={toggleTheme} />, themeSlot)}
-      {children}
+      <main id="main" tabIndex={-1} className="outline-none">{children}</main>
       <Static html={FOOTER} />
     </>
   );

@@ -12,5 +12,5 @@ export function electionName(isoDate: string) {
 }
 
 export function ElectionHeader({ date }: { date: string }) {
-  return <p className="font-serif text-[1.7rem] font-medium leading-none tracking-tight sm:text-[2.1rem]">{electionName(date)}</p>;
+  return <h1 className="font-serif text-[1.7rem] font-medium leading-none tracking-tight sm:text-[2.1rem]">{electionName(date)}</h1>;
 }

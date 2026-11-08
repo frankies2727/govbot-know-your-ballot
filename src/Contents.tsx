@@ -1,5 +1,6 @@
 import { Check, ChevronDown, Circle, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useModal } from './lib/modal';
 
 // The ballot's table of contents, course-style: each section with its races,
 // ticked off as they're decided. A side column on desktop; a drawer on phones.
@@ -72,23 +73,19 @@ export function ContentsColumn(props: Props) {
 
 /** Phones and tablets: the same list in a drawer from the left. */
 export function ContentsDrawer({ open, onClose, ...props }: Props & { open: boolean; onClose: () => void }) {
-  useEffect(() => {
-    if (!open) return;
-    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', esc);
-    document.body.style.overflow = 'hidden';
-    return () => { document.removeEventListener('keydown', esc); document.body.style.overflow = ''; };
-  }, [open, onClose]);
+  const drawer = useRef<HTMLDivElement>(null);
+  const closeButton = useRef<HTMLButtonElement>(null);
+  useModal(drawer, open, onClose, closeButton);
   if (!open) return null;
   // Choosing anything closes the drawer.
   const close = <A extends unknown[]>(f: (...a: A) => void) => (...a: A) => { onClose(); f(...a); };
   return (
-    <div className="fixed inset-0 z-[70] lg:hidden" role="dialog" aria-modal="true" aria-label="Contents">
+    <div ref={drawer} className="fixed inset-0 z-[70] lg:hidden" role="dialog" aria-modal="true" aria-label="Contents">
       <button type="button" aria-label="Close contents" onClick={onClose} className="absolute inset-0 bg-black/50" />
-      <div className="absolute inset-y-0 left-0 w-[86vw] max-w-sm overflow-y-auto border-r-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-2xl">
+      <div className="absolute inset-y-0 left-0 w-[86vw] max-w-sm overflow-y-auto overscroll-contain border-r-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-2xl">
         <div className="sticky top-0 z-10 flex items-center justify-between px-3 py-3 border-b border-[var(--gb-border)] bg-[var(--gb-surface)]">
           <p className="font-black">☰ Contents</p>
-          <button type="button" onClick={onClose} aria-label="Close contents" className="w-10 h-10 rounded-full border-2 border-[var(--gb-text)] flex items-center justify-center"><X className="w-5 h-5" /></button>
+          <button ref={closeButton} type="button" onClick={onClose} aria-label="Close contents" className="w-10 h-10 rounded-full border-2 border-[var(--gb-text)] flex items-center justify-center"><X className="w-5 h-5" /></button>
         </div>
         <List {...props} onRace={close(props.onRace)} />
       </div>

@@ -166,3 +166,20 @@
 @keyframes kyb-heart-float { 0% { transform: translate(-50%, 0) scale(.5); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(calc(-50% + var(--dx)), -72px) scale(1.1); opacity: 0; } }
 .kyb-heart-float { position: absolute; left: 50%; top: 25%; opacity: 0; animation: kyb-heart-float .95s ease-out forwards; animation-delay: var(--dl, 0s); }
 @media (prefers-reduced-motion: reduce) { .kyb-live-dot, .kyb-heart-toast, .kyb-heart-on { animation: none; } .kyb-heart-float { display: none; } }
+
+/* Web interface basics. The native controls (scrollbars, selects) follow the
+   page's theme; the first Tab stop skips the header; headings break evenly;
+   buttons and links don't wait out a double-tap. */
+:root { color-scheme: light dark; }
+:root[data-theme="dark"] { color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
+.kyb-skip { position: absolute; left: 8px; top: -80px; z-index: 100; padding: 10px 16px; border-radius: 10px; background: var(--gb-text); color: var(--gb-bg); font-weight: 800; text-decoration: none; }
+.kyb-skip:focus { top: 8px; }
+:root.kyb-govbot :is(h1, h2, h3, h4) { text-wrap: balance; }
+:root.kyb-govbot :is(button, a, summary, [role="button"]) { touch-action: manipulation; }
+/* Motion that govbot's shell and the strips own, and the jump highlight, stand down too. */
+@media (prefers-reduced-motion: reduce) {
+  .kyb-flash { animation: none; }
+  .kyb-strip-btn, .gb-mega, .gb-nav-trigger .gb-caret { transition: none; }
+  .kyb-theme-switch *, .kyb-theme-switch *::before, .kyb-theme-switch *::after { transition: none !important; }
+}

@@ -69,3 +69,6 @@
 .el-act-link:hover { background: var(--kyb-chip); color: var(--gb-text); }
 
 @media (prefers-reduced-motion: reduce) { .el-dot i { transition: none; } }
+
+/* A row the page jumps to (from a dot on the rail) takes focus; show it. */
+.el-row:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; border-radius: 6px; }

@@ -113,9 +113,9 @@ export function Laws({ laws, state }: { laws: Law[]; state: LawsState }) {
         <div className="relative w-full sm:w-auto sm:min-w-[22rem] sm:flex-1 lg:flex-none lg:w-[24rem]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" aria-hidden="true" />
           <label htmlFor="kyb-law-search" className="sr-only">Search {state.name} bills</label>
-          <input id="kyb-law-search" type="text" inputMode="search" value={q} onChange={(e) => setQ(e.target.value)}
+          <input id="kyb-law-search" name="q" type="text" inputMode="search" autoComplete="off" value={q} onChange={(e) => setQ(e.target.value)}
             placeholder={`Search ${state.name} bills by number, title or topic…`}
-            className="w-full min-h-[40px] rounded-full border-2 border-[var(--kyb-gold)] bg-[var(--gb-bg)] pl-9 pr-10 text-sm text-[var(--gb-text)] focus:outline-none" />
+            className="w-full min-h-[40px] rounded-full border-2 border-[var(--kyb-gold)] bg-[var(--gb-bg)] pl-9 pr-10 text-sm text-[var(--gb-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gb-text)]" />
           {q && <ClearButton onClear={() => setQ('')} className="right-0 w-9 h-9" />}
         </div>
       </div>

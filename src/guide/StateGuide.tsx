@@ -313,7 +313,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   // The three views. On phones, while the browsing notice is up, they scroll
   // away with the page instead of sitting in the sticky bar.
   const views = ([['ballot', 'My Ballot'], ['plan', 'Plan to vote'], ['share', 'Save & share'], ['how', 'How it works'], ['feed', 'News Feed']] as const).map(([id, label]) => (
-    <button key={id} type="button" role="tab" aria-selected={tab === id} onClick={() => { setTab(id); window.scrollTo({ top: 0 }); }}
+    <button key={id} type="button" aria-current={tab === id ? 'page' : undefined} onClick={() => { setTab(id); window.scrollTo({ top: 0 }); }}
       className={`min-h-[44px] rounded-xl font-bold border-2 border-[var(--gb-text)] ${tab === id ? 'bg-[var(--gb-text)] text-[var(--gb-bg)]' : 'text-[var(--gb-text)]'}`}>
       {label}
     </button>
@@ -329,7 +329,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   );
   const tools = (
     <>
-      <div className="mt-3 grid grid-cols-3 sm:grid-cols-5 gap-2">{views}</div>
+      <nav aria-label="Views" className="mt-3 grid grid-cols-3 sm:grid-cols-5 gap-2">{views}</nav>
       {wide && <div className="mt-3">{search(false)}</div>}
       {!saved.place && <BrowsingNotice region={region} onAddAddress={changeAddress}
         counties={COUNTIES.length ? { list: COUNTIES, value: county, onChange: setCounty, all: `All of ${spec.name}` } : undefined} />}
@@ -618,9 +618,9 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         <div className="flex gap-2">
           <div className="relative flex-1 min-w-0">
             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none" aria-hidden="true" />
-            <input id="kyb-address" type="text" autoComplete="street-address" value={address} onChange={(e) => setAddress(e.target.value)}
+            <input id="kyb-address" name="address" type="text" autoComplete="street-address" value={address} onChange={(e) => setAddress(e.target.value)}
               placeholder={copy.addressPlaceholder}
-              className="w-full min-h-[56px] rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] pl-12 pr-12 text-lg font-bold text-[var(--gb-text)] focus:border-[var(--kyb-accent)] focus:outline-none" />
+              className="w-full min-h-[56px] rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] pl-12 pr-12 text-lg font-bold text-[var(--gb-text)] focus:border-[var(--kyb-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gb-text)]" />
             {address && <ClearButton onClear={() => setAddress('')} className="right-2 text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" />}
           </div>
           <button type="submit" disabled={status.busy} className="shrink-0 min-h-[56px] rounded-2xl bg-[var(--kyb-accent)] px-5 font-black text-[var(--kyb-accent-ink)] disabled:cursor-wait inline-flex items-center gap-2">

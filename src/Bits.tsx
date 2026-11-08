@@ -3,6 +3,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEve
 import { Face } from './Face';
 import type { Candidate, Race } from './types';
 import { navigate, useRoute } from './lib/router';
+import { useModal } from './lib/modal';
 import { useOpen } from './store';
 import { githubIssueUrl, sendReport, type ReportAbout } from './report';
 import { QuestionResults, RaceResults } from './results';
@@ -14,14 +15,7 @@ import { QuestionResults, RaceResults } from './results';
 /** `wide` lets a side-by-side sheet (Compare) use most of the screen instead of a reading column; it then scrolls its own body, so its title stays put. */
 export function Dialog({ title, onClose, wide = false, children }: { title: string; onClose: () => void; wide?: boolean; children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const prev = document.activeElement as HTMLElement | null;
-    ref.current?.focus();
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
-    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; prev?.focus(); };
-  }, [onClose]);
+  useModal(ref, true, onClose);
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/75" onClick={onClose}>
       <div
@@ -31,7 +25,7 @@ export function Dialog({ title, onClose, wide = false, children }: { title: stri
         aria-label={title}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className={`w-full ${wide ? 'sm:max-w-[min(96vw,1500px)] flex flex-col overflow-hidden' : 'sm:max-w-2xl overflow-y-auto'} max-h-[92dvh] rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none`}
+        className={`w-full overscroll-contain ${wide ? 'sm:max-w-[min(96vw,1500px)] flex flex-col overflow-hidden' : 'sm:max-w-2xl overflow-y-auto'} max-h-[92dvh] rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none`}
       >
         <div className="flex shrink-0 items-start justify-between gap-4 mb-5">
           <h2 className="text-2xl font-black leading-tight text-[var(--gb-text)]">{title}</h2>
@@ -94,15 +88,15 @@ function ReportDialog({ what, name, id, onClose }: ReportAbout & { onClose: () =
           <p className="text-[15px] leading-relaxed"><strong>{[what, name].filter(Boolean).join(' · ')}</strong>. Say what the page shows and what is right, with a link to where you saw it. No account needed; the report goes straight onto the project’s public to-do list.</p>
           <label className="block space-y-1">
             <span className="font-bold">What it shows</span>
-            <textarea name="shows" required maxLength={2000} rows={2} className={field} placeholder="e.g. It says she’s the incumbent" />
+            <textarea autoComplete="off" name="shows" required maxLength={2000} rows={2} className={field} placeholder="e.g. It says she’s the incumbent" />
           </label>
           <label className="block space-y-1">
             <span className="font-bold">What is correct</span>
-            <textarea name="correct" required maxLength={3000} rows={3} className={field} placeholder="e.g. She lost the March primary; the incumbent is…" />
+            <textarea name="correct" autoComplete="off" required maxLength={3000} rows={3} className={field} placeholder="e.g. She lost the March primary; the incumbent is…" />
           </label>
           <label className="block space-y-1">
             <span className="font-bold">A link to a source</span>
-            <input name="source" type="url" required maxLength={500} inputMode="url" className={field} placeholder="https://… (the election authority, the candidate’s own site, the court, Ballotpedia, Wikipedia)" />
+            <input name="source" type="url" autoComplete="off" required maxLength={500} inputMode="url" className={field} placeholder="https://… (the election authority, the candidate’s own site, the court, Ballotpedia, Wikipedia)" />
             <span className="block text-xs">An official or primary page. That’s how every fact on the site is checked.</span>
           </label>
           {/* Honeypot: hidden from people, filled in by bots; the server drops any report that carries it. */}
@@ -255,7 +249,7 @@ export function BrowsingNotice({ region, onAddAddress, counties }: { region: str
       <p className="min-w-0 flex-1">You’re seeing <strong>every</strong> race on any ballot in {region}. Picks are off until it’s <em>your</em> ballot.</p>
       <div className="flex flex-wrap items-center gap-2">
         {counties && (
-          <label className="inline-flex items-center gap-1.5 min-h-[40px] rounded-lg border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] pl-2.5 pr-1 font-bold text-[var(--gb-text)]">
+          <label className="inline-flex items-center gap-1.5 min-h-[40px] rounded-lg border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] pl-2.5 pr-1 font-bold text-[var(--gb-text)] focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-[var(--gb-text)]">
             <span className="sr-only">County to browse</span>
             <span aria-hidden="true">Browse:</span>
             <select value={counties.value} onChange={(e) => counties.onChange(e.target.value)} className="min-h-[36px] max-w-[11rem] bg-transparent font-bold text-[var(--gb-text)] outline-none">

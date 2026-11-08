@@ -1,5 +1,6 @@
 import { ArrowLeft, ChevronDown, ListChecks, Search, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { useModal } from './lib/modal';
 import { officeGroups, officeId, usePinnedBar, useWide, type SectionCard } from './Bits';
 import { raceTitle, statewideId } from './Headliners';
 import type { Race } from './types';
@@ -186,19 +187,14 @@ export function LandingBar({ items, search }: { items: LandingItem[]; search: (s
 /** `current` is the part you're in (it's ringed); `at` the race or card in it you're on (it's marked). */
 function Drawer({ items, current, at, onGo, onClose }: { items: LandingItem[]; current: string | null; at: string | null; onGo: (id: string) => void; onClose: () => void }) {
   const closeButton = useRef<HTMLButtonElement | null>(null);
-  useEffect(() => {
-    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', esc);
-    document.body.style.overflow = 'hidden';
-    closeButton.current?.focus();
-    return () => { document.removeEventListener('keydown', esc); document.body.style.overflow = ''; };
-  }, [onClose]);
+  const drawer = useRef<HTMLDivElement | null>(null);
+  useModal(drawer, true, onClose, closeButton);
   // A part that this state's page doesn't carry (or that isn't showing) isn't listed.
   const here = items.filter((i) => document.getElementById(i.id));
   return (
-    <div className="fixed inset-0 z-[70]" role="dialog" aria-modal="true" aria-label="Contents">
+    <div ref={drawer} className="fixed inset-0 z-[70]" role="dialog" aria-modal="true" aria-label="Contents">
       <button type="button" aria-label="Close contents" tabIndex={-1} onClick={onClose} className="absolute inset-0 bg-black/50" />
-      <div className="absolute inset-y-0 left-0 w-[86vw] max-w-sm overflow-y-auto border-r-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-2xl">
+      <div className="absolute inset-y-0 left-0 w-[86vw] max-w-sm overflow-y-auto overscroll-contain border-r-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-2xl">
         <div className="sticky top-0 z-10 flex items-center justify-between px-3 py-3 border-b border-[var(--gb-border)] bg-[var(--gb-surface)]">
           <p className="font-black">☰ Contents</p>
           <button ref={closeButton} type="button" onClick={onClose} aria-label="Close contents" className="w-10 h-10 rounded-full border-2 border-[var(--gb-text)] flex items-center justify-center"><X className="w-5 h-5" aria-hidden="true" /></button>
