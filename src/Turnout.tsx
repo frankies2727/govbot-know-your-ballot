@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import data from './data/turnout.json';
 import { compact as short } from './lib/format';
+import type { StateId } from './electionIndex';
 
 // Under each state's tile on the home page: how many voted in each November
 // general election since 2014 and how that compares with the elections before.
@@ -12,7 +13,6 @@ import { compact as short } from './lib/format';
 // election day, so a share of the pre-election roll isn't comparable there).
 // src/data/turnout.json names the file behind every number.
 
-export type StateId = 'illinois' | 'michigan' | 'minnesota' | 'wisconsin';
 
 interface Cycle {
   year: number;
@@ -56,6 +56,12 @@ const full = (n: number) => n.toLocaleString('en-US');
 const signed = (n: number) => { const r = Math.round(n * 10) / 10; return `${r > 0 ? '+' : r < 0 ? '−' : '±'}${Math.abs(r).toFixed(1)}`; };
 /** Change from `b` to `a` in percent. */
 const growth = (a: number, b: number) => ((a - b) / b) * 100;
+
+/** A state's latest election in a line, for the elections list: the share of eligible voters who voted, and whether it's still preliminary. */
+export function latestTurnout(state: StateId) {
+  const c = turnout.states[state].cycles.reduce((a, b) => (b.year > a.year ? b : a));
+  return { year: c.year, pct: c.pct, preliminary: !!c.preliminary };
+}
 
 export function Turnout({ state, name, ink }: { state: StateId; name: string; ink: string }) {
   const t = turnout.states[state];

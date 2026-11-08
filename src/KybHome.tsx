@@ -7,6 +7,8 @@ import { BallotBox } from './BallotBox';
 import { GoVote } from './GoVote';
 import { GovbotChrome } from './GovbotChrome';
 import { StateMap } from './Hero';
+import { Elections } from './Elections';
+import { ELECTIONS, NOV_3, STATE_INK, type StateId } from './electionIndex';
 import { Turnout } from './Turnout';
 import { MichiganMap } from './michigan/Hero';
 import { MinnesotaMap } from './minnesota/Hero';
@@ -18,6 +20,9 @@ import './minnesota/minnesota.css';
 import './wisconsin/wisconsin.css';
 import './home.css';
 
+/** What a state's guide covers: its latest election's description. */
+const covers = (id: StateId) => ELECTIONS.find((e) => e.state === id && e.date === NOV_3)!.what;
+
 const IL_MAP = { fill: ['var(--gb-blue-hi)', 'var(--gb-primary)', 'var(--gb-blue)'] as [string, string, string], stroke: 'var(--kyb-gold)', pin: 'var(--kyb-gold)', pinStroke: 'var(--gb-bg)' };
 
 const REPO = 'https://github.com/frankies2727/govbot-know-your-ballot';
@@ -25,15 +30,15 @@ const REPO = 'https://github.com/frankies2727/govbot-know-your-ballot';
 const COMING = [{ name: 'Ohio', issue: 8 }, { name: 'Pennsylvania', issue: 9 }, { name: 'Georgia', issue: 11 }];
 
 const STATES = [
-  { id: 'illinois' as const, name: 'Illinois', ink: 'var(--gb-amber-hi)', covers: 'Chicago and suburban Cook County, from U.S. Senate to the judges.', map: <StateMap outline={ilOutline as Outline} name="Illinois" colors={IL_MAP} id="il-home" /> },
-  { id: 'michigan' as const, name: 'Michigan', ink: 'var(--gb-primary-hi)', covers: 'Governor to school board, the courts and both proposals.', map: <MichiganMap /> },
-  { id: 'minnesota' as const, name: 'Minnesota', ink: 'var(--mn-teal)', covers: 'Governor to state representative, the courts and the amendment.', map: <MinnesotaMap /> },
-  { id: 'wisconsin' as const, name: 'Wisconsin', ink: 'var(--wi-cardinal)', covers: 'Governor to Assembly seat and all three constitutional questions.', map: <WisconsinMap /> },
+  { id: 'illinois' as const, name: 'Illinois', ink: STATE_INK.illinois, covers: covers('illinois'), map: <StateMap outline={ilOutline as Outline} name="Illinois" colors={IL_MAP} id="il-home" /> },
+  { id: 'michigan' as const, name: 'Michigan', ink: STATE_INK.michigan, covers: covers('michigan'), map: <MichiganMap /> },
+  { id: 'minnesota' as const, name: 'Minnesota', ink: STATE_INK.minnesota, covers: covers('minnesota'), map: <MinnesotaMap /> },
+  { id: 'wisconsin' as const, name: 'Wisconsin', ink: STATE_INK.wisconsin, covers: covers('wisconsin'), map: <WisconsinMap /> },
 ];
 
 const LINK = 'underline decoration-2 underline-offset-4 font-semibold text-[var(--gb-text)] hover:text-[var(--gb-link)]';
 
-/** The root of the Know Your Ballot site: pick your state. Each guide is one tap away at /illinois, /michigan, /minnesota or /wisconsin. */
+/** The root of the Know Your Ballot site: the elections we cover, by year, and a way into each state's guide at /illinois, /michigan, /minnesota or /wisconsin. */
 export function KybHome() {
   useDocumentMeta('Know Your Ballot');
   const [paused, setPaused] = useState(false);
@@ -44,9 +49,9 @@ export function KybHome() {
           <section className="grid items-center gap-8 lg:grid-cols-[minmax(0,6fr)_minmax(0,7fr)] lg:gap-12">
             <div className="max-w-[52ch] space-y-6 text-[17px] leading-relaxed">
               <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Know what&rsquo;s on your ballot before you vote.</h1>
-              <p className="text-xl leading-snug">Enter your address and get the ballot you&rsquo;ll be handed on <strong className="font-semibold">Tuesday, November 3, 2026</strong>: what each job is, who&rsquo;s running, who&rsquo;s funding them and what every question means.</p>
+              <p className="text-xl leading-snug">Find the election you&rsquo;re voting in, or the one you want to look back on. Each guide shows every race and question, what each job is, who&rsquo;s running and who&rsquo;s funding them.</p>
               <p>
-                <a href="#pick" className="inline-flex min-h-[48px] items-center rounded-full bg-[var(--gb-primary)] px-6 text-[16px] font-bold text-[var(--gb-on-primary)] no-underline hover:bg-[var(--gb-primary-hi)] focus-visible:outline-[var(--gb-text)]">Pick your state</a>
+                <a href="#elections" className="inline-flex min-h-[48px] items-center rounded-full bg-[var(--gb-primary)] px-6 text-[16px] font-bold text-[var(--gb-on-primary)] no-underline hover:bg-[var(--gb-primary-hi)] focus-visible:outline-[var(--gb-text)]">Browse the elections</a>
               </p>
               <p className="text-[15px]">Free, non-partisan and open source. Nothing about you is kept: no names, no cookies, no tracking.</p>
             </div>
@@ -61,10 +66,12 @@ export function KybHome() {
             </div>
           </section>
 
+          <Elections />
+
           <section id="pick" aria-labelledby="pick-h" className="mt-16 scroll-mt-[calc(var(--kyb-top)+16px)] space-y-6 sm:mt-24">
             <div className="space-y-2">
-              <h2 id="pick-h" className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Pick your state</h2>
-              <p className="max-w-[60ch] text-[17px]">Four guides are live for November. Each opens on the next screen and asks for your address there. Under each, how many voted this time and in every election since 2014.</p>
+              <h2 id="pick-h" className="font-serif text-3xl font-medium leading-tight sm:text-4xl">The states</h2>
+              <p className="max-w-[60ch] text-[17px]">Each guide opens on the next screen and asks for your address there. Under each, how many voted in the 2026 midterm and in every general election since 2014.</p>
             </div>
             {/* Each state is two rows of one subgrid (its tile, then its turnout), so tiles in a row match in height and so do their turnout panels. */}
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2 lg:grid-cols-4" aria-label="States with a guide">

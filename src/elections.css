@@ -1,0 +1,71 @@
+/* The root page's elections index (Elections.tsx): the cycle years, the year
+   rail (a lane per state, a dot per election) and the month-by-month list.
+   Each state's colour comes in as --ink. Colours are govbot's tokens, so both
+   themes work. */
+
+.el-btn { cursor: pointer; touch-action: manipulation; }
+.el-btn:focus-visible { outline: 3px solid var(--gb-text); outline-offset: 2px; }
+
+/* The cycle: the years as large serif numerals, the chosen one underlined. */
+.el-years { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 26px; }
+.el-year { background: none; border: 0; border-bottom: 4px solid transparent; padding: 4px 1px 8px; color: var(--gb-text); font-family: var(--gb-font-display); font-size: clamp(2.2rem, 6vw, 3.1rem); font-weight: 400; line-height: 1; opacity: .72; }
+.el-year:hover { opacity: 1; }
+.el-year[aria-pressed="true"] { border-bottom-color: var(--gb-text); font-weight: 600; opacity: 1; }
+.el-year-all { font-size: clamp(1.3rem, 3.4vw, 1.7rem); font-family: var(--gb-font-sans); font-weight: 600; }
+
+/* Filter chips. */
+.el-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--gb-border-strong); background: none; color: var(--gb-text); font-size: 15px; font-weight: 700; }
+.el-chip i { width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
+.el-chip:hover { background: var(--kyb-chip); }
+.el-chip[aria-pressed="true"] { background: var(--gb-text); border-color: var(--gb-text); color: var(--gb-bg); }
+
+/* The year rail: a label column, then twelve months on a shared axis. */
+.el-rail { --label: 5.9rem; display: grid; grid-template-columns: var(--label) minmax(0, 1fr); column-gap: 10px; align-items: center; }
+@media (min-width: 560px) { .el-rail { --label: 7.6rem; } }
+.el-months { position: relative; height: 22px; font-size: 12px; color: var(--gb-text); }
+.el-months span { position: absolute; top: 0; transform: translateX(-50%); }
+.el-months u { display: none; text-decoration: none; }
+@media (max-width: 559px) { .el-months b { display: none; } .el-months u { display: inline; } }
+.el-months b { font-weight: 600; }
+.el-lane { display: contents; --ink: var(--gb-text); }
+.el-lane-name { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; background: none; border: 0; text-align: left; color: var(--gb-text); font-size: 14px; font-weight: 700; }
+.el-lane-name i { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
+.el-lane-name[aria-pressed="true"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.el-lane[data-dim] .el-lane-name, .el-lane[data-dim] .el-track { opacity: .45; }
+.el-track { position: relative; height: 44px; }
+.el-track::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; background: var(--gb-border); }
+.el-tick { position: absolute; top: 12px; bottom: 12px; width: 1px; background: var(--gb-border); }
+.el-today { position: absolute; top: 2px; bottom: 2px; width: 2px; margin-left: -1px; background: var(--gb-text); border-radius: 1px; }
+.el-dot { position: absolute; top: 50%; z-index: 1; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; transform: translate(-50%, -50%); background: none; border: 0; }
+.el-dot i { width: 16px; height: 16px; border-radius: 50%; background: var(--gb-bg); border: 3px solid var(--ink); transition: transform .12s; }
+.el-dot[data-held] i { background: var(--ink); }
+.el-dot:hover:not(:disabled) i { transform: scale(1.25); }
+.el-dot:disabled { cursor: default; }
+.el-dot[data-off] i { opacity: .28; }
+.el-legend { grid-column: 2; margin: 2px 0 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; color: var(--gb-text); }
+.el-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.el-key { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--gb-text); box-sizing: border-box; }
+.el-key-held { background: var(--gb-text); }
+.el-key-line { display: inline-block; width: 2px; height: 14px; background: var(--gb-text); border-radius: 1px; }
+
+/* The list: months in the serif, a leaf with the day on each row. */
+.el-month { margin: 30px 0 8px; font-family: var(--gb-font-display); font-size: 1.55rem; font-weight: 500; line-height: 1.1; }
+.el-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--gb-border); }
+.el-row { display: grid; grid-template-columns: 4.1rem minmax(0, 1fr); gap: 10px 16px; padding: 18px 0; border-bottom: 1px solid var(--gb-border); scroll-margin-top: calc(var(--kyb-top) + 16px); outline: none; }
+@media (min-width: 760px) { .el-row { grid-template-columns: 4.1rem minmax(0, 1fr) auto; column-gap: 22px; } }
+.el-leaf { grid-row: 1 / span 2; display: flex; flex-direction: column; align-items: center; justify-content: center; align-self: start; width: 4.1rem; padding: 8px 0 7px; border: 2px solid var(--ink); border-radius: 14px; background: color-mix(in srgb, var(--ink) 14%, transparent); }
+.el-leaf b { font-family: var(--gb-font-display); font-size: 2rem; font-weight: 600; line-height: 1; }
+.el-leaf span { margin-top: 3px; font-size: 12px; font-weight: 700; }
+.el-title { margin: 0; font-family: var(--gb-font-display); font-size: clamp(1.25rem, 3.4vw, 1.5rem); font-weight: 500; line-height: 1.2; }
+.el-meta { margin: 5px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 14px; }
+.el-state { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
+.el-state i { width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
+.el-type { padding: 1px 9px; border: 1.5px solid var(--gb-border-strong); border-radius: 999px; font-weight: 600; font-size: 13px; }
+.el-what { margin: 7px 0 0; max-width: 62ch; font-size: 15.5px; line-height: 1.5; }
+.el-stat { margin: 7px 0 0; font-size: 15px; }
+.el-act { grid-column: 2; }
+@media (min-width: 760px) { .el-act { grid-column: 3; grid-row: 1; align-self: start; } }
+.el-act-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 2px solid var(--gb-text); border-radius: 999px; background: none; color: var(--gb-text); font-weight: 700; text-decoration: none; }
+.el-act-link:hover { background: var(--kyb-chip); color: var(--gb-text); }
+
+@media (prefers-reduced-motion: reduce) { .el-dot i { transition: none; } }

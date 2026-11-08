@@ -21,6 +21,7 @@ import { HOW, PORTAL, STATE_NAMES, STATE_SLUGS, type StateSlug } from '../../src
 import { ELECTION_DAY, faqDates, faqFor, headlineRaces, homeFaq, statewideMeasures, type Faq } from '../../src/seo/faq';
 import { aOrAn, isoDate, longDate, shortDate } from '../../src/seo/format';
 import type { Measure, Race } from '../../src/types';
+import { ELECTIONS, STATE_NAME, YEARS } from '../../src/electionIndex';
 
 const EXPLAIN: Record<StateSlug, (office: string) => string> = { illinois: ilExplain, michigan: miExplain, minnesota: mnExplain, wisconsin: wiExplain };
 const DATES = { illinois: NOV_3, michigan: MI_DATES, minnesota: MN_DATES, wisconsin: WI_DATES };
@@ -80,9 +81,15 @@ export function homeBody(states: StatePage[], site: string, desc: string): strin
     '<main class="kyb-seo">',
     '<h1>Govbot Know Your Ballot</h1>',
     `<p>${esc(desc)}</p>`,
-    '<h2>Pick your state</h2><ul>',
+    '<h2>The states</h2><ul>',
     ...states.map((s) => `<li><a href="${site}/${s.slug}">Know Your ${esc(s.name)} Ballot</a>${s.asOf ? `, candidate lists as of ${s.asOf}` : ''}</li>`),
     '</ul>',
+    '<h2>Elections by year</h2>',
+    ...YEARS.flatMap((y) => [
+      `<h3>${y}</h3><ul>`,
+      ...ELECTIONS.filter((e) => e.date.startsWith(String(y))).map((e) => `<li>${esc(longDate(e.date))}: ${esc(STATE_NAME[e.state])} ${esc(e.title.toLowerCase())}. ${esc(e.what)}${e.guide ? ` <a href="${site}/${e.state}">${esc(STATE_NAME[e.state])} guide</a>` : ''}</li>`),
+      '</ul>',
+    ]),
     '<h2>Common questions</h2>',
     ...homeFaq().map((x) => `<h3>${esc(x.q)}</h3><p>${esc(x.a)}</p>`),
     '</main>',
