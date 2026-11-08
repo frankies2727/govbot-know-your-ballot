@@ -7,6 +7,8 @@ import ilOutline from './data/illinois/outline.json';
 import { BallotBox } from './BallotBox';
 import { GoVote } from './GoVote';
 import { GovbotChrome } from './GovbotChrome';
+import { HomeSearch } from './HomeSearch';
+import { LandingBar, type LandingItem } from './LandingBar';
 import { StateMap } from './Hero';
 import { Elections } from './Elections';
 import { ELECTIONS, NOV_3, STATE_INK, type StateId } from './electionIndex';
@@ -37,6 +39,16 @@ const STATES = [
   { id: 'wisconsin' as const, name: 'Wisconsin', ink: STATE_INK.wisconsin, covers: covers('wisconsin'), map: <WisconsinMap /> },
 ];
 
+/** The page's parts for the pinned bar's contents, in page order. */
+const PARTS: LandingItem[] = [
+  { id: 'kyb-intro', emoji: '🗳️', label: 'Know Your Ballot' },
+  { id: 'elections', emoji: '📅', label: 'Elections' },
+  { id: 'pick', emoji: '🗺️', label: 'November 2026 Midterms', short: 'Nov 2026 Midterms', sub: STATES.map((s) => ({ id: `kyb-home-${s.id}`, emoji: '📍', label: s.name, color: s.ink })) },
+  { id: 'kyb-open', emoji: '🤝', label: 'Built by and for everyone', short: 'Get involved' },
+];
+/** Clear of the pinned bar where the contents jumps (the page's scroll padding already clears govbot's header). */
+const UNDER_BAR = 'scroll-mt-[var(--kyb-bar,0px)]';
+
 const LINK = 'underline decoration-2 underline-offset-4 font-semibold text-[var(--gb-text)] hover:text-[var(--gb-link)]';
 
 /** The root of the Know Your Ballot site: the elections we cover, by year, and a way into each state's guide at /illinois, /michigan, /minnesota or /wisconsin. */
@@ -46,8 +58,9 @@ export function KybHome() {
   return (
     <GovbotChrome>
       <div className="kyb min-h-[100dvh] bg-[var(--gb-bg)] text-[var(--gb-text)]">
-        <div className="mx-auto max-w-[1920px] px-4 pb-28 pt-8 sm:px-[clamp(1.5rem,4vw,4rem)] sm:pt-12">
-          <section className="grid items-center gap-8 lg:grid-cols-[minmax(0,6fr)_minmax(0,7fr)] lg:gap-12">
+        <div className="mx-auto max-w-[1920px] px-4 pb-28 pt-3 sm:px-[clamp(1.5rem,4vw,4rem)] sm:pt-4">
+          <LandingBar items={PARTS} searchLabel="Search elections and state guides" search={(slot) => <HomeSearch {...slot} />} />
+          <section id="kyb-intro" className={`mt-8 grid sm:mt-10 ${UNDER_BAR} items-center gap-8 lg:grid-cols-[minmax(0,6fr)_minmax(0,7fr)] lg:gap-12`}>
             <div className="max-w-[52ch] space-y-6 text-[17px] leading-relaxed">
               <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Know what&rsquo;s on your entire ballot before you vote.</h1>
               <p className="text-pretty text-xl leading-snug">Here we show what each race is, who&rsquo;s running, who&rsquo;s funding them, what every question means, and more. Find the election you&rsquo;re voting in, or look back at a past one.</p>
@@ -70,7 +83,7 @@ export function KybHome() {
           <Elections />
 
           {/* One section per election the guides cover, each folding away (the newest open), so the page holds every year's states without growing endlessly. */}
-          <section id="pick" aria-label="State guides by election" className="mt-16 scroll-mt-[calc(var(--kyb-top)+16px)] space-y-6 sm:mt-24">
+          <section id="pick" aria-label="State guides by election" className={`mt-16 space-y-6 sm:mt-24 ${UNDER_BAR}`}>
             <details open className="kyb-cycle">
               <summary className="kyb-cycle-head">
                 <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl">November 2026 Midterms</h2>
@@ -80,7 +93,7 @@ export function KybHome() {
               {/* Each card is two rows of one subgrid (the map and name, then the turnout), so cards in a row match in height and their turnout lines up. */}
               <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="States with a guide">
                 {STATES.map((s) => (
-                  <li key={s.id} className="kyb-card row-span-2 grid grid-rows-subgrid" style={{ '--ink': s.ink } as React.CSSProperties}>
+                  <li key={s.id} id={`kyb-home-${s.id}`} className={`kyb-card row-span-2 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': s.ink } as React.CSSProperties}>
                     <a href={guidePath(s.id)} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(`projects/know-your-ballot-${s.id}`); }}
                       className="kyb-tile h-full">
                       <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{s.map}</span>
@@ -103,7 +116,7 @@ export function KybHome() {
             </p>
           </section>
 
-          <section aria-labelledby="open-h" className="mt-16 grid gap-6 border-t border-[var(--gb-border)] pt-10 sm:mt-24 lg:grid-cols-2 lg:gap-12">
+          <section id="kyb-open" aria-labelledby="open-h" className={`mt-16 ${UNDER_BAR} grid gap-6 border-t border-[var(--gb-border)] pt-10 sm:mt-24 lg:grid-cols-2 lg:gap-12`}>
             <h2 id="open-h" className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Built by and for everyone</h2>
             <div className="max-w-[56ch] space-y-5 text-[17px] leading-relaxed">
               <p>Everything shown comes from an official or documented public source, named next to it. Nothing is rated or editorialized.</p>

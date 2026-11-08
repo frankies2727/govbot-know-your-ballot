@@ -79,6 +79,18 @@ export function Elections() {
 
   // A tap on a dot brings its row into view and marks it.
   const list = useRef<HTMLDivElement>(null);
+  // An address ending #el-<id> (the home page's search, or a shared link) opens that election's year, with nothing filtered out, and goes to its row.
+  useEffect(() => {
+    const follow = () => {
+      const e = ELECTIONS.find((x) => `#el-${x.id}` === location.hash);
+      if (!e) return;
+      setF((cur) => ({ year: cur.year === 'all' ? 'all' : Number(e.date.slice(0, 4)), states: [], types: [], show: 'all' }));
+      requestAnimationFrame(() => requestAnimationFrame(() => reveal(e.id)));
+    };
+    follow();
+    addEventListener('hashchange', follow);
+    return () => removeEventListener('hashchange', follow);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const reveal = (id: string) => {
     const row = list.current?.querySelector<HTMLElement>(`#el-${id}`);
     if (!row) return;
@@ -88,7 +100,7 @@ export function Elections() {
   };
 
   return (
-    <section id="elections" aria-labelledby="elections-h" className="mt-16 scroll-mt-[calc(var(--kyb-top)+16px)] space-y-6 sm:mt-24">
+    <section id="elections" aria-labelledby="elections-h" className="mt-16 scroll-mt-[var(--kyb-bar,0px)] space-y-6 sm:mt-24">
       <div className="space-y-2">
         <h2 id="elections-h" className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Elections</h2>
         <p className="max-w-[60ch] text-[17px]">Every election we cover or are getting ready for, by year. Past ballots stay here as the record of what voters saw.</p>

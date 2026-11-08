@@ -86,8 +86,11 @@ function useCurrent(ids: string[], bar: RefObject<HTMLElement | null>, prefer: R
       let at: string | null = null;
       let best = -Infinity;
       for (const id of ids) {
-        const top = document.getElementById(id)?.getBoundingClientRect().top;
-        if (top == null || top > line) continue;
+        const el = document.getElementById(id);
+        // A part folded away (in a closed section) has no box: it isn't where you are.
+        if (!el || !el.getClientRects().length) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top > line) continue;
         if (top > best + 1 || (top >= best - 1 && id === prefer.current)) { at = id; best = top; }
       }
       const next = at ?? ids.find((id) => document.getElementById(id)) ?? null;
@@ -107,7 +110,7 @@ function useCurrent(ids: string[], bar: RefObject<HTMLElement | null>, prefer: R
 export interface SearchSlot { autoFocus: boolean; onClose?: () => void }
 
 /** The pinned bar: the contents button (which names the section you're in) and the search (`search` draws it). */
-export function LandingBar({ items, search }: { items: LandingItem[]; search: (slot: SearchSlot) => ReactNode }) {
+export function LandingBar({ items, search, searchLabel = 'Search races, candidates, judges or questions' }: { items: LandingItem[]; search: (slot: SearchSlot) => ReactNode; /** What the search icon says to a screen reader, on phones. */ searchLabel?: string }) {
   const wide = useWide();
   const [searching, setSearching] = useState(false);
   const [open, setOpen] = useState(false);
@@ -129,6 +132,9 @@ export function LandingBar({ items, search }: { items: LandingItem[]; search: (s
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const el = document.getElementById(id);
       if (!el) return;
+      // Inside a folded section (the home page's elections): unfold it first.
+      const fold = el.closest('details');
+      if (fold && !fold.open) fold.open = true;
       // The bar names what you jumped to (an office: its card), even beside a card that starts level with it.
       jumped.current = el.closest('[id^="kyb-card-"], [id^="kyb-sw-"]')?.id ?? id;
       // An office sits in its card's list, which scrolls on its own on desktop:
@@ -171,7 +177,7 @@ export function LandingBar({ items, search }: { items: LandingItem[]; search: (s
               {wide ? (
                 <div className="min-w-0 flex-1 ml-auto max-w-2xl">{search({ autoFocus: false })}</div>
               ) : (
-                <button type="button" onClick={() => setSearching(true)} aria-label="Search races, candidates, judges or questions"
+                <button type="button" onClick={() => setSearching(true)} aria-label={searchLabel}
                   className="shrink-0 w-11 h-11 rounded-xl border-2 border-[var(--gb-text)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
                   <Search className="w-5 h-5" aria-hidden="true" />
                 </button>
