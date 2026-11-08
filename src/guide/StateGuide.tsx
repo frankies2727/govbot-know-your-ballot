@@ -500,7 +500,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                     <p className="text-sm">🔒 The link holds your picks and districts, not your street address. Keep it to yourself.</p>
                   </section>
                   <PdfCard summary={pdfSummary} accent="var(--kyb-accent)" disabled={total === 0} />
-                  <h2 className="text-2xl font-black leading-tight">Get your people to look up theirs</h2>
+                  <h2 className="text-2xl font-black leading-tight">Share with your friends and family</h2>
                   <p className="text-[15px] leading-relaxed">Share a card with your progress: how many races you’ve researched, section by section. <strong>It never shows who you picked.</strong></p>
                   <div className="rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-5 space-y-3">
                     {sections.map((s) => (
