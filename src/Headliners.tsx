@@ -33,8 +33,8 @@ export const raceTitle = (r: Race) => r.office.replace(/ \(\d+ seats\)$/, '');
 export const statewideId = (r: Race) => `kyb-sw-${r.id}`;
 
 function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; race: Race; section: Section; onOpen: Props['onOpen']; onOpenRace: Props['onOpenRace']; onCompare: Props['onCompare'] }) {
-  const { explainOffice } = useStateConfig();
-  const why = stakes(race);
+  const { explainOffice, electionDate } = useStateConfig();
+  const why = stakes(race, electionDate);
   return (
     <li id={statewideId(race)} className="min-w-0 rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: section.color }}>
       <span className="inline-flex self-start items-center gap-1.5 rounded-full border-2 px-2.5 py-0.5 text-xs font-bold text-[var(--gb-text)]" style={{ borderColor: section.color, background: `color-mix(in srgb, ${section.color} 14%, transparent)` }}>{section.emoji} {section.title}</span>

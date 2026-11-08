@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { guidePath } from './hosts';
+import { guidePath, type GuideId } from './hosts';
 import { navigate } from './lib/router';
 import { daysUntil, today } from './store';
 import { dayOfMonth, defaultYear, ELECTIONS, monthName, STATE_INK, STATE_NAME, STATES, TYPE_NAME, TYPES, weekday, when, YEARS, type Election, type ElectionType, type StateId } from './electionIndex';
@@ -41,9 +41,9 @@ function toAddress(f: Filters) {
 
 const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
 
-/** Opens a state's guide, then its part (the "next election" notes) once it has drawn. */
-function openGuide(state: StateId, anchor?: string) {
-  navigate(`projects/know-your-ballot-${state}`);
+/** Opens a guide, then its part (the "next election" notes) once it has drawn. */
+function openGuide(id: GuideId, anchor?: string) {
+  navigate(`projects/know-your-ballot-${id}`);
   if (!anchor) return;
   let tries = 0;
   const timer = setInterval(() => {
@@ -227,8 +227,8 @@ function Row({ e }: { e: Election }) {
       </div>
       {e.guide && (
         <div className="el-act">
-          <a className="el-act-link el-btn" href={`${guidePath(e.state)}${e.guide.anchor ? `#${e.guide.anchor}` : ''}`}
-            onClick={(ev) => { if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return; ev.preventDefault(); openGuide(e.state, e.guide!.anchor); }}>
+          <a className="el-act-link el-btn" href={`${guidePath(e.guide.id ?? e.state)}${e.guide.anchor ? `#${e.guide.anchor}` : ''}`}
+            onClick={(ev) => { if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return; ev.preventDefault(); openGuide(e.guide!.id ?? e.state, e.guide!.anchor); }}>
             {e.guide.label}<span className="sr-only"> for {STATE_NAME[e.state]}, {e.title}</span>
           </a>
         </div>

@@ -1,9 +1,10 @@
 import type { Results } from '../results';
 import type { ComponentType, ReactNode } from 'react';
 import type { KeyDate } from '../dates';
-import type { GuideState } from '../hosts';
+import type { GuideId } from '../hosts';
 import type { Guide } from '../PlanToVote';
 import type { StateConfig } from '../state';
+import type { Faq } from '../seo/faq';
 import type { Districts } from '../types';
 import type { Place } from './lookup';
 import type { StateData } from './types';
@@ -20,7 +21,7 @@ export interface SourceCard { emoji: string; title: string; status: string; plan
  * lookups, the links and the copy. StateGuide renders one of these.
  */
 export interface GuideSpec {
-  slug: GuideState;
+  slug: GuideId;
   /** "MI". */
   code: string;
   name: string;
@@ -49,6 +50,10 @@ export interface GuideSpec {
   PlanToVote: ComponentType<{ plan: Record<string, boolean | string>; setPlan: (key: string, value: boolean | string) => void; county?: string; ballotDone: boolean }>;
   guides: Guide[];
   NextElectionNote: ComponentType;
+  /** Whether an address's districts are inside the guide's area (default: anywhere in the state). */
+  inArea?: (d: Districts) => boolean;
+  /** The guide's own common questions (default: the state guides' questions, src/seo/faq.ts). */
+  faq?: (data: StateData) => Faq[];
   lookup: {
     geocode: (address: string) => Promise<Place | null>;
     prefetchDistricts: () => unknown;
@@ -57,6 +62,16 @@ export interface GuideSpec {
   copy: {
     /** "Michigan · 2026 midterms". */
     overline: string;
+    /** The races on every ballot: "statewide" (the default) or "citywide". */
+    everyone?: string;
+    /** The ballot view's header (default: "November 2026 Midterm", from the date). */
+    electionName?: string;
+    /** Where the address goes, under the address box (default: OpenStreetMap's search). */
+    addressNote?: string;
+    /** Under the address box when an address is outside the guide's area (default: the other state guides). */
+    outside?: ReactNode;
+    /** The printed sample ballot's note on what it carries (default: the statewide guides' contests). */
+    sampleScope?: string;
     heading: string;
     /** What's on the ballot, one line each. */
     bullets: string[];
@@ -73,7 +88,7 @@ export interface GuideSpec {
     countyScope: string;
     /** What the guide doesn't carry: "County and local offices, trial-court judges and local proposals". */
     notCarried: string;
-    /** The local contests the official sample ballot has, under "Not in here yet". */
+    /** The local contests the official sample ballot has, under "Not in here yet" (empty: the guide has every contest). */
     localContests: string;
     /** Who runs the voter's election: ", from your Wayne County clerk". */
     clerkOf: (county: string) => string;

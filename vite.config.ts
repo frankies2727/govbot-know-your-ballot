@@ -6,9 +6,11 @@ import path from 'node:path';
 import { defineConfig } from 'vite';
 import { llmsTxt, robotsTxt, sitemapXml, type SitePage, type StateFacts } from './scripts/seo/crawler-files';
 import { BODY_CSS, homeBody, jsonLd, jsonScript, llmsFull, readState, stateBody } from './scripts/seo/page-body';
+import { chicagoBody, chicagoLd, readChicago } from './scripts/seo/chicago-page';
 import { STATE_SLUGS } from './src/seo/copy';
-import { GUIDE_CYCLE, guidePath, type GuideState } from './src/hosts';
+import { GUIDE_CYCLE, guidePath, type GuideId } from './src/hosts';
 import { held } from './src/seo/faq';
+import { isoDate } from './src/seo/format';
 
 // What a shared link shows (the title, description and picture social apps
 // read from the HTML itself, before any script runs): one set per page, the
@@ -31,6 +33,7 @@ const PAGES: Record<string, { title: string; desc: string; img: string }> = {
   michigan: { title: 'Know Your Michigan Ballot', desc: guideDesc('Every race, judge and proposal', 'Michigan'), img: 'michigan' },
   minnesota: { title: 'Know Your Minnesota Ballot', desc: guideDesc('Every race, judge and the amendment', 'Minnesota'), img: 'minnesota' },
   wisconsin: { title: 'Know Your Wisconsin Ballot', desc: guideDesc('Every race and question', 'Wisconsin'), img: 'wisconsin' },
+  'chicago-2027': { title: 'Know Your Chicago Ballot · Feb 23, 2027', desc: 'Chicago’s Feb 23, 2027 city election: mayor, clerk, treasurer, all 50 alderpersons and the police district councils. Every candidate, who holds each seat now and the money behind them. Free, open source and non-partisan, built on Govbot.', img: 'chicago-2027' },
 };
 /** The guides: where voters confirm their own ballot, per state. */
 const STATES = [
@@ -42,7 +45,7 @@ const STATES = [
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const metaFor = (page: string) => {
   const { title, desc, img } = PAGES[page];
-  const url = page ? `${SITE}${guidePath(page as GuideState)}` : `${SITE}/`;
+  const url = page ? `${SITE}${guidePath(page as GuideId)}` : `${SITE}/`;
   return [
     `<title>${esc(title)}</title>`,
     `<meta name="description" content="${esc(desc)}" />`,
@@ -71,22 +74,29 @@ function siteMeta() {
     closeBundle() {
       // robots.txt, sitemap.xml and llms.txt, for crawlers and AI assistants.
       const pagesData = STATE_SLUGS.map(readState);
-      const states: StateFacts[] = STATES.map((s) => ({ ...s, path: guidePath(s.slug as GuideState), asOf: pagesData.find((p) => p.slug === s.slug)?.asOf }));
-      const dates = states.map((s) => s.asOf).filter((d): d is string => !!d).sort();
-      const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: guidePath(s.slug as GuideState), lastmod: s.asOf }))];
+      const states: StateFacts[] = STATES.map((s) => ({ ...s, path: guidePath(s.slug as GuideId), asOf: pagesData.find((p) => p.slug === s.slug)?.asOf }));
+      const chicago = readChicago();
+      const chicagoAsOf = isoDate(chicago.sources.candidates.asOf);
+      const dates = [...states.map((s) => s.asOf), chicagoAsOf].filter((d): d is string => !!d).sort();
+      const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: guidePath(s.slug as GuideId), lastmod: s.asOf })), { path: guidePath('chicago-2027'), lastmod: chicagoAsOf }];
       writeFileSync(path.join(outDir, 'robots.txt'), robotsTxt(SITE));
       writeFileSync(path.join(outDir, 'sitemap.xml'), sitemapXml(SITE, pages));
-      writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, states));
+      writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, [...states, { slug: 'chicago-2027', name: 'Chicago', path: guidePath('chicago-2027'), asOf: chicagoAsOf, portal: { name: 'Chicago Board of Election Commissioners', url: 'https://chicagoelections.gov/' }, what: 'Chicago’s Feb 23, 2027 city election: mayor, city clerk, city treasurer, all 50 alderpersons and the 22 police district councils' }]));
       writeFileSync(path.join(outDir, 'llms-full.txt'), llmsFull(SITE, pagesData));
       const shell = readFileSync(path.join(outDir, 'index.html'), 'utf8');
       // Each page: its own head tags, structured data, and the readable text inside the root (the app's first render replaces it).
       const readable = (html: string, body: string, ld: unknown) => html.replace('<div id="root"></div>', `<div id="root">${body}</div>`).replace('</head>', `${BODY_CSS}\n    ${jsonScript(ld)}\n  </head>`);
-      for (const page of Object.keys(PAGES).filter(Boolean)) {
+      for (const page of Object.keys(PAGES).filter((p) => p && p !== 'chicago-2027')) {
         const f = pagesData.find((p) => p.slug === page)!;
         mkdirSync(path.join(outDir, GUIDE_CYCLE, page), { recursive: true });
         const html = shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaFor(page));
         writeFileSync(path.join(outDir, GUIDE_CYCLE, page, 'index.html'), readable(html, stateBody(f, SITE, PAGES[page].desc), jsonLd(SITE, f, PAGES[page].desc, pagesData)));
       }
+      // Chicago's Feb 2027 city election, at its own address.
+      const chicagoDir = path.join(outDir, guidePath('chicago-2027').slice(1));
+      mkdirSync(chicagoDir, { recursive: true });
+      const chicagoHtml = shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaFor('chicago-2027'));
+      writeFileSync(path.join(chicagoDir, 'index.html'), readable(chicagoHtml, chicagoBody(chicago, SITE, PAGES['chicago-2027'].desc), chicagoLd(chicago, SITE, PAGES['chicago-2027'].desc)));
       writeFileSync(path.join(outDir, 'index.html'), readable(shell, homeBody(pagesData, SITE, PAGES[''].desc), jsonLd(SITE, null, PAGES[''].desc, pagesData)));
     },
   };

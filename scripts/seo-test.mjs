@@ -24,13 +24,13 @@ if (existsSync('dist/index.html')) {
   const site = 'https://govbot-know-your-ballot.vercel.app';
   ok(dist('robots.txt').includes(`Sitemap: ${site}/sitemap.xml`), 'dist/robots.txt');
   const locs = [...dist('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  eq(locs, [`${site}/`, ...['illinois', 'michigan', 'minnesota', 'wisconsin'].map((s) => `${site}/2026-11/${s}`)], 'dist/sitemap.xml pages');
+  eq(locs, [`${site}/`, ...['illinois', 'michigan', 'minnesota', 'wisconsin'].map((s) => `${site}/2026-11/${s}`), `${site}/2027-02/chicago`], 'dist/sitemap.xml pages');
   for (const l of locs) { const page = l === `${site}/` ? 'index.html' : `${l.slice(site.length + 1)}/index.html`; ok(existsSync(`dist/${page}`) && dist(page).includes(`<link rel="canonical" href="${l}" />`), `canonical of ${l} equals itself`); }
   ok(/lastmod>\d{4}-\d{2}-\d{2}</.test(dist('sitemap.xml')), 'sitemap has real dates');
   ok(dist('llms.txt').includes('Wisconsin') && !dist('llms.txt').includes('undefined'), 'dist/llms.txt');
   // Each page's readable text and structured data.
   const decode = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
-  for (const page of ['index.html', '2026-11/illinois/index.html', '2026-11/michigan/index.html', '2026-11/minnesota/index.html', '2026-11/wisconsin/index.html']) {
+  for (const page of ['index.html', '2026-11/illinois/index.html', '2026-11/michigan/index.html', '2026-11/minnesota/index.html', '2026-11/wisconsin/index.html', '2027-02/chicago/index.html']) {
     const html = dist(page);
     const root = html.slice(html.indexOf('<div id="root">'), html.indexOf('</main>') + 7);
     ok(root.includes('<main class="kyb-seo">') && /<h1>[^<]+<\/h1>/.test(root), `${page}: readable text and an h1 inside the root`);

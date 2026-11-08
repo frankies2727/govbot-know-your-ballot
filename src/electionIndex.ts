@@ -1,3 +1,4 @@
+import type { GuideId } from './hosts';
 import { daysUntil } from './store';
 
 // The elections the root page lists, by state and date: the guides that are
@@ -33,8 +34,8 @@ export interface Election {
   type: ElectionType;
   /** What is on the ballot, in a sentence. */
   what: string;
-  /** Where a guide for it already is: its button, and the part of the state's page to open. Absent while it's only planned. */
-  guide?: { label: string; anchor?: string };
+  /** Where a guide for it already is: its button, the guide (default: the state's 2026 guide) and the part of its page to open. Absent while it's only planned. */
+  guide?: { label: string; anchor?: string; id?: GuideId };
 }
 
 /** The midterm general the state guides are built for. */
@@ -55,7 +56,7 @@ const LIST: Election[] = [
 
   { id: 'wi-2027-spring-primary', state: 'wisconsin', date: '2027-02-16', title: 'Spring primary', type: 'primary', guide: SO_FAR,
     what: 'Takes place only where more than two people file for a spring office.' },
-  { id: 'il-2027-city', state: 'illinois', date: '2027-02-23', title: 'Chicago city election', type: 'local', guide: { label: 'See the 2027 city races', anchor: 'kyb-next' },
+  { id: 'il-2027-city', state: 'illinois', date: '2027-02-23', title: 'Chicago city election', type: 'local', guide: { label: 'Open the Chicago ballot guide', id: 'chicago-2027' },
     what: 'Mayor, city clerk, treasurer, all 50 alderpersons and the police district councils. In suburban Cook, primaries only where needed.' },
   { id: 'il-2027-runoff', state: 'illinois', date: '2027-04-06', title: 'Runoffs and suburban local elections', type: 'local', guide: SO_FAR,
     what: 'Chicago runoffs where no one got more than half the vote, and suburban village and city councils and school, park and library boards.' },

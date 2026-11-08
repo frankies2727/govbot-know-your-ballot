@@ -11,6 +11,6 @@ export function electionName(isoDate: string) {
   return `${MONTH.format(new Date(Date.UTC(y, m - 1, d)))} ${y} ${y % 4 === 2 ? 'Midterm' : 'Election'}`;
 }
 
-export function ElectionHeader({ date }: { date: string }) {
-  return <h1 className="font-serif text-[1.7rem] font-medium leading-none tracking-tight sm:text-[2.1rem]">{electionName(date)}</h1>;
+export function ElectionHeader({ date, name }: { date: string; /** A name of its own ("Chicago City Election · February 2027"), instead of one from the date. */ name?: string }) {
+  return <h1 className="font-serif text-[1.7rem] font-medium leading-none tracking-tight sm:text-[2.1rem]">{name ?? electionName(date)}</h1>;
 }

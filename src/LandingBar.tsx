@@ -43,7 +43,7 @@ export interface LandingSub {
  * `sections`' colours), `more` the district cards, `questions` the
  * ballot-questions card some states show after the statewide races.
  */
-export function landingItems(more: SectionCard[], statewide: Race[], sections: readonly { id: string; emoji: string; color: string }[], questions?: SectionCard): LandingItem[] {
+export function landingItems(more: SectionCard[], statewide: Race[], sections: readonly { id: string; emoji: string; color: string }[], questions?: SectionCard, everyone = 'The statewide races'): LandingItem[] {
   // A card of one office is named for it ("Federal: U.S. Representative"); a card of several lists them under it.
   const card = (c: SectionCard): LandingSub => {
     const { groups } = officeGroups(c);
@@ -59,7 +59,7 @@ export function landingItems(more: SectionCard[], statewide: Race[], sections: r
   };
   return [
     { id: 'kyb-find', emoji: '📍', label: 'Find my ballot' },
-    { id: 'kyb-statewide', emoji: '🗳️', label: 'The statewide races', sub: [...statewide.map(race), ...(questions ? [card(questions)] : [])] },
+    { id: 'kyb-statewide', emoji: '🗳️', label: everyone, sub: [...statewide.map(race), ...(questions ? [card(questions)] : [])] },
     { id: 'kyb-else', emoji: '🧭', label: 'District and precinct races', short: 'District races', sub: more.map(card) },
     { id: 'kyb-faq', emoji: '❓', label: 'Common questions' },
     { id: 'kyb-sources', emoji: '📂', label: 'Sources' },

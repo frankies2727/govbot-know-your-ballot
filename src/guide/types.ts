@@ -1,5 +1,6 @@
 // Shape of the static data scripts/state.mjs builds for a state (Michigan,
-// Minnesota, Wisconsin): src/data/<state>/ballot.json.
+// Minnesota, Wisconsin): src/data/<state>/ballot.json; and scripts/chicago-2027.mjs
+// for Chicago's Feb 2027 city election.
 import type { Change, Law, Measure, NewsItem, Race } from '../types';
 
 export interface StateData {
@@ -27,4 +28,6 @@ export interface StateData {
   news?: NewsItem[];
   /** The legislature's bills on elections and schools, from govbot, newest action first. */
   laws?: Law[];
+  /** Chicago: each ward's office (the City's ward offices data), by ward number. */
+  wards?: Record<string, { site?: string; phone?: string; email?: string; address?: string }>;
 }

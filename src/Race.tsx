@@ -1,6 +1,6 @@
-import { AtSign, Check, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, X, Youtube, type LucideIcon } from 'lucide-react';
+import { AtSign, Check, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import { GOVBOT_LEGISLATION } from './hosts';
-import { memo, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { memo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { BarRatings } from './BarRatings';
 import { Face } from './Face';
 import { useReadOnly, useStateConfig } from './state';
@@ -365,6 +365,12 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
           </div>
           <h3 className="text-xl font-black leading-tight text-[var(--gb-text)]">{race.office}</h3>
           <p className="text-[15px] leading-relaxed text-[var(--gb-text)]">{explainOffice(race.office)}</p>
+          {race.about && (
+            <p className="text-sm leading-relaxed text-[var(--gb-text)]">
+              <span className="font-bold">Who it serves: </span>{race.about.text}{' '}
+              <a href={race.about.source.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{race.about.source.name} ↗</a>
+            </p>
+          )}
           <Incumbents race={race} />
         </header>
 
@@ -392,7 +398,8 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
                   <span className="min-w-0">
                     <span className="block font-bold leading-snug text-[var(--gb-text)]">{c.name}</span>
                     <span className="flex flex-wrap gap-1.5 mt-1">
-                      <Badge tone="var(--gb-bg)">{c.party}</Badge>
+                      {c.party && <Badge tone="var(--gb-bg)">{c.party}</Badge>}
+                      {c.filing && <Badge tone="var(--gb-amber-hi)" ink="var(--gb-bg)">{c.filing}</Badge>}
                       {c.nominatedBy && <Badge tone="var(--gb-bg)">{c.nominatedBy} nominee</Badge>}
                       {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
                       {c.money && <Badge tone="var(--gb-bg)">{money(c.money.raised)} raised</Badge>}
@@ -478,7 +485,8 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
         </figure>
         <div className="flex flex-wrap gap-2">
           <Badge tone={color} ink={ink}>{race.office}</Badge>
-          <Badge>{c.party}</Badge>
+          {c.party && <Badge>{c.party}</Badge>}
+          {c.filing && <Badge tone="var(--gb-amber-hi)" ink="var(--gb-bg)">{c.filing}</Badge>}
           {c.nominatedBy && <Badge>{c.nominatedBy} nominee</Badge>}
           {numbered && <Badge>Ballot #{c.ballot}</Badge>}
           {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
@@ -607,7 +615,7 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
                     <p className="text-lg font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
-                      <Badge>{c.party}</Badge>
+                      {c.party && <Badge>{c.party}</Badge>}
                       {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
                     </div>
                   </div>

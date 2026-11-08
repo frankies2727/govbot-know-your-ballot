@@ -14,7 +14,7 @@ export interface MapColors {
  * data build. With `at`, a pulsing pin marks the voter's spot. `id` keeps
  * two maps' gradients apart on one page.
  */
-export function StateMap({ outline, name, colors, id, at, className = '' }: { outline: Outline; name: string; colors: MapColors; id: string; at?: { lat: number; lng: number } | null; className?: string }) {
+export function StateMap({ outline, name, colors, id, at, className = '', strokeWidth = 5 }: { outline: Outline; name: string; colors: MapColors; id: string; at?: { lat: number; lng: number } | null; className?: string; /** Thinner for a map of many areas (Chicago's wards). */ strokeWidth?: number }) {
   const { width, height, path, bbox, kx, ky } = outline;
   const pin = at && { x: (at.lng - bbox[0]) * kx, y: (bbox[3] - at.lat) * ky };
   const grad = `kyb-grad-${id}`;
@@ -27,7 +27,7 @@ export function StateMap({ outline, name, colors, id, at, className = '' }: { ou
           <stop offset="1" style={{ stopColor: colors.fill[2] }} />
         </linearGradient>
       </defs>
-      <path d={path} fill={`url(#${grad})`} stroke={colors.stroke} strokeWidth="5" strokeLinejoin="round" />
+      <path d={path} fill={`url(#${grad})`} stroke={colors.stroke} strokeWidth={strokeWidth} strokeLinejoin="round" />
       {pin && (
         <g transform={`translate(${pin.x.toFixed(0)} ${pin.y.toFixed(0)})`}>
           <circle r="34" fill={colors.pin} opacity="0.4" className="kyb-pin-ring" />

@@ -32,14 +32,14 @@ export const sitemapXml = (site: string, pages: SitePage[]) => [
   '',
 ].join('\n');
 
-export interface StateFacts { slug: string; name: string; /** The guide's path ("/2026-11/minnesota", src/hosts.ts). */ path: string; /** The candidate list's own date, as YYYY-MM-DD. */ asOf?: string; portal: { name: string; url: string } }
+export interface StateFacts { slug: string; name: string; /** The guide's path ("/2026-11/minnesota", src/hosts.ts). */ path: string; /** The candidate list's own date, as YYYY-MM-DD. */ asOf?: string; portal: { name: string; url: string }; /** What the guide covers, when it isn't a state's races, judges and questions. */ what?: string }
 
 /** The summary an AI assistant reads first (the llms.txt convention): what the site is, what to trust it for, and where each answer lives. */
 export function llmsTxt(site: string, states: StateFacts[]) {
   return [
     '# Govbot Know Your Ballot',
     '',
-    '> A free, open-source, nonpartisan voter guide to the elections in Illinois, Michigan, Minnesota and Wisconsin, listed by year; the guides are built for the November 3, 2026 midterm, and past ballots stay as the record. Enter an address in a guide and see your exact ballot: every race, judge and question, what each job does, who is running and who is funding them. Built on Govbot, Chi Hack Night\'s open civic data.',
+    '> A free, open-source, nonpartisan voter guide to the elections in Illinois, Michigan, Minnesota and Wisconsin, listed by year; the state guides are built for the November 3, 2026 midterm and Chicago\'s for its February 23, 2027 city election, and past ballots stay as the record. Enter an address in a guide and see your exact ballot: every race, judge and question, what each job does, who is running and who is funding them. Built on Govbot, Chi Hack Night\'s open civic data.',
     '',
     'Know Your Ballot never recommends a candidate or rates one. Every fact names its source next to it (official candidate lists where the state or county publishes one, the FEC and state campaign-finance records for money, Ballotpedia and Wikipedia under CC BY-SA for profiles and incumbents). A candidate\'s own words are quoted verbatim with their date and a link. Data refreshes daily; each guide\'s Sources section shows when its candidate list was last read. The address a voter types is sent once to a public address-lookup service to find their districts and is otherwise kept only on their own device.',
     '',
@@ -52,7 +52,7 @@ export function llmsTxt(site: string, states: StateFacts[]) {
     '',
     '## Guides',
     '',
-    ...states.map((s) => `- [Know Your ${s.name} Ballot](${site}${s.path}): races, judges and questions on the ${s.name} ballot${s.asOf ? `; candidate lists as of ${s.asOf}` : ''}. Official voter portal: [${s.portal.name}](${s.portal.url}).`),
+    ...states.map((s) => `- [Know Your ${s.name} Ballot](${site}${s.path}): ${s.what ?? `races, judges and questions on the ${s.name} ballot`}${s.asOf ? `; candidate lists as of ${s.asOf}` : ''}. Official voter portal: [${s.portal.name}](${s.portal.url}).`),
     '',
     '## About',
     '',

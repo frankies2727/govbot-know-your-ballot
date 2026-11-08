@@ -19,6 +19,11 @@ const HITS: Hit[] = [
     text: fold(`${STATE_NAME[s]} guide ballot 2026 midterm november`),
     go: () => navigate(`projects/know-your-ballot-${s}`),
   })),
+  {
+    id: 'guide-chicago-2027', title: 'Chicago ballot guide', detail: 'Feb 23, 2027 city election: mayor, clerk, treasurer, alderpersons and police district councils', ink: 'var(--chi-blue)',
+    text: fold('chicago guide ballot 2027 city election mayor alderperson alderman ward police district council clerk treasurer february'),
+    go: () => navigate('projects/know-your-ballot-chicago-2027'),
+  },
   ...ELECTIONS.map((e): Hit => ({
     id: e.id, title: `${STATE_NAME[e.state]}: ${e.title}`, detail: `${when(e.date)} · ${e.what}`, ink: STATE_INK[e.state],
     text: fold(`${STATE_NAME[e.state]} ${e.title} ${TYPE_NAME[e.type]} ${when(e.date)} ${e.date} ${e.what}`),

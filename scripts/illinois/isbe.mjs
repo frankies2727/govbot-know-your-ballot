@@ -28,9 +28,9 @@ export const ISBE_FILES = ['Candidates', 'CanElections', 'CmteCandidateLinks', '
 export const ISBE_RECEIPTS = 'Receipts';
 export const ISBE_BASE = 'https://www.elections.il.gov/CampaignDisclosureDataFiles/';
 
-// The cycle for Nov 2026 money: everything reported since Jan 1, 2025.
+// The cycle for Nov 2026 money (and Chicago's Feb 2027 city election):
+// everything reported since Jan 1, 2025.
 const CYCLE_START = '2025-01-01';
-const ELECTION_YEAR = '2026';
 
 async function* rows(path) {
   let header = null;
@@ -66,25 +66,38 @@ const OFFICE_ON_FILE = [
   [/^Board of Review/, /review/],
   [/^Judge/, /judge|justice/],
   [/Board of Education/, /board|member|president|education/],
+  // Chicago's city election (Feb 2027).
+  [/^Mayor/, /mayor/],
+  [/^City Clerk/, /clerk/],
+  [/^City Treasurer/, /treasurer/],
+  [/^Alderperson/, /alder/],
+  [/^Police District Council/, /police/],
 ];
 const officeFits = (ballotOffice, fileOffice) =>
   OFFICE_ON_FILE.some(([ballot, file]) => ballot.test(ballotOffice) && file.test(fileOffice));
-// "6th District" / "3rd Subcircuit" on the ballot vs a bare number on file.
+// "6th District" / "3rd Subcircuit" / "31st Ward" on the ballot vs a bare
+// number on file, or Chicago's own ("Chicago 12", "Chicago-25").
 const districtFits = (ballotOffice, fileDistrict) => {
-  const want = (ballotOffice.match(/(\d+)(?:st|nd|rd|th) (?:District|Subcircuit)/) || [])[1];
-  const have = (fileDistrict.match(/^(\d+)/) || [])[1];
+  const want = (ballotOffice.match(/(\d+)(?:st|nd|rd|th) (?:District|Subcircuit|Ward)/) || [])[1];
+  const have = (fileDistrict.match(/^(?:Chicago[\s-]*)?(\d+)/i) || [])[1];
   return !want || !have || want === have;
 };
 
 /**
  * Attach `money` (and incumbency) to every non-federal candidate the state's
- * files can vouch for. `dir` holds the downloaded ISBE files.
+ * files can vouch for. `dir` holds the downloaded ISBE files; `election` is
+ * which one the candidates are on, as the files name it (the Nov 2026
+ * general is 2026 "GE"; Chicago's Feb 2027 city election is filed under
+ * 2027 "CP" or "CE", one committee or another, and a sitting alderperson's
+ * committee may still be on file only for their 2023 race). With
+ * `incumbency: false` the files' Inc/Chal marks aren't used (the build has
+ * an official list of who holds each seat).
  */
-export async function addStateMoney(races, dir) {
-  // 1. Everyone on the 2026 general election, and their status in it.
+export async function addStateMoney(races, dir, election = { years: ['2026'], types: ['GE'], incumbency: true }) {
+  // 1. Everyone on the election, and their status in it.
   const status = new Map(); // candidateId -> 'Inc' | 'Chal' | 'Open' | 'Ret'
   for await (const r of rows(`${dir}/CanElections.txt`)) {
-    if (r.ElectionYear === ELECTION_YEAR && r.ElectionType === 'GE') status.set(r.CandidateID, r.IncChallOpen);
+    if (election.years.includes(r.ElectionYear) && election.types.includes(r.ElectionType) && !status.has(r.CandidateID)) status.set(r.CandidateID, r.IncChallOpen);
   }
   const people = [];
   for await (const r of rows(`${dir}/Candidates.txt`)) {
@@ -163,7 +176,7 @@ export async function addStateMoney(races, dir) {
 
       log.push(`${race.office} | ${c.name} -> ${hits.map((p) => `${p.office} ${p.district}`.trim()).join(', ')}`);
       const st = [...ids].map((id) => status.get(id)).find(Boolean);
-      if (st === 'Inc' || st === 'Ret') c.incumbent = true;
+      if (election.incumbency !== false && (st === 'Inc' || st === 'Ret')) c.incumbent = true;
       // A person can have several committees over the years; the one carrying
       // this cycle's money is the one with the most raised.
       const best = [...ids].flatMap((id) => [...(committeesOf.get(id) ?? [])])

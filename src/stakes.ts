@@ -10,7 +10,8 @@ import type { Race } from './types';
  * Once the election is over (`held`) it says what was at stake: "ran to keep
  * the seat", "wasn't on the ballot".
  */
-export function stakes(race: Race, held = daysUntil(GUIDE_ELECTION_DAY) < 0): string {
+export function stakes(race: Race, electionDate = GUIDE_ELECTION_DAY): string {
+  const held = daysUntil(electionDate) < 0;
   const keep = (n: number) => (held ? (n > 1 ? 'ran to keep their seats.' : 'ran to keep the seat.') : n > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.');
   const inc = race.incumbents ?? [];
   const leaving = inc.filter((i) => i.ballot == null && i.note);

@@ -22,6 +22,8 @@ export interface StateConfig {
   noMoney: (r: Race) => string;
   /** Under the head-to-head table. */
   compareNote: string;
+  /** The guide's Election Day, for what's at stake in past or present tense (default: Nov 3, 2026). */
+  electionDate?: string;
 }
 
 export const ILLINOIS: StateConfig = {

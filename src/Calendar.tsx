@@ -1,6 +1,8 @@
 import { CalendarPlus } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { CITY_2027, dayLabel, downloadReminder, forVoter, NEXT_ELECTION, NOV_3, type KeyDate } from './dates';
+import { guidePath } from './hosts';
+import { navigate } from './lib/router';
 import { daysUntil, useNow } from './store';
 import type { CityRace, Districts } from './types';
 
@@ -82,6 +84,8 @@ function CityRaces({ city, districts, listAsOf }: { city: CityRace[]; districts:
     || (r.group === 'police_district_council' && r.district === districts?.police));
   return (
     <div className="space-y-3 border-t-2 border-[var(--kyb-chip)] pt-3">
+      <p><a href={guidePath('chicago-2027')} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate('projects/know-your-ballot-chicago-2027'); }}
+        className="inline-flex min-h-[44px] items-center rounded-xl bg-[var(--kyb-gold)] px-4 font-black text-[var(--gb-bg)]">Open the full Chicago ballot guide →</a></p>
       {mine.every((r) => !r.candidates.length) && <p className="text-[15px] font-bold text-[var(--gb-text)]">{NO_CANDIDATES_YET}</p>}
       <ul className="space-y-3">
         {mine.map((r) => (

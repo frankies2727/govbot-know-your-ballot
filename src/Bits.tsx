@@ -413,7 +413,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
           <button type="button" onClick={() => onOpen(it.race!, c)} aria-label={`${c.name}: more about them`} className="w-full flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-left hover:bg-[var(--kyb-chip)]">
             <Face c={c} className="w-9 h-9 text-xs" />
             <span className="min-w-0 flex-1 text-sm font-bold leading-tight">{c.name}</span>
-            <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">{c.nominatedBy ?? c.party}</span>
+            {(c.nominatedBy ?? c.party) && <span className="shrink-0 rounded-full bg-[var(--kyb-chip)] px-2 py-0.5 text-[11px] font-bold">{c.nominatedBy ?? c.party}</span>}
             <Info className="w-5 h-5 shrink-0 text-[var(--gb-link)]" aria-hidden="true" />
           </button>
         </li>
@@ -600,7 +600,7 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
     </span>
     {names && <>
       <span className="mt-1 block w-full text-[12.5px] font-bold leading-tight line-clamp-2 text-[var(--gb-text)]">{c.name.split(' & ')[0]}</span>
-      <span className="block w-full line-clamp-2 break-words text-[11px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>
+      {(c.nominatedBy ?? c.party) && <span className="block w-full line-clamp-2 break-words text-[11px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>}
       {c.note && <span className="block w-full truncate text-[11px] font-bold leading-tight text-[var(--gb-text)]">{c.note}</span>}
     </>}
   </>);

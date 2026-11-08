@@ -59,6 +59,13 @@ jobs:
       - name: Refresh results
         run: node scripts/results.mjs illinois
 
+      # Chicago's Feb 23, 2027 city election (scripts/chicago-2027.mjs): the
+      # Board's newest candidate list (found by the build above), who holds
+      # each seat, campaign money and links. A bad read keeps yesterday's
+      # data and only warns, so it never holds up the Illinois refresh.
+      - name: Build Chicago 2027 ballot data
+        run: node scripts/chicago-2027.mjs || echo "::warning::Chicago 2027 build failed; yesterday's data kept"
+
       - name: Redraw the README badges
         run: node scripts/badges.mjs
         env:
@@ -68,7 +75,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/illinois public/kyb-photos/illinois src/govbot public/badges src/data/turnout.json
+          git add src/data/illinois public/kyb-photos/illinois src/data/chicago-2027 public/kyb-photos/chicago-2027 src/govbot public/badges src/data/turnout.json
           if git diff --staged --quiet; then
             echo "No ballot data changes."
             echo "changed=false" >> "$GITHUB_OUTPUT"

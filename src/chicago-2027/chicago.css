@@ -1,0 +1,13 @@
+/* Know Your Ballot: Chicago's city election, Feb 23, 2027. A palette from the
+   city flag: its light blue bars and red stars, with a deep lake navy. Brand
+   colours stay the same in both themes; each section carries the ink that
+   reads on it (config.ts). The shared tokens are in ballot.css. */
+:root {
+  --chi-blue: #41B6E6;
+  --chi-red: #E4002B;
+  --chi-navy: #14325C;
+  --chi-ink: #0B1F2E;
+}
+
+/* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the ward map glows flag blue. */
+.kyb-chi { --kyb-accent: var(--chi-blue); --kyb-accent-ink: var(--chi-ink); --kyb-map-glow: color-mix(in srgb, var(--chi-blue) 55%, transparent); }

@@ -10,7 +10,8 @@ import { Laws } from '../Laws';
 import { Headliners } from '../Headliners';
 import { CommonQuestions } from '../CommonQuestions';
 import { faqDates, faqFor } from '../seo/faq';
-import { isoDate } from '../seo/format';
+import type { StateSlug } from '../seo/copy';
+import { isoDate, longDate } from '../seo/format';
 import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
 import { ElectionHeader } from '../ElectionHeader';
@@ -69,7 +70,6 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
   useDocumentMeta(`Know Your Ballot: ${spec.name}`);
   const [saved, setSaved] = useSaved(storageKey);
-  const browsing = !!saved.browsing;
   const setBrowsing = (on: boolean) => setSaved((s) => ({ ...s, browsing: on || undefined }));
   const [tab, setTab] = useState<'ballot' | 'plan' | 'share' | 'how' | 'feed'>('ballot');
   const [incoming, setIncoming] = useState<Saved | null>(null);
@@ -213,7 +213,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   // ---- address -> districts --------------------------------------------------
   const place = async (lat: number, lng: number, label: string) => {
     const d = await spec.lookup.districtsAt(lat, lng, data);
-    if (!inState(d)) { setStatus({ busy: false, error: '', outside: true }); return; }
+    if (!(spec.inArea ?? inState)(d)) { setStatus({ busy: false, error: '', outside: true }); return; }
     // A new address means a new ballot: statewide picks still stand, picks
     // for races that aren't on this ballot are dropped rather than lingering.
     const onBallot = ballotIdsFor(data, d);
@@ -386,7 +386,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                 {wide && tools}
               </div>
             </div>
-              <div className="pt-5"><ElectionHeader date={data.election.date} /></div>
+              <div className="pt-5"><ElectionHeader date={data.election.date} name={copy.electionName} /></div>
               {!wide && <div className="pt-3"><ProgressLine done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />{tools}</div>}
               {!wide && !saved.place && <BrowsingBadge region={region} onAddAddress={changeAddress} />}
             <div className="lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 lg:items-start pt-4">
@@ -560,6 +560,10 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
 // ---- pieces ------------------------------------------------------------------------
 
+/** "2027-02-23" -> "Tue, Feb 23, 2027", and without the weekday "Feb 23, 2027". */
+const dayOf = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+const shortDay = (iso: string) => dayOf(iso).replace(/^\w+, /, '');
+
 function Landing({ spec, everything, ballotHref, address, setAddress, status, onSubmit, onLocate, onBrowse, onSearchJump, onOpenRace, onOpenCandidate, onOpenSection, onCompare, place, onContinue, daysLeft, saved, onStartFresh }: {
   spec: GuideSpec; everything: ReturnType<typeof ballotFor>; ballotHref: string;
   address: string; setAddress: (s: string) => void; status: { busy: boolean; error: string; outside: boolean };
@@ -567,9 +571,9 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   onOpenSection: (sectionId: string, id: string) => void; onCompare: (r: Race) => void; /** A saved ballot to go back to. */ place?: string; onContinue: () => void;
   daysLeft: number; saved: number; onStartFresh: () => void;
 }) {
-  const { data, sections: SECTIONS, config, copy, links, Map } = spec;
+  const { data, sections: SECTIONS, config, copy, Map } = spec;
   // The questions voters ask, from the same sourced data and copy as the rest of the page (the page's FAQ markup says these words too).
-  const faq = useMemo(() => faqFor({ slug: spec.slug, races: data.races, measures: data.measures, asOf: isoDate(data.sources.candidates.asOf), explainOffice: config.explainOffice, keyDates: faqDates(spec.keyDates) }), [spec, data, config]);
+  const faq = useMemo(() => (spec.faq ? spec.faq(data) : faqFor({ slug: spec.slug as StateSlug, races: data.races, measures: data.measures, asOf: isoDate(data.sources.candidates.asOf), explainOffice: config.explainOffice, keyDates: faqDates(spec.keyDates) })), [spec, data, config]);
   // The statewide races everyone votes on, for the quick tour; the rest of
   // the ballot by section, for the cards under them; the questions as a card
   // among the statewide races.
@@ -577,9 +581,9 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
     const headliners = data.races.filter((r) => !r.area);
     const more: SectionCard[] = SECTIONS.map((s) => {
       const races = s.id === 'measures' ? [] : data.races.filter((r) => r.section === s.id && r.area);
-      return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: config.areaLabel(r), race: r, about: config.explainOffice(r.office), why: stakes(r) })) };
+      return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: config.areaLabel(r), race: r, about: config.explainOffice(r.office), why: stakes(r, config.electionDate) })) };
     }).filter((c) => c.n > 0);
-    const questions: SectionCard = { ...SECTIONS.find((s) => s.id === 'measures')!, n: data.measures.length, hint: 'Statewide · yes or no on each', items: data.measures.map((m) => ({ id: m.id, title: m.title, sub: 'Statewide', question: m.question, plain: m.plain })) };
+    const questions: SectionCard = { ...SECTIONS.find((s) => s.id === 'measures')!, n: data.measures.length, hint: `${(copy.everyone ?? 'statewide').replace(/^./, (c) => c.toUpperCase())} · yes or no on each`, items: data.measures.map((m) => ({ id: m.id, title: m.title, sub: 'Statewide', question: m.question, plain: m.plain })) };
     return { headliners, more, questions };
   }, [data, SECTIONS, config]);
   const sectionTitles = Object.fromEntries(SECTIONS.map((s) => [s.id, s.title]));
@@ -596,19 +600,20 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
     return () => cancelIdleCallback(id);
   }, [spec]);
   const others = GUIDES.filter((g) => g.id !== spec.slug);
+  const everyone = copy.everyone ?? 'statewide';
   return (
     <div className="space-y-10 pt-4">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
-      <LandingBar items={landingItems(more, headliners, SECTIONS, questions)} search={(slot) => (
+      <LandingBar items={landingItems(more, headliners, SECTIONS, questions.n > 0 ? questions : undefined, `The ${everyone} races`)} search={(slot) => (
         <BallotSearch ballot={everything} sections={sectionTitles} onJump={onSearchJump} hrefFor={(h) => `${ballotHref}#race=${encodeURIComponent(h.id)}`} {...slot} />
       )} />
       <header className="flex flex-col-reverse md:flex-row md:items-center gap-6 md:gap-12">
         <div className="min-w-0 flex-1 space-y-3">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em]">{copy.overline}</p>
           <h1 className="text-[40px] sm:text-5xl leading-[1.02]">{copy.heading}</h1>
-          <p className="font-[family-name:var(--gb-font-display)] text-xl">{daysLeft < 0 ? 'Every race on the November 3, 2026 ballot, as voters saw it.' : 'Every race on your ballot, explained before you vote.'}</p>
+          <p className="font-[family-name:var(--gb-font-display)] text-xl">{daysLeft < 0 ? `Every race on the ${longDate(data.election.date).replace(/^\w+, /, '')} ballot, as voters saw it.` : 'Every race on your ballot, explained before you vote.'}</p>
           <p className="font-semibold">
-            {daysLeft < 0 ? 'Election Day was ' : 'Election Day: '}Tue, Nov 3, 2026{daysLeft > 0 ? <> · <span className="rounded-full bg-[var(--gb-primary)] px-2.5 py-0.5 font-bold text-[var(--gb-on-primary)]">{daysLeft} days to go</span></> : daysLeft === 0 ? ' · Today!' : ''}
+            {daysLeft < 0 ? 'Election Day was ' : 'Election Day: '}{dayOf(data.election.date)}{daysLeft > 0 ? <> · <span className="rounded-full bg-[var(--gb-primary)] px-2.5 py-0.5 font-bold text-[var(--gb-on-primary)]">{daysLeft} days to go</span></> : daysLeft === 0 ? ' · Today!' : ''}
           </p>
           <ul className="space-y-1 text-[15px] leading-relaxed max-w-[62ch]" aria-label={daysLeft < 0 ? 'What was on the ballot' : 'What you’ll vote on'}>
             {copy.bullets.map((b) => <li key={b} className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>{b}</span></li>)}
@@ -644,14 +649,14 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         {status.error && <p role="alert" className="rounded-xl bg-[var(--gb-red)] px-4 py-3 font-bold text-white">{status.error}</p>}
         {status.outside && (
           <p role="alert" className="rounded-xl bg-[var(--kyb-chip)] border-2 border-[var(--gb-amber-hi)] px-4 py-3 font-bold">
-            That address is outside {spec.name}. This guide covers {spec.name} voters; {others.map((g, i) => <span key={g.id}>{i > 0 ? (i === others.length - 1 ? ' and ' : ', ') : ''}<a className="underline text-[var(--gb-amber-hi)]" href={guideUrl(g.id)}>{g.name}</a></span>)} voters have their own guides.
+            {copy.outside ?? <>That address is outside {spec.name}. This guide covers {spec.name} voters; {others.map((g, i) => <span key={g.id}>{i > 0 ? (i === others.length - 1 ? ' and ' : ', ') : ''}<a className="underline text-[var(--gb-amber-hi)]" href={guideUrl(g.id)}>{g.name}</a></span>)} voters have their own guides.</>}
           </p>
         )}
-        <p className="text-sm leading-relaxed">🔒 Your address goes once to OpenStreetMap’s address search to find your districts, then matching happens on your device. It’s saved only on your device, and never shared or stored anywhere. The live count and heart are anonymous too: nothing about you is kept.</p>
+        <p className="text-sm leading-relaxed">🔒 Your address goes once to {copy.addressNote ?? 'OpenStreetMap’s address search'} to find your districts, then matching happens on your device. It’s saved only on your device, and never shared or stored anywhere. The live count and heart are anonymous too: nothing about you is kept.</p>
       </form>
 
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
-        {[[headliners.length, 'races on every ballot'], [byDistrict, 'races by district'], [candidates, 'candidates'], [data.measures.length, copy.measuresLabel]].map(([n, label]) => (
+        {([[headliners.length, 'races on every ballot'], [byDistrict, 'races by district'], [candidates, 'candidates'], [data.measures.length, copy.measuresLabel]] as [number, string][]).filter(([n], i) => i < 3 || n > 0).map(([n, label]) => (
           <li key={label} className="rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-4">
             <span className="block text-3xl font-black">{n}</span>
             <span className="block text-sm font-bold">{label}</span>
@@ -659,10 +664,10 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         ))}
       </ul>
 
-      <Headliners races={headliners} sections={SECTIONS} overline={`On every ${spec.name} ballot`} heading="The statewide races"
+      <Headliners races={headliners} sections={SECTIONS} overline={`On every ${spec.name} ballot`} heading={`The ${everyone} races`}
         intro={`These ${headliners.length} contests are on every ${spec.name} ballot. Tap a face to meet a candidate, or Compare to see them side by side; your address adds your own ${copy.districtKinds} races from the ${byDistrict} by district.`}
         onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare}>
-        <SectionPanel card={questions} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
+        {questions.n > 0 && <SectionPanel card={questions} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />}
       </Headliners>
 
       <SectionCards cards={more} heading="District and precinct races on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />
@@ -695,10 +700,12 @@ function WhereYouVote({ spec, districts, pin, onChange }: { spec: GuideSpec; dis
               <li key={k} className="rounded-full border-[3px] border-[var(--gb-primary)] bg-[var(--kyb-chip)] px-3 py-1 text-sm font-bold">{label} {districts[k as keyof Districts]}</li>
             ))}
           </ul>
-          <div className="rounded-xl border-2 border-[var(--gb-amber-hi)] bg-[var(--kyb-chip)] p-3 text-[15px] leading-relaxed">
-            <p className="font-black text-[var(--gb-amber-hi)]">Not in here yet: your county and local contests</p>
-            <p>{copy.localContests} Your sample ballot at <a className="font-bold underline" href={links.myInfo} target="_blank" rel="noreferrer noopener">{links.myInfoLabel} ↗</a> has them all{districts.county ? copy.clerkOf(districts.county) : ''}.</p>
-          </div>
+          {copy.localContests && (
+            <div className="rounded-xl border-2 border-[var(--gb-amber-hi)] bg-[var(--kyb-chip)] p-3 text-[15px] leading-relaxed">
+              <p className="font-black text-[var(--gb-amber-hi)]">Not in here yet: your county and local contests</p>
+              <p>{copy.localContests} Your sample ballot at <a className="font-bold underline" href={links.myInfo} target="_blank" rel="noreferrer noopener">{links.myInfoLabel} ↗</a> has them all{districts.county ? copy.clerkOf(districts.county) : ''}.</p>
+            </div>
+          )}
           <p className="text-sm">
             Not right? Check the <a className="font-bold underline" href={links.myInfo} target="_blank" rel="noreferrer noopener">official lookup ↗</a> or{' '}
             <button type="button" onClick={onChange} className="font-bold underline">change your address</button>.
@@ -715,7 +722,7 @@ function KeyDates({ spec }: { spec: GuideSpec }) {
   return (
     <section aria-labelledby="kyb-dates" className="space-y-4">
       <h2 id="kyb-dates" className="text-2xl font-black">Key dates</h2>
-      <Group title="Nov 3, 2026 election" dates={spec.keyDates} now={now} info={spec.links.myInfo} />
+      <Group title={`${shortDay(spec.data.election.date)} election`} dates={spec.keyDates} now={now} info={spec.links.myInfo} />
       <p className="text-sm">All from the <a className="font-bold underline text-[var(--gb-link)]" href={spec.links.dates} target="_blank" rel="noreferrer noopener">{spec.links.datesSource}’s calendar ↗</a>.</p>
     </section>
   );
@@ -759,9 +766,9 @@ function SourcesCard({ spec }: { spec: GuideSpec }) {
 function PrintBallot({ spec, sections, picks, label, sample, describePick }: { spec: GuideSpec; sections: { id: string; title: string; ids: string[] }[]; picks: Record<string, Choice>; label?: string; /** Every candidate and question with boxes to mark, instead of the voter's picks. */ sample: boolean; describePick: (id: string, c: Choice | undefined) => { what: string; pick: string } }) {
   return (
     <div className="hidden print:block p-6 text-black bg-white text-[11pt]">
-      <h1 className="text-xl font-black">{sample ? 'Sample ballot' : 'My Ballot'} · {spec.name} · Nov 3, 2026</h1>
+      <h1 className="text-xl font-black">{sample ? 'Sample ballot' : 'My Ballot'} · {spec.name} · {shortDay(spec.data.election.date)}</h1>
       {label && <p>{label}</p>}
-      {sample && <p className="text-[9pt]">Unofficial, from Know Your Ballot: the statewide, congressional, legislative and judicial contests and the questions on this ballot. Local races and your official ballot order are on the sample ballot at {spec.links.myInfoLabel}.</p>}
+      {sample && <p className="text-[9pt]">Unofficial, from Know Your Ballot: {spec.copy.sampleScope ?? 'the statewide, congressional, legislative and judicial contests and the questions on this ballot. Local races and your official ballot order are on the sample ballot at'} {spec.links.myInfoLabel}.</p>}
       {sections.map((s) => (
         <section key={s.id} className="mt-4 break-inside-avoid-page">
           <h2 className="font-black border-b border-black">{s.title}</h2>
@@ -791,7 +798,7 @@ function SampleContest({ spec, id, pick }: { key?: string; spec: GuideSpec; id: 
       <div className="mt-2 break-inside-avoid">
         <p className="font-bold">{race.office}{race.voteFor > 1 ? ` (vote for up to ${race.voteFor})` : ''}</p>
         <ul className="pl-3">
-          {race.candidates.map((c) => <li key={c.ballot}>{box(picked.includes(c.ballot))}{c.name} <span className="text-[9pt]">({c.party})</span></li>)}
+          {race.candidates.map((c) => <li key={c.ballot}>{box(picked.includes(c.ballot))}{c.name}{c.party && <span className="text-[9pt]"> ({c.party})</span>}</li>)}
           {race.writeIn && <li>{box(false)}Write-in: ______________________</li>}
         </ul>
       </div>

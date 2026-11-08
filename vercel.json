@@ -32,6 +32,14 @@
       "destination": "/2026-11/:state/index.html"
     },
     {
+      "source": "/2027-02/chicago",
+      "destination": "/2027-02/chicago/index.html"
+    },
+    {
+      "source": "/2027-02/chicago/:rest*",
+      "destination": "/2027-02/chicago/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
@@ -39,6 +47,15 @@
   "headers": [
     {
       "source": "/2026-11/:state(illinois|michigan|minnesota|wisconsin)/ballot",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/2027-02/chicago/ballot",
       "headers": [
         {
           "key": "X-Robots-Tag",

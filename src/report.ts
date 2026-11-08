@@ -3,13 +3,15 @@
 // where they were; the GitHub issue form stays as the way in for people who
 // prefer it. Readers are the fact-checkers; one tap should be all it costs.
 
-import { GUIDE_STATES } from './hosts';
+import { GUIDE_PATHS } from './hosts';
 
 export const REPO = 'https://github.com/frankies2727/govbot-know-your-ballot';
 
-/** The state the reader is in, from the address ("/2026-11/illinois/ballot" → "Illinois"). */
+/** The place the reader's guide is for, from the address ("/2026-11/illinois/ballot" → "Illinois", "/2027-02/chicago" → "Chicago"). */
 export function stateName(): string {
-  const seg = location.pathname.split('/').find((s) => (GUIDE_STATES as string[]).includes(s)) ?? '';
+  const path = location.pathname.replace(/^\/+/, '');
+  const at = Object.values(GUIDE_PATHS).find((p) => path === p || path.startsWith(`${p}/`));
+  const seg = at?.split('/').pop() ?? '';
   return seg ? seg[0].toUpperCase() + seg.slice(1) : '';
 }
 

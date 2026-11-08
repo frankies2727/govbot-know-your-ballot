@@ -1,6 +1,6 @@
 // Shapes of the static data built by scripts/know-your-ballot/illinois.mjs.
 
-export type Section = 'federal' | 'state' | 'county' | 'judicial' | 'school' | 'legislature' | 'education';
+export type Section = 'federal' | 'state' | 'county' | 'judicial' | 'school' | 'legislature' | 'education' | 'city' | 'council' | 'police';
 
 /** Which voters see a contest. `null` on a race = every voter in Cook County. */
 export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa' | 'jd';
@@ -41,6 +41,8 @@ export interface Candidate {
   party: string;
   /** Only set when official records (FEC or ISBE) say so. */
   incumbent?: boolean;
+  /** Their filing's status on the official list when it isn't plain "Candidate" ("Objection Filed"). */
+  filing?: string;
   /** Ballotpedia's spelling of the name when the state's ballot prints it differently ("Liish" / "Alicia Kozlowski"). */
   aka?: string;
   /** Nonpartisan-section candidates (Michigan judges): the party that nominated them. */
@@ -118,6 +120,8 @@ export interface Race {
   source?: string;
   /** The seat's current holder(s); several for a multi-seat contest. Absent when no source names one. */
   incumbents?: Incumbent[];
+  /** The area the seat serves, in an official source's words (a Chicago police district: its neighborhoods and wards). */
+  about?: { text: string; source: { name: string; url: string } };
 }
 
 export interface Retention {

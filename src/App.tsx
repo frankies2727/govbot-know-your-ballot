@@ -2,15 +2,16 @@ import { lazy, Suspense } from 'react';
 import { useRoute } from './lib/router';
 import { Pulse } from './Pulse';
 
-// One screen per address: /illinois, /michigan, /minnesota and /wisconsin
-// (and their /ballot pages) open that state's guide; everything else is the
-// pick-your-state page. Each guide loads only when opened, so the home page
+// One screen per address: each guide's (/2026-11/michigan, /2027-02/chicago
+// and their /ballot pages, src/hosts.ts) opens it; everything else is the
+// home page. Each guide loads only when opened, so the home page
 // stays light.
 const KybHome = lazy(() => import('./KybHome').then((m) => ({ default: m.KybHome })));
 const Illinois = lazy(() => import('./KnowYourBallot').then((m) => ({ default: m.KnowYourBallot })));
 const Michigan = lazy(() => import('./michigan/KnowYourBallotMichigan').then((m) => ({ default: m.KnowYourBallotMichigan })));
 const Minnesota = lazy(() => import('./minnesota/KnowYourBallotMinnesota').then((m) => ({ default: m.KnowYourBallotMinnesota })));
 const Wisconsin = lazy(() => import('./wisconsin/KnowYourBallotWisconsin').then((m) => ({ default: m.KnowYourBallotWisconsin })));
+const Chicago2027 = lazy(() => import('./chicago-2027/KnowYourBallotChicago2027').then((m) => ({ default: m.KnowYourBallotChicago2027 })));
 
 function Loading() {
   return (
@@ -23,7 +24,7 @@ function Loading() {
 
 export default function App() {
   const route = useRoute();
-  const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin)(\/|$)/)?.[1];
-  const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : KybHome;
+  const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin|chicago-2027)(\/|$)/)?.[1];
+  const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : guide === 'chicago-2027' ? Chicago2027 : KybHome;
   return <><Suspense fallback={<Loading />}><Screen /></Suspense><Pulse compact={!!guide} /></>;
 }
