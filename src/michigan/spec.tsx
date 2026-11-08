@@ -62,7 +62,7 @@ const sources = (d: StateData): SourceCard[] => {
 export const MICHIGAN_GUIDE: GuideSpec = {
   slug: 'michigan', code: 'MI', name: 'Michigan', capital: 'Lansing',
   data,
-  results: results as Results,
+  results: { ...(results as Results), certify: { who: 'Michigan’s Board of State Canvassers', when: 'around Nov 23' } },
   Map: MichiganMap,
   cssClass: 'kyb-mi',
   config: MICHIGAN,

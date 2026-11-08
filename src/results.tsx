@@ -49,6 +49,8 @@ export interface Results {
   pending?: { note: string; links: [string, string][] };
   /** Results for some races, not yet others: which, and when. */
   gaps?: string;
+  /** Who certifies the official count, and when (the state's spec sets it): "Michigan’s Board of State Canvassers", "around Nov 23". */
+  certify?: { who: string; when: string };
 }
 
 /** A lead of this many points or fewer, with every precinct in, isn't called until the state certifies. */
@@ -63,6 +65,8 @@ export const useResults = () => useContext(ResultsContext);
 const pct = (n: number, of: number) => (of ? (n / of) * 100 : 0);
 const num = (n: number) => n.toLocaleString('en-US');
 /** "Called by the AP Nov 4" (Central time, the states' own). */
+/** When the official count comes, after an AP call: "Official count expected around Nov 23." */
+const comes = (certify?: Results['certify']) => (certify ? `Official count expected ${certify.when}.` : 'The official count comes when the state certifies.');
 const calledBy = (c: { by: string; at: string | null }) => `Called by the ${c.by}${c.at ? ` ${new Date(c.at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/Chicago' })}` : ''}`;
 const family = (party?: string) => (!party ? null : /democrat|dfl/i.test(party) ? 'D' : /republican/i.test(party) ? 'R' : null);
 /** Whether every precinct is in: always for a canvassed count. */
@@ -148,7 +152,7 @@ export function RaceResults({ race, color, compact = false }: { race: Race; colo
   return (
     <div className="rounded-xl border border-[var(--gb-border)] p-3 text-[13px]">
       <Head official={r.official} color={color} call={o.call === 'won' ? `✓ ${verb}` : o.call === 'close' ? 'Too close to call' : 'Counting'} />
-      {r.call && !r.official && <p className="-mt-1 mb-2 text-[12px] font-bold">{calledBy(r.call)}. The official count comes when the state certifies.</p>}
+      {r.call && !r.official && <p className="-mt-1 mb-2 text-[12px] font-bold">{calledBy(r.call)}. {comes(results?.certify)}</p>}
       <ul className="space-y-1.5">
         {o.rows.map(({ c, votes }) => {
           const won = o.call === 'won' && o.winners.some((w) => w.c === c);
@@ -173,7 +177,8 @@ export function RaceResults({ race, color, compact = false }: { race: Race; colo
  * only says what voters think). Called like a race: once the count is in.
  */
 export function QuestionResults({ id, color, retention = false }: { id: string; color: string; retention?: boolean }) {
-  const r = useResults()?.questions?.[id];
+  const results = useResults();
+  const r = results?.questions?.[id];
   if (!r) return null;
   const all = r.yes + r.no;
   const yes = pct(r.yes, all);
@@ -186,7 +191,7 @@ export function QuestionResults({ id, color, retention = false }: { id: string; 
   return (
     <div className="rounded-xl border border-[var(--gb-border)] p-3 text-[13px]">
       <Head official={r.official} color={color} call={call} />
-      {called && <p className="-mt-1 mb-2 text-[12px] font-bold">{calledBy(called)}. The official count comes when the state certifies.</p>}
+      {called && <p className="-mt-1 mb-2 text-[12px] font-bold">{calledBy(called)}. {comes(results?.certify)}</p>}
       <ul className="space-y-1.5">
         <Bar label="Yes" votes={r.yes} share={yes} won={done && passes} dim={done && !passes} color={color} />
         <Bar label="No" votes={r.no} share={100 - yes} won={done && !passes} dim={done && passes} color={color} />
@@ -223,6 +228,7 @@ export function ResultsNote() {
       {official ? 'The counts are official.' : items.some((r) => r.call)
         ? `Counts can still change until they’re certified. A race marked “Called by the AP” is the Associated Press’s call, a projection from its count; the state’s official count replaces it once certified. Any other race is called only with every precinct in and a lead of more than ${CLOSE} points.`
         : `Counts can still change until they’re certified; a race is called only with every precinct in and a lead of more than ${CLOSE} points.`}
+      {!official && results.certify && <> {results.certify.who[0].toUpperCase() + results.certify.who.slice(1)} certifies the official count {results.certify.when}.</>}
       {results.gaps && <> {results.gaps}</>}
     </p>
   );

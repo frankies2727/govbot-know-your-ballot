@@ -62,7 +62,7 @@ const sources = (d: StateData): SourceCard[] => {
 export const MINNESOTA_GUIDE: GuideSpec = {
   slug: 'minnesota', code: 'MN', name: 'Minnesota', capital: 'St. Paul',
   data,
-  results: results as Results,
+  results: { ...(results as Results), certify: { who: 'Minnesota’s State Canvassing Board', when: 'around Nov 24' } },
   Map: MinnesotaMap,
   cssClass: 'kyb-mn',
   config: MINNESOTA,

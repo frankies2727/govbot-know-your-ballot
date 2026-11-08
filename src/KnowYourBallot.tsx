@@ -40,7 +40,7 @@ import { daysUntil, hasProgress, isDecided, today, readResumeLink, resumeLink, u
 import type { BallotData, Candidate, Districts, Outline, Race } from './types';
 
 /** The election's results (scripts/results.mjs); until Illinois' can be read, a note on when and where. */
-const RESULTS = rawResults as Results;
+const RESULTS: Results = { ...(rawResults as Results), certify: { who: 'the Illinois State Board of Elections', when: 'in early December' } };
 
 const data = rawData as unknown as BallotData;
 /** The questions voters ask, from the same sourced data and copy the rest of the page uses (the page's FAQ markup says these words too). */

@@ -62,7 +62,7 @@ const sources = (d: StateData): SourceCard[] => {
 export const WISCONSIN_GUIDE: GuideSpec = {
   slug: 'wisconsin', code: 'WI', name: 'Wisconsin', capital: 'Madison',
   data,
-  results: results as Results,
+  results: { ...(results as Results), certify: { who: 'the Wisconsin Elections Commission', when: 'by Dec 1' } },
   Map: WisconsinMap,
   cssClass: 'kyb-wi',
   config: WISCONSIN,
