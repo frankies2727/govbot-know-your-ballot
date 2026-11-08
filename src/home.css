@@ -99,21 +99,30 @@
 .kyb-tile {
   display: flex; flex-direction: column; gap: 12px;
   padding: 20px 16px 18px;
-  border-radius: 18px;
-  border: 1px solid var(--gb-border);
-  background: var(--gb-surface);
   color: var(--gb-text);
   text-decoration: none;
   touch-action: manipulation;
-  transition: border-color .2s, background-color .2s;
+  transition: background-color .2s;
 }
+/* The card around a state's tile and its turnout: one rectangle; the tile lights it up. */
+.kyb-card { gap: 0; margin-bottom: 16px; min-width: 0; overflow: hidden; border-radius: 18px; border: 1px solid var(--gb-border); background: var(--gb-surface); transition: border-color .2s; }
+.kyb-card:has(.kyb-tile:hover), .kyb-card:has(.kyb-tile:focus-visible) { border-color: var(--ink); }
 .kyb-tile .kyb-map { height: 100%; width: auto; max-width: 100%; margin: 0 auto; filter: drop-shadow(0 0 18px color-mix(in srgb, var(--ink) 55%, transparent)); transition: filter .25s; }
-.kyb-tile:hover, .kyb-tile:focus-visible { border-color: var(--ink); background: var(--gb-elevated); color: var(--gb-text); }
+.kyb-tile:hover, .kyb-tile:focus-visible { background: var(--gb-elevated); color: var(--gb-text); }
 .kyb-tile:hover .kyb-map, .kyb-tile:focus-visible .kyb-map { filter: drop-shadow(0 0 30px color-mix(in srgb, var(--ink) 85%, transparent)); }
-.kyb-tile:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.kyb-tile:focus-visible { outline: 3px solid var(--ink); outline-offset: -3px; border-radius: 18px 18px 0 0; }
 .kyb-tile-name { text-decoration: underline 3px transparent; text-underline-offset: 6px; transition: text-decoration-color .2s; }
 .kyb-tile:hover .kyb-tile-name, .kyb-tile:focus-visible .kyb-tile-name { text-decoration-color: var(--ink); }
-/* Turnout under each tile (Turnout.tsx): one bar per election in the state's
+
+/* An election's section: its name is the toggle. */
+.kyb-cycle-head { display: flex; align-items: center; gap: 12px; width: fit-content; cursor: pointer; list-style: none; border-radius: 8px; }
+.kyb-cycle-head::-webkit-details-marker { display: none; }
+.kyb-cycle-head:hover h2 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.kyb-cycle-head:focus-visible { outline: 3px solid var(--gb-text); outline-offset: 4px; }
+.kyb-cycle-chev { transition: transform .2s; }
+.kyb-cycle:not([open]) .kyb-cycle-chev { transform: rotate(-90deg); }
+
+/* Turnout in each state's card (Turnout.tsx): one bar per election in the state's
    colour, midterms filled and presidential years outlined; the one being read
    is ringed. */
 .kyb-bar { display: block; width: 100%; max-width: 20px; border-radius: 4px 4px 0 0; transition: box-shadow .15s; }
@@ -122,4 +131,4 @@
 .kyb-bar-on { outline: 2px solid var(--gb-text); outline-offset: 2px; }
 .kyb-key { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
 
-@media (prefers-reduced-motion: reduce) { .kyb-bar, .kyb-tile, .kyb-tile .kyb-map, .kyb-tile-name { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .kyb-bar, .kyb-tile, .kyb-card, .kyb-cycle-chev, .kyb-tile .kyb-map, .kyb-tile-name { transition: none; } }

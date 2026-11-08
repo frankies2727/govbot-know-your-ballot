@@ -3,7 +3,7 @@ import data from './data/turnout.json';
 import { compact as short } from './lib/format';
 import type { StateId } from './electionIndex';
 
-// Under each state's tile on the home page: how many voted in each November
+// In each state's card on the home page, under its map: how many voted in each November
 // general election since 2014 and how that compares with the elections before.
 // Turnout is the University of Florida Election Lab's (the U.S. Elections
 // Project): ballots counted over the voting-eligible population, one method
@@ -76,12 +76,10 @@ export function Turnout({ state, name, ink }: { state: StateId; name: string; in
   const approx = (c: Cycle) => (c.estimate ? '≈' : '');
 
   return (
-    <section aria-label={`${name}: voter turnout`} className="mb-4 min-w-0 rounded-[14px] border border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 text-[13.5px] leading-snug sm:p-4" style={{ '--ink': ink } as React.CSSProperties}>
-      <p className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[12px] font-bold uppercase tracking-wider">
-        <span>{electionDay(head.year)} {midterm(head.year) ? 'midterm' : 'presidential'} turnout</span>
-        {head.preliminary && <span className="rounded-full border border-[var(--gb-border-strong)] px-1.5 py-px text-[11px] normal-case tracking-normal">{head.estimate ? 'First estimate' : head.state ? 'Unofficial count' : 'Preliminary'}</span>}
-      </p>
-      <p className="mt-1 font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{head.pct.toFixed(1)}%</p>
+    <section aria-label={`${name}: voter turnout in ${head.year}`} className="min-w-0 border-t border-[var(--gb-border)] p-3 text-[13.5px] leading-snug sm:p-4" style={{ '--ink': ink } as React.CSSProperties}>
+      {/* The section's own heading names the election; only how settled the figure is goes here. */}
+      {head.preliminary && <p><span className="rounded-full border border-[var(--gb-border-strong)] px-1.5 py-px text-[11px] font-bold">{head.estimate ? 'First estimate' : head.state ? 'Unofficial count' : 'Preliminary'}</span></p>}
+      <p className="mt-1.5 font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{head.pct.toFixed(1)}%</p>
       <p className="mt-1">of eligible voters voted</p>
       {same && (
         <p className="mt-1">

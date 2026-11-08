@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pause, Play } from 'lucide-react';
+import { ChevronDown, Pause, Play } from 'lucide-react';
 import { guidePath } from './hosts';
 import { navigate } from './lib/router';
 import { useDocumentMeta } from './Bits';
@@ -69,25 +69,29 @@ export function KybHome() {
 
           <Elections />
 
-          <section id="pick" aria-labelledby="pick-h" className="mt-16 scroll-mt-[calc(var(--kyb-top)+16px)] space-y-6 sm:mt-24">
-            <div className="space-y-2">
-              <h2 id="pick-h" className="font-serif text-3xl font-medium leading-tight sm:text-4xl">The states</h2>
-              <p className="max-w-[60ch] text-[17px]">Each guide opens on the next screen and asks for your address there. Under each, how many voted in the 2026 midterm and in every general election since 2014.</p>
-            </div>
-            {/* Each state is two rows of one subgrid (its tile, then its turnout), so tiles in a row match in height and so do their turnout panels. */}
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 lg:grid-cols-4" aria-label="States with a guide">
-              {STATES.map((s) => (
-                <li key={s.id} className="row-span-2 grid grid-rows-subgrid">
-                  <a href={guidePath(s.id)} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(`projects/know-your-ballot-${s.id}`); }}
-                    className="kyb-tile h-full" style={{ '--ink': s.ink } as React.CSSProperties}>
-                    <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{s.map}</span>
-                    <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">{s.name}</span>
-                    <span className="block text-[15px] leading-snug">{s.covers}</span>
-                  </a>
-                  <Turnout state={s.id} name={s.name} ink={s.ink} />
-                </li>
-              ))}
-            </ul>
+          {/* One section per election the guides cover, each folding away (the newest open), so the page holds every year's states without growing endlessly. */}
+          <section id="pick" aria-label="State guides by election" className="mt-16 scroll-mt-[calc(var(--kyb-top)+16px)] space-y-6 sm:mt-24">
+            <details open className="kyb-cycle">
+              <summary className="kyb-cycle-head">
+                <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl">November 2026 Midterms</h2>
+                <ChevronDown className="kyb-cycle-chev h-7 w-7 shrink-0" aria-hidden="true" />
+              </summary>
+              <p className="mt-2 max-w-[60ch] text-[17px]">Each state&rsquo;s guide, and how many voted in 2026 and in every general election since 2014.</p>
+              {/* Each card is two rows of one subgrid (the map and name, then the turnout), so cards in a row match in height and their turnout lines up. */}
+              <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="States with a guide">
+                {STATES.map((s) => (
+                  <li key={s.id} className="kyb-card row-span-2 grid grid-rows-subgrid" style={{ '--ink': s.ink } as React.CSSProperties}>
+                    <a href={guidePath(s.id)} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(`projects/know-your-ballot-${s.id}`); }}
+                      className="kyb-tile h-full">
+                      <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{s.map}</span>
+                      <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">{s.name}</span>
+                      <span className="block text-[15px] leading-snug">{s.covers}</span>
+                    </a>
+                    <Turnout state={s.id} name={s.name} ink={s.ink} />
+                  </li>
+                ))}
+              </ul>
+            </details>
             <p className="max-w-[60ch] text-[15px]">
               {COMING.map((c, i) => (
                 <span key={c.name}>
