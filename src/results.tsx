@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import { createContext, useContext } from 'react';
+import { held } from './seo/faq';
 import type { Race } from './types';
 
 // Election results on a state's landing page: each race's votes, who won (or
@@ -13,7 +14,11 @@ import type { Race } from './types';
 // Calling a race: while the count is unofficial, the one ahead "won" only
 // with every precinct in and a lead of more than CLOSE points; otherwise
 // they're "ahead". Unopposed candidates win once the count is in. An official
-// (canvassed) count is simply won.
+// (canvassed) count is simply won. Where a state hasn't certified, a race can
+// carry the Associated Press's call instead (scripts/results/ap-calls.mjs):
+// its winners stand as called, labelled so, until the official count replaces
+// them. A race with no more candidates than seats, and no count, was won
+// unopposed once Election Day is past.
 
 export interface RaceResult {
   /** Precincts in, and in all; absent from a canvassed total. */
@@ -24,11 +29,15 @@ export interface RaceResult {
   /** Votes by candidate ballot number. */
   votes: Record<string, number>;
   writeIn?: number;
+  /** Votes for candidates the source lists and our ballot data doesn't. */
+  others?: number;
   /** The canvassed, certified count. */
   official?: boolean;
+  /** Called by a news organization before the state certified: who called it, when, and the winners' ballot numbers. */
+  call?: { by: string; at: string | null; won: number[] };
 }
-export interface QuestionResult { reporting?: number; precincts?: number; yes: number; no: number; official?: boolean }
-type Link = { name: string; url: string };
+export interface QuestionResult { reporting?: number; precincts?: number; yes: number; no: number; official?: boolean; call?: { by: string; at: string | null; passed: boolean } }
+type Link = { name: string; url: string; /** A news organization's race calls, kept until the official count replaces them. */ calls?: boolean };
 export interface Results {
   sources?: Link[];
   /** When the sources last changed. */
@@ -53,6 +62,8 @@ export const useResults = () => useContext(ResultsContext);
 
 const pct = (n: number, of: number) => (of ? (n / of) * 100 : 0);
 const num = (n: number) => n.toLocaleString('en-US');
+/** "Called by the AP Nov 4" (Central time, the states' own). */
+const calledBy = (c: { by: string; at: string | null }) => `Called by the ${c.by}${c.at ? ` ${new Date(c.at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/Chicago' })}` : ''}`;
 const family = (party?: string) => (!party ? null : /democrat|dfl/i.test(party) ? 'D' : /republican/i.test(party) ? 'R' : null);
 /** Whether every precinct is in: always for a canvassed count. */
 const counted = (r: { reporting?: number; precincts?: number; official?: boolean }) => r.official || (r.reporting != null && r.precincts != null && r.reporting >= r.precincts);
@@ -67,8 +78,8 @@ export function outcome(race: Race, r: RaceResult) {
   const done = counted(r);
   const unopposed = race.candidates.length <= seats;
   const lead = rows.length > seats ? pct(rows[seats - 1].votes - rows[seats].votes, r.total) : null;
-  const call: 'won' | 'close' | 'ahead' = r.official || (done && (unopposed || (lead ?? 0) > CLOSE)) ? 'won' : done ? 'close' : 'ahead';
-  const winners = rows.slice(0, seats);
+  const call: 'won' | 'close' | 'ahead' = r.official || r.call || (done && (unopposed || (lead ?? 0) > CLOSE)) ? 'won' : done ? 'close' : 'ahead';
+  const winners = r.call && !r.official ? rows.filter((x) => r.call!.won.includes(x.c.ballot)) : rows.slice(0, seats);
   // What happened to the seat (one-seat races): the incumbent's fate, or a party change.
   let change: string | null = null;
   if (seats === 1 && call === 'won') {
@@ -115,8 +126,16 @@ function Bar({ label, sub, votes, share, won, dim, color }: { label: string; sub
 
 /** A race's results: a bar per candidate, the call and the margin. `compact`: one line, for a district's row. */
 export function RaceResults({ race, color, compact = false }: { race: Race; color: string; compact?: boolean }) {
-  const r = useResults()?.races[race.id];
-  if (!r) return null;
+  const results = useResults();
+  const r = results?.races[race.id];
+  if (!r) {
+    // No count, but no contest either: everyone running won their seat.
+    if (!results || !held() || !race.candidates.length || race.candidates.length > Math.max(1, race.voteFor)) return null;
+    const names = race.candidates.map((c) => c.name).join(', ');
+    return compact
+      ? <span className="block text-xs font-bold">✓ {names} · elected unopposed</span>
+      : <p className="rounded-xl border border-[var(--gb-border)] p-3 text-[13px]"><strong>✓ Elected unopposed:</strong> {names}. No one ran against them, so there’s no count to show.</p>;
+  }
   const o = outcome(race, r);
   const verb = o.call === 'won' ? (o.unopposed ? 'Unopposed' : 'Won') : 'Ahead';
   if (compact) {
@@ -129,6 +148,7 @@ export function RaceResults({ race, color, compact = false }: { race: Race; colo
   return (
     <div className="rounded-xl border border-[var(--gb-border)] p-3 text-[13px]">
       <Head official={r.official} color={color} call={o.call === 'won' ? `✓ ${verb}` : o.call === 'close' ? 'Too close to call' : 'Counting'} />
+      {r.call && !r.official && <p className="-mt-1 mb-2 text-[12px] font-bold">{calledBy(r.call)}. The official count comes when the state certifies.</p>}
       <ul className="space-y-1.5">
         {o.rows.map(({ c, votes }) => {
           const won = o.call === 'won' && o.winners.some((w) => w.c === c);
@@ -139,6 +159,7 @@ export function RaceResults({ race, color, compact = false }: { race: Race; colo
         {o.lead != null && <>{o.call === 'won' ? 'Won' : 'Leads'} by <strong>{o.lead.toFixed(1)} pts</strong> · </>}
         {howMuch(r)}
         {r.writeIn ? ` · ${num(r.writeIn)} write-in votes` : ''}
+        {r.others ? ` · ${num(r.others)} votes for candidates not listed here` : ''}
         {o.change && <> · <strong>{o.change}</strong></>}
         {o.call === 'close' && ` · within ${CLOSE} pts, so not called until certified`}
       </p>
@@ -156,14 +177,16 @@ export function QuestionResults({ id, color, retention = false }: { id: string; 
   if (!r) return null;
   const all = r.yes + r.no;
   const yes = pct(r.yes, all);
-  const done = counted(r);
-  const passes = retention ? yes >= RETAIN : r.yes > r.no;
+  const called = !r.official ? r.call : undefined;
+  const done = counted(r) || !!called;
+  const passes = called ? called.passed : retention ? yes >= RETAIN : r.yes > r.no;
   const call = retention
     ? (!done ? (passes ? 'Counting · on track to stay' : `Counting · short of ${RETAIN}% so far`) : passes ? '✓ Retained' : 'Not retained')
     : (!done ? (passes ? 'Counting · yes leads' : 'Counting · no leads') : passes ? '✓ Passes' : 'Fails');
   return (
     <div className="rounded-xl border border-[var(--gb-border)] p-3 text-[13px]">
       <Head official={r.official} color={color} call={call} />
+      {called && <p className="-mt-1 mb-2 text-[12px] font-bold">{calledBy(called)}. The official count comes when the state certifies.</p>}
       <ul className="space-y-1.5">
         <Bar label="Yes" votes={r.yes} share={yes} won={done && passes} dim={done && !passes} color={color} />
         <Bar label="No" votes={r.no} share={100 - yes} won={done && !passes} dim={done && passes} color={color} />
@@ -197,7 +220,9 @@ export function ResultsNote() {
     <p className={box}>
       <strong>📊 Results{official ? '' : ', unofficial'}:</strong> races below show their count from {links((results.sources ?? []).map((s) => [`the ${s.name}`, s.url]))}
       {when ? `, updated ${when}` : ''}.{' '}
-      {official ? 'The counts are official.' : `Counts can still change until they’re certified; a race is called only with every precinct in and a lead of more than ${CLOSE} points.`}
+      {official ? 'The counts are official.' : items.some((r) => r.call)
+        ? `Counts can still change until they’re certified. A race marked “Called by the AP” is the Associated Press’s call, a projection from its count; the state’s official count replaces it once certified. Any other race is called only with every precinct in and a lead of more than ${CLOSE} points.`
+        : `Counts can still change until they’re certified; a race is called only with every precinct in and a lead of more than ${CLOSE} points.`}
       {results.gaps && <> {results.gaps}</>}
     </p>
   );

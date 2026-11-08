@@ -93,6 +93,6 @@ export async function read(get, year) {
   } catch (e) { console.warn(`Chicago and Cook not read, keeping yesterday's local results: ${e.message}`); }
   if (!parts.length) return null;
   const gaps = parts.some((p) => p.official) ? undefined
-    : 'Statewide, congressional and legislative races reach beyond Cook County, so they’ll show once the Illinois State Board of Elections posts the official statewide totals after its canvass.';
+    : 'Statewide, congressional and legislative races reach beyond Cook County: they show the Associated Press’s call and unofficial count until the Illinois State Board of Elections posts the official statewide totals after its canvass, and a race the AP hasn’t called shows then.';
   return { parts, together: ['chicago', 'suburbs'], needsAll: (item) => (item.race ? countywide(item.race) : item.countywide), gaps };
 }

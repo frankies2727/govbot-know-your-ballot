@@ -7,9 +7,14 @@
   {
    "name": "Cook County Clerk",
    "url": "https://electionnight.cookcountyclerkil.gov/"
+  },
+  {
+   "name": "Associated Press (race calls and unofficial counts, as published by The New York Times)",
+   "url": "https://www.nytimes.com/interactive/2026/11/03/us/elections/results-illinois.html",
+   "calls": true
   }
  ],
- "asOf": "2026-11-06T23:37:27.000Z",
+ "asOf": "2026-11-07T22:53:51.599Z",
  "races": {
   "metropolitan-water-reclamation-district-commissioners-full-6-year-term": {
    "reporting": 2657,
@@ -621,6 +626,2696 @@
    "votes": {
     "1": 45679
    }
+  },
+  "united-states-senator": {
+   "reporting": 8296,
+   "precincts": 8496,
+   "total": 4076979,
+   "votes": {
+    "1": 1510968,
+    "2": 2501456,
+    "3": 64555
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:01:05.343166+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "governor-lieutenant-governor": {
+   "reporting": 8301,
+   "precincts": 8496,
+   "total": 4091178,
+   "votes": {
+    "4": 1495629,
+    "5": 2458101,
+    "6": 137448
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:01:05.343166+00:00",
+    "won": [
+     5
+    ]
+   }
+  },
+  "u-s-representative-1st-district": {
+   "reporting": 422,
+   "precincts": 422,
+   "total": 231193,
+   "votes": {
+    "21": 65456,
+    "22": 165737
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:59:10.469053+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-2nd-district": {
+   "reporting": 499,
+   "precincts": 533,
+   "total": 212750,
+   "votes": {
+    "21": 57042,
+    "22": 155708
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:55:50.491969+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-3rd-district": {
+   "reporting": 368,
+   "precincts": 369,
+   "total": 192427,
+   "votes": {
+    "21": 44983,
+    "22": 147444
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:00:22.921822+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-4th-district": {
+   "reporting": 354,
+   "precincts": 355,
+   "total": 157386,
+   "votes": {
+    "21": 25328,
+    "22": 111873,
+    "23": 5643,
+    "24": 14542
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:43:09.508297+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-5th-district": {
+   "reporting": 438,
+   "precincts": 438,
+   "total": 254154,
+   "votes": {
+    "21": 60880,
+    "22": 193274
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:09:53.406223+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-6th-district": {
+   "reporting": 493,
+   "precincts": 494,
+   "total": 259448,
+   "votes": {
+    "21": 96429,
+    "22": 163019
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:37:29.084506+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-7th-district": {
+   "reporting": 394,
+   "precincts": 394,
+   "total": 191651,
+   "votes": {
+    "21": 20682,
+    "22": 170969
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:54:26.470764+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-8th-district": {
+   "reporting": 424,
+   "precincts": 425,
+   "total": 213273,
+   "votes": {
+    "21": 76460,
+    "22": 136813
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:31:38.902768+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "u-s-representative-9th-district": {
+   "reporting": 436,
+   "precincts": 436,
+   "total": 250211,
+   "votes": {
+    "21": 59489,
+    "22": 190722
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:50:38.489845+00:00",
+    "won": [
+     22
+    ]
+   }
+  },
+  "cd-10-usrepresentativethdistrict": {
+   "reporting": 459,
+   "precincts": 459,
+   "total": 233638,
+   "votes": {
+    "1": 163526,
+    "2": 70112
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:02:20.406969+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "cd-11-usrepresentativethdistrict": {
+   "reporting": 471,
+   "precincts": 472,
+   "total": 265901,
+   "votes": {
+    "1": 170915,
+    "2": 94986
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:38:18.281524+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "cd-12-usrepresentativethdistrict": {
+   "reporting": 765,
+   "precincts": 808,
+   "total": 279419,
+   "votes": {
+    "1": 84768,
+    "2": 194651
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:15:52.868513+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "cd-13-usrepresentativethdistrict": {
+   "reporting": 537,
+   "precincts": 537,
+   "total": 251178,
+   "votes": {
+    "1": 157315,
+    "2": 93863
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:45:48.073751+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "cd-14-usrepresentativethdistrict": {
+   "reporting": 451,
+   "precincts": 451,
+   "total": 245166,
+   "votes": {
+    "1": 153408,
+    "2": 91758
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:34:31.677559+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "cd-15-usrepresentativethdistrict": {
+   "reporting": 874,
+   "precincts": 892,
+   "total": 288061,
+   "votes": {
+    "1": 95350,
+    "2": 192711
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:40:32.965985+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "cd-16-usrepresentativethdistrict": {
+   "reporting": 641,
+   "precincts": 682,
+   "total": 294611,
+   "votes": {
+    "1": 121383,
+    "2": 173228
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:01:26.126443+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "cd-17-usrepresentativethdistrict": {
+   "reporting": 538,
+   "precincts": 626,
+   "total": 236027,
+   "votes": {
+    "1": 142005,
+    "2": 94022
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:48:54.093964+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "attorney-general": {
+   "reporting": 8283,
+   "precincts": 8496,
+   "total": 4067401,
+   "votes": {
+    "7": 1560740,
+    "8": 2506661
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:55:36.009593+00:00",
+    "won": [
+     8
+    ]
+   }
+  },
+  "state-senator-2nd-district": {
+   "reporting": 0,
+   "precincts": 172,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-3rd-district": {
+   "reporting": 0,
+   "precincts": 174,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-5th-district": {
+   "reporting": 0,
+   "precincts": 114,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-6th-district": {
+   "reporting": 0,
+   "precincts": 101,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-8th-district": {
+   "reporting": 135,
+   "precincts": 135,
+   "total": 57171,
+   "votes": {
+    "31": 14886,
+    "32": 42285
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:15:10.31154+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-9th-district": {
+   "reporting": 147,
+   "precincts": 147,
+   "total": 79398,
+   "votes": {
+    "31": 15036,
+    "32": 64362
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:10:14.405037+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-11th-district": {
+   "reporting": 0,
+   "precincts": 143,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-12th-district": {
+   "reporting": 0,
+   "precincts": 113,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-14th-district": {
+   "reporting": 149,
+   "precincts": 149,
+   "total": 62286,
+   "votes": {
+    "31": 14818,
+    "32": 47468
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:37:10.995044+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-15th-district": {
+   "reporting": 0,
+   "precincts": 66,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-17th-district": {
+   "reporting": 140,
+   "precincts": 140,
+   "total": 62687,
+   "votes": {
+    "31": 8993,
+    "32": 53694
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:47:50.68054+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-18th-district": {
+   "reporting": 141,
+   "precincts": 141,
+   "total": 66291,
+   "votes": {
+    "31": 21924,
+    "32": 44367
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:29:48.182715+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "state-senator-20th-district": {
+   "reporting": 0,
+   "precincts": 97,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "sldu-21-statesenatorstdistrict": {
+   "reporting": 220,
+   "precincts": 220,
+   "total": 85066,
+   "votes": {
+    "1": 56697,
+    "2": 28369
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:37:53.681512+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-23-statesenatorrddistrict": {
+   "reporting": 214,
+   "precincts": 214,
+   "total": 72977,
+   "votes": {
+    "1": 46992,
+    "2": 25985
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:40:36.239608+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-24-statesenatorthdistrict": {
+   "reporting": 232,
+   "precincts": 232,
+   "total": 82539,
+   "votes": {
+    "1": 45251,
+    "2": 37288
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:53:12.008705+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-26-statesenatorthdistrict": {
+   "reporting": 159,
+   "precincts": 159,
+   "total": 87083,
+   "votes": {
+    "1": 50053,
+    "2": 37030
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:17:12.264384+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-27-statesenatorthdistrict": {
+   "reporting": 116,
+   "precincts": 116,
+   "total": 67749,
+   "votes": {
+    "1": 45050,
+    "2": 22699
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:27:19.95039+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-29-statesenatorthdistrict": {
+   "reporting": 137,
+   "precincts": 137,
+   "total": 73905,
+   "votes": {
+    "1": 52785,
+    "2": 21120
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:11:48.889033+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-30-statesenatorthdistrict": {
+   "reporting": 0,
+   "precincts": 108,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-32-statesenatornddistrict": {
+   "reporting": 156,
+   "precincts": 156,
+   "total": 79167,
+   "votes": {
+    "1": 41746,
+    "2": 37421
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T20:44:10.837721+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-33-statesenatorrddistrict": {
+   "reporting": 143,
+   "precincts": 143,
+   "total": 82537,
+   "votes": {
+    "1": 47946,
+    "2": 34591
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:24:38.961008+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-36-statesenatorthdistrict": {
+   "reporting": 167,
+   "precincts": 190,
+   "total": 70208,
+   "votes": {
+    "1": 42282,
+    "2": 27926
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:57:28.642231+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-38-statesenatorthdistrict": {
+   "reporting": 177,
+   "precincts": 177,
+   "total": 77221,
+   "votes": {
+    "1": 37066,
+    "2": 40155
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-05T21:03:48.66195+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "state-senator-39th-district": {
+   "reporting": 0,
+   "precincts": 145,
+   "total": 0,
+   "votes": {
+    "32": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     32
+    ]
+   }
+  },
+  "sldu-41-statesenatorstdistrict": {
+   "reporting": 0,
+   "precincts": 218,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-42-statesenatornddistrict": {
+   "reporting": 139,
+   "precincts": 139,
+   "total": 71851,
+   "votes": {
+    "1": 49428,
+    "2": 22423
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:42:06.96156+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-44-statesenatorthdistrict": {
+   "reporting": 0,
+   "precincts": 204,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-45-statesenatorthdistrict": {
+   "reporting": 195,
+   "precincts": 195,
+   "total": 83756,
+   "votes": {
+    "1": 33504,
+    "2": 50252
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:08:47.555124+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldu-47-statesenatorthdistrict": {
+   "reporting": 0,
+   "precincts": 278,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-48-statesenatorthdistrict": {
+   "reporting": 193,
+   "precincts": 193,
+   "total": 76239,
+   "votes": {
+    "1": 44894,
+    "2": 31345
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:38:15.319137+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-50-statesenatorthdistrict": {
+   "reporting": 0,
+   "precincts": 272,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-51-statesenatorstdistrict": {
+   "reporting": 0,
+   "precincts": 252,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-53-statesenatorrddistrict": {
+   "reporting": 0,
+   "precincts": 250,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-54-statesenatorthdistrict": {
+   "reporting": 0,
+   "precincts": 240,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-56-statesenatorthdistrict": {
+   "reporting": 157,
+   "precincts": 157,
+   "total": 75444,
+   "votes": {
+    "1": 39909,
+    "2": 35535
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T08:13:48.278014+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-57-statesenatorthdistrict": {
+   "reporting": 144,
+   "precincts": 166,
+   "total": 73460,
+   "votes": {
+    "1": 43974,
+    "2": 29486
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:22:11.062215+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldu-59-statesenatorthdistrict": {
+   "reporting": 224,
+   "precincts": 239,
+   "total": 72501,
+   "votes": {
+    "1": 25000,
+    "2": 47501
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:23:15.664423+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "state-representative-1st-district": {
+   "reporting": 0,
+   "precincts": 53,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-2-staterepresentativenddistrict": {
+   "reporting": 64,
+   "precincts": 64,
+   "total": 25392,
+   "votes": {
+    "1": 20809,
+    "2": 4583
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:56:16.831425+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "state-representative-3rd-district": {
+   "reporting": 0,
+   "precincts": 60,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-4th-district": {
+   "reporting": 0,
+   "precincts": 57,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-5th-district": {
+   "reporting": 0,
+   "precincts": 53,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-6th-district": {
+   "reporting": 0,
+   "precincts": 66,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-7-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 86,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "state-representative-8th-district": {
+   "reporting": 0,
+   "precincts": 70,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-9th-district": {
+   "reporting": 0,
+   "precincts": 62,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-10th-district": {
+   "reporting": 0,
+   "precincts": 62,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-11th-district": {
+   "reporting": 0,
+   "precincts": 51,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-12th-district": {
+   "reporting": 52,
+   "precincts": 52,
+   "total": 32177,
+   "votes": {
+    "41": 4629,
+    "42": 27548
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:44:12.33122+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-13th-district": {
+   "reporting": 54,
+   "precincts": 54,
+   "total": 40355,
+   "votes": {
+    "41": 3448,
+    "42": 36907
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:25:13.959738+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-14th-district": {
+   "reporting": 0,
+   "precincts": 52,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-15th-district": {
+   "reporting": 0,
+   "precincts": 77,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-16th-district": {
+   "reporting": 0,
+   "precincts": 60,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-17-staterepresentativethdistrict": {
+   "reporting": 79,
+   "precincts": 79,
+   "total": 39473,
+   "votes": {
+    "1": 30052,
+    "2": 9421
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:35:14.243281+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "state-representative-18th-district": {
+   "reporting": 73,
+   "precincts": 73,
+   "total": 39567,
+   "votes": {
+    "41": 5661,
+    "42": 33906
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:07:46.044773+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-19th-district": {
+   "reporting": 66,
+   "precincts": 66,
+   "total": 31565,
+   "votes": {
+    "41": 7294,
+    "42": 24271
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:32:07.610844+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-20th-district": {
+   "reporting": 0,
+   "precincts": 67,
+   "total": 0,
+   "votes": {
+    "41": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     41
+    ]
+   }
+  },
+  "state-representative-21st-district": {
+   "reporting": 70,
+   "precincts": 70,
+   "total": 26083,
+   "votes": {
+    "41": 6378,
+    "42": 19705
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:59:33.776447+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-22nd-district": {
+   "reporting": 0,
+   "precincts": 77,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-23rd-district": {
+   "reporting": 0,
+   "precincts": 38,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-24th-district": {
+   "reporting": 0,
+   "precincts": 49,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-25th-district": {
+   "reporting": 61,
+   "precincts": 61,
+   "total": 27010,
+   "votes": {
+    "41": 1768,
+    "42": 25242
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:46:36.240039+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-26th-district": {
+   "reporting": 0,
+   "precincts": 62,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-27th-district": {
+   "reporting": 0,
+   "precincts": 87,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-28th-district": {
+   "reporting": 0,
+   "precincts": 76,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-29th-district": {
+   "reporting": 0,
+   "precincts": 87,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-30-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 86,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "state-representative-31st-district": {
+   "reporting": 0,
+   "precincts": 66,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-32nd-district": {
+   "reporting": 0,
+   "precincts": 64,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-33rd-district": {
+   "reporting": 0,
+   "precincts": 69,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-34th-district": {
+   "reporting": 0,
+   "precincts": 81,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-35th-district": {
+   "reporting": 77,
+   "precincts": 77,
+   "total": 34181,
+   "votes": {
+    "41": 11211,
+    "42": 22970
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:16:31.703969+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-36th-district": {
+   "reporting": 71,
+   "precincts": 71,
+   "total": 31700,
+   "votes": {
+    "41": 10132,
+    "42": 21568
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:06:42.062707+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-37-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 66,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-38-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 72,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "state-representative-39th-district": {
+   "reporting": 52,
+   "precincts": 52,
+   "total": 27160,
+   "votes": {
+    "41": 2823,
+    "42": 24337
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:43:09.508297+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "state-representative-40th-district": {
+   "reporting": 0,
+   "precincts": 48,
+   "total": 0,
+   "votes": {
+    "42": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-41-staterepresentativestdistrict": {
+   "reporting": 101,
+   "precincts": 101,
+   "total": 41235,
+   "votes": {
+    "1": 27835,
+    "2": 13400
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:44:33.413981+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-42-staterepresentativenddistrict": {
+   "reporting": 71,
+   "precincts": 71,
+   "total": 43702,
+   "votes": {
+    "1": 28985,
+    "2": 14717
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:20:16.127164+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-43-staterepresentativerddistrict": {
+   "reporting": 0,
+   "precincts": 52,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-44-staterepresentativethdistrict": {
+   "reporting": 55,
+   "precincts": 55,
+   "total": 24270,
+   "votes": {
+    "1": 17777,
+    "2": 6493
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:05:45.237485+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-45-staterepresentativethdistrict": {
+   "reporting": 73,
+   "precincts": 73,
+   "total": 41940,
+   "votes": {
+    "1": 26120,
+    "2": 15820
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:41:48.324128+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-46-staterepresentativethdistrict": {
+   "reporting": 64,
+   "precincts": 64,
+   "total": 31089,
+   "votes": {
+    "1": 21350,
+    "2": 9739
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:11:07.559065+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-47-staterepresentativethdistrict": {
+   "reporting": 80,
+   "precincts": 80,
+   "total": 45488,
+   "votes": {
+    "1": 27014,
+    "2": 18474
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:39:45.015036+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-49-staterepresentativethdistrict": {
+   "reporting": 63,
+   "precincts": 63,
+   "total": 32729,
+   "votes": {
+    "1": 21574,
+    "2": 11155
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:54:50.866108+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-50-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 53,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-51-staterepresentativestdistrict": {
+   "reporting": 80,
+   "precincts": 80,
+   "total": 42275,
+   "votes": {
+    "1": 25523,
+    "2": 16752
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:12:31.518752+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-52-staterepresentativenddistrict": {
+   "reporting": 82,
+   "precincts": 82,
+   "total": 44582,
+   "votes": {
+    "1": 25085,
+    "2": 19497
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:18:10.527162+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-53-staterepresentativerddistrict": {
+   "reporting": 60,
+   "precincts": 60,
+   "total": 32374,
+   "votes": {
+    "1": 21395,
+    "2": 10979
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:55:22.989617+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-54-staterepresentativethdistrict": {
+   "reporting": 63,
+   "precincts": 63,
+   "total": 35379,
+   "votes": {
+    "1": 23769,
+    "2": 11610
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:58:32.839484+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "state-representative-55th-district": {
+   "reporting": 67,
+   "precincts": 67,
+   "total": 29114,
+   "votes": {
+    "41": 10242,
+    "42": 18872
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:38:37.173175+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-56-staterepresentativethdistrict": {
+   "reporting": 71,
+   "precincts": 71,
+   "total": 27616,
+   "votes": {
+    "1": 18838,
+    "2": 8778
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:50:57.701261+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-57-staterepresentativethdistrict": {
+   "reporting": 68,
+   "precincts": 68,
+   "total": 34379,
+   "votes": {
+    "1": 23229,
+    "2": 11150
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:12:52.357639+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-58-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 73,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-59-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 60,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-60-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 51,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-61-staterepresentativestdistrict": {
+   "reporting": 71,
+   "precincts": 71,
+   "total": 33084,
+   "votes": {
+    "1": 22362,
+    "2": 10722
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:22:34.120556+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-62-staterepresentativenddistrict": {
+   "reporting": 0,
+   "precincts": 64,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-63-staterepresentativerddistrict": {
+   "reporting": 0,
+   "precincts": 79,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-64-staterepresentativethdistrict": {
+   "reporting": 78,
+   "precincts": 78,
+   "total": 39379,
+   "votes": {
+    "1": 18909,
+    "2": 20470
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T20:43:07.448039+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-66-staterepresentativethdistrict": {
+   "reporting": 71,
+   "precincts": 71,
+   "total": 37488,
+   "votes": {
+    "1": 23663,
+    "2": 13825
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:48:51.596581+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-67-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 78,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-68-staterepresentativethdistrict": {
+   "reporting": 82,
+   "precincts": 82,
+   "total": 32905,
+   "votes": {
+    "1": 20632,
+    "2": 12273
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:12:06.760467+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-69-staterepresentativethdistrict": {
+   "reporting": 82,
+   "precincts": 82,
+   "total": 40287,
+   "votes": {
+    "1": 19117,
+    "2": 21170
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:05:27.431611+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-71-staterepresentativestdistrict": {
+   "reporting": 78,
+   "precincts": 101,
+   "total": 36474,
+   "votes": {
+    "1": 15972,
+    "2": 20502
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:50:15.381939+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-72-staterepresentativenddistrict": {
+   "reporting": 0,
+   "precincts": 93,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-73-staterepresentativerddistrict": {
+   "reporting": 99,
+   "precincts": 124,
+   "total": 43219,
+   "votes": {
+    "1": 16009,
+    "2": 27210
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:25:29.321888+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-74-staterepresentativethdistrict": {
+   "reporting": 131,
+   "precincts": 132,
+   "total": 37129,
+   "votes": {
+    "1": 15676,
+    "2": 21453
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:32:55.736991+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-75-staterepresentativethdistrict": {
+   "reporting": 76,
+   "precincts": 76,
+   "total": 40971,
+   "votes": {
+    "1": 18749,
+    "2": 22222
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:11:28.193791+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-76-staterepresentativethdistrict": {
+   "reporting": 101,
+   "precincts": 101,
+   "total": 35916,
+   "votes": {
+    "1": 20568,
+    "2": 15348
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:10:28.064894+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-77-staterepresentativethdistrict": {
+   "reporting": 58,
+   "precincts": 58,
+   "total": 22266,
+   "votes": {
+    "1": 15972,
+    "2": 6294
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:15:08.440423+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "state-representative-78th-district": {
+   "reporting": 70,
+   "precincts": 70,
+   "total": 39947,
+   "votes": {
+    "41": 4644,
+    "42": 35303
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:33:51.091054+00:00",
+    "won": [
+     42
+    ]
+   }
+  },
+  "sldl-79-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 68,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-80-staterepresentativethdistrict": {
+   "reporting": 74,
+   "precincts": 74,
+   "total": 33491,
+   "votes": {
+    "1": 21331,
+    "2": 12160
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:28:25.939338+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-81-staterepresentativestdistrict": {
+   "reporting": 74,
+   "precincts": 74,
+   "total": 45042,
+   "votes": {
+    "1": 29604,
+    "2": 15438
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:10:16.711833+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-82-staterepresentativenddistrict": {
+   "reporting": 0,
+   "precincts": 82,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-83-staterepresentativerddistrict": {
+   "reporting": 71,
+   "precincts": 71,
+   "total": 40618,
+   "votes": {
+    "1": 26938,
+    "2": 13680
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:32:45.867169+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-84-staterepresentativethdistrict": {
+   "reporting": 53,
+   "precincts": 53,
+   "total": 31184,
+   "votes": {
+    "1": 22235,
+    "2": 8949
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:08:54.185924+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-85-staterepresentativethdistrict": {
+   "reporting": 51,
+   "precincts": 51,
+   "total": 31743,
+   "votes": {
+    "1": 21648,
+    "2": 10095
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:01:05.25566+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-86-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 58,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-87-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 105,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-88-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 103,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-89-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 114,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-90-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 86,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-91-staterepresentativestdistrict": {
+   "reporting": 0,
+   "precincts": 96,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-92-staterepresentativenddistrict": {
+   "reporting": 0,
+   "precincts": 73,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-93-staterepresentativerddistrict": {
+   "reporting": 0,
+   "precincts": 102,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-94-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 177,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-95-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 103,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-96-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 97,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-97-staterepresentativethdistrict": {
+   "reporting": 52,
+   "precincts": 52,
+   "total": 37664,
+   "votes": {
+    "1": 23014,
+    "2": 14650
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:51:38.96212+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-98-staterepresentativethdistrict": {
+   "reporting": 59,
+   "precincts": 59,
+   "total": 33399,
+   "votes": {
+    "1": 23173,
+    "2": 10226
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T03:53:23.352482+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-99-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 124,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-100-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 148,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-101-staterepresentativestdistrict": {
+   "reporting": 105,
+   "precincts": 105,
+   "total": 39112,
+   "votes": {
+    "1": 13600,
+    "2": 25512
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:47:09.175647+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-102-staterepresentativenddistrict": {
+   "reporting": 0,
+   "precincts": 151,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-103-staterepresentativerddistrict": {
+   "reporting": 0,
+   "precincts": 60,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-105-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 111,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-106-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 143,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-107-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 119,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-108-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 119,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-109-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 103,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-110-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 129,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-111-staterepresentativethdistrict": {
+   "reporting": 87,
+   "precincts": 87,
+   "total": 35399,
+   "votes": {
+    "1": 15870,
+    "2": 19529
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T08:12:15.708937+00:00",
+    "won": [
+     2
+    ]
+   }
+  },
+  "sldl-112-staterepresentativethdistrict": {
+   "reporting": 82,
+   "precincts": 82,
+   "total": 39815,
+   "votes": {
+    "1": 24842,
+    "2": 14973
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T02:20:13.347083+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-113-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 88,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-115-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 115,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-116-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 135,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "sldl-117-staterepresentativethdistrict": {
+   "reporting": 0,
+   "precincts": 128,
+   "total": 0,
+   "votes": {
+    "1": 0
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T01:00:18.141538+00:00",
+    "won": [
+     1
+    ]
+   }
+  },
+  "comptroller": {
+   "reporting": 8291,
+   "precincts": 8496,
+   "total": 4019713,
+   "votes": {
+    "11": 1565202,
+    "12": 2454511
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:58:48.257312+00:00",
+    "won": [
+     12
+    ]
+   }
+  },
+  "secretary-of-state": {
+   "reporting": 8273,
+   "precincts": 8496,
+   "total": 4064990,
+   "votes": {
+    "9": 1431489,
+    "10": 2633501
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T04:52:59.749204+00:00",
+    "won": [
+     10
+    ]
+   }
+  },
+  "treasurer": {
+   "reporting": 8288,
+   "precincts": 8496,
+   "total": 4026658,
+   "votes": {
+    "13": 1522986,
+    "14": 2503672
+   },
+   "call": {
+    "by": "AP",
+    "at": "2026-11-04T05:01:17.865338+00:00",
+    "won": [
+     14
+    ]
+   }
   }
  },
  "questions": {
@@ -1153,5 +3848,5 @@
    "no": 70
   }
  },
- "gaps": "Statewide, congressional and legislative races reach beyond Cook County, so they’ll show once the Illinois State Board of Elections posts the official statewide totals after its canvass."
+ "gaps": "Statewide, congressional and legislative races reach beyond Cook County: they show the Associated Press’s call and unofficial count until the Illinois State Board of Elections posts the official statewide totals after its canvass, and a race the AP hasn’t called shows then."
 }

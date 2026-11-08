@@ -42,16 +42,20 @@ if (!read) { console.log('No results published yet; results.json left as it is.'
 
 const { races, questions } = combine(read, ballot);
 
+// The AP's calls (scripts/results/ap-calls.mjs) stay until a state's count replaces them, and aren't this read's to compare with.
+const own = (list) => Object.values(list ?? {}).filter((r) => !r.call).length;
 const total = Object.keys(races).length + Object.keys(questions).length;
-const before = Object.keys(old.races ?? {}).length + Object.keys(old.questions ?? {}).length;
+const before = own(old.races) + own(old.questions);
 if (total < before * 0.8) { console.warn(`Only ${total} results against ${before} yesterday; results left as they were.`); process.exit(0); }
 
 const used = [...new Map(read.parts.map((p) => [p.source.name, p.source])).values()];
+const merged = { ...old.races, ...races };
+const calls = Object.values({ ...merged, ...old.questions, ...questions }).some((r) => r.call) ? (old.sources ?? []).filter((s) => s.calls) : [];
 const asOf = read.parts.map((p) => p.asOf).filter(Boolean).sort().pop() ?? old.asOf ?? null;
 const next = {
-  sources: used,
+  sources: [...used, ...calls],
   asOf,
-  races: { ...old.races, ...races },
+  races: merged,
   ...(Object.keys(questions).length || old.questions ? { questions: { ...old.questions, ...questions } } : {}),
   ...(read.gaps ? { gaps: read.gaps } : {}),
 };

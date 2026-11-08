@@ -6,6 +6,7 @@ import { Face } from './Face';
 import { useReadOnly, useStateConfig } from './state';
 import { money, type Choice } from './store';
 import type { Candidate, Guide, Measure, Race, Retention, SocialPlatform } from './types';
+import { QuestionResults, RaceResults } from './results';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
 import { Dialog, ReportLink } from './Bits';
 
@@ -367,6 +368,8 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
           <Incumbents race={race} />
         </header>
 
+        <RaceResults race={race} color={color} />
+
         <ul className="space-y-2">
           {race.candidates.map((c) => {
             const on = picked.includes(c.ballot);
@@ -691,7 +694,7 @@ export const RetentionCard = memo(function RetentionCard({ color, r, choice, onC
       {r.profile && <JudgeFold k={r.id} />}
       {r.withdrawn
         ? <p className="text-[15px] font-bold text-[var(--gb-amber-hi)]">Withdrew after the ballot was finalized. This name is still on your ballot, but votes for or against this judge won’t count.</p>
-        : <YesNo value={choice} onChange={onChoose} label={`Retain ${r.judge}?`} />}
+        : <><QuestionResults id={r.id} color={color} retention /><YesNo value={choice} onChange={onChoose} label={`Retain ${r.judge}?`} /></>}
       <ReportLink what={r.court} name={r.judge} id={r.id} />
     </div>
   );
@@ -721,6 +724,7 @@ export const MeasureCard = memo(function MeasureCard({ color, m, choice, onChoos
           “{m.question}”
         </blockquote>
       </div>
+      <QuestionResults id={m.id} color={color} />
       <YesNo value={choice} onChange={onChoose} label={m.title} />
       <ReportLink what={m.title} id={m.id} />
     </article>

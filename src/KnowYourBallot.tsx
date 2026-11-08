@@ -471,6 +471,7 @@ export function KnowYourBallot() {
   );
 
   return (
+    <ResultsProvider value={RESULTS}>
     <ReadOnlyContext.Provider value={!saved.place}>
     <GovbotChrome>
     <div className="kyb min-h-[100dvh] bg-[var(--gb-bg)] text-[var(--gb-text)] selection:bg-[var(--gb-blue-hi)] selection:text-[var(--gb-bg)]">
@@ -720,6 +721,7 @@ export function KnowYourBallot() {
     </div>
     </GovbotChrome>
     </ReadOnlyContext.Provider>
+    </ResultsProvider>
   );
 }
 
@@ -748,7 +750,6 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
     return () => cancelIdleCallback(id);
   }, []);
   return (
-    <ResultsProvider value={RESULTS}>
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(MORE, STATEWIDE, SECTIONS)} search={(slot) => (
@@ -841,7 +842,6 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         </div>
       </div>
     </div>
-    </ResultsProvider>
   );
 }
 

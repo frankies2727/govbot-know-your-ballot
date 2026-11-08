@@ -49,3 +49,9 @@ test('two races with the same people match neither', () => {
   const twins = [races[0], { ...races[0], id: 'governor-copy' }];
   assert.deepEqual(matchContests(parse(MN), twins).matched.map((m) => m.race.id), []);
 });
+
+test('a surname with a particle matches however it is spaced, and an apostrophe however it is curled', () => {
+  assert.equal(personKey('Nancy De Boer'), personKey('Nancy DeBoer'));
+  assert.equal(personKey('John Anthony La Pietra'), personKey('John La Pietra'));
+  assert.equal(personKey("Patrick O'Connell"), personKey('Patrick O’Connell'));
+});

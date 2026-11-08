@@ -341,6 +341,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   const Sources = () => <SourcesCard spec={spec} />;
 
   return (
+    <ResultsProvider value={spec.results}>
     <StateContext.Provider value={config}>
     <ReadOnlyContext.Provider value={!saved.place}>
     <GovbotChrome>
@@ -553,6 +554,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     </GovbotChrome>
     </ReadOnlyContext.Provider>
     </StateContext.Provider>
+    </ResultsProvider>
   );
 }
 
@@ -595,7 +597,6 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   }, [spec]);
   const others = GUIDES.filter((g) => g.id !== spec.slug);
   return (
-    <ResultsProvider value={spec.results}>
     <div className="space-y-10 pt-4">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
       <LandingBar items={landingItems(more, headliners, SECTIONS, questions)} search={(slot) => (
@@ -678,7 +679,6 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         <spec.NextElectionNote />
       </div>
     </div>
-    </ResultsProvider>
   );
 }
 

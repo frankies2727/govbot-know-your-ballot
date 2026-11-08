@@ -10,11 +10,14 @@
 // functions, tested in match.test.mjs.
 
 const SUFFIX = /^(jr|sr|ii|iii|iv|v)$/;
+const PARTICLE = /^(de|del|della|di|da|du|la|le|van|von|der|st)$/;
 
 /** "Sarah E. Hennesy" → "sarah hennesy"; a ticket → the person at its head. With `last`, the last name only: "hennesy". */
 export function personKey(name, last = false) {
-  const head = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/\s+(?:&|and)\s+/)[0];
+  const head = name.toLowerCase().replace(/['’]/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/\s+(?:&|and)\s+/)[0];
   const words = head.replace(/["“”(][^"“”)]*["“”)]/g, ' ').replace(/[^a-z\s'-]/g, ' ').split(/\s+/).filter(Boolean).filter((w) => !SUFFIX.test(w));
+  // A surname with a particle is one word, however it's spaced: "De Boer" and "DeBoer", "La Pietra".
+  for (let i = words.length - 2; i > 0; i--) if (PARTICLE.test(words[i])) words.splice(i, 2, words[i] + words[i + 1]);
   // Last names alone compare their last part: "Vossen-Henslin" is "henslin".
   if (last || words.length < 2) return (words[words.length - 1] ?? '').split('-').pop();
   return `${words[0]} ${words[words.length - 1]}`;
@@ -49,7 +52,7 @@ export function matchContests(contests, races) {
 }
 
 /** The race's candidate for a results row: by first and last name, else by last name if only one has it. */
-function candidateFor(race, name) {
+export function candidateFor(race, name) {
   const exact = race.candidates.find((k) => personKey(k.name) === personKey(name));
   if (exact) return exact;
   const same = race.candidates.filter((k) => personKey(k.name, true) === personKey(name, true));
