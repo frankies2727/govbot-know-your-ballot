@@ -29,3 +29,10 @@ test("a candidate's Chicago Politics page, by the addresses its sitemap uses", (
   assert.equal(at('Kiisha Smith', police(10)), 'kiisha-smith-district-10');
   assert.equal(at('Nobody Here'), null);
 });
+
+test('a certified list carries ballot numbers, read with each filing', async () => {
+  const { parseCityList } = await import('./illinois/city.mjs');
+  const text = ['   Mayor', '      Vote for One', '                 (1) JOHN KELLY                          Candidate', '', '                 (2) ANNA M. VALENCIA                    Objection Filed', ''].join('\n');
+  const list = parseCityList(text);
+  assert.deepEqual(list.offices.get('chicago-mayor'), [{ no: 1, name: 'John Kelly', status: 'Candidate' }, { no: 2, name: 'Anna M. Valencia', status: 'Objection Filed' }]);
+});

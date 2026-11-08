@@ -432,7 +432,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                           {s.id === 'measures'
                             ? ballot.measures.map((m) => <MeasureCard key={m.id} color={s.color} m={m} choice={saved.picks[m.id]} onChoose={choose} />)
                             : s.ids.map((id) => (
-                              <RaceCard key={id} race={raceById.get(id)!} color={s.color} ink={s.ink} numbered={false} choice={saved.picks[id]} onChoose={choose} onInfo={openSheet} onCompare={openCompare} />
+                              <RaceCard key={id} race={raceById.get(id)!} color={s.color} ink={s.ink} numbered={raceById.get(id)!.numbered === true} choice={saved.picks[id]} onChoose={choose} onInfo={openSheet} onCompare={openCompare} />
                             ))}
                         </div>
                         {next ? (
@@ -533,14 +533,14 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
       <PrintBallot spec={spec} sections={sections} picks={saved.picks} label={saved.place?.label} sample={printMode === 'sample'} describePick={describePick} />
 
       {sheet && (
-        <CandidateSheet race={sheet.race} c={sheet.c} color={sectionOf(sheet.race.section).color} ink={sectionOf(sheet.race.section).ink} numbered={false}
+        <CandidateSheet race={sheet.race} c={sheet.c} color={sectionOf(sheet.race.section).color} ink={sectionOf(sheet.race.section).ink} numbered={sheet.race.numbered === true}
           picked={picksFor(sheet.race.id).includes(sheet.c.ballot)}
           onPick={() => togglePick(sheet.race, sheet.c.ballot)}
           onShowRace={showBallot ? undefined : () => { const race = sheet.race; setSheet(null); browse(); jumpTo(race.section, race.id); }}
           onClose={() => setSheet(null)} />
       )}
       {comparing && (
-        <Compare race={comparing} color={sectionOf(comparing.section).color} ink={sectionOf(comparing.section).ink} numbered={false} picked={picksFor(comparing.id)}
+        <Compare race={comparing} color={sectionOf(comparing.section).color} ink={sectionOf(comparing.section).ink} numbered={comparing.numbered === true} picked={picksFor(comparing.id)}
           onInfo={(c) => { const race = comparing; setComparing(null); openSheet(race, c); }}
           onPick={(b) => togglePick(comparing, b)}
           onClose={() => setComparing(null)} />
@@ -798,7 +798,7 @@ function SampleContest({ spec, id, pick }: { key?: string; spec: GuideSpec; id: 
       <div className="mt-2 break-inside-avoid">
         <p className="font-bold">{race.office}{race.voteFor > 1 ? ` (vote for up to ${race.voteFor})` : ''}</p>
         <ul className="pl-3">
-          {race.candidates.map((c) => <li key={c.ballot}>{box(picked.includes(c.ballot))}{c.name}{c.party && <span className="text-[9pt]"> ({c.party})</span>}</li>)}
+          {race.candidates.map((c) => <li key={c.ballot}>{box(picked.includes(c.ballot))}{race.numbered ? `${c.ballot}. ` : ''}{c.name}{c.party && <span className="text-[9pt]"> ({c.party})</span>}</li>)}
           {race.writeIn && <li>{box(false)}Write-in: ______________________</li>}
         </ul>
       </div>

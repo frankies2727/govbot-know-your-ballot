@@ -29,7 +29,7 @@ export function nameCase(name) {
 
 /**
  * The filings on the list: { asOf, offices }, `offices` a Map of race id to
- * [{ name, status }] in the Board's order, and `unknown` the headings that
+ * [{ name, status, no? }] in the Board's order (`no`, the ballot number, once printed), and `unknown` the headings that
  * match no race we have.
  */
 export function parseCityList(text) {
@@ -50,9 +50,9 @@ export function parseCityList(text) {
       continue;
     }
     if (!current || /^\s*Vote for\b/i.test(line)) continue;
-    // A filing: the name, then (after a gap) its status.
-    const m = line.match(/^\s+(?:\(\d+\)\s+)?(\S.*?)\s{2,}(\S.*?)\s*$/);
-    if (m) offices.get(current).push({ name: nameCase(m[1].replace(/\s+/g, ' ')), status: m[2] });
+    // A filing: its ballot number once the Board has certified the ballot ("(3)"), the name, then (after a gap) its status.
+    const m = line.match(/^\s+(?:\((\d+)\)\s+)?(\S.*?)\s{2,}(\S.*?)\s*$/);
+    if (m) offices.get(current).push({ ...(m[1] ? { no: Number(m[1]) } : {}), name: nameCase(m[2].replace(/\s+/g, ' ')), status: m[3] });
   }
   return { asOf, offices, unknown };
 }

@@ -124,11 +124,13 @@ function racesFrom(list) {
       const kept = f.status === 'Candidate' || /objection/i.test(f.status);
       if (!kept) { left[f.status] = (left[f.status] ?? 0) + 1; continue; }
       if (candidates.some((c) => c.name === f.name)) continue;
-      candidates.push({ ballot: candidates.length + 1, name: f.name, party: '', ...(f.status !== 'Candidate' ? { filing: f.status } : {}) });
+      candidates.push({ ballot: f.no ?? candidates.length + 1, name: f.name, party: '', ...(f.status !== 'Candidate' ? { filing: f.status } : {}) });
     }
-    // Ballot numbers aren't printed until the Board certifies the ballot; the
-    // list's order is the ballot order, so the numbers here only identify picks.
-    races.push({ ...r, candidates, writeIn: false, numbered: false, source: list.url });
+    // The Board prints ballot numbers once it certifies the ballot (Dec 17,
+    // 2026); until every filing in a race has one, the list's order is the
+    // ballot order and the numbers here only identify picks.
+    const numbered = candidates.length > 0 && filings.filter((f) => f.status === 'Candidate' || /objection/i.test(f.status)).every((f) => f.no);
+    races.push({ ...r, candidates, writeIn: false, numbered, source: list.url });
   }
   const wards = races.filter((r) => r.section === 'council').length;
   const police = races.filter((r) => r.section === 'police').length;
@@ -281,6 +283,19 @@ async function main() {
     councils++;
   }
   console.log(`Seats now: ${wards ? wards.size : 'kept'} wards, ${councils} of 22 district councils read`);
+
+  // Campaign websites and accounts checked by hand (scripts/chicago-2027/links-chosen.json:
+  // { "<race id>|<name>": { website?, social?: { x, facebook, ... }, source } }), each
+  // only from the candidate's own site or an official page. The step below then
+  // reads each website for more.
+  const CHOSEN = JSON.parse(readFileSync(new URL('./chicago-2027/links-chosen.json', import.meta.url), 'utf8'));
+  for (const r of races) for (const c of r.candidates) {
+    const pick = CHOSEN[`${r.id}|${c.name}`];
+    if (!pick) continue;
+    if (pick.website && /^https:\/\//.test(pick.website)) c.website = pick.website;
+    const social = Object.fromEntries(Object.entries(pick.social ?? {}).filter(([, u]) => /^https:\/\//.test(u)));
+    if (Object.keys(social).length) c.social = { ...social, ...c.social };
+  }
 
   // Websites, accounts and (unofficial) photos; then the City Clerk's official photo for each sitting alderperson.
   const social = await soft('social', () => addSocial(races, work, (url) => get(url), prev), null);
