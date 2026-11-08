@@ -24,6 +24,8 @@ export interface StateConfig {
   compareNote: string;
   /** The guide's Election Day, for what's at stake in past or present tense (default: Nov 3, 2026). */
   electionDate?: string;
+  /** A race nobody has filed for yet: when the official list fills it in. */
+  noCandidates?: string;
 }
 
 export const ILLINOIS: StateConfig = {

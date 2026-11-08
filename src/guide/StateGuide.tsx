@@ -665,7 +665,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
       </ul>
 
       <Headliners races={headliners} sections={SECTIONS} overline={`On every ${spec.name} ballot`} heading={`The ${everyone} races`}
-        intro={`These ${headliners.length} contests are on every ${spec.name} ballot. Tap a face to meet a candidate, or Compare to see them side by side; your address adds your own ${copy.districtKinds} races from the ${byDistrict} by district.`}
+        intro={`${headliners.length === 1 ? 'This contest is' : `These ${headliners.length} contests are`} on every ${spec.name} ballot. Tap a face to meet a candidate, or Compare to see them side by side; your address adds your own ${copy.districtKinds} races from the ${byDistrict} by district.`}
         onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare}>
         {questions.n > 0 && <SectionPanel card={questions} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />}
       </Headliners>

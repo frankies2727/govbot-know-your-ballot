@@ -16,7 +16,7 @@
     "data:minnesota": "node scripts/state.mjs minnesota",
     "data:wisconsin": "node scripts/state.mjs wisconsin",
     "audit": "node scripts/audit.mjs",
-    "test:data": "node --test scripts/chicago-2027.test.mjs scripts/illinois/lists.test.mjs scripts/turnout/parse.test.mjs scripts/results/match.test.mjs scripts/results/illinois.test.mjs",
+    "test:data": "node --test scripts/chicago-2027.test.mjs scripts/wisconsin-2027.test.mjs scripts/illinois/lists.test.mjs scripts/turnout/parse.test.mjs scripts/results/match.test.mjs scripts/results/illinois.test.mjs",
     "data:turnout": "node scripts/turnout.mjs",
     "data:results": "node scripts/results.mjs"
   },

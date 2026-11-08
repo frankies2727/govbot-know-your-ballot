@@ -528,7 +528,7 @@ const STILL = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-m
  * carries the name and party; without, just faces, capped at `max` with a
  * "+N" at the end.
  */
-export interface StripPerson extends Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy'> { /** A line under the party: their district. */ note?: string; /** What a pick means to the caller (a race id, say). */ key?: string }
+export interface StripPerson extends Pick<Candidate, 'name' | 'photo' | 'party' | 'nominatedBy' | 'filing'> { /** A line under the party: their district. */ note?: string; /** What a pick means to the caller (a race id, say). */ key?: string }
 
 export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 text-sm', info = false, color, onPick }: { people: StripPerson[]; names?: boolean; max?: number; size?: string; /** An ⓘ badge on each face: there's more behind it. */ info?: boolean; /** The scrollbar's colour (the card's accent). */ color?: string; /** A tap on a person (not a scroll or a drag). */ onPick?: (p: StripPerson) => void }) {
   const down = useRef<{ x: number; y: number } | null>(null);
@@ -601,6 +601,7 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
     {names && <>
       <span className="mt-1 block w-full text-[13.5px] font-bold leading-tight line-clamp-2 text-[var(--gb-text)]">{c.name.split(' & ')[0]}</span>
       {(c.nominatedBy ?? c.party) && <span className="block w-full line-clamp-2 break-words text-[12px] leading-tight text-[var(--gb-text)]">{c.nominatedBy ?? c.party}</span>}
+      {c.filing && <span className="mt-0.5 inline-block rounded-full bg-[var(--gb-amber-hi)] px-1.5 text-[11px] font-bold leading-snug text-[var(--gb-bg)]">{c.filing}</span>}
       {c.note && <span className="block w-full truncate text-[11px] font-bold leading-tight text-[var(--gb-text)]">{c.note}</span>}
     </>}
   </>);

@@ -13,6 +13,8 @@ import type { Race } from './types';
 export function stakes(race: Race, electionDate = GUIDE_ELECTION_DAY): string {
   const held = daysUntil(electionDate) < 0;
   const keep = (n: number) => (held ? (n > 1 ? 'ran to keep their seats.' : 'ran to keep the seat.') : n > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.');
+  // Nobody has filed yet: nothing to say about who's running.
+  if (!race.candidates.length) return '';
   const inc = race.incumbents ?? [];
   const leaving = inc.filter((i) => i.ballot == null && i.note);
   if (leaving.length) {

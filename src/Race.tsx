@@ -140,6 +140,8 @@ export const isIncumbent = (race: Race, c: Candidate) => Boolean(c.incumbent || 
 function Incumbents({ race }: { race: Race }) {
   const list = race.incumbents;
   if (!list?.length) return null;
+  // Before anyone has filed, a holder is just who holds the seat, not "not on this ballot".
+  const unfiled = !race.candidates.length;
   const open = /^(Associate )?Judge /.test(list[0].name);
   return (
     <div className="rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] px-3 py-2 text-sm leading-snug text-[var(--gb-text)] space-y-1.5">
@@ -148,9 +150,9 @@ function Incumbents({ race }: { race: Race }) {
         <p key={i.name}>
           <strong>{i.name}</strong>{i.party ? ` (${i.party})` : ''}
           {i.ballot ? <> · <span className="font-bold">running again</span>{race.numbered !== false && race.section !== 'federal' && race.section !== 'state' ? ` (ballot #${i.ballot})` : ''}</>
-            : open ? null : <> · <span className="font-bold">not on this ballot</span></>}
+            : open || unfiled ? null : <> · <span className="font-bold">not on this ballot</span></>}
           {i.note && <>{open ? ' · ' : ' '}<span className={open ? '' : 'italic'}>{open ? i.note : `“${i.note}”`}</span></>}
-          {!i.ballot && !open && !i.note && <> (no reason is on record)</>}
+          {!i.ballot && !open && !unfiled && !i.note && <> (no reason is on record)</>}
           {i.source?.url && <> <a href={i.source.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{i.source.name.replace(/^Wikipedia: .*/, 'Wikipedia')} ↗</a>{i.asOf ? <span className="text-xs"> · read {i.asOf}</span> : null}</>}
         </p>
       ))}
@@ -343,7 +345,7 @@ interface RaceProps {
 }
 
 export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, choice, onChoose: chooseFor, onInfo, onCompare }: RaceProps) {
-  const { areaLabel, explainOffice } = useStateConfig();
+  const { areaLabel, explainOffice, noCandidates } = useStateConfig();
   const readOnly = useReadOnly();
   const onChoose = (c: Choice) => chooseFor(race.id, c);
   const picked = Array.isArray(choice) ? choice : [];
@@ -377,6 +379,7 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
 
         <RaceResults race={race} color={color} />
 
+        {!race.candidates.length && <p className="rounded-xl border-2 border-dashed border-[var(--gb-border-strong)] p-3 text-[15px] leading-relaxed text-[var(--gb-text)]"><strong>No one has filed yet.</strong> {noCandidates}</p>}
         <ul className="space-y-2">
           {race.candidates.map((c) => {
             const on = picked.includes(c.ballot);

@@ -43,6 +43,13 @@ jobs:
       - name: Build ballot data
         run: node scripts/state.mjs wisconsin
 
+      # Wisconsin's spring 2027 election (scripts/wisconsin-2027.mjs): the seats
+      # up and who holds them, and once a copy of the Elections Commission's
+      # candidate list is in scripts/wisconsin-2027/official/, its candidates.
+      # A bad read only warns, so it never holds up the November refresh.
+      - name: Build spring 2027 ballot data
+        run: node scripts/wisconsin-2027.mjs || echo "::warning::Wisconsin spring 2027 build failed; yesterday's data kept"
+
       - name: Redraw the README badges
         run: node scripts/badges.mjs
         env:
@@ -52,7 +59,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/wisconsin public/kyb-photos/wisconsin src/govbot public/badges
+          git add src/data/wisconsin src/data/wisconsin-2027 public/kyb-photos/wisconsin src/govbot public/badges
           if git diff --staged --quiet; then
             echo "No ballot data changes."
             echo "changed=false" >> "$GITHUB_OUTPUT"

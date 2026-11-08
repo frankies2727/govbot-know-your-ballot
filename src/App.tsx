@@ -12,6 +12,7 @@ const Michigan = lazy(() => import('./michigan/KnowYourBallotMichigan').then((m)
 const Minnesota = lazy(() => import('./minnesota/KnowYourBallotMinnesota').then((m) => ({ default: m.KnowYourBallotMinnesota })));
 const Wisconsin = lazy(() => import('./wisconsin/KnowYourBallotWisconsin').then((m) => ({ default: m.KnowYourBallotWisconsin })));
 const Chicago2027 = lazy(() => import('./chicago-2027/KnowYourBallotChicago2027').then((m) => ({ default: m.KnowYourBallotChicago2027 })));
+const Wisconsin2027 = lazy(() => import('./wisconsin-2027/KnowYourBallotWisconsin2027').then((m) => ({ default: m.KnowYourBallotWisconsin2027 })));
 
 function Loading() {
   return (
@@ -24,7 +25,7 @@ function Loading() {
 
 export default function App() {
   const route = useRoute();
-  const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin|chicago-2027)(\/|$)/)?.[1];
-  const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : guide === 'chicago-2027' ? Chicago2027 : KybHome;
+  const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin|chicago-2027|wisconsin-2027)(\/|$)/)?.[1];
+  const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : guide === 'chicago-2027' ? Chicago2027 : guide === 'wisconsin-2027' ? Wisconsin2027 : KybHome;
   return <><Suspense fallback={<Loading />}><Screen /></Suspense><Pulse compact={!!guide} /></>;
 }

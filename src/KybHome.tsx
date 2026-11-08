@@ -46,12 +46,14 @@ const STATES = [
 const PARTS: LandingItem[] = [
   { id: 'kyb-intro', emoji: '🗳️', label: 'Know Your Ballot' },
   { id: 'elections', emoji: '📅', label: 'Elections' },
-  { id: 'feb-2027', emoji: '🗓️', label: 'February 2027', sub: [{ id: 'kyb-home-chicago-2027', emoji: '📍', label: 'Chicago', color: 'var(--chi-blue)' }] },
+  { id: 'spring-2027', emoji: '🗓️', label: 'Spring 2027', sub: [{ id: 'kyb-home-chicago-2027', emoji: '📍', label: 'Chicago', color: 'var(--chi-blue)' }, { id: 'kyb-home-wisconsin-2027', emoji: '📍', label: 'Wisconsin', color: STATE_INK.wisconsin }] },
   { id: 'pick', emoji: '🗺️', label: 'November 2026 Midterms', short: 'Nov 2026 Midterms', sub: STATES.map((s) => ({ id: `kyb-home-${s.id}`, emoji: '📍', label: s.name, color: s.ink })) },
   { id: 'kyb-open', emoji: '🤝', label: 'Built by and for everyone', short: 'Get involved' },
 ];
 /** Chicago's city election. */
 const CHICAGO_DAY = '2027-02-23';
+/** Wisconsin's spring election. */
+const SPRING_DAY = '2027-04-06';
 /** Clear of the pinned bar where the contents jumps (the page's scroll padding already clears govbot's header). */
 const UNDER_BAR = 'scroll-mt-[var(--kyb-bar,0px)]';
 
@@ -92,14 +94,14 @@ export function KybHome() {
           <Elections />
 
           {/* One section per election the guides cover, newest first, each folding away, so the page holds every year's guides without growing endlessly. */}
-          <section id="feb-2027" aria-label="February 2027" className={`mt-16 space-y-6 sm:mt-24 ${UNDER_BAR}`}>
+          <section id="spring-2027" aria-label="Spring 2027" className={`mt-16 space-y-6 sm:mt-24 ${UNDER_BAR}`}>
             <details open className="kyb-cycle">
               <summary className="kyb-cycle-head">
-                <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl">February 2027</h2>
+                <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Spring 2027</h2>
                 <ChevronDown className="kyb-cycle-chev h-7 w-7 shrink-0" aria-hidden="true" />
               </summary>
-              <p className="mt-2 max-w-[60ch] text-[17px]">Chicago’s city election on Tue, Feb 23, 2027: every race and every candidate who filed, from the Board of Elections’ list.</p>
-              <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="Guides for February 2027">
+              <p className="mt-2 max-w-[60ch] text-[17px]">Chicago’s city election on Tue, Feb 23, and Wisconsin’s spring election on Tue, Apr 6. Every race and who’s running, from the official lists as they’re filed.</p>
+              <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="Guides for spring 2027">
                 <li id="kyb-home-chicago-2027" className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': 'var(--chi-blue)' } as React.CSSProperties}>
                   <a href={guidePath('chicago-2027')} onClick={openIn('projects/know-your-ballot-chicago-2027')} className="kyb-tile h-full">
                     <span className="flex h-[140px] items-end justify-center sm:h-[160px]"><ChicagoMap /></span>
@@ -112,6 +114,20 @@ export function KybHome() {
                   <p className="border-t border-[var(--gb-border)] p-3 text-[13.5px] leading-snug sm:p-4">
                     <span className="block font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{Math.max(0, daysUntil(CHICAGO_DAY))}</span>
                     <span className="mt-1 block">days to Election Day, Tue, Feb 23</span>
+                  </p>
+                </li>
+                <li id="kyb-home-wisconsin-2027" className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': STATE_INK.wisconsin } as React.CSSProperties}>
+                  <a href={guidePath('wisconsin-2027')} onClick={openIn('projects/know-your-ballot-wisconsin-2027')} className="kyb-tile h-full">
+                    <span className="flex h-[140px] items-end justify-center sm:h-[160px]"><WisconsinMap /></span>
+                    <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">Wisconsin</span>
+                    <span className="block text-[15px] leading-snug">An open Supreme Court seat, the Court of Appeals and circuit courts.</span>
+                  </a>
+                  <p className="kyb-card-act">
+                    <a href={guidePath('wisconsin-2027', true)} onClick={openIn('projects/know-your-ballot-wisconsin-2027/ballot')}>See full ballot<span className="sr-only"> for Wisconsin’s spring election</span> <span aria-hidden="true">→</span></a>
+                  </p>
+                  <p className="border-t border-[var(--gb-border)] p-3 text-[13.5px] leading-snug sm:p-4">
+                    <span className="block font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{Math.max(0, daysUntil(SPRING_DAY))}</span>
+                    <span className="mt-1 block">days to Election Day, Tue, Apr 6 (a Feb 16 primary only where needed)</span>
                   </p>
                 </li>
               </ul>

@@ -24,6 +24,11 @@ const HITS: Hit[] = [
     text: fold('chicago guide ballot 2027 city election mayor alderperson alderman ward police district council clerk treasurer february'),
     go: () => navigate('projects/know-your-ballot-chicago-2027'),
   },
+  {
+    id: 'guide-wisconsin-2027', title: 'Wisconsin spring ballot guide', detail: 'Apr 6, 2027 (Feb 16 primary where needed): Supreme Court, Court of Appeals and circuit courts', ink: STATE_INK.wisconsin,
+    text: fold('wisconsin spring 2027 guide ballot supreme court judge appeals circuit primary april february'),
+    go: () => navigate('projects/know-your-ballot-wisconsin-2027'),
+  },
   ...ELECTIONS.map((e): Hit => ({
     id: e.id, title: `${STATE_NAME[e.state]}: ${e.title}`, detail: `${when(e.date)} · ${e.what}`, ink: STATE_INK[e.state],
     text: fold(`${STATE_NAME[e.state]} ${e.title} ${TYPE_NAME[e.type]} ${when(e.date)} ${e.date} ${e.what}`),

@@ -11,7 +11,7 @@ export const GUIDE_CYCLE = GUIDE_ELECTION_DAY.slice(0, 7);
 export const GUIDE_STATES: GuideState[] = ['illinois', 'michigan', 'minnesota', 'wisconsin'];
 
 /** Every guide: a state's Nov 2026 guide, or a later election's (Chicago's Feb 2027 city election). */
-export type GuideId = GuideState | 'chicago-2027';
+export type GuideId = GuideState | 'chicago-2027' | 'wisconsin-2027';
 
 /**
  * Each guide's address names its election and its place: /2026-11/michigan
@@ -22,6 +22,7 @@ export type GuideId = GuideState | 'chicago-2027';
 export const GUIDE_PATHS: Record<GuideId, string> = {
   illinois: `${GUIDE_CYCLE}/illinois`, michigan: `${GUIDE_CYCLE}/michigan`, minnesota: `${GUIDE_CYCLE}/minnesota`, wisconsin: `${GUIDE_CYCLE}/wisconsin`,
   'chicago-2027': '2027-02/chicago',
+  'wisconsin-2027': '2027-04/wisconsin',
 };
 
 /** A guide's path: "/2026-11/michigan", or its ballot "/2026-11/michigan/ballot". */

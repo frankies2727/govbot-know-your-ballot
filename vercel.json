@@ -40,6 +40,14 @@
       "destination": "/2027-02/chicago/index.html"
     },
     {
+      "source": "/2027-04/wisconsin",
+      "destination": "/2027-04/wisconsin/index.html"
+    },
+    {
+      "source": "/2027-04/wisconsin/:rest*",
+      "destination": "/2027-04/wisconsin/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
@@ -56,6 +64,15 @@
     },
     {
       "source": "/2027-02/chicago/ballot",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/2027-04/wisconsin/ballot",
       "headers": [
         {
           "key": "X-Robots-Tag",

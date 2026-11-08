@@ -34,6 +34,11 @@ const PICTURES = [
     text: 'Mayor, clerk, treasurer, all 50 alderpersons and the police district councils: every candidate.',
     link: `${SITE}/2027-02/chicago`,
   },
+  {
+    file: 'wisconsin-2027', overline: 'Spring 2027 · April 6', title: 'Know Your<br>Wisconsin Ballot', maps: ['wisconsin-2027'],
+    text: 'An open Supreme Court seat, the Court of Appeals and the circuit courts.',
+    link: `${SITE}/2027-04/wisconsin`,
+  },
   ...STATES.map((s) => ({
     file: s.id, overline: 'November 2026 Midterms', title: `Know Your<br>${s.name} Ballot`, maps: [s.id],
     text: `${s.what} on the Nov 3, 2026 ballot, as voters saw it, and who won.`,
@@ -57,7 +62,7 @@ try {
   const maps = await page.evaluate((ids) => Object.fromEntries(ids.map((id) => {
     const card = document.getElementById(`kyb-home-${id}`);
     return [id, `<span class="kyb-tile" style="--ink:${card.style.getPropertyValue('--ink')}">${card.querySelector('svg').outerHTML}</span>`];
-  })), [...STATES.map((s) => s.id), 'chicago-2027']);
+  })), [...STATES.map((s) => s.id), 'chicago-2027', 'wisconsin-2027']);
 
   for (const pic of PICTURES) {
     await page.evaluate(({ pic, maps }) => {

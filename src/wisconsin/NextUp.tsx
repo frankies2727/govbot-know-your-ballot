@@ -1,4 +1,6 @@
 import { NextUp } from '../Calendar';
+import { guidePath } from '../hosts';
+import { navigate } from '../lib/router';
 
 // Wisconsin's spring elections after Nov 3, 2026 (Wis. Stat. 5.02: the
 // spring primary on the third Tuesday in February, the spring election on
@@ -15,6 +17,8 @@ export function NextElectionNote() {
   return (
     <NextUp date={APR_6} title="Get ready for April 6, 2027 too!" lead="Wisconsin votes again in the spring: a Supreme Court seat, judges, and the mayors, councils and school boards near you, all without party labels.">
       <div className="space-y-3 border-t-2 border-[var(--kyb-chip)] pt-3">
+        <p><a href={guidePath('wisconsin-2027')} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate('projects/know-your-ballot-wisconsin-2027'); }}
+          className="inline-flex min-h-[44px] items-center rounded-xl bg-[var(--kyb-gold)] px-4 font-black text-[var(--gb-bg)]">Open the spring ballot guide →</a></p>
         <p className="text-[15px] font-bold">Your municipal clerk sets what’s on each date. Candidates show up here once they’re certified.</p>
         <ul className="space-y-3">
           {DATES.map((d) => (
