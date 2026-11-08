@@ -74,6 +74,8 @@ const UNDER_BAR = 'scroll-mt-[var(--kyb-bar,0px)]';
 const openIn = (route: string) => (e: React.MouseEvent) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(route); };
 
 const LINK = 'underline decoration-2 underline-offset-4 font-semibold text-[var(--gb-text)] hover:text-[var(--gb-link)]';
+/** A guide's name in running text, opening that guide's landing page. */
+const GuideLink = ({ id, children }: { id: GuideId; children: React.ReactNode }) => <a className={LINK} href={guidePath(id)} onClick={openIn(`projects/know-your-ballot-${id}`)}>{children}</a>;
 
 /** The root of the Know Your Ballot site: the elections we cover, by year, and a way into each state's guide at /illinois, /michigan, /minnesota or /wisconsin. */
 export function KybHome() {
@@ -113,7 +115,7 @@ export function KybHome() {
                 <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Spring 2027</h2>
                 <ChevronDown className="kyb-cycle-chev h-7 w-7 shrink-0" aria-hidden="true" />
               </summary>
-              <p className="mt-2 max-w-[60ch] text-[17px]">Chicago’s city election on Tue, Feb 23, Jacksonville’s on Tue, Mar 9, and Denver’s and Wisconsin’s spring election on Tue, Apr 6. Every race, who holds each seat now, and who’s running as the lists come out.</p>
+              <p className="mt-2 max-w-[60ch] text-[17px]"><GuideLink id="chicago-2027">Chicago’s city election</GuideLink> on Tue, Feb 23, <GuideLink id="jacksonville-2027">Jacksonville’s</GuideLink> on Tue, Mar 9, and <GuideLink id="denver-2027">Denver’s</GuideLink> and <GuideLink id="wisconsin-2027">Wisconsin’s spring election</GuideLink> on Tue, Apr 6. Every race, who holds each seat now, and who’s running as the lists come out.</p>
               <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="Guides for spring 2027">
                 {SPRING.map((g) => (
                   <li key={g.id} id={`kyb-home-${g.id}`} className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': g.ink } as React.CSSProperties}>
@@ -123,7 +125,7 @@ export function KybHome() {
                       <span className="block text-[15px] leading-snug">{g.covers}</span>
                     </a>
                     <p className="kyb-card-act">
-                      <a href={guidePath(g.id, true)} onClick={openIn(`projects/know-your-ballot-${g.id}/ballot`)}>See full ballot<span className="sr-only"> for {g.srName ?? g.name}</span> <span aria-hidden="true">→</span></a>
+                      <a href={guidePath(g.id)} onClick={openIn(`projects/know-your-ballot-${g.id}`)}>See full race<span className="sr-only"> for {g.srName ?? g.name}</span> <span aria-hidden="true">→</span></a>
                     </p>
                     <p className="border-t border-[var(--gb-border)] p-3 text-[13.5px] leading-snug sm:p-4">
                       <span className="block font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{Math.max(0, daysUntil(g.day))}</span>
@@ -152,7 +154,7 @@ export function KybHome() {
                       <span className="block text-[15px] leading-snug">{s.covers}</span>
                     </a>
                     <p className="kyb-card-act">
-                      <a href={guidePath(s.id, true)} onClick={openIn(`projects/know-your-ballot-${s.id}/ballot`)}>See full ballot<span className="sr-only"> for {s.name}</span> <span aria-hidden="true">→</span></a>
+                      <a href={guidePath(s.id)} onClick={openIn(`projects/know-your-ballot-${s.id}`)}>See full race<span className="sr-only"> for {s.name}</span> <span aria-hidden="true">→</span></a>
                     </p>
                     <Turnout state={s.id} name={s.name} ink={s.ink} />
                   </li>
