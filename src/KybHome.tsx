@@ -48,8 +48,8 @@ export function KybHome() {
         <div className="mx-auto max-w-[1920px] px-4 pb-28 pt-8 sm:px-[clamp(1.5rem,4vw,4rem)] sm:pt-12">
           <section className="grid items-center gap-8 lg:grid-cols-[minmax(0,6fr)_minmax(0,7fr)] lg:gap-12">
             <div className="max-w-[52ch] space-y-6 text-[17px] leading-relaxed">
-              <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Know what&rsquo;s on your ballot before you vote.</h1>
-              <p className="text-xl leading-snug">Find the election you&rsquo;re voting in, or the one you want to look back on. Each guide shows every race and question, what each job is, who&rsquo;s running and who&rsquo;s funding them.</p>
+              <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Know what&rsquo;s on your entire ballot before you vote.</h1>
+              <p className="text-pretty text-xl leading-snug">Here we show what each race is, who&rsquo;s running, who&rsquo;s funding them, what every question means, and more. Find the election you&rsquo;re voting in, or one you want to look back on.</p>
               <p>
                 <a href="#elections" className="inline-flex min-h-[48px] items-center rounded-full bg-[var(--gb-primary)] px-6 text-[16px] font-bold text-[var(--gb-on-primary)] no-underline hover:bg-[var(--gb-primary-hi)] focus-visible:outline-[var(--gb-text)]">Browse the elections</a>
               </p>

@@ -41,7 +41,7 @@ export interface Election {
 export const NOV_3 = '2026-11-03';
 const NOV_7_2028 = '2028-11-07';
 const GUIDE_2026 = { label: 'Open the 2026 ballot guide' };
-const SO_FAR = { label: 'See what we know so far', anchor: 'kyb-next' };
+const SO_FAR = { label: 'Check preliminary ballot', anchor: 'kyb-next' };
 
 const LIST: Election[] = [
   { id: 'il-2026-general', state: 'illinois', date: NOV_3, title: 'Midterm general election', type: 'general', guide: GUIDE_2026,
