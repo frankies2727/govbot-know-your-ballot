@@ -55,6 +55,6 @@ export const PORTAL: Record<StateSlug, { name: string; url: string }> = {
 
 /** The two questions about the site itself, asked on every page and the home page. */
 export const SITE_QA: { q: string; a: string }[] = [
-  { q: 'What is Know Your Ballot?', a: 'A free, open-source voter guide to the elections in Illinois, Michigan, Minnesota and Wisconsin, with each election listed by year and past ballots kept as the record. Open a state’s guide and enter an address to see an exact ballot: every race, judge and question, what each job does, who is running and who is funding them. It is built on Govbot, Chi Hack Night’s open civic data.' },
+  { q: 'What is Govbot - Know Your Ballot?', a: 'A free, open-source voter guide to the elections in several states and cities, with each election listed by year and past ballots kept as the record; we add states, races and cities year round. Open a guide and enter an address to see an exact ballot: every race, judge and question, what each job does, who is running and who is funding them. It is built on Govbot, Chi Hack Night’s open civic data.' },
   { q: 'Is Know Your Ballot nonpartisan, and where do its facts come from?', a: 'It is nonpartisan: it never recommends or rates a candidate. Every fact names its source next to it: official candidate lists where the state or county publishes one, FEC and state campaign-finance records for money, and Ballotpedia and Wikipedia (CC BY-SA) for profiles and incumbents. A candidate’s own words are quoted verbatim with their date and a link.' },
 ];

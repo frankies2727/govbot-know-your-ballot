@@ -70,6 +70,7 @@ export const CHICAGO_2027_GUIDE: GuideSpec = {
   PlanToVote,
   guides: CHICAGO_GUIDES,
   NextElectionNote,
+  lawsFrom: { code: 'IL', name: 'Illinois', capital: 'Springfield' },
   inArea: (d) => Boolean(d.ward),
   faq: chicagoFaq,
   lookup: {
@@ -105,7 +106,7 @@ export const CHICAGO_2027_GUIDE: GuideSpec = {
     localContests: '',
     clerkOf: () => '',
     moneyFilings: 'Illinois State Board of Elections filings',
-    legislature: 'Chicago City Council',
+    legislature: 'Illinois General Assembly',
     howItWorks: {
       title: 'How Chicago’s city ballot works',
       body: (

@@ -20,6 +20,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { outlineOf, readLayer } from './city-maps.mjs';
+import { recentBills } from './illinois/govbot.mjs';
 import { sameName } from './wiki.mjs';
 
 const ROOT = new URL('..', import.meta.url);
@@ -195,6 +196,10 @@ async function main() {
     }
   } else if (prev) for (const r of races) { const p = prev.races.find((x) => x.id === r.id); if (p?.incumbents) r.incumbents = p.incumbents; }
 
+  // The CO legislature's bills on elections and schools, from govbot.
+  const laws = await soft('govbot bills', () => recentBills('co'), prev?.laws ?? []);
+  console.log(`govbot: ${laws.length} bills`);
+
   const data = {
     election: ELECTION,
     sources: {
@@ -204,6 +209,7 @@ async function main() {
     },
     races,
     measures: [],
+    laws,
   };
   writeFileSync(new URL('ballot.json', OUT), `${JSON.stringify(data)}\n`);
   console.log(`Wrote src/data/denver-2027/: ${races.length} races, ${all.length} registered candidates`);

@@ -33,6 +33,7 @@ import { addPhotos } from './illinois/photos.mjs';
 import { addSocial } from './illinois/social.mjs';
 import { personKey } from './results/match.mjs';
 import { outlineOf } from './city-maps.mjs';
+import { recentBills } from './illinois/govbot.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/chicago-2027/', ROOT);
@@ -308,6 +309,10 @@ async function main() {
   }
   console.log(`Chicago Politics: ${linked} of ${filed} candidates linked`);
 
+  // The IL legislature's bills on elections and schools, from govbot.
+  const laws = await soft('govbot bills', () => recentBills('il'), prev?.laws ?? []);
+  console.log(`govbot: ${laws.length} bills`);
+
   const data = {
     election: ELECTION,
     sources: {
@@ -317,6 +322,7 @@ async function main() {
     },
     races,
     measures: [],
+    laws,
     wards: wards ? Object.fromEntries([...wards].map(([n, o]) => [n, { site: o.site, phone: o.phone, email: o.email, address: o.address }])) : prev?.wards,
   };
   writeFileSync(new URL('ballot.json', OUT), `${JSON.stringify(data)}\n`);

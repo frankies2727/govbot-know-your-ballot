@@ -22,6 +22,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { outlineOf, readLayer } from './city-maps.mjs';
+import { recentBills } from './illinois/govbot.mjs';
 import { sameName } from './wiki.mjs';
 
 const ROOT = new URL('..', import.meta.url);
@@ -141,6 +142,10 @@ async function main() {
     writeFileSync(new URL('outline.json', OUT), `${JSON.stringify(outlineOf(layer))}\n`);
   }
 
+  // The FL legislature's bills on elections and schools, from govbot.
+  const laws = await soft('govbot bills', () => recentBills('fl'), prev?.laws ?? []);
+  console.log(`govbot: ${laws.length} bills`);
+
   const data = {
     election: ELECTION,
     sources: {
@@ -150,6 +155,7 @@ async function main() {
     },
     races,
     measures: [],
+    laws,
   };
   writeFileSync(new URL('ballot.json', OUT), `${JSON.stringify(data)}\n`);
   console.log(`Wrote src/data/jacksonville-2027/: ${races.length} races, ${races.reduce((n, r) => n + r.candidates.length, 0)} declared candidates`);

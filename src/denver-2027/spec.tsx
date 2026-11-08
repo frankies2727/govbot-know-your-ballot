@@ -53,6 +53,7 @@ export const DENVER_2027_GUIDE: GuideSpec = {
   PlanToVote,
   guides: DENVER_GUIDES,
   NextElectionNote,
+  lawsFrom: { code: 'CO', name: 'Colorado', capital: 'the State Capitol in Denver' },
   inArea: (d) => Boolean(d.council),
   faq: denverFaq,
   lookup: makeLookup({ mapsUrl, bbox: [-105.11, 39.61, -104.6, 39.92], abbr: 'CO', name: 'Colorado', place: 'Denver, Colorado' }),
@@ -83,7 +84,7 @@ export const DENVER_2027_GUIDE: GuideSpec = {
     localContests: '',
     clerkOf: () => '',
     moneyFilings: 'Denver SearchLight reports',
-    legislature: 'Denver City Council',
+    legislature: 'Colorado General Assembly',
     howItWorks: {
       title: 'How Denver’s city ballot works',
       body: (

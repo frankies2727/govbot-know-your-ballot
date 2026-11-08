@@ -73,7 +73,8 @@ function Bill({ b, code }: { key?: string; b: Law; code: string }) {
 }
 
 export function Laws({ laws, state }: { laws: Law[]; state: LawsState }) {
-  const [tab, setTab] = useState<string>(TABS[0].id);
+  // Opens on the first topic with bills in it.
+  const [tab, setTab] = useState<string>(() => (TABS.find((t) => laws.some((b) => inTab(b, t.id))) ?? TABS[0]).id);
   const [q, setQ] = useState('');
   const [open, toggle] = useOpen(`kyb-laws-open:${state.code}`);
   const list = useMemo(() => {
@@ -126,7 +127,7 @@ export function Laws({ laws, state }: { laws: Law[]; state: LawsState }) {
         </ul>
       ) : <p className="text-[15px]">{q ? 'No bills match that search.' : 'No bills in this category in the last 6 months.'}</p>}
 
-      <a href={`${GOVBOT}legislation.html#state=il`} target="_blank" rel="noreferrer noopener"
+      <a href={`${GOVBOT}legislation.html#state=${state.code.toLowerCase()}`} target="_blank" rel="noreferrer noopener"
         className="flex items-center justify-center gap-2 min-h-[56px] rounded-xl border-[3px] border-[var(--kyb-gold)] px-4 text-lg font-black text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
         Explore entire catalog of {state.code} bills <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
       </a>

@@ -47,6 +47,7 @@ export const WISCONSIN_2027_GUIDE: GuideSpec = {
   PlanToVote,
   guides: SPRING_GUIDES,
   NextElectionNote,
+  lawsFrom: { code: 'WI', name: 'Wisconsin', capital: 'Madison' },
   faq: springFaq,
   // The county decides the Court of Appeals district (Wis. Stat. 752.11).
   lookup: makeLookup({ mapsUrl, bbox: [-92.89, 42.49, -86.25, 47.31], abbr: 'WI', name: 'Wisconsin', decorate: (d, data) => { if (d.county) d.coa = data.coa?.[d.county]; } }),

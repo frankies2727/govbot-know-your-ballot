@@ -18,6 +18,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { parseCandidateList } from './wisconsin/official.mjs';
+import { recentBills } from './illinois/govbot.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/wisconsin-2027/', ROOT);
@@ -177,6 +178,10 @@ async function main() {
 
   const counties = {};
   for (const [d, list] of Object.entries(COA)) for (const c of list) counties[c] = [`county:${c}`, `coa:${d}`];
+  // The WI legislature's bills on elections and schools, from govbot.
+  let laws = prev?.laws ?? [];
+  try { laws = await recentBills('wi'); console.log(`govbot: ${laws.length} bills`); } catch (e) { console.warn(`govbot: ${e.message}; keeping the last copy`); }
+
   const data = {
     election: ELECTION,
     sources: {
@@ -186,12 +191,12 @@ async function main() {
     },
     races,
     measures: [],
+    laws,
     coa: Object.fromEntries(Object.entries(COA).flatMap(([d, list]) => list.map((c) => [c, d]))),
     counties,
   };
   writeFileSync(new URL('ballot.json', OUT), `${JSON.stringify(data)}\n`);
   console.log(`Wrote src/data/wisconsin-2027/ballot.json: ${races.length} races (${seats.length} circuit seats), ${races.reduce((n, r) => n + r.candidates.length, 0)} candidates${official ? ` from the Commission's list (${official.file})` : ', announced only'}`);
-  void prev;
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) main().catch((e) => { console.error(e); process.exit(1); });

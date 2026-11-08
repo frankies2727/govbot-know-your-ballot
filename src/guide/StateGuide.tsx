@@ -680,7 +680,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
           <span className="text-sm font-black uppercase tracking-[0.18em]">Beyond your ballot</span>
           <span className="h-[3px] flex-1 rounded-full bg-[var(--gb-text)]" />
         </div>
-        <Laws laws={data.laws ?? []} state={{ code: spec.code, name: spec.name, capital: spec.capital }} />
+        <Laws laws={data.laws ?? []} state={spec.lawsFrom ?? { code: spec.code, name: spec.name, capital: spec.capital }} />
         <spec.NextElectionNote />
       </div>
     </div>

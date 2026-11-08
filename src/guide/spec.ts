@@ -2,6 +2,7 @@ import type { Results } from '../results';
 import type { ComponentType, ReactNode } from 'react';
 import type { KeyDate } from '../dates';
 import type { GuideId } from '../hosts';
+import type { LawsState } from '../Laws';
 import type { Guide } from '../PlanToVote';
 import type { StateConfig } from '../state';
 import type { Faq } from '../seo/faq';
@@ -50,6 +51,8 @@ export interface GuideSpec {
   PlanToVote: ComponentType<{ plan: Record<string, boolean | string>; setPlan: (key: string, value: boolean | string) => void; county?: string; ballotDone: boolean }>;
   guides: Guide[];
   NextElectionNote: ComponentType;
+  /** Whose bills the "laws that shape your ballot" card shows (default: this guide's code, name and capital): a city guide's state legislature. */
+  lawsFrom?: LawsState;
   /** Whether an address's districts are inside the guide's area (default: anywhere in the state). */
   inArea?: (d: Districts) => boolean;
   /** The guide's own common questions (default: the state guides' questions, src/seo/faq.ts). */

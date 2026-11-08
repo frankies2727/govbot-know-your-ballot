@@ -53,6 +53,7 @@ export const JACKSONVILLE_2027_GUIDE: GuideSpec = {
   PlanToVote,
   guides: JACKSONVILLE_GUIDES,
   NextElectionNote,
+  lawsFrom: { code: 'FL', name: 'Florida', capital: 'Tallahassee' },
   inArea: (d) => Boolean(d.council),
   faq: jacksonvilleFaq,
   lookup: makeLookup({ mapsUrl, bbox: [-82.05, 30.1, -81.38, 30.59], abbr: 'FL', name: 'Florida', place: 'Jacksonville, Florida' }),
@@ -84,7 +85,7 @@ export const JACKSONVILLE_2027_GUIDE: GuideSpec = {
     localContests: '',
     clerkOf: () => '',
     moneyFilings: 'Duval County Supervisor of Elections reports',
-    legislature: 'Jacksonville City Council',
+    legislature: 'Florida Legislature',
     howItWorks: {
       title: 'How Jacksonville’s city ballot works',
       body: (
