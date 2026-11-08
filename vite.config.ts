@@ -1,5 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { defineConfig } from 'vite';
@@ -14,15 +15,18 @@ import { held } from './src/seo/faq';
 // root and each state's page. Each state's page is a copy of the app shell
 // with its own tags, written to dist/2026-11/<state>/ (its address, src/hosts.ts),
 // which vercel.json serves for that path. The pictures are
-// public/kyb-og/*.png.
+// public/kyb-og/*.png (drawn by scripts/og-images.mjs), each address carrying
+// a hash of its picture, so a new picture is fetched fresh, not served from
+// a social app's copy of the old one.
 const SITE = 'https://govbot-know-your-ballot.vercel.app';
+const ogImage = (img: string) => `${SITE}/kyb-og/${img}.png?v=${createHash('sha256').update(readFileSync(`public/kyb-og/${img}.png`)).digest('hex').slice(0, 8)}`;
 // Past Election Day (when the site is built) a guide describes the ballot that was.
 const HELD = held();
 const guideDesc = (what: string, name: string) => HELD
-  ? `${what} on the Nov 3, 2026 ${name} ballot, as voters saw it. Free, open source and non-partisan, built on Govbot.`
+  ? `${what} on the Nov 3, 2026 ${name} ballot, as voters saw it, and who won. Free, open source and non-partisan, built on Govbot.`
   : `${what} on your Nov 3, 2026 ${name} ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.`;
 const PAGES: Record<string, { title: string; desc: string; img: string }> = {
-  '': { title: 'Govbot Know Your Ballot', desc: 'Your exact ballot by address: every race, judge and question, who’s running and who’s funding them. Illinois, Michigan, Minnesota and Wisconsin, built on Govbot.', img: 'home' },
+  '': { title: 'Govbot Know Your Ballot', desc: 'What’s on your ballot, election by election: every race, judge and question, who’s running, who’s funding them and who won. Illinois, Michigan, Minnesota and Wisconsin, built on Govbot.', img: 'home' },
   illinois: { title: 'Know Your Illinois Ballot', desc: guideDesc('Every race, judge and question', 'Illinois'), img: 'illinois' },
   michigan: { title: 'Know Your Michigan Ballot', desc: guideDesc('Every race, judge and proposal', 'Michigan'), img: 'michigan' },
   minnesota: { title: 'Know Your Minnesota Ballot', desc: guideDesc('Every race, judge and the amendment', 'Minnesota'), img: 'minnesota' },
@@ -48,13 +52,13 @@ const metaFor = (page: string) => {
     `<meta property="og:title" content="${esc(title)}" />`,
     `<meta property="og:description" content="${esc(desc)}" />`,
     `<meta property="og:url" content="${url}" />`,
-    `<meta property="og:image" content="${SITE}/kyb-og/${img}.png" />`,
+    `<meta property="og:image" content="${ogImage(img)}" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(title)}" />`,
     `<meta name="twitter:description" content="${esc(desc)}" />`,
-    `<meta name="twitter:image" content="${SITE}/kyb-og/${img}.png" />`,
+    `<meta name="twitter:image" content="${ogImage(img)}" />`,
   ].join('\n    ');
 };
 const TITLE = /<title>[^<]*<\/title>/;
