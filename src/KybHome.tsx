@@ -49,6 +49,9 @@ const PARTS: LandingItem[] = [
 /** Clear of the pinned bar where the contents jumps (the page's scroll padding already clears govbot's header). */
 const UNDER_BAR = 'scroll-mt-[var(--kyb-bar,0px)]';
 
+/** A plain click opens the page in the app; a modified one (new tab, window) is left to the browser. */
+const openIn = (route: string) => (e: React.MouseEvent) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(route); };
+
 const LINK = 'underline decoration-2 underline-offset-4 font-semibold text-[var(--gb-text)] hover:text-[var(--gb-link)]';
 
 /** The root of the Know Your Ballot site: the elections we cover, by year, and a way into each state's guide at /illinois, /michigan, /minnesota or /wisconsin. */
@@ -90,16 +93,18 @@ export function KybHome() {
                 <ChevronDown className="kyb-cycle-chev h-7 w-7 shrink-0" aria-hidden="true" />
               </summary>
               <p className="mt-2 max-w-[60ch] text-[17px]">Each state&rsquo;s guide, and how many voted in 2026 and in every general election since 2014.</p>
-              {/* Each card is two rows of one subgrid (the map and name, then the turnout), so cards in a row match in height and their turnout lines up. */}
+              {/* Each card is three rows of one subgrid (the map and name, the full-ballot link, the turnout), so cards in a row match in height and their parts line up. */}
               <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="States with a guide">
                 {STATES.map((s) => (
-                  <li key={s.id} id={`kyb-home-${s.id}`} className={`kyb-card row-span-2 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': s.ink } as React.CSSProperties}>
-                    <a href={guidePath(s.id)} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); navigate(`projects/know-your-ballot-${s.id}`); }}
-                      className="kyb-tile h-full">
+                  <li key={s.id} id={`kyb-home-${s.id}`} className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': s.ink } as React.CSSProperties}>
+                    <a href={guidePath(s.id)} onClick={openIn(`projects/know-your-ballot-${s.id}`)} className="kyb-tile h-full">
                       <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{s.map}</span>
                       <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">{s.name}</span>
                       <span className="block text-[15px] leading-snug">{s.covers}</span>
                     </a>
+                    <p className="kyb-card-act">
+                      <a href={guidePath(s.id, true)} onClick={openIn(`projects/know-your-ballot-${s.id}/ballot`)}>See full ballot<span className="sr-only"> for {s.name}</span> <span aria-hidden="true">→</span></a>
+                    </p>
                     <Turnout state={s.id} name={s.name} ink={s.ink} />
                   </li>
                 ))}
