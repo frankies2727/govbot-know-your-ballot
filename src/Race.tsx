@@ -1,5 +1,6 @@
 import { AtSign, Check, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import { GOVBOT_LEGISLATION } from './hosts';
+import { sourceName } from './lib/sources';
 import { memo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { BarRatings } from './BarRatings';
 import { Face } from './Face';
@@ -192,12 +193,12 @@ function InTheirWords({ c }: { c: Candidate }) {
           <ol className="space-y-2 text-[15px] leading-relaxed text-[var(--gb-text)]">
             {c.stances.messages.map((m) => <li key={m.slice(0, 40)} className="rounded-xl bg-[var(--gb-bg)] p-3">“{m}”</li>)}
           </ol>
-          <p className="text-xs text-[var(--gb-text)]">Their answer to Ballotpedia’s survey question “What are the 3 key messages of your campaign?”{when ? `, ${when}` : ''}, word for word. <a href={c.stances.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">The whole survey ↗</a></p>
+          <p className="text-xs text-[var(--gb-text)]">Their answer to Ballotpedia’s survey question “What are the 3 key messages of your campaign?”{when ? `, ${when}` : ''}, word for word. <a href={c.stances.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">The whole survey on {sourceName(c.stances.url)} ↗</a></p>
         </>
       )}
       {c.issuesUrl && (
         <a href={c.issuesUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-2 min-h-[44px] rounded-xl border-2 border-[var(--gb-text)] px-4 font-bold text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
-          Where they stand, on their campaign site <ExternalLink className="w-4 h-4" aria-hidden="true" />
+          Where they stand, on {sourceName(c.issuesUrl)} <ExternalLink className="w-4 h-4" aria-hidden="true" />
         </a>
       )}
     </section>
@@ -652,10 +653,10 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
                 )}
                 <CompareRow label="Links">
                   <p className="flex flex-wrap gap-x-3 gap-y-1">
-                    {c.website && <a href={c.website} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Campaign site ↗</a>}
-                    {c.issuesUrl && <a href={c.issuesUrl} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Their issues page ↗</a>}
-                    {c.stances && <a href={c.stances.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Full survey ↗</a>}
-                    {c.profile && <a href={c.profile} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Profile ↗</a>}
+                    {c.website && <a href={c.website} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Campaign site: {sourceName(c.website)} ↗</a>}
+                    {c.issuesUrl && <a href={c.issuesUrl} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Issues page on {sourceName(c.issuesUrl)} ↗</a>}
+                    {c.stances && <a href={c.stances.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Survey on {sourceName(c.stances.url)} ↗</a>}
+                    {c.profile && <a href={c.profile} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{sourceName(c.profile)} profile ↗</a>}
                     {!c.website && !c.issuesUrl && !c.stances && !c.profile && <span>No site or profile on record.</span>}
                   </p>
                 </CompareRow>

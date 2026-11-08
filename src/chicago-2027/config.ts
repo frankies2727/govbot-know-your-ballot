@@ -1,4 +1,5 @@
 import type { GuideSection } from '../guide/spec';
+import { sourceName } from '../lib/sources';
 import type { StateData } from '../guide/types';
 import type { ResearchLink } from '../research';
 import type { StateConfig } from '../state';
@@ -51,14 +52,14 @@ const q = encodeURIComponent;
 function researchLinks(data: StateData) {
   return (c: Candidate, race: Race): ResearchLink[] => {
     const links: ResearchLink[] = [];
-    if (c.website) links.push({ label: 'Their campaign site', href: c.website, note: 'Their own words on the issues' });
-    else links.push({ label: 'Search the web for their campaign', href: `https://duckduckgo.com/?q=${q(`${c.name.replace(/["“”][^"“”]*["“”]\s*/g, '')} ${race.office} Chicago 2027`)}`, note: 'No campaign site on record, so this opens a web search, not their site' });
-    if (c.profile) links.push({ label: 'Chicago Politics', href: c.profile, note: 'Their nominating petition’s signature count and campaign money, from public records' });
-    if (c.money) links.push({ label: 'Their campaign committee', href: `https://www.elections.il.gov/CampaignDisclosure/CommitteeDetail.aspx?ID=${c.money.id}`, note: 'Every report, donor and expense, on the Illinois State Board of Elections’ site' });
-    else links.push({ label: 'Illinois campaign finance search', href: LINKS.disclosure, note: 'The State Board of Elections’ records: search for their committee' });
+    if (c.website) links.push({ label: `Campaign site: ${sourceName(c.website)}`, href: c.website, note: 'Their own words on the issues' });
+    else links.push({ label: 'Search DuckDuckGo for their campaign', href: `https://duckduckgo.com/?q=${q(`${c.name.replace(/["“”][^"“”]*["“”]\s*/g, '')} ${race.office} Chicago 2027`)}`, note: 'No campaign site on record, so this opens a web search, not their site' });
+    if (c.profile) links.push({ label: 'Their page on Chicago Politics', href: c.profile, note: 'Their nominating petition’s signature count and campaign money, from public records' });
+    if (c.money) links.push({ label: 'Their committee at the Illinois State Board of Elections', href: `https://www.elections.il.gov/CampaignDisclosure/CommitteeDetail.aspx?ID=${c.money.id}`, note: 'Every report, donor and expense, on the Illinois State Board of Elections’ site' });
+    else links.push({ label: 'Illinois State Board of Elections: committee search', href: LINKS.disclosure, note: 'The State Board of Elections’ records: search for their committee' });
     const ward = race.area?.type === 'ward' && c.incumbent ? data.wards?.[race.area.id] : undefined;
-    if (ward?.site) links.push({ label: 'Their ward office', href: ward.site, note: `The ward’s official site${ward.phone ? `; ${ward.phone}` : ''}` });
-    links.push({ label: 'Board of Elections candidate list', href: LINKS.candidates, note: 'The official list: every filing and its status' });
+    if (ward?.site) links.push({ label: `Ward office site: ${sourceName(ward.site)}`, href: ward.site, note: `The ward’s official site${ward.phone ? `; ${ward.phone}` : ''}` });
+    links.push({ label: 'Chicago Board of Elections candidate list', href: LINKS.candidates, note: 'The official list: every filing and its status' });
     return links;
   };
 }

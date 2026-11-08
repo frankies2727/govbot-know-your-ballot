@@ -707,7 +707,7 @@ function WhereYouVote({ spec, districts, pin, onChange }: { spec: GuideSpec; dis
             </div>
           )}
           <p className="text-sm">
-            Not right? Check the <a className="font-bold underline" href={links.myInfo} target="_blank" rel="noreferrer noopener">official lookup ↗</a> or{' '}
+            Not right? Check <a className="font-bold underline" href={links.myInfo} target="_blank" rel="noreferrer noopener">{links.myInfoLabel} ↗</a> or{' '}
             <button type="button" onClick={onChange} className="font-bold underline">change your address</button>.
           </p>
         </div>

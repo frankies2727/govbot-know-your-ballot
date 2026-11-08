@@ -928,7 +928,7 @@ function WhereYouVote({ districts, chicago, cook, onChange }: { districts: Distr
             </div>
           )}
           <p className="text-sm text-[var(--gb-text)]">
-            Not right? Check the <a className="font-bold underline text-[var(--gb-text)]" href={chicago ? LINKS.addressLookup : LINKS.stateLookup} target="_blank" rel="noreferrer noopener">official address lookup ↗</a> or{' '}
+            Not right? Check <a className="font-bold underline text-[var(--gb-text)]" href={chicago ? LINKS.addressLookup : LINKS.stateLookup} target="_blank" rel="noreferrer noopener">{chicago ? 'the Chicago Board of Elections’ address lookup' : 'the Illinois State Board of Elections’ voter lookup'} ↗</a> or{' '}
             <button type="button" onClick={onChange} className="font-bold underline text-[var(--gb-text)]">change your address</button>.
           </p>
         </>

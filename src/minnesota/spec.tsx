@@ -68,7 +68,7 @@ export const MINNESOTA_GUIDE: GuideSpec = {
   config: MINNESOTA,
   sections: SECTIONS,
   districtChips: DISTRICT_CHIPS,
-  links: { myInfo: LINKS.myInfo, myInfoLabel: 'the Voter Information Portal', dates: LINKS.dates, datesSource: 'Minnesota Secretary of State', ballotpedia: 'https://ballotpedia.org/Minnesota_elections,_2026' },
+  links: { myInfo: LINKS.myInfo, myInfoLabel: 'the Secretary of State’s Voter Information Portal', dates: LINKS.dates, datesSource: 'Minnesota Secretary of State', ballotpedia: 'https://ballotpedia.org/Minnesota_elections,_2026' },
   keyDates: KEY_DATES,
   PlanToVote,
   guides: MINNESOTA_GUIDES,

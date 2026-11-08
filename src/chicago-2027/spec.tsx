@@ -65,7 +65,7 @@ export const CHICAGO_2027_GUIDE: GuideSpec = {
   config: chicagoConfig(data),
   sections: SECTIONS,
   districtChips: DISTRICT_CHIPS,
-  links: { myInfo: LINKS.myInfo, myInfoLabel: 'the Board’s voter lookup', dates: LINKS.calendar, datesSource: 'Chicago Board of Election Commissioners', ballotpedia: LINKS.candidates },
+  links: { myInfo: LINKS.myInfo, myInfoLabel: 'the Chicago Board of Elections’ voter lookup', dates: LINKS.calendar, datesSource: 'Chicago Board of Election Commissioners', ballotpedia: LINKS.candidates },
   keyDates: KEY_DATES,
   PlanToVote,
   guides: CHICAGO_GUIDES,
