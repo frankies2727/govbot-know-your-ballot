@@ -182,9 +182,9 @@ export function buildBallotPdf(s: PdfSummary, theme: PdfTheme = 'light'): Blob {
 
   // Before voting.
   ensure(110);
-  pdf.text('Before you vote', M, y, 14, { bold: true, color: P.ink });
+  pdf.text(s.daysLeft < 0 ? 'About this list' : 'Before you vote', M, y, 14, { bold: true, color: P.ink });
   y += 6;
-  const note = `${s.notes} This list is unofficial, from Know Your Ballot: the official sample ballot is the one to trust for the order and wording of what you’ll mark.`;
+  const note = `${s.notes} This list is unofficial, from Know Your Ballot: the official sample ballot is the one to trust for the order and wording of ${s.daysLeft < 0 ? 'what was on the ballot' : 'what you’ll mark'}.`;
   for (const l of pdf.wrap(note, 10, CW)) { y += 15; pdf.text(l, M, y, 10, { color: P.ink }); }
   y += 20;
   const official = `${s.official.label}: ${s.official.url.replace(/^https?:\/\//, '')}`;

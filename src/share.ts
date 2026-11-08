@@ -1,6 +1,9 @@
 // A share image of the voter's progress. Deliberately never includes picks:
 // it says "I did my homework", not "here's how I'm voting".
 
+import { GUIDE_ELECTION_DAY } from './hosts';
+import { daysUntil } from './store';
+
 export interface ShareStats {
   done: number;
   total: number;
@@ -82,7 +85,7 @@ export async function drawShareCard(s: ShareStats): Promise<Blob> {
 /** Native share sheet with the image where supported, else a download. */
 export async function shareCard(blob: Blob, url: string): Promise<'shared' | 'downloaded'> {
   const file = new File([blob], 'know-your-ballot.png', { type: 'image/png' });
-  const text = 'I looked up every race on my ballot. Know yours before Nov 3:';
+  const text = daysUntil(GUIDE_ELECTION_DAY) < 0 ? 'I looked up every race on my November 3, 2026 ballot. See what was on yours:' : 'I looked up every race on my ballot. Know yours before Nov 3:';
   if (navigator.canShare?.({ files: [file] })) {
     try {
       await navigator.share({ files: [file], text, url });

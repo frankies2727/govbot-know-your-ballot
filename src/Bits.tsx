@@ -7,6 +7,7 @@ import { useModal } from './lib/modal';
 import { useOpen } from './store';
 import { githubIssueUrl, sendReport, type ReportAbout } from './report';
 import { QuestionResults, RaceResults } from './results';
+import { longDate } from './seo/format';
 
 // Small pieces every state's guide shows: the progress ring in the pinned
 // bar, and the confetti when a ballot is finished.
@@ -669,3 +670,13 @@ export function HowBallotWorks({ storageKey, title, defaultOpen = false, childre
   );
 }
 
+
+/** Once its election is over, Plan to vote stays as the record of how voting worked; this says so and points to what's next. */
+export function PlanReference({ date, onNext }: { date: string; onNext: () => void }) {
+  return (
+    <p role="note" className="rounded-2xl border-2 border-[var(--gb-border-strong)] bg-[var(--gb-surface)] p-4 text-[15px] leading-relaxed text-[var(--gb-text)]">
+      <strong>For reference:</strong> this is how voting worked for the {longDate(date)} election. Its dates and deadlines have passed.{' '}
+      <button type="button" onClick={onNext} className="font-bold underline underline-offset-2">See the next election</button>
+    </p>
+  );
+}

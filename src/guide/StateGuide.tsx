@@ -1,7 +1,7 @@
 import { ArrowLeft, ChevronDown, Crosshair, ListChecks, Loader2, MapPin, Printer, Search, Share2 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { ClearButton } from '../components/ClearButton';
-import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionPanel, useBallotView, useDocumentMeta, BackToTop, ReportLink, SavedPicks, type SectionCard } from '../Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, SectionPanel, useBallotView, useDocumentMeta, BackToTop, ReportLink, SavedPicks, PlanReference, type SectionCard } from '../Bits';
 import { Group } from '../Calendar';
 import { GUIDES, guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
@@ -102,6 +102,8 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   // The details view has its own URL; with saved progress the first open goes straight there.
   const [showBallot, showView] = useBallotView(`know-your-ballot-${spec.slug}`);
   const browse = () => { setBrowsing(true); showView(true); };
+  // Plan to vote's reference note: back to the landing page, at the next election's notes.
+  const showNext = () => { showView(false); requestAnimationFrame(() => requestAnimationFrame(() => scrollTo(document.getElementById('kyb-next')))); };
   const daysLeft = daysUntil(data.election.date);
 
   // ---- the voter's ballot and their progress through it --------------------
@@ -466,6 +468,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
               {tab === 'plan' && (
                 <div className="pt-6 space-y-6">
+                  {daysLeft < 0 && <PlanReference date={data.election.date} onNext={showNext} />}
                   <PlanToVote plan={saved.plan} setPlan={setPlan} county={districts?.county} ballotDone={allDone} />
                   <KeyDates spec={spec} />
                   <MoreGuides guides={spec.guides} storageKey={`kyb-${code}-guides-open`} />
@@ -602,11 +605,11 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         <div className="min-w-0 flex-1 space-y-3">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em]">{copy.overline}</p>
           <h1 className="text-[40px] sm:text-5xl leading-[1.02]">{copy.heading}</h1>
-          <p className="font-[family-name:var(--gb-font-display)] text-xl">Every race on your ballot, explained before you vote.</p>
+          <p className="font-[family-name:var(--gb-font-display)] text-xl">{daysLeft < 0 ? 'Every race on the November 3, 2026 ballot, as voters saw it.' : 'Every race on your ballot, explained before you vote.'}</p>
           <p className="font-semibold">
-            Election Day: Tue, Nov 3, 2026{daysLeft > 0 ? <> · <span className="rounded-full bg-[var(--gb-primary)] px-2.5 py-0.5 font-bold text-[var(--gb-on-primary)]">{daysLeft} days to go</span></> : daysLeft === 0 ? ' · Today!' : ''}
+            {daysLeft < 0 ? 'Election Day was ' : 'Election Day: '}Tue, Nov 3, 2026{daysLeft > 0 ? <> · <span className="rounded-full bg-[var(--gb-primary)] px-2.5 py-0.5 font-bold text-[var(--gb-on-primary)]">{daysLeft} days to go</span></> : daysLeft === 0 ? ' · Today!' : ''}
           </p>
-          <ul className="space-y-1 text-[15px] leading-relaxed max-w-[62ch]" aria-label="What you’ll vote on">
+          <ul className="space-y-1 text-[15px] leading-relaxed max-w-[62ch]" aria-label={daysLeft < 0 ? 'What was on the ballot' : 'What you’ll vote on'}>
             {copy.bullets.map((b) => <li key={b} className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>{b}</span></li>)}
           </ul>
         </div>

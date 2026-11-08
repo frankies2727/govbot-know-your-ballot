@@ -9,6 +9,7 @@ import type { KeyDate } from '../dates';
 import type { Measure, Race } from '../types';
 import { COVERAGE, HOW, PORTAL, SITE_QA, STATE_NAMES, type StateSlug } from './copy';
 import { aOrAn, longDate, shortDate } from './format';
+import { GUIDE_ELECTION_DAY } from '../hosts';
 
 export interface Faq { q: string; a: string }
 
@@ -25,7 +26,10 @@ export interface FaqContext {
   keyDates: FaqDate[];
 }
 
-export const ELECTION_DAY = '2026-11-03';
+export const ELECTION_DAY = GUIDE_ELECTION_DAY;
+/** Past Election Day the questions ask about the ballot that was ("Who ran", "What was on"), the same words in the page and its markup. */
+/** Whether Election Day has passed in Chicago time (the guides then read as the record of that ballot). */
+export const held = (now = new Date()) => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(now) > ELECTION_DAY;
 
 /** Key dates as the questions say them; Illinois's Chicago-only and suburban-only dates name their voters. */
 export const faqDates = (dates: KeyDate[]): FaqDate[] => dates.map((d) => ({ date: d.date, title: d.title, detail: d.detail, only: d.only === 'chicago' ? 'Chicago voters' : d.only === 'suburbs' ? 'suburban Cook voters' : undefined }));
@@ -52,10 +56,11 @@ export function faqFor(ctx: FaqContext): Faq[] {
   const name = STATE_NAMES[slug];
   const out: Faq[] = [];
   const election = keyDates.find((d) => d.title === 'Election Day');
+  const past = held();
 
-  out.push({ q: `When is the ${name} general election in 2026?`, a: `${longDate(ELECTION_DAY)}.${election?.detail ? ` ${sentence(election.detail)}` : ''}` });
+  out.push({ q: `When ${past ? 'was' : 'is'} the ${name} general election in 2026?`, a: `${longDate(ELECTION_DAY)}.${election?.detail ? ` ${sentence(election.detail)}` : ''}` });
   out.push({
-    q: `What are the key dates and deadlines for voting in ${name} on November 3, 2026?`,
+    q: `What ${past ? 'were' : 'are'} the key dates and deadlines for voting in ${name} on November 3, 2026?`,
     a: keyDates.map((d) => `${shortDate(d.date)}: ${d.title}${d.only ? ` (${d.only})` : ''}${d.detail ? `. ${sentence(d.detail)}` : '.'}`).join(' '),
   });
 
@@ -66,19 +71,19 @@ export function faqFor(ctx: FaqContext): Faq[] {
   const boards = races.filter((r) => !r.area && !['federal', 'state', 'judicial', 'county'].includes(r.section));
   const names = (rs: Race[]) => [...new Set(rs.map((r) => officeLabel(r.office)))];
   const districts = DISTRICT_LABELS.map(([type, one, many]) => [new Set(races.filter((r) => r.area?.type === type).map((r) => r.area!.id)).size, one, many] as const).filter(([n]) => n > 0).map(([n, one, many]) => plural(n, one, many));
-  const parts = [`Every ${name} voter votes on ${list(names(heads))}`];
+  const parts = [`Every ${name} voter ${past ? 'voted' : 'votes'} on ${list(names(heads))}`];
   if (boards.length) parts.push(`${list(names(boards))}`);
   if (judges) parts.push(plural(judges, 'statewide judicial seat', 'statewide judicial seats'));
-  const own = districts.length ? ` Depending on your address you also vote in your own district's contests (${list(districts)} in the state).` : '';
+  const own = districts.length ? ` Depending on your address you also ${past ? 'voted' : 'vote'} in your own district's contests (${list(districts)} in the state).` : '';
   const state = statewideMeasures(measures);
   const local = measures.length - state.length;
-  const measuresLine = `${state.length ? ` There ${state.length === 1 ? 'is' : 'are'} also ${plural(state.length, 'statewide ballot question', 'statewide ballot questions')}: ${list(state.map((m) => m.title))}.` : ''}${local ? ` This guide also covers ${plural(local, 'local ballot question', 'local ballot questions')}, which appear only on some ballots, depending on the voter's county, city, ward or precinct.` : ''}`;
-  out.push({ q: `What is on the ${name} ballot on November 3, 2026?`, a: `${parts.join(', plus ')}.${own}${measuresLine}${COVERAGE[slug] ? ` ${COVERAGE[slug]}` : ''}` });
+  const measuresLine = `${state.length ? ` There ${state.length === 1 ? (past ? 'was' : 'is') : past ? 'were' : 'are'} also ${plural(state.length, 'statewide ballot question', 'statewide ballot questions')}: ${list(state.map((m) => m.title))}.` : ''}${local ? ` This guide also covers ${plural(local, 'local ballot question', 'local ballot questions')}, which appear only on some ballots, depending on the voter's county, city, ward or precinct.` : ''}`;
+  out.push({ q: `What ${past ? 'was' : 'is'} on the ${name} ballot on November 3, 2026?`, a: `${parts.join(', plus ')}.${own}${measuresLine}${COVERAGE[slug] ? ` ${COVERAGE[slug]}` : ''}` });
 
   // One pair per headline office: who is running, and what the job does.
   for (const r of heads) {
     const office = officeLabel(r.office);
-    out.push({ q: `Who is running for ${office} in ${name} in 2026?`, a: `${who(r)}.${asOf ? ` Candidate list as of ${asOf}.` : ''} Confirm your own ballot at ${PORTAL[slug].name}.` });
+    out.push({ q: `Who ${past ? 'ran' : 'is running'} for ${office} in ${name} in 2026?`, a: `${who(r)}.${asOf ? ` Candidate list as of ${asOf}.` : ''}${past ? '' : ` Confirm your own ballot at ${PORTAL[slug].name}.`}` });
     const job = explainOffice(r.office);
     if (job) out.push({ q: `What does the ${office} do in ${name}?`, a: sentence(job) });
   }

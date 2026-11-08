@@ -11,7 +11,9 @@ export const GUIDES: { id: GuideState; name: string }[] = [
  * so a later election's guide gets an address of its own. The old /michigan
  * addresses redirect here (vercel.json, and lib/router.ts in the browser).
  */
-export const GUIDE_CYCLE = '2026-11';
+/** The election the guides cover; past it, they read as the record of that ballot ("ran", "was on"). */
+export const GUIDE_ELECTION_DAY = '2026-11-03';
+export const GUIDE_CYCLE = GUIDE_ELECTION_DAY.slice(0, 7);
 export const GUIDE_STATES: GuideState[] = ['illinois', 'michigan', 'minnesota', 'wisconsin'];
 
 /** A guide's path: "/2026-11/michigan", or its ballot "/2026-11/michigan/ballot". */

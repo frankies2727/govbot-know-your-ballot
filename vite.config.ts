@@ -7,6 +7,7 @@ import { llmsTxt, robotsTxt, sitemapXml, type SitePage, type StateFacts } from '
 import { BODY_CSS, homeBody, jsonLd, jsonScript, llmsFull, readState, stateBody } from './scripts/seo/page-body';
 import { STATE_SLUGS } from './src/seo/copy';
 import { GUIDE_CYCLE, guidePath, type GuideState } from './src/hosts';
+import { held } from './src/seo/faq';
 
 // What a shared link shows (the title, description and picture social apps
 // read from the HTML itself, before any script runs): one set per page, the
@@ -15,12 +16,17 @@ import { GUIDE_CYCLE, guidePath, type GuideState } from './src/hosts';
 // which vercel.json serves for that path. The pictures are
 // public/kyb-og/*.png.
 const SITE = 'https://govbot-know-your-ballot.vercel.app';
+// Past Election Day (when the site is built) a guide describes the ballot that was.
+const HELD = held();
+const guideDesc = (what: string, name: string) => HELD
+  ? `${what} on the Nov 3, 2026 ${name} ballot, as voters saw it. Free, open source and non-partisan, built on Govbot.`
+  : `${what} on your Nov 3, 2026 ${name} ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.`;
 const PAGES: Record<string, { title: string; desc: string; img: string }> = {
   '': { title: 'Govbot Know Your Ballot', desc: 'Your exact ballot by address: every race, judge and question, who’s running and who’s funding them. Illinois, Michigan, Minnesota and Wisconsin, built on Govbot.', img: 'home' },
-  illinois: { title: 'Know Your Illinois Ballot', desc: 'Every race, judge and question on your Nov 3, 2026 Illinois ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'illinois' },
-  michigan: { title: 'Know Your Michigan Ballot', desc: 'Every race, judge and proposal on your Nov 3, 2026 Michigan ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'michigan' },
-  minnesota: { title: 'Know Your Minnesota Ballot', desc: 'Every race, judge and the amendment on your Nov 3, 2026 Minnesota ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'minnesota' },
-  wisconsin: { title: 'Know Your Wisconsin Ballot', desc: 'Every race and question on your Nov 3, 2026 Wisconsin ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.', img: 'wisconsin' },
+  illinois: { title: 'Know Your Illinois Ballot', desc: guideDesc('Every race, judge and question', 'Illinois'), img: 'illinois' },
+  michigan: { title: 'Know Your Michigan Ballot', desc: guideDesc('Every race, judge and proposal', 'Michigan'), img: 'michigan' },
+  minnesota: { title: 'Know Your Minnesota Ballot', desc: guideDesc('Every race, judge and the amendment', 'Minnesota'), img: 'minnesota' },
+  wisconsin: { title: 'Know Your Wisconsin Ballot', desc: guideDesc('Every race and question', 'Wisconsin'), img: 'wisconsin' },
 };
 /** The four guides: where voters confirm their own ballot, per state. */
 const STATES = [

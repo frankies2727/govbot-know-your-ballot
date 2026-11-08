@@ -1,3 +1,5 @@
+import { GUIDE_ELECTION_DAY } from './hosts';
+import { daysUntil } from './store';
 import type { Race } from './types';
 
 /**
@@ -5,8 +7,11 @@ import type { Race } from './types';
  * records them: an open seat in the source's own words, or the incumbent(s)
  * running to keep it. With no holder on record, a candidate the list marks
  * as the incumbent is running to keep the seat. Empty when nothing is known.
+ * Once the election is over (`held`) it says what was at stake: "ran to keep
+ * the seat", "wasn't on the ballot".
  */
-export function stakes(race: Race): string {
+export function stakes(race: Race, held = daysUntil(GUIDE_ELECTION_DAY) < 0): string {
+  const keep = (n: number) => (held ? (n > 1 ? 'ran to keep their seats.' : 'ran to keep the seat.') : n > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.');
   const inc = race.incumbents ?? [];
   const leaving = inc.filter((i) => i.ballot == null && i.note);
   if (leaving.length) {
@@ -16,12 +21,12 @@ export function stakes(race: Race): string {
     return `Open seat. ${surname && note!.includes(surname) ? note : `${name}: ${note}`}`;
   }
   const running = inc.filter((i) => i.ballot != null);
-  if (running.length) return `${running.map((i) => i.name).join(' and ')} ${running.length > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.'}`;
+  if (running.length) return `${running.map((i) => i.name).join(' and ')} ${keep(running.length)}`;
   // The candidate list marks the incumbent (the roster may spell them differently: "Patty" / "Patricia").
   const marked = race.candidates.filter((c) => c.incumbent);
-  if (marked.length) return `${marked.map((c) => c.name).join(' and ')} ${marked.length > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.'}`;
+  if (marked.length) return `${marked.map((c) => c.name).join(' and ')} ${keep(marked.length)}`;
   // The holder isn't on this ballot and the source gave no reason.
   const gone = inc.filter((i) => i.ballot == null);
-  if (gone.length) return `Open seat. ${gone.map((i) => i.name).join(' and ')} ${gone.length > 1 ? 'aren’t' : 'isn’t'} on the ballot for this seat.`;
+  if (gone.length) return `Open seat. ${gone.map((i) => i.name).join(' and ')} ${gone.length > 1 ? (held ? 'weren’t' : 'aren’t') : held ? 'wasn’t' : 'isn’t'} on the ballot for this seat.`;
   return '';
 }

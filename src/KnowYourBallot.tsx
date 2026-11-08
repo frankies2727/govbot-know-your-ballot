@@ -19,7 +19,7 @@ import type { Guide } from './types';
 import { StateMap } from './Hero';
 import outline from './data/illinois/outline.json';
 import { GaugeDefs } from './BarRatings';
-import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, BackToTop, ReportLink, SavedPicks, type SectionCard } from './Bits';
+import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, ProgressHead, ProgressLine, usePinnedBar, useWide, SectionCards, useBallotView, useDocumentMeta, BackToTop, ReportLink, SavedPicks, PlanReference, type SectionCard } from './Bits';
 import { ReadOnlyContext } from './state';
 import { ContentsColumn, ContentsDrawer } from './Contents';
 import { Headliners } from './Headliners';
@@ -182,6 +182,8 @@ export function KnowYourBallot() {
   // The details view has its own URL; with saved progress the first open goes straight there.
   const [showBallot, showView] = useBallotView('know-your-ballot-illinois');
   const browse = () => { setBrowsing(true); showView(true); };
+  // Plan to vote's reference note: back to the landing page, at the next election's notes.
+  const showNext = () => { showView(false); requestAnimationFrame(() => requestAnimationFrame(() => scrollTo(document.getElementById('kyb-next')))); };
   const daysLeft = daysUntil(data.election.date);
 
   // ---- the voter's ballot and their progress through it --------------------
@@ -621,6 +623,7 @@ export function KnowYourBallot() {
 
             {tab === 'plan' && (
               <div className="pt-6 space-y-6">
+                {daysLeft < 0 && <PlanReference date={data.election.date} onNext={showNext} />}
                 <PlanToVote plan={saved.plan} setPlan={setPlan} chicago={chicago} clerk={clerk} clerkName={cook ? 'the Cook County Clerk' : 'your county clerk'} ward={districts?.ward}
                   wardSite={districts?.ward ? data.earlyVotingSites[districts.ward] : undefined}
                   ballotDone={allDone} />
@@ -755,19 +758,19 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         <div className="min-w-0 flex-1 space-y-3">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em]">Illinois · 2026 midterms</p>
           <h1 className="text-[40px] sm:text-5xl leading-[1.02]">Know Your Illinois Ballot</h1>
-          <p className="font-[family-name:var(--gb-font-display)] text-xl">Every race on your ballot, explained before you vote.</p>
+          <p className="font-[family-name:var(--gb-font-display)] text-xl">{daysLeft < 0 ? 'Every race on the November 3, 2026 ballot, as voters saw it.' : 'Every race on your ballot, explained before you vote.'}</p>
           <p className="font-semibold">
-            Election Day: Tue, Nov 3, 2026{daysLeft > 0 ? <> · <span className="rounded-full bg-[var(--gb-primary)] px-2.5 py-0.5 font-bold text-[var(--gb-on-primary)]">{daysLeft} days to go</span></> : daysLeft === 0 ? ' · Today!' : ''}
+            {daysLeft < 0 ? 'Election Day was ' : 'Election Day: '}Tue, Nov 3, 2026{daysLeft > 0 ? <> · <span className="rounded-full bg-[var(--gb-primary)] px-2.5 py-0.5 font-bold text-[var(--gb-on-primary)]">{daysLeft} days to go</span></> : daysLeft === 0 ? ' · Today!' : ''}
           </p>
-          <ul className="space-y-1 text-[15px] leading-relaxed max-w-[62ch]" aria-label="What you’ll vote on">
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Choosing Illinois’ next governor and statewide leaders</span></li>
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Filling an open U.S. Senate seat</span></li>
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Electing your U.S. House representative</span></li>
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Choosing your Illinois state senator and representative</span></li>
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Electing Cook County leaders who oversee taxes and local services</span></li>
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Deciding which judges stay and which new judges take office</span></li>
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Electing your Chicago school board representative</span></li>
-            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Voting on local ballot questions that affect your community</span></li>
+          <ul className="space-y-1 text-[15px] leading-relaxed max-w-[62ch]" aria-label={daysLeft < 0 ? 'What was on the ballot' : 'What you’ll vote on'}>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Illinois’ governor and the other statewide offices</span></li>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>An open U.S. Senate seat</span></li>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Your U.S. House seat</span></li>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Your Illinois state senator and representative</span></li>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Cook County offices that oversee taxes and local services</span></li>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Judges up for retention, and new judges</span></li>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Your Chicago school board seat</span></li>
+            <li className="flex gap-2"><span aria-hidden="true" className="font-black text-[var(--gb-primary)]">&gt;</span><span>Local ballot questions</span></li>
           </ul>
         </div>
         <div className="w-[190px] md:w-[300px] md:max-w-[36%] shrink-0 self-center"><StateMap outline={outline as Outline} name="Illinois" colors={IL_MAP} id="il" /></div>
