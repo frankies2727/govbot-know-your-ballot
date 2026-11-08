@@ -21,7 +21,7 @@ import { HOW, PORTAL, STATE_NAMES, STATE_SLUGS, type StateSlug } from '../../src
 import { ELECTION_DAY, faqDates, faqFor, headlineRaces, homeFaq, statewideMeasures, type Faq } from '../../src/seo/faq';
 import { aOrAn, isoDate, longDate, shortDate } from '../../src/seo/format';
 import type { Measure, Race } from '../../src/types';
-import { ELECTIONS, STATE_NAME, YEARS } from '../../src/electionIndex';
+import { ELECTIONS, guideOf, STATE_NAME, YEARS } from '../../src/electionIndex';
 import { guidePath } from '../../src/hosts';
 
 const EXPLAIN: Record<StateSlug, (office: string) => string> = { illinois: ilExplain, michigan: miExplain, minnesota: mnExplain, wisconsin: wiExplain };
@@ -88,7 +88,7 @@ export function homeBody(states: StatePage[], site: string, desc: string): strin
     '<h2>Elections by year</h2>',
     ...YEARS.flatMap((y) => [
       `<h3>${y}</h3><ul>`,
-      ...ELECTIONS.filter((e) => e.date.startsWith(String(y))).map((e) => `<li>${esc(longDate(e.date))}: ${esc(STATE_NAME[e.state])} ${esc(e.title.toLowerCase())}. ${esc(e.what)}${e.guide ? ` <a href="${site}${guidePath(e.state)}">${esc(STATE_NAME[e.state])} guide</a>` : ''}</li>`),
+      ...ELECTIONS.filter((e) => e.date.startsWith(String(y))).map((e) => `<li>${esc(longDate(e.date))}: ${esc(STATE_NAME[e.state])} ${esc(e.title.toLowerCase())}. ${esc(e.what)}${e.guide ? ` <a href="${site}${guidePath(guideOf(e))}">${esc(e.guide.label.replace(/^Open the /, '').replace(/^\w/, (c) => c.toUpperCase()))}</a>` : ''}</li>`),
       '</ul>',
     ]),
     '<h2>Common questions</h2>',

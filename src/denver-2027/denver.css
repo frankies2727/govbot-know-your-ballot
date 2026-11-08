@@ -1,0 +1,18 @@
+/* Know Your Ballot: Denver's municipal election, Apr 6, 2027. A palette from
+   the city flag: its sky blue, its gold sun and its red. Brand colours stay
+   the same in both themes; each section carries the ink that reads on it
+   (config.ts). The shared tokens are in ballot.css. */
+:root {
+  --den-blue: #1F4AA8;
+  --den-gold: #F2B705;
+  --den-red: #D2232A;
+  --den-ink: #1A1600;
+}
+
+/* The state's colour in the elections list (lanes, dots, the row's edge): lighter on the dark theme, deeper on the light one. */
+:root { --den-blue-hi: #7FA6F5; }
+:root[data-theme="light"] { --den-blue-hi: #1F4AA8; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --den-blue-hi: #1F4AA8; } }
+
+/* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the district map glows gold. */
+.kyb-den { --kyb-accent: var(--den-gold); --kyb-accent-ink: var(--den-ink); --kyb-map-glow: color-mix(in srgb, var(--den-gold) 50%, transparent); }

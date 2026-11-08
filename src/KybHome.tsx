@@ -17,6 +17,13 @@ import { MichiganMap } from './michigan/Hero';
 import { MinnesotaMap } from './minnesota/Hero';
 import { WisconsinMap } from './wisconsin/Hero';
 import { ChicagoMap } from './chicago-2027/Hero';
+import { ELECTION_DAY as CHICAGO_DAY } from './chicago-2027/dates';
+import { DenverMap } from './denver-2027/Hero';
+import { ELECTION_DAY as DENVER_DAY } from './denver-2027/dates';
+import { JacksonvilleMap } from './jacksonville-2027/Hero';
+import { ELECTION_DAY as JACKSONVILLE_DAY } from './jacksonville-2027/dates';
+import { ELECTION_DAY as SPRING_DAY } from './wisconsin-2027/dates';
+import type { GuideId } from './hosts';
 import { daysUntil } from './store';
 import type { Outline } from './types';
 import './ballot.css';
@@ -24,6 +31,8 @@ import './michigan/michigan.css';
 import './minnesota/minnesota.css';
 import './wisconsin/wisconsin.css';
 import './chicago-2027/chicago.css';
+import './denver-2027/denver.css';
+import './jacksonville-2027/jacksonville.css';
 import './home.css';
 
 /** What a state's guide covers: its latest election's description. */
@@ -42,18 +51,22 @@ const STATES = [
   { id: 'wisconsin' as const, name: 'Wisconsin', ink: STATE_INK.wisconsin, covers: covers('wisconsin'), map: <WisconsinMap /> },
 ];
 
+/** Spring 2027's guides, by Election Day: their card's map, what's on the ballot and when. */
+const SPRING: { id: GuideId; name: string; ink: string; map: React.ReactNode; covers: string; day: string; when: string; srName?: string }[] = [
+  { id: 'chicago-2027', name: 'Chicago', ink: 'var(--chi-blue)', map: <ChicagoMap />, covers: 'Mayor, clerk, treasurer, all 50 alderpersons and the police district councils.', day: CHICAGO_DAY, when: 'days to Election Day, Tue, Feb 23' },
+  { id: 'jacksonville-2027', name: 'Jacksonville', ink: STATE_INK.florida, map: <JacksonvilleMap />, covers: 'Mayor, sheriff, the county’s officers and all 19 City Council seats.', day: JACKSONVILLE_DAY, when: 'days to Election Day, Tue, Mar 9 (May 18 runoffs where needed)' },
+  { id: 'denver-2027', name: 'Denver', ink: STATE_INK.colorado, map: <DenverMap />, covers: 'Mayor, auditor, clerk and recorder and all 13 City Council seats.', day: DENVER_DAY, when: 'days to Election Day, Tue, Apr 6 (Jun 1 runoffs where needed)' },
+  { id: 'wisconsin-2027', name: 'Wisconsin', ink: STATE_INK.wisconsin, map: <WisconsinMap />, covers: 'An open Supreme Court seat, the Court of Appeals and circuit courts.', day: SPRING_DAY, when: 'days to Election Day, Tue, Apr 6 (a Feb 16 primary only where needed)', srName: 'Wisconsin’s spring election' },
+];
+
 /** The page's parts for the pinned bar's contents, in page order. */
 const PARTS: LandingItem[] = [
   { id: 'kyb-intro', emoji: '🗳️', label: 'Know Your Ballot' },
   { id: 'elections', emoji: '📅', label: 'Elections' },
-  { id: 'spring-2027', emoji: '🗓️', label: 'Spring 2027', sub: [{ id: 'kyb-home-chicago-2027', emoji: '📍', label: 'Chicago', color: 'var(--chi-blue)' }, { id: 'kyb-home-wisconsin-2027', emoji: '📍', label: 'Wisconsin', color: STATE_INK.wisconsin }] },
+  { id: 'spring-2027', emoji: '🗓️', label: 'Spring 2027', sub: SPRING.map((g) => ({ id: `kyb-home-${g.id}`, emoji: '📍', label: g.name, color: g.ink })) },
   { id: 'pick', emoji: '🗺️', label: 'November 2026 Midterms', short: 'Nov 2026 Midterms', sub: STATES.map((s) => ({ id: `kyb-home-${s.id}`, emoji: '📍', label: s.name, color: s.ink })) },
   { id: 'kyb-open', emoji: '🤝', label: 'Built by and for everyone', short: 'Get involved' },
 ];
-/** Chicago's city election. */
-const CHICAGO_DAY = '2027-02-23';
-/** Wisconsin's spring election. */
-const SPRING_DAY = '2027-04-06';
 /** Clear of the pinned bar where the contents jumps (the page's scroll padding already clears govbot's header). */
 const UNDER_BAR = 'scroll-mt-[var(--kyb-bar,0px)]';
 
@@ -100,36 +113,24 @@ export function KybHome() {
                 <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Spring 2027</h2>
                 <ChevronDown className="kyb-cycle-chev h-7 w-7 shrink-0" aria-hidden="true" />
               </summary>
-              <p className="mt-2 max-w-[60ch] text-[17px]">Chicago’s city election on Tue, Feb 23, and Wisconsin’s spring election on Tue, Apr 6. Every race and who’s running, from the official lists as they’re filed.</p>
+              <p className="mt-2 max-w-[60ch] text-[17px]">Chicago’s city election on Tue, Feb 23, Jacksonville’s on Tue, Mar 9, and Denver’s and Wisconsin’s spring election on Tue, Apr 6. Every race, who holds each seat now, and who’s running as the lists come out.</p>
               <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="Guides for spring 2027">
-                <li id="kyb-home-chicago-2027" className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': 'var(--chi-blue)' } as React.CSSProperties}>
-                  <a href={guidePath('chicago-2027')} onClick={openIn('projects/know-your-ballot-chicago-2027')} className="kyb-tile h-full">
-                    <span className="flex h-[140px] items-end justify-center sm:h-[160px]"><ChicagoMap /></span>
-                    <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">Chicago</span>
-                    <span className="block text-[15px] leading-snug">Mayor, clerk, treasurer, all 50 alderpersons and the police district councils.</span>
-                  </a>
-                  <p className="kyb-card-act">
-                    <a href={guidePath('chicago-2027', true)} onClick={openIn('projects/know-your-ballot-chicago-2027/ballot')}>See full ballot<span className="sr-only"> for Chicago</span> <span aria-hidden="true">→</span></a>
-                  </p>
-                  <p className="border-t border-[var(--gb-border)] p-3 text-[13.5px] leading-snug sm:p-4">
-                    <span className="block font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{Math.max(0, daysUntil(CHICAGO_DAY))}</span>
-                    <span className="mt-1 block">days to Election Day, Tue, Feb 23</span>
-                  </p>
-                </li>
-                <li id="kyb-home-wisconsin-2027" className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': STATE_INK.wisconsin } as React.CSSProperties}>
-                  <a href={guidePath('wisconsin-2027')} onClick={openIn('projects/know-your-ballot-wisconsin-2027')} className="kyb-tile h-full">
-                    <span className="flex h-[140px] items-end justify-center sm:h-[160px]"><WisconsinMap /></span>
-                    <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">Wisconsin</span>
-                    <span className="block text-[15px] leading-snug">An open Supreme Court seat, the Court of Appeals and circuit courts.</span>
-                  </a>
-                  <p className="kyb-card-act">
-                    <a href={guidePath('wisconsin-2027', true)} onClick={openIn('projects/know-your-ballot-wisconsin-2027/ballot')}>See full ballot<span className="sr-only"> for Wisconsin’s spring election</span> <span aria-hidden="true">→</span></a>
-                  </p>
-                  <p className="border-t border-[var(--gb-border)] p-3 text-[13.5px] leading-snug sm:p-4">
-                    <span className="block font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{Math.max(0, daysUntil(SPRING_DAY))}</span>
-                    <span className="mt-1 block">days to Election Day, Tue, Apr 6 (a Feb 16 primary only where needed)</span>
-                  </p>
-                </li>
+                {SPRING.map((g) => (
+                  <li key={g.id} id={`kyb-home-${g.id}`} className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': g.ink } as React.CSSProperties}>
+                    <a href={guidePath(g.id)} onClick={openIn(`projects/know-your-ballot-${g.id}`)} className="kyb-tile h-full">
+                      <span className="flex h-[140px] items-end justify-center sm:h-[160px]">{g.map}</span>
+                      <span className="kyb-tile-name block font-serif text-[1.6rem] font-medium leading-tight sm:text-[1.9rem]">{g.name}</span>
+                      <span className="block text-[15px] leading-snug">{g.covers}</span>
+                    </a>
+                    <p className="kyb-card-act">
+                      <a href={guidePath(g.id, true)} onClick={openIn(`projects/know-your-ballot-${g.id}/ballot`)}>See full ballot<span className="sr-only"> for {g.srName ?? g.name}</span> <span aria-hidden="true">→</span></a>
+                    </p>
+                    <p className="border-t border-[var(--gb-border)] p-3 text-[13.5px] leading-snug sm:p-4">
+                      <span className="block font-serif text-[2rem] font-medium leading-none sm:text-[2.4rem]">{Math.max(0, daysUntil(g.day))}</span>
+                      <span className="mt-1 block">{g.when}</span>
+                    </p>
+                  </li>
+                ))}
               </ul>
             </details>
           </section>

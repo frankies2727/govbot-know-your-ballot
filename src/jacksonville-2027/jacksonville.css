@@ -1,0 +1,18 @@
+/* Know Your Ballot: Jacksonville's consolidated city election, Mar 9, 2027.
+   A palette from the St. Johns River: deep river navy, its teal, and Florida
+   sun gold. Brand colours stay the same in both themes; each section carries
+   the ink that reads on it (config.ts). The shared tokens are in ballot.css. */
+:root {
+  --jax-navy: #12355B;
+  --jax-teal: #00788A;
+  --jax-gold: #E3A82B;
+  --jax-ink: #1C1400;
+}
+
+/* The state's colour in the elections list (lanes, dots, the row's edge): lighter on the dark theme, deeper on the light one. */
+:root { --jax-teal-hi: #3CC3D3; }
+:root[data-theme="light"] { --jax-teal-hi: #00788A; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --jax-teal-hi: #00788A; } }
+
+/* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the district map glows gold. */
+.kyb-jax { --kyb-accent: var(--jax-gold); --kyb-accent-ink: var(--jax-ink); --kyb-map-glow: color-mix(in srgb, var(--jax-gold) 50%, transparent); }

@@ -32,6 +32,7 @@ import { addStateMoney, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
 import { addPhotos } from './illinois/photos.mjs';
 import { addSocial } from './illinois/social.mjs';
 import { personKey } from './results/match.mjs';
+import { outlineOf } from './city-maps.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/chicago-2027/', ROOT);
@@ -222,30 +223,6 @@ export function politicsPage(pages, name, race) {
   return null;
 }
 
-/**
- * The hero's map: Chicago's 50 wards (the lookup's own ward map,
- * src/data/illinois/districts.json), in the projection the state outlines
- * use, 600 px wide. Points closer than ~2 px to the last kept one are
- * dropped, which keeps the file small and the ward lines clean.
- */
-export function wardMap(layer) {
-  const pts = layer.flatMap((w) => w.rings.flatMap((r) => r.filter((_, i) => i % 2 === 0).map((x, i) => [x, r[2 * i + 1]])));
-  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
-  const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
-  const kx = 600 / (x1 - x0);
-  const ky = kx / Math.cos((((y0 + y1) / 2) * Math.PI) / 180);
-  const path = layer.flatMap((w) => w.rings).map((r) => {
-    const out = [];
-    for (let i = 0; i < r.length; i += 2) {
-      const p = [Math.round((r[i] - x0) * kx), Math.round((y1 - r[i + 1]) * ky)];
-      const last = out[out.length - 1];
-      if (!last || Math.abs(p[0] - last[0]) + Math.abs(p[1] - last[1]) >= 2) out.push(p);
-    }
-    return out.length > 2 ? `M${out.map((p) => p.join(' ')).join('L')}Z` : '';
-  }).join('');
-  return { width: 600, height: Math.round((y1 - y0) * ky), path, bbox: [+x0.toFixed(4), +y0.toFixed(4), +x1.toFixed(4), +y1.toFixed(4)], kx: +kx.toFixed(3), ky: +ky.toFixed(3) };
-}
-
 // ---- the build -----------------------------------------------------------------------
 
 async function main() {
@@ -344,7 +321,7 @@ async function main() {
   };
   writeFileSync(new URL('ballot.json', OUT), `${JSON.stringify(data)}\n`);
   const { layers } = JSON.parse(readFileSync(new URL('src/data/illinois/districts.json', ROOT), 'utf8'));
-  writeFileSync(new URL('outline.json', OUT), `${JSON.stringify(wardMap(layers.ward))}\n`);
+  writeFileSync(new URL('outline.json', OUT), `${JSON.stringify(outlineOf(layers.ward))}\n`);
   console.log(`Wrote src/data/chicago-2027/ballot.json: ${races.length} races, ${filed} candidates`);
 }
 

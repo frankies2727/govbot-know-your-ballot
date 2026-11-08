@@ -1,4 +1,4 @@
-import type { GuideId } from './hosts';
+import { GUIDE_STATES, type GuideId, type GuideState } from './hosts';
 import { daysUntil } from './store';
 
 // The elections the root page lists, by state and date: the guides that are
@@ -6,7 +6,8 @@ import { daysUntil } from './store';
 // one entry here; the page, its year rail and its filters follow.
 //
 // Where the dates come from (each already checked when its state's guide was
-// written): Nov 3, 2026 and the 2027 Illinois dates in src/dates.ts; Michigan's
+// written): Nov 3, 2026 and the 2027 Illinois dates in src/dates.ts; Denver's
+// and Jacksonville's in their guides' dates.ts; Michigan's
 // 2027 dates (MCL 168.641), Minnesota's and Wisconsin's in each state's
 // NextUp.tsx; the November 2028 general is the first Tuesday after the first
 // Monday of the month (federal law), a date no state moves.
@@ -14,13 +15,13 @@ import { daysUntil } from './store';
 // When a past election's results are certified, nothing changes here: the
 // guide itself says so (src/results.tsx).
 
-export type StateId = 'illinois' | 'michigan' | 'minnesota' | 'wisconsin';
+export type StateId = 'colorado' | 'florida' | 'illinois' | 'michigan' | 'minnesota' | 'wisconsin';
 export type ElectionType = 'general' | 'primary' | 'local';
 
-export const STATE_NAME: Record<StateId, string> = { illinois: 'Illinois', michigan: 'Michigan', minnesota: 'Minnesota', wisconsin: 'Wisconsin' };
+export const STATE_NAME: Record<StateId, string> = { colorado: 'Colorado', florida: 'Florida', illinois: 'Illinois', michigan: 'Michigan', minnesota: 'Minnesota', wisconsin: 'Wisconsin' };
 /** Each state's colour (govbot's tokens), which is its tile, its lane and its dots. */
-export const STATE_INK: Record<StateId, string> = { illinois: 'var(--gb-amber-hi)', michigan: 'var(--gb-primary-hi)', minnesota: 'var(--mn-teal)', wisconsin: 'var(--wi-cardinal)' };
-export const STATES: StateId[] = ['illinois', 'michigan', 'minnesota', 'wisconsin'];
+export const STATE_INK: Record<StateId, string> = { colorado: 'var(--den-blue-hi)', florida: 'var(--jax-teal-hi)', illinois: 'var(--gb-amber-hi)', michigan: 'var(--gb-primary-hi)', minnesota: 'var(--mn-teal)', wisconsin: 'var(--wi-cardinal)' };
+export const STATES: StateId[] = ['colorado', 'florida', 'illinois', 'michigan', 'minnesota', 'wisconsin'];
 export const TYPE_NAME: Record<ElectionType, string> = { general: 'General', primary: 'Primary', local: 'Local' };
 export const TYPES: ElectionType[] = ['general', 'primary', 'local'];
 
@@ -34,7 +35,7 @@ export interface Election {
   type: ElectionType;
   /** What is on the ballot, in a sentence. */
   what: string;
-  /** Where a guide for it already is: its button, the guide (default: the state's 2026 guide) and the part of its page to open. Absent while it's only planned. */
+  /** Where a guide for it already is: its button, the guide (default: the state's 2026 guide; a state without one must name it) and the part of its page to open. Absent while it's only planned. */
   guide?: { label: string; anchor?: string; id?: GuideId };
 }
 
@@ -58,12 +59,20 @@ const LIST: Election[] = [
     what: 'Takes place only where more than two people file for a spring office.' },
   { id: 'il-2027-city', state: 'illinois', date: '2027-02-23', title: 'Chicago city election', type: 'local', guide: { label: 'Open the Chicago ballot guide', id: 'chicago-2027' },
     what: 'Mayor, city clerk, treasurer, all 50 alderpersons and the police district councils. In suburban Cook, primaries only where needed.' },
+  { id: 'fl-2027-first', state: 'florida', date: '2027-03-09', title: 'Jacksonville city election', type: 'local', guide: { label: 'Open the Jacksonville ballot guide', id: 'jacksonville-2027' },
+    what: 'Mayor, sheriff, property appraiser, supervisor of elections, tax collector and all 19 City Council seats, for every Duval County voter.' },
   { id: 'il-2027-runoff', state: 'illinois', date: '2027-04-06', title: 'Runoffs and suburban local elections', type: 'local', guide: SO_FAR,
     what: 'Chicago runoffs where no one got more than half the vote, and suburban village and city councils and school, park and library boards.' },
+  { id: 'co-2027-denver', state: 'colorado', date: '2027-04-06', title: 'Denver city election', type: 'local', guide: { label: 'Open the Denver ballot guide', id: 'denver-2027' },
+    what: 'Mayor, auditor, clerk and recorder and all 13 City Council seats, by mail ballot.' },
   { id: 'wi-2027-spring', state: 'wisconsin', date: '2027-04-06', title: 'Spring election', type: 'local', guide: { label: 'Open the spring ballot guide', id: 'wisconsin-2027' },
     what: 'A seat on the Wisconsin Supreme Court, Court of Appeals and circuit court judges, plus mayors, city councils, village and town boards and school boards.' },
   { id: 'mi-2027-may', state: 'michigan', date: '2027-05-04', title: 'School and local questions', type: 'local', guide: SO_FAR,
     what: 'Millages and bonds, where a school district or community calls one.' },
+  { id: 'fl-2027-general', state: 'florida', date: '2027-05-18', title: 'Jacksonville General Election', type: 'local', guide: { label: 'Open the Jacksonville ballot guide', id: 'jacksonville-2027' },
+    what: 'The top two meet again in any Jacksonville race where no one won more than half the vote on Mar 9.' },
+  { id: 'co-2027-runoff', state: 'colorado', date: '2027-06-01', title: 'Denver runoffs', type: 'local', guide: { label: 'Open the Denver ballot guide', id: 'denver-2027' },
+    what: 'The top two meet again in any Denver race where no one won more than half the vote on Apr 6.' },
   { id: 'mi-2027-primary', state: 'michigan', date: '2027-08-03', title: 'City primaries', type: 'primary', guide: SO_FAR,
     what: 'Primaries for the cities that elect their council or mayor in odd years.' },
   { id: 'mn-2027-primary', state: 'minnesota', date: '2027-08-10', title: 'City primaries', type: 'primary', guide: SO_FAR,
@@ -73,9 +82,14 @@ const LIST: Election[] = [
   { id: 'mn-2027-nov', state: 'minnesota', date: '2027-11-02', title: 'City and school elections', type: 'local', guide: SO_FAR,
     what: 'City elections in those cities, school board seats and school levy questions where a district calls them.' },
 
-  ...STATES.map((state): Election => ({ id: `${state.slice(0, 2)}-2028-general`, state, date: NOV_7_2028, title: 'Presidential general election', type: 'general',
+  ...GUIDE_STATES.map((state): Election => ({ id: `${state.slice(0, 2)}-2028-general`, state, date: NOV_7_2028, title: 'Presidential general election', type: 'general',
     what: 'The president and the rest of the ballot. We open each guide as candidates file.' })),
 ];
+
+/** A state with a November 2026 guide. */
+export const hasStateGuide = (s: StateId): s is GuideState => (GUIDE_STATES as StateId[]).includes(s);
+/** The guide an election's button opens: its own, or its state's 2026 guide. */
+export const guideOf = (e: Election): GuideId => e.guide?.id ?? (hasStateGuide(e.state) ? e.state : 'illinois');
 
 /** Every election, soonest first (states in a fixed order on a shared date). */
 export const ELECTIONS: Election[] = [...LIST].sort((a, b) => a.date.localeCompare(b.date) || STATES.indexOf(a.state) - STATES.indexOf(b.state));

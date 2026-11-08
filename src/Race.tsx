@@ -56,6 +56,12 @@ function YesNo({ value, onChange, label }: { value: Choice | undefined; onChange
   );
 }
 
+/** A race no one is listed in yet, and when the official list fills it in. */
+export function NoCandidates() {
+  const { noCandidates } = useStateConfig();
+  return <p className="rounded-xl border-2 border-dashed border-[var(--gb-border-strong)] p-3 text-[15px] leading-relaxed text-[var(--gb-text)]"><strong>No one is listed here yet.</strong> {noCandidates}</p>;
+}
+
 function MoneyBars({ c, max }: { c: Candidate; max: number }) {
   const { moneySource } = useStateConfig();
   if (!c.money) return null;
@@ -74,7 +80,7 @@ function MoneyBars({ c, max }: { c: Candidate; max: number }) {
           </div>
         </div>
       ))}
-      <p className="text-xs text-[var(--gb-text)]">{moneySource(c.money.source)} reports, Jan 2025 through {c.money.through}{c.money.recent ? `, plus ${money(c.money.recent)} in large contributions reported since (through ${c.money.recentThrough})` : ''}.{c.money.cash === undefined ? '' : ' Cash is what’s left on hand.'}</p>
+      <p className="text-xs text-[var(--gb-text)]">{moneySource(c.money.source)} reports, {c.money.since ?? 'Jan 2025'} through {c.money.through}{c.money.recent ? `, plus ${money(c.money.recent)} in large contributions reported since (through ${c.money.recentThrough})` : ''}.{c.money.publicFunds ? ` Raised includes ${money(c.money.publicFunds)} in Fair Elections Fund matching money.` : ''}{c.money.cash === undefined ? '' : ' Cash is what’s left on hand.'}</p>
     </div>
   );
 }
@@ -345,7 +351,7 @@ interface RaceProps {
 }
 
 export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, choice, onChoose: chooseFor, onInfo, onCompare }: RaceProps) {
-  const { areaLabel, explainOffice, noCandidates } = useStateConfig();
+  const { areaLabel, explainOffice } = useStateConfig();
   const readOnly = useReadOnly();
   const onChoose = (c: Choice) => chooseFor(race.id, c);
   const picked = Array.isArray(choice) ? choice : [];
@@ -379,7 +385,7 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
 
         <RaceResults race={race} color={color} />
 
-        {!race.candidates.length && <p className="rounded-xl border-2 border-dashed border-[var(--gb-border-strong)] p-3 text-[15px] leading-relaxed text-[var(--gb-text)]"><strong>No one has filed yet.</strong> {noCandidates}</p>}
+        {!race.candidates.length && <NoCandidates />}
         <ul className="space-y-2">
           {race.candidates.map((c) => {
             const on = picked.includes(c.ballot);

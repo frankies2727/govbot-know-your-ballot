@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { guidePath, type GuideId } from './hosts';
 import { navigate } from './lib/router';
 import { daysUntil, today } from './store';
-import { dayOfMonth, defaultYear, ELECTIONS, monthName, STATE_INK, STATE_NAME, STATES, TYPE_NAME, TYPES, weekday, when, YEARS, type Election, type ElectionType, type StateId } from './electionIndex';
+import { dayOfMonth, defaultYear, ELECTIONS, guideOf, hasStateGuide, monthName, STATE_INK, STATE_NAME, STATES, TYPE_NAME, TYPES, weekday, when, YEARS, type Election, type ElectionType, type StateId } from './electionIndex';
 import { latestTurnout } from './Turnout';
 import './elections.css';
 
@@ -211,7 +211,7 @@ function Rail({ year, elections, matches, states, onState, onDot, now }: { year:
 
 function Row({ e }: { e: Election }) {
   const held = daysUntil(e.date) < 0;
-  const turnout = e.type === 'general' && held ? latestTurnout(e.state) : null;
+  const turnout = e.type === 'general' && held && hasStateGuide(e.state) ? latestTurnout(e.state) : null;
   return (
     <li id={`el-${e.id}`} tabIndex={-1} className="el-row" style={{ '--ink': STATE_INK[e.state] } as React.CSSProperties}>
       <div className="el-leaf" aria-hidden="true"><b>{dayOfMonth(e.date)}</b><span>{weekday(e.date)}</span></div>
@@ -227,8 +227,8 @@ function Row({ e }: { e: Election }) {
       </div>
       {e.guide && (
         <div className="el-act">
-          <a className="el-act-link el-btn" href={`${guidePath(e.guide.id ?? e.state)}${e.guide.anchor ? `#${e.guide.anchor}` : ''}`}
-            onClick={(ev) => { if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return; ev.preventDefault(); openGuide(e.guide!.id ?? e.state, e.guide!.anchor); }}>
+          <a className="el-act-link el-btn" href={`${guidePath(guideOf(e))}${e.guide.anchor ? `#${e.guide.anchor}` : ''}`}
+            onClick={(ev) => { if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return; ev.preventDefault(); openGuide(guideOf(e), e.guide!.anchor); }}>
             {e.guide.label}<span className="sr-only"> for {STATE_NAME[e.state]}, {e.title}</span>
           </a>
         </div>

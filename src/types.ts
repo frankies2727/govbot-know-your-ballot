@@ -3,13 +3,13 @@
 export type Section = 'federal' | 'state' | 'county' | 'judicial' | 'school' | 'legislature' | 'education' | 'city' | 'council' | 'police';
 
 /** Which voters see a contest. `null` on a race = every voter in Cook County. */
-export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa' | 'jd';
+export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa' | 'jd' | 'council';
 export interface Area { type: AreaType; id: string }
 
 /** Campaign totals this cycle (since Jan 1, 2025), from official filings. */
 export interface Money {
-  /** FEC for federal candidates; the state's disclosure system otherwise (Illinois' SBE, Michigan's MiTN, Minnesota's Campaign Finance Board, Wisconsin's campaign finance system). */
-  source: 'FEC' | 'ISBE' | 'MiTN' | 'MNCFB' | 'WISC';
+  /** FEC for federal candidates; the state's disclosure system otherwise (Illinois' SBE, Michigan's MiTN, Minnesota's Campaign Finance Board, Wisconsin's campaign finance system), or Denver's SearchLight. */
+  source: 'FEC' | 'ISBE' | 'MiTN' | 'MNCFB' | 'WISC' | 'DSL';
   /** FEC candidate ID, or the state committee ID. */
   id: string;
   raised: number;
@@ -18,6 +18,10 @@ export interface Money {
   cash?: number;
   /** MM/DD/YYYY, end of the latest report. */
   through: string;
+  /** When the counting starts, in words (default "Jan 2025"). */
+  since?: string;
+  /** Public matching money in `raised` (Denver's Fair Elections Fund). */
+  publicFunds?: number;
   /** Illinois: large contributions ($1,000+) reported since that report, already counted in `raised`, and the date of the latest. */
   recent?: number;
   recentThrough?: string;

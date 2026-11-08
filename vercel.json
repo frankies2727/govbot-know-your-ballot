@@ -48,6 +48,22 @@
       "destination": "/2027-04/wisconsin/index.html"
     },
     {
+      "source": "/2027-03/jacksonville",
+      "destination": "/2027-03/jacksonville/index.html"
+    },
+    {
+      "source": "/2027-03/jacksonville/:rest*",
+      "destination": "/2027-03/jacksonville/index.html"
+    },
+    {
+      "source": "/2027-04/denver",
+      "destination": "/2027-04/denver/index.html"
+    },
+    {
+      "source": "/2027-04/denver/:rest*",
+      "destination": "/2027-04/denver/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
@@ -73,6 +89,24 @@
     },
     {
       "source": "/2027-04/wisconsin/ballot",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/2027-03/jacksonville/ballot",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/2027-04/denver/ballot",
       "headers": [
         {
           "key": "X-Robots-Tag",

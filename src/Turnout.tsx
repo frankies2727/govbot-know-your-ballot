@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import data from './data/turnout.json';
 import { compact as short } from './lib/format';
-import type { StateId } from './electionIndex';
+import type { GuideState as StateId } from './hosts';
 
 // In each state's card on the home page, under its map: how many voted in each November
 // general election since 2014 and how that compares with the elections before.

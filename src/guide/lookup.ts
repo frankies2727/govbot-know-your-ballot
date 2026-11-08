@@ -20,22 +20,26 @@ export interface LookupSpec {
   /** "MI" and "Michigan": how the geocoders name the state. */
   abbr: string;
   name: string;
+  /** Where a bare street address is pinned (default: the state): "Denver, Colorado". */
+  place?: string;
   /** Anything the state adds to the matched districts (Michigan's Court of Appeals district and Minnesota's judicial district, from the county). */
   decorate?: (d: Districts, data: StateData) => void;
 }
 
 export function makeLookup(spec: LookupSpec) {
   const inState = new RegExp(`\\b(${spec.abbr}|${spec.name})\\b|\\d{5}`, 'i');
-  // Anything not naming a town or ZIP is pinned to the state.
-  const withState = (address: string) => (inState.test(address) ? address : `${address}, ${spec.name}`);
+  // Anything not naming a town or ZIP is pinned to the state (a city guide's city).
+  const withState = (address: string) => (inState.test(address) || (spec.place && address.includes(',')) ? address : `${address}, ${spec.place ?? spec.name}`);
 
   async function photon(address: string): Promise<Place | null> {
-    const url = `${PHOTON}?q=${encodeURIComponent(withState(address))}&limit=1&lang=en&bbox=${spec.bbox.join(',')}`;
+    const url = `${PHOTON}?q=${encodeURIComponent(withState(address))}&limit=5&lang=en&bbox=${spec.bbox.join(',')}`;
     const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS) });
     if (!res.ok) throw new Error(`Photon: ${res.status}`);
     const { features } = (await res.json()) as { features: { geometry: { coordinates: [number, number] }; properties: Record<string, string> }[] };
-    const hit = features[0];
-    if (!hit || hit.properties.state !== spec.abbr && hit.properties.state !== spec.name) return null;
+    // A typed house number has to match: Photon's top hit can be another place on the street ("1437 Bannock St" once found a sign reading "A1437ST").
+    const number = address.match(/^\s*(\d+[a-z]?)\b/i)?.[1].toLowerCase();
+    const hit = features.find((f) => (f.properties.state === spec.abbr || f.properties.state === spec.name) && (!number || f.properties.housenumber?.toLowerCase() === number));
+    if (!hit) return null;
     const p = hit.properties;
     const street = [p.housenumber, p.street ?? p.name].filter(Boolean).join(' ');
     return { lat: hit.geometry.coordinates[1], lng: hit.geometry.coordinates[0], label: [street, p.city ?? p.county].filter(Boolean).join(', ') || 'Your address' };
@@ -52,7 +56,7 @@ export function makeLookup(spec: LookupSpec) {
 
   async function geocode(address: string): Promise<Place | null> {
     try {
-      return await photon(address);
+      return (await photon(address)) ?? (await openStreetMap(address)); // no exact match: Nominatim's search is stricter
     } catch {
       return openStreetMap(address); // Photon down: the slower fallback
     }

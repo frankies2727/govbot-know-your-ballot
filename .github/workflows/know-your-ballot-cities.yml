@@ -1,0 +1,52 @@
+name: Know Your Ballot Denver and Jacksonville – refresh data
+
+# Rebuilds src/data/denver-2027 (Denver SearchLight's registered candidates
+# and their money, the City's council district map) and
+# src/data/jacksonville-2027 (the council's members, the City's district map,
+# the mayor's declared candidates) and commits the result; Vercel redeploys
+# the site from main. Daily through the 2027 elections. See
+# scripts/denver-2027.mjs and scripts/jacksonville-2027.mjs.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 12 * * *' # daily, ~6am Denver, ~8am Jacksonville
+
+permissions:
+  contents: write
+
+concurrency:
+  group: know-your-ballot-cities
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Each city on its own: a bad read only warns and keeps yesterday's data.
+      - name: Build Denver 2027 ballot data
+        run: node scripts/denver-2027.mjs || echo "::warning::Denver 2027 build failed; yesterday's data kept"
+
+      - name: Build Jacksonville 2027 ballot data
+        run: node scripts/jacksonville-2027.mjs || echo "::warning::Jacksonville 2027 build failed; yesterday's data kept"
+
+      - name: Commit any changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/denver-2027 src/data/jacksonville-2027
+          if git diff --staged --quiet; then
+            echo "No ballot data changes."
+          else
+            git commit -m "Know Your Ballot Denver and Jacksonville: refresh data [skip ci]"
+            # main may have moved during the build (a merge landed); replay the data commit on top.
+            git pull --rebase origin main
+            git push
+          fi

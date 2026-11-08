@@ -28,12 +28,14 @@ const guideDesc = (what: string, name: string) => HELD
   ? `${what} on the Nov 3, 2026 ${name} ballot, as voters saw it, and who won. Free, open source and non-partisan, built on Govbot.`
   : `${what} on your Nov 3, 2026 ${name} ballot, explained before you vote. Free, open source and non-partisan, built on Govbot.`;
 const PAGES: Record<string, { title: string; desc: string; img: string }> = {
-  '': { title: 'Govbot Know Your Ballot', desc: 'What’s on your ballot, election by election: every race, judge and question, who’s running, who’s funding them and who won. Illinois, Michigan, Minnesota and Wisconsin, built on Govbot.', img: 'home' },
+  '': { title: 'Govbot Know Your Ballot', desc: 'What’s on your ballot, election by election: every race, judge and question, who’s running, who’s funding them and who won. Illinois, Michigan, Minnesota, Wisconsin, Chicago, Jacksonville and Denver, built on Govbot.', img: 'home' },
   illinois: { title: 'Know Your Illinois Ballot', desc: guideDesc('Every race, judge and question', 'Illinois'), img: 'illinois' },
   michigan: { title: 'Know Your Michigan Ballot', desc: guideDesc('Every race, judge and proposal', 'Michigan'), img: 'michigan' },
   minnesota: { title: 'Know Your Minnesota Ballot', desc: guideDesc('Every race, judge and the amendment', 'Minnesota'), img: 'minnesota' },
   wisconsin: { title: 'Know Your Wisconsin Ballot', desc: guideDesc('Every race and question', 'Wisconsin'), img: 'wisconsin' },
   'wisconsin-2027': { title: 'Know Your Wisconsin Spring Ballot · Apr 6, 2027', desc: 'Wisconsin’s spring 2027 election: an open Supreme Court seat, the Court of Appeals and circuit courts, with a Feb 16 primary only where needed. Who holds each seat, who is running, and the dates. Free, open source and non-partisan, built on Govbot.', img: 'wisconsin-2027' },
+  'jacksonville-2027': { title: 'Know Your Jacksonville Ballot · Mar 9, 2027', desc: 'Jacksonville’s Mar 9, 2027 city election: mayor, sheriff, property appraiser, supervisor of elections, tax collector and all 19 City Council seats, with May 18 runoffs where needed. Who holds each seat, who is running, and the dates. Free, open source and non-partisan, built on Govbot.', img: 'jacksonville-2027' },
+  'denver-2027': { title: 'Know Your Denver Ballot · Apr 6, 2027', desc: 'Denver’s Apr 6, 2027 city election: mayor, auditor, clerk and recorder and all 13 City Council seats, with Jun 1 runoffs where needed. Who is running, the money behind them and who holds each seat now. Free, open source and non-partisan, built on Govbot.', img: 'denver-2027' },
   'chicago-2027': { title: 'Know Your Chicago Ballot · Feb 23, 2027', desc: 'Chicago’s Feb 23, 2027 city election: mayor, clerk, treasurer, all 50 alderpersons and the police district councils. Every candidate, who holds each seat now and the money behind them. Free, open source and non-partisan, built on Govbot.', img: 'chicago-2027' },
 };
 /** The guides: where voters confirm their own ballot, per state. */
@@ -76,14 +78,13 @@ function siteMeta() {
       // robots.txt, sitemap.xml and llms.txt, for crawlers and AI assistants.
       const pagesData = STATE_SLUGS.map(readState);
       const states: StateFacts[] = STATES.map((s) => ({ ...s, path: guidePath(s.slug as GuideId), asOf: pagesData.find((p) => p.slug === s.slug)?.asOf }));
-      // The later elections' guides (Chicago Feb 2027, Wisconsin spring 2027).
+      // The later elections' guides (scripts/seo/later-pages.ts).
       const later = LATER_GUIDES.map((g) => { const d = readGuide(g.id); return { g, d, asOf: isoDate(d.sources.candidates.asOf) }; });
-      const chicagoAsOf = later.find((l) => l.g.id === 'chicago-2027')!.asOf;
       const dates = [...states.map((s) => s.asOf), ...later.map((l) => l.asOf)].filter((d): d is string => !!d).sort();
       const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: guidePath(s.slug as GuideId), lastmod: s.asOf })), ...later.map((l) => ({ path: guidePath(l.g.id), lastmod: l.asOf }))];
       writeFileSync(path.join(outDir, 'robots.txt'), robotsTxt(SITE));
       writeFileSync(path.join(outDir, 'sitemap.xml'), sitemapXml(SITE, pages));
-      writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, [...states, { slug: 'chicago-2027', name: 'Chicago', path: guidePath('chicago-2027'), asOf: chicagoAsOf, portal: { name: 'Chicago Board of Election Commissioners', url: 'https://chicagoelections.gov/' }, what: 'Chicago’s Feb 23, 2027 city election: mayor, city clerk, city treasurer, all 50 alderpersons and the 22 police district councils' }, { slug: 'wisconsin-2027', name: 'Wisconsin Spring', path: guidePath('wisconsin-2027'), asOf: later.find((l) => l.g.id === 'wisconsin-2027')!.asOf, portal: { name: 'MyVote Wisconsin', url: 'https://myvote.wi.gov/' }, what: 'Wisconsin’s Apr 6, 2027 spring election (a Feb 16 primary only where needed): the open Supreme Court seat, the Court of Appeals and the circuit courts' }]));
+      writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, [...states, ...later.map(({ g, asOf }) => ({ slug: g.id, name: g.short, path: guidePath(g.id), asOf, portal: g.portal, what: g.what }))]));
       writeFileSync(path.join(outDir, 'llms-full.txt'), llmsFull(SITE, pagesData));
       const shell = readFileSync(path.join(outDir, 'index.html'), 'utf8');
       // Each page: its own head tags, structured data, and the readable text inside the root (the app's first render replaces it).

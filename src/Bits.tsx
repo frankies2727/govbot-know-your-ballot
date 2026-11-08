@@ -620,7 +620,7 @@ export function FaceStrip({ people, names = false, max = 40, size = 'w-11 h-11 t
   );
   return (
     <div className="kyb-strip-wrap relative">
-      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} style={color ? { ['--scroll' as string]: color } : undefined} aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
+      <div ref={box} className={`kyb-strip ${loop ? 'is-loop' : ''} w-full`} style={color ? { ['--scroll' as string]: color } : undefined} role="group" aria-label={`${people.length} candidate${people.length === 1 ? '' : 's'}`} tabIndex={loop ? 0 : undefined}
         onPointerDown={onPick ? (e) => { down.current = { x: e.clientX, y: e.clientY }; } : undefined}>
         <div className="kyb-strip-in flex" style={{ gap }}>
           {row(first)}

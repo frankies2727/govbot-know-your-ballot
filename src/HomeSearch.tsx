@@ -1,7 +1,8 @@
 import { Search as SearchIcon } from 'lucide-react';
 import { useId, useMemo, useState } from 'react';
 import { navigate } from './lib/router';
-import { ELECTIONS, STATE_INK, STATE_NAME, STATES, TYPE_NAME, when, type StateId } from './electionIndex';
+import { ELECTIONS, STATE_INK, STATE_NAME, TYPE_NAME, when } from './electionIndex';
+import { GUIDE_STATES, type GuideState } from './hosts';
 import type { SearchSlot } from './LandingBar';
 
 // The home page's search, in its pinned bar: the state guides and every
@@ -14,7 +15,7 @@ interface Hit { id: string; title: string; detail: string; ink: string; text: st
 const fold = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
 const HITS: Hit[] = [
-  ...STATES.map((s: StateId): Hit => ({
+  ...GUIDE_STATES.map((s: GuideState): Hit => ({
     id: `guide-${s}`, title: `${STATE_NAME[s]} ballot guide`, detail: 'November 2026 midterm: every race, judge and question', ink: STATE_INK[s],
     text: fold(`${STATE_NAME[s]} guide ballot 2026 midterm november`),
     go: () => navigate(`projects/know-your-ballot-${s}`),
@@ -23,6 +24,16 @@ const HITS: Hit[] = [
     id: 'guide-chicago-2027', title: 'Chicago ballot guide', detail: 'Feb 23, 2027 city election: mayor, clerk, treasurer, alderpersons and police district councils', ink: 'var(--chi-blue)',
     text: fold('chicago guide ballot 2027 city election mayor alderperson alderman ward police district council clerk treasurer february'),
     go: () => navigate('projects/know-your-ballot-chicago-2027'),
+  },
+  {
+    id: 'guide-jacksonville-2027', title: 'Jacksonville ballot guide', detail: 'Mar 9, 2027 city election (May 18 runoffs): mayor, sheriff, county officers and City Council', ink: STATE_INK.florida,
+    text: fold('jacksonville duval florida guide ballot 2027 city election mayor sheriff property appraiser tax collector supervisor council march may'),
+    go: () => navigate('projects/know-your-ballot-jacksonville-2027'),
+  },
+  {
+    id: 'guide-denver-2027', title: 'Denver ballot guide', detail: 'Apr 6, 2027 city election (Jun 1 runoffs): mayor, auditor, clerk and recorder and City Council', ink: STATE_INK.colorado,
+    text: fold('denver colorado guide ballot 2027 city municipal election mayor auditor clerk recorder council at-large district april june'),
+    go: () => navigate('projects/know-your-ballot-denver-2027'),
   },
   {
     id: 'guide-wisconsin-2027', title: 'Wisconsin spring ballot guide', detail: 'Apr 6, 2027 (Feb 16 primary where needed): Supreme Court, Court of Appeals and circuit courts', ink: STATE_INK.wisconsin,
