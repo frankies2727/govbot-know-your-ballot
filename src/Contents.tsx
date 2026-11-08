@@ -1,5 +1,6 @@
 import { Check, ChevronDown, Circle, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useModal } from './lib/modal';
 
 // The ballot's table of contents, course-style: each section with its races,
@@ -79,7 +80,8 @@ export function ContentsDrawer({ open, onClose, ...props }: Props & { open: bool
   if (!open) return null;
   // Choosing anything closes the drawer.
   const close = <A extends unknown[]>(f: (...a: A) => void) => (...a: A) => { onClose(); f(...a); };
-  return (
+  // On the page's body, so no layout around the bar (a column's max width, its spacing) can reach the overlay.
+  return createPortal(
     <div ref={drawer} className="fixed inset-0 z-[70] lg:hidden" role="dialog" aria-modal="true" aria-label="Contents">
       <button type="button" aria-label="Close contents" onClick={onClose} className="absolute inset-0 bg-black/50" />
       <div className="absolute inset-y-0 left-0 w-[86vw] max-w-sm overflow-y-auto overscroll-contain border-r-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-2xl">
@@ -89,6 +91,7 @@ export function ContentsDrawer({ open, onClose, ...props }: Props & { open: bool
         </div>
         <List {...props} onRace={close(props.onRace)} />
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

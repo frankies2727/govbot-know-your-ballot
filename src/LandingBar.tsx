@@ -1,5 +1,6 @@
 import { ArrowLeft, ChevronDown, ListChecks, Search, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { createPortal } from 'react-dom';
 import { useModal } from './lib/modal';
 import { officeGroups, officeId, usePinnedBar, useWide, type SectionCard } from './Bits';
 import { raceTitle, statewideId } from './Headliners';
@@ -191,7 +192,8 @@ function Drawer({ items, current, at, onGo, onClose }: { items: LandingItem[]; c
   useModal(drawer, true, onClose, closeButton);
   // A part that this state's page doesn't carry (or that isn't showing) isn't listed.
   const here = items.filter((i) => document.getElementById(i.id));
-  return (
+  // On the page's body, so no layout around the bar (a column's max width, its spacing) can reach the overlay.
+  return createPortal(
     <div ref={drawer} className="fixed inset-0 z-[70]" role="dialog" aria-modal="true" aria-label="Contents">
       <button type="button" aria-label="Close contents" tabIndex={-1} onClick={onClose} className="absolute inset-0 bg-black/50" />
       <div className="absolute inset-y-0 left-0 w-[86vw] max-w-sm overflow-y-auto overscroll-contain border-r-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-2xl">
@@ -242,6 +244,7 @@ function Drawer({ items, current, at, onGo, onClose }: { items: LandingItem[]; c
           </ol>
         </nav>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
