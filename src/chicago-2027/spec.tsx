@@ -114,7 +114,7 @@ export const CHICAGO_2027_GUIDE: GuideSpec = {
       title: 'How Chicago’s city ballot works',
       body: (
         <div className="space-y-3 text-[15px] leading-relaxed">
-          <p><strong>Three parts, every race nonpartisan.</strong> The citywide offices (mayor, clerk, treasurer), your ward’s alderperson, and your police district’s council. No party appears next to any name.</p>
+          <p><strong>Three parts.</strong> The citywide offices (mayor, clerk, treasurer), your ward’s alderperson, and your police district’s council.</p>
           <p><strong>Win with a majority, or meet in a runoff.</strong> For mayor, clerk, treasurer and alderperson a candidate needs more than half the votes. If no one gets there, the top two face each other again on Apr 6, 2027.</p>
           <p><strong>District councils: vote for up to three.</strong> Each of the 22 police districts elects three members. The three with the most votes win; there’s no runoff.</p>
           <p><strong>One name in a race?</strong> {unopposed} ward{unopposed === 1 ? ' has' : 's have'} a single candidate. Marking them is still a vote; leaving it blank is fine too.</p>
