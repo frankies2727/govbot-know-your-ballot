@@ -1,4 +1,4 @@
-name: Know Your Ballot Denver and Jacksonville – refresh data
+name: Daily data · 2027-03 Jacksonville + 2027-04 Denver
 
 # Rebuilds src/data/denver-2027 (Denver SearchLight's registered candidates
 # and their money, the City's council district map) and
@@ -45,7 +45,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No ballot data changes."
           else
-            git commit -m "Know Your Ballot Denver and Jacksonville: refresh data [skip ci]"
+            git commit -m "Daily data: 2027-03 Jacksonville + 2027-04 Denver [skip ci]"
             # main may have moved during the build (a merge landed); replay the data commit on top.
             git pull --rebase origin main
             git push

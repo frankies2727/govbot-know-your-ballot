@@ -44,7 +44,7 @@ src/govbot/          Govbot's header, footer and stylesheet, copied by scripts/g
 scripts/             the daily builds: illinois.mjs, state.mjs with <state>/config.mjs for the others, and the modules they share (illinois/* is the original set, used by all)
 scripts/audit.mjs    reconciliation, the last step of every build (see below)
 public/kyb-photos/   candidate photos, each credited and linked in the app
-.github/workflows/   one refresh workflow per state
+.github/workflows/   one daily data workflow per state guide, named for the elections it refreshes ("Daily data · 2026-11 Illinois + 2027-02 Chicago"); ci.yml builds and tests the site
 ```
 
 ### Run it locally
