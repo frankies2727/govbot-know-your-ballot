@@ -7,8 +7,9 @@
 // Candidates no official source covers can have a photo picked by hand in
 // photos-chosen.json ({ "<race id>|<name>": { url, page, credit, crop? } }, or
 // { commons: "<file name>" } for a Wikimedia Commons file, credited with its
-// author and license from the file page): only a
-// government page about that person or their own campaign site, checked to be
+// author and license from the file page): a government page about that person,
+// their own campaign site or account, or (by the site owner's decision) a news
+// outlet's photo, always credited to its source and linked; each checked to be
 // a photo of that one person. `crop` (ImageMagick geometry, e.g. "300x300+150+20")
 // cuts a full-length or wide photo down to head and shoulders. An automatic
 // source always wins over it.

@@ -58,5 +58,71 @@
     "page": "https://linktr.ee/natecornell27",
     "credit": "Nate Cornell (campaign Linktree)",
     "crop": "560x560+390+40"
+  },
+  "mayor|Maria Pappas": {
+    "url": "https://cst.brightspotcdn.com/dims4/default/8d4a818/2147483647/strip/true/crop/6804x3884+0+327/resize/1461x834!/quality/90/?url=https%3A%2F%2Fchorus-production-cst-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2F1e%2Ffd%2F994ffcec404a9c55db44e84bbe1c%2Flastdaytofile-261027-009.jpg",
+    "page": "https://chicago.suntimes.com/",
+    "credit": "Chicago Sun-Times",
+    "crop": "760x760+350+0"
+  },
+  "mayor|Jessica \"Jesse\" Maronto": {
+    "url": "https://southwestregionalpublishing.com/wp-content/uploads/2026/10/SLUG_1_Maronto_Hd_Shot.jpeg",
+    "page": "https://southwestregionalpublishing.com/2026/10/05/traffic-signal-repairman-mba-holder-jesse-maronto-builds-chicago-mayoral-bid-around-cone-platform/",
+    "credit": "Southwest Regional Publishing",
+    "crop": "860x860+110+100"
+  },
+  "city-treasurer|Bruce Leon": {
+    "url": "https://loyolaphoenix.com/wp-content/uploads/2025/10/BRUCELEON-pdf.jpg",
+    "page": "https://loyolaphoenix.com/2025/10/congressional-catch-up-bruce-leon/",
+    "credit": "Loyola Phoenix",
+    "crop": "520x520+130+20"
+  },
+  "alderperson-ward-1|Laura Yepez": {
+    "url": "https://www.cookcountydems.com/wp-content/uploads/2020/08/Screenshot-2024-04-21-at-7.44.03%E2%80%AFPM-Laura-Yepez.png",
+    "page": "https://www.cookcountydems.com/ward_commttee_people/1st-ward/",
+    "credit": "Cook County Democratic Party",
+    "crop": "560x560+190+20"
+  },
+  "alderperson-ward-7|Sheila Gunn-Ward": {
+    "url": "https://us1-photo.nextdoor.com/post_photos/c8/4a/c84aaff7c6bd42bb605cacdc9b01731f.jpeg",
+    "page": "https://nextdoor.com/pages/sheila-ward-of-coldwell-banker-realty-chicago-il/",
+    "credit": "Nextdoor",
+    "crop": "900x900+380+0"
+  },
+  "alderperson-ward-7|Samuel C. Sparks": {
+    "url": "https://thechicagolandjournal.com/wp-content/uploads/2026/10/Brewing-Change_-Why-Entrepreneur-Sam-Sparks-is-Challenging-a-12-Year-Incumbent-in-Chicagos-7th-Ward.jpg",
+    "page": "https://thechicagolandjournal.com/brewing-change-why-entrepreneur-sam-sparks-is-challenging-a-12-year-incumbent-in-chicagos-7th-ward/",
+    "credit": "The Chicagoland Journal",
+    "crop": "560x560+360+20"
+  },
+  "alderperson-ward-12|Claudia L. Zuno": {
+    "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2026/02/IMG_0327-scaled.jpg?fit=2560%2C1707&ssl=1",
+    "page": "https://blockclubchicago.org/2026/02/18/fight-over-bike-lanes-in-brighton-park-propels-claudia-zuno-to-run-for-12th-ward-alderperson/",
+    "credit": "Block Club Chicago",
+    "crop": "1100x1100+1000+50"
+  },
+  "alderperson-ward-13|Al Cacciottolo": {
+    "url": "https://southwestregionalpublishing.com/wp-content/uploads/2026/08/cacciottolo-headshot.png",
+    "page": "https://southwestregionalpublishing.com/2026/08/20/cacciottolo-to-run-for-13th-ward-alderman-with-marty-quinns-blessing/",
+    "credit": "Southwest Regional Publishing",
+    "crop": "900x900+220+200"
+  },
+  "alderperson-ward-17|Raynetta Greenleaf": {
+    "url": "https://thechicagolandjournal.com/wp-content/uploads/2026/10/Raynetta-Greenleaf-Puts-Neighborhood-Ownership-at-Center-of-17th-Ward-Campaign.jpg",
+    "page": "https://thechicagolandjournal.com/raynetta-greenleaf-puts-neighborhood-ownership-at-center-of-17th-ward-campaign/",
+    "credit": "The Chicagoland Journal",
+    "crop": "480x480+310+20"
+  },
+  "alderperson-ward-19|Jillian Robinson": {
+    "url": "https://bloximages.newyork1.vip.townnews.com/beverlyreview.net/content/tncms/assets/v3/editorial/0/ab/0ab6749a-e719-476e-86c7-219ec07dd910/6aea01fb762d4.image.jpg",
+    "page": "https://www.beverlyreview.net/news/top_story/article_6d5c0544-be01-44e5-a66b-800e3204265b.html",
+    "credit": "The Beverly Review",
+    "crop": "900x900+150+120"
+  },
+  "alderperson-ward-25|Aida Flores": {
+    "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2019/01/IMG_6579.jpg?fit=5184%2C2916&ssl=1",
+    "page": "https://blockclubchicago.org/2026/02/04/aida-flores-again-running-for-25th-ward-aldermanic-seat/",
+    "credit": "Block Club Chicago",
+    "crop": "1400x1400+1950+150"
   }
 }
