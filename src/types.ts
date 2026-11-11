@@ -101,6 +101,30 @@ export interface Incumbent {
   source?: { name: string; url: string };
   /** YYYY-MM-DD the source was read. */
   asOf?: string;
+  /** A sitting Chicago alderperson's City Council record this term (scripts/chicago-2027/council.mjs). */
+  council?: CouncilRecord;
+}
+
+/** An alderperson's record this term, from the City Clerk's eLMS: attendance, what they introduced, their budget votes. */
+export interface CouncilRecord {
+  /** YYYY-MM-DD the term began. */
+  since: string;
+  /** Present at the opening roll call, of the City Council meetings whose roll call lists them. */
+  attendance: { present: number; meetings: number };
+  introduced: {
+    total: number;
+    /** Changes to the Municipal Code, and how many passed. */
+    law: number; lawPassed: number;
+    resolutions: number;
+    /** Everything else: permits, signs, parking, alleys and other ward matters, with the commonest kinds. */
+    ward: number; wardKinds: { kind: string; n: number }[];
+    /** The newest Municipal Code changes and resolutions (honors left out). */
+    recent: { id: string; title: string; date: string; status: string; url: string }[];
+  };
+  /** Their vote on each year's budget (the Annual Appropriation Ordinance), with the Council's tally. */
+  budgets: { year: number; vote: string; tally: string; url: string }[];
+  source: { name: string; url: string };
+  asOf: string;
 }
 
 export type SocialPlatform = 'x' | 'facebook' | 'instagram' | 'youtube' | 'tiktok' | 'bluesky' | 'threads' | 'linkedin';

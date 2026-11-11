@@ -33,6 +33,7 @@ import { addPhotos } from './illinois/photos.mjs';
 import { addSocial } from './illinois/social.mjs';
 import { personKey } from './results/match.mjs';
 import { outlineOf } from './city-maps.mjs';
+import { councilRecords } from './chicago-2027/council.mjs';
 import { recentBills } from './illinois/govbot.mjs';
 
 const ROOT = new URL('..', import.meta.url);
@@ -252,6 +253,20 @@ async function main() {
     r.incumbents = [now.ballot == null && why ? { ...now, note: why.note, source: why.source } : now];
     r.office_ = o; // used below for the official photo
   }
+  // Each sitting alderperson's City Council record this term (the City Clerk's eLMS), on the seat's holder.
+  const records = await soft('City Clerk eLMS', () => councilRecords(today, console.log), null);
+  let withRecord = 0;
+  for (const r of races.filter((x) => x.section === 'council')) {
+    const holder = r.incumbents?.[0];
+    const rec = records?.get(r.area.id) ?? prevById.get(r.id)?.incumbents?.[0]?.council;
+    if (!holder || !rec) continue;
+    // The Clerk and the ward offices data must name the same person ("La Spata, Daniel" / "Daniel La Spata").
+    if (!samePerson(personName(rec.name), holder.name)) { console.warn(`  ward ${r.area.id}: eLMS lists ${rec.name}, the ward offices ${holder.name}; no record attached`); continue; }
+    holder.council = { ...rec, name: undefined };
+    withRecord++;
+  }
+  console.log(`Council records: ${withRecord} of 50 wards`);
+
   let councils = 0;
   for (const r of races.filter((x) => x.section === 'police')) {
     const dc = await soft(`district council ${r.area.id}`, () => districtCouncil(+r.area.id), null);

@@ -6,7 +6,7 @@ import { BarRatings } from './BarRatings';
 import { Face } from './Face';
 import { useReadOnly, useStateConfig } from './state';
 import { daysUntil, money, type Choice } from './store';
-import type { Candidate, Guide, Measure, Race, Retention, SocialPlatform } from './types';
+import type { Candidate, CouncilRecord, Guide, Measure, Race, Retention, SocialPlatform } from './types';
 import { QuestionResults, RaceResults } from './results';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
 import { Dialog, ReportLink } from './Bits';
@@ -154,7 +154,8 @@ function Incumbents({ race }: { race: Race }) {
     <div className="rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] px-3 py-2 text-sm leading-snug text-[var(--gb-text)] space-y-1.5">
       <p className="text-[11px] font-black uppercase tracking-widest">{open ? '🪑 Open seat' : '👤 In office now'}</p>
       {list.map((i) => (
-        <p key={i.name}>
+        <div key={i.name} className="space-y-1">
+        <p>
           <strong>{i.name}</strong>{i.party ? ` (${i.party})` : ''}
           {i.ballot ? <> · <span className="font-bold">running again</span>{race.numbered !== false && race.section !== 'federal' && race.section !== 'state' ? ` (ballot #${i.ballot})` : ''}</>
             : open || unfiled ? null : <> · <span className="font-bold">{listFinal === false && daysUntil(electionDate ?? '') >= 0 ? 'not on the candidate list yet' : 'not on this ballot'}</span></>}
@@ -162,6 +163,8 @@ function Incumbents({ race }: { race: Race }) {
           {!i.ballot && !open && !unfiled && !i.note && <> (no reason is on record)</>}
           {i.source?.url && <> <a href={i.source.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{i.source.name.replace(/^Wikipedia: .*/, 'Wikipedia')} ↗</a>{i.asOf ? <span className="text-xs"> · read {i.asOf}</span> : null}</>}
         </p>
+        {i.council && <CouncilRecordBlock r={i.council} name={i.name} short />}
+        </div>
       ))}
     </div>
   );
@@ -186,6 +189,46 @@ function Record({ c }: { c: Candidate }) {
         ))}
       </ul>
       <p className="text-xs text-[var(--gb-text)]"><a href={all} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Every bill with their name on it, on govbot ↗</a> · {r.source}, read {r.asOf}. Sponsoring a bill is one part of a record; how they voted is on the legislature’s own site.</p>
+    </section>
+  );
+}
+
+const fullDate = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString()} ${n === 1 ? one : many}`;
+
+/** A sitting alderperson's City Council record this term, from the City Clerk's eLMS. `short` is the one-line summary. */
+export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name: string; short?: boolean }) {
+  const a = r.attendance;
+  const i = r.introduced;
+  const votes = r.budgets.map((b) => `${b.year} budget: ${b.vote}`).join(' · ');
+  if (short) {
+    return <p className="text-[13px]">🏛️ This term: present at {a.present} of {a.meetings} City Council roll calls · {plural(i.total, 'item')} introduced{votes ? ` · ${votes}` : ''}</p>;
+  }
+  const link = 'font-bold text-[var(--gb-link)] underline underline-offset-2';
+  return (
+    <section className="space-y-3 text-[15px] leading-relaxed text-[var(--gb-text)]">
+      <h3 className="text-sm font-black uppercase tracking-widest">🏛️ Their City Council record</h3>
+      <p>Since the Council took office on {fullDate(r.since)}:</p>
+      <ul className="space-y-1.5">
+        <li><strong>Attendance:</strong> present at the opening roll call of {a.present} of {plural(a.meetings, 'City Council meeting')}. (Someone who arrives after the roll call is marked absent.)</li>
+        <li><strong>Introduced as lead sponsor:</strong> {plural(i.total, 'item')}: {plural(i.law, 'change')} to the Municipal Code ({i.lawPassed} passed), {plural(i.resolutions, 'resolution')}, and {i.ward.toLocaleString()} ward matters{i.wardKinds.length ? `, most often ${i.wardKinds.map((k) => `${k.kind} (${k.n})`).join(', ')}` : ''}.</li>
+        {r.budgets.length > 0 && (
+          <li><strong>The city budget:</strong> {r.budgets.map((b, n) => <span key={b.year}>{n ? ' · ' : ''}<a href={b.url} target="_blank" rel="noreferrer noopener" className={link}>{b.year}</a>: {b.vote} <span className="text-sm">(passed {b.tally})</span></span>)}</li>
+        )}
+      </ul>
+      {i.recent.length > 0 && (
+        <>
+          <p className="font-bold">The newest changes to city law and resolutions they introduced:</p>
+          <ul className="space-y-1.5 text-sm">
+            {i.recent.map((m) => (
+              <li key={m.id} className="leading-snug">
+                <a href={m.url} target="_blank" rel="noreferrer noopener" className={link}>{m.id}</a> {m.title} <span className="text-xs">· {fullDate(m.date)} · {m.status}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <p className="text-xs">From the <a href={r.source.url} target="_blank" rel="noreferrer noopener" className={link}>{r.source.name} ↗</a>, the City Clerk’s official record, read {r.asOf}. <a href={`https://chicago.councilmatic.org/search/?q=${encodeURIComponent(name)}`} target="_blank" rel="noreferrer noopener" className={link}>More on Chicago Councilmatic ↗</a></p>
     </section>
   );
 }
@@ -532,6 +575,8 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
         <Endorsements c={c} />
 
         <Record c={c} />
+
+        {(() => { const rec = race.incumbents?.find((x) => x.ballot === c.ballot && x.council)?.council; return rec ? <CouncilRecordBlock r={rec} name={c.name} /> : null; })()}
 
         <Follow c={c} />
 
