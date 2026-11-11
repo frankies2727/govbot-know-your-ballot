@@ -93,7 +93,7 @@ export const CHICAGO_2027_GUIDE: GuideSpec = {
       'Mayor, City Clerk and City Treasurer',
       'Your ward’s alderperson, one of 50',
       'Three members of your police district’s District Council',
-      'Nonpartisan: no party is printed next to any name, and runoffs on Apr 6 where no one wins a majority',
+      'Runoffs on Apr 6 where no one wins a majority',
     ],
     addressPlaceholder: 'e.g. 121 N LaSalle St or 5800 N Lincoln Ave',
     exampleAddress: '121 N LaSalle St, Chicago',
