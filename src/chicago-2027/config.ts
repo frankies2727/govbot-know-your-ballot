@@ -34,13 +34,15 @@ export const SECTIONS: readonly GuideSection[] = [
 ];
 
 const MAJORITY = 'Wins with more than half the votes; if no one gets there, the top two meet in a runoff on Apr 6, 2027.';
+// How many valid signatures a nominating petition needs, from the Board's 2027 pamphlet (65 ILCS 20/21-28; Chi. Muni. Code 2-80-070(c)).
+const CITYWIDE_PETITION = 'To get on the ballot, a candidate files nominating petitions with at least 12,500 valid signatures of Chicago voters.';
 // Plain-English "what does this job actually do", factual and neutral.
 const EXPLAINERS: [RegExp, string][] = [
-  [/^Mayor$/, `Chicago’s chief executive: runs the city’s departments (police, fire, streets and sanitation, water, public health), proposes the budget each year and appoints department heads, who the City Council confirms. Presides over the City Council and votes only to break a tie. 4-year term from May 17, 2027. ${MAJORITY}`],
-  [/^City Clerk$/, `Keeps the City Council’s official record (every ordinance, vote and meeting), and issues city vehicle stickers and the CityKey ID. 4-year term from May 17, 2027. ${MAJORITY}`],
-  [/^City Treasurer$/, `The keeper of the city’s money: invests city funds and sits on the boards of the city’s four employee pension funds. 4-year term from May 17, 2027. ${MAJORITY}`],
-  [/^Alderperson/, `Your ward’s member of the 50-member City Council: votes on city laws and the budget, confirms the mayor’s appointments, and runs a ward office for city services in the ward. 4-year term from May 17, 2027. ${MAJORITY}`],
-  [/^Police District Council/, 'Three residents elected for your police district. They hold monthly public meetings on public safety, work with the district’s police leadership, build community-policing and restorative-justice programs, and help choose nominees for the citywide Community Commission for Public Safety and Accountability. A $500 monthly stipend; 4-year term from May 4, 2027. Pick up to 3: the three with the most votes win, with no runoff.'],
+  [/^Mayor$/, `Chicago’s chief executive: runs the city’s departments (police, fire, streets and sanitation, water, public health), proposes the budget each year and appoints department heads, who the City Council confirms. Presides over the City Council and votes only to break a tie. 4-year term from May 17, 2027. ${CITYWIDE_PETITION} ${MAJORITY}`],
+  [/^City Clerk$/, `Keeps the City Council’s official record (every ordinance, vote and meeting), and issues city vehicle stickers and the CityKey ID. 4-year term from May 17, 2027. ${CITYWIDE_PETITION} ${MAJORITY}`],
+  [/^City Treasurer$/, `The keeper of the city’s money: invests city funds and sits on the boards of the city’s four employee pension funds. 4-year term from May 17, 2027. ${CITYWIDE_PETITION} ${MAJORITY}`],
+  [/^Alderperson/, `Your ward’s member of the 50-member City Council: votes on city laws and the budget, confirms the mayor’s appointments, and runs a ward office for city services in the ward. 4-year term from May 17, 2027. To get on the ballot, a candidate files nominating petitions with at least 473 valid signatures of the ward’s voters. ${MAJORITY}`],
+  [/^Police District Council/, 'Three residents elected for your police district. They hold monthly public meetings on public safety, work with the district’s police leadership, build community-policing and restorative-justice programs, and help choose nominees for the citywide Community Commission for Public Safety and Accountability. A $500 monthly stipend; 4-year term from May 4, 2027. To get on the ballot, a candidate needs signatures from 250 of the district’s voters, or 0.5% of those who voted there in the last presidential election if that’s fewer, and never fewer than 25. Pick up to 3: the three with the most votes win, with no runoff.'],
 ];
 export const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
 
