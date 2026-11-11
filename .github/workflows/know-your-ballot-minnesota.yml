@@ -1,4 +1,4 @@
-name: Know Your Ballot Minnesota – refresh data
+name: Daily data · 2026-11 Minnesota
 
 # Rebuilds src/data/minnesota (candidates from
 # Ballotpedia and Wikipedia, FEC money, Census maps) and commits the result;
@@ -63,7 +63,7 @@ jobs:
             echo "No ballot data changes."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Know Your Ballot Minnesota: refresh data [skip ci]"
+            git commit -m "Daily data: 2026-11 Minnesota [skip ci]"
             # main may have moved during the build (a merge landed); replay the data commit on top.
             git pull --rebase origin main
             git push

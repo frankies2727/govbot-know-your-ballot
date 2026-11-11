@@ -1,6 +1,6 @@
 # Type-check and build on every pull request and push, so "Build" can be a
 # required check on main. The daily data commits carry [skip ci] and skip it.
-name: Build
+name: Build and test the site
 
 on:
   pull_request:

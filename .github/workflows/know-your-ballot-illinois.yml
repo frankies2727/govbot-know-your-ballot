@@ -1,4 +1,4 @@
-name: Know Your Ballot Illinois – refresh data
+name: Daily data · 2026-11 Illinois + 2027-02 Chicago
 
 # Rebuilds src/data/illinois from official sources (Chicago Board of
 # Elections candidate list, FEC filings, district maps) and commits the result;
@@ -80,7 +80,7 @@ jobs:
             echo "No ballot data changes."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Know Your Ballot Illinois: refresh data [skip ci]"
+            git commit -m "Daily data: 2026-11 Illinois + 2027-02 Chicago [skip ci]"
             # main may have moved during the build (a merge landed); replay the data commit on top.
             git pull --rebase origin main
             git push
