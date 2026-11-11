@@ -34,8 +34,8 @@ export const raceTitle = (r: Race) => r.office.replace(/ \(\d+ seats\)$/, '');
 export const statewideId = (r: Race) => `kyb-sw-${r.id}`;
 
 function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; race: Race; section: Section; onOpen: Props['onOpen']; onOpenRace: Props['onOpenRace']; onCompare: Props['onCompare'] }) {
-  const { explainOffice, electionDate } = useStateConfig();
-  const why = stakes(race, electionDate);
+  const { explainOffice, electionDate, listFinal } = useStateConfig();
+  const why = stakes(race, electionDate, listFinal !== false);
   return (
     <li id={statewideId(race)} className="min-w-0 rounded-2xl border-[3px] bg-[var(--gb-surface)] p-4 flex flex-col gap-2.5 scroll-mt-[var(--kyb-bar,0px)]" style={{ borderColor: section.color }}>
       <span className="inline-flex self-start items-center gap-1.5 rounded-full border-2 px-2.5 py-0.5 text-sm font-bold text-[var(--gb-text)]" style={{ borderColor: section.color, background: `color-mix(in srgb, ${section.color} 14%, transparent)` }}>{section.emoji} {section.title}</span>
@@ -46,17 +46,18 @@ function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; 
       {race.candidates.length
         ? <FaceStrip people={race.candidates} names info color={section.color} onPick={(c) => onOpen(race, c as Candidate)} />
         : <NoCandidates />}
-      <div className="flex flex-wrap items-center justify-between gap-2 text-sm font-bold">
-        <span>{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} · <span className="rounded-md bg-[var(--kyb-chip)] px-1.5 py-0.5">{race.voteFor > 1 ? `pick up to ${race.voteFor}` : 'pick 1'}</span></span>
+      <p className="text-sm font-bold">{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} · <span className="rounded-md bg-[var(--kyb-chip)] px-1.5 py-0.5">{race.voteFor > 1 ? `pick up to ${race.voteFor}` : 'pick 1'}</span></p>
+      {/* The two ways into the race, side by side. */}
+      <div className="mt-auto flex gap-2">
+        <button type="button" onClick={() => onOpenRace(race)} className="inline-flex flex-1 items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-[3px] bg-[var(--gb-text)] px-3 font-black text-[var(--gb-bg)] hover:opacity-90" style={{ borderColor: section.color }}>
+          See the full race <ArrowRight className="w-4 h-4" aria-hidden="true" />
+        </button>
         {race.candidates.length > 1 && (
-          <button type="button" onClick={() => onCompare(race)} className="inline-flex items-center gap-1.5 min-h-[36px] rounded-lg border-2 border-[var(--gb-text)] px-2.5 text-[13px] font-bold hover:bg-[var(--kyb-chip)]">
-            <Scale className="w-3.5 h-3.5" aria-hidden="true" /> Compare
+          <button type="button" onClick={() => onCompare(race)} className="inline-flex items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-[3px] border-[var(--gb-text)] px-3 font-black hover:bg-[var(--kyb-chip)]">
+            <Scale className="w-4 h-4" aria-hidden="true" /> Compare
           </button>
         )}
       </div>
-      <button type="button" onClick={() => onOpenRace(race)} className="mt-auto inline-flex items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-[3px] bg-[var(--gb-text)] font-black text-[var(--gb-bg)] hover:opacity-90" style={{ borderColor: section.color }}>
-        See the full race <ArrowRight className="w-4 h-4" aria-hidden="true" />
-      </button>
     </li>
   );
 }

@@ -75,6 +75,7 @@ export function chicagoConfig(data: StateData): StateConfig {
     noMoney: () => 'No campaign committee on file with the Illinois State Board of Elections for this election. A candidate who raises or spends under $5,000 in a year doesn’t need one.',
     compareNote: 'Money comes from Illinois State Board of Elections reports since Jan 1, 2025; who holds each seat from the City’s ward offices and the CCPSA. Tap “ⓘ Details” under a name for their links.',
     electionDate: ELECTION_DAY,
+    listFinal: false,
   };
 }
 

@@ -5,7 +5,7 @@ import { memo, useRef, useState, type CSSProperties, type ReactNode } from 'reac
 import { BarRatings } from './BarRatings';
 import { Face } from './Face';
 import { useReadOnly, useStateConfig } from './state';
-import { money, type Choice } from './store';
+import { daysUntil, money, type Choice } from './store';
 import type { Candidate, Guide, Measure, Race, Retention, SocialPlatform } from './types';
 import { QuestionResults, RaceResults } from './results';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
@@ -144,6 +144,7 @@ export const isIncumbent = (race: Race, c: Candidate) => Boolean(c.incumbent || 
 
 /** Who holds the seat now and whether they're on this ballot; open seats say who left. */
 function Incumbents({ race }: { race: Race }) {
+  const { listFinal, electionDate } = useStateConfig();
   const list = race.incumbents;
   if (!list?.length) return null;
   // Before anyone has filed, a holder is just who holds the seat, not "not on this ballot".
@@ -156,7 +157,7 @@ function Incumbents({ race }: { race: Race }) {
         <p key={i.name}>
           <strong>{i.name}</strong>{i.party ? ` (${i.party})` : ''}
           {i.ballot ? <> · <span className="font-bold">running again</span>{race.numbered !== false && race.section !== 'federal' && race.section !== 'state' ? ` (ballot #${i.ballot})` : ''}</>
-            : open || unfiled ? null : <> · <span className="font-bold">not on this ballot</span></>}
+            : open || unfiled ? null : <> · <span className="font-bold">{listFinal === false && daysUntil(electionDate ?? '') >= 0 ? 'not on the candidate list yet' : 'not on this ballot'}</span></>}
           {i.note && <>{open ? ' · ' : ' '}<span className={open ? '' : 'italic'}>{open ? i.note : `“${i.note}”`}</span></>}
           {!i.ballot && !open && !unfiled && !i.note && <> (no reason is on record)</>}
           {i.source?.url && <> <a href={i.source.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{i.source.name.replace(/^Wikipedia: .*/, 'Wikipedia')} ↗</a>{i.asOf ? <span className="text-xs"> · read {i.asOf}</span> : null}</>}

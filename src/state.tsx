@@ -26,6 +26,8 @@ export interface StateConfig {
   electionDate?: string;
   /** A race nobody has filed for yet: when the official list fills it in. */
   noCandidates?: string;
+  /** false while the candidate list can still change (filing, petitions, objections): a holder who isn't on it is "not on the candidate list yet", never "not on this ballot" or an open seat. Final again once the election is held. */
+  listFinal?: boolean;
 }
 
 export const ILLINOIS: StateConfig = {

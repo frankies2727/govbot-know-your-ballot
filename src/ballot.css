@@ -183,3 +183,21 @@
   .kyb-strip-btn, .gb-mega, .gb-nav-trigger .gb-caret { transition: none; }
   .kyb-theme-switch *, .kyb-theme-switch *::before, .kyb-theme-switch *::after { transition: none !important; }
 }
+
+/* The road to Election Day (guide/Timeline.tsx): a horizontal strip of steps
+   joined by a line, scrolled sideways inside itself on a narrow screen. Done
+   steps are checked, the next one is filled in the guide's accent and gently
+   pulses (transform/opacity only; still under reduced motion). */
+.kyb-tl { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x proximity; padding: 4px 2px 8px; margin: 0; list-style: none; }
+.kyb-tl-step { position: relative; flex: 0 0 180px; padding: 0 14px 0 0; scroll-snap-align: start; color: var(--gb-text); }
+.kyb-tl-step::before { content: ""; position: absolute; top: 11px; left: 24px; right: 0; height: 3px; border-radius: 2px; background: var(--gb-border-strong); }
+.kyb-tl-step:last-child::before { display: none; }
+.kyb-tl-step.is-done::before { background: var(--kyb-accent); }
+.kyb-tl-dot { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; border: 3px solid var(--gb-border-strong); background: var(--gb-surface); }
+.kyb-tl-step.is-done .kyb-tl-dot { border-color: var(--kyb-accent); background: var(--kyb-accent); color: var(--kyb-accent-ink); }
+.kyb-tl-step.is-next .kyb-tl-dot { border-color: var(--kyb-accent); background: var(--kyb-accent); }
+.kyb-tl-step.is-next .kyb-tl-dot::after { content: ""; position: absolute; inset: -7px; border-radius: 999px; border: 3px solid var(--kyb-accent); animation: kyb-tl-pulse 1.8s ease-out infinite; }
+.kyb-tl-step.is-next { flex-basis: 260px; }
+@keyframes kyb-tl-pulse { from { transform: scale(.7); opacity: .9; } to { transform: scale(1.5); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .kyb-tl-step.is-next .kyb-tl-dot::after { animation: none; opacity: .5; } }
+.kyb-tl:focus-visible { outline: 2px solid var(--gb-text); outline-offset: 2px; border-radius: 8px; }

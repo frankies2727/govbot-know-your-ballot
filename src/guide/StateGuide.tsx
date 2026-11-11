@@ -7,6 +7,7 @@ import { GUIDES, guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
 import { billItems, billUrl, changeItems, dateItems, Feed, newsItems } from '../Feed';
 import { Laws } from '../Laws';
+import { ElectionTimeline } from './Timeline';
 import { Headliners } from '../Headliners';
 import { CommonQuestions } from '../CommonQuestions';
 import { faqDates, faqFor } from '../seo/faq';
@@ -581,7 +582,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
     const headliners = data.races.filter((r) => !r.area);
     const more: SectionCard[] = SECTIONS.map((s) => {
       const races = s.id === 'measures' ? [] : data.races.filter((r) => r.section === s.id && r.area);
-      return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: config.areaLabel(r), race: r, about: config.explainOffice(r.office), why: stakes(r, config.electionDate) })) };
+      return { ...s, n: races.length, hint: 'By district', items: races.map((r) => ({ id: r.id, title: r.office, sub: config.areaLabel(r), race: r, about: config.explainOffice(r.office), why: stakes(r, config.electionDate, config.listFinal !== false) })) };
     }).filter((c) => c.n > 0);
     const questions: SectionCard = { ...SECTIONS.find((s) => s.id === 'measures')!, n: data.measures.length, hint: `${(copy.everyone ?? 'statewide').replace(/^./, (c) => c.toUpperCase())} · yes or no on each`, items: data.measures.map((m) => ({ id: m.id, title: m.title, sub: 'Statewide', question: m.question, plain: m.plain })) };
     return { headliners, more, questions };
@@ -663,6 +664,8 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
           </li>
         ))}
       </ul>
+
+      {daysLeft >= 0 && <ElectionTimeline dates={spec.keyDates} source={{ name: `${spec.links.datesSource}’s calendar`, url: spec.links.dates }} />}
 
       <Headliners races={headliners} sections={SECTIONS} overline={`On every ${spec.name} ballot`} heading={`The ${everyone} races`}
         intro={`${headliners.length === 1 ? 'This contest is' : `These ${headliners.length} contests are`} on every ${spec.name} ballot. Tap a face to meet a candidate, or Compare to see them side by side; your address adds your own ${copy.districtKinds} races from the ${byDistrict} by district.`}

@@ -49,6 +49,7 @@ export const WISCONSIN_2027: StateConfig = {
   noMoney: () => 'No campaign money on file here yet.',
   compareNote: 'Every spring race is nonpartisan. Candidates are the ones who have announced until the Elections Commission’s list is out after the Jan 5 filing deadline.',
   electionDate: ELECTION_DAY,
+  listFinal: false,
   noCandidates: 'Candidates file by 5pm on Tue, Jan 5, 2027; the Elections Commission’s list fills in here.',
 };
 

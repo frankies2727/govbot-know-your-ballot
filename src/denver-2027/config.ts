@@ -64,6 +64,7 @@ export const DENVER_2027: StateConfig = {
   noMoney: () => 'No contributions or spending reported to Denver SearchLight yet.',
   compareNote: 'Money comes from each committee’s reports to Denver SearchLight since Jan 1, 2024, Fair Elections Fund matching money included. Until petitions are certified, everyone here has registered a campaign but not yet qualified for the ballot. Tap “ⓘ Details” under a name for their links.',
   electionDate: ELECTION_DAY,
+  listFinal: false,
   noCandidates: 'Denver SearchLight shows no registered campaign for this seat. Petitions are due Jan 21, 2027.',
 };
 

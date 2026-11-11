@@ -10,8 +10,10 @@ import type { Race } from './types';
  * Once the election is over (`held`) it says what was at stake: "ran to keep
  * the seat", "wasn't on the ballot".
  */
-export function stakes(race: Race, electionDate = GUIDE_ELECTION_DAY): string {
+export function stakes(race: Race, electionDate = GUIDE_ELECTION_DAY, listFinal = true): string {
   const held = daysUntil(electionDate) < 0;
+  // While the candidate list can still change, an absent holder may yet file: say so, and call no seat open.
+  const final = listFinal || held;
   const keep = (n: number) => (held ? (n > 1 ? 'ran to keep their seats.' : 'ran to keep the seat.') : n > 1 ? 'are running to keep their seats.' : 'is running to keep the seat.');
   // Nobody has filed yet: nothing to say about who's running.
   if (!race.candidates.length) return '';
@@ -23,18 +25,20 @@ export function stakes(race: Race, electionDate = GUIDE_ELECTION_DAY): string {
     const surname = name.split(' & ')[0].trim().split(/\s+/).pop() ?? '';
     // A headline quoted as the reason has no full stop of its own.
     const said = note!.replace(/([^.!?”"’])$/, '$1.');
-    return `Open seat. ${surname && said.includes(surname) ? said : `${name}: ${said}`}`;
+    return `${final ? 'Open seat. ' : ''}${surname && said.includes(surname) ? said : `${name}: ${said}`}`;
   }
   const running = inc.filter((i) => i.ballot != null);
   // A council of several seats: who is running to stay, and who isn't on the ballot.
   const away = inc.filter((i) => i.ballot == null);
-  const absent = away.length ? ` ${away.map((i) => i.name).join(' and ')} ${away.length > 1 ? (held ? 'weren’t' : 'aren’t') : held ? 'wasn’t' : 'isn’t'} on the ballot.` : '';
+  const absent = away.length ? ` ${away.map((i) => i.name).join(' and ')} ${away.length > 1 ? (held ? 'weren’t' : 'aren’t') : held ? 'wasn’t' : 'isn’t'} ${final ? 'on the ballot' : 'on the candidate list yet'}.` : '';
   if (running.length) return `${running.map((i) => i.name).join(' and ')} ${keep(running.length)}${absent}`;
   // The candidate list marks the incumbent (the roster may spell them differently: "Patty" / "Patricia").
   const marked = race.candidates.filter((c) => c.incumbent);
   if (marked.length) return `${marked.map((c) => c.name).join(' and ')} ${keep(marked.length)}`;
   // The holder isn't on this ballot and the source gave no reason.
   const gone = inc.filter((i) => i.ballot == null);
-  if (gone.length) return `Open seat. ${gone.map((i) => i.name).join(' and ')} ${gone.length > 1 ? (held ? 'weren’t' : 'aren’t') : held ? 'wasn’t' : 'isn’t'} on the ballot for this seat.`;
+  if (gone.length) return final
+    ? `Open seat. ${gone.map((i) => i.name).join(' and ')} ${gone.length > 1 ? (held ? 'weren’t' : 'aren’t') : held ? 'wasn’t' : 'isn’t'} on the ballot for this seat.`
+    : `${gone.map((i) => i.name).join(' and ')} ${gone.length > 1 ? 'aren’t' : 'isn’t'} on the candidate list for this seat yet. The list isn’t final.`;
   return '';
 }
