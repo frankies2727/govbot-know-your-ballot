@@ -27,7 +27,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { namesAgree } from './ballotpedia-profiles.mjs';
-import { nameCase, parseCityList } from './illinois/city.mjs';
+import { nameCase, parseCityList, stillFiled } from './illinois/city.mjs';
 import { addStateMoney, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
 import { addPhotos } from './illinois/photos.mjs';
 import { addSocial } from './illinois/social.mjs';
@@ -112,7 +112,7 @@ async function boardList(work) {
 
 /**
  * The races and who has filed, in the Board's ballot order. A filing counts
- * as plain "Candidate"; one under objection stays on (with its status shown)
+ * as plain "Candidate"; one under objection ("Objection Filed", "Challenged") stays on, with its status shown,
  * until the Board rules; anything else (withdrawn, removed) is left off.
  */
 function racesFrom(list) {
@@ -124,7 +124,7 @@ function racesFrom(list) {
     if (!r) continue;
     const candidates = [];
     for (const f of filings) {
-      const kept = f.status === 'Candidate' || /objection/i.test(f.status);
+      const kept = stillFiled(f.status);
       if (!kept) { left[f.status] = (left[f.status] ?? 0) + 1; continue; }
       if (candidates.some((c) => c.name === f.name)) continue;
       candidates.push({ ballot: f.no ?? candidates.length + 1, name: f.name, party: '', ...(f.status !== 'Candidate' ? { filing: f.status } : {}) });
@@ -132,7 +132,7 @@ function racesFrom(list) {
     // The Board prints ballot numbers once it certifies the ballot (Dec 17,
     // 2026); until every filing in a race has one, the list's order is the
     // ballot order and the numbers here only identify picks.
-    const numbered = candidates.length > 0 && filings.filter((f) => f.status === 'Candidate' || /objection/i.test(f.status)).every((f) => f.no);
+    const numbered = candidates.length > 0 && filings.filter((f) => stillFiled(f.status)).every((f) => f.no);
     races.push({ ...r, candidates, writeIn: false, numbered, source: list.url });
   }
   const wards = races.filter((r) => r.section === 'council').length;

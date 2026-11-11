@@ -58,9 +58,16 @@ export function parseCityList(text) {
 }
 
 /**
+ * Whether a filing is still running: a plain "Candidate", or one under objection
+ * until the Board rules on it (the Board's list has said "Objection Filed" and,
+ * from Nov 9, 2026, "Challenged"). A withdrawn or removed filing isn't.
+ */
+export const stillFiled = (status) => status === 'Candidate' || /objection|challeng/i.test(status);
+
+/**
  * Put each race's filed candidates onto `races` (govbot's city races, which
- * keep their offices and incumbents). Only filings whose status is plain
- * "Candidate" count. Throws if the list looks like a bad read (a reformatted
+ * keep their offices and incumbents). Only filings still running count
+ * (stillFiled). Throws if the list looks like a bad read (a reformatted
  * PDF), so a caller keeps yesterday's names instead.
  */
 export function addCityCandidates(races, list) {
@@ -76,7 +83,7 @@ export function addCityCandidates(races, list) {
   for (const r of races) {
     const names = [];
     for (const f of list.offices.get(r.id) ?? []) {
-      if (f.status === 'Candidate') { if (!names.includes(f.name)) names.push(f.name); } else skipped[f.status] = (skipped[f.status] ?? 0) + 1;
+      if (stillFiled(f.status)) { if (!names.includes(f.name)) names.push(f.name); } else skipped[f.status] = (skipped[f.status] ?? 0) + 1;
     }
     r.candidates = names;
     named += names.length;

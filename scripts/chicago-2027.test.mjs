@@ -36,3 +36,9 @@ test('a certified list carries ballot numbers, read with each filing', async () 
   const list = parseCityList(text);
   assert.deepEqual(list.offices.get('chicago-mayor'), [{ no: 1, name: 'John Kelly', status: 'Candidate' }, { no: 2, name: 'Anna M. Valencia', status: 'Objection Filed' }]);
 });
+
+test('a filing under objection stays on the list, however the Board words it', async () => {
+  const { stillFiled } = await import('./illinois/city.mjs');
+  for (const s of ['Candidate', 'Objection Filed', 'Challenged']) assert.ok(stillFiled(s), s);
+  for (const s of ['Withdrawn', 'Removed', 'N/A']) assert.ok(!stillFiled(s), s);
+});
