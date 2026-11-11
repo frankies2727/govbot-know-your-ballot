@@ -1,1 +1,62 @@
-{}
+{
+  "mayor|Willie L. Wilson": {
+    "commons": "Willie_Wilson_2015.jpg"
+  },
+  "mayor|Joe Holberg": {
+    "commons": "Joe_Holberg_2025_(cropped).jpg"
+  },
+  "mayor|Danielle Carter-Walters": {
+    "commons": "Danielle_Carter_Walters_in_2026_(cropped).jpg"
+  },
+  "mayor|John Kelly": {
+    "url": "https://johnkellyforchi.com/wp-content/uploads/2026/08/jkseocard-1024x538.png",
+    "page": "https://johnkellyforchi.com/",
+    "credit": "John Kelly for Chicago (campaign site)",
+    "crop": "400x400+590+10"
+  },
+  "mayor|Matt Brewer": {
+    "url": "https://run.imgix.net/9e231b13-3c59-4e21-94f1-d4e0232af310/84998b8e-df7c-4118-b80b-12ce53148652/84998b8e-df7c-4118-b80b-12ce53148652.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C502%2C7008%2C3668&s=e984061d5e6daaa9db3c0b95430b501c",
+    "page": "https://www.mattbrewer.com/",
+    "credit": "Matt Brewer (campaign site)",
+    "crop": "2200x2200+1300+100"
+  },
+  "mayor|Lisa Nee": {
+    "url": "https://run.imgix.net/1b30bb13-49a4-43a9-ab24-648182a64aae/1223ee1c-57f3-4c08-907c-af998e08252b/1223ee1c-57f3-4c08-907c-af998e08252b.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C1174%2C1066&s=5b676f43c985cc437b1d4409be971510",
+    "page": "https://www.lisaneeforchicago.com/",
+    "credit": "Lisa Nee for Chicago (campaign site)",
+    "crop": "520x520+385+80"
+  },
+  "mayor|Zoe X. Ma": {
+    "url": "https://vibe.filesafe.space/meta/1776525447363326568/og_image.jpg",
+    "page": "https://zoemaformayor.com/",
+    "credit": "Zoe Ma for Mayor (campaign site)",
+    "crop": "470x470+405+565"
+  },
+  "alderperson-ward-1|Bill Thanoukos": {
+    "url": "https://pbs.twimg.com/profile_images/2074885769798238208/ao6ThIw8.jpg",
+    "page": "https://x.com/bill_thanoukos",
+    "credit": "Bill Thanoukos (his X account)"
+  },
+  "alderperson-ward-2|Richard Omoniyi-Shoyoola": {
+    "url": "https://images.squarespace-cdn.com/content/v1/68e15c33bab1250943b4bf7d/b7a87713-9577-43fb-afef-6ce953ca2d12/Aldermann+Campaign-625.jpg",
+    "page": "https://www.richard4ward2.com",
+    "credit": "Richard Omoniyi-Shoyoola (campaign site)"
+  },
+  "alderperson-ward-7|Nathaniel A. Pendleton": {
+    "url": "https://primary.jwwb.nl/public/o/a/j/temp-jchnrlvjhtgnqlpfsltl/blue-suit-blue-stripe-tie-leaning-high-hvsr01.png?enable-io=true&enable=upscale&fit=bounds&width=1200",
+    "page": "https://www.votenatependleton.com/about-nate-pendleton",
+    "credit": "Vote Nate Pendleton (campaign site)"
+  },
+  "alderperson-ward-9|Cecelia Z. Harrison": {
+    "url": "https://res.cloudinary.com/hxn9dbuhd/image/upload/c_fill,g_auto,f_jpg,q_auto,w_1200,h_630/v1786370397/organizations/6/8/b/7/68b7934f-d065-4f94-bd14-0bcfc1d25fbd/f4adaa06-050a-4e2b-a48f-455f23076b3e.png",
+    "page": "https://www.zeffy.com/en-US/donation-form/support-cecelia-harrison-for-9th-ward-alderperson",
+    "credit": "Cecelia Harrison for 9th Ward (campaign page)",
+    "crop": "360x360+10+150"
+  },
+  "alderperson-ward-27|Nate Cornell": {
+    "url": "https://ugc.production.linktr.ee/7ce7acf0-9279-4fa5-83fa-fa5c3dfc600b_DSC-0387.jpeg",
+    "page": "https://linktr.ee/natecornell27",
+    "credit": "Nate Cornell (campaign Linktree)",
+    "crop": "560x560+390+40"
+  }
+}

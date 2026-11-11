@@ -5,7 +5,9 @@
 // and its credit. Wikimedia Commons files carry their author and license.
 //
 // Candidates no official source covers can have a photo picked by hand in
-// photos-chosen.json ({ "<race id>|<name>": { url, page, credit, crop? } }): only a
+// photos-chosen.json ({ "<race id>|<name>": { url, page, credit, crop? } }, or
+// { commons: "<file name>" } for a Wikimedia Commons file, credited with its
+// author and license from the file page): only a
 // government page about that person or their own campaign site, checked to be
 // a photo of that one person. `crop` (ImageMagick geometry, e.g. "300x300+150+20")
 // cuts a full-length or wide photo down to head and shoulders. An automatic
@@ -175,7 +177,7 @@ export async function addPhotos(races, { dir, publicPath, prev, chosen = CHOSEN_
   const entries = races.flatMap((race) => race.candidates.map((c) => ({ race, c, key: `${race.id}|${c.name}` })));
   for (const e of entries) {
     const pick = CHOSEN[e.key];
-    if (!e.c.photoFrom && pick) e.c.photoFrom = { url: pick.url, credit: pick.credit, link: pick.page, crop: pick.crop };
+    if (!e.c.photoFrom && pick) e.c.photoFrom = pick.commons ? { commons: pick.commons } : { url: pick.url, credit: pick.credit, link: pick.page, crop: pick.crop };
   }
   // A hand-picked photo whose candidate isn't on the ballot any more (or was renamed) is flagged, not lost silently.
   const onBallot = new Set(entries.map((e) => e.key));
