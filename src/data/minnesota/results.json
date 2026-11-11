@@ -5,15 +5,15 @@
    "url": "https://electionresults.sos.state.mn.us/"
   }
  ],
- "asOf": "2026-11-10T19:08:27.000Z",
+ "asOf": "2026-11-10T21:08:27.000Z",
  "races": {
   "u-s-senator": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2831758,
+   "total": 2831757,
    "votes": {
     "1": 1520908,
-    "2": 1233467,
+    "2": 1233466,
     "3": 32473,
     "4": 41564
    },
@@ -73,10 +73,10 @@
   "cd-6": {
    "reporting": 276,
    "precincts": 276,
-   "total": 367342,
+   "total": 367341,
    "votes": {
     "1": 162212,
-    "2": 204703
+    "2": 204702
    },
    "writeIn": 427
   },
@@ -103,10 +103,10 @@
   "governor-and-lieutenant-governor": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2830165,
+   "total": 2830164,
    "votes": {
     "1": 1569756,
-    "2": 1206575,
+    "2": 1206574,
     "3": 51388
    },
    "writeIn": 2446
@@ -114,10 +114,10 @@
   "state-auditor": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2784731,
+   "total": 2784730,
    "votes": {
     "1": 1474043,
-    "2": 1230200,
+    "2": 1230199,
     "3": 78986
    },
    "writeIn": 1502
@@ -597,10 +597,10 @@
   "sldu-48": {
    "reporting": 27,
    "precincts": 27,
-   "total": 49299,
+   "total": 49298,
    "votes": {
     "1": 24141,
-    "2": 25122
+    "2": 25121
    },
    "writeIn": 36
   },
@@ -1641,10 +1641,10 @@
   "sldl-48b": {
    "reporting": 11,
    "precincts": 11,
-   "total": 23054,
+   "total": 23053,
    "votes": {
     "1": 12655,
-    "2": 10386
+    "2": 10385
    },
    "writeIn": 13
   },
@@ -2020,189 +2020,189 @@
   "associate-justice-of-the-supreme-court-seat-1": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1657314,
+   "total": 1657313,
    "votes": {
-    "1": 1639687
+    "1": 1639686
    },
    "writeIn": 17627
   },
   "associate-justice-of-the-supreme-court-seat-4": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1637088,
+   "total": 1637087,
    "votes": {
-    "1": 1620703
+    "1": 1620702
    },
    "writeIn": 16385
   },
   "judge-of-the-court-of-appeals-seat-1": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1615769,
+   "total": 1615768,
    "votes": {
-    "1": 1600288
+    "1": 1600287
    },
    "writeIn": 15481
   },
   "judge-of-the-court-of-appeals-seat-7": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1601039,
+   "total": 1601038,
    "votes": {
-    "1": 1585752
+    "1": 1585751
    },
    "writeIn": 15287
   },
   "judge-of-the-court-of-appeals-seat-13": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1594465,
+   "total": 1594464,
    "votes": {
-    "1": 1579456
+    "1": 1579455
    },
    "writeIn": 15009
   },
   "judge-of-the-court-of-appeals-seat-15": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1590586,
+   "total": 1590585,
    "votes": {
-    "1": 1575989
+    "1": 1575988
    },
    "writeIn": 14597
   },
   "judge-of-the-court-of-appeals-seat-18": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 1580519,
+   "total": 1580518,
    "votes": {
-    "1": 1565055
+    "1": 1565054
    },
    "writeIn": 15464
   },
   "district-court-1-seat-1": {
    "reporting": 357,
    "precincts": 357,
-   "total": 241882,
+   "total": 241881,
    "votes": {
-    "1": 239724
+    "1": 239723
    },
    "writeIn": 2158
   },
   "district-court-1-seat-2": {
    "reporting": 357,
    "precincts": 357,
-   "total": 240889,
+   "total": 240888,
    "votes": {
-    "1": 238756
+    "1": 238755
    },
    "writeIn": 2133
   },
   "district-court-1-seat-3": {
    "reporting": 357,
    "precincts": 357,
-   "total": 239882,
+   "total": 239881,
    "votes": {
-    "1": 237659
+    "1": 237658
    },
    "writeIn": 2223
   },
   "district-court-1-seat-4": {
    "reporting": 357,
    "precincts": 357,
-   "total": 240545,
+   "total": 240544,
    "votes": {
-    "1": 238401
+    "1": 238400
    },
    "writeIn": 2144
   },
   "district-court-1-seat-6": {
    "reporting": 357,
    "precincts": 357,
-   "total": 240579,
+   "total": 240578,
    "votes": {
-    "1": 238423
+    "1": 238422
    },
    "writeIn": 2156
   },
   "district-court-1-seat-7": {
    "reporting": 357,
    "precincts": 357,
-   "total": 239978,
+   "total": 239977,
    "votes": {
-    "1": 237825
+    "1": 237824
    },
    "writeIn": 2153
   },
   "district-court-1-seat-9": {
    "reporting": 357,
    "precincts": 357,
-   "total": 239740,
+   "total": 239739,
    "votes": {
-    "1": 237527
+    "1": 237526
    },
    "writeIn": 2213
   },
   "district-court-1-seat-12": {
    "reporting": 357,
    "precincts": 357,
-   "total": 239365,
+   "total": 239364,
    "votes": {
-    "1": 237248
+    "1": 237247
    },
    "writeIn": 2117
   },
   "district-court-1-seat-15": {
    "reporting": 357,
    "precincts": 357,
-   "total": 239621,
+   "total": 239620,
    "votes": {
-    "1": 237481
+    "1": 237480
    },
    "writeIn": 2140
   },
   "district-court-1-seat-16": {
    "reporting": 357,
    "precincts": 357,
-   "total": 239028,
+   "total": 239027,
    "votes": {
-    "1": 236840
+    "1": 236839
    },
    "writeIn": 2188
   },
   "district-court-1-seat-18": {
    "reporting": 357,
    "precincts": 357,
-   "total": 238079,
+   "total": 238078,
    "votes": {
-    "1": 235970
+    "1": 235969
    },
    "writeIn": 2109
   },
   "district-court-1-seat-27": {
    "reporting": 357,
    "precincts": 357,
-   "total": 239307,
+   "total": 239306,
    "votes": {
-    "1": 237112
+    "1": 237111
    },
    "writeIn": 2195
   },
   "district-court-1-seat-34": {
    "reporting": 357,
    "precincts": 357,
-   "total": 238396,
+   "total": 238395,
    "votes": {
-    "1": 236277
+    "1": 236276
    },
    "writeIn": 2119
   },
   "district-court-1-seat-36": {
    "reporting": 357,
    "precincts": 357,
-   "total": 238665,
+   "total": 238664,
    "votes": {
-    "1": 236519
+    "1": 236518
    },
    "writeIn": 2146
   },
@@ -3112,20 +3112,20 @@
   "attorney-general": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2801456,
+   "total": 2801455,
    "votes": {
     "1": 1521032,
-    "2": 1276218
+    "2": 1276217
    },
    "writeIn": 4206
   },
   "secretary-of-state": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2795178,
+   "total": 2795177,
    "votes": {
     "1": 1529236,
-    "2": 1168634,
+    "2": 1168633,
     "3": 41368,
     "4": 54684
    },
