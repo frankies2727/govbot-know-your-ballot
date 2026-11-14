@@ -54,7 +54,6 @@ export function Elections() {
   const rail = useRef<HTMLDivElement>(null);
 
   const matches = (e: Election) => (!f.states.length || f.states.includes(e.state)) && (!f.types.length || f.types.includes(e.type));
-  const shown = ELECTIONS.filter(matches).length;
   const filtered = f.states.length > 0 || f.types.length > 0;
 
   // An address ending #el-<id> clears the filters and brings that election's dot into view, focused.
@@ -91,10 +90,7 @@ export function Elections() {
           <span className="text-[15px] font-bold">Kind</span>
           {TYPES.map((t) => <button key={t} type="button" className="el-chip el-btn" aria-pressed={f.types.includes(t)} onClick={() => update({ types: toggle(f.types, t) })}>{TYPE_NAME[t]}</button>)}
         </div>
-        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[15px]" aria-live="polite">
-          <span><strong>{shown}</strong> election{shown === 1 ? '' : 's'}{filtered ? ' match' : ''}, {FIRST}–{LAST}</span>
-          {filtered && <button type="button" className="el-btn font-bold underline underline-offset-4" onClick={() => update({ states: [], types: [] })}>Clear filters</button>}
-        </p>
+        {filtered && <button type="button" className="el-btn text-[15px] font-bold underline underline-offset-4" onClick={() => update({ states: [], types: [] })}>Clear filters</button>}
       </div>
     </section>
   );
@@ -147,7 +143,7 @@ function Rail({ scroller, matches, states, onState, now }: { scroller: React.Ref
             <div className="el-corner" />
             <div className="el-axis" aria-hidden="true">
               <div className="el-years">{YEARS.map((y) => <span key={y}><b>{y}</b></span>)}</div>
-              <div className="el-months">{ticks.map((i) => <span key={i} style={{ left: pct(i + 0.5) }}><b>{MS[i % 12]}</b><u>{MS[i % 12][0]}</u></span>)}</div>
+              <div className="el-months">{ticks.map((i) => <span key={i} style={{ left: pct(i + 0.5) }}>{MS[i % 12]}</span>)}</div>
             </div>
           </div>
           {STATES.map((s) => {
