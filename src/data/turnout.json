@@ -65,8 +65,7 @@
      "ballots": 4300000,
      "eligible": 9308092,
      "pct": 46.2,
-     "preliminary": true,
-     "estimate": true
+     "preliminary": true
     }
    ],
    "regNote": "Of reg. is the State Board of Elections’ own share of registered voters; it hasn’t posted 2026 yet."
@@ -128,11 +127,10 @@
     },
     {
      "year": 2026,
-     "ballots": 4925000,
+     "ballots": 4800000,
      "eligible": 7795255,
      "pct": 63.18,
-     "preliminary": true,
-     "estimate": true
+     "preliminary": true
     }
    ],
    "regNote": "Registered is the state’s whole voter file, inactive voters included; Michigan reports turnout as a share of voting-age adults, not of registered voters."
@@ -240,7 +238,7 @@
     },
     {
      "year": 2026,
-     "ballots": 2760000,
+     "ballots": 2700000,
      "eligible": 4574796,
      "pct": 60.33,
      "preliminary": true,
