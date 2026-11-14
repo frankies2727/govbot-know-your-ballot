@@ -165,16 +165,14 @@ export function Ring({ pct, size = 64 }: { pct: number; size?: number }) {
 
 /**
  * The pinned bar's height as --kyb-bar (the contents column, jumped-to races
- * and the race boxes sit below it), and `kyb-ballot` on the page while the bar
- * is up: on phones govbot's header then scrolls away and the bar is the whole
- * sticky top (ballot.css).
+ * and the race boxes sit below it). The bar pins just under govbot's header,
+ * which stays at the top on every screen.
  */
 export function usePinnedBar() {
   const observer = useRef<ResizeObserver | null>(null);
   return useCallback((bar: HTMLDivElement | null) => {
     observer.current?.disconnect();
     const root = document.documentElement;
-    root.classList.toggle('kyb-ballot', !!bar);
     if (!bar) { root.style.removeProperty('--kyb-bar'); return; }
     // Setting a variable on the page root makes the browser recheck every
     // element's style, so only when the height really changed (resizing the

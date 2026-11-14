@@ -66,14 +66,6 @@
   background: linear-gradient(115deg, transparent 28%, color-mix(in srgb, #fff 12%, transparent) 44%, transparent 58%);
 }
 
-/* Phones, in the ballot view (html.kyb-ballot while the pinned bar is up):
-   govbot's header scrolls away with the page and the guide's own short bar
-   (contents, progress) is the whole sticky top, so the ballot gets the screen. */
-@media (max-width: 1023px) {
-  .kyb-ballot { --kyb-top: 0px; }
-  .kyb-ballot .gb-header { position: static; }
-}
-
 /* The contents section you're on: a glow around its coloured frame pulses.
    Only the glow layer's opacity animates, which the compositor does on its
    own: animating the shadow itself repainted the page every frame, and made
