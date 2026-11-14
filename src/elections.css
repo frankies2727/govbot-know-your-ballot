@@ -42,38 +42,20 @@
 .el-track::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; background: var(--gb-border); }
 .el-tick { position: absolute; top: 12px; bottom: 12px; width: 1px; background: var(--gb-border); }
 .el-tick-year { top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--gb-border-strong); }
-.el-today { position: absolute; top: 2px; bottom: 2px; width: 2px; margin-left: -1px; background: var(--gb-text); border-radius: 1px; }
-.el-dot { position: absolute; top: 50%; z-index: 1; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; transform: translate(-50%, -50%); background: none; border: 0; }
+.el-rail { position: relative; }
+/* Today: one unbroken line from the month names down through every lane, under the dots and the pinned names. */
+.el-today { position: absolute; top: 32px; bottom: 0; z-index: 0; width: 2px; margin-left: -1px; background: var(--gb-text); border-radius: 1px; pointer-events: none; }
+.el-dot { position: absolute; top: 50%; z-index: 1; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; transform: translate(-50%, -50%); background: none; border: 0; border-radius: 50%; }
+.el-dot[role="img"] { cursor: help; }
 .el-dot i { width: 16px; height: 16px; border-radius: 50%; background: var(--gb-bg); border: 3px solid var(--ink); transition: transform .12s; }
 .el-dot[data-held] i { background: var(--ink); }
-.el-dot:hover:not(:disabled) i { transform: scale(1.25); }
-.el-dot[aria-pressed="true"] i { transform: scale(1.35); box-shadow: 0 0 0 4px var(--gb-bg), 0 0 0 6px var(--ink); }
-.el-dot:disabled { cursor: default; }
+a.el-dot:hover i { transform: scale(1.25); }
+.el-dot[data-off] { cursor: default; }
 .el-dot[data-off] i { opacity: .28; }
-.el-legend { margin: 2px 0 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; color: var(--gb-text); }
+.el-legend { margin: 2px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; font-size: 13px; color: var(--gb-text); }
 .el-legend span { display: inline-flex; align-items: center; gap: 6px; }
 .el-key { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--gb-text); box-sizing: border-box; }
 .el-key-held { background: var(--gb-text); }
 .el-key-line { display: inline-block; width: 2px; height: 14px; background: var(--gb-text); border-radius: 1px; }
-
-/* The picked election's card, under the timeline. */
-.el-card { padding: 18px 20px; border: 2px solid var(--ink); border-radius: 16px; background: color-mix(in srgb, var(--ink) 6%, transparent); scroll-margin-top: calc(var(--kyb-top) + 16px); outline: none; }
-.el-card:focus-visible { outline: 3px solid var(--gb-text); outline-offset: 4px; }
-.el-row { display: grid; grid-template-columns: 4.1rem minmax(0, 1fr); gap: 10px 16px; }
-@media (min-width: 760px) { .el-row { grid-template-columns: 4.1rem minmax(0, 1fr) auto; column-gap: 22px; } }
-.el-leaf { grid-row: 1 / span 2; display: flex; flex-direction: column; align-items: center; justify-content: center; align-self: start; width: 4.1rem; padding: 8px 0 7px; border: 2px solid var(--ink); border-radius: 14px; background: color-mix(in srgb, var(--ink) 14%, transparent); }
-.el-leaf b { font-family: var(--gb-font-display); font-size: 2rem; font-weight: 600; line-height: 1; }
-.el-leaf span { margin-top: 3px; font-size: 12px; font-weight: 700; }
-.el-title { margin: 0; font-family: var(--gb-font-display); font-size: clamp(1.25rem, 3.4vw, 1.5rem); font-weight: 500; line-height: 1.2; }
-.el-meta { margin: 5px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 14px; }
-.el-state { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
-.el-state i { width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
-.el-type { padding: 1px 9px; border: 1.5px solid var(--gb-border-strong); border-radius: 999px; font-weight: 600; font-size: 13px; }
-.el-what { margin: 7px 0 0; max-width: 62ch; font-size: 15.5px; line-height: 1.5; }
-.el-stat { margin: 7px 0 0; font-size: 15px; }
-.el-act { grid-column: 2; }
-@media (min-width: 760px) { .el-act { grid-column: 3; grid-row: 1; align-self: start; } }
-.el-act-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 2px solid var(--gb-text); border-radius: 999px; background: none; color: var(--gb-text); font-weight: 700; text-decoration: none; }
-.el-act-link:hover { background: var(--kyb-chip); color: var(--gb-text); }
 
 @media (prefers-reduced-motion: reduce) { .el-dot i { transition: none; } }

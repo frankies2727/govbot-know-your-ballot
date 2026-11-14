@@ -57,12 +57,6 @@ const signed = (n: number) => { const r = Math.round(n * 10) / 10; return `${r >
 /** Change from `b` to `a` in percent. */
 const growth = (a: number, b: number) => ((a - b) / b) * 100;
 
-/** A state's latest election in a line, for the elections list: the share of eligible voters who voted, and whether it's still preliminary. */
-export function latestTurnout(state: StateId) {
-  const c = turnout.states[state].cycles.reduce((a, b) => (b.year > a.year ? b : a));
-  return { year: c.year, pct: c.pct, preliminary: !!c.preliminary };
-}
-
 export function Turnout({ state, name, ink }: { state: StateId; name: string; ink: string }) {
   const t = turnout.states[state];
   const cycles = [...t.cycles].sort((a, b) => a.year - b.year);
