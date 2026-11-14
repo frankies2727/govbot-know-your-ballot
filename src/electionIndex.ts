@@ -112,15 +112,3 @@ export function when(iso: string, now?: Date) {
   if (d === 0) return 'Today';
   return d === -1 ? 'Yesterday' : d > -60 ? `${-d} days ago` : `Held ${monthName(iso)} ${dayOfMonth(iso)}, ${iso.slice(0, 4)}`;
 }
-
-/**
- * The year the page opens on: the one with an election held in the last 45
- * days (its results and turnout are the news), otherwise the one with the
- * next election to come, otherwise the latest we have.
- */
-export function defaultYear(now?: Date): number {
-  const recent = ELECTIONS.filter((e) => { const d = daysUntil(e.date, now); return d <= 0 && d >= -45; });
-  if (recent.length) return Number(recent[recent.length - 1].date.slice(0, 4));
-  const next = ELECTIONS.find((e) => daysUntil(e.date, now) > 0);
-  return next ? Number(next.date.slice(0, 4)) : YEARS[YEARS.length - 1];
-}

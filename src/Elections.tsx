@@ -1,40 +1,33 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { guidePath, type GuideId } from './hosts';
 import { navigate } from './lib/router';
 import { daysUntil, today } from './store';
-import { dayOfMonth, defaultYear, ELECTIONS, guideOf, hasStateGuide, monthName, STATE_INK, STATE_NAME, STATES, TYPE_NAME, TYPES, weekday, when, YEARS, type Election, type ElectionType, type StateId } from './electionIndex';
+import { dayOfMonth, ELECTIONS, guideOf, hasStateGuide, monthName, STATE_INK, STATE_NAME, STATES, TYPE_NAME, TYPES, weekday, when, YEARS, type Election, type ElectionType, type StateId } from './electionIndex';
 import { latestTurnout } from './Turnout';
 import './elections.css';
 
-// The root page's index of elections: pick a cycle (a year, or all of them),
-// narrow by state and kind, and read them month by month. Above the list, the
-// year rail draws the chosen year as four lanes, one per state, with each
-// election a dot on its date (solid once held, open while it's coming), so the
-// shape of the year is visible at once. The state names on the lanes are the
-// state filter. Filters live in the address (?year=2027&state=illinois), so a
-// view can be shared and the Back button returns to it.
+// The root page's index of elections, as one timeline: every year we cover
+// side by side, a lane per state, each election a dot on its date (solid once
+// held, open while it's coming), scrolled sideways and opened at today. A tap
+// on a dot shows that election in the card below (what's on the ballot, and
+// its guide); it opens on the next election. The state names on the lanes and
+// the "Kind" chips dim the dots that don't match. Filters live in the address
+// (?state=illinois&type=local), so a view can be shared; #el-<id> (the home
+// page's search, a shared link) picks that election.
 
-type Show = 'all' | 'upcoming' | 'past';
-interface Filters { year: number | 'all'; states: StateId[]; types: ElectionType[]; show: Show }
-
-const SHOWS: [Show, string][] = [['all', 'All'], ['upcoming', 'Upcoming'], ['past', 'Past']];
+interface Filters { states: StateId[]; types: ElectionType[] }
 
 function fromAddress(): Filters {
   const q = new URLSearchParams(location.search);
   const list = <T extends string>(key: string, valid: readonly T[]) => (q.get(key)?.split(',') ?? []).filter((v): v is T => (valid as readonly string[]).includes(v));
-  const y = q.get('year');
-  const year = y === 'all' ? 'all' : YEARS.includes(Number(y)) ? Number(y) : defaultYear();
-  const show = q.get('show');
-  return { year, states: list('state', STATES), types: list('type', TYPES), show: show === 'upcoming' || show === 'past' ? show : 'all' };
+  return { states: list('state', STATES), types: list('type', TYPES) };
 }
 
 /** Writes the filters into the address, leaving out what is already the page's default. */
 function toAddress(f: Filters) {
   const q = new URLSearchParams();
-  if (f.year !== defaultYear()) q.set('year', String(f.year));
   if (f.states.length) q.set('state', f.states.join(','));
   if (f.types.length) q.set('type', f.types.join(','));
-  if (f.show !== 'all') q.set('show', f.show);
   const qs = q.toString();
   history.replaceState(history.state, '', `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`);
 }
@@ -52,175 +45,159 @@ function openGuide(id: GuideId, anchor?: string) {
   }, 100);
 }
 
+/** The election a hash names (#el-<id>), if any. */
+const fromHash = () => ELECTIONS.find((x) => `#el-${x.id}` === location.hash);
+/** The next election to come, else the latest held. */
+const nextElection = () => ELECTIONS.find((e) => daysUntil(e.date) >= 0) ?? ELECTIONS[ELECTIONS.length - 1];
+
 export function Elections() {
   const [f, setF] = useState(fromAddress);
   useEffect(() => toAddress(f), [f]);
   const update = (patch: Partial<Filters>) => setF((cur) => ({ ...cur, ...patch }));
-  const now = today();
+  const [picked, setPicked] = useState<Election>(() => fromHash() ?? nextElection());
+  const card = useRef<HTMLDivElement>(null);
+  const rail = useRef<HTMLDivElement>(null);
 
-  const inYear = (e: Election) => f.year === 'all' || e.date.startsWith(String(f.year));
-  const matches = (e: Election) => (!f.states.length || f.states.includes(e.state)) && (!f.types.length || f.types.includes(e.type))
-    && (f.show === 'all' || (f.show === 'upcoming') === (daysUntil(e.date) >= 0));
-  const ofYear = useMemo(() => ELECTIONS.filter(inYear), [f.year]); // eslint-disable-line react-hooks/exhaustive-deps
-  const shown = ofYear.filter(matches);
-  const filtered = f.states.length > 0 || f.types.length > 0 || f.show !== 'all';
+  const matches = (e: Election) => (!f.states.length || f.states.includes(e.state)) && (!f.types.length || f.types.includes(e.type));
+  const shown = ELECTIONS.filter(matches).length;
+  const filtered = f.states.length > 0 || f.types.length > 0;
 
-  // Rows by month ("February 2027"), soonest first.
-  const months = useMemo(() => {
-    const out: { key: string; label: string; items: Election[] }[] = [];
-    for (const e of shown) {
-      const key = e.date.slice(0, 7);
-      let g = out.find((m) => m.key === key);
-      if (!g) { g = { key, label: `${monthName(e.date)} ${e.date.slice(0, 4)}`, items: [] }; out.push(g); }
-      g.items.push(e);
-    }
-    return out;
-  }, [shown]);
-
-  // A tap on a dot brings its row into view and marks it.
-  const list = useRef<HTMLDivElement>(null);
-  // An address ending #el-<id> (the home page's search, or a shared link) opens that election's year, with nothing filtered out, and goes to its row.
+  // A dot (or a link naming an election) picks it: its card shows, and the rail scrolls it into view.
+  const pick = (e: Election, focusCard = false) => {
+    setPicked(e);
+    requestAnimationFrame(() => {
+      rail.current?.querySelector<HTMLElement>(`[data-el="${e.id}"]`)?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      if (!focusCard || !card.current) return;
+      card.current.scrollIntoView({ block: 'center' });
+      card.current.focus({ preventScroll: true });
+      card.current.classList.remove('kyb-flash'); void card.current.offsetWidth; card.current.classList.add('kyb-flash');
+    });
+  };
+  // An address ending #el-<id> picks that election, with nothing filtered out.
   useEffect(() => {
     const follow = () => {
-      const e = ELECTIONS.find((x) => `#el-${x.id}` === location.hash);
+      const e = fromHash();
       if (!e) return;
-      setF((cur) => ({ year: cur.year === 'all' ? 'all' : Number(e.date.slice(0, 4)), states: [], types: [], show: 'all' }));
-      requestAnimationFrame(() => requestAnimationFrame(() => reveal(e.id)));
+      setF({ states: [], types: [] });
+      pick(e, true);
     };
     follow();
     addEventListener('hashchange', follow);
     return () => removeEventListener('hashchange', follow);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  const reveal = (id: string) => {
-    const row = list.current?.querySelector<HTMLElement>(`#el-${id}`);
-    if (!row) return;
-    row.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-    row.focus({ preventScroll: true });
-    row.classList.remove('kyb-flash'); void row.offsetWidth; row.classList.add('kyb-flash');
-  };
 
   return (
     <section id="elections" aria-labelledby="elections-h" className="mt-16 scroll-mt-[var(--kyb-bar,0px)] space-y-6 sm:mt-24">
       <div className="space-y-2">
         <h2 id="elections-h" className="font-serif text-3xl font-medium leading-tight sm:text-4xl">Elections</h2>
-        <p className="max-w-[60ch] text-[17px]">Every election we cover or are getting ready for, by year. Past ballots stay here as the record of what voters saw.</p>
+        <p className="max-w-[60ch] text-[17px]">Every election we cover or are getting ready for, on one timeline. Tap a dot to see what’s on that ballot. Past ballots stay here as the record of what voters saw.</p>
       </div>
 
-      <div role="group" aria-label="Election cycle" className="el-years">
-        {YEARS.map((y) => <button key={y} type="button" className="el-year el-btn" aria-pressed={f.year === y} onClick={() => update({ year: y })}>{y}</button>)}
-        <button type="button" className="el-year el-btn el-year-all" aria-pressed={f.year === 'all'} onClick={() => update({ year: 'all' })}>All years</button>
-      </div>
+      <Rail scroller={rail} matches={matches} states={f.states} onState={(s) => update({ states: toggle(f.states, s) })} picked={picked.id} onDot={(e) => pick(e)} now={today()} />
 
-      {f.year !== 'all' && <Rail year={f.year} elections={ofYear} matches={matches} states={f.states} onState={(s) => update({ states: toggle(f.states, s) })} onDot={reveal} now={now} />}
-      {f.year === 'all' && (
-        <div role="group" aria-label="States" className="flex flex-wrap gap-2">
-          {STATES.map((s) => (
-            <button key={s} type="button" className="el-chip el-btn" aria-pressed={f.states.includes(s)} onClick={() => update({ states: toggle(f.states, s) })} style={{ '--ink': STATE_INK[s] } as React.CSSProperties}>
-              <i aria-hidden="true" />{STATE_NAME[s]}
-            </button>
-          ))}
-        </div>
-      )}
+      <div ref={card} tabIndex={-1} className="el-card" aria-live="polite" style={{ '--ink': STATE_INK[picked.state] } as React.CSSProperties}>
+        <Card e={picked} />
+      </div>
 
       <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
         <div role="group" aria-label="Kind of election" className="flex flex-wrap items-center gap-2">
           <span className="text-[15px] font-bold">Kind</span>
           {TYPES.map((t) => <button key={t} type="button" className="el-chip el-btn" aria-pressed={f.types.includes(t)} onClick={() => update({ types: toggle(f.types, t) })}>{TYPE_NAME[t]}</button>)}
         </div>
-        <div role="group" aria-label="Upcoming or past" className="flex flex-wrap items-center gap-2">
-          <span className="text-[15px] font-bold">Show</span>
-          {SHOWS.map(([v, label]) => <button key={v} type="button" className="el-chip el-btn" aria-pressed={f.show === v} onClick={() => update({ show: v })}>{label}</button>)}
-        </div>
-      </div>
-
-      <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[15px]" aria-live="polite">
-        <span><strong>{shown.length}</strong> election{shown.length === 1 ? '' : 's'} {f.year === 'all' ? 'across every year' : `in ${f.year}`}</span>
-        {filtered && <button type="button" className="el-btn font-bold underline underline-offset-4" onClick={() => update({ states: [], types: [], show: 'all' })}>Clear filters</button>}
-      </p>
-
-      <div ref={list}>
-        {months.map((m) => (
-          <div key={m.key}>
-            <h3 className="el-month">{m.label}</h3>
-            <ol className="el-list">{m.items.map((e) => <Row key={e.id} e={e} />)}</ol>
-          </div>
-        ))}
-        {!shown.length && (
-          <div className="rounded-2xl border border-[var(--gb-border)] bg-[var(--gb-surface)] p-5 text-[16px]">
-            <p className="font-bold">No elections match these filters.</p>
-            <p className="mt-1">Try another year, or clear the filters to see everything in {f.year === 'all' ? 'every year' : f.year}.</p>
-            <button type="button" className="el-btn el-act-link mt-3" onClick={() => update({ states: [], types: [], show: 'all' })}>Clear filters</button>
-          </div>
-        )}
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[15px]" aria-live="polite">
+          <span><strong>{shown}</strong> election{shown === 1 ? '' : 's'}{filtered ? ' match' : ''}, {YEARS[0]}–{YEARS[YEARS.length - 1]}</span>
+          {filtered && <button type="button" className="el-btn font-bold underline underline-offset-4" onClick={() => update({ states: [], types: [] })}>Clear filters</button>}
+        </p>
       </div>
     </section>
   );
 }
 
 const MS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const utc = (y: number, m: number, d: number) => Date.UTC(y, m, d);
-/** Where a date falls in its year, 0 to 100. */
+const FIRST = YEARS[0];
+const LAST = YEARS[YEARS.length - 1];
+const SPAN = YEARS.length * 12; // months on the timeline
+/** Where a date falls on the timeline, in months from its start (a fraction within the month). */
 const place = (iso: string) => {
   const [y, m, d] = iso.split('-').map(Number);
-  return ((utc(y, m - 1, d) - utc(y, 0, 1)) / (utc(y + 1, 0, 1) - utc(y, 0, 1))) * 100;
+  const days = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  return (y - FIRST) * 12 + (m - 1) + (d - 1) / days;
 };
+const pct = (months: number) => `${(months / SPAN) * 100}%`;
 
-/** The year as four lanes: a lane per state, a dot per election, a line for today. */
-function Rail({ year, elections, matches, states, onState, onDot, now }: { year: number; elections: Election[]; matches: (e: Election) => boolean; states: StateId[]; onState: (s: StateId) => void; onDot: (id: string) => void; now: string }) {
-  const months = MS.map((label, i) => ({ label, start: place(`${year}-${String(i + 1).padStart(2, '0')}-01`), end: i === 11 ? 100 : place(`${year}-${String(i + 2).padStart(2, '0')}-01`) }));
-  const todayAt = now.startsWith(String(year)) ? place(now) : null;
+/** Every year as lanes, a lane per state, a dot per election, a line for today; it scrolls sideways and opens at today. */
+function Rail({ scroller, matches, states, onState, picked, onDot, now }: { scroller: React.RefObject<HTMLDivElement | null>; matches: (e: Election) => boolean; states: StateId[]; onState: (s: StateId) => void; picked: string; onDot: (e: Election) => void; now: string }) {
+  const year = Number(now.slice(0, 4));
+  const todayAt = year >= FIRST && year <= LAST ? place(now) : null;
+  const byState = useMemo(() => new Map(STATES.map((s) => [s, ELECTIONS.filter((e) => e.state === s)])), []);
+  // Open with today a third of the way in, so what's just past and what's coming both show.
+  useLayoutEffect(() => {
+    const el = scroller.current;
+    if (!el || todayAt == null) return;
+    const track = el.querySelector<HTMLElement>('.el-axis');
+    if (track) el.scrollLeft = Math.max(0, track.getBoundingClientRect().left - el.getBoundingClientRect().left + (todayAt / SPAN) * track.offsetWidth - el.clientWidth / 3);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const ticks = Array.from({ length: SPAN }, (_, i) => i);
   const track = (children?: React.ReactNode) => (
     <div className="el-track">
-      {months.map((m) => <i key={m.label} className="el-tick" style={{ left: `${m.start}%` }} aria-hidden="true" />)}
-      {todayAt != null && <i className="el-today" style={{ left: `${todayAt}%` }} aria-hidden="true" />}
+      {ticks.map((i) => <i key={i} className={`el-tick${i % 12 === 0 ? ' el-tick-year' : ''}`} style={{ left: pct(i) }} aria-hidden="true" />)}
+      {todayAt != null && <i className="el-today" style={{ left: pct(todayAt) }} aria-hidden="true" />}
       {children}
     </div>
   );
   return (
-    <div className="el-rail" role="group" aria-label={`${year} elections by state and date`}>
-      <div />
-      <div className="el-months" aria-hidden="true">
-        {months.map((m) => <span key={m.label} style={{ left: `${(m.start + m.end) / 2}%` }}><b>{m.label}</b><u>{m.label[0]}</u></span>)}
-      </div>
-      {STATES.map((s) => {
-        const mine = elections.filter((e) => e.state === s);
-        const dim = states.length > 0 && !states.includes(s);
-        return (
-          <div key={s} className="el-lane" data-dim={dim || undefined} style={{ '--ink': STATE_INK[s] } as React.CSSProperties}>
-            <button type="button" className="el-lane-name el-btn" aria-pressed={states.includes(s)} onClick={() => onState(s)}><i aria-hidden="true" />{STATE_NAME[s]}</button>
-            {track(mine.map((e) => {
-              const on = matches(e);
-              const label = `${STATE_NAME[s]}, ${e.title}, ${weekday(e.date)} ${monthName(e.date)} ${dayOfMonth(e.date)}`;
-              return (
-                <button key={e.id} type="button" className="el-dot el-btn" style={{ left: `${place(e.date)}%` }} data-off={!on || undefined} data-held={daysUntil(e.date) < 0 || undefined}
-                  disabled={!on} aria-label={label} title={label} onClick={() => onDot(e.id)}><i aria-hidden="true" /></button>
-              );
-            }))}
+    <div className="space-y-2">
+      <div ref={scroller} className="el-scroll" tabIndex={0} role="group" aria-label={`Elections ${FIRST}–${LAST}, by state and date; scrolls sideways`}>
+        <div className="el-rail" style={{ '--span': SPAN } as React.CSSProperties}>
+          <div className="el-head">
+            <div className="el-corner" />
+            <div className="el-axis" aria-hidden="true">
+              <div className="el-years">{YEARS.map((y) => <span key={y}><b>{y}</b></span>)}</div>
+              <div className="el-months">{ticks.map((i) => <span key={i} style={{ left: pct(i + 0.5) }}><b>{MS[i % 12]}</b><u>{MS[i % 12][0]}</u></span>)}</div>
+            </div>
           </div>
-        );
-      })}
-      <div />
+          {STATES.map((s) => {
+            const dim = states.length > 0 && !states.includes(s);
+            return (
+              <div key={s} className="el-lane" data-dim={dim || undefined} style={{ '--ink': STATE_INK[s] } as React.CSSProperties}>
+                <button type="button" className="el-lane-name el-btn" aria-pressed={states.includes(s)} onClick={() => onState(s)}><i aria-hidden="true" />{STATE_NAME[s]}</button>
+                {track(byState.get(s)!.map((e) => {
+                  const on = matches(e);
+                  const label = `${STATE_NAME[s]}, ${e.title}, ${weekday(e.date)} ${monthName(e.date)} ${dayOfMonth(e.date)}, ${e.date.slice(0, 4)}`;
+                  return (
+                    <button key={e.id} type="button" data-el={e.id} className="el-dot el-btn" style={{ left: pct(place(e.date)) }} data-off={!on || undefined} data-held={daysUntil(e.date) < 0 || undefined}
+                      aria-pressed={picked === e.id} disabled={!on} aria-label={label} title={label} onClick={() => onDot(e)}><i aria-hidden="true" /></button>
+                  );
+                }))}
+              </div>
+            );
+          })}
+        </div>
+      </div>
       <p className="el-legend">
         <span><i className="el-key el-key-held" aria-hidden="true" /> held</span>
         <span><i className="el-key" aria-hidden="true" /> coming</span>
         {todayAt != null && <span><i className="el-key-line" aria-hidden="true" /> today</span>}
+        <span>· Scroll sideways for every year</span>
       </p>
     </div>
   );
 }
 
-function Row({ e }: { e: Election }) {
+/** The picked election: when, what's on the ballot, and its guide. */
+function Card({ e }: { e: Election }) {
   const held = daysUntil(e.date) < 0;
   const turnout = e.type === 'general' && held && hasStateGuide(e.state) ? latestTurnout(e.state) : null;
   return (
-    <li id={`el-${e.id}`} tabIndex={-1} className="el-row" style={{ '--ink': STATE_INK[e.state] } as React.CSSProperties}>
-      <div className="el-leaf" aria-hidden="true"><b>{dayOfMonth(e.date)}</b><span>{weekday(e.date)}</span></div>
+    <div id={`el-${e.id}`} className="el-row">
+      <div className="el-leaf" aria-hidden="true"><b>{dayOfMonth(e.date)}</b><span>{MS[Number(e.date.slice(5, 7)) - 1]} {e.date.slice(0, 4)}</span></div>
       <div className="min-w-0">
-        <h4 className="el-title">{e.title}</h4>
+        <h3 className="el-title">{e.title}</h3>
         <p className="el-meta">
           <span className="el-state"><i aria-hidden="true" />{STATE_NAME[e.state]}</span>
           <span className="el-type">{TYPE_NAME[e.type]}</span>
-          <span><span className="sr-only">Date: </span>{when(e.date)}</span>
+          <span>{weekday(e.date)}, {monthName(e.date)} {dayOfMonth(e.date)}, {e.date.slice(0, 4)} · {when(e.date)}</span>
         </p>
         <p className="el-what">{e.what}</p>
         {turnout && <p className="el-stat"><strong>{turnout.pct.toFixed(1)}%</strong> of eligible voters voted{turnout.preliminary ? ', unofficial so far' : ''}.</p>}
@@ -233,6 +210,6 @@ function Row({ e }: { e: Election }) {
           </a>
         </div>
       )}
-    </li>
+    </div>
   );
 }

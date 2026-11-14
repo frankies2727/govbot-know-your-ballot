@@ -7,8 +7,8 @@ import type { SearchSlot } from './LandingBar';
 
 // The home page's search, in its pinned bar: the state guides and every
 // election in the index, by state, name, kind, date or what's on the ballot.
-// A guide opens; an election scrolls to its row in the index (Elections.tsx
-// follows the #el-<id> address, switching to its year).
+// A guide opens; an election is picked on the index's timeline (Elections.tsx
+// follows the #el-<id> address and shows that election's card).
 
 interface Hit { id: string; title: string; detail: string; ink: string; text: string; go: () => void }
 
