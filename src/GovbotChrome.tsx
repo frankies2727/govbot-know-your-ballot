@@ -20,9 +20,12 @@ const fill = (template: string) =>
   template.slice(template.indexOf('-->') + 3)
     .replaceAll('{HOME}', SITE).replaceAll('{ROOT}', SITE).replaceAll('{DASH}', `${SITE}dashboard/`);
 // govbot's theme button makes way for the lab's own (ThemeToggle, below).
+// The phone menu (its hamburger button and the drawer it opens) is left out:
+// on a phone the pinned header is just the logo, the name and the theme
+// switch; govbot's links are in the footer.
 const HEADER = fill(header).replace(/<button class="gb-icon-btn" data-gb-theme-toggle[\s\S]*?<\/button>/, '<span class="contents" data-kyb-theme></span>')
-// Phones' menu drawer sits outside govbot's header: give its links a landmark.
-  .replace('<div class="gb-drawer" data-gb-drawer>', '<div class="gb-drawer" data-gb-drawer role="navigation" aria-label="Menu">');
+  .replace(/<button class="gb-icon-btn gb-menu-btn"[\s\S]*?<\/button>/, '')
+  .replace(/<div class="gb-drawer" data-gb-drawer>[\s\S]*$/, '');
 const FOOTER = fill(footer);
 
 // Drawn once and never again: a re-render could rewrite the HTML and drop the
