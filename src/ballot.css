@@ -36,6 +36,11 @@
    govbot's sticky header, not under it. */
 .kyb-govbot { scroll-padding-top: calc(var(--kyb-top) + 16px); }
 
+/* Phones: govbot's menu button is in the header at the top of the page, but
+   once the page scrolls the pinned header keeps only the logo, the name and
+   the theme switch (GovbotChrome sets .kyb-scrolled). */
+@media (max-width: 860px) { .kyb-scrolled .gb-header .gb-menu-btn { display: none; } }
+
 /* The pinned bar as a floating glass card: the page shows through it heavily
    blurred and saturated, under a white top highlight, a diagonal sheen and
    an iridescent violet-blue-pink-cyan edge, with a soft violet glow beneath.

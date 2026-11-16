@@ -1,5 +1,5 @@
 import { Moon, Sun } from 'lucide-react';
-import { memo, useEffect, useState, type ReactNode } from 'react';
+import { memo, useEffect, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import footer from './govbot/footer.html?raw';
 import header from './govbot/header.html?raw';
@@ -20,12 +20,7 @@ const fill = (template: string) =>
   template.slice(template.indexOf('-->') + 3)
     .replaceAll('{HOME}', SITE).replaceAll('{ROOT}', SITE).replaceAll('{DASH}', `${SITE}dashboard/`);
 // govbot's theme button makes way for the lab's own (ThemeToggle, below).
-// The phone menu (its hamburger button and the drawer it opens) is left out:
-// on a phone the pinned header is just the logo, the name and the theme
-// switch; govbot's links are in the footer.
-const HEADER = fill(header).replace(/<button class="gb-icon-btn" data-gb-theme-toggle[\s\S]*?<\/button>/, '<span class="contents" data-kyb-theme></span>')
-  .replace(/<button class="gb-icon-btn gb-menu-btn"[\s\S]*?<\/button>/, '')
-  .replace(/<div class="gb-drawer" data-gb-drawer>[\s\S]*$/, '');
+const HEADER = fill(header).replace(/<button class="gb-icon-btn" data-gb-theme-toggle[\s\S]*?<\/button>/, '<span class="contents" data-kyb-theme></span>');
 const FOOTER = fill(footer);
 
 // Drawn once and never again: a re-render could rewrite the HTML and drop the
@@ -107,8 +102,28 @@ function useGuideTheme() {
   return { theme, toggleTheme, styled };
 }
 
+/**
+ * On a phone, govbot's menu button sits in the header at the top of the page
+ * but doesn't stay pinned with it: once the page scrolls, the pinned header is
+ * just the logo, the name and the theme switch (ballot.css, .kyb-scrolled).
+ * A marker at the very top of the page says when it has scrolled away.
+ */
+function useScrolledClass(drawn: boolean) {
+  const marker = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = marker.current;
+    if (!el || !('IntersectionObserver' in window)) return;
+    const root = document.documentElement;
+    const io = new IntersectionObserver(([e]) => root.classList.toggle('kyb-scrolled', !e.isIntersecting));
+    io.observe(el);
+    return () => { io.disconnect(); root.classList.remove('kyb-scrolled'); };
+  }, [drawn]);
+  return marker;
+}
+
 export function GovbotChrome({ children }: { children: ReactNode }) {
   const { theme, toggleTheme, styled } = useGuideTheme();
+  const topMarker = useScrolledClass(styled);
   // Where the switch goes: the spot govbot's own switch held in its header.
   const [themeSlot, setThemeSlot] = useState<Element | null>(null);
   // The script wires the menus and drawer to the header in the page, so it
@@ -124,6 +139,7 @@ export function GovbotChrome({ children }: { children: ReactNode }) {
   if (!styled) return null;
   return (
     <>
+      <div ref={topMarker} aria-hidden="true" className="absolute left-0 top-0 h-2 w-px" />
       <a href="#main" className="kyb-skip">Skip to content</a>
       <Static html={HEADER} />
       {themeSlot && createPortal(<ThemeToggle theme={theme} onToggle={toggleTheme} />, themeSlot)}
