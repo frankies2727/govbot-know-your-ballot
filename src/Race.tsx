@@ -787,14 +787,15 @@ const STILL_MOTION = () => typeof matchMedia === 'function' && matchMedia('(pref
 
 /**
  * Phones: the candidates as a deck of cards, one at a time, like a dating
- * app's: a big photo with the name and badges on it, the facts underneath
- * (scroll the card for more), the next two cards peeking out behind. Swipe
- * left for the next candidate, right for the one before (or use the round
- * buttons, or the arrow keys). A swipe only browses: picking is always the
- * explicit ✓ button, so nobody adds a candidate to their ballot by accident.
- * The card follows the finger and flies off with transform/opacity only.
+ * app's: a big round portrait with the name and badges, then everything we
+ * know about them (scroll the card for more), with the cards still to come
+ * fanned out behind it. Swipe left for the next candidate, right for the one
+ * before (or use the arrows on top, or the arrow keys). A swipe only browses:
+ * picking is always the explicit Pick button at the card's foot, so nobody
+ * adds a candidate to their ballot by accident. The card follows the finger
+ * and flies off with transform/opacity only.
  */
-function CompareDeck({ race, color, ink, numbered, picked, onPick, onInfo }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void }) {
+function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void }) {
   const { compareNote } = useStateConfig();
   const readOnly = useReadOnly();
   const s = compareScale(race);
@@ -848,77 +849,79 @@ function CompareDeck({ race, color, ink, numbered, picked, onPick, onInfo }: { r
     : enter
       ? { transform: 'translateX(110%) rotate(10deg)', transition: 'none' }
       : { transform: `translateX(${dx}px) rotate(${dx / 22}deg)`, transition: live ? 'none' : 'transform .25s cubic-bezier(.2,.9,.3,1.2)' };
-  const roundBtn = 'flex items-center justify-center rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-[0_4px_14px_rgba(0,0,0,.18)] disabled:opacity-35';
+  const roundBtn = 'flex shrink-0 items-center justify-center rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] disabled:opacity-35';
+  const behind = n - i - 1; // cards still to come
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col gap-3 -mx-3" onKeyDown={onKey}>
-      {/* Where you are in the deck: one bar per candidate, like a story's progress bars. */}
-      <div className="flex shrink-0 gap-1 px-1" aria-hidden="true">
-        {race.candidates.map((x, k) => <span key={x.ballot} className="h-1.5 flex-1 rounded-full" style={{ background: k === i ? color : k < i ? 'var(--gb-text)' : 'var(--kyb-chip-hi)' }} />)}
+    <div className="flex min-h-0 flex-1 flex-col gap-3" onKeyDown={onKey}>
+      {/* On top: back, where you are (one bar per candidate, only the current one lit), next. */}
+      <div className="flex shrink-0 items-center gap-3">
+        <button type="button" onClick={() => go(-1)} disabled={i === 0} aria-label="Previous candidate" className={`${roundBtn} h-11 w-11`}><ChevronLeft className="w-6 h-6" aria-hidden="true" /></button>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-[3px]" aria-hidden="true">
+            {race.candidates.map((x, k) => <span key={x.ballot} className={`flex-1 rounded-full ${k === i ? 'h-2' : 'h-1'}`} style={{ background: k === i ? color : 'var(--kyb-chip-hi)' }} />)}
+          </div>
+          <p className="mt-1.5 text-center text-[13px] font-bold">{i + 1} of {n}{behind > 0 ? ` · ${behind} more to swipe` : ''}</p>
+        </div>
+        <button type="button" onClick={() => go(1)} disabled={i === n - 1} aria-label="Next candidate" className={`${roundBtn} h-11 w-11`}><ChevronRight className="w-6 h-6" aria-hidden="true" /></button>
       </div>
       <p className="sr-only" aria-live="polite">Candidate {i + 1} of {n}: {c.name}</p>
 
-      {/* Room underneath for the cards peeking out behind. */}
+      {/* The deck. Room underneath and to the side for the cards stacked behind. */}
       <div className="relative min-h-0 flex-1">
-        {/* The next two cards, peeking out behind. */}
-        {[2, 1].map((k) => {
+        {/* Up to three cards still to come, fanned out behind like a deck. */}
+        {[3, 2, 1].map((k) => {
           const b = race.candidates[i + k];
           return b && (
-            <div key={b.ballot} aria-hidden="true" className="absolute inset-x-0 top-0 bottom-6 overflow-hidden rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)]"
-              style={{ transform: `translateY(${k * 12}px) scale(${1 - k * 0.045})`, transformOrigin: 'bottom center', transition: 'transform .25s ease' }}>
-              <CardHero race={race} c={b} color={color} numbered={numbered} />
+            <div key={b.ballot} aria-hidden="true" className="absolute inset-x-2 top-0 bottom-7 overflow-hidden rounded-3xl border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] shadow-[0_4px_12px_rgba(0,0,0,.15)]"
+              style={{ transform: `translate(${k * 7}px, ${k * 9}px) rotate(${k * 2.2}deg) scale(${1 - k * 0.03})`, transformOrigin: 'bottom center', transition: 'transform .25s ease' }}>
+              <CardHero race={race} c={b} numbered={numbered} />
             </div>
           );
         })}
         {/* The candidate on top: drag it sideways, scroll it up and down. */}
         <article key={c.ballot} aria-label={`${c.name}, candidate ${i + 1} of ${n}`}
-          className="absolute inset-x-0 top-0 bottom-6 flex flex-col overflow-hidden rounded-3xl border-2 bg-[var(--gb-surface)] shadow-[0_10px_30px_rgba(0,0,0,.28)] touch-pan-y select-none"
-          style={{ ...topStyle, borderColor: on ? color : 'var(--gb-text)' }}
+          className="absolute inset-x-2 top-0 bottom-7 flex flex-col overflow-hidden rounded-3xl border-2 bg-[var(--gb-surface)] shadow-[0_10px_30px_rgba(0,0,0,.28)] touch-pan-y select-none"
+          style={{ ...topStyle, borderColor: on ? color : 'var(--gb-text)', borderWidth: on ? 3 : 2 }}
           onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { drag.current = null; setDx(0); }}>
           <div ref={body} className="kyb-vscroll min-h-0 flex-1 overflow-y-auto overscroll-contain">
-            {/* The portrait scrolls away with the facts, so a short screen still has room to read. */}
-            <CardHero race={race} c={c} color={color} numbered={numbered} onBallot={on} />
+            {/* The portrait scrolls away with the facts, so there's room to read. */}
+            <CardHero race={race} c={c} numbered={numbered} onBallot={on} />
             <div className="space-y-3 px-4 pb-4 pt-1">
-            <CompareFacts race={race} c={c} s={s} />
-            {c.photo && <p className="text-xs">Photo: {c.photo.credit}</p>}
-            <p className="border-t border-[var(--gb-border)] pt-2 text-[13px] leading-snug">{compareNote} {COMPARE_SOURCES}</p>
-          </div>
+              <CompareFacts race={race} c={c} s={s} />
+              {c.photo && <p className="text-xs">Photo: {c.photo.credit}</p>}
+              {/* The card already carries every link, so a note pointing to "ⓘ Details" for them is left out here. */}
+              <p className="border-t border-[var(--gb-border)] pt-2 text-[13px] leading-snug">{compareNote.replace(/\s*Tap “ⓘ Details”[^.]*\./, '')} {COMPARE_SOURCES}</p>
             </div>
+          </div>
+          {!readOnly && (
+            <div className="shrink-0 border-t border-[var(--gb-border)] p-3">
+              <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on} aria-label={on ? `${c.name} is on My Ballot; tap to remove` : `Pick ${c.name}`}
+                className="flex min-h-[48px] w-full items-center justify-center gap-1.5 rounded-xl border-2 text-lg font-black"
+                style={on ? { background: color, color: ink, borderColor: color } : { color: 'var(--gb-text)', borderColor: 'var(--gb-text)' }}>
+                <Check className="w-5 h-5" strokeWidth={3} aria-hidden="true" />{on ? 'On My Ballot' : 'Pick'}
+              </button>
+            </div>
+          )}
         </article>
       </div>
-
-      {/* The deck's buttons: back, details, pick, next. */}
-      <div className="flex shrink-0 items-center justify-center gap-4">
-        <button type="button" onClick={() => go(-1)} disabled={i === 0} aria-label="Previous candidate" className={`${roundBtn} h-12 w-12`}><ChevronLeft className="w-6 h-6" aria-hidden="true" /></button>
-        <button type="button" onClick={() => onInfo(c)} aria-label={`Details on ${c.name}`} className={`${roundBtn} h-12 w-12`}><Info className="w-5 h-5" aria-hidden="true" /></button>
-        {!readOnly && (
-          <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on} aria-label={on ? `${c.name} is on My Ballot; tap to remove` : `Pick ${c.name}`}
-            className="flex h-16 min-w-16 items-center justify-center gap-1.5 rounded-full border-2 px-4 text-lg font-black shadow-[0_6px_18px_rgba(0,0,0,.25)]"
-            style={on ? { background: color, color: ink, borderColor: color } : { background: 'var(--gb-surface)', color: 'var(--gb-text)', borderColor: color }}>
-            <Check className="w-6 h-6" strokeWidth={3} aria-hidden="true" />{on ? 'Picked' : 'Pick'}
-          </button>
-        )}
-        <button type="button" onClick={() => go(1)} disabled={i === n - 1} aria-label="Next candidate" className={`${roundBtn} h-12 w-12`}><ChevronRight className="w-6 h-6" aria-hidden="true" /></button>
-      </div>
-      <p className="shrink-0 text-center text-[13px] font-bold">{i + 1} of {n} · swipe for the next one</p>
     </div>
   );
 }
 
 /**
- * A deck card's top, like a profile card: a band of the section's colour, the
- * candidate's portrait in a ring on it, then their name and badges. (The
- * photos are 360px portraits, so they stay a sharp circle rather than a
- * stretched backdrop.)
+ * A deck card's top, like a profile card: the candidate's portrait, big and
+ * round, then their name and badges. (The photos are 360px portraits, so they
+ * stay a sharp circle rather than a stretched backdrop.)
  */
-function CardHero({ race, c, color, numbered, onBallot = false }: { race: Race; c: Candidate; color: string; numbered: boolean; onBallot?: boolean }) {
+function CardHero({ race, c, numbered, onBallot = false }: { race: Race; c: Candidate; numbered: boolean; onBallot?: boolean }) {
   return (
-    <div className="relative shrink-0 px-4 pb-3 pt-5 text-center" style={{ background: `linear-gradient(180deg, ${color} 0 78px, transparent 78px)` }}>
-      <Face c={c} className="mx-auto h-[132px] w-[132px] text-5xl ring-4 ring-[var(--gb-surface)] shadow-[0_6px_20px_rgba(0,0,0,.25)]" />
-      {onBallot && <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] px-2.5 py-0.5 text-xs font-black text-[var(--gb-text)]"><Check className="w-3.5 h-3.5" strokeWidth={3} aria-hidden="true" />On My Ballot</span>}
+    <div className="relative shrink-0 px-4 pb-3 pt-5 text-center">
+      <Face c={c} className="mx-auto h-[132px] w-[132px] text-5xl ring-2 ring-[var(--gb-text)] ring-offset-4 ring-offset-[var(--gb-surface)]" />
+      {onBallot && <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] px-2.5 py-0.5 text-xs font-black text-[var(--gb-text)]"><Check className="w-3.5 h-3.5" strokeWidth={3} aria-hidden="true" />On My Ballot</span>}
       <p className="mt-3 text-2xl font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
       <div className="mt-2 flex flex-wrap justify-center gap-1.5">
-        {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
+        {numbered && <span className="inline-flex items-center rounded-full border-2 border-[var(--gb-text)] px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]">Ballot #{c.ballot}</span>}
         {c.party && <Badge>{c.party}</Badge>}
         {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
       </div>
