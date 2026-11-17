@@ -31,6 +31,7 @@ import { MoreGuides } from '../PlanToVote';
 import '../ballot.css';
 import { ballotFor, ballotForCounty, ballotIdsFor, inState } from './lookup';
 import type { GuideSpec } from './spec';
+import { useCandidateRoute } from '../CandidateLink';
 
 // One guide for a whole state (Michigan, Minnesota, Wisconsin): the landing
 // page with the statewide races, the address lookup, and the ballot view
@@ -120,6 +121,8 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
   const choose = useCallback((id: string, c: Choice) => setSaved((s) => ({ ...s, picks: { ...s.picks, [id]: c } })), [setSaved]);
   const openSheet = useCallback((race: Race, c: Candidate) => setSheet({ race, c }), []);
+  // A candidate's own address (/…/candidates/<race>/<name>, their Share link) opens their profile.
+  const leaveCandidate = useCandidateRoute(spec.slug, data.races, openSheet);
   const openCompare = useCallback((race: Race) => setComparing(race), []);
   const setPlan = useCallback((k: string, v: boolean | string) => setSaved((s) => ({ ...s, plan: { ...s.plan, [k]: v } })), [setSaved]);
 
@@ -538,7 +541,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
           picked={picksFor(sheet.race.id).includes(sheet.c.ballot)}
           onPick={() => togglePick(sheet.race, sheet.c.ballot)}
           onShowRace={showBallot ? undefined : () => { const race = sheet.race; setSheet(null); browse(); jumpTo(race.section, race.id); }}
-          onClose={() => setSheet(null)} />
+          onClose={() => { setSheet(null); leaveCandidate(); }} />
       )}
       {comparing && (
         <Compare race={comparing} color={sectionOf(comparing.section).color} ink={sectionOf(comparing.section).ink} numbered={comparing.numbered === true} picked={picksFor(comparing.id)}

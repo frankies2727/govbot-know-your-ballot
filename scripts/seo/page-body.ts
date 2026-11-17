@@ -23,8 +23,9 @@ import { aOrAn, isoDate, longDate, shortDate } from '../../src/seo/format';
 import type { Measure, Race } from '../../src/types';
 import { ELECTIONS, guideOf, STATE_NAME, YEARS } from '../../src/electionIndex';
 import { guidePath } from '../../src/hosts';
+import { candidatePath } from '../../src/lib/candidateLink';
 
-const EXPLAIN: Record<StateSlug, (office: string) => string> = { illinois: ilExplain, michigan: miExplain, minnesota: mnExplain, wisconsin: wiExplain };
+export const EXPLAIN: Record<StateSlug, (office: string) => string> = { illinois: ilExplain, michigan: miExplain, minnesota: mnExplain, wisconsin: wiExplain };
 const DATES = { illinois: NOV_3, michigan: MI_DATES, minnesota: MN_DATES, wisconsin: WI_DATES };
 
 export const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -42,11 +43,12 @@ export function readState(slug: StateSlug): StatePage {
 }
 
 const officeLabel = (office: string) => office.replace(/\s*\(\d+ seats?\)\s*$/i, '');
-const candidate = (c: Race['candidates'][number]) => `${esc(c.name)}${c.party ? `, ${esc(c.party)}` : ''}${c.incumbent ? ' (incumbent)' : ''}`;
+/** A candidate in a list, linked to their own page. */
+const candidate = (c: Race['candidates'][number], href: string) => `<a href="${href}">${esc(c.name)}</a>${c.party ? `, ${esc(c.party)}` : ''}${c.incumbent ? ' (incumbent)' : ''}`;
 
-function raceHtml(r: Race, explain: (o: string) => string) {
+function raceHtml(r: Race, explain: (o: string) => string, site: string, slug: StateSlug) {
   const job = explain(r.office);
-  return `<h3>${esc(officeLabel(r.office))}</h3>${job ? `<p>${esc(job)}</p>` : ''}<ul>${r.candidates.map((c) => `<li>${candidate(c)}</li>`).join('')}</ul>`;
+  return `<h3>${esc(officeLabel(r.office))}</h3>${job ? `<p>${esc(job)}</p>` : ''}<ul>${r.candidates.map((c) => `<li>${candidate(c, `${site}${candidatePath(slug, r.id, c.name)}`)}</li>`).join('')}</ul>`;
 }
 
 /** The readable page for a state. */
@@ -64,8 +66,8 @@ export function stateBody(f: StatePage, site: string, desc: string): string {
     ...faqDates(DATES[slug]).map((d) => `<dt>${shortDate(d.date)}${d.only ? ` (${esc(d.only)})` : ''}</dt><dd>${esc(d.title)}.${d.detail ? ` ${esc(d.detail)}` : ''}</dd>`),
     '</dl>',
     `<h2>The statewide races in ${esc(name)}</h2>`,
-    ...heads.map((r) => raceHtml(r, explain)),
-    ...(others.length ? [`<h2>Other statewide contests</h2>`, ...others.map((r) => raceHtml(r, explain))] : []),
+    ...heads.map((r) => raceHtml(r, explain, site, slug)),
+    ...(others.length ? [`<h2>Other statewide contests</h2>`, ...others.map((r) => raceHtml(r, explain, site, slug))] : []),
     ...(statewideMeasures(f.measures).length ? ['<h2>Statewide ballot questions</h2>', ...statewideMeasures(f.measures).map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.question)}</p>${m.plain ? `<p>${esc(m.plain)}</p>` : ''}`)] : []),
     `<h2>How ${aOrAn(name)} ${esc(name)} ballot works</h2>`,
     ...HOW[slug].map((i) => `<p><strong>${esc(i.lead)}</strong> ${esc(i.text)}</p>`),

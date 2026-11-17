@@ -24,7 +24,13 @@ if (existsSync('dist/index.html')) {
   const site = 'https://govbot-know-your-ballot.vercel.app';
   ok(dist('robots.txt').includes(`Sitemap: ${site}/sitemap.xml`), 'dist/robots.txt');
   const locs = [...dist('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  eq(locs, [`${site}/`, ...['illinois', 'michigan', 'minnesota', 'wisconsin'].map((s) => `${site}/2026-11/${s}`), `${site}/2027-02/chicago`, `${site}/2027-03/jacksonville`, `${site}/2027-04/denver`, `${site}/2027-04/wisconsin`], 'dist/sitemap.xml pages');
+  const guides = [`${site}/`, ...['illinois', 'michigan', 'minnesota', 'wisconsin'].map((s) => `${site}/2026-11/${s}`), `${site}/2027-02/chicago`, `${site}/2027-03/jacksonville`, `${site}/2027-04/denver`, `${site}/2027-04/wisconsin`];
+  eq(locs.slice(0, guides.length), guides, 'dist/sitemap.xml pages');
+  // Then every candidate's own page (scripts/seo/candidate-pages.ts), one per candidate in each guide's data.
+  const people = locs.slice(guides.length);
+  const listed = ['2026-11/illinois:illinois', '2026-11/michigan:michigan', '2026-11/minnesota:minnesota', '2026-11/wisconsin:wisconsin', '2027-02/chicago:chicago-2027', '2027-03/jacksonville:jacksonville-2027', '2027-04/denver:denver-2027', '2027-04/wisconsin:wisconsin-2027']
+    .reduce((n, g) => n + JSON.parse(readFileSync(`src/data/${g.split(':')[1]}/ballot.json`, 'utf8')).races.reduce((m, r) => m + r.candidates.length, 0), 0);
+  ok(people.length === listed && people.every((l) => /\/candidates\/[a-z0-9-]+\/[a-z0-9-]+$/.test(l)) && new Set(people).size === people.length, `a page for each of the ${listed} candidates, each address unique`);
   for (const l of locs) { const page = l === `${site}/` ? 'index.html' : `${l.slice(site.length + 1)}/index.html`; ok(existsSync(`dist/${page}`) && dist(page).includes(`<link rel="canonical" href="${l}" />`), `canonical of ${l} equals itself`); }
   ok(/lastmod>\d{4}-\d{2}-\d{2}</.test(dist('sitemap.xml')), 'sitemap has real dates');
   ok(dist('llms.txt').includes('Wisconsin') && !dist('llms.txt').includes('undefined'), 'dist/llms.txt');
@@ -46,6 +52,16 @@ if (existsSync('dist/index.html')) {
       ok(['WebPage', 'Event', 'BreadcrumbList'].every((t) => types.includes(t)), `${page}: page, election and breadcrumb markup`);
     }
   }
+  // A candidate's page: readable facts with sources, profile markup, links to the others in the race.
+  for (const page of ['2027-02/chicago/candidates/mayor/alexi-giannoulias/index.html', '2026-11/illinois/candidates/united-states-senator/don-tracy/index.html']) {
+    const html = dist(page);
+    const root = html.slice(html.indexOf('<div id="root">'), html.indexOf('</main>') + 7);
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
+    const types = blocks[0]['@graph'].map((n) => n['@type']);
+    ok(/<h1>[^<]+<\/h1>/.test(root) && root.includes('Campaign money') && root.includes('/candidates/') && !html.includes('undefined'), `${page}: readable profile linking the others in the race`);
+    ok(blocks.length === 1 && ['ProfilePage', 'Person', 'BreadcrumbList'].every((t) => types.includes(t)), `${page}: profile, person and breadcrumb markup`);
+  }
+  ok(dist('llms.txt').includes('## Candidates'), 'llms.txt explains the candidate pages');
   const full = dist('llms-full.txt');
   ok(['Illinois', 'Michigan', 'Minnesota', 'Wisconsin'].every((s) => full.includes(`## ${s}`)) && !full.includes('undefined') && dist('llms.txt').includes('llms-full.txt'), 'llms-full.txt covers every state and is linked');
   console.log('dist checks ok');

@@ -5,9 +5,10 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { defineConfig } from 'vite';
 import { llmsTxt, robotsTxt, sitemapXml, type SitePage, type StateFacts } from './scripts/seo/crawler-files';
-import { BODY_CSS, homeBody, jsonLd, jsonScript, llmsFull, readState, stateBody } from './scripts/seo/page-body';
+import { BODY_CSS, EXPLAIN, homeBody, jsonLd, jsonScript, llmsFull, readState, stateBody } from './scripts/seo/page-body';
+import { candidatePages, type CandidateGuide } from './scripts/seo/candidate-pages';
 import { guideBody, guideLd, LATER_GUIDES, readGuide } from './scripts/seo/later-pages';
-import { STATE_SLUGS } from './src/seo/copy';
+import { PORTAL, STATE_SLUGS } from './src/seo/copy';
 import { GUIDE_CYCLE, guidePath, type GuideId } from './src/hosts';
 import { held } from './src/seo/faq';
 import { isoDate } from './src/seo/format';
@@ -48,12 +49,15 @@ const STATES = [
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const metaFor = (page: string) => {
   const { title, desc, img } = PAGES[page];
-  const url = page ? `${SITE}${guidePath(page as GuideId)}` : `${SITE}/`;
+  return metaTags(title, desc, page ? `${SITE}${guidePath(page as GuideId)}` : `${SITE}/`, img, 'website');
+};
+/** A page's head tags: title, description, its one address, and what a shared link shows. */
+const metaTags = (title: string, desc: string, url: string, img: string, type: string) => {
   return [
     `<title>${esc(title)}</title>`,
     `<meta name="description" content="${esc(desc)}" />`,
     `<link rel="canonical" href="${url}" />`,
-    `<meta property="og:type" content="website" />`,
+    `<meta property="og:type" content="${type}" />`,
     `<meta property="og:site_name" content="Govbot Know Your Ballot" />`,
     `<meta property="og:title" content="${esc(title)}" />`,
     `<meta property="og:description" content="${esc(desc)}" />`,
@@ -81,10 +85,16 @@ function siteMeta() {
       // The later elections' guides (scripts/seo/later-pages.ts).
       const later = LATER_GUIDES.map((g) => { const d = readGuide(g.id); return { g, d, asOf: isoDate(d.sources.candidates.asOf) }; });
       const dates = [...states.map((s) => s.asOf), ...later.map((l) => l.asOf)].filter((d): d is string => !!d).sort();
-      const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: guidePath(s.slug as GuideId), lastmod: s.asOf })), ...later.map((l) => ({ path: guidePath(l.g.id), lastmod: l.asOf }))];
+      // A page for every candidate in every guide (scripts/seo/candidate-pages.ts).
+      const candidateGuides: CandidateGuide[] = [
+        ...pagesData.map((f) => ({ id: f.slug as GuideId, guideName: `Know Your ${f.name} Ballot`, election: `the ${f.name} general election`, day: '2026-11-03', asOf: f.asOf, races: f.races, explain: EXPLAIN[f.slug], portal: PORTAL[f.slug] })),
+        ...later.map(({ g, d, asOf }) => ({ id: g.id, guideName: g.name, election: `the ${g.event.replace(/\s+\d{4}$/, '')}`, day: g.day, asOf, races: d.races, explain: g.explain, portal: g.portal })),
+      ];
+      const people = candidateGuides.flatMap((g) => candidatePages(g, SITE));
+      const pages: SitePage[] = [{ path: '/', lastmod: dates.at(-1) }, ...states.map((s) => ({ path: guidePath(s.slug as GuideId), lastmod: s.asOf })), ...later.map((l) => ({ path: guidePath(l.g.id), lastmod: l.asOf })), ...people.map((p) => ({ path: p.path, lastmod: p.lastmod }))];
       writeFileSync(path.join(outDir, 'robots.txt'), robotsTxt(SITE));
       writeFileSync(path.join(outDir, 'sitemap.xml'), sitemapXml(SITE, pages));
-      writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, [...states, ...later.map(({ g, asOf }) => ({ slug: g.id, name: g.short, path: guidePath(g.id), asOf, portal: g.portal, what: g.what }))]));
+      writeFileSync(path.join(outDir, 'llms.txt'), llmsTxt(SITE, [...states, ...later.map(({ g, asOf }) => ({ slug: g.id, name: g.short, path: guidePath(g.id), asOf, portal: g.portal, what: g.what }))], people[0]?.path));
       writeFileSync(path.join(outDir, 'llms-full.txt'), llmsFull(SITE, pagesData));
       const shell = readFileSync(path.join(outDir, 'index.html'), 'utf8');
       // Each page: its own head tags, structured data, and the readable text inside the root (the app's first render replaces it).
@@ -101,6 +111,14 @@ function siteMeta() {
         mkdirSync(dir, { recursive: true });
         const html = shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaFor(g.id));
         writeFileSync(path.join(dir, 'index.html'), readable(html, guideBody(g, d, SITE, PAGES[g.id].desc), guideLd(g, d, SITE, PAGES[g.id].desc)));
+      }
+      // Each candidate's page, with the guide's own picture for a shared link.
+      const guideImg = (p: string) => Object.keys(PAGES).find((k) => k && p.startsWith(`${guidePath(k as GuideId)}/`)) ?? '';
+      for (const p of people) {
+        const dir = path.join(outDir, p.path.slice(1));
+        mkdirSync(dir, { recursive: true });
+        const html = shell.replace(/<title>[\s\S]*?<meta name="twitter:image"[^>]*>/, metaTags(p.title, p.desc, `${SITE}${p.path}`, PAGES[guideImg(p.path)].img, 'profile'));
+        writeFileSync(path.join(dir, 'index.html'), readable(html, p.body, p.ld));
       }
       writeFileSync(path.join(outDir, 'index.html'), readable(shell, homeBody(pagesData, SITE, PAGES[''].desc), jsonLd(SITE, null, PAGES[''].desc, pagesData)));
     },

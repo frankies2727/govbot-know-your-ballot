@@ -38,6 +38,7 @@ import { PdfCard } from './components/PdfCard';
 import type { PdfSummary } from './ballotPdf';
 import { daysUntil, hasProgress, isDecided, today, readResumeLink, resumeLink, useOpen, useSaved, type Choice, type Saved, choiceState } from './store';
 import type { BallotData, Candidate, Districts, Outline, Race } from './types';
+import { useCandidateRoute } from './CandidateLink';
 
 /** The election's results (scripts/results.mjs); until Illinois' can be read, a note on when and where. */
 const RESULTS: Results = { ...(rawResults as Results), certify: { who: 'the Illinois State Board of Elections', when: 'in early December' } };
@@ -202,6 +203,8 @@ export function KnowYourBallot() {
 
   const choose = useCallback((id: string, c: Choice) => setSaved((s) => ({ ...s, picks: { ...s.picks, [id]: c } })), [setSaved]);
   const openSheet = useCallback((race: Race, c: Candidate) => setSheet({ race, c }), []);
+  // A candidate's own address (/…/candidates/<race>/<name>, their Share link) opens their profile.
+  const leaveCandidate = useCandidateRoute('illinois', data.races, openSheet);
   const openCompare = useCallback((race: Race) => setComparing(race), []);
   const setPlan = useCallback((k: string, v: boolean | string) => setSaved((s) => ({ ...s, plan: { ...s.plan, [k]: v } })), [setSaved]);
 
@@ -702,7 +705,7 @@ export function KnowYourBallot() {
             choose(sheet.race.id, next);
           }}
           onShowRace={showBallot ? undefined : () => { const race = sheet.race; setSheet(null); browse(); jumpTo(race.section, race.id); }}
-          onClose={() => setSheet(null)} />
+          onClose={() => { setSheet(null); leaveCandidate(); }} />
       )}
       {comparing && (
         <Compare race={comparing} color={sectionOf(comparing.section).color} ink={sectionOf(comparing.section).ink} numbered={chicago && comparing.numbered !== false} picked={picksFor(comparing.id)}

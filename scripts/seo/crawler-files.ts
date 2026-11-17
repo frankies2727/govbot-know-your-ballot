@@ -35,7 +35,7 @@ export const sitemapXml = (site: string, pages: SitePage[]) => [
 export interface StateFacts { slug: string; name: string; /** The guide's path ("/2026-11/minnesota", src/hosts.ts). */ path: string; /** The candidate list's own date, as YYYY-MM-DD. */ asOf?: string; portal: { name: string; url: string }; /** What the guide covers, when it isn't a state's races, judges and questions. */ what?: string }
 
 /** The summary an AI assistant reads first (the llms.txt convention): what the site is, what to trust it for, and where each answer lives. */
-export function llmsTxt(site: string, states: StateFacts[]) {
+export function llmsTxt(site: string, states: StateFacts[], candidateExample?: string) {
   return [
     '# Govbot Know Your Ballot',
     '',
@@ -54,6 +54,12 @@ export function llmsTxt(site: string, states: StateFacts[]) {
     '',
     ...states.map((s) => `- [Know Your ${s.name} Ballot](${site}${s.path}): ${s.what ?? `races, judges and questions on the ${s.name} ballot`}${s.asOf ? `; candidate lists as of ${s.asOf}` : ''}. Official voter portal: [${s.portal.name}](${s.portal.url}).`),
     '',
+    ...(candidateExample ? [
+      '## Candidates',
+      '',
+      `Every candidate in every guide has a page of their own at <guide>/candidates/<race>/<name>, for example ${site}${candidateExample}: what they're running for, their party, campaign money from official filings, outside spending, their own words verbatim, endorsements, their record in office and links, each with its source, and everyone else in the race. All are listed in ${site}/sitemap.xml.`,
+      '',
+    ] : []),
     '## About',
     '',
     'Govbot is an open-source project of Chi Hack Night that turns every U.S. legislature\'s activity into open data anyone can clone, query and build on. Know Your Ballot is a free, nonpartisan voter guide built on Govbot.',

@@ -18,6 +18,7 @@ import { explainOffice as jaxExplain } from '../../src/jacksonville-2027/config'
 import { ELECTION_DAY as JAX_DAY } from '../../src/jacksonville-2027/dates';
 import { jacksonvilleFaq } from '../../src/jacksonville-2027/faq';
 import { guidePath, type GuideId } from '../../src/hosts';
+import { candidatePath } from '../../src/lib/candidateLink';
 import type { Faq } from '../../src/seo/faq';
 import { isoDate, longDate } from '../../src/seo/format';
 import { explainOffice as springExplain } from '../../src/wisconsin-2027/config';
@@ -91,7 +92,7 @@ export function guideBody(g: GuidePage, d: StateData, site: string, desc: string
       ...[...new Set(races.map((r) => g.explain(r.office)))].filter(Boolean).map((t) => `<p>${esc(t)}</p>`),
       ...races.map((r) => {
         const now = r.incumbents?.map((i) => `${i.name}${i.ballot ? ' (running again)' : ''}`).join(', ');
-        return `<h3>${esc(r.office)}</h3><p>${r.candidates.length ? `Candidates: ${esc(r.candidates.map((c) => c.name).join('; '))}.` : 'No candidates have filed yet.'}${now ? ` In office now: ${esc(now)}.` : ''}</p>`;
+        return `<h3>${esc(r.office)}</h3><p>${r.candidates.length ? `Candidates: ${r.candidates.map((c) => `<a href="${site}${candidatePath(g.id, r.id, c.name)}">${esc(c.name)}</a>`).join('; ')}.` : 'No candidates have filed yet.'}${now ? ` In office now: ${esc(now)}.` : ''}</p>`;
       }),
     ].join('\n');
   };

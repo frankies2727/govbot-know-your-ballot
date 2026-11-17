@@ -10,6 +10,7 @@ import type { Candidate, CouncilRecord, Guide, Measure, Race, Retention, SocialP
 import { QuestionResults, RaceResults } from './results';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
 import { Dialog, ReportLink } from './Bits';
+import { ShareCandidate } from './CandidateLink';
 
 const AREA_LABEL: Record<string, string> = {
   cd: 'Congressional District', sldu: 'State Senate District', sldl: 'State House District',
@@ -521,84 +522,105 @@ function Follow({ c }: { c: Candidate }) {
   );
 }
 
-export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, onShowRace, onClose, guide = null, judge }: { race: Race; c: Candidate; color: string; ink: string; numbered: boolean; picked: boolean; onPick: () => void; /** From the landing page: open their race on the ballot. */ onShowRace?: () => void; onClose: () => void; /** Their voter-guide questionnaire: `undefined` while it loads, `null` when there is none. */ guide?: Guide | null | undefined; /** A judicial candidate: their key in Injustice Watch's profiles (judges.json). */ judge?: string }) {
+/**
+ * Everything we know about one candidate: photo and credit, badges, money,
+ * their questionnaire, their own words, endorsements, record, socials and
+ * where to dig deeper. The candidate sheet shows it in a dialog; Compare's
+ * deck of cards on a phone shows it on each card (without the photo and the
+ * badges, which the card's top already carries).
+ */
+export function CandidateProfile({ race, c, color, ink, numbered, guide = null, judge, head = true }: { race: Race; c: Candidate; color: string; ink: string; numbered: boolean; guide?: Guide | null | undefined; judge?: string; /** The photo and badges at the top. */ head?: boolean }) {
   const { noMoney, researchLinks } = useStateConfig();
+  return (
+    <>
+      {head && (
+        <>
+          <figure className="flex items-center gap-4">
+            <Face c={c} className="w-24 h-24 text-3xl" />
+            {c.photo && (
+              <figcaption className="text-xs leading-snug text-[var(--gb-text)]">
+                Photo: {c.photo.link
+                  ? <a href={c.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{c.photo.credit}</a>
+                  : c.photo.credit}
+              </figcaption>
+            )}
+          </figure>
+          <div className="flex flex-wrap gap-2">
+            <Badge tone={color} ink={ink}>{race.office}</Badge>
+            {c.party && <Badge>{c.party}</Badge>}
+            {c.filing && <Badge tone="var(--gb-amber-hi)" ink="var(--gb-bg)">{c.filing}</Badge>}
+            {c.nominatedBy && <Badge>{c.nominatedBy} nominee</Badge>}
+            {numbered && <Badge>Ballot #{c.ballot}</Badge>}
+            {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
+          </div>
+        </>
+      )}
+
+      <section className="space-y-3">
+        <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">💰 Campaign money</h3>
+        {c.money ? (
+          <MoneyBars c={c} max={Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0)} />
+        ) : (
+          <p className="text-[15px] text-[var(--gb-text)]">{noMoney(race)}</p>
+        )}
+        {c.outside && (
+          <div className="space-y-2 border-t border-[var(--gb-border)] pt-3">
+            <OutsideHeading className="text-sm font-black text-[var(--gb-text)]" />
+            <OutsideBars c={c} max={Math.max(c.outside.support, c.outside.oppose)} />
+          </div>
+        )}
+      </section>
+
+      <VoterGuide g={guide} />
+
+      {judge && (
+        <section className="space-y-3">
+          <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">⚖️ About this candidate</h3>
+          <JudgeProfileBlock k={judge} wanted />
+        </section>
+      )}
+
+      <InTheirWords c={c} />
+
+      <Endorsements c={c} />
+
+      <Record c={c} />
+
+      {(() => { const rec = race.incumbents?.find((x) => x.ballot === c.ballot && x.council)?.council; return rec ? <CouncilRecordBlock r={rec} name={c.name} /> : null; })()}
+
+      <Follow c={c} />
+
+      <section className="space-y-3">
+        <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🔎 Dig deeper</h3>
+        {c.bar && <BarRatings bar={c.bar} source={c.barSource} />}
+        <ul className="grid gap-2 sm:grid-cols-2">
+          {researchLinks(c, race).map((l) => (
+            <li key={l.label}>
+              <a href={l.href} target="_blank" rel="noreferrer noopener" className="flex h-full items-start justify-between gap-3 rounded-xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 hover:border-[var(--gb-text)]">
+                <span>
+                  <span className="block font-bold text-[var(--gb-text)]">{l.label}</span>
+                  <span className="block text-sm text-[var(--gb-text)]">{l.note}</span>
+                </span>
+                <ExternalLink className="w-4 h-4 shrink-0 mt-1 text-[var(--gb-text)]" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <ReportLink what={race.office} name={c.name} id={race.id} />
+      </section>
+    </>
+  );
+}
+
+export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, onShowRace, onClose, guide = null, judge }: { race: Race; c: Candidate; color: string; ink: string; numbered: boolean; picked: boolean; onPick: () => void; /** From the landing page: open their race on the ballot. */ onShowRace?: () => void; onClose: () => void; /** Their voter-guide questionnaire: `undefined` while it loads, `null` when there is none. */ guide?: Guide | null | undefined; /** A judicial candidate: their key in Injustice Watch's profiles (judges.json). */ judge?: string }) {
   const readOnly = useReadOnly();
   return (
     <Dialog title={c.name} onClose={onClose}>
       <div className="space-y-6">
-        <figure className="flex items-center gap-4">
-          <Face c={c} className="w-24 h-24 text-3xl" />
-          {c.photo && (
-            <figcaption className="text-xs leading-snug text-[var(--gb-text)]">
-              Photo: {c.photo.link
-                ? <a href={c.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{c.photo.credit}</a>
-                : c.photo.credit}
-            </figcaption>
-          )}
-        </figure>
-        <div className="flex flex-wrap gap-2">
-          <Badge tone={color} ink={ink}>{race.office}</Badge>
-          {c.party && <Badge>{c.party}</Badge>}
-          {c.filing && <Badge tone="var(--gb-amber-hi)" ink="var(--gb-bg)">{c.filing}</Badge>}
-          {c.nominatedBy && <Badge>{c.nominatedBy} nominee</Badge>}
-          {numbered && <Badge>Ballot #{c.ballot}</Badge>}
-          {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
-        </div>
+        <CandidateProfile race={race} c={c} color={color} ink={ink} numbered={numbered} guide={guide} judge={judge} />
 
-        <section className="space-y-3">
-          <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">💰 Campaign money</h3>
-          {c.money ? (
-            <MoneyBars c={c} max={Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0)} />
-          ) : (
-            <p className="text-[15px] text-[var(--gb-text)]">{noMoney(race)}</p>
-          )}
-          {c.outside && (
-            <div className="space-y-2 border-t border-[var(--gb-border)] pt-3">
-              <OutsideHeading className="text-sm font-black text-[var(--gb-text)]" />
-              <OutsideBars c={c} max={Math.max(c.outside.support, c.outside.oppose)} />
-            </div>
-          )}
-        </section>
-
-        <VoterGuide g={guide} />
-
-        {judge && (
-          <section className="space-y-3">
-            <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">⚖️ About this candidate</h3>
-            <JudgeProfileBlock k={judge} wanted />
-          </section>
-        )}
-
-        <InTheirWords c={c} />
-
-        <Endorsements c={c} />
-
-        <Record c={c} />
-
-        {(() => { const rec = race.incumbents?.find((x) => x.ballot === c.ballot && x.council)?.council; return rec ? <CouncilRecordBlock r={rec} name={c.name} /> : null; })()}
-
-        <Follow c={c} />
-
-
-        <section className="space-y-3">
-          <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🔎 Dig deeper</h3>
-          {c.bar && <BarRatings bar={c.bar} source={c.barSource} />}
-          <ul className="grid gap-2 sm:grid-cols-2">
-            {researchLinks(c, race).map((l) => (
-              <li key={l.label}>
-                <a href={l.href} target="_blank" rel="noreferrer noopener" className="flex h-full items-start justify-between gap-3 rounded-xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 hover:border-[var(--gb-text)]">
-                  <span>
-                    <span className="block font-bold text-[var(--gb-text)]">{l.label}</span>
-                    <span className="block text-sm text-[var(--gb-text)]">{l.note}</span>
-                  </span>
-                  <ExternalLink className="w-4 h-4 shrink-0 mt-1 text-[var(--gb-text)]" aria-hidden="true" />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ReportLink what={race.office} name={c.name} id={race.id} />
-        </section>
+        {/* Their own page: a link to send, which opens straight to this profile. */}
+        <ShareCandidate race={race} c={c} className="w-full" />
 
         {!readOnly && (
           <button
@@ -758,9 +780,12 @@ function CompareColumns({ race, color, ink, numbered, picked, onPick, onInfo }: 
                 </div>
                 <div className="flex flex-1 flex-col gap-3 rounded-b-2xl border-x-2 border-b-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4 pt-3">
                   <CompareFacts race={race} c={c} s={s} />
-                  <button type="button" onClick={() => onInfo(c)} className="mt-auto inline-flex items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] font-bold text-[var(--gb-text)] hover:border-[var(--gb-text)]">
-                    <Info className="w-4 h-4" aria-hidden="true" /> Details
-                  </button>
+                  <div className="mt-auto flex gap-2">
+                    <button type="button" onClick={() => onInfo(c)} className="inline-flex flex-1 items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] font-bold text-[var(--gb-text)] hover:border-[var(--gb-text)]">
+                      <Info className="w-4 h-4" aria-hidden="true" /> Details
+                    </button>
+                    <ShareCandidate race={race} c={c} />
+                  </div>
                   {!readOnly && (
                     <button
                       type="button"
@@ -787,8 +812,9 @@ const STILL_MOTION = () => typeof matchMedia === 'function' && matchMedia('(pref
 
 /**
  * Phones: the candidates as a deck of cards, one at a time, like a dating
- * app's: a big round portrait with the name and badges, then everything we
- * know about them (scroll the card for more), with the cards still to come
+ * app's: a big round portrait with the name and badges, then their whole
+ * profile, the same as the candidate sheet's (scroll the card for more), and
+ * a Share button for their own page, with the cards still to come
  * fanned out behind it. Swipe left for the next candidate, right for the one
  * before (or use the arrows on top, or the arrow keys). A swipe only browses:
  * picking is always the explicit Pick button at the card's foot, so nobody
@@ -796,9 +822,7 @@ const STILL_MOTION = () => typeof matchMedia === 'function' && matchMedia('(pref
  * and flies off with transform/opacity only.
  */
 function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void }) {
-  const { compareNote } = useStateConfig();
   const readOnly = useReadOnly();
-  const s = compareScale(race);
   const n = race.candidates.length;
   const [i, setI] = useState(0);
   const [dx, setDx] = useState(0);              // how far the top card is dragged, px
@@ -887,22 +911,22 @@ function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Rac
           <div ref={body} className="kyb-vscroll min-h-0 flex-1 overflow-y-auto overscroll-contain">
             {/* The portrait scrolls away with the facts, so there's room to read. */}
             <CardHero race={race} c={c} numbered={numbered} onBallot={on} />
-            <div className="space-y-3 px-4 pb-4 pt-1">
-              <CompareFacts race={race} c={c} s={s} />
-              {c.photo && <p className="text-xs">Photo: {c.photo.credit}</p>}
-              {/* The card already carries every link, so a note pointing to "ⓘ Details" for them is left out here. */}
-              <p className="border-t border-[var(--gb-border)] pt-2 text-[13px] leading-snug">{compareNote.replace(/\s*Tap “ⓘ Details”[^.]*\./, '')} {COMPARE_SOURCES}</p>
+            {/* Their whole profile, the same as the candidate sheet's. */}
+            <div className="space-y-6 px-4 pb-4 pt-2">
+              <CandidateProfile race={race} c={c} color={color} ink={ink} numbered={numbered} head={false} />
+              {c.photo && <p className="text-xs">Photo: {c.photo.link ? <a href={c.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{c.photo.credit}</a> : c.photo.credit}</p>}
             </div>
           </div>
-          {!readOnly && (
-            <div className="shrink-0 border-t border-[var(--gb-border)] p-3">
+          <div className="flex shrink-0 gap-2 border-t border-[var(--gb-border)] p-3">
+            <ShareCandidate race={race} c={c} className={readOnly ? 'flex-1' : 'shrink-0'} />
+            {!readOnly && (
               <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on} aria-label={on ? `${c.name} is on My Ballot; tap to remove` : `Pick ${c.name}`}
-                className="flex min-h-[48px] w-full items-center justify-center gap-1.5 rounded-xl border-2 text-lg font-black"
+                className="flex min-h-[48px] flex-1 items-center justify-center gap-1.5 rounded-xl border-2 text-lg font-black"
                 style={on ? { background: color, color: ink, borderColor: color } : { color: 'var(--gb-text)', borderColor: 'var(--gb-text)' }}>
                 <Check className="w-5 h-5" strokeWidth={3} aria-hidden="true" />{on ? 'On My Ballot' : 'Pick'}
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </article>
       </div>
     </div>
