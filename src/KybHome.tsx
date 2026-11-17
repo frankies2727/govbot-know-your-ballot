@@ -118,7 +118,7 @@ export function KybHome() {
                 <ChevronDown className="kyb-cycle-chev h-7 w-7 shrink-0" aria-hidden="true" />
               </summary>
               <p className="mt-2 max-w-[60ch] text-[17px]">Every race, who holds each seat now, and who’s running as the lists come out.</p>
-              <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="Guides for spring 2027">
+              <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-5" aria-label="Guides for spring 2027">
                 {SPRING.map((g) => (
                   <li key={g.id} id={`kyb-home-${g.id}`} className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': g.ink } as React.CSSProperties}>
                     <a href={guidePath(g.id)} onClick={openIn(`projects/know-your-ballot-${g.id}`)} className="kyb-tile h-full">

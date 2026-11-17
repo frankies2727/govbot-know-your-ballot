@@ -6,7 +6,7 @@ import { BarRatings } from './BarRatings';
 import { Face } from './Face';
 import { useReadOnly, useStateConfig } from './state';
 import { daysUntil, money, type Choice } from './store';
-import type { Candidate, CouncilRecord, Guide, Measure, Race, Retention, SocialPlatform } from './types';
+import type { Candidate, CandidateBrief, CouncilRecord, Guide, Incumbent, Measure, Race, Retention, SocialPlatform } from './types';
 import { QuestionResults, RaceResults } from './results';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
 import { Dialog, ReportLink } from './Bits';
@@ -165,8 +165,38 @@ function Incumbents({ race }: { race: Race }) {
           {i.source?.url && <> <a href={i.source.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{i.source.name.replace(/^Wikipedia: .*/, 'Wikipedia')} ↗</a>{i.asOf ? <span className="text-xs"> · read {i.asOf}</span> : null}</>}
         </p>
         {i.council && <CouncilRecordBlock r={i.council} name={i.name} short />}
+        <HolderBrief i={i} />
         </div>
       ))}
+    </div>
+  );
+}
+
+/** A seat holder's photo and brief (who they are, what they've worked on, their words), folded under their name. */
+function HolderBrief({ i }: { i: Incumbent }) {
+  if (!i.photo && !i.brief) return null;
+  const quotes = i.brief?.quotes ?? [];
+  return (
+    <div className="flex items-start gap-3 pb-1">
+      <Face c={i} className="w-14 h-14 text-lg" />
+      <div className="min-w-0 flex-1 space-y-1">
+        {i.photo && <p className="text-xs">Photo: {i.photo.link ? <a href={i.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{i.photo.credit}</a> : i.photo.credit}</p>}
+        {i.brief && (
+          <details className="group">
+            <summary className="cursor-pointer min-h-[36px] inline-flex items-center font-bold underline underline-offset-2">About {i.name.split(' ')[0]}</summary>
+            <div className="mt-3 space-y-4">
+              <Brief b={i.brief} />
+              {quotes.length > 0 && (
+                <section className="space-y-3">
+                  <h3 className={heading}>🗣️ In their words</h3>
+                  <ul className="space-y-2 text-[15px] leading-relaxed">{quotes.map((q) => <li key={q.text.slice(0, 40)} className="rounded-xl bg-[var(--gb-bg)] p-3">“{q.text}” <Cite url={q.source} /></li>)}</ul>
+                </section>
+              )}
+              <BriefSources b={i.brief} />
+            </div>
+          </details>
+        )}
+      </div>
     </div>
   );
 }
@@ -242,8 +272,7 @@ function Cite({ url }: { url: string }) {
 }
 
 /** Who they are and what they'd work on, from their own pages and the press, each line with its source. */
-function Brief({ c }: { c: Candidate }) {
-  const b = c.brief;
+function Brief({ b }: { b?: CandidateBrief }) {
   if (!b || (!b.facts.length && !b.priorities.length)) return null;
   const list = (items: { text: string; source: string }[]) => (
     <ul className="space-y-2 text-[15px] leading-relaxed text-[var(--gb-text)]">
@@ -259,8 +288,7 @@ function Brief({ c }: { c: Candidate }) {
 }
 
 /** The pages a brief was read from, newest first, with when it was checked. */
-function BriefSources({ c }: { c: Candidate }) {
-  const b = c.brief;
+function BriefSources({ b }: { b?: CandidateBrief }) {
   if (!b?.sources.length) return null;
   const when = new Date(b.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   return (
@@ -604,7 +632,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
         </>
       )}
 
-      <Brief c={c} />
+      <Brief b={c.brief} />
 
       <section className="space-y-3">
         <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">💰 Campaign money</h3>
@@ -640,7 +668,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
 
       <Follow c={c} />
 
-      <BriefSources c={c} />
+      <BriefSources b={c.brief} />
 
       <section className="space-y-3">
         <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🔎 Dig deeper</h3>

@@ -35,10 +35,12 @@ import { sameName } from './wiki.mjs';
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/oak-park-2027/', ROOT);
 const PHOTOS = new URL('public/kyb-photos/oak-park-2027/', ROOT);
+const HOLDER_PHOTOS = new URL('public/kyb-photos/oak-park-2027-office/', ROOT);
 // Read by hand from each candidate's own pages and the local press (neutral, quotes word for word, every line sourced),
 // keyed "<race id>|<name>"; photos picked the same way, from any source, always credited (./illinois/photos.mjs).
 const BRIEFS = new URL('./oak-park-2027/briefs.json', import.meta.url);
 const CHOSEN_PHOTOS = new URL('./oak-park-2027/photos-chosen.json', import.meta.url);
+const HOLDER_CHOSEN = new URL('./oak-park-2027/holder-photos-chosen.json', import.meta.url);
 const UA = 'KnowYourBallot/1.0 (+https://github.com/frankies2727/govbot-know-your-ballot)';
 const ELECTION = { name: 'Consolidated Election', date: '2027-04-06' };
 const GIS = 'https://gis.cookcountyil.gov/traditional/rest/services';
@@ -175,7 +177,7 @@ async function main() {
     const social = Object.fromEntries(Object.entries(b.social ?? {}).filter(([, u]) => typeof u === 'string' && /^https:\/\//.test(u)));
     if (Object.keys(social).length) c.social = social;
   }
-  const unused = Object.keys(briefs).filter((k) => !races.some((r) => r.candidates.some((c) => `${r.id}|${c.name}` === k)));
+  const unused = Object.keys(briefs).filter((k) => !RACES.some((r) => [...r.holders, ...races.find((x) => x.id === r.id).candidates.map((c) => c.name)].some((n) => `${r.id}|${n}` === k)));
   if (unused.length) console.warn(`briefs.json: no candidate for ${unused.join('; ')}`);
   const photos = await addPhotos(races, { dir: PHOTOS.pathname, publicPath: 'kyb-photos/oak-park-2027', prev, chosen: CHOSEN_PHOTOS });
   for (const l of photos.log) console.log(l);
@@ -189,6 +191,17 @@ async function main() {
       return { name, ...(on ? { ballot: 0 } : {}), ...(def.note ? { note: def.note } : {}), source: def.now, asOf: '2026-11-17' };
     });
   }
+
+  // Seat holders not on the candidate list (yet): their brief and photo too, so a race nobody has
+  // filed for still says who holds it. Their photos sit in their own folder: addPhotos sweeps its folder.
+  const holders = races.map((r) => ({ id: r.id, candidates: (r.incumbents ?? []).filter((i) => i.ballot === undefined) }));
+  for (const r of holders) for (const i of r.candidates) {
+    const b = briefs[`${r.id}|${i.name}`];
+    if (b) i.brief = { facts: b.facts ?? [], priorities: b.priorities ?? [], quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf };
+  }
+  const prevHolders = prev && { races: prev.races.map((r) => ({ id: r.id, candidates: r.incumbents ?? [] })) };
+  const held = await addPhotos(holders, { dir: HOLDER_PHOTOS.pathname, publicPath: 'kyb-photos/oak-park-2027-office', prev: prevHolders, chosen: HOLDER_CHOSEN });
+  for (const l of held.log) console.log(`holders ${l}`);
 
   // Alphabetical by last name until the ballot order is set (Cook County draws it); then number them.
   const last = (n) => n.split(' ').filter((w) => !/^(II|III|IV|Jr\.?|Sr\.?)$/.test(w)).pop();

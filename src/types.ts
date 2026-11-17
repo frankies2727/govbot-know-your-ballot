@@ -122,6 +122,9 @@ export interface Incumbent {
   asOf?: string;
   /** A sitting Chicago alderperson's City Council record this term (scripts/chicago-2027/council.mjs). */
   council?: CouncilRecord;
+  /** Before anyone files (or when they aren't running): their photo and brief, as for a candidate. */
+  photo?: Candidate['photo'];
+  brief?: CandidateBrief;
 }
 
 /** An alderperson's record this term, from the City Clerk's eLMS: attendance, what they introduced, their budget votes. */
