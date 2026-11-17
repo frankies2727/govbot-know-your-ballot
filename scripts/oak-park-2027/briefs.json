@@ -1,1 +1,843 @@
-{}
+{
+ "village-trustee|Cory Wesley": {
+  "facts": [
+   {
+    "text": "Wesley is an incumbent Oak Park village trustee; the Village of Oak Park lists his first term as May 1, 2023 to May 1, 2027.",
+    "source": "https://oak-park.granicus.com/boards/w/d6ac89421af6f1dd/boards/44424"
+   },
+   {
+    "text": "He was appointed to the Village Board in October 2022 to fill the seat left vacant by Arti Walker-Peddakotla's resignation.",
+    "source": "https://www.oakpark.com/2022/10/07/cory-wesley-to-be-appointed-oak-park-village-trustee/"
+   },
+   {
+    "text": "He was elected in April 2023, receiving 5,110 votes, the most of any village board candidate.",
+    "source": "https://www.oakpark.com/2023/05/02/new-day/"
+   },
+   {
+    "text": "He ran for village trustee in 2019 and finished fourth of 10 candidates.",
+    "source": "https://www.oakpark.com/2022/10/07/cory-wesley-to-be-appointed-oak-park-village-trustee/"
+   },
+   {
+    "text": "His campaign site describes him as an 11-year Oak Park resident and a ServiceNow solutions architect and business consultant with his software consulting firm, TekVoyant, with more than 20 years in information technology.",
+    "source": "https://www.corywesley.com/bio"
+   },
+   {
+    "text": "He is the former chair of the Oak Park Economic Development Corporation board, co-president of the Southeast Oak Park Community Organization (SEOPCO), a board member of Oak Leyden Developmental Services, and a former two-term commissioner on the village's Civic Information Systems Commission.",
+    "source": "https://www.corywesley.com/bio"
+   },
+   {
+    "text": "He was born and raised in the Lawndale neighborhood on Chicago's west side and lives in southeast Oak Park with his wife, Mechelle, and two children who attended Irving school.",
+    "source": "https://www.corywesley.com/"
+   },
+   {
+    "text": "The Oak Park Firefighters IAFF/AFFI Local 95 endorsed his candidacy for reelection, in a letter signed by Local 95 President Bob Toth.",
+    "source": "https://www.corywesley.com/local95"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "Supports the zoning changes proposed by Shape Oak Park.",
+    "source": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/"
+   },
+   {
+    "text": "Wants the village to take on hard topics such as parking.",
+    "source": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/"
+   },
+   {
+    "text": "Proposed creating a renters commission so the 40% of Oak Parkers who rent can share their challenges.",
+    "source": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/"
+   },
+   {
+    "text": "Wants residents with expertise in specific areas to have a bigger role in advising on policy.",
+    "source": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/"
+   },
+   {
+    "text": "Will keep advocating for safety, with emphasis on traffic and bike safety.",
+    "source": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/"
+   },
+   {
+    "text": "Says his goal is an affordable Oak Park that makes space for those seeking affordability and keeps seniors in the community as they age.",
+    "source": "https://www.corywesley.com/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "We can't just say we're not going to talk about parking because it's scary.",
+    "source": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/",
+    "date": "2026-11-10"
+   },
+   {
+    "text": "There's a lot of people who feel like government is out of touch, and feel like the government doesn't care",
+    "source": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/",
+    "date": "2026-11-10"
+   },
+   {
+    "text": "When we drop a new zoning map that is not drawn from the legacy of racism, then I'll vote 'yes.'",
+    "source": "https://www.oakpark.com/2025/05/27/oak-park-approves-zoning-map-but-trustees-eye-reform/",
+    "date": "2025-05-27"
+   },
+   {
+    "text": "My goal is to create an affordable Oak Park that acknowledges our middle-class origins, that makes space for those seeking affordability, and works hard to keep our seniors in our community as they age through life.",
+    "source": "https://www.corywesley.com/"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Cory J. Wesley - Oak Park Trustee (home)",
+    "publisher": "corywesley.com",
+    "url": "https://www.corywesley.com/"
+   },
+   {
+    "title": "Meet Trustee Cory J. Wesley",
+    "publisher": "corywesley.com",
+    "url": "https://www.corywesley.com/bio"
+   },
+   {
+    "title": "Oak Park Firefighters - Local 95 Endorsement Letter",
+    "publisher": "corywesley.com",
+    "url": "https://www.corywesley.com/local95"
+   },
+   {
+    "title": "Board of Trustees",
+    "publisher": "Village of Oak Park",
+    "url": "https://oak-park.granicus.com/boards/w/d6ac89421af6f1dd/boards/44424"
+   },
+   {
+    "title": "Oak Park Trustee Cory Wesley running for reelection in 2027",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-10",
+    "url": "https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/"
+   },
+   {
+    "title": "Oak Park approves zoning map, but trustees eye reform",
+    "publisher": "Wednesday Journal",
+    "date": "2025-05-27",
+    "url": "https://www.oakpark.com/2025/05/27/oak-park-approves-zoning-map-but-trustees-eye-reform/"
+   },
+   {
+    "title": "New Day",
+    "publisher": "Wednesday Journal",
+    "date": "2023-05-02",
+    "url": "https://www.oakpark.com/2023/05/02/new-day/"
+   },
+   {
+    "title": "Cory J. Wesley, Candidate for Village of Oak Park Board of Trustees",
+    "publisher": "Wednesday Journal",
+    "date": "2023-02-26",
+    "url": "https://www.oakpark.com/2023/02/26/cory-j-wesley/"
+   },
+   {
+    "title": "Cory Wesley to be appointed Oak Park village trustee",
+    "publisher": "Wednesday Journal",
+    "date": "2022-10-07",
+    "url": "https://www.oakpark.com/2022/10/07/cory-wesley-to-be-appointed-oak-park-village-trustee/"
+   }
+  ],
+  "asOf": "2026-11-17",
+  "website": "https://www.corywesley.com/",
+  "social": {
+   "facebook": "https://www.facebook.com/CoryforOPTrustee"
+  }
+ },
+ "village-trustee|Derek Eder": {
+  "facts": [
+   {
+    "text": "Village President Vicki Scaman nominated him and trustees unanimously approved his appointment on June 17, 2025, to fill the seat Susan Buchanan resigned.",
+    "source": "https://www.oakpark.com/2025/06/24/scaman-appoints-derek-eder-oak-park-trustee-seat/"
+   },
+   {
+    "text": "His appointed term expires in April 2027; this is his first campaign for the seat.",
+    "source": "https://www.oak-park.us/your-government/elected-officials"
+   },
+   {
+    "text": "He is founder and partner of DataMade, a civic technology firm, and co-founder and president emeritus of Chi Hack Night.",
+    "source": "https://derekeder.com/about"
+   },
+   {
+    "text": "He served on the Village's Building Codes Advisory Commission from May 2024 until his appointment in June 2025.",
+    "source": "https://derekeder.com/about"
+   },
+   {
+    "text": "He is a member of the Oak Park Climate Action Network, where he helped create the Climate Coaches program.",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/"
+   },
+   {
+    "text": "He documented fully electrifying his family's 100-year-old Oak Park home in 2022 and 2023 and received a Village of Oak Park Green Award.",
+    "source": "https://derekeder.com/about"
+   },
+   {
+    "text": "He is raising two children in Oak Park with his partner, Aya.",
+    "source": "https://www.oakpark.com/2025/06/24/scaman-appoints-derek-eder-oak-park-trustee-seat/"
+   },
+   {
+    "text": "He submitted 950 petition signatures on Nov. 16, 2026, to get on the ballot.",
+    "source": "https://derekforoakpark.com/"
+   },
+   {
+    "text": "Disclosure: Know Your Ballot is built on Govbot, a Chi Hack Night project; he co-founded Chi Hack Night.",
+    "source": "https://github.com/chihacknight/govbot"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "Climate action, including making funding available for home energy upgrades, possibly through a loan program, with more focus on renters in multi-unit buildings.",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/"
+   },
+   {
+    "text": "Expanding the inclusionary housing ordinance from buildings of 25+ units in certain areas to buildings of seven or more units village-wide.",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/"
+   },
+   {
+    "text": "He supports the proposed single-family zoning recommendations and says he is open to revising details based on feedback.",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/"
+   },
+   {
+    "text": "Data-driven decisions and making more village data available to residents for trust and transparency.",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/"
+   },
+   {
+    "text": "Collaborating with Oak Park's other government bodies to share resources and strategies.",
+    "source": "https://derekforoakpark.com/"
+   },
+   {
+    "text": "Progressive values: racial equity, LGBTQ+ and reproductive rights, affordable housing and the Welcoming Village Ordinance.",
+    "source": "https://derekeder.com/blog/derek-for-oak-park"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "Climate change, it affects all of us, and we can’t escape the responsibility of doing something about it",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/",
+    "date": "2026-10-08"
+   },
+   {
+    "text": "Making that funding available for folks to actually make those changes is a critical way to actually accelerate the transition we’re already undergoing",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/",
+    "date": "2026-10-08"
+   },
+   {
+    "text": "People are scared and worried about what these changes could mean. I refuse to do nothing about it, though",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/",
+    "date": "2026-10-08"
+   },
+   {
+    "text": "So more transparency, more data is something that I think that actually can help boost confidence in government in a time where, frankly, confidence in government is low.",
+    "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/",
+    "date": "2026-10-08"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Oak Park village board supports public access to police dispatch",
+    "publisher": "Wednesday Journal",
+    "url": "https://www.oakpark.com/2026/11/17/oak-park-police-dispatch-access/"
+   },
+   {
+    "title": "Derek Eder for Oak Park Village Trustee (campaign site)",
+    "publisher": "Derek Eder campaign",
+    "date": "2026-11-16",
+    "url": "https://derekforoakpark.com/"
+   },
+   {
+    "title": "Derek Eder, running for full term on Oak Park board, shares priorities",
+    "publisher": "Wednesday Journal",
+    "date": "2026-10-08",
+    "url": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/"
+   },
+   {
+    "title": "Derek Eder for Oak Park Village Trustee (launch post)",
+    "publisher": "derekeder.com",
+    "date": "2026-10-01",
+    "url": "https://derekeder.com/blog/derek-for-oak-park"
+   },
+   {
+    "title": "Oak Park village board election season begins with new candidate",
+    "publisher": "Wednesday Journal",
+    "date": "2026-08-18",
+    "url": "https://www.oakpark.com/2026/08/18/village-board-election/"
+   },
+   {
+    "title": "Scaman appoints Derek Eder to Oak Park trustee seat",
+    "publisher": "Wednesday Journal",
+    "date": "2025-06-24",
+    "url": "https://www.oakpark.com/2025/06/24/scaman-appoints-derek-eder-oak-park-trustee-seat/"
+   },
+   {
+    "title": "About Derek",
+    "publisher": "derekeder.com",
+    "url": "https://derekeder.com/about"
+   },
+   {
+    "title": "Village Board / Elected Officials",
+    "publisher": "Village of Oak Park",
+    "url": "https://www.oak-park.us/your-government/elected-officials"
+   },
+   {
+    "title": "Derek Eder, President Emeritus",
+    "publisher": "Chi Hack Night",
+    "url": "https://chihacknight.org/board-of-directors/derek-eder"
+   }
+  ],
+  "asOf": "2026-11-17",
+  "website": "https://derekforoakpark.com/",
+  "social": {
+   "facebook": "https://www.facebook.com/derekforoakpark/",
+   "bluesky": "https://bsky.app/profile/derekeder.com"
+  }
+ },
+ "village-trustee|Joseph Beer": {
+  "facts": [
+   {
+    "text": "Joseph Beer is an Oak Park resident and a local attorney.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "He said proposed changes to single-family zoning motivated him to run for village trustee in the April 2027 election.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "He said his mother grew up in multi-unit housing in Austin and River Forest.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "He named block parties and school picnics as examples of Oak Park's sense of community.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "He said persistence will be his biggest strength on the board.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "More planning and more community input before the board makes decisions such as zoning changes.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "Helping families afford to live in Oak Park; he says the disagreement is over the mechanism, not the goal of diversity and affordability.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "Finding new solutions for parking, traffic and transportation, which he ties to safety.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "Encouraging civic engagement and voter participation beyond divisive issues.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   },
+   {
+    "text": "Seeking input from experts and residents on affordability; he says eliminating single-family zoning does not seem to be one of those mechanisms at this time.",
+    "source": "https://www.oakpark.com/2026/09/30/feasibility-study/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I would rather see a lot more thought go into these types of decisions, a lot more planning, a lot more community input before the board makes decisions that will impact the community today, tomorrow, and for a long time to come",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/",
+    "date": "2026-09-29"
+   },
+   {
+    "text": "I think you know one thing most of us can agree on is there is a common thread of wanting diversity, wanting affordability, and it just seems like we’re in disagreement over the mechanism by which to get there",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/",
+    "date": "2026-09-29"
+   },
+   {
+    "text": "I like that they formed the ad hoc committee right to look into this more deeply, and I’m glad we now have this study",
+    "source": "https://www.oakpark.com/2026/09/30/feasibility-study/",
+    "date": "2026-09-30"
+   },
+   {
+    "text": "I’m happy to have people change my mind on this stuff, and I think that’s good if each side can change their mind a little, and that’s how compromise is made.",
+    "source": "https://www.oakpark.com/2026/09/29/joseph-beer-election/",
+    "date": "2026-09-29"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Feasibility study says new multi-unit development is infeasible",
+    "publisher": "Wednesday Journal",
+    "date": "2026-09-30",
+    "url": "https://www.oakpark.com/2026/09/30/feasibility-study/"
+   },
+   {
+    "title": "Joseph Beer joins Oak Park village trustee race",
+    "publisher": "Wednesday Journal",
+    "date": "2026-09-29",
+    "url": "https://www.oakpark.com/2026/09/29/joseph-beer-election/"
+   }
+  ],
+  "asOf": "2026-11-17"
+ },
+ "village-trustee|Sarah Abboreno Corbin": {
+  "facts": [
+   {
+    "text": "She announced her run for Oak Park village trustee in a Facebook post in August 2026, the first official announcement in the race.",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/"
+   },
+   {
+    "text": "She was campaign manager for Village President Vicki Scaman and was involved in former trustee Susan Buchanan's campaign.",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/"
+   },
+   {
+    "text": "Vicki Scaman thanked her as campaign manager for her 2025 re-election and wrote that she is heavily involved in PFLAG Oak Park Area.",
+    "source": "https://www.oakpark.com/2025/04/08/our-journey-forward/"
+   },
+   {
+    "text": "She works for Food Recovery Network, according to her own Bluesky posts and LinkedIn profile.",
+    "source": "https://bsky.app/profile/localoakpark.bsky.social"
+   },
+   {
+    "text": "She was communications manager at Beyond Hunger, the Oak Park food pantry, as of 2020 and 2021.",
+    "source": "https://www.oakpark.com/2020/12/09/beyond-hunger-bracing-for-avalanche-of-need/"
+   },
+   {
+    "text": "Her public LinkedIn profile lists Illinois State University for education and Oak Park as her location.",
+    "source": "https://www.linkedin.com/in/sarahabborenocorbin/"
+   },
+   {
+    "text": "In 2023 she gathered signatures for a letter urging Oak Park businesses to make single-use restrooms all-gender.",
+    "source": "https://www.oakpark.com/2023/05/23/oak-parkers-push-for-gender-neutral-single-bathrooms/"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "She says she is not running with set positions and wants to represent what residents want.",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/"
+   },
+   {
+    "text": "She wants to use her voice to serve the community in the way residents want their voices heard.",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/"
+   },
+   {
+    "text": "She hopes more people get involved in local politics and run for local boards.",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "It really is about listening to what people want, and if I were to say, this is how I feel like I will vote, that is not who I’m going to be as a trustee, so I don’t want to say I’m coming into position with a set of opinions as to who we should be as a village",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/",
+    "date": "2026-08-18"
+   },
+   {
+    "text": "I feel like my real reason for running is to come into position so that I can use my voice to serve our community through how they want their voices to be heard.",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/",
+    "date": "2026-08-18"
+   },
+   {
+    "text": "Whether someone wants to run for school board or library or the park district, there are a lot of opportunities for people to tap in, and I hope more people do. It’s a great time to get involved in local politics",
+    "source": "https://www.oakpark.com/2026/08/18/village-board-election/",
+    "date": "2026-08-18"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Brian Straw announces reelection campaign for Oak Park village trustee",
+    "publisher": "Wednesday Journal",
+    "date": "2026-09-10",
+    "url": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/"
+   },
+   {
+    "title": "Oak Park village board election season begins with new candidate",
+    "publisher": "Wednesday Journal",
+    "date": "2026-08-18",
+    "url": "https://www.oakpark.com/2026/08/18/village-board-election/"
+   },
+   {
+    "title": "Sarah Abboreno Corbin (@localoakpark.bsky.social)",
+    "publisher": "Bluesky",
+    "date": "2026-02-08",
+    "url": "https://bsky.app/profile/localoakpark.bsky.social"
+   },
+   {
+    "title": "Our journey forward (letter by Vicki Scaman)",
+    "publisher": "Wednesday Journal",
+    "date": "2025-04-08",
+    "url": "https://www.oakpark.com/2025/04/08/our-journey-forward/"
+   },
+   {
+    "title": "Support for re-electing Vicki Scaman (letter, byline Sarah Corbin)",
+    "publisher": "Wednesday Journal",
+    "date": "2025-01-07",
+    "url": "https://www.oakpark.com/2025/01/07/support-for-re-electing-vicki-scaman/"
+   },
+   {
+    "title": "Oak Parkers push for gender-neutral single bathrooms",
+    "publisher": "Wednesday Journal",
+    "date": "2023-05-23",
+    "url": "https://www.oakpark.com/2023/05/23/oak-parkers-push-for-gender-neutral-single-bathrooms/"
+   },
+   {
+    "title": "Inflation makes direct food donations critical to Beyond Hunger",
+    "publisher": "Wednesday Journal",
+    "date": "2021-11-23",
+    "url": "https://www.oakpark.com/2021/11/23/inflation-makes-direct-food-donations-critical-to-beyond-hunger/"
+   },
+   {
+    "title": "Beyond Hunger bracing for 'avalanche of need'",
+    "publisher": "Wednesday Journal",
+    "date": "2020-12-09",
+    "url": "https://www.oakpark.com/2020/12/09/beyond-hunger-bracing-for-avalanche-of-need/"
+   },
+   {
+    "title": "Sarah Corbin - Food Recovery Network",
+    "publisher": "LinkedIn",
+    "url": "https://www.linkedin.com/in/sarahabborenocorbin/"
+   }
+  ],
+  "asOf": "2026-11-17",
+  "social": {
+   "bluesky": "https://bsky.app/profile/localoakpark.bsky.social",
+   "linkedin": "https://www.linkedin.com/in/sarahabborenocorbin/"
+  }
+ },
+ "village-trustee|Jim Farrell": {
+  "facts": [
+   {
+    "text": "He came to Oak Park more than two decades ago, \"for love and family,\" according to Wednesday Journal.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "He signed an August 2026 letter to Wednesday Journal as a 26-year resident of Oak Park and an urban and public finance economist.",
+    "source": "https://www.oakpark.com/2026/08/11/the-affordability-question/"
+   },
+   {
+    "text": "He studied urban economics and public finance at the University of Michigan.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "He retired more than a year before September 2026 as president of his management consulting company, JP Farrell & Associates Inc.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "He announced his campaign for village trustee during public comment at the Sept. 1, 2026 village board meeting.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "He collected petition signatures and talked with residents at the Oak Park Farmers Market.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "Opposing the proposed changes to single-family zoning, which he calls the most urgent issue.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "Stewardship, which he defines as the board being more careful with public funds.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "Keeping the board on what he calls its mission: safety, police, fire, public health, street cleaning, snow removal, and water, sewer, road and parking infrastructure.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "Setting goals and boundaries appropriately, which he names as two areas for immediate improvement.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "text": "Protecting property values, which he says the proposed zoning policies threaten, along with funding for schools and the village.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "The most important one, the most urgent one, is the change in zoning that’s being anticipated and really pushed very quickly through by the current village board.",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/",
+    "date": "2026-09-14"
+   },
+   {
+    "text": "I’m getting a lot of support from friends and neighbors and other Oak Park residents who simply believe in my primary message, which is the board needs to focus on stewardship. And by stewardship, I mean they need to be more careful with the public funds",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/",
+    "date": "2026-09-14"
+   },
+   {
+    "text": "Giving this village board the sole power to change fundamental zoning rules that have underpinned the success of this community risks unleashing a destructive downward spiral in property values.",
+    "source": "https://www.oakpark.com/2026/08/11/the-affordability-question/",
+    "date": "2026-08-11"
+   },
+   {
+    "text": "It’s not too late to get in the race, and the more points of view we have on the table, the easier it is for the public to understand what the alternatives are, and so, I look forward to having that debate",
+    "source": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/",
+    "date": "2026-09-14"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Jim Farrell joins Oak Park village trustee race",
+    "publisher": "Wednesday Journal",
+    "date": "2026-09-14",
+    "url": "https://www.oakpark.com/2026/09/14/jim-farrell-campaign/"
+   },
+   {
+    "title": "Brian Straw announces reelection campaign for Oak Park village trustee (mentions Farrell's Sept. 1 announcement)",
+    "publisher": "Wednesday Journal",
+    "date": "2026-09-10",
+    "url": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/"
+   },
+   {
+    "title": "The affordability question (letter by Jim Farrell)",
+    "publisher": "Wednesday Journal",
+    "date": "2026-08-11",
+    "url": "https://www.oakpark.com/2026/08/11/the-affordability-question/"
+   }
+  ],
+  "asOf": "2026-11-17"
+ },
+ "village-trustee|Kimberlee Smith": {
+  "facts": [
+   {
+    "text": "She is a local architect who runs her own practice; Wednesday Journal identifies her as owner of Smith Architecture.",
+    "source": "https://www.oakpark.com/2026/07/16/single-family-zoning/"
+   },
+   {
+    "text": "She serves on the Village of Oak Park's Zoning Board of Appeals.",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "She first visited Oak Park while studying at the University of Notre Dame.",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "After working on projects in the village as an architect, she moved her business and family to Oak Park.",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "She helps coach football, according to Wednesday Journal.",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "She worked with the homeowners on the restoration of the front porch at 312 N. Euclid Ave., which won a 2024 Village of Oak Park Historic Preservation Award.",
+    "source": "https://www.oakpark.com/2025/01/24/oak-park-announces-2024-historic-preservation-awards/"
+   },
+   {
+    "text": "She has designed homes for aging clients and has designed senior living facilities.",
+    "source": "https://www.oakpark.com/2026/05/21/renovations-which-allow-aging-in-place/"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "Economic vitality and sustainability efforts.",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "Looking at solutions as a whole, including how a change in one area could affect another; she says she does not want to be a \"one-issue candidate.\"",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "Listening to residents, which she calls the main part of being a steward for the community.",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "A village government that is \"more outcomes based as opposed to ideological.\"",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "More information before single-family zoning changes; she says she is not opposed to change but \"we’re putting the cart before the horse.\"",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I have no aspirations beyond helping the village through a very difficult and fractious process with the zoning and anything, if I can add my level-headed pragmatism in any way, I’m willing to do that.",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/",
+    "date": "2026-10-06"
+   },
+   {
+    "text": "I change the landscape of our village every single day with my projects, but I do it judiciously, and I do it with care and stewardship",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/",
+    "date": "2026-10-06"
+   },
+   {
+    "text": "we all share amazing, wonderful values, and we all want what’s best for everyone. I think we’re all on the same page there. I just wish we were a little more outcomes based as opposed to ideological about things",
+    "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/",
+    "date": "2026-10-06"
+   },
+   {
+    "text": "This is not simply a policy decision. It is a decision about the physical framework of nearly every residential neighborhood in Oak Park",
+    "source": "https://www.oakpark.com/2026/07/16/single-family-zoning/",
+    "date": "2026-07-16"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Kimberlee Smith announces campaign for Oak Park village trustee",
+    "publisher": "Wednesday Journal",
+    "date": "2026-10-06",
+    "url": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "title": "Oak Park considers both advisory referendum and zoning code recommendation",
+    "publisher": "Wednesday Journal",
+    "date": "2026-07-16",
+    "url": "https://www.oakpark.com/2026/07/16/single-family-zoning/"
+   },
+   {
+    "title": "Renovations which allow aging in place",
+    "publisher": "Wednesday Journal",
+    "date": "2026-05-21",
+    "url": "https://www.oakpark.com/2026/05/21/renovations-which-allow-aging-in-place/"
+   },
+   {
+    "title": "Oak Park announces 2024 Historic Preservation Awards",
+    "publisher": "Wednesday Journal",
+    "date": "2025-01-24",
+    "url": "https://www.oakpark.com/2025/01/24/oak-park-announces-2024-historic-preservation-awards/"
+   }
+  ],
+  "asOf": "2026-11-17"
+ },
+ "village-trustee|Brian Straw": {
+  "facts": [
+   {
+    "text": "He has been an Oak Park village trustee since 2023, and his term expires in April 2027.",
+    "source": "https://www.oak-park.us/your-government/elected-officials"
+   },
+   {
+    "text": "He is a litigation attorney at Greenberg Traurig in Chicago.",
+    "source": "https://www.gtlaw.com/en/professionals/s/straw-brian-d"
+   },
+   {
+    "text": "He has a J.D. from the University of Michigan Law School (2014) and a B.A. from Hope College (2008).",
+    "source": "https://www.gtlaw.com/en/professionals/s/straw-brian-d"
+   },
+   {
+    "text": "He and his partner, Shannon, came to Oak Park in 2014 and are raising their two children in the home where Shannon's mother grew up.",
+    "source": "https://www.brianstraw.com/about-brian"
+   },
+   {
+    "text": "Before his election he served on the Oak Park Transportation Commission, which he joined in 2022.",
+    "source": "https://www.brianstraw.com/about-brian"
+   },
+   {
+    "text": "He served as a board member of Northern Illinois Justice for Our Neighbors, a nonprofit that provides legal services to low-income immigrants.",
+    "source": "https://www.brianstraw.com/about-brian"
+   },
+   {
+    "text": "He was one of the \"Broadview Six\" federally prosecuted after a protest outside an ICE processing facility; all charges were dropped in May 2026.",
+    "source": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/"
+   },
+   {
+    "text": "His campaign site says that as trustee he championed Vision Zero and the Bike Plan, passed a safe storage ordinance for guns, advocated for more funding for homeless shelters and mental health services, and campaigned to eliminate Flock cameras.",
+    "source": "https://www.brianstraw.com/about-brian"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "Making the Vision Zero bike and pedestrian safety plan a reality.",
+    "source": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/"
+   },
+   {
+    "text": "Following through on building an updated North fire station.",
+    "source": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/"
+   },
+   {
+    "text": "Better communication about policy changes, including single-family zoning and housing affordability.",
+    "source": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/"
+   },
+   {
+    "text": "Complete streets policies so families can bike, walk and use public transportation more safely.",
+    "source": "https://www.brianstraw.com/about-brian"
+   },
+   {
+    "text": "What his campaign calls \"common sense, progressive policies\" and standing up for \"Oak Park values\" against federal actions targeting residents.",
+    "source": "https://www.brianstraw.com/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I will forever be in awe of what Oak Park can accomplish when we stand up for our neighbors and work together. And my family will always be grateful for how this community stood with us",
+    "source": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/",
+    "date": "2026-09-10"
+   },
+   {
+    "text": "This topic of housing affordability and how we can sort of preserve the historic character of Oak Park … for a long time, it was difficult to get people to engage and come out and attend",
+    "source": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/",
+    "date": "2026-09-10"
+   },
+   {
+    "text": "we all have to do a better job of communicating regarding any policy change",
+    "source": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/",
+    "date": "2026-09-10"
+   },
+   {
+    "text": "I am running for Village Board, because if we choose to pursue common sense, progressive policies–like we did 50 years ago–we can create a Village that we will be proud to hand down to our children.",
+    "source": "https://www.brianstraw.com/"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Brian Straw announces reelection campaign for Oak Park village trustee",
+    "publisher": "Wednesday Journal",
+    "date": "2026-09-10",
+    "url": "https://www.oakpark.com/2026/09/10/brian-straw-reelection/"
+   },
+   {
+    "title": "Broadview Six case dropped after closed-door hearing, just days before trial",
+    "publisher": "NPR Illinois (Chicago Sun-Times)",
+    "date": "2026-05-21",
+    "url": "https://www.nprillinois.org/chicago-il/2026-05-21/broadview-six-case-dropped-after-closed-door-hearing-just-days-before-trial"
+   },
+   {
+    "title": "Feds drop felony charge against Oak Park’s Straw, remaining ‘Broadview 6’",
+    "publisher": "Wednesday Journal",
+    "date": "2026-04-29",
+    "url": "https://www.oakpark.com/2026/04/29/feds-drop-charge-against-straw-broadview-6/"
+   },
+   {
+    "title": "Brian Straw, one new face in race for OP village board",
+    "publisher": "Wednesday Journal",
+    "date": "2023-01-31",
+    "url": "https://www.oakpark.com/2023/01/31/brian-straw-one-new-face-in-race-for-op-village-board/"
+   },
+   {
+    "title": "Village Board (Brian Straw bio)",
+    "publisher": "Village of Oak Park",
+    "url": "https://www.oak-park.us/your-government/elected-officials"
+   },
+   {
+    "title": "Straw 2027: Home",
+    "publisher": "Friends and Neighbors of Brian Straw",
+    "url": "https://www.brianstraw.com/"
+   },
+   {
+    "title": "About Brian",
+    "publisher": "Friends and Neighbors of Brian Straw",
+    "url": "https://www.brianstraw.com/about-brian"
+   },
+   {
+    "title": "Brian D. Straw (professional bio)",
+    "publisher": "Greenberg Traurig LLP",
+    "url": "https://www.gtlaw.com/en/professionals/s/straw-brian-d"
+   }
+  ],
+  "asOf": "2026-11-17",
+  "website": "https://www.brianstraw.com/",
+  "social": {
+   "facebook": "https://www.facebook.com/brianstraw4oakpark",
+   "instagram": "https://www.instagram.com/brianstraw4oakpark"
+  }
+ },
+ "triton-trustee|Nubia Duarte": {
+  "facts": [
+   {
+    "text": "She is listed with the Illinois State Board of Elections as a candidate for Triton College trustee in the April 2027 election, from Melrose Park.",
+    "source": "https://www.elections.il.gov/CampaignDisclosureDataFiles/"
+   },
+   {
+    "text": "She is not listed among the current members on Triton College's Board of Trustees page, whose seats ending in 2027 are held by Tracy Jennings and Mark R. Stephens.",
+    "source": "https://www.triton.edu/about/administration/board-of-trustees.html"
+   }
+  ],
+  "priorities": [],
+  "quotes": [],
+  "sources": [
+   {
+    "title": "Board of Trustees",
+    "publisher": "Triton College",
+    "url": "https://www.triton.edu/about/administration/board-of-trustees.html"
+   }
+  ],
+  "asOf": "2026-11-17"
+ }
+}
