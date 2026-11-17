@@ -116,7 +116,7 @@ function OutsideHeading({ className }: { className: string }) {
 }
 
 /** Spending by outside groups for and against a candidate, with the biggest spenders. */
-function OutsideBars({ c, max, brief = false }: { c: Candidate; max: number; brief?: boolean }) {
+function OutsideBars({ c, max }: { c: Candidate; max: number }) {
   const o = c.outside;
   if (!o) return null;
   const rows: [string, number, string][] = [['For them', o.support, 'var(--gb-primary)'], ['Against them', o.oppose, 'var(--gb-red)']];
@@ -131,11 +131,11 @@ function OutsideBars({ c, max, brief = false }: { c: Candidate; max: number; bri
         </div>
       ))}
       <ul className="text-xs text-[var(--gb-text)] space-y-0.5">
-        {o.groups.slice(0, brief ? 2 : 6).map((g) => (
+        {o.groups.slice(0, 6).map((g) => (
           <li key={g.name}>{groupName(g.name)}: {[g.support ? `${money(g.support)} for` : '', g.oppose ? `${money(g.oppose)} against` : ''].filter(Boolean).join(', ')}</li>
         ))}
       </ul>
-      {!brief && <p className="text-xs text-[var(--gb-text)]">Independent expenditures by PACs, parties and other groups, which may not coordinate with the campaign, in the FEC’s processed filings through {o.through}. <a href={o.url} target="_blank" rel="noreferrer noopener" className="font-bold underline text-[var(--gb-link)]">Every expenditure at the FEC ↗</a></p>}
+      <p className="text-xs text-[var(--gb-text)]">Independent expenditures by PACs, parties and other groups, which may not coordinate with the campaign, in the FEC’s processed filings through {o.through}. <a href={o.url} target="_blank" rel="noreferrer noopener" className="font-bold underline text-[var(--gb-link)]">Every expenditure at the FEC ↗</a></p>
     </div>
   );
 }
@@ -593,7 +593,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
       <section className="space-y-3">
         <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🔎 Dig deeper</h3>
         {c.bar && <BarRatings bar={c.bar} source={c.barSource} />}
-        <ul className="grid gap-2 sm:grid-cols-2">
+        <ul className={`grid gap-2 ${head ? 'sm:grid-cols-2' : ''}`}>
           {researchLinks(c, race).map((l) => (
             <li key={l.label}>
               <a href={l.href} target="_blank" rel="noreferrer noopener" className="flex h-full items-start justify-between gap-3 rounded-xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-3 hover:border-[var(--gb-text)]">
@@ -645,78 +645,8 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
 
 // ---- head-to-head --------------------------------------------------------------
 
-/** One labelled block of the comparison card. */
-const COMPARE_LABEL = 'text-[11px] font-black uppercase tracking-widest text-[var(--gb-text)]';
-
-function CompareRow({ label, children }: { label: ReactNode; children: ReactNode }) {
-  return (
-    <div className="border-t border-[var(--gb-border)] pt-2">
-      {typeof label === 'string' ? <p className={COMPARE_LABEL}>{label}</p> : label}
-      <div className="mt-1 text-sm leading-snug text-[var(--gb-text)]">{children}</div>
-    </div>
-  );
-}
-
-const clip = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s);
-
-/** What a comparison needs to know about the whole race, so each candidate's facts line up with everyone else's. */
-interface CompareScale { max: number; anyMoney: boolean; maxOutside: number; anyRecord: boolean; any: (k: 'stances' | 'endorsements' | 'record' | 'bar' | 'outside') => boolean }
-function compareScale(race: Race): CompareScale {
-  return {
-    max: Math.max(1, ...race.candidates.map((c) => c.money ? Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0) : 0)),
-    anyMoney: race.candidates.some((c) => c.money),
-    maxOutside: Math.max(1, ...race.candidates.map((c) => (c.outside ? Math.max(c.outside.support, c.outside.oppose) : 0))),
-    anyRecord: race.candidates.some((c) => c.record || isIncumbent(race, c)),
-    // A row shows for everyone when anyone in the race has it, so the columns line up and a blank reads as "none found".
-    any: (k) => race.candidates.some((c) => c[k]),
-  };
-}
-
-/** One candidate's side of the comparison: money, outside money, their words, endorsements, record, ratings, links. */
-function CompareFacts({ race, c, s }: { race: Race; c: Candidate; s: CompareScale }) {
-  return (
-    <>
-      <CompareRow label="Campaign money">
-        {s.anyMoney && (c.money ? <MoneyBars c={c} max={s.max} /> : <p>No campaign reports found.</p>)}
-        {!s.anyMoney && <p>No reports found for anyone in this race.</p>}
-      </CompareRow>
-      {s.any('outside') && (
-        <CompareRow label={<OutsideHeading className={COMPARE_LABEL} />}>
-          {c.outside ? <OutsideBars c={c} max={s.maxOutside} brief /> : <p>None reported for or against them.</p>}
-        </CompareRow>
-      )}
-      {s.any('stances') && (
-        <CompareRow label="In their words">
-          {c.stances ? <p>“{clip(c.stances.messages[0], 220)}”{c.stances.messages.length > 1 ? ` (+${c.stances.messages.length - 1} more)` : ''}</p> : <p>No survey answer yet.</p>}
-        </CompareRow>
-      )}
-      {s.any('endorsements') && (
-        <CompareRow label={`Endorsements${c.endorsements ? ` (${c.endorsements.total.toLocaleString()})` : ''}`}>
-          {c.endorsements ? <ul className="list-disc pl-4">{c.endorsements.groups.flatMap((g) => g.names).slice(0, 4).map((n) => <li key={n}>{clip(n, 70)}</li>)}</ul> : <p>None listed.</p>}
-        </CompareRow>
-      )}
-      {s.anyRecord && (
-        <CompareRow label="Record in office">
-          {c.record ? <p><strong>{c.record.sponsored.toLocaleString()} bills</strong> sponsored this session as {c.record.seat}’s member; newest: {clip(c.record.bills[0].title, 80)}</p> : isIncumbent(race, c) ? <p>Holds the seat now.</p> : <p>Not in this office now.</p>}
-        </CompareRow>
-      )}
-      {s.any('bar') && (
-        <CompareRow label="Bar ratings">
-          {c.bar ? <p>{Object.entries(c.bar).map(([g, r]) => `${g}: ${r}`).join(' · ')}</p> : <p>Not rated.</p>}
-        </CompareRow>
-      )}
-      <CompareRow label="Links">
-        <p className="flex flex-wrap gap-x-3 gap-y-1">
-          {c.website && <a href={c.website} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Campaign site: {sourceName(c.website)} ↗</a>}
-          {c.issuesUrl && <a href={c.issuesUrl} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Issues page on {sourceName(c.issuesUrl)} ↗</a>}
-          {c.stances && <a href={c.stances.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Survey on {sourceName(c.stances.url)} ↗</a>}
-          {c.profile && <a href={c.profile} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{sourceName(c.profile)} profile ↗</a>}
-          {!c.website && !c.issuesUrl && !c.stances && !c.profile && <span>No site or profile on record.</span>}
-        </p>
-      </CompareRow>
-    </>
-  );
-}
+/** The states' notes point to "ⓘ Details" for links; Compare shows every link itself, so that sentence is left out there. */
+const TAP_DETAILS = /\s*Tap “ⓘ Details”[^.]*\./;
 
 const COMPARE_SOURCES = 'Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.';
 
@@ -733,7 +663,7 @@ function useNarrow() {
   return narrow;
 }
 
-export function Compare(props: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void; onClose: () => void }) {
+export function Compare(props: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onClose: () => void }) {
   const { race, onClose } = props;
   const narrow = useNarrow();
   return (
@@ -743,11 +673,15 @@ export function Compare(props: { race: Race; color: string; ink: string; numbere
   );
 }
 
-/** Wider screens: every candidate in a column, side by side. */
-function CompareColumns({ race, color, ink, numbered, picked, onPick, onInfo }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void }) {
+/**
+ * Wider screens: every candidate in a column, side by side, each column their
+ * whole profile (the same as the candidate sheet's), so nothing is a click
+ * away. Their name, Share and Pick stay pinned at the top of the column while
+ * it scrolls.
+ */
+function CompareColumns({ race, color, ink, numbered, picked, onPick }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void }) {
   const { compareNote } = useStateConfig();
   const readOnly = useReadOnly();
-  const s = compareScale(race);
   const scroller = useRef<HTMLDivElement>(null);
   return (
     <>
@@ -755,54 +689,52 @@ function CompareColumns({ race, color, ink, numbered, picked, onPick, onInfo }: 
         <div className="mb-3 flex shrink-0 items-center justify-between gap-3 text-sm font-bold">
           <span>{race.candidates.length} candidates side by side. Scroll sideways to see everyone.</span>
           <span className="flex shrink-0 gap-1.5">
-            <button type="button" onClick={() => scroller.current?.scrollBy({ left: -300, behavior: 'smooth' })} aria-label="Scroll left" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronLeft className="w-4 h-4" aria-hidden="true" /></button>
-            <button type="button" onClick={() => scroller.current?.scrollBy({ left: 300, behavior: 'smooth' })} aria-label="Scroll right" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
+            <button type="button" onClick={() => scroller.current?.scrollBy({ left: -340, behavior: 'smooth' })} aria-label="Scroll left" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronLeft className="w-4 h-4" aria-hidden="true" /></button>
+            <button type="button" onClick={() => scroller.current?.scrollBy({ left: 340, behavior: 'smooth' })} aria-label="Scroll right" className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[var(--gb-text)] hover:bg-[var(--kyb-chip)]"><ChevronRight className="w-4 h-4" aria-hidden="true" /></button>
           </span>
         </div>
       )}
       <div ref={scroller} className="kyb-hscroll kyb-vscroll min-h-0 flex-1 -mx-6 px-6 pb-3">
-        <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${race.candidates.length}, minmax(260px, 1fr))` }}>
+        <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${race.candidates.length}, minmax(320px, 1fr))` }}>
           {race.candidates.map((c) => {
             const on = picked.includes(c.ballot);
             return (
-              // The photo-and-name head stays put while the column scrolls; the head and the body each carry their share of the outline.
+              // The head stays put while the column scrolls; the head and the body each carry their share of the outline.
               <div key={c.ballot} className="flex flex-col" style={{ '--cc': on ? color : 'var(--gb-text)' } as CSSProperties}>
-                <div className="sticky top-0 z-10 flex items-center gap-3 rounded-t-2xl border-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4">
-                  <Face c={c} className="w-14 h-14 text-lg" />
-                  <div className="min-w-0 space-y-1">
-                    <p className="text-lg font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
-                      {c.party && <Badge>{c.party}</Badge>}
-                      {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
+                <div className="sticky top-0 z-10 space-y-3 rounded-t-2xl border-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4">
+                  <div className="flex items-center gap-3">
+                    <Face c={c} className="w-14 h-14 text-lg" />
+                    <div className="min-w-0 space-y-1">
+                      <p className="text-lg font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
+                        {c.party && <Badge>{c.party}</Badge>}
+                        {c.filing && <Badge tone="var(--gb-amber-hi)" ink="var(--gb-bg)">{c.filing}</Badge>}
+                        {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex flex-1 flex-col gap-3 rounded-b-2xl border-x-2 border-b-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4 pt-3">
-                  <CompareFacts race={race} c={c} s={s} />
-                  <div className="mt-auto flex gap-2">
-                    <button type="button" onClick={() => onInfo(c)} className="inline-flex flex-1 items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] font-bold text-[var(--gb-text)] hover:border-[var(--gb-text)]">
-                      <Info className="w-4 h-4" aria-hidden="true" /> Details
-                    </button>
-                    <ShareCandidate race={race} c={c} />
+                  <div className="flex gap-2">
+                    <ShareCandidate race={race} c={c} className={readOnly ? 'flex-1' : ''} />
+                    {!readOnly && (
+                      <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on}
+                        className="min-h-[44px] flex-1 rounded-xl font-bold"
+                        style={on ? { background: color, color: ink } : { border: '2px solid var(--gb-text)', color: 'var(--gb-text)' }}>
+                        {on ? '✓ On My Ballot' : 'Pick'}
+                      </button>
+                    )}
                   </div>
-                  {!readOnly && (
-                    <button
-                      type="button"
-                      onClick={() => onPick(c.ballot)}
-                      className="min-h-[44px] rounded-xl font-bold"
-                      style={on ? { background: color, color: ink } : { border: '2px solid var(--gb-text)', color: 'var(--gb-text)' }}
-                    >
-                      {on ? '✓ On My Ballot' : 'Pick'}
-                    </button>
-                  )}
+                </div>
+                <div className="flex flex-1 flex-col gap-6 rounded-b-2xl border-x-2 border-b-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4">
+                  <CandidateProfile race={race} c={c} color={color} ink={ink} numbered={numbered} head={false} />
+                  {c.photo && <p className="text-xs">Photo: {c.photo.link ? <a href={c.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{c.photo.credit}</a> : c.photo.credit}</p>}
                 </div>
               </div>
             );
           })}
         </div>
         {/* Scrolls away with the columns (and stays put while they scroll sideways). */}
-        <p className="sticky left-0 mt-4 text-[15px] text-[var(--gb-text)]">{compareNote} {COMPARE_SOURCES}</p>
+        <p className="sticky left-0 mt-4 text-[15px] text-[var(--gb-text)]">{compareNote.replace(TAP_DETAILS, '')} {COMPARE_SOURCES}</p>
       </div>
     </>
   );
@@ -877,17 +809,17 @@ function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Rac
   const behind = n - i - 1; // cards still to come
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col gap-3" onKeyDown={onKey}>
+    <div className="flex min-h-0 flex-1 flex-col gap-2" onKeyDown={onKey}>
       {/* On top: back, where you are (one bar per candidate, only the current one lit), next. */}
       <div className="flex shrink-0 items-center gap-3">
-        <button type="button" onClick={() => go(-1)} disabled={i === 0} aria-label="Previous candidate" className={`${roundBtn} h-11 w-11`}><ChevronLeft className="w-6 h-6" aria-hidden="true" /></button>
+        <button type="button" onClick={() => go(-1)} disabled={i === 0} aria-label="Previous candidate" className={`${roundBtn} h-10 w-10`}><ChevronLeft className="w-5 h-5" aria-hidden="true" /></button>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-[3px]" aria-hidden="true">
             {race.candidates.map((x, k) => <span key={x.ballot} className={`flex-1 rounded-full ${k === i ? 'h-2' : 'h-1'}`} style={{ background: k === i ? color : 'var(--kyb-chip-hi)' }} />)}
           </div>
-          <p className="mt-1.5 text-center text-[13px] font-bold">{i + 1} of {n}{behind > 0 ? ` · ${behind} more to swipe` : ''}</p>
+          <p className="mt-1 text-center text-[13px] font-bold">{i + 1} of {n}{behind > 0 ? ` · ${behind} more to swipe` : ''}</p>
         </div>
-        <button type="button" onClick={() => go(1)} disabled={i === n - 1} aria-label="Next candidate" className={`${roundBtn} h-11 w-11`}><ChevronRight className="w-6 h-6" aria-hidden="true" /></button>
+        <button type="button" onClick={() => go(1)} disabled={i === n - 1} aria-label="Next candidate" className={`${roundBtn} h-10 w-10`}><ChevronRight className="w-5 h-5" aria-hidden="true" /></button>
       </div>
       <p className="sr-only" aria-live="polite">Candidate {i + 1} of {n}: {c.name}</p>
 
@@ -897,15 +829,15 @@ function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Rac
         {[3, 2, 1].map((k) => {
           const b = race.candidates[i + k];
           return b && (
-            <div key={b.ballot} aria-hidden="true" className="absolute inset-x-2 top-0 bottom-7 overflow-hidden rounded-3xl border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] shadow-[0_4px_12px_rgba(0,0,0,.15)]"
-              style={{ transform: `translate(${k * 7}px, ${k * 9}px) rotate(${k * 2.2}deg) scale(${1 - k * 0.03})`, transformOrigin: 'bottom center', transition: 'transform .25s ease' }}>
+            <div key={b.ballot} aria-hidden="true" className="absolute inset-x-1 top-0 bottom-4 overflow-hidden rounded-3xl border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] shadow-[0_4px_12px_rgba(0,0,0,.15)]"
+              style={{ transform: `translate(${k * 4}px, ${k * 5}px) rotate(${k * 1.6}deg) scale(${1 - k * 0.02})`, transformOrigin: 'bottom center', transition: 'transform .25s ease' }}>
               <CardHero race={race} c={b} numbered={numbered} />
             </div>
           );
         })}
         {/* The candidate on top: drag it sideways, scroll it up and down. */}
         <article key={c.ballot} aria-label={`${c.name}, candidate ${i + 1} of ${n}`}
-          className="absolute inset-x-2 top-0 bottom-7 flex flex-col overflow-hidden rounded-3xl border-2 bg-[var(--gb-surface)] shadow-[0_10px_30px_rgba(0,0,0,.28)] touch-pan-y select-none"
+          className="absolute inset-x-1 top-0 bottom-4 flex flex-col overflow-hidden rounded-3xl border-2 bg-[var(--gb-surface)] shadow-[0_10px_30px_rgba(0,0,0,.28)] touch-pan-y select-none"
           style={{ ...topStyle, borderColor: on ? color : 'var(--gb-text)', borderWidth: on ? 3 : 2 }}
           onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { drag.current = null; setDx(0); }}>
           <div ref={body} className="kyb-vscroll min-h-0 flex-1 overflow-y-auto overscroll-contain">
@@ -917,7 +849,7 @@ function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Rac
               {c.photo && <p className="text-xs">Photo: {c.photo.link ? <a href={c.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{c.photo.credit}</a> : c.photo.credit}</p>}
             </div>
           </div>
-          <div className="flex shrink-0 gap-2 border-t border-[var(--gb-border)] p-3">
+          <div className="flex shrink-0 gap-2 border-t border-[var(--gb-border)] p-2">
             <ShareCandidate race={race} c={c} className={readOnly ? 'flex-1' : 'shrink-0'} />
             {!readOnly && (
               <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on} aria-label={on ? `${c.name} is on My Ballot; tap to remove` : `Pick ${c.name}`}
@@ -940,8 +872,8 @@ function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Rac
  */
 function CardHero({ race, c, numbered, onBallot = false }: { race: Race; c: Candidate; numbered: boolean; onBallot?: boolean }) {
   return (
-    <div className="relative shrink-0 px-4 pb-3 pt-5 text-center">
-      <Face c={c} className="mx-auto h-[132px] w-[132px] text-5xl ring-2 ring-[var(--gb-text)] ring-offset-4 ring-offset-[var(--gb-surface)]" />
+    <div className="relative shrink-0 px-4 pb-2 pt-4 text-center">
+      <Face c={c} className="mx-auto h-[112px] w-[112px] text-4xl ring-2 ring-[var(--gb-text)] ring-offset-4 ring-offset-[var(--gb-surface)]" />
       {onBallot && <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] px-2.5 py-0.5 text-xs font-black text-[var(--gb-text)]"><Check className="w-3.5 h-3.5" strokeWidth={3} aria-hidden="true" />On My Ballot</span>}
       <p className="mt-3 text-2xl font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
       <div className="mt-2 flex flex-wrap justify-center gap-1.5">

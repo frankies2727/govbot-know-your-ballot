@@ -709,7 +709,6 @@ export function KnowYourBallot() {
       )}
       {comparing && (
         <Compare race={comparing} color={sectionOf(comparing.section).color} ink={sectionOf(comparing.section).ink} numbered={chicago && comparing.numbered !== false} picked={picksFor(comparing.id)}
-          onInfo={(c) => { const race = comparing; setComparing(null); openSheet(race, c); }}
           onPick={(b) => {
             const cur = picksFor(comparing.id);
             choose(comparing.id, cur.includes(b) ? cur.filter((x) => x !== b) : comparing.voteFor === 1 ? [b] : [...cur, b].slice(-comparing.voteFor));

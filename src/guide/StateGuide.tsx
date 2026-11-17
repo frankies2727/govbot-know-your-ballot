@@ -545,7 +545,6 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
       )}
       {comparing && (
         <Compare race={comparing} color={sectionOf(comparing.section).color} ink={sectionOf(comparing.section).ink} numbered={comparing.numbered === true} picked={picksFor(comparing.id)}
-          onInfo={(c) => { const race = comparing; setComparing(null); openSheet(race, c); }}
           onPick={(b) => togglePick(comparing, b)}
           onClose={() => setComparing(null)} />
       )}

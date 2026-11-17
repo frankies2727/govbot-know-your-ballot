@@ -13,12 +13,15 @@ import { longDate } from './seo/format';
 // bar, and the confetti when a ballot is finished.
 
 /** A modal sheet: Escape or the backdrop closes it, focus returns to where it was. */
-/** `wide` lets a side-by-side sheet (Compare) use most of the screen instead of a reading column; it then scrolls its own body, so its title stays put. `tall` makes it nearly the whole screen, with less padding, up front (Compare's deck of cards on a phone sizes itself to it). */
+/**
+ * `wide` lets a side-by-side sheet (Compare) use most of the screen instead of a reading column; it then scrolls its own body, so its title stays put. `tall` gives it all the height there is, with less padding, up front (Compare's deck of cards on a phone sizes itself to it).
+ * On a phone the sheet opens below govbot's pinned header (--kyb-top), so the logo and name stay in view.
+ */
 export function Dialog({ title, onClose, wide = false, tall = false, children }: { title: string; onClose: () => void; wide?: boolean; tall?: boolean; children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useModal(ref, true, onClose);
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/75" onClick={onClose}>
+    <div className="fixed inset-x-0 bottom-0 top-[var(--kyb-top,0px)] sm:top-0 z-50 flex items-end sm:items-center justify-center bg-black/75" onClick={onClose}>
       <div
         ref={ref}
         role="dialog"
@@ -26,10 +29,10 @@ export function Dialog({ title, onClose, wide = false, tall = false, children }:
         aria-label={title}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className={`w-full overscroll-contain ${wide ? 'sm:max-w-[min(96vw,1500px)] flex flex-col overflow-hidden' : 'sm:max-w-2xl overflow-y-auto'} ${tall ? 'h-[96dvh] max-h-[96dvh] px-4 pt-4 pb-3' : 'max-h-[92dvh] p-6'} rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] outline-none`}
+        className={`w-full overscroll-contain ${wide ? 'sm:max-w-[min(96vw,1500px)] flex flex-col overflow-hidden' : 'sm:max-w-2xl overflow-y-auto'} ${tall ? 'h-[calc(100dvh-var(--kyb-top,0px))] sm:h-[96dvh] px-3 pt-3 pb-2 sm:px-6 sm:pt-6 rounded-t-2xl' : 'max-h-[calc(100dvh-var(--kyb-top,0px)-12px)] sm:max-h-[92dvh] p-6 rounded-t-3xl'} sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] outline-none`}
       >
-        <div className={`flex shrink-0 items-start justify-between gap-4 ${tall ? 'mb-3' : 'mb-5'}`}>
-          <h2 className="text-2xl font-black leading-tight text-[var(--gb-text)]">{title}</h2>
+        <div className={`flex shrink-0 items-start justify-between gap-4 ${tall ? 'mb-2 items-center' : 'mb-5'}`}>
+          <h2 className={`${tall ? 'text-xl' : 'text-2xl'} font-black leading-tight text-[var(--gb-text)]`}>{title}</h2>
           <button type="button" onClick={onClose} aria-label="Close" className="shrink-0 w-11 h-11 rounded-full bg-[var(--kyb-chip)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip-hi)]">
             <X className="w-5 h-5" />
           </button>
