@@ -92,8 +92,8 @@ export const OAK_PARK_2027: StateConfig = {
   compareNote: 'Money comes from Illinois State Board of Elections reports since Jan 1, 2025. Who’s running comes from the State Board’s 2027 candidate filings, and from the Wednesday Journal for those who have announced but aren’t filed there yet; the official ballot is certified Jan 28, 2027.',
   electionDate: ELECTION_DAY,
   listFinal: false,
-  noCandidates: 'No one is listed with the State Board for this seat yet, and none has been reported. Petitions were filed Nov 16–23, 2026; the official list follows once objections are settled.',
+  noCandidates: 'No one is listed with the State Board for this seat yet, and none has been reported. Petitions are being filed Nov 16–23, 2026; the official list follows once objections are settled on Dec 2.',
 };
 
-/** Every race is the same for every Oak Park voter; the precinct says where they vote. */
-export const DISTRICT_CHIPS: [string, string][] = [['precinct', 'Oak Park Precinct']];
+/** Every race is the same for every Oak Park voter: no address lookup, no district chips. */
+export const DISTRICT_CHIPS: [string, string][] = [];

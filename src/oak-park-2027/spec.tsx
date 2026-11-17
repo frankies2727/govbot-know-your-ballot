@@ -1,6 +1,4 @@
-import mapsUrl from '../data/oak-park-2027/districts.json?url';
 import rawData from '../data/oak-park-2027/ballot.json';
-import { makeLookup } from '../guide/lookup';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
 import { Out } from '../PlanToVote';
@@ -17,7 +15,7 @@ const NONPARTISAN = 'Nonpartisan: no party is printed next to any name, and ther
 
 const sources = (d: StateData): SourceCard[] => [
   { emoji: '🗳️', title: 'Who’s running', status: `Official · daily · as of ${d.sources.candidates.asOf}`,
-    body: 'Candidates listed with the Illinois State Board of Elections for one of these offices in 2027, plus those the Wednesday Journal has reported as running who aren’t listed there yet (marked “Announced”). Petitions were filed Nov 16–23, 2026 with each body; the official ballot, in its drawn order, is certified Jan 28, 2027. Until then names are listed alphabetically. District 97 candidates aren’t placed until the certified list says which term they filed for.',
+    body: 'Candidates listed with the Illinois State Board of Elections for one of these offices in 2027, plus those the Wednesday Journal has reported as running who aren’t listed there yet (marked “Announced”). Petitions are filed Nov 16–23, 2026 with each body; the official ballot, in its drawn order, is certified Jan 28, 2027. Until then names are listed alphabetically. District 97 candidates aren’t placed until the certified list says which term they filed for.',
     links: [['Illinois State Board of Elections', LINKS.disclosure], ['Wednesday Journal', LINKS.wednesdayJournal]] },
   { emoji: '💵', title: 'Campaign money', status: 'Official · daily',
     body: 'Raised and spent by each candidate’s committee in its reports to the Illinois State Board of Elections since Jan 1, 2025. A candidate who raises or spends under $5,000 doesn’t need a committee, so no money shown doesn’t mean none raised.',
@@ -25,12 +23,9 @@ const sources = (d: StateData): SourceCard[] => [
   { emoji: '👤', title: 'Who’s in office now', status: 'Official · checked Nov 17, 2026',
     body: 'From each body’s own page: the Village Board, District 97, District 200, the Library, the Park District and Triton College.',
     links: [['Village of Oak Park', LINKS.village], ['District 97', LINKS.d97], ['District 200', LINKS.d200], ['Library', LINKS.library], ['Park District', LINKS.park], ['Triton College', LINKS.triton]] },
-  { emoji: '🗺️', title: 'Village map', status: 'Live',
-    body: 'Oak Park’s boundary and its 32 voting precincts from Cook County’s GIS. Your address is matched to it on your device.',
+  { emoji: '🗺️', title: 'Precinct map', status: 'Live',
+    body: 'Oak Park’s 32 voting precincts, from Cook County’s GIS. Every precinct votes on the same races; your precinct only sets your polling place, which the Cook County Clerk’s lookup shows.',
     links: [['Cook County GIS', 'https://gis.cookcountyil.gov/']] },
-  { emoji: '📍', title: 'Address lookup', status: 'Live',
-    body: 'Your address goes to OpenStreetMap’s search (Photon, or Nominatim if it’s down), limited to the Oak Park area, which answers with coordinates. Whether it’s in the village is checked on your device.',
-    links: [['OpenStreetMap', 'https://www.openstreetmap.org/']] },
   { emoji: '🗓️', title: 'Dates & rules', status: 'Checked Nov 17, 2026',
     body: 'Dates from the Illinois State Board of Elections’ 2027 Election & Campaign Finance Calendar; filing rules and terms from its 2027 Candidate’s Guide; the seats up from each body’s notices.',
     links: [['2027 election calendar (PDF)', LINKS.calendar], ['2027 Candidate’s Guide (PDF)', LINKS.candidatesGuide], ['Triton’s notice of filing (PDF)', LINKS.tritonNotice]] },
@@ -54,16 +49,12 @@ export const OAK_PARK_2027_GUIDE: GuideSpec = {
   guides: OAK_PARK_GUIDES,
   NextElectionNote,
   lawsFrom: { code: 'IL', name: 'Illinois', capital: 'Springfield' },
-  inArea: (d) => Boolean(d.city),
   faq: oakParkFaq,
-  lookup: makeLookup({ mapsUrl, bbox: [-87.84, 41.84, -87.74, 41.93], abbr: 'IL', name: 'Illinois', place: 'Oak Park, Illinois' }),
   copy: {
     overline: 'Oak Park · April 6, 2027',
     heading: 'Know Your Oak Park Ballot',
     everyone: 'village-wide',
     electionName: 'Oak Park’s April 2027 Election',
-    addressNote: 'OpenStreetMap’s address search',
-    outside: <>That address is outside the Village of Oak Park. This guide is for Oak Park’s Apr 6, 2027 consolidated election; for your own ballot, check the <Out href={LINKS.myInfo}>Cook County Clerk</Out>.</>,
     sampleScope: 'every race and known candidate for Oak Park. The certified ballot, in its drawn order, is on your sample ballot at',
     bullets: [
       'Three Village Trustees, with ranked-choice voting still unsettled',
@@ -71,8 +62,7 @@ export const OAK_PARK_2027_GUIDE: GuideSpec = {
       'Library Trustees and Park District Commissioners',
       'Two Triton College trustees; every race nonpartisan, no primary',
     ],
-    addressPlaceholder: 'e.g. 123 Madison St or 1000 Lake St',
-    exampleAddress: '123 Madison St, Oak Park, IL',
+    sameBallot: 'Every Oak Park voter gets the same ballot: the village, both school districts, the library, the parks and Triton College. No address needed.',
     districtKinds: 'village',
     measuresLabel: 'village questions',
     sectionNotes: {

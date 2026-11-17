@@ -57,7 +57,8 @@ export interface GuideSpec {
   inArea?: (d: Districts) => boolean;
   /** The guide's own common questions (default: the state guides' questions, src/seo/faq.ts). */
   faq?: (data: StateData) => Faq[];
-  lookup: {
+  /** Address -> districts. None when every voter gets the same ballot: the landing page then just starts it. */
+  lookup?: {
     geocode: (address: string) => Promise<Place | null>;
     prefetchDistricts: () => unknown;
     districtsAt: (lat: number, lng: number, data: StateData) => Promise<Districts>;
@@ -78,9 +79,11 @@ export interface GuideSpec {
     heading: string;
     /** What's on the ballot, one line each. */
     bullets: string[];
-    addressPlaceholder: string;
+    addressPlaceholder?: string;
     /** An example address, for the not-found message: "2 Woodward Ave, Detroit". */
-    exampleAddress: string;
+    exampleAddress?: string;
+    /** With no lookup: why no address is needed ("Every Oak Park voter gets the same ballot"). */
+    sameBallot?: string;
     /** "U.S. House, state Senate, state House and Court of Appeals": the by-district races an address adds. */
     districtKinds: string;
     /** "statewide proposals", "constitutional amendment": the ballot questions, as the ballot calls them. */

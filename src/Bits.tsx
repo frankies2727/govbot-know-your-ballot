@@ -189,17 +189,20 @@ export function usePinnedBar() {
   }, []);
 }
 
-interface ProgressProps { done: number; total: number; allDone: boolean; place?: string; region: string; onChangeAddress: () => void }
+interface ProgressProps { done: number; total: number; allDone: boolean; place?: string; region: string; onChangeAddress?: () => void }
 
 /** The count line and the address under it: "258 contests to browse · Browsing every race in … · Add address". */
 export function ProgressLine({ done, total, allDone, place, region, onChangeAddress }: ProgressProps) {
   return (
     <div className="min-w-0 flex-1">
-      <p className="font-black text-lg leading-tight">{!place ? `${total} contests to browse` : allDone ? 'Ballot ready 🎉' : `${done} of ${total} decided`}</p>
-      <button type="button" onClick={onChangeAddress} className="flex max-w-full flex-wrap items-center gap-x-1.5 text-left text-sm leading-snug text-[var(--gb-text)]">
-        <span>{place ? `📍 ${place}` : `Browsing every race in ${region}`}</span>
-        <span className="shrink-0 font-bold text-[var(--gb-text)] underline underline-offset-2">{place ? 'Change' : 'Add address'}</span>
-      </button>
+      <p className="font-black text-lg leading-tight">{!place && onChangeAddress ? `${total} contests to browse` : allDone ? 'Ballot ready 🎉' : `${done} of ${total} decided`}</p>
+      {/* No address to change when every voter gets the same ballot (onChangeAddress left out). */}
+      {onChangeAddress ? (
+        <button type="button" onClick={onChangeAddress} className="flex max-w-full flex-wrap items-center gap-x-1.5 text-left text-sm leading-snug text-[var(--gb-text)]">
+          <span>{place ? `📍 ${place}` : `Browsing every race in ${region}`}</span>
+          <span className="shrink-0 font-bold text-[var(--gb-text)] underline underline-offset-2">{place ? 'Change' : 'Add address'}</span>
+        </button>
+      ) : <p className="text-sm leading-snug">Every race on the {region} ballot</p>}
     </div>
   );
 }

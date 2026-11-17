@@ -18,7 +18,7 @@
 //     listed as announced, with the article (ANNOUNCED below).
 //   - Campaign money: the same ISBE files, each committee's reports since
 //     Jan 1, 2025.
-//   - The village boundary and its 32 precincts: Cook County GIS.
+//   - The village's 32 precincts (the hero's map): Cook County GIS.
 // Usage: node scripts/oak-park-2027.mjs  (ISBE_DIR=<dir> to use files already
 // downloaded).
 
@@ -36,7 +36,6 @@ const OUT = new URL('src/data/oak-park-2027/', ROOT);
 const UA = 'KnowYourBallot/1.0 (+https://github.com/frankies2727/govbot-know-your-ballot)';
 const ELECTION = { name: 'Consolidated Election', date: '2027-04-06' };
 const GIS = 'https://gis.cookcountyil.gov/traditional/rest/services';
-const VILLAGE = `${GIS}/politicalBoundary/MapServer/2`;
 const PRECINCTS = `${GIS}/electionSrvcLite/MapServer/1`;
 const DISCLOSURE = 'https://www.elections.il.gov/CampaignDisclosure/CommitteeSearch.aspx';
 const ON_FILE = 'Listed with the State Board';
@@ -78,12 +77,14 @@ export const RACES = [
 export const ANNOUNCED = [
   { race: 'village-trustee', name: 'Brian Straw', source: 'https://www.oakpark.com/2026/09/10/brian-straw-reelection/' },
   { race: 'village-trustee', name: 'Jim Farrell', source: 'https://www.oakpark.com/2026/09/14/jim-farrell-campaign/' },
+  { race: 'village-trustee', name: 'Joseph Beer', source: 'https://www.oakpark.com/2026/09/29/joseph-beer-election/' },
+  { race: 'village-trustee', name: 'Cory Wesley', source: 'https://www.oakpark.com/2026/11/10/cory-wesley-campaign-announcement/' },
 ];
 
 /** The news article each candidate on file announced in, when there is one. */
 const ARTICLES = [
   ['Sarah Abboreno Corbin', 'https://www.oakpark.com/2026/08/18/village-board-election/'],
-  ['Derek Eder', 'https://www.oakpark.com/2026/08/18/village-board-election/'],
+  ['Derek Eder', 'https://www.oakpark.com/2026/10/08/derek-eder-campaign/'],
   ['Kimberlee Smith', 'https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/'],
 ];
 
@@ -183,15 +184,11 @@ async function main() {
   }
   if (!dir && prev) for (const r of races) for (const c of r.candidates) { const p = prev.races.find((x) => x.id === r.id)?.candidates.find((x) => x.name === c.name); if (p?.money) c.money = p.money; }
 
-  // The village boundary and its 32 precincts: both the lookup (in the
-  // village? which precinct?) and the precincts the hero's map.
-  const village = await soft('village boundary', () => readLayer(VILLAGE, () => 'oak-park', "MUNICIPALITY='Oak Park'"), null);
+  // The hero's map: the village's 32 precincts. Every voter gets the same
+  // ballot, so there is no address lookup to feed.
   const precincts = await soft('precincts', () => readLayer(PRECINCTS, (a) => a.Precinct_Number, "Township_Name='OAK PARK'"), null);
-  // Both or neither, so a failed read never drops the precinct layer.
-  if (village && precincts) {
-    if (village.length !== 1) throw new Error(`expected one Oak Park boundary, got ${village.length}`);
+  if (precincts) {
     if (precincts.length < 25) throw new Error(`only ${precincts.length} Oak Park precincts`);
-    writeFileSync(new URL('districts.json', OUT), `${JSON.stringify({ layers: { city: village, precinct: precincts } })}\n`);
     writeFileSync(new URL('outline.json', OUT), `${JSON.stringify(outlineOf(precincts))}\n`);
     console.log(`Map: ${precincts.length} precincts`);
   }

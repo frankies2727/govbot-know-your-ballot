@@ -103,7 +103,12 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   const region = browsingCounty ? `${browsingCounty} County` : spec.name;
   // The details view has its own URL; with saved progress the first open goes straight there.
   const [showBallot, showView] = useBallotView(`know-your-ballot-${spec.slug}`);
-  const browse = () => { setBrowsing(true); showView(true); };
+  // Every voter has the same ballot when there's no lookup: that ballot is theirs, picks and all.
+  const browse = () => {
+    if (spec.lookup) setBrowsing(true);
+    else if (!saved.place) setSaved((s) => ({ ...s, place: { label: spec.name, districts: {} } }));
+    showView(true);
+  };
   // Plan to vote's reference note: back to the landing page, at the next election's notes.
   const showNext = () => { showView(false); requestAnimationFrame(() => requestAnimationFrame(() => scrollTo(document.getElementById('kyb-next')))); };
   const daysLeft = daysUntil(data.election.date);
@@ -216,6 +221,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
   // ---- address -> districts --------------------------------------------------
   const place = async (lat: number, lng: number, label: string) => {
+    if (!spec.lookup) return;
     const d = await spec.lookup.districtsAt(lat, lng, data);
     if (!(spec.inArea ?? inState)(d)) { setStatus({ busy: false, error: '', outside: true }); return; }
     // A new address means a new ballot: statewide picks still stand, picks
@@ -233,7 +239,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   };
   const lookUp = async (e: FormEvent) => {
     e.preventDefault();
-    if (!address.trim() || status.busy) return;
+    if (!spec.lookup || !address.trim() || status.busy) return;
     setStatus({ busy: true, error: '', outside: false });
     try {
       const hit = await spec.lookup.geocode(address.trim());
@@ -337,7 +343,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     <>
       <nav aria-label="Views" className="mt-3 grid grid-cols-3 sm:grid-cols-5 gap-2">{views}</nav>
       {wide && <div className="mt-3">{search(false)}</div>}
-      {!saved.place && <BrowsingNotice region={region} onAddAddress={changeAddress}
+      {!saved.place && spec.lookup && <BrowsingNotice region={region} onAddAddress={changeAddress}
         counties={COUNTIES.length ? { list: COUNTIES, value: county, onChange: setCounty, all: `All of ${spec.name}` } : undefined} />}
     </>
   );
@@ -379,7 +385,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                   </div>
                 ) : (
                   <div className="flex items-center gap-3">
-                    <div className="min-w-0 flex-1"><ProgressHead wide={wide} onContents={() => setContentsOpen(true)} done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} /></div>
+                    <div className="min-w-0 flex-1"><ProgressHead wide={wide} onContents={() => setContentsOpen(true)} done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={spec.lookup ? changeAddress : undefined} /></div>
                     {!wide && <button type="button" onClick={() => setSearching(true)} aria-label="Search races, candidates, judges or questions"
                     className="shrink-0 w-11 h-11 rounded-xl border-2 border-[var(--gb-text)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
                     <Search className="w-5 h-5" aria-hidden="true" />
@@ -391,7 +397,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
               </div>
             </div>
               <div className="pt-5"><ElectionHeader date={data.election.date} name={copy.electionName} /></div>
-              {!wide && <div className="pt-3"><ProgressLine done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={changeAddress} />{tools}</div>}
+              {!wide && <div className="pt-3"><ProgressLine done={done} total={total} allDone={allDone} place={saved.place?.label} region={region} onChangeAddress={spec.lookup ? changeAddress : undefined} />{tools}</div>}
               {!wide && !saved.place && <BrowsingBadge region={region} onAddAddress={changeAddress} />}
             <div className="lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 lg:items-start pt-4">
               <ContentsColumn {...contents} />
@@ -597,7 +603,8 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   const byDistrict = data.races.length - headliners.length;
   // Fetch the district maps while the voter types, once the page is idle.
   useEffect(() => {
-    const prefetch = spec.lookup.prefetchDistricts;
+    const prefetch = spec.lookup?.prefetchDistricts;
+    if (!prefetch) return;
     if (!('requestIdleCallback' in window)) { const t = setTimeout(prefetch, 1500); return () => clearTimeout(t); }
     const id = requestIdleCallback(() => { prefetch(); }, { timeout: 3000 });
     return () => cancelIdleCallback(id);
@@ -625,38 +632,48 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         <div className="w-[240px] md:w-[380px] md:max-w-[42%] shrink-0 self-center"><Map /></div>
       </header>
 
-      <form id="kyb-find" onSubmit={onSubmit} className="space-y-3 max-w-3xl scroll-mt-[var(--kyb-bar,0px)]">
-        <label htmlFor="kyb-address" className="block font-black text-lg">Your address in {spec.name}</label>
-        <div className="flex gap-2">
-          <div className="relative flex-1 min-w-0">
-            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none" aria-hidden="true" />
-            <input id="kyb-address" name="address" type="text" autoComplete="street-address" value={address} onChange={(e) => setAddress(e.target.value)}
-              placeholder={copy.addressPlaceholder}
-              className="w-full min-h-[56px] rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] pl-12 pr-12 text-lg font-bold text-[var(--gb-text)] focus:border-[var(--kyb-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gb-text)]" />
-            {address && <ClearButton onClear={() => setAddress('')} className="right-2 text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" />}
+      {spec.lookup ? (
+        <form id="kyb-find" onSubmit={onSubmit} className="space-y-3 max-w-3xl scroll-mt-[var(--kyb-bar,0px)]">
+          <label htmlFor="kyb-address" className="block font-black text-lg">Your address in {spec.name}</label>
+          <div className="flex gap-2">
+            <div className="relative flex-1 min-w-0">
+              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none" aria-hidden="true" />
+              <input id="kyb-address" name="address" type="text" autoComplete="street-address" value={address} onChange={(e) => setAddress(e.target.value)}
+                placeholder={copy.addressPlaceholder}
+                className="w-full min-h-[56px] rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] pl-12 pr-12 text-lg font-bold text-[var(--gb-text)] focus:border-[var(--kyb-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gb-text)]" />
+              {address && <ClearButton onClear={() => setAddress('')} className="right-2 text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]" />}
+            </div>
+            <button type="submit" disabled={status.busy} className="shrink-0 min-h-[56px] rounded-2xl bg-[var(--kyb-accent)] px-5 font-black text-[var(--kyb-accent-ink)] disabled:cursor-wait inline-flex items-center gap-2">
+              <Search className="w-5 h-5" aria-hidden="true" /><span className="hidden sm:inline">{status.busy ? 'Finding…' : 'Find my ballot'}</span><span className="sm:hidden">{status.busy ? '…' : 'Go'}</span>
+            </button>
           </div>
-          <button type="submit" disabled={status.busy} className="shrink-0 min-h-[56px] rounded-2xl bg-[var(--kyb-accent)] px-5 font-black text-[var(--kyb-accent-ink)] disabled:cursor-wait inline-flex items-center gap-2">
-            <Search className="w-5 h-5" aria-hidden="true" /><span className="hidden sm:inline">{status.busy ? 'Finding…' : 'Find my ballot'}</span><span className="sm:hidden">{status.busy ? '…' : 'Go'}</span>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <button type="button" onClick={() => { setLocating(true); onLocate(); }} disabled={status.busy} aria-busy={locating} className="inline-flex items-center gap-2 min-h-[44px] font-bold underline underline-offset-4 disabled:cursor-wait">
+              {locating ? <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> : <Crosshair className="w-5 h-5" aria-hidden="true" />} {locating ? 'Finding where you are…' : 'Use my current location'}
+            </button>
+            <Locating show={locating} />
+            <button type="button" onClick={onBrowse} className="inline-flex items-center gap-2 min-h-[44px] font-bold underline underline-offset-4">
+              <ListChecks className="w-5 h-5" aria-hidden="true" /> No address? Browse every race
+            </button>
+          </div>
+          <SavedPicks place={place} saved={saved} onContinue={onContinue} onStartFresh={onStartFresh} />
+          {status.error && <p role="alert" className="rounded-xl bg-[var(--gb-red)] px-4 py-3 font-bold text-white">{status.error}</p>}
+          {status.outside && (
+            <p role="alert" className="rounded-xl bg-[var(--kyb-chip)] border-2 border-[var(--gb-amber-hi)] px-4 py-3 font-bold">
+              {copy.outside ?? <>That address is outside {spec.name}. This guide covers {spec.name} voters; {others.map((g, i) => <span key={g.id}>{i > 0 ? (i === others.length - 1 ? ' and ' : ', ') : ''}<a className="underline text-[var(--gb-amber-hi)]" href={guideUrl(g.id)}>{g.name}</a></span>)} voters have their own guides.</>}
+            </p>
+          )}
+          <p className="text-sm leading-relaxed">🔒 Your address goes once to {copy.addressNote ?? 'OpenStreetMap’s address search'} to find your districts, then matching happens on your device. It’s saved only on your device, and never shared or stored anywhere. The live count and heart are anonymous too: nothing about you is kept.</p>
+        </form>
+      ) : (
+        <div id="kyb-find" className="space-y-3 max-w-3xl scroll-mt-[var(--kyb-bar,0px)]">
+          <p className="text-[15px] leading-relaxed">{copy.sameBallot ?? `Every ${spec.name} voter gets the same ballot, so there’s no address to type.`}</p>
+          <button type="button" onClick={onBrowse} className="min-h-[56px] rounded-2xl bg-[var(--kyb-accent)] px-6 font-black text-[var(--kyb-accent-ink)] inline-flex items-center gap-2">
+            <ListChecks className="w-5 h-5" aria-hidden="true" /> Start my ballot
           </button>
+          <SavedPicks place={place} saved={saved} onContinue={onContinue} onStartFresh={onStartFresh} />
         </div>
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          <button type="button" onClick={() => { setLocating(true); onLocate(); }} disabled={status.busy} aria-busy={locating} className="inline-flex items-center gap-2 min-h-[44px] font-bold underline underline-offset-4 disabled:cursor-wait">
-            {locating ? <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> : <Crosshair className="w-5 h-5" aria-hidden="true" />} {locating ? 'Finding where you are…' : 'Use my current location'}
-          </button>
-          <Locating show={locating} />
-          <button type="button" onClick={onBrowse} className="inline-flex items-center gap-2 min-h-[44px] font-bold underline underline-offset-4">
-            <ListChecks className="w-5 h-5" aria-hidden="true" /> No address? Browse every race
-          </button>
-        </div>
-        <SavedPicks place={place} saved={saved} onContinue={onContinue} onStartFresh={onStartFresh} />
-        {status.error && <p role="alert" className="rounded-xl bg-[var(--gb-red)] px-4 py-3 font-bold text-white">{status.error}</p>}
-        {status.outside && (
-          <p role="alert" className="rounded-xl bg-[var(--kyb-chip)] border-2 border-[var(--gb-amber-hi)] px-4 py-3 font-bold">
-            {copy.outside ?? <>That address is outside {spec.name}. This guide covers {spec.name} voters; {others.map((g, i) => <span key={g.id}>{i > 0 ? (i === others.length - 1 ? ' and ' : ', ') : ''}<a className="underline text-[var(--gb-amber-hi)]" href={guideUrl(g.id)}>{g.name}</a></span>)} voters have their own guides.</>}
-          </p>
-        )}
-        <p className="text-sm leading-relaxed">🔒 Your address goes once to {copy.addressNote ?? 'OpenStreetMap’s address search'} to find your districts, then matching happens on your device. It’s saved only on your device, and never shared or stored anywhere. The live count and heart are anonymous too: nothing about you is kept.</p>
-      </form>
+      )}
 
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
         {([[headliners.length, 'races on every ballot'], [byDistrict, 'races by district'], [candidates, 'candidates'], [data.measures.length, copy.measuresLabel]] as [number, string][]).filter(([n], i) => i === 0 || i === 2 || n > 0).map(([n, label]) => (
@@ -693,7 +710,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
 }
 
 function WhereYouVote({ spec, districts, pin, onChange }: { spec: GuideSpec; districts: Districts | null; pin: { lat: number; lng: number } | null; onChange: () => void }) {
-  if (!districts) return null;
+  if (!districts || !spec.lookup) return null;
   const { Map, links, copy } = spec;
   return (
     <div className="rounded-2xl border-[3px] border-[var(--gb-primary)] bg-[var(--gb-surface)] p-4">
