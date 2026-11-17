@@ -13,8 +13,8 @@ import { longDate } from './seo/format';
 // bar, and the confetti when a ballot is finished.
 
 /** A modal sheet: Escape or the backdrop closes it, focus returns to where it was. */
-/** `wide` lets a side-by-side sheet (Compare) use most of the screen instead of a reading column; it then scrolls its own body, so its title stays put. */
-export function Dialog({ title, onClose, wide = false, children }: { title: string; onClose: () => void; wide?: boolean; children: ReactNode }) {
+/** `wide` lets a side-by-side sheet (Compare) use most of the screen instead of a reading column; it then scrolls its own body, so its title stays put. `tall` gives it the full sheet height up front (Compare's deck of cards on a phone sizes itself to it). */
+export function Dialog({ title, onClose, wide = false, tall = false, children }: { title: string; onClose: () => void; wide?: boolean; tall?: boolean; children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useModal(ref, true, onClose);
   return (
@@ -26,7 +26,7 @@ export function Dialog({ title, onClose, wide = false, children }: { title: stri
         aria-label={title}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className={`w-full overscroll-contain ${wide ? 'sm:max-w-[min(96vw,1500px)] flex flex-col overflow-hidden' : 'sm:max-w-2xl overflow-y-auto'} max-h-[92dvh] rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none`}
+        className={`w-full overscroll-contain ${wide ? 'sm:max-w-[min(96vw,1500px)] flex flex-col overflow-hidden' : 'sm:max-w-2xl overflow-y-auto'} max-h-[92dvh] ${tall ? 'h-[92dvh] pb-4' : ''} rounded-t-3xl sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] p-6 outline-none`}
       >
         <div className="flex shrink-0 items-start justify-between gap-4 mb-5">
           <h2 className="text-2xl font-black leading-tight text-[var(--gb-text)]">{title}</h2>

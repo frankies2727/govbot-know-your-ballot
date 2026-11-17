@@ -1,7 +1,7 @@
 import { AtSign, Check, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import { GOVBOT_LEGISLATION } from './hosts';
 import { sourceName } from './lib/sources';
-import { memo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { memo, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { BarRatings } from './BarRatings';
 import { Face } from './Face';
 import { useReadOnly, useStateConfig } from './state';
@@ -637,18 +637,98 @@ function CompareRow({ label, children }: { label: ReactNode; children: ReactNode
 
 const clip = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s);
 
-export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, onClose }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void; onClose: () => void }) {
+/** What a comparison needs to know about the whole race, so each candidate's facts line up with everyone else's. */
+interface CompareScale { max: number; anyMoney: boolean; maxOutside: number; anyRecord: boolean; any: (k: 'stances' | 'endorsements' | 'record' | 'bar' | 'outside') => boolean }
+function compareScale(race: Race): CompareScale {
+  return {
+    max: Math.max(1, ...race.candidates.map((c) => c.money ? Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0) : 0)),
+    anyMoney: race.candidates.some((c) => c.money),
+    maxOutside: Math.max(1, ...race.candidates.map((c) => (c.outside ? Math.max(c.outside.support, c.outside.oppose) : 0))),
+    anyRecord: race.candidates.some((c) => c.record || isIncumbent(race, c)),
+    // A row shows for everyone when anyone in the race has it, so the columns line up and a blank reads as "none found".
+    any: (k) => race.candidates.some((c) => c[k]),
+  };
+}
+
+/** One candidate's side of the comparison: money, outside money, their words, endorsements, record, ratings, links. */
+function CompareFacts({ race, c, s }: { race: Race; c: Candidate; s: CompareScale }) {
+  return (
+    <>
+      <CompareRow label="Campaign money">
+        {s.anyMoney && (c.money ? <MoneyBars c={c} max={s.max} /> : <p>No campaign reports found.</p>)}
+        {!s.anyMoney && <p>No reports found for anyone in this race.</p>}
+      </CompareRow>
+      {s.any('outside') && (
+        <CompareRow label={<OutsideHeading className={COMPARE_LABEL} />}>
+          {c.outside ? <OutsideBars c={c} max={s.maxOutside} brief /> : <p>None reported for or against them.</p>}
+        </CompareRow>
+      )}
+      {s.any('stances') && (
+        <CompareRow label="In their words">
+          {c.stances ? <p>“{clip(c.stances.messages[0], 220)}”{c.stances.messages.length > 1 ? ` (+${c.stances.messages.length - 1} more)` : ''}</p> : <p>No survey answer yet.</p>}
+        </CompareRow>
+      )}
+      {s.any('endorsements') && (
+        <CompareRow label={`Endorsements${c.endorsements ? ` (${c.endorsements.total.toLocaleString()})` : ''}`}>
+          {c.endorsements ? <ul className="list-disc pl-4">{c.endorsements.groups.flatMap((g) => g.names).slice(0, 4).map((n) => <li key={n}>{clip(n, 70)}</li>)}</ul> : <p>None listed.</p>}
+        </CompareRow>
+      )}
+      {s.anyRecord && (
+        <CompareRow label="Record in office">
+          {c.record ? <p><strong>{c.record.sponsored.toLocaleString()} bills</strong> sponsored this session as {c.record.seat}’s member; newest: {clip(c.record.bills[0].title, 80)}</p> : isIncumbent(race, c) ? <p>Holds the seat now.</p> : <p>Not in this office now.</p>}
+        </CompareRow>
+      )}
+      {s.any('bar') && (
+        <CompareRow label="Bar ratings">
+          {c.bar ? <p>{Object.entries(c.bar).map(([g, r]) => `${g}: ${r}`).join(' · ')}</p> : <p>Not rated.</p>}
+        </CompareRow>
+      )}
+      <CompareRow label="Links">
+        <p className="flex flex-wrap gap-x-3 gap-y-1">
+          {c.website && <a href={c.website} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Campaign site: {sourceName(c.website)} ↗</a>}
+          {c.issuesUrl && <a href={c.issuesUrl} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Issues page on {sourceName(c.issuesUrl)} ↗</a>}
+          {c.stances && <a href={c.stances.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Survey on {sourceName(c.stances.url)} ↗</a>}
+          {c.profile && <a href={c.profile} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{sourceName(c.profile)} profile ↗</a>}
+          {!c.website && !c.issuesUrl && !c.stances && !c.profile && <span>No site or profile on record.</span>}
+        </p>
+      </CompareRow>
+    </>
+  );
+}
+
+const COMPARE_SOURCES = 'Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.';
+
+/** Phones get the deck of cards; wider screens, the columns side by side. */
+const NARROW = '(max-width: 639px)';
+function useNarrow() {
+  const [narrow, setNarrow] = useState(() => typeof matchMedia === 'function' && matchMedia(NARROW).matches);
+  useEffect(() => {
+    const mq = matchMedia(NARROW);
+    const on = () => setNarrow(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return narrow;
+}
+
+export function Compare(props: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void; onClose: () => void }) {
+  const { race, onClose } = props;
+  const narrow = useNarrow();
+  return (
+    <Dialog title={`Compare: ${race.office}`} onClose={onClose} wide tall={narrow}>
+      {narrow && race.candidates.length > 1 ? <CompareDeck {...props} /> : <CompareColumns {...props} />}
+    </Dialog>
+  );
+}
+
+/** Wider screens: every candidate in a column, side by side. */
+function CompareColumns({ race, color, ink, numbered, picked, onPick, onInfo }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void }) {
   const { compareNote } = useStateConfig();
   const readOnly = useReadOnly();
-  const max = Math.max(1, ...race.candidates.map((c) => c.money ? Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0) : 0));
-  const anyMoney = race.candidates.some((c) => c.money);
-  // A row shows for everyone when anyone in the race has it, so the columns line up and a blank reads as "none found".
-  const any = (k: 'stances' | 'endorsements' | 'record' | 'bar' | 'outside') => race.candidates.some((c) => c[k]);
-  const maxOutside = Math.max(1, ...race.candidates.map((c) => (c.outside ? Math.max(c.outside.support, c.outside.oppose) : 0)));
-  const anyRecord = race.candidates.some((c) => c.record || isIncumbent(race, c));
+  const s = compareScale(race);
   const scroller = useRef<HTMLDivElement>(null);
   return (
-    <Dialog title={`Compare: ${race.office}`} onClose={onClose} wide>
+    <>
       {race.candidates.length > 2 && (
         <div className="mb-3 flex shrink-0 items-center justify-between gap-3 text-sm font-bold">
           <span>{race.candidates.length} candidates side by side. Scroll sideways to see everyone.</span>
@@ -677,66 +757,172 @@ export function Compare({ race, color, ink, numbered, picked, onPick, onInfo, on
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col gap-3 rounded-b-2xl border-x-2 border-b-2 border-[var(--cc)] bg-[var(--gb-surface)] p-4 pt-3">
-                <CompareRow label="Campaign money">
-                  {anyMoney && (c.money ? <MoneyBars c={c} max={max} /> : <p>No campaign reports found.</p>)}
-                  {!anyMoney && <p>No reports found for anyone in this race.</p>}
-                </CompareRow>
-                {any('outside') && (
-                  <CompareRow label={<OutsideHeading className={COMPARE_LABEL} />}>
-                    {c.outside ? <OutsideBars c={c} max={maxOutside} brief /> : <p>None reported for or against them.</p>}
-                  </CompareRow>
-                )}
-                {any('stances') && (
-                  <CompareRow label="In their words">
-                    {c.stances ? <p>“{clip(c.stances.messages[0], 220)}”{c.stances.messages.length > 1 ? ` (+${c.stances.messages.length - 1} more)` : ''}</p> : <p>No survey answer yet.</p>}
-                  </CompareRow>
-                )}
-                {any('endorsements') && (
-                  <CompareRow label={`Endorsements${c.endorsements ? ` (${c.endorsements.total.toLocaleString()})` : ''}`}>
-                    {c.endorsements ? <ul className="list-disc pl-4">{c.endorsements.groups.flatMap((g) => g.names).slice(0, 4).map((n) => <li key={n}>{clip(n, 70)}</li>)}</ul> : <p>None listed.</p>}
-                  </CompareRow>
-                )}
-                {anyRecord && (
-                  <CompareRow label="Record in office">
-                    {c.record ? <p><strong>{c.record.sponsored.toLocaleString()} bills</strong> sponsored this session as {c.record.seat}’s member; newest: {clip(c.record.bills[0].title, 80)}</p> : isIncumbent(race, c) ? <p>Holds the seat now.</p> : <p>Not in this office now.</p>}
-                  </CompareRow>
-                )}
-                {any('bar') && (
-                  <CompareRow label="Bar ratings">
-                    {c.bar ? <p>{Object.entries(c.bar).map(([g, r]) => `${g}: ${r}`).join(' · ')}</p> : <p>Not rated.</p>}
-                  </CompareRow>
-                )}
-                <CompareRow label="Links">
-                  <p className="flex flex-wrap gap-x-3 gap-y-1">
-                    {c.website && <a href={c.website} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Campaign site: {sourceName(c.website)} ↗</a>}
-                    {c.issuesUrl && <a href={c.issuesUrl} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Issues page on {sourceName(c.issuesUrl)} ↗</a>}
-                    {c.stances && <a href={c.stances.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Survey on {sourceName(c.stances.url)} ↗</a>}
-                    {c.profile && <a href={c.profile} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{sourceName(c.profile)} profile ↗</a>}
-                    {!c.website && !c.issuesUrl && !c.stances && !c.profile && <span>No site or profile on record.</span>}
-                  </p>
-                </CompareRow>
-                <button type="button" onClick={() => onInfo(c)} className="mt-auto inline-flex items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] font-bold text-[var(--gb-text)] hover:border-[var(--gb-text)]">
-                  <Info className="w-4 h-4" aria-hidden="true" /> Details
-                </button>
-                {!readOnly && (
-                  <button
-                    type="button"
-                    onClick={() => onPick(c.ballot)}
-                    className="min-h-[44px] rounded-xl font-bold"
-                    style={on ? { background: color, color: ink } : { border: '2px solid var(--gb-text)', color: 'var(--gb-text)' }}
-                  >
-                    {on ? '✓ On My Ballot' : 'Pick'}
+                  <CompareFacts race={race} c={c} s={s} />
+                  <button type="button" onClick={() => onInfo(c)} className="mt-auto inline-flex items-center justify-center gap-1.5 min-h-[44px] rounded-xl border-2 border-[var(--gb-border)] bg-[var(--kyb-chip)] font-bold text-[var(--gb-text)] hover:border-[var(--gb-text)]">
+                    <Info className="w-4 h-4" aria-hidden="true" /> Details
                   </button>
-                )}
+                  {!readOnly && (
+                    <button
+                      type="button"
+                      onClick={() => onPick(c.ballot)}
+                      className="min-h-[44px] rounded-xl font-bold"
+                      style={on ? { background: color, color: ink } : { border: '2px solid var(--gb-text)', color: 'var(--gb-text)' }}
+                    >
+                      {on ? '✓ On My Ballot' : 'Pick'}
+                    </button>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
         {/* Scrolls away with the columns (and stays put while they scroll sideways). */}
-        <p className="sticky left-0 mt-4 text-[15px] text-[var(--gb-text)]">{compareNote} Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.</p>
+        <p className="sticky left-0 mt-4 text-[15px] text-[var(--gb-text)]">{compareNote} {COMPARE_SOURCES}</p>
       </div>
-    </Dialog>
+    </>
+  );
+}
+
+const STILL_MOTION = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/**
+ * Phones: the candidates as a deck of cards, one at a time, like a dating
+ * app's: a big photo with the name and badges on it, the facts underneath
+ * (scroll the card for more), the next two cards peeking out behind. Swipe
+ * left for the next candidate, right for the one before (or use the round
+ * buttons, or the arrow keys). A swipe only browses: picking is always the
+ * explicit ✓ button, so nobody adds a candidate to their ballot by accident.
+ * The card follows the finger and flies off with transform/opacity only.
+ */
+function CompareDeck({ race, color, ink, numbered, picked, onPick, onInfo }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void; onInfo: (c: Candidate) => void }) {
+  const { compareNote } = useStateConfig();
+  const readOnly = useReadOnly();
+  const s = compareScale(race);
+  const n = race.candidates.length;
+  const [i, setI] = useState(0);
+  const [dx, setDx] = useState(0);              // how far the top card is dragged, px
+  const [out, setOut] = useState<0 | 1 | -1>(0); // the top card flying off: -1 left (next), 1 right (back)
+  const [enter, setEnter] = useState(false);     // the card coming back from the right
+  const drag = useRef<{ x: number; y: number; id: number; sideways: boolean | null } | null>(null);
+  const body = useRef<HTMLDivElement>(null);
+
+  const go = (step: 1 | -1) => {
+    const j = i + step;
+    if (j < 0 || j >= n || out) { setDx(0); return; }
+    const done = () => { setI(j); setOut(0); setDx(0); setEnter(step === -1); body.current?.scrollTo(0, 0); };
+    if (STILL_MOTION()) { done(); return; }
+    setOut(step === 1 ? -1 : 1);
+    setTimeout(done, 230);
+  };
+  useEffect(() => { if (!enter) return; const id = requestAnimationFrame(() => requestAnimationFrame(() => setEnter(false))); return () => cancelAnimationFrame(id); }, [enter]);
+
+  const onDown = (e: React.PointerEvent) => { if (e.button === 0) drag.current = { x: e.clientX, y: e.clientY, id: e.pointerId, sideways: null }; };
+  const onMove = (e: React.PointerEvent) => {
+    const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    const mx = e.clientX - d.x, my = e.clientY - d.y;
+    // Decide once, after a few pixels, whether this is a swipe or a scroll of the card's facts.
+    if (d.sideways === null && Math.hypot(mx, my) > 8) {
+      d.sideways = Math.abs(mx) > Math.abs(my);
+      if (d.sideways) (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    }
+    if (d.sideways) setDx(mx);
+  };
+  const onUp = (e: React.PointerEvent) => {
+    const d = drag.current;
+    drag.current = null;
+    if (!d?.sideways) return;
+    const mx = e.clientX - d.x;
+    if (Math.abs(mx) > 80) go(mx < 0 ? 1 : -1); else setDx(0);
+  };
+  const onKey = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+  };
+
+  const c = race.candidates[i];
+  const on = picked.includes(c.ballot);
+  const live = drag.current?.sideways;
+  const topStyle: CSSProperties = out
+    ? { transform: `translateX(${out * 130}%) rotate(${out * 14}deg)`, opacity: 0, transition: 'transform .23s ease-in, opacity .23s ease-in' }
+    : enter
+      ? { transform: 'translateX(110%) rotate(10deg)', transition: 'none' }
+      : { transform: `translateX(${dx}px) rotate(${dx / 22}deg)`, transition: live ? 'none' : 'transform .25s cubic-bezier(.2,.9,.3,1.2)' };
+  const roundBtn = 'flex items-center justify-center rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] text-[var(--gb-text)] shadow-[0_4px_14px_rgba(0,0,0,.18)] disabled:opacity-35';
+
+  return (
+    <div className="flex min-h-0 flex-1 flex-col gap-3 -mx-3" onKeyDown={onKey}>
+      {/* Where you are in the deck: one bar per candidate, like a story's progress bars. */}
+      <div className="flex shrink-0 gap-1 px-1" aria-hidden="true">
+        {race.candidates.map((x, k) => <span key={x.ballot} className="h-1.5 flex-1 rounded-full" style={{ background: k === i ? color : k < i ? 'var(--gb-text)' : 'var(--kyb-chip-hi)' }} />)}
+      </div>
+      <p className="sr-only" aria-live="polite">Candidate {i + 1} of {n}: {c.name}</p>
+
+      {/* Room underneath for the cards peeking out behind. */}
+      <div className="relative min-h-0 flex-1">
+        {/* The next two cards, peeking out behind. */}
+        {[2, 1].map((k) => {
+          const b = race.candidates[i + k];
+          return b && (
+            <div key={b.ballot} aria-hidden="true" className="absolute inset-x-0 top-0 bottom-6 overflow-hidden rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)]"
+              style={{ transform: `translateY(${k * 12}px) scale(${1 - k * 0.045})`, transformOrigin: 'bottom center', transition: 'transform .25s ease' }}>
+              <CardHero race={race} c={b} color={color} numbered={numbered} />
+            </div>
+          );
+        })}
+        {/* The candidate on top: drag it sideways, scroll it up and down. */}
+        <article key={c.ballot} aria-label={`${c.name}, candidate ${i + 1} of ${n}`}
+          className="absolute inset-x-0 top-0 bottom-6 flex flex-col overflow-hidden rounded-3xl border-2 bg-[var(--gb-surface)] shadow-[0_10px_30px_rgba(0,0,0,.28)] touch-pan-y select-none"
+          style={{ ...topStyle, borderColor: on ? color : 'var(--gb-text)' }}
+          onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { drag.current = null; setDx(0); }}>
+          <div ref={body} className="kyb-vscroll min-h-0 flex-1 overflow-y-auto overscroll-contain">
+            {/* The portrait scrolls away with the facts, so a short screen still has room to read. */}
+            <CardHero race={race} c={c} color={color} numbered={numbered} onBallot={on} />
+            <div className="space-y-3 px-4 pb-4 pt-1">
+            <CompareFacts race={race} c={c} s={s} />
+            {c.photo && <p className="text-xs">Photo: {c.photo.credit}</p>}
+            <p className="border-t border-[var(--gb-border)] pt-2 text-[13px] leading-snug">{compareNote} {COMPARE_SOURCES}</p>
+          </div>
+            </div>
+        </article>
+      </div>
+
+      {/* The deck's buttons: back, details, pick, next. */}
+      <div className="flex shrink-0 items-center justify-center gap-4">
+        <button type="button" onClick={() => go(-1)} disabled={i === 0} aria-label="Previous candidate" className={`${roundBtn} h-12 w-12`}><ChevronLeft className="w-6 h-6" aria-hidden="true" /></button>
+        <button type="button" onClick={() => onInfo(c)} aria-label={`Details on ${c.name}`} className={`${roundBtn} h-12 w-12`}><Info className="w-5 h-5" aria-hidden="true" /></button>
+        {!readOnly && (
+          <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on} aria-label={on ? `${c.name} is on My Ballot; tap to remove` : `Pick ${c.name}`}
+            className="flex h-16 min-w-16 items-center justify-center gap-1.5 rounded-full border-2 px-4 text-lg font-black shadow-[0_6px_18px_rgba(0,0,0,.25)]"
+            style={on ? { background: color, color: ink, borderColor: color } : { background: 'var(--gb-surface)', color: 'var(--gb-text)', borderColor: color }}>
+            <Check className="w-6 h-6" strokeWidth={3} aria-hidden="true" />{on ? 'Picked' : 'Pick'}
+          </button>
+        )}
+        <button type="button" onClick={() => go(1)} disabled={i === n - 1} aria-label="Next candidate" className={`${roundBtn} h-12 w-12`}><ChevronRight className="w-6 h-6" aria-hidden="true" /></button>
+      </div>
+      <p className="shrink-0 text-center text-[13px] font-bold">{i + 1} of {n} · swipe for the next one</p>
+    </div>
+  );
+}
+
+/**
+ * A deck card's top, like a profile card: a band of the section's colour, the
+ * candidate's portrait in a ring on it, then their name and badges. (The
+ * photos are 360px portraits, so they stay a sharp circle rather than a
+ * stretched backdrop.)
+ */
+function CardHero({ race, c, color, numbered, onBallot = false }: { race: Race; c: Candidate; color: string; numbered: boolean; onBallot?: boolean }) {
+  return (
+    <div className="relative shrink-0 px-4 pb-3 pt-5 text-center" style={{ background: `linear-gradient(180deg, ${color} 0 78px, transparent 78px)` }}>
+      <Face c={c} className="mx-auto h-[132px] w-[132px] text-5xl ring-4 ring-[var(--gb-surface)] shadow-[0_6px_20px_rgba(0,0,0,.25)]" />
+      {onBallot && <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] px-2.5 py-0.5 text-xs font-black text-[var(--gb-text)]"><Check className="w-3.5 h-3.5" strokeWidth={3} aria-hidden="true" />On My Ballot</span>}
+      <p className="mt-3 text-2xl font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
+      <div className="mt-2 flex flex-wrap justify-center gap-1.5">
+        {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
+        {c.party && <Badge>{c.party}</Badge>}
+        {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
+      </div>
+    </div>
   );
 }
 
