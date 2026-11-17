@@ -174,29 +174,30 @@ function Incumbents({ race }: { race: Race }) {
 
 /** A seat holder's photo and brief (who they are, what they've worked on, their words), folded under their name. */
 function HolderBrief({ i }: { i: Incumbent }) {
+  const [open, setOpen] = useState(false);
   if (!i.photo && !i.brief) return null;
   const quotes = i.brief?.quotes ?? [];
   return (
-    <div className="flex items-start gap-3 pb-1">
-      <Face c={i} className="w-14 h-14 text-lg" />
-      <div className="min-w-0 flex-1 space-y-1">
-        {i.photo && <p className="text-xs">Photo: {i.photo.link ? <a href={i.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{i.photo.credit}</a> : i.photo.credit}</p>}
-        {i.brief && (
-          <details className="group">
-            <summary className="cursor-pointer min-h-[36px] inline-flex items-center font-bold underline underline-offset-2">About {i.name.split(' ')[0]}</summary>
-            <div className="mt-3 space-y-4">
-              <Brief b={i.brief} />
-              {quotes.length > 0 && (
-                <section className="space-y-3">
-                  <h3 className={heading}>🗣️ In their words</h3>
-                  <ul className="space-y-2 text-[15px] leading-relaxed">{quotes.map((q) => <li key={q.text.slice(0, 40)} className="rounded-xl bg-[var(--gb-bg)] p-3">“{q.text}” <Cite url={q.source} /></li>)}</ul>
-                </section>
-              )}
-              <BriefSources b={i.brief} />
-            </div>
-          </details>
-        )}
+    <div className="space-y-2 pb-1">
+      <div className="flex items-center gap-3">
+        <Face c={i} className="w-14 h-14 text-lg" />
+        <div className="min-w-0 space-y-1">
+          {i.photo && <p className="text-xs">Photo: {i.photo.link ? <a href={i.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{i.photo.credit}</a> : i.photo.credit}</p>}
+          {i.brief && <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="min-h-[36px] font-bold underline underline-offset-2">{open ? 'Hide' : 'About'} {i.name.split(' ')[0]}</button>}
+        </div>
       </div>
+      {open && i.brief && (
+        <div className="space-y-4 rounded-xl bg-[var(--gb-surface)] p-3">
+          <Brief b={i.brief} />
+          {quotes.length > 0 && (
+            <section className="space-y-3">
+              <h3 className={heading}>🗣️ In their words</h3>
+              <ul className="space-y-2 text-[15px] leading-relaxed">{quotes.map((q) => <li key={q.text.slice(0, 40)} className="rounded-xl bg-[var(--gb-bg)] p-3">“{q.text}” <Cite url={q.source} /></li>)}</ul>
+            </section>
+          )}
+          <BriefSources b={i.brief} />
+        </div>
+      )}
     </div>
   );
 }

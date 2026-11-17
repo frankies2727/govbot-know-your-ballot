@@ -1,1 +1,83 @@
-{}
+{
+ "d97-board|Cheree Moore": {
+  "url": "https://campussuite-storage.s3.amazonaws.com/prod/735181/c9be791c-b8dc-11e6-bf0d-22000bd8490f/2954549/3fa0e91a-31b2-11f0-9455-0e0034aace2f/file/IMG_7356_Original.jpeg",
+  "page": "https://www.op97.org/boe/meet-the-board",
+  "credit": "Oak Park Elementary School District 97",
+  "crop": "680x680+270+90"
+ },
+ "park-commissioner|Chris Wollmuth": {
+  "url": "https://media.pdop.org/wp-content/uploads/2026/05/Chris-Wollmuth.jpg",
+  "page": "https://pdop.org/welcome/board-of-commissioners/",
+  "credit": "Park District of Oak Park"
+ },
+ "d97-board|Gavin Kearney": {
+  "url": "https://campussuite-storage.s3.amazonaws.com/prod/735181/c9be791c-b8dc-11e6-bf0d-22000bd8490f/1921052/c6ac000e-6b87-11e9-9ca5-12beb9c45458/file/Gavin%20Kearney%20Headshot.jpg",
+  "page": "https://www.op97.org/boe/meet-the-board",
+  "credit": "Oak Park Elementary School District 97"
+ },
+ "d200-board|Graham Brisben": {
+  "url": "https://i0.wp.com/www.oakpark.com/wp-content/uploads/2023/02/Graham-Brisben_D200.jpg",
+  "page": "https://www.oakpark.com/2023/02/26/graham-brisben-3/",
+  "credit": "Provided (Wednesday Journal)"
+ },
+ "d97-board|Holly Spurlock": {
+  "url": "https://campussuite-storage.s3.amazonaws.com/prod/735181/c9be791c-b8dc-11e6-bf0d-22000bd8490f/1134786/a1987271-429d-11e7-992b-124f7febbf4a/file/spurlock.jpg",
+  "page": "https://www.op97.org/boe/meet-the-board",
+  "credit": "Oak Park Elementary School District 97"
+ },
+ "park-commissioner|Jake Worley-Hood": {
+  "url": "https://media.pdop.org/wp-content/uploads/2026/05/Jake-Worley-Hood.jpg",
+  "page": "https://pdop.org/welcome/board-of-commissioners/",
+  "credit": "Park District of Oak Park"
+ },
+ "d200-board|Jonathan Livingston": {
+  "url": "https://i0.wp.com/www.oakpark.com/wp-content/uploads/2023/01/Jonathan-Livingston-Head-Shot.jpg",
+  "page": "https://www.oakpark.com/2023/01/10/still-new-to-oak-park-livingston-seeks-seat-on-oprf-board/",
+  "credit": "Wednesday Journal (no caption or credit stated on the page)"
+ },
+ "d97-board|Jung Kim": {
+  "url": "https://campussuite-storage.s3.amazonaws.com/prod/735181/c9be791c-b8dc-11e6-bf0d-22000bd8490f/2960821/e52c049e-3be1-11f0-8b15-0a58a9feac02/file/Jung%20Kim%20Headshot%202025.jpg",
+  "page": "https://www.op97.org/boe/meet-the-board",
+  "credit": "Oak Park Elementary School District 97"
+ },
+ "park-commissioner|Kassie Porreca": {
+  "url": "https://media.pdop.org/wp-content/uploads/2026/05/client-img.png",
+  "page": "https://pdop.org/welcome/board-of-commissioners/",
+  "credit": "Park District of Oak Park"
+ },
+ "library-trustee|Kristina Rogers": {
+  "url": "https://images.squarespace-cdn.com/content/v1/5898c893e3df288b5112a624/90c664a4-3d5b-4a80-92c6-566a66e8b27a/unnamed.jpg",
+  "page": "https://www.activisttoolkit.org/kristina-rogers-2023-oak-park-library-board",
+  "credit": "Activist Toolkit"
+ },
+ "triton-trustee|Mark R. Stephens": {
+  "url": "https://www.triton.edu/images_documents/contentassets/board-of-trustees-images/markstephens.jpg",
+  "page": "https://www.triton.edu/about/administration/board-of-trustees.html",
+  "credit": "Triton College"
+ },
+ "library-trustee|Susanne Fairfax": {
+  "url": "https://www.oppl.org/wp-content/uploads/2021/06/Suzanne-Fairfax800w.png",
+  "page": "https://www.oppl.org/library-board/board-news/susanne-fairfax-appointed-to-board-of-library-trustees/",
+  "credit": "Oak Park Public Library"
+ },
+ "d200-board|Tim Brandhorst": {
+  "url": "https://i0.wp.com/www.oakpark.com/wp-content/uploads/2023/02/Tim-Brandhorst_D200.jpg",
+  "page": "https://www.oakpark.com/2023/02/26/tim-brandhorst/",
+  "credit": "Provided (Wednesday Journal)"
+ },
+ "triton-trustee|Tracy Jennings": {
+  "url": "https://www.triton.edu/images_documents/contentassets/board-of-trustees-images/tracy_jennings.jpg",
+  "page": "https://www.triton.edu/about/administration/board-of-trustees.html",
+  "credit": "Triton College"
+ },
+ "d97-board-2-year|Vincent Gay": {
+  "url": "https://campussuite-storage.s3.amazonaws.com/prod/735181/c9be791c-b8dc-11e6-bf0d-22000bd8490f/3112705/e627492a-698b-11f1-8dc3-0a58a9feac02/file/headshot-Vincent-Gay.jpeg",
+  "page": "https://www.op97.org/boe/meet-the-board",
+  "credit": "Oak Park Elementary School District 97"
+ },
+ "library-trustee|Virginia Bloom": {
+  "url": "https://images.squarespace-cdn.com/content/v1/5898c893e3df288b5112a624/1550426271829-3ZMB0X0VR6DA6EFWFFVK/49461906_600628607056771_847853752848220160_n.jpg",
+  "page": "https://www.activisttoolkit.org/virginia-d-bloom-scheirer-2019-library-board",
+  "credit": "Activist Toolkit"
+ }
+}
