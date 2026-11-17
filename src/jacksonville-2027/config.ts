@@ -67,7 +67,7 @@ export const JACKSONVILLE_2027: StateConfig = {
   explainOffice,
   researchLinks,
   moneySource: () => 'Duval County Supervisor of Elections',
-  noMoney: () => 'Campaign reports are filed with the Duval County Supervisor of Elections; follow the link in “ⓘ Details”.',
+  noMoney: () => 'Campaign reports are filed with the Duval County Supervisor of Elections; their filings are linked under “Dig deeper” below.',
   compareNote: 'Party is printed on this ballot. Until qualifying closes at noon on Jan 15, 2027, the mayor’s race lists who has declared, from the Wikipedia article on it; the Supervisor of Elections’ qualified list then replaces it.',
   electionDate: ELECTION_DAY,
   listFinal: false,

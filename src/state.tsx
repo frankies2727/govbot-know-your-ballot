@@ -40,7 +40,7 @@ export const ILLINOIS: StateConfig = {
   noMoney: (r) => (r.section === 'federal'
     ? 'No FEC filings found. Federal candidates who raise or spend under $5,000 don’t have to file.'
     : 'No campaign reports found for this cycle. Illinois candidates who raise or spend under $5,000 in a year don’t need a campaign committee.'),
-  compareNote: 'Money and incumbency come from official FEC and Illinois State Board of Elections records. Tap “ⓘ Details” under a name for donors, background and their campaign site.',
+  compareNote: 'Money and incumbency come from official FEC and Illinois State Board of Elections records.',
 };
 
 export const StateContext = createContext<StateConfig>(ILLINOIS);

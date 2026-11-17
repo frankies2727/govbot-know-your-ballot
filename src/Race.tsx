@@ -645,9 +645,6 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
 
 // ---- head-to-head --------------------------------------------------------------
 
-/** The states' notes point to "ⓘ Details" for links; Compare shows every link itself, so that sentence is left out there. */
-const TAP_DETAILS = /\s*Tap “ⓘ Details”[^.]*\./;
-
 const COMPARE_SOURCES = 'Survey answers are each candidate’s own words from Ballotpedia; endorsements are as the Wikipedia article on the race lists them.';
 
 /** Phones get the deck of cards; wider screens, the columns side by side. */
@@ -734,7 +731,7 @@ function CompareColumns({ race, color, ink, numbered, picked, onPick }: { race: 
           })}
         </div>
         {/* Scrolls away with the columns (and stays put while they scroll sideways). */}
-        <p className="sticky left-0 mt-4 text-[15px] text-[var(--gb-text)]">{compareNote.replace(TAP_DETAILS, '')} {COMPARE_SOURCES}</p>
+        <p className="sticky left-0 mt-4 text-[15px] text-[var(--gb-text)]">{compareNote} {COMPARE_SOURCES}</p>
       </div>
     </>
   );

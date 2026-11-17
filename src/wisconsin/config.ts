@@ -74,7 +74,7 @@ export const WISCONSIN: StateConfig = {
   noMoney: (r) => (r.section === 'federal'
     ? 'No FEC filings found. Federal candidates who raise or spend under $5,000 don’t have to file.'
     : 'No committee for this race in Wisconsin’s campaign finance system: a candidate who raises and spends under $2,000 in a year can claim an exemption and files no reports.'),
-  compareNote: 'Money comes from FEC and Wisconsin Ethics Commission records; incumbency from the candidate lists. Tap “ⓘ Details” under a name for their profile and campaign site.',
+  compareNote: 'Money comes from FEC and Wisconsin Ethics Commission records; incumbency from the candidate lists.',
 };
 
 /** A district's number as a chip: "Congress 2", "County Dane". */

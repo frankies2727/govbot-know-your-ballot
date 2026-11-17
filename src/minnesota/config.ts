@@ -81,7 +81,7 @@ export const MINNESOTA: StateConfig = {
   noMoney: (r) => (r.section === 'federal'
     ? 'No FEC filings found. Federal candidates who raise or spend under $5,000 don’t have to file.'
     : 'No committee reports found with the Campaign Finance Board. A Minnesota candidate who raises and spends under $750 files an affidavit instead of reports.'),
-  compareNote: 'Money comes from FEC and Minnesota Campaign Finance Board records; incumbency from the candidate lists. Tap “ⓘ Details” under a name for their profile and campaign site.',
+  compareNote: 'Money comes from FEC and Minnesota Campaign Finance Board records; incumbency from the candidate lists.',
 };
 
 /** A district's number as a chip: "Congress 4", "County Hennepin". */
