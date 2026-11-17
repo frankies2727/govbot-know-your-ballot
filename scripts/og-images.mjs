@@ -45,6 +45,11 @@ const PICTURES = [
     link: `${SITE}/2027-04/denver`,
   },
   {
+    file: 'oak-park-2027', overline: 'April 6, 2027', title: 'Know Your<br>Oak Park Ballot', maps: ['oak-park-2027'],
+    text: 'Village trustees, the District 97 and 200 school boards, library, parks and Triton College.',
+    link: `${SITE}/2027-04/oak-park`,
+  },
+  {
     file: 'wisconsin-2027', overline: 'Spring 2027 · April 6', title: 'Know Your<br>Wisconsin Ballot', maps: ['wisconsin-2027'],
     text: 'An open Supreme Court seat, the Court of Appeals and the circuit courts.',
     link: `${SITE}/2027-04/wisconsin`,
@@ -72,7 +77,7 @@ try {
   const maps = await page.evaluate((ids) => Object.fromEntries(ids.map((id) => {
     const card = document.getElementById(`kyb-home-${id}`);
     return [id, `<span class="kyb-tile" style="--ink:${card.style.getPropertyValue('--ink')}">${card.querySelector('svg').outerHTML}</span>`];
-  })), [...STATES.map((s) => s.id), 'chicago-2027', 'jacksonville-2027', 'denver-2027', 'wisconsin-2027']);
+  })), [...STATES.map((s) => s.id), 'chicago-2027', 'jacksonville-2027', 'denver-2027', 'wisconsin-2027', 'oak-park-2027']);
 
   for (const pic of PICTURES) {
     await page.evaluate(({ pic, maps }) => {

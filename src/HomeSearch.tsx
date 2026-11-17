@@ -36,6 +36,11 @@ const HITS: Hit[] = [
     go: () => navigate('projects/know-your-ballot-denver-2027'),
   },
   {
+    id: 'guide-oak-park-2027', title: 'Oak Park ballot guide', detail: 'Apr 6, 2027 village election: trustees, District 97 and 200 school boards, library, parks and Triton College', ink: 'var(--op-gold)',
+    text: fold('oak park illinois village guide ballot 2027 consolidated election trustee school board district 97 200 oprf library park district triton ranked choice april'),
+    go: () => navigate('projects/know-your-ballot-oak-park-2027'),
+  },
+  {
     id: 'guide-wisconsin-2027', title: 'Wisconsin spring ballot guide', detail: 'Apr 6, 2027 (Feb 16 primary where needed): Supreme Court, Court of Appeals and circuit courts', ink: STATE_INK.wisconsin,
     text: fold('wisconsin spring 2027 guide ballot supreme court judge appeals circuit primary april february'),
     go: () => navigate('projects/know-your-ballot-wisconsin-2027'),

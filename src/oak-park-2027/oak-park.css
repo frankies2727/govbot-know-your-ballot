@@ -1,0 +1,14 @@
+/* Know Your Ballot: Oak Park's consolidated election, Apr 6, 2027. A palette
+   from the village's oak, its acorns, the Prairie School brick of its houses
+   and the sky over them. Brand colours stay the same in both themes; each
+   section carries the ink that reads on it (config.ts). The shared tokens
+   are in ballot.css. */
+:root {
+  --op-green: #2F5D3A;
+  --op-gold: #D9A42B;
+  --op-brick: #9B3D2E;
+  --op-sky: #8EC5F0;
+}
+
+/* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the precinct map glows gold. */
+.kyb-op { --kyb-accent: var(--op-gold); --kyb-accent-ink: #1C1606; --kyb-map-glow: color-mix(in srgb, var(--op-gold) 45%, transparent); }

@@ -14,6 +14,7 @@ const Wisconsin = lazy(() => import('./wisconsin/KnowYourBallotWisconsin').then(
 const Chicago2027 = lazy(() => import('./chicago-2027/KnowYourBallotChicago2027').then((m) => ({ default: m.KnowYourBallotChicago2027 })));
 const Jacksonville2027 = lazy(() => import('./jacksonville-2027/KnowYourBallotJacksonville2027').then((m) => ({ default: m.KnowYourBallotJacksonville2027 })));
 const Denver2027 = lazy(() => import('./denver-2027/KnowYourBallotDenver2027').then((m) => ({ default: m.KnowYourBallotDenver2027 })));
+const OakPark2027 = lazy(() => import('./oak-park-2027/KnowYourBallotOakPark2027').then((m) => ({ default: m.KnowYourBallotOakPark2027 })));
 const Wisconsin2027 = lazy(() => import('./wisconsin-2027/KnowYourBallotWisconsin2027').then((m) => ({ default: m.KnowYourBallotWisconsin2027 })));
 
 function Loading() {
@@ -27,7 +28,7 @@ function Loading() {
 
 export default function App() {
   const route = useRoute();
-  const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin|chicago-2027|jacksonville-2027|denver-2027|wisconsin-2027)(\/|$)/)?.[1];
-  const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : guide === 'chicago-2027' ? Chicago2027 : guide === 'jacksonville-2027' ? Jacksonville2027 : guide === 'denver-2027' ? Denver2027 : guide === 'wisconsin-2027' ? Wisconsin2027 : KybHome;
+  const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin|chicago-2027|jacksonville-2027|denver-2027|wisconsin-2027|oak-park-2027)(\/|$)/)?.[1];
+  const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : guide === 'chicago-2027' ? Chicago2027 : guide === 'jacksonville-2027' ? Jacksonville2027 : guide === 'denver-2027' ? Denver2027 : guide === 'wisconsin-2027' ? Wisconsin2027 : guide === 'oak-park-2027' ? OakPark2027 : KybHome;
   return <><Suspense fallback={<Loading />}><Screen /></Suspense><Pulse compact={!!guide} /></>;
 }

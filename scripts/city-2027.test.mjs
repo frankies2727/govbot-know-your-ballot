@@ -1,5 +1,5 @@
-// node --test: the Denver and Jacksonville 2027 builds' parsing
-// (scripts/denver-2027.mjs, scripts/jacksonville-2027.mjs).
+// node --test: the Denver, Jacksonville and Oak Park 2027 builds' parsing
+// (scripts/denver-2027.mjs, scripts/jacksonville-2027.mjs, scripts/oak-park-2027.mjs).
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { allRaces as denverRaces, candidatesFrom, cleanName, raceFor } from './denver-2027.mjs';
@@ -63,4 +63,19 @@ test('Jacksonville: every seat, and the article’s declared candidates with par
 test('Jacksonville: the council page’s members by seat', () => {
   const html = '<a href="/city-council/city-council-members/al2">Ron Salem</a><a href="/city-council/city-council-members/al2">Ronald B. Salem</a><a href="/city-council/city-council-members/al2/bio">Bio</a><a href="/city-council/city-council-members/d08">Reggie Gaffney, Jr.</a>';
   assert.deepEqual([...councilMembers(html)], [['al2', 'Ron Salem'], ['d08', 'Reggie Gaffney, Jr.']]);
+});
+
+test('Oak Park: State Board offices map to the village’s races, and only Oak Park’s', async () => {
+  const { raceFor: opRace, RACES } = await import('./oak-park-2027.mjs');
+  const p = (office, districtType, district) => ({ office, districtType, district });
+  assert.equal(opRace(p('Trustee', 'Village', 'Oak Park'), 'Oak Park'), 'village-trustee');
+  assert.equal(opRace(p('Trustee', 'Village', 'River Forest'), 'River Forest'), null); // the neighbour's board
+  assert.equal(opRace(p('Trustee', 'Library', 'Oak Park'), 'Oak Park'), 'library-trustee');
+  assert.equal(opRace(p('Commissioner', 'Park', 'Oak Park'), 'Oak Park'), 'park-commissioner');
+  assert.equal(opRace(p('Trustee', 'Comm College', 'Triton or 504'), 'Maywood'), 'triton-trustee');
+  assert.equal(opRace(p('Member', 'School', '200'), 'River Forest'), 'd200-board'); // shared with River Forest
+  assert.equal(opRace(p('Member', 'School', '200'), 'Woodstock'), null); // Woodstock’s District 200, not OPRF’s
+  assert.equal(opRace(p('Member', 'School', 'CUSD 200'), 'Oak Park'), null);
+  assert.equal(opRace(p('Member', 'School', '97'), 'Oak Park'), 'd97'); // term unknown until certified
+  assert.equal(RACES.length, 7);
 });

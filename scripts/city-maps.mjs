@@ -1,4 +1,4 @@
-// District maps for the city guides (Chicago, Denver, Jacksonville): reading a
+// District maps for the city guides (Chicago, Denver, Jacksonville, Oak Park): reading a
 // city's official boundary layer from its ArcGIS server into the lookup's
 // format, and drawing the hero's outline from it.
 
@@ -9,10 +9,10 @@ const UA = 'KnowYourBallot/1.0 (+https://github.com/frankies2727/govbot-know-you
  * (src/lookup.ts): [{ id, rings: [[lng, lat, lng, lat, …], …] }], in
  * longitude/latitude to 5 decimals (about a metre), simplified to ~10 m.
  * `id` names the feature from its attributes; a feature it returns no id for
- * is left out.
+ * is left out. `where` picks features (default: all of them).
  */
-export async function readLayer(url, id) {
-  const q = new URLSearchParams({ where: '1=1', outFields: '*', outSR: '4326', geometryPrecision: '5', maxAllowableOffset: '0.0001', f: 'json' });
+export async function readLayer(url, id, where = '1=1') {
+  const q = new URLSearchParams({ where, outFields: '*', outSR: '4326', geometryPrecision: '5', maxAllowableOffset: '0.0001', f: 'json' });
   const res = await fetch(`${url}/query?${q}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(60_000) });
   if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
   const body = await res.json();

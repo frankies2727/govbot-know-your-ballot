@@ -1,5 +1,5 @@
 // What a crawler or an AI assistant reads at a later election's guide
-// (/2027-02/chicago, /2027-03/jacksonville, /2027-04/denver, /2027-04/wisconsin) before any script runs: every race on
+// (/2027-02/chicago, /2027-03/jacksonville, /2027-04/denver, /2027-04/wisconsin, /2027-04/oak-park) before any script runs: every race on
 // the ballot with its candidates and who holds the seat, the guide's common
 // questions, and the page's structured data. Built from the same data and copy
 // the app shows (src/data/<guide>/ballot.json, src/<guide>/), so the page text,
@@ -18,6 +18,9 @@ import { explainOffice as jaxExplain } from '../../src/jacksonville-2027/config'
 import { ELECTION_DAY as JAX_DAY } from '../../src/jacksonville-2027/dates';
 import { jacksonvilleFaq } from '../../src/jacksonville-2027/faq';
 import { guidePath, type GuideId } from '../../src/hosts';
+import { explainOffice as oakParkExplain } from '../../src/oak-park-2027/config';
+import { ELECTION_DAY as OAK_PARK_DAY } from '../../src/oak-park-2027/dates';
+import { oakParkFaq } from '../../src/oak-park-2027/faq';
 import { candidatePath } from '../../src/lib/candidateLink';
 import type { Faq } from '../../src/seo/faq';
 import { isoDate, longDate } from '../../src/seo/format';
@@ -68,6 +71,14 @@ export const LATER_GUIDES: GuidePage[] = [
     sections: [['Citywide: Mayor, Auditor and Clerk and Recorder', 'city'], ['City Council: At-Large Seats A and B, and the 11 districts', 'council']],
     explain: denverExplain, faq: denverFaq,
     short: 'Denver', portal: { name: 'Denver Elections Division', url: 'https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division' }, what: 'Denver’s Apr 6, 2027 municipal election (Jun 1 runoffs where needed): mayor, auditor, clerk and recorder and all 13 City Council seats',
+  },
+  {
+    id: 'oak-park-2027', heading: 'Know Your Oak Park Ballot: the Apr 6, 2027 village election', name: 'Know Your Oak Park Ballot',
+    day: OAK_PARK_DAY, hours: '6am to 7pm', event: 'Oak Park consolidated election 2027', place: { type: 'City', name: 'Oak Park, Illinois' },
+    listFrom: 'campaign committees on file with the Illinois State Board of Elections and Wednesday Journal reports, until the ballot is certified', narrows: 'whether it is in the Village of Oak Park',
+    sections: [['Village Board: three trustees', 'city'], ['School boards: District 97 and District 200', 'school'], ['Library Trustees and Park District Commissioners', 'council'], ['Triton College trustees', 'education']],
+    explain: oakParkExplain, faq: oakParkFaq,
+    short: 'Oak Park', portal: { name: 'Cook County Clerk', url: 'https://www.cookcountyclerkil.gov/elections' }, what: 'Oak Park’s Apr 6, 2027 consolidated election: three village trustees, the District 97 and District 200 school boards, library trustees, park commissioners and two Triton College trustees',
   },
   {
     id: 'wisconsin-2027', heading: 'Know Your Wisconsin Spring Ballot: Apr 6, 2027', name: 'Know Your Wisconsin Spring Ballot',

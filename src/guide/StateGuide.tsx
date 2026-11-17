@@ -659,7 +659,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
       </form>
 
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
-        {([[headliners.length, 'races on every ballot'], [byDistrict, 'races by district'], [candidates, 'candidates'], [data.measures.length, copy.measuresLabel]] as [number, string][]).filter(([n], i) => i < 3 || n > 0).map(([n, label]) => (
+        {([[headliners.length, 'races on every ballot'], [byDistrict, 'races by district'], [candidates, 'candidates'], [data.measures.length, copy.measuresLabel]] as [number, string][]).filter(([n], i) => i === 0 || i === 2 || n > 0).map(([n, label]) => (
           <li key={label} className="rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-4">
             <span className="block text-3xl font-black">{n}</span>
             <span className="block text-sm font-bold">{label}</span>
@@ -670,7 +670,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
       {daysLeft >= 0 && <ElectionTimeline dates={spec.keyDates} source={{ name: `${spec.links.datesSource}’s calendar`, url: spec.links.dates }} />}
 
       <Headliners races={headliners} sections={SECTIONS} overline={`On every ${spec.name} ballot`} heading={`The ${everyone} races`}
-        intro={`${headliners.length === 1 ? 'This contest is' : `These ${headliners.length} contests are`} on every ${spec.name} ballot. Tap a face to meet a candidate, or Compare to see them side by side; your address adds your own ${copy.districtKinds} races from the ${byDistrict} by district.`}
+        intro={`${headliners.length === 1 ? 'This contest is' : `These ${headliners.length} contests are`} on every ${spec.name} ballot. Tap a face to meet a candidate, or Compare to see them side by side${byDistrict ? `; your address adds your own ${copy.districtKinds} races from the ${byDistrict} by district` : ''}.`}
         onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare}>
         {questions.n > 0 && <SectionPanel card={questions} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />}
       </Headliners>

@@ -63,6 +63,8 @@ const LIST: Election[] = [
     what: 'Mayor, sheriff, property appraiser, supervisor of elections, tax collector and all 19 City Council seats, for every Duval County voter.' },
   { id: 'il-2027-runoff', state: 'illinois', date: '2027-04-06', title: 'Runoffs and suburban local elections', type: 'local', guide: SO_FAR,
     what: 'Chicago runoffs where no one got more than half the vote, and suburban village and city councils and school, park and library boards.' },
+  { id: 'il-2027-oak-park', state: 'illinois', date: '2027-04-06', title: 'Oak Park village election', type: 'local', guide: { label: 'Open the Oak Park ballot guide', id: 'oak-park-2027' },
+    what: 'Three village trustees, the District 97 and District 200 school boards, library trustees, park commissioners and two Triton College trustees.' },
   { id: 'co-2027-denver', state: 'colorado', date: '2027-04-06', title: 'Denver city election', type: 'local', guide: { label: 'Open the Denver ballot guide', id: 'denver-2027' },
     what: 'Mayor, auditor, clerk and recorder and all 13 City Council seats, by mail ballot.' },
   { id: 'wi-2027-spring', state: 'wisconsin', date: '2027-04-06', title: 'Spring election', type: 'local', guide: { label: 'Open the spring ballot guide', id: 'wisconsin-2027' },

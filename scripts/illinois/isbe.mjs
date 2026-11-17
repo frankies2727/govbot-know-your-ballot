@@ -72,7 +72,28 @@ const OFFICE_ON_FILE = [
   [/^City Treasurer/, /treasurer/],
   [/^Alderperson/, /alder/],
   [/^Police District Council/, /police/],
+  // Oak Park's Apr 2027 consolidated election.
+  [/^Village Trustee|^Library Trustee|^Triton College Trustee/, /trustee/],
+  [/^Park District Commissioner/, /comm?i?s+ioner|trustee/],
 ];
+
+/**
+ * Everyone on file for an election (years and types as in addStateMoney)
+ * that `where` accepts: their ID, name, office as filed, and status. Read for
+ * a local guide's candidate list; the files' home addresses are only ever
+ * read by `where`, never returned.
+ */
+export async function candidatesOnFile(dir, election) {
+  const status = new Map();
+  for await (const r of rows(`${dir}/CanElections.txt`)) {
+    if (election.years.includes(r.ElectionYear) && election.types.includes(r.ElectionType) && !status.has(r.CandidateID)) status.set(r.CandidateID, r.IncChallOpen.trim());
+  }
+  const out = [];
+  for await (const r of rows(`${dir}/Candidates.txt`)) {
+    if (status.has(r.ID) && election.where(r)) out.push({ id: r.ID, first: r.FirstName, last: r.LastName, office: r.Office, districtType: r.DistrictType, district: r.District, status: status.get(r.ID) });
+  }
+  return out;
+}
 const officeFits = (ballotOffice, fileOffice) =>
   OFFICE_ON_FILE.some(([ballot, file]) => ballot.test(ballotOffice) && file.test(fileOffice));
 // "6th District" / "3rd Subcircuit" / "31st Ward" on the ballot vs a bare
@@ -92,7 +113,9 @@ const districtFits = (ballotOffice, fileDistrict) => {
  * committee may still be on file only for their 2023 race). With
  * `incumbency: false` the files' Inc/Chal marks aren't used (the build has
  * an official list of who holds each seat); with `party: true` a candidate in
- * a nonpartisan race gets the party they list on file, if any.
+ * a nonpartisan race gets the party they list on file, if any. `where` keeps
+ * only the people on file it accepts (a local guide's own bodies: Oak Park's
+ * trustees, not every village's).
  */
 export async function addStateMoney(races, dir, election = { years: ['2026'], types: ['GE'], incumbency: true }) {
   // 1. Everyone on the election, and their status in it.
@@ -102,7 +125,7 @@ export async function addStateMoney(races, dir, election = { years: ['2026'], ty
   }
   const people = [];
   for await (const r of rows(`${dir}/Candidates.txt`)) {
-    if (status.has(r.ID)) people.push({ id: r.ID, last: words(r.LastName), first: words(r.FirstName), office: r.Office.toLowerCase(), district: r.District, party: r.PartyAffiliation });
+    if (status.has(r.ID) && (!election.where || election.where(r))) people.push({ id: r.ID, last: words(r.LastName), first: words(r.FirstName), office: r.Office.toLowerCase(), district: r.District, party: r.PartyAffiliation });
   }
 
   // 2. Their committees.

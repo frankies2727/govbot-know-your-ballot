@@ -24,11 +24,11 @@ if (existsSync('dist/index.html')) {
   const site = 'https://govbot-know-your-ballot.vercel.app';
   ok(dist('robots.txt').includes(`Sitemap: ${site}/sitemap.xml`), 'dist/robots.txt');
   const locs = [...dist('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  const guides = [`${site}/`, ...['illinois', 'michigan', 'minnesota', 'wisconsin'].map((s) => `${site}/2026-11/${s}`), `${site}/2027-02/chicago`, `${site}/2027-03/jacksonville`, `${site}/2027-04/denver`, `${site}/2027-04/wisconsin`];
+  const guides = [`${site}/`, ...['illinois', 'michigan', 'minnesota', 'wisconsin'].map((s) => `${site}/2026-11/${s}`), `${site}/2027-02/chicago`, `${site}/2027-03/jacksonville`, `${site}/2027-04/denver`, `${site}/2027-04/oak-park`, `${site}/2027-04/wisconsin`];
   eq(locs.slice(0, guides.length), guides, 'dist/sitemap.xml pages');
   // Then every candidate's own page (scripts/seo/candidate-pages.ts), one per candidate in each guide's data.
   const people = locs.slice(guides.length);
-  const listed = ['2026-11/illinois:illinois', '2026-11/michigan:michigan', '2026-11/minnesota:minnesota', '2026-11/wisconsin:wisconsin', '2027-02/chicago:chicago-2027', '2027-03/jacksonville:jacksonville-2027', '2027-04/denver:denver-2027', '2027-04/wisconsin:wisconsin-2027']
+  const listed = ['2026-11/illinois:illinois', '2026-11/michigan:michigan', '2026-11/minnesota:minnesota', '2026-11/wisconsin:wisconsin', '2027-02/chicago:chicago-2027', '2027-03/jacksonville:jacksonville-2027', '2027-04/denver:denver-2027', '2027-04/wisconsin:wisconsin-2027', '2027-04/oak-park:oak-park-2027']
     .reduce((n, g) => n + JSON.parse(readFileSync(`src/data/${g.split(':')[1]}/ballot.json`, 'utf8')).races.reduce((m, r) => m + r.candidates.length, 0), 0);
   ok(people.length === listed && people.every((l) => /\/candidates\/[a-z0-9-]+\/[a-z0-9-]+$/.test(l)) && new Set(people).size === people.length, `a page for each of the ${listed} candidates, each address unique`);
   for (const l of locs) { const page = l === `${site}/` ? 'index.html' : `${l.slice(site.length + 1)}/index.html`; ok(existsSync(`dist/${page}`) && dist(page).includes(`<link rel="canonical" href="${l}" />`), `canonical of ${l} equals itself`); }
@@ -36,7 +36,7 @@ if (existsSync('dist/index.html')) {
   ok(dist('llms.txt').includes('Wisconsin') && !dist('llms.txt').includes('undefined'), 'dist/llms.txt');
   // Each page's readable text and structured data.
   const decode = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
-  for (const page of ['index.html', '2026-11/illinois/index.html', '2026-11/michigan/index.html', '2026-11/minnesota/index.html', '2026-11/wisconsin/index.html', '2027-02/chicago/index.html', '2027-03/jacksonville/index.html', '2027-04/denver/index.html', '2027-04/wisconsin/index.html']) {
+  for (const page of ['index.html', '2026-11/illinois/index.html', '2026-11/michigan/index.html', '2026-11/minnesota/index.html', '2026-11/wisconsin/index.html', '2027-02/chicago/index.html', '2027-03/jacksonville/index.html', '2027-04/denver/index.html', '2027-04/wisconsin/index.html', '2027-04/oak-park/index.html']) {
     const html = dist(page);
     const root = html.slice(html.indexOf('<div id="root">'), html.indexOf('</main>') + 7);
     ok(root.includes('<main class="kyb-seo">') && /<h1>[^<]+<\/h1>/.test(root), `${page}: readable text and an h1 inside the root`);

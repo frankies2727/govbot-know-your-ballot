@@ -68,6 +68,14 @@
       "destination": "/2027-04/denver/index.html"
     },
     {
+      "source": "/2027-04/oak-park",
+      "destination": "/2027-04/oak-park/index.html"
+    },
+    {
+      "source": "/2027-04/oak-park/:rest*",
+      "destination": "/2027-04/oak-park/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
@@ -102,6 +110,15 @@
     },
     {
       "source": "/2027-03/jacksonville/ballot",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/2027-04/oak-park/ballot",
       "headers": [
         {
           "key": "X-Robots-Tag",

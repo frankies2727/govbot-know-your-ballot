@@ -19,6 +19,8 @@ import { WisconsinMap } from './wisconsin/Hero';
 import { ChicagoMap } from './chicago-2027/Hero';
 import { ELECTION_DAY as CHICAGO_DAY } from './chicago-2027/dates';
 import { DenverMap } from './denver-2027/Hero';
+import { OakParkMap } from './oak-park-2027/Hero';
+import { ELECTION_DAY as OAK_PARK_DAY } from './oak-park-2027/dates';
 import { ELECTION_DAY as DENVER_DAY } from './denver-2027/dates';
 import { JacksonvilleMap } from './jacksonville-2027/Hero';
 import { ELECTION_DAY as JACKSONVILLE_DAY } from './jacksonville-2027/dates';
@@ -32,6 +34,7 @@ import './minnesota/minnesota.css';
 import './wisconsin/wisconsin.css';
 import './chicago-2027/chicago.css';
 import './denver-2027/denver.css';
+import './oak-park-2027/oak-park.css';
 import './jacksonville-2027/jacksonville.css';
 import './home.css';
 
@@ -56,6 +59,7 @@ const SPRING: { id: GuideId; name: string; ink: string; map: React.ReactNode; ev
   { id: 'chicago-2027', name: 'Chicago', ink: 'var(--chi-blue)', map: <ChicagoMap />, event: 'Chicago’s city election, Tue, Feb 23', covers: 'Mayor, clerk, treasurer, all 50 alderpersons and the police district councils.', day: CHICAGO_DAY, when: 'days to Election Day' },
   { id: 'jacksonville-2027', name: 'Jacksonville', ink: STATE_INK.florida, map: <JacksonvilleMap />, event: 'Jacksonville’s city election, Tue, Mar 9', covers: 'Mayor, sheriff, the county’s officers and all 19 City Council seats.', day: JACKSONVILLE_DAY, when: 'days to Election Day (May 18 runoffs where needed)' },
   { id: 'denver-2027', name: 'Denver', ink: STATE_INK.colorado, map: <DenverMap />, event: 'Denver’s city election, Tue, Apr 6', covers: 'Mayor, auditor, clerk and recorder and all 13 City Council seats.', day: DENVER_DAY, when: 'days to Election Day (Jun 1 runoffs where needed)' },
+  { id: 'oak-park-2027', name: 'Oak Park', ink: 'var(--op-gold)', map: <OakParkMap />, event: 'Oak Park’s village election, Tue, Apr 6', covers: 'Village trustees, the District 97 and 200 school boards, library, parks and Triton College.', day: OAK_PARK_DAY, when: 'days to Election Day (no primary)' },
   { id: 'wisconsin-2027', name: 'Wisconsin', ink: STATE_INK.wisconsin, map: <WisconsinMap />, event: 'Wisconsin’s spring election, Tue, Apr 6', covers: 'An open Supreme Court seat, the Court of Appeals and circuit courts.', day: SPRING_DAY, when: 'days to Election Day (a Feb 16 primary only where needed)', srName: 'Wisconsin’s spring election' },
 ];
 

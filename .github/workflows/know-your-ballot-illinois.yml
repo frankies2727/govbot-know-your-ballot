@@ -66,6 +66,12 @@ jobs:
       - name: Build Chicago 2027 ballot data
         run: node scripts/chicago-2027.mjs || echo "::warning::Chicago 2027 build failed; yesterday's data kept"
 
+      # Oak Park's Apr 6, 2027 village election (scripts/oak-park-2027.mjs):
+      # campaign committees on file with the State Board, their money, who
+      # holds each seat and the precinct map. Fail-soft like Chicago's.
+      - name: Build Oak Park 2027 ballot data
+        run: node scripts/oak-park-2027.mjs || echo "::warning::Oak Park 2027 build failed; yesterday's data kept"
+
       - name: Redraw the README badges
         run: node scripts/badges.mjs
         env:
@@ -75,12 +81,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/illinois public/kyb-photos/illinois src/data/chicago-2027 public/kyb-photos/chicago-2027 src/govbot public/badges src/data/turnout.json
+          git add src/data/illinois public/kyb-photos/illinois src/data/chicago-2027 src/data/oak-park-2027 public/kyb-photos/chicago-2027 src/govbot public/badges src/data/turnout.json
           if git diff --staged --quiet; then
             echo "No ballot data changes."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Daily data: 2026-11 Illinois + 2027-02 Chicago [skip ci]"
+            git commit -m "Daily data: 2026-11 Illinois + 2027-02 Chicago + 2027-04 Oak Park [skip ci]"
             # main may have moved during the build (a merge landed); replay the data commit on top.
             git pull --rebase origin main
             git push
