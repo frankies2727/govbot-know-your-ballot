@@ -9,6 +9,12 @@ const KNOWN: [RegExp, string][] = [
   [/(^|\.)vote411\.org$/, 'Vote411'],
   [/(^|\.)fec\.gov$/, 'the FEC'],
   [/(^|\.)elections\.il\.gov$/, 'the Illinois State Board of Elections'],
+  [/(^|\.)oakpark\.com$/, 'Wednesday Journal'],
+  [/(^|\.)oak-park\.us$/, 'Village of Oak Park'],
+  [/(^|\.)forestparkreview\.com$/, 'Forest Park Review'],
+  [/(^|\.)rblandmark\.com$/, 'Riverside-Brookfield Landmark'],
+  [/(^|\.)patch\.com$/, 'Patch'],
+  [/(^|\.)triton\.edu$/, 'Triton College'],
 ];
 
 /** "https://www.chicagopolitics.org/candidate/…" -> "Chicago Politics"; an unknown site -> its address ("johnkellyforchi.com"). */

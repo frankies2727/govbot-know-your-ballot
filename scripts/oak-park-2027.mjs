@@ -28,11 +28,17 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { outlineOf, readLayer } from './city-maps.mjs';
 import { recentBills } from './illinois/govbot.mjs';
+import { addPhotos } from './illinois/photos.mjs';
 import { addStateMoney, candidatesOnFile, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
 import { sameName } from './wiki.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/oak-park-2027/', ROOT);
+const PHOTOS = new URL('public/kyb-photos/oak-park-2027/', ROOT);
+// Read by hand from each candidate's own pages and the local press (neutral, quotes word for word, every line sourced),
+// keyed "<race id>|<name>"; photos picked the same way, from any source, always credited (./illinois/photos.mjs).
+const BRIEFS = new URL('./oak-park-2027/briefs.json', import.meta.url);
+const CHOSEN_PHOTOS = new URL('./oak-park-2027/photos-chosen.json', import.meta.url);
 const UA = 'KnowYourBallot/1.0 (+https://github.com/frankies2727/govbot-know-your-ballot)';
 const ELECTION = { name: 'Consolidated Election', date: '2027-04-06' };
 const GIS = 'https://gis.cookcountyil.gov/traditional/rest/services';
@@ -158,6 +164,21 @@ async function main() {
     const race = byId.get(a.race);
     if (!race.candidates.some((c) => sameName(c.name, a.name))) race.candidates.push({ ballot: 0, name: a.name, party: '', filing: ANNOUNCED_STATUS, profile: a.source });
   }
+
+  // Each candidate's brief (background, what they'd work on, their own words), campaign site and accounts.
+  const briefs = JSON.parse(readFileSync(BRIEFS, 'utf8'));
+  for (const r of races) for (const c of r.candidates) {
+    const b = briefs[`${r.id}|${c.name}`];
+    if (!b) continue;
+    c.brief = { facts: b.facts ?? [], priorities: b.priorities ?? [], quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf };
+    if (b.website) c.website = b.website;
+    const social = Object.fromEntries(Object.entries(b.social ?? {}).filter(([, u]) => typeof u === 'string' && /^https:\/\//.test(u)));
+    if (Object.keys(social).length) c.social = social;
+  }
+  const unused = Object.keys(briefs).filter((k) => !races.some((r) => r.candidates.some((c) => `${r.id}|${c.name}` === k)));
+  if (unused.length) console.warn(`briefs.json: no candidate for ${unused.join('; ')}`);
+  const photos = await addPhotos(races, { dir: PHOTOS.pathname, publicPath: 'kyb-photos/oak-park-2027', prev, chosen: CHOSEN_PHOTOS });
+  for (const l of photos.log) console.log(l);
 
   // Who holds each seat now, and whether they're on this race's list.
   for (const def of RACES) {

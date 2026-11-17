@@ -73,8 +73,27 @@ export interface Candidate {
   stances?: { messages: string[]; asOf?: string; url: string };
   /** The "Issues" / "Priorities" page on their own campaign site. */
   issuesUrl?: string;
+  /**
+   * What their own pages and the local press say, pulled into the card so a voter doesn't have to
+   * click through: background, what they'd work on and their own words, each with the page it's from.
+   * Read by hand from each source and kept neutral (scripts/oak-park-2027/briefs.json).
+   */
+  brief?: CandidateBrief;
   /** Who has endorsed them, as the Wikipedia article on the race lists it (scripts/know-your-ballot/wiki.mjs). */
   endorsements?: { groups: { category: string; names: string[] }[]; total: number; source: { name: string; url: string }; asOf: string };
+}
+
+/** One line in a candidate's brief, and the page that says it. */
+export interface Sourced { text: string; source: string }
+export interface CandidateBrief {
+  facts: Sourced[];
+  priorities: Sourced[];
+  /** Word for word. */
+  quotes: (Sourced & { date?: string })[];
+  /** Every page read for the brief. */
+  sources: { title: string; publisher: string; date?: string; url: string }[];
+  /** When it was last checked. */
+  asOf: string;
 }
 
 /** Bills a sitting legislator sponsored this session, from govbot's catalog. */

@@ -234,13 +234,61 @@ export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name:
   );
 }
 
-/** The candidate's own campaign messages (their Ballotpedia survey answer) and their site's issues page. */
+const heading = 'text-sm font-black uppercase tracking-widest text-[var(--gb-text)]';
+const cite = 'font-bold text-[var(--gb-link)] underline underline-offset-2';
+/** "Wednesday Journal ↗": the page a line of the brief comes from. */
+function Cite({ url }: { url: string }) {
+  return <a href={url} target="_blank" rel="noreferrer noopener" className={`${cite} text-xs whitespace-nowrap`}>{sourceName(url)} ↗</a>;
+}
+
+/** Who they are and what they'd work on, from their own pages and the press, each line with its source. */
+function Brief({ c }: { c: Candidate }) {
+  const b = c.brief;
+  if (!b || (!b.facts.length && !b.priorities.length)) return null;
+  const list = (items: { text: string; source: string }[]) => (
+    <ul className="space-y-2 text-[15px] leading-relaxed text-[var(--gb-text)]">
+      {items.map((f) => <li key={f.text} className="flex gap-2"><span aria-hidden="true">•</span><span>{f.text} <Cite url={f.source} /></span></li>)}
+    </ul>
+  );
+  return (
+    <>
+      {b.facts.length > 0 && <section className="space-y-3"><h3 className={heading}>👤 About them</h3>{list(b.facts)}</section>}
+      {b.priorities.length > 0 && <section className="space-y-3"><h3 className={heading}>🎯 What they’d work on</h3>{list(b.priorities)}</section>}
+    </>
+  );
+}
+
+/** The pages a brief was read from, newest first, with when it was checked. */
+function BriefSources({ c }: { c: Candidate }) {
+  const b = c.brief;
+  if (!b?.sources.length) return null;
+  const when = new Date(b.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  return (
+    <section className="space-y-2">
+      <h3 className={heading}>📰 Where this comes from</h3>
+      <ul className="space-y-1 text-sm leading-snug text-[var(--gb-text)]">
+        {b.sources.map((s) => (
+          <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer noopener" className={cite}>{s.title} ↗</a> <span className="text-xs">· {s.publisher}{s.date ? ` · ${new Date(s.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}` : ''}</span></li>
+        ))}
+      </ul>
+      <p className="text-xs text-[var(--gb-text)]">Read and summarized by Know Your Ballot, {when}; quotes are word for word. Nothing here is an endorsement.</p>
+    </section>
+  );
+}
+
+/** The candidate's own words: quotes from the press and their pages, their Ballotpedia survey answer, and their site's issues page. */
 function InTheirWords({ c }: { c: Candidate }) {
-  if (!c.stances && !c.issuesUrl) return null;
+  const quotes = c.brief?.quotes ?? [];
+  if (!c.stances && !c.issuesUrl && !quotes.length) return null;
   const when = c.stances?.asOf ? new Date(c.stances.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
   return (
     <section className="space-y-3">
-      <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🗣️ In their words</h3>
+      <h3 className={heading}>🗣️ In their words</h3>
+      {quotes.length > 0 && (
+        <ul className="space-y-2 text-[15px] leading-relaxed text-[var(--gb-text)]">
+          {quotes.map((q) => <li key={q.text.slice(0, 40)} className="rounded-xl bg-[var(--gb-bg)] p-3">“{q.text}” <Cite url={q.source} /></li>)}
+        </ul>
+      )}
       {c.stances && (
         <>
           <ol className="space-y-2 text-[15px] leading-relaxed text-[var(--gb-text)]">
@@ -556,6 +604,8 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
         </>
       )}
 
+      <Brief c={c} />
+
       <section className="space-y-3">
         <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">💰 Campaign money</h3>
         {c.money ? (
@@ -589,6 +639,8 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
       {(() => { const rec = race.incumbents?.find((x) => x.ballot === c.ballot && x.council)?.council; return rec ? <CouncilRecordBlock r={rec} name={c.name} /> : null; })()}
 
       <Follow c={c} />
+
+      <BriefSources c={c} />
 
       <section className="space-y-3">
         <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🔎 Dig deeper</h3>
