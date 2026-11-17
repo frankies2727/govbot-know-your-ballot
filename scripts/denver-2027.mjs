@@ -22,6 +22,7 @@ import { pathToFileURL } from 'node:url';
 import { outlineOf, readLayer } from './city-maps.mjs';
 import { recentBills } from './illinois/govbot.mjs';
 import { sameName } from './wiki.mjs';
+import { addCandidatePhotos, addHolderPhotos, applyBriefs } from './briefs.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/denver-2027/', ROOT);
@@ -199,6 +200,12 @@ async function main() {
   // The CO legislature's bills on elections and schools, from govbot.
   const laws = await soft('govbot bills', () => recentBills('co'), prev?.laws ?? []);
   console.log(`govbot: ${laws.length} bills`);
+
+  // Briefs (candidates and seat holders), campaign sites and accounts, then photos: ./briefs.mjs.
+  const unused = applyBriefs(races, 'denver-2027');
+  if (unused.length) console.warn(`briefs.json: no candidate or seat holder for ${unused.join('; ')}`);
+  for (const l of (await addCandidatePhotos(races, 'denver-2027', prev)).log) console.log(l);
+  for (const l of (await addHolderPhotos(races, 'denver-2027', prev)).log) console.log(`seat holders: ${l}`);
 
   const data = {
     election: ELECTION,

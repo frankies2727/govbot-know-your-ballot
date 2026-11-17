@@ -35,6 +35,7 @@ import { personKey } from './results/match.mjs';
 import { outlineOf } from './city-maps.mjs';
 import { councilRecords } from './chicago-2027/council.mjs';
 import { recentBills } from './illinois/govbot.mjs';
+import { addHolderPhotos, applyBriefs } from './briefs.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/chicago-2027/', ROOT);
@@ -298,8 +299,13 @@ async function main() {
     if (now && r.office_.photo) now.photoFrom = { url: r.office_.photo, credit: 'Office of the City Clerk, City of Chicago', link: WARD_OFFICES_PAGE };
     delete r.office_;
   }
+  // Briefs (candidates and seat holders), campaign sites and accounts: ./briefs.mjs. Photos found by
+  // hand for them go in photos-chosen.json, which the automatic sources above still win over.
+  const unused = applyBriefs(races, 'chicago-2027');
+  if (unused.length) console.warn(`briefs.json: no candidate or seat holder for ${unused.join('; ')}`);
   const photos = await addPhotos(races, { dir: PHOTOS.pathname, publicPath: 'kyb-photos/chicago-2027', prev, chosen: new URL('./chicago-2027/photos-chosen.json', import.meta.url) });
   for (const l of photos.log) console.log(l);
+  for (const l of (await addHolderPhotos(races, 'chicago-2027', prev)).log) console.log(`seat holders: ${l}`);
 
   // Campaign money: committees on file for the Feb 2027 election.
   const isbe = await soft('ISBE', () => isbeFiles(work), null);

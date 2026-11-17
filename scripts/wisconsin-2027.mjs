@@ -19,6 +19,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { pathToFileURL } from 'node:url';
 import { parseCandidateList } from './wisconsin/official.mjs';
 import { recentBills } from './illinois/govbot.mjs';
+import { addCandidatePhotos, addHolderPhotos, applyBriefs } from './briefs.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/wisconsin-2027/', ROOT);
@@ -181,6 +182,12 @@ async function main() {
   // The WI legislature's bills on elections and schools, from govbot.
   let laws = prev?.laws ?? [];
   try { laws = await recentBills('wi'); console.log(`govbot: ${laws.length} bills`); } catch (e) { console.warn(`govbot: ${e.message}; keeping the last copy`); }
+
+  // Briefs (candidates and seat holders), campaign sites and accounts, then photos: ./briefs.mjs.
+  const unused = applyBriefs(races, 'wisconsin-2027');
+  if (unused.length) console.warn(`briefs.json: no candidate or seat holder for ${unused.join('; ')}`);
+  for (const l of (await addCandidatePhotos(races, 'wisconsin-2027', prev)).log) console.log(l);
+  for (const l of (await addHolderPhotos(races, 'wisconsin-2027', prev)).log) console.log(`seat holders: ${l}`);
 
   const data = {
     election: ELECTION,
