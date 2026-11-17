@@ -751,7 +751,8 @@ const STILL_MOTION = () => typeof matchMedia === 'function' && matchMedia('(pref
  * before (or use the arrows on top, or the arrow keys). A swipe only browses:
  * picking is always the explicit Pick button at the card's foot, so nobody
  * adds a candidate to their ballot by accident. The card follows the finger
- * and flies off with transform/opacity only.
+ * and flies off with transform/opacity only. The card has no bottom edge: it
+ * is as long as the profile, and the sheet scrolls it.
  */
 function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Race; color: string; ink: string; numbered: boolean; picked: number[]; onPick: (ballot: number) => void }) {
   const readOnly = useReadOnly();
@@ -823,43 +824,44 @@ function CompareDeck({ race, color, ink, numbered, picked, onPick }: { race: Rac
       </div>
       <p className="sr-only" aria-live="polite">Candidate {i + 1} of {n}: {c.name}</p>
 
-      {/* The deck. Room underneath and to the side for the cards stacked behind. */}
-      <div className="relative min-h-0 flex-1">
-        {/* Up to three cards still to come, fanned out behind like a deck. */}
-        {[3, 2, 1].map((k) => {
-          const b = race.candidates[i + k];
-          return b && (
-            <div key={b.ballot} aria-hidden="true" className="absolute inset-x-1 top-0 bottom-4 overflow-hidden rounded-3xl border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] shadow-[0_4px_12px_rgba(0,0,0,.15)]"
-              style={{ transform: `translate(${k * 4}px, ${k * 5}px) rotate(${k * 1.6}deg) scale(${1 - k * 0.02})`, transformOrigin: 'bottom center', transition: 'transform .25s ease' }}>
-              <CardHero race={race} c={b} numbered={numbered} />
-            </div>
-          );
-        })}
-        {/* The candidate on top: drag it sideways, scroll it up and down. */}
-        <article key={c.ballot} aria-label={`${c.name}, candidate ${i + 1} of ${n}`}
-          className="absolute inset-x-1 top-0 bottom-4 flex flex-col overflow-hidden rounded-3xl border-2 bg-[var(--gb-surface)] shadow-[0_10px_30px_rgba(0,0,0,.28)] touch-pan-y select-none"
-          style={{ ...topStyle, borderColor: on ? color : 'var(--gb-text)', borderWidth: on ? 3 : 2 }}
-          onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { drag.current = null; setDx(0); }}>
-          <div ref={body} className="kyb-vscroll min-h-0 flex-1 overflow-y-auto overscroll-contain">
-            {/* The portrait scrolls away with the facts, so there's room to read. */}
+      {/* The deck: the card is as long as their profile and the sheet scrolls it, so it has no bottom edge.
+          The cards still to come peek out along its right side. */}
+      <div ref={body} className="kyb-vscroll min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain pr-3">
+        <div className="relative">
+          {[3, 2, 1].map((k) => {
+            const b = race.candidates[i + k];
+            return b && (
+              <div key={b.ballot} aria-hidden="true" className="absolute inset-0 overflow-hidden rounded-t-3xl border-2 border-b-0 border-[var(--gb-text)] bg-[var(--gb-surface)]"
+                style={{ transform: `translate(${k * 4}px, ${k * 4}px)`, transition: 'transform .25s ease' }}>
+                <CardHero race={race} c={b} numbered={numbered} />
+              </div>
+            );
+          })}
+          {/* The candidate on top: drag it sideways; the sheet scrolls it up and down. */}
+          <article key={c.ballot} aria-label={`${c.name}, candidate ${i + 1} of ${n}`}
+            className="relative rounded-t-3xl border-2 border-b-0 bg-[var(--gb-surface)] shadow-[0_-4px_24px_rgba(0,0,0,.18)] touch-pan-y select-none"
+            style={{ ...topStyle, borderColor: on ? color : 'var(--gb-text)', borderWidth: on ? 3 : 2, borderBottomWidth: 0 }}
+            onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={() => { drag.current = null; setDx(0); }}>
             <CardHero race={race} c={c} numbered={numbered} onBallot={on} />
             {/* Their whole profile, the same as the candidate sheet's. */}
-            <div className="space-y-6 px-4 pb-4 pt-2">
+            <div className="space-y-6 px-4 pb-8 pt-2">
               <CandidateProfile race={race} c={c} color={color} ink={ink} numbered={numbered} head={false} />
               {c.photo && <p className="text-xs">Photo: {c.photo.link ? <a href={c.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{c.photo.credit}</a> : c.photo.credit}</p>}
             </div>
-          </div>
-          <div className="flex shrink-0 gap-2 border-t border-[var(--gb-border)] p-2">
-            <ShareCandidate race={race} c={c} className={readOnly ? 'flex-1' : 'shrink-0'} />
-            {!readOnly && (
-              <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on} aria-label={on ? `${c.name} is on My Ballot; tap to remove` : `Pick ${c.name}`}
-                className="flex min-h-[48px] flex-1 items-center justify-center gap-1.5 rounded-xl border-2 text-lg font-black"
-                style={on ? { background: color, color: ink, borderColor: color } : { color: 'var(--gb-text)', borderColor: 'var(--gb-text)' }}>
-                <Check className="w-5 h-5" strokeWidth={3} aria-hidden="true" />{on ? 'On My Ballot' : 'Pick'}
-              </button>
-            )}
-          </div>
-        </article>
+          </article>
+        </div>
+      </div>
+
+      {/* Share and Pick stay at the foot of the sheet while the card scrolls. */}
+      <div className="flex shrink-0 gap-2 border-t border-[var(--gb-border)] pt-2">
+        <ShareCandidate race={race} c={c} className={readOnly ? 'flex-1' : 'shrink-0'} />
+        {!readOnly && (
+          <button type="button" onClick={() => onPick(c.ballot)} aria-pressed={on} aria-label={on ? `${c.name} is on My Ballot; tap to remove` : `Pick ${c.name}`}
+            className="flex min-h-[48px] flex-1 items-center justify-center gap-1.5 rounded-xl border-2 text-lg font-black"
+            style={on ? { background: color, color: ink, borderColor: color } : { color: 'var(--gb-text)', borderColor: 'var(--gb-text)' }}>
+            <Check className="w-5 h-5" strokeWidth={3} aria-hidden="true" />{on ? 'On My Ballot' : 'Pick'}
+          </button>
+        )}
       </div>
     </div>
   );
