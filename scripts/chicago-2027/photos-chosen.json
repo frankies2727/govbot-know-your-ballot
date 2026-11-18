@@ -61,7 +61,7 @@
  },
  "mayor|Maria Pappas": {
   "url": "https://cst.brightspotcdn.com/dims4/default/8d4a818/2147483647/strip/true/crop/6804x3884+0+327/resize/1461x834!/quality/90/?url=https%3A%2F%2Fchorus-production-cst-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2F1e%2Ffd%2F994ffcec404a9c55db44e84bbe1c%2Flastdaytofile-261027-009.jpg",
-  "page": "https://chicago.suntimes.com/",
+  "page": "https://chicago.suntimes.com/elections/2026/10/26/chicago-mayoral-race-last-day-of-filing-mendoza-pappas-2027-election",
   "credit": "Chicago Sun-Times",
   "crop": "760x760+350+0"
  },
@@ -168,12 +168,12 @@
  "police-district-council-18|Brad Kessler": {
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Kessler-Brad-2024-009-scaled.jpg",
   "page": "https://ccpsa.chicago.gov/member/brad-kessler/",
-  "credit": "CCPSA, City of Chicago (image metadata: Patrick L. Pyszka, © City of Chicago)"
+  "credit": "Patrick L. Pyszka / City of Chicago (CCPSA)"
  },
  "police-district-council-18|Karen Kane": {
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Kane-Karen-2023-004-1.jpg",
   "page": "https://ccpsa.chicago.gov/member/karen-kane/",
-  "credit": "CCPSA, City of Chicago (image metadata: Patrick L. Pyszka, © City of Chicago)"
+  "credit": "Patrick L. Pyszka / City of Chicago (CCPSA)"
  },
  "police-district-council-19|Jennifer Schaffer": {
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Schaffer-Jennifer-2023-008-1-scaled.jpg",
@@ -188,12 +188,12 @@
  "police-district-council-1|Adrienne Johnson": {
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Johnson-Adrienne_WM2231-scaled.jpg",
   "page": "https://ccpsa.chicago.gov/?p=1170",
-  "credit": "CCPSA, City of Chicago (image metadata: Walter S. Mitchell III, © City of Chicago)"
+  "credit": "Walter S. Mitchell III / City of Chicago (CCPSA)"
  },
  "police-district-council-1|Sarah Kammerer": {
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/03/Sarah-Kammerer-scaled.jpg",
   "page": "https://ccpsa.chicago.gov/?p=1170",
-  "credit": "CCPSA, City of Chicago (image metadata: Patrick L. Pyszka, © City of Chicago)"
+  "credit": "Patrick L. Pyszka / City of Chicago (CCPSA)"
  },
  "police-district-council-20|Eric Smith": {
   "url": "https://static.wixstatic.com/media/cdb395_9dc950f857e94e158dda485fb349da16~mv2.jpg",
@@ -223,7 +223,7 @@
  "police-district-council-25|Angelica Green": {
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Green-Angelica-2024-014-scaled.jpg",
   "page": "https://ccpsa.chicago.gov/member/angelica-p-green/",
-  "credit": "Patrick L.Pyszka, City of Chicago (per image metadata; CCPSA)"
+  "credit": "Patrick L. Pyszka / City of Chicago (CCPSA)"
  },
  "police-district-council-2|Alexander Perez": {
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/03/Alexander-Perez-scaled.jpg",
@@ -289,5 +289,220 @@
   "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Dist.008-Jason-Huff.jpeg",
   "page": "https://ccpsa.chicago.gov/member/jason-huff/",
   "credit": "Community Commission for Public Safety and Accountability (CCPSA)"
+ },
+ "alderperson-ward-11|Nicole Lee": {
+  "url": "https://www.chicago.gov/content/dam/city/about/wards/11/aldward11.png",
+  "page": "https://www.chicago.gov/city/en/about/wards/11.html",
+  "credit": "City of Chicago"
+ },
+ "alderperson-ward-14|Raul Reyes": {
+  "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2023/01/Ward14-Raul-Reyes-Twitter.jpg?resize=354%2C354&ssl=1",
+  "page": "https://blockclubchicago.org/2023/01/24/indicted-ald-ed-burke-is-retiring-after-54-years-in-office-heres-who-is-running-to-replace-him/",
+  "credit": "Block Club Chicago (no photographer credited; captioned \"Raul Reyes\")"
+ },
+ "alderperson-ward-15|Raymond A. Lopez": {
+  "url": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RaymondLopez.jpeg",
+  "page": "https://ballotpedia.org/Raymond_Lopez",
+  "credit": "Ballotpedia"
+ },
+ "alderperson-ward-19|Erin Healy Ross": {
+  "url": "https://erinross19.com/wp-content/uploads/erin-ross-alderman-photo-819x1024.webp",
+  "page": "https://erinross19.com/meet-erin/",
+  "credit": "Erin Ross campaign (erinross19.com)"
+ },
+ "alderperson-ward-20|Jeanette B Taylor": {
+  "url": "https://www.chicagopolitics.org/img/members/E3010C0E-F888-EC11-8D20-001DD804FD38-4817865a.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/jeanette-b-taylor",
+  "credit": "Chicago Politics"
+ },
+ "alderperson-ward-20|Jennifer O. Maddox": {
+  "url": "https://maddox4ward20.com/wp-content/uploads/2022/10/JM-TABLE11-1.png",
+  "page": "https://maddox4ward20.com/",
+  "credit": "maddox4ward20.com (Jennifer Maddox campaign)",
+  "crop": "300x300+500+25"
+ },
+ "alderperson-ward-21|Ronnie L. Mosley": {
+  "url": "https://s3.amazonaws.com/ballotpedia-api4/files/Ronnie_Mosley.png",
+  "page": "https://ballotpedia.org/Ronnie_Mosley",
+  "credit": "Ballotpedia"
+ },
+ "alderperson-ward-22|Elianne \"Ely\" Bahena": {
+  "url": "https://www.chicagopolitics.org/img/candidates/elianne-bahena.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/elianne-bahena",
+  "credit": "the candidate's campaign website"
+ },
+ "alderperson-ward-23|Leonardo Rojas-Banda": {
+  "url": "https://www.chicagopolitics.org/img/candidates/leonardo-rojas-banda.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/leonardo-rojas-banda",
+  "credit": "the candidate's campaign website"
+ },
+ "alderperson-ward-24|Kiisha Smith": {
+  "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2026/11/825267016_122102312637487173_6244215970874495093_n-e1794331885786.jpg?resize=960%2C950&ssl=1",
+  "page": "https://blockclubchicago.org/2026/11/11/ald-monique-scott-faces-2-challengers-in-24th-ward-race/",
+  "credit": "Facebook (via Block Club Chicago)"
+ },
+ "alderperson-ward-25|Ian Watkins": {
+  "url": "https://images.squarespace-cdn.com/content/v1/69ebac2a6b67f014d5915c7a/eab94bbc-ef28-44e4-b28d-bbf08a3e9db5/IMG_9956.jpeg",
+  "page": "https://watkinsfor25th.com/about",
+  "credit": "Ian Watkins for The 25th Ward (campaign website)"
+ },
+ "alderperson-ward-25|Leonardo \"Leo\" Quintero": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2025-06-07-060-CCPSA-District-Council-Quarterly-Meeting_WSM9823-1-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/leonardo-leo-quintero/",
+  "credit": "Community Commission for Public Safety and Accountability (CCPSA), City of Chicago"
+ },
+ "alderperson-ward-26|Angee Gonzalez Rodriguez": {
+  "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2022/07/Blank-1920-x-1080-1-2.jpg?fit=1920%2C1080&ssl=1",
+  "page": "https://blockclubchicago.org/2022/07/25/angee-gonzalez-rodriguez-26th-ward-commiteeperson-running-to-become-humboldt-park-alderperson/",
+  "credit": "Provided; Colin Boyle/Block Club Chicago",
+  "crop": "760x760+40+150"
+ },
+ "alderperson-ward-27|Walter \"Red\" Burnett": {
+  "url": "https://www.chicago.gov/content/dam/city/about/wards/27/Burnett-Redmond-Walter-Portrait.jpg",
+  "page": "https://www.chicago.gov/city/en/about/wards/27.html",
+  "credit": "City of Chicago"
+ },
+ "alderperson-ward-29|Chris Taliaferro": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/2-11-25_February_WEJA_meeting_Chris_Taliaferro_%28cropped%29.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:2-11-25_February_WEJA_meeting_Chris_Taliaferro_(cropped).jpg",
+  "credit": "Paul Goyette, CC BY 2.0"
+ },
+ "alderperson-ward-29|James Morgan": {
+  "url": "https://static.wixstatic.com/media/0a1ca6_033b9973730446bca4f23124568f1743~mv2.jpg",
+  "page": "https://www.jamesmorganfor29.com/",
+  "credit": "Friends of James Morgan (campaign website)"
+ },
+ "alderperson-ward-30|Juritzy \"Judy\" Velez": {
+  "url": "https://www.chicagopolitics.org/img/candidates/juritzy-velez.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/juritzy-velez",
+  "credit": "the candidate's campaign website"
+ },
+ "alderperson-ward-32|Jonathan Stevanovich": {
+  "url": "https://jonathanfor32.com/images/jon-headshot.jpg",
+  "page": "https://jonathanfor32.com/",
+  "credit": "Jonathan Stevanovich for Alderman (campaign website)"
+ },
+ "alderperson-ward-32|Patrick Gilsenan": {
+  "url": "https://www.chicagopolitics.org/img/candidates/patrick-gilsenan.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/patrick-gilsenan",
+  "credit": "Chicago Politics; \"Photo: the candidate's campaign website\""
+ },
+ "alderperson-ward-33|Maria Gordils": {
+  "url": "https://friendsofmariagordils.com/wp-content/uploads/2023/06/Maria-Gordils-Candidate-for-33rd-Ward_7.jpg",
+  "page": "https://friendsofmariagordils.com/",
+  "credit": "Friends of Maria Gordils"
+ },
+ "alderperson-ward-33|Michael Mogan": {
+  "url": "https://www.moganfor33.com/wp-content/uploads/go-x/u/2cfefef3-4c9f-418e-afbb-be23cc55d236/l0,t171,w1207,h1484/image-768x944.jpg",
+  "page": "https://www.moganfor33.com/",
+  "credit": "Michael Mogan for 33rd Ward Alderperson (campaign site)"
+ },
+ "alderperson-ward-35|Anthony Joel Quezada": {
+  "url": "https://www.chicagopolitics.org/img/members/A32C8E68-7415-F011-9989-001DD806C140-5166cd3a.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/anthony-joel-quezada",
+  "credit": "Chicago Politics (chicagopolitics.org)"
+ },
+ "alderperson-ward-35|Daniel Tobon": {
+  "url": "https://www.tobonfor35.com/assets/img/hero-logan-square-0163.jpg",
+  "page": "https://www.tobonfor35.com/",
+  "credit": "Daniel Tobón campaign (tobonfor35.com)"
+ },
+ "alderperson-ward-3|Raheem Uqdah": {
+  "url": "https://raheemfor3.com/img/raheem-laugh.jpg",
+  "page": "https://raheemfor3.com/",
+  "credit": "Raheem for Ward 3 campaign site (Friends of Raheem Uqdah)"
+ },
+ "alderperson-ward-40|Andre Vasquez": {
+  "url": "https://40thward.org/wp-content/uploads/2022/08/Andre-Vasquez.jpg",
+  "page": "https://40thward.org/team/alderperson-andre-vasquez/",
+  "credit": "All content © 2026 Alderperson Andre Vasquez, 40th Ward of Chicago"
+ },
+ "alderperson-ward-42|Brendan Reilly": {
+  "url": "https://www.chicagopolitics.org/img/members/DE5B6D97-FC72-EC11-8F8E-001DD804F74D-1ba6900f.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/brendan-reilly",
+  "credit": "Chicago Politics (no photographer credit stated on page)"
+ },
+ "alderperson-ward-44|Dennis \"Dj\" Doran": {
+  "url": "https://run.imgix.net/aea27c9b-41c1-4f70-8f2d-0baa7eb0e2cf/d9f58508-39c5-4ee6-88bd-2701908dda0d/d9f58508-39c5-4ee6-88bd-2701908dda0d.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C1024%2C1536&s=42bd95f14e3d096d45df81e4df143acb",
+  "page": "https://www.djdoran.com/about",
+  "credit": "DJ Doran for 44th Ward Alderman (campaign website)"
+ },
+ "alderperson-ward-44|Kalen Luciano": {
+  "url": "https://www.chicagopolitics.org/img/candidates/kalen-luciano.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/kalen-luciano",
+  "credit": "Photo: the candidate's campaign website"
+ },
+ "alderperson-ward-45|James \"Jim\" Gardiner": {
+  "url": "https://www.chicagopolitics.org/img/members/A29D73BA-F988-EC11-8D20-001DD804FD38-a073f61a.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/james-gardiner",
+  "credit": "Chicago Politics"
+ },
+ "alderperson-ward-45|Leah Cunningham Pouw": {
+  "url": "https://run.imgix.net/f75a6445-ae9b-43d0-9418-d52940a04c78/f54853be-2b99-46fe-9973-c97572f98386/f54853be-2b99-46fe-9973-c97572f98386.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=1615%2C156%2C1778%2C1776&auto=compress%2Cformat&fit=fillmax&w=640&q=75&s=b98f99bcac4fabe453f112e74e92dafa",
+  "page": "https://www.leah45.com/",
+  "credit": "Leah Pouw for 45th Ward campaign website"
+ },
+ "alderperson-ward-45|S Gronkiewicz-Doran": {
+  "url": "https://images.squarespace-cdn.com/content/v1/698a0a4f3ea3c5559ed2457f/ff8db124-119e-449d-98c3-6b8bffde420f/S-05898+%281%29.jpg",
+  "page": "https://www.sgdfor45.com/",
+  "credit": "SGD for 45 campaign website"
+ },
+ "alderperson-ward-46|Abdallah J. Alkodah": {
+  "url": "https://abdallahforchicago.com/assets/meet.jpg",
+  "page": "https://abdallahforchicago.com/",
+  "credit": "PBL Studios Photography / Abdallah for Illinois"
+ },
+ "alderperson-ward-48|Troy McMillan": {
+  "url": "https://i.ibb.co/RGR8hn63/Troy-Mc-Millan-Alderman-Candidate.webp",
+  "page": "https://troy48.com/meet-troy",
+  "credit": "Troy McMillan campaign (troy48.com)"
+ },
+ "alderperson-ward-49|William \"Bill\" Morton": {
+  "url": "https://static.wixstatic.com/media/3f5a00_cb18f3d6241b41a8a66adad38d2c31fb~mv2.jpg/v1/fill/w_600,h_800,al_c,q_80/3f5a00_cb18f3d6241b41a8a66adad38d2c31fb~mv2.jpg",
+  "page": "https://www.billmorton49.com/priorities",
+  "credit": "Bill Morton for 49th Ward Alderperson (campaign website)"
+ },
+ "alderperson-ward-4|Lamont J. Robinson": {
+  "url": "https://www.chicagopolitics.org/img/members/80D52B16-6AF3-ED11-A7C6-001DD804FC2B-e760fcf7.jpg",
+  "page": "https://www.chicagopolitics.org/candidate/lamont-j-robinson",
+  "credit": "ChicagoPolitics.org"
+ },
+ "alderperson-ward-50|Debra Silverstein": {
+  "url": "https://50thward.org/wp-content/uploads/2024/02/Debra-Silverstein-Headshot-980x980.jpg",
+  "page": "https://50thward.org/about/",
+  "credit": "City of Chicago (50th Ward office)"
+ },
+ "alderperson-ward-6|Allyson Renee Scrutchens": {
+  "url": "https://media.base44.com/images/public/6a56625b6586accc66d75b1e/864f9ac8c_AllysonScrutchens_DSC6567_scaled.jpg",
+  "page": "https://voteforallyson.com/meet-allyson",
+  "credit": "Allyson Scrutchens for 6th Ward Alderwoman (campaign site)",
+  "crop": "400x400+305+60"
+ },
+ "alderperson-ward-8|Brittney Bee Gault": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2026/11/767803800_10125561472855310_1201601862285957970_n.jpg",
+  "page": "https://blockclubchicago.org/2026/11/11/ald-michelle-harris-faces-4-challengers-in-8th-ward-race/",
+  "credit": "Brittney 'Bee' Gault.",
+  "crop": "480x480+387+250"
+ },
+ "alderperson-ward-8|Ruthie Moore": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2026/11/Screenshot-2026-11-10-at-12.57.50-PM.png",
+  "page": "https://blockclubchicago.org/2026/11/11/ald-michelle-harris-faces-4-challengers-in-8th-ward-race/",
+  "credit": "Ruthie Moore"
+ },
+ "alderperson-ward-9|Kenny Williams": {
+  "url": "https://patch.com/img/cdn20/users/83443/20260311/042526/styles/patch_image/public/picture-for-evey-southtown-newspaper___11162424636.jpg",
+  "page": "https://patch.com/illinois/oakforest/kenny-williams-state-senate-14th-district-democratic-primary-candidate",
+  "credit": "Courtesy of Kenny Williams"
+ },
+ "mayor|John Kitover": {
+  "url": "https://npr-brightspot.s3.amazonaws.com/f0/5b/c65301174b7a881f4a57e25a295b/img-4062.jpeg",
+  "page": "https://www.wglt.org/local-news/2025-09-08/chicago-republican-enters-congressional-primary-against-rep-lahood-who-he-calls-a-rino",
+  "credit": "Ben Howell / WGLT",
+  "crop": "1300x1300+1950+330"
+ },
+ "mayor|William J. Quinlan": {
+  "url": "https://run.imgix.net/66a326a8-8ec3-4f97-950b-26347b35ce5d/ac378ce5-c11f-4450-b247-81cad6b965ed/ac378ce5-c11f-4450-b247-81cad6b965ed.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=916%2C1243%2C3951%2C4063&auto=compress%2Cformat&fit=fillmax&w=2048&q=75&s=296da9bb0a57ce5361c905517d586088",
+  "page": "https://www.quinlanforchicago.com/",
+  "credit": "Quinlan for Chicago"
  }
 }

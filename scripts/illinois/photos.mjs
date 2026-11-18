@@ -196,7 +196,8 @@ export async function addPhotos(races, { dir, publicPath, prev, chosen = CHOSEN_
       if (!src) throw new Error(`no Commons file ${from.commons}`);
       const old = before.get(e.key);
       const fromKey = from.crop ? `${src.url}#crop=${from.crop}` : src.url; // a new crop re-cuts the photo
-      if (old?.from === fromKey && saved(old)) { e.c.photo = old; kept++; return; }
+      // Same picture: keep the file, but take the credit and link as they read now (an edited credit shows up).
+      if (old?.from === fromKey && saved(old)) { e.c.photo = { ...old, credit: src.credit, link: src.link }; kept++; return; }
       const buf = await download(src.url, /wikimedia\.org/.test(src.url) ? UA_WIKIMEDIA : UA_PLAIN);
       const type = imageType(buf);
       if (!type || buf.length > MAX_BYTES) throw new Error(`${src.url}: not a usable image`);

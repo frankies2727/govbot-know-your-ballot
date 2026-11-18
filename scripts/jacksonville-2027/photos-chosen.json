@@ -1,1 +1,17 @@
-{}
+{
+ "mayor|Donna Deegan": {
+  "url": "https://www.jacksonville.gov/getContentAsset/53c3e604-d719-4002-bc85-32d8e92395b9/bd714d09-ccf8-4e86-a041-57e2011ebfe4/Deegan_Donna-3327b.jpg?language=en",
+  "page": "https://www.jacksonville.gov/mayor/about-the-mayor",
+  "credit": "City of Jacksonville"
+ },
+ "mayor|Glenvin Owen": {
+  "url": "https://glenvinowen.com/assets/Glen_owens_headshot_1775798576239-CQEY6F_i.png",
+  "page": "https://glenvinowen.com/",
+  "credit": "Glenvin Owen Jr. for Mayor campaign"
+ },
+ "mayor|Wyman Duggan": {
+  "url": "https://wymanduggan.com/wp-content/uploads/2026/10/wyman-duggan-cutout-480x673.png",
+  "page": "https://wymanduggan.com/",
+  "credit": "Wyman Duggan for Jacksonville Mayor campaign"
+ }
+}
