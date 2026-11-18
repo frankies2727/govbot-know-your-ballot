@@ -7,7 +7,7 @@ import { Face } from './Face';
 import { useBrief } from './briefs';
 import { useReadOnly, useStateConfig } from './state';
 import { daysUntil, money, type Choice } from './store';
-import type { Candidate, CandidateBrief, CouncilRecord, Guide, Incumbent, Measure, Race, Retention, SocialPlatform } from './types';
+import type { Candidate, CandidateBrief, CouncilRecord, Guide, Incumbent, Measure, Race, Retention, SocialPlatform, Sourced } from './types';
 import { QuestionResults, RaceResults } from './results';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
 import { Dialog, ReportLink } from './Bits';
@@ -278,9 +278,9 @@ function Cite({ url }: { url: string }) {
 /** Who they are and what they'd work on, from their own pages and the press, each line with its source. */
 function Brief({ b }: { b?: CandidateBrief }) {
   if (!b || (!b.facts.length && !b.priorities.length)) return null;
-  const list = (items: { text: string; source: string }[]) => (
+  const list = (items: Sourced[]) => (
     <ul className="space-y-2 text-[15px] leading-relaxed text-[var(--gb-text)]">
-      {items.map((f) => <li key={f.text} className="flex gap-2"><span aria-hidden="true">•</span><span>{f.text} <Cite url={f.source} /></span></li>)}
+      {items.map((f) => <li key={f.text} className="flex gap-2"><span aria-hidden="true">•</span><span>{f.text}{f.year ? <span className="font-bold"> ({f.year})</span> : null} <Cite url={f.source} /></span></li>)}
     </ul>
   );
   return (

@@ -84,7 +84,8 @@ export interface Candidate {
 }
 
 /** One line in a candidate's brief, and the page that says it. */
-export interface Sourced { text: string; source: string }
+/** A line of a brief and its page; `year` when that page is more than a year older than the brief, so an old platform doesn't read as today's. */
+export interface Sourced { text: string; source: string; year?: number }
 export interface CandidateBrief {
   facts: Sourced[];
   priorities: Sourced[];

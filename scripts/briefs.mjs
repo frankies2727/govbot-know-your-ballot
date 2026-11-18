@@ -40,13 +40,27 @@ export function applyBriefs(races, guide) {
       if (r.candidates.includes(p)) addSite(p, sites[key]);
       const b = briefs[key];
       if (!b) continue;
-      out[key] = { facts: b.facts ?? [], priorities: b.priorities ?? [], quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf };
+      out[key] = { facts: dated(b.facts, b), priorities: dated(b.priorities, b), quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf };
       if (!r.candidates.includes(p)) continue; // a holder's card shows only the brief and photo
       addSite(p, b);
     }
   }
   writeFileSync(new URL(`src/data/${guide}/briefs.json`, ROOT), JSON.stringify(out));
   return Object.keys(briefs).filter((k) => !(k in out));
+}
+
+/**
+ * A line whose page is more than a year older than the brief carries that page's
+ * year, so a 2023 platform shows as one ("(2023)") instead of reading as this race's.
+ */
+function dated(items = [], b) {
+  const when = new Map((b.sources ?? []).map((s) => [s.url, s.date]));
+  const cutoff = b.asOf ? `${Number(b.asOf.slice(0, 4)) - 1}${b.asOf.slice(4)}` : '';
+  return items.map((x) => {
+    const d = when.get(x.source);
+    const year = d && cutoff && d < cutoff ? d.slice(0, 4) : '';
+    return year && !x.text.includes(year) ? { ...x, year: Number(year) } : x; // "since 2023" already says it
+  });
 }
 
 /** Seat holders' photos (those not on the candidate list), from holder-photos-chosen.json. */
