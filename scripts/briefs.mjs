@@ -1,6 +1,8 @@
 // The hand-read part of a later guide's candidate cards: each candidate's
 // (and each seat holder's) brief, campaign site and accounts, and photo.
 //
+// scripts/<guide>/sites.json, keyed the same way: campaign sites and accounts
+// found and checked by hand for candidates with none on record.
 // scripts/<guide>/briefs.json, keyed "<race id>|<name>": what their own pages
 // and the press say, read by hand (neutral, every line with its source, quotes
 // word for word, checked against the page). A seat holder's brief shows under
@@ -23,18 +25,24 @@ const https = (u) => typeof u === 'string' && /^https:\/\//.test(u);
  */
 export function applyBriefs(races, guide) {
   const briefs = read(new URL(`scripts/${guide}/briefs.json`, ROOT));
+  const sites = read(new URL(`scripts/${guide}/sites.json`, ROOT));
   const out = {};
+  /** A campaign site and accounts found by hand: kept only as https, and never over one the official record gives. */
+  const addSite = (p, s) => {
+    if (https(s?.website) && !p.website) p.website = s.website;
+    const social = Object.fromEntries(Object.entries(s?.social ?? {}).filter(([, u]) => https(u)));
+    if (Object.keys(social).length) p.social = { ...social, ...p.social };
+  };
   for (const r of races) {
     const people = [...r.candidates, ...(r.incumbents ?? []).filter((i) => i.ballot === undefined)];
     for (const p of people) {
       const key = `${r.id}|${p.name}`;
+      if (r.candidates.includes(p)) addSite(p, sites[key]);
       const b = briefs[key];
       if (!b) continue;
       out[key] = { facts: b.facts ?? [], priorities: b.priorities ?? [], quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf };
       if (!r.candidates.includes(p)) continue; // a holder's card shows only the brief and photo
-      if (https(b.website) && !p.website) p.website = b.website;
-      const social = Object.fromEntries(Object.entries(b.social ?? {}).filter(([, u]) => https(u)));
-      if (Object.keys(social).length) p.social = { ...social, ...p.social };
+      addSite(p, b);
     }
   }
   writeFileSync(new URL(`src/data/${guide}/briefs.json`, ROOT), JSON.stringify(out));

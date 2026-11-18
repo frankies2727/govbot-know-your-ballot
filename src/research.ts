@@ -1,4 +1,4 @@
-import type { Candidate, Race } from './types';
+import type { Candidate, Race, SocialPlatform } from './types';
 import { sourceName } from './lib/sources';
 
 // Where to dig deeper on a candidate. Search links rather than guessed profile
@@ -8,6 +8,15 @@ export interface ResearchLink { label: string; href: string; note: string }
 const q = encodeURIComponent;
 // A governor ticket is "A & B": research the person at the top of it.
 const lead = (name: string) => name.split(' & ')[0];
+
+const SOCIAL_NAME: Record<SocialPlatform, string> = { facebook: 'Facebook', instagram: 'Instagram', x: 'X', bluesky: 'Bluesky', threads: 'Threads', tiktok: 'TikTok', youtube: 'YouTube', linkedin: 'LinkedIn' };
+
+/** The candidate's own campaign: their site, else their campaign's page on a social network (found and checked by hand), else nothing. */
+export function campaignLink(c: Candidate): ResearchLink | null {
+  if (c.website) return { label: `Campaign site: ${sourceName(c.website)}`, href: c.website, note: 'Their own words on the issues' };
+  const page = (Object.keys(SOCIAL_NAME) as SocialPlatform[]).find((k) => c.social?.[k]);
+  return page ? { label: `Campaign page on ${SOCIAL_NAME[page]}`, href: c.social![page]!, note: 'No campaign website; this is their campaign’s own page' } : null;
+}
 
 export function researchLinks(c: Candidate, race: Race): ResearchLink[] {
   const who = lead(c.name);

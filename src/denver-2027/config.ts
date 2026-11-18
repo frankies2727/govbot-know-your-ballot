@@ -1,6 +1,5 @@
 import type { GuideSection } from '../guide/spec';
-import { sourceName } from '../lib/sources';
-import type { ResearchLink } from '../research';
+import { campaignLink, type ResearchLink } from '../research';
 import type { StateConfig } from '../state';
 import type { Candidate, Race } from '../types';
 import { ELECTION_DAY } from './dates';
@@ -46,8 +45,8 @@ const areaLabel = (r: Race) => (!r.area ? 'Citywide' : `District ${r.area.id}`);
 const q = encodeURIComponent;
 function researchLinks(c: Candidate, race: Race): ResearchLink[] {
   const links: ResearchLink[] = [];
-  if (c.website) links.push({ label: `Campaign site: ${sourceName(c.website)}`, href: c.website, note: 'Their own words on the issues' });
-  else links.push({ label: 'Search DuckDuckGo for their campaign', href: `https://duckduckgo.com/?q=${q(`${c.name} ${race.office} Denver 2027`)}`, note: 'No campaign site on record, so this opens a web search, not their site' });
+  const own = campaignLink(c);
+  if (own) links.push(own);
   if (c.profile) links.push({ label: 'Their page on Denver SearchLight', href: c.profile, note: 'Their committee’s reports, every contribution and expense, and Fair Elections Fund money, on the City’s campaign finance site' });
   else links.push({ label: 'Denver SearchLight: candidate search', href: LINKS.searchlight, note: 'The City’s campaign finance site: search for their committee' });
   links.push({ label: 'Search Ballotpedia', href: `https://ballotpedia.org/wiki/index.php?search=${q(c.name)}`, note: 'Bio and past races' });

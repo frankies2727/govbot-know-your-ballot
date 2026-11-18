@@ -1,6 +1,5 @@
 import type { GuideSection } from '../guide/spec';
-import { sourceName } from '../lib/sources';
-import type { ResearchLink } from '../research';
+import { campaignLink, type ResearchLink } from '../research';
 import type { StateConfig } from '../state';
 import type { Candidate, Race } from '../types';
 import { LINKS } from '../wisconsin/config';
@@ -32,8 +31,8 @@ const areaLabel = (r: Race) => (!r.area ? 'Statewide' : r.area.type === 'coa' ? 
 const q = encodeURIComponent;
 function researchLinks(c: Candidate, race: Race): ResearchLink[] {
   const links: ResearchLink[] = [];
-  if (c.website) links.push({ label: `Campaign site: ${sourceName(c.website)}`, href: c.website, note: 'Their own words' });
-  else links.push({ label: 'Search DuckDuckGo for their campaign', href: `https://duckduckgo.com/?q=${q(`${c.name} ${race.office} Wisconsin 2027`)}`, note: 'No campaign site on record, so this opens a web search, not their site' });
+  const own = campaignLink(c);
+  if (own) links.push(own);
   links.push({ label: 'Search Ballotpedia', href: `https://ballotpedia.org/wiki/index.php?search=${q(c.name)}`, note: 'Bio and past races' });
   links.push({ label: 'Wisconsin campaign finance system search', href: LINKS.disclosure, note: 'The state’s campaign finance system: search for their committee' });
   return links;

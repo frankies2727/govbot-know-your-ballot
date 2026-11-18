@@ -1,6 +1,5 @@
 import type { GuideSection } from '../guide/spec';
-import { sourceName } from '../lib/sources';
-import type { ResearchLink } from '../research';
+import { campaignLink, type ResearchLink } from '../research';
 import type { StateConfig } from '../state';
 import type { Candidate, Race } from '../types';
 import { ELECTION_DAY } from './dates';
@@ -31,6 +30,8 @@ export const LINKS = {
   disclosure: 'https://www.elections.il.gov/CampaignDisclosure/CommitteeSearch.aspx',
   /** Who the State Board lists as a candidate: the records the guide reads (Candidates.txt, CanElections.txt). */
   candidateSearch: 'https://www.elections.il.gov/CampaignDisclosure/CandidateSearch.aspx',
+  /** Who filed petitions for suburban Cook's offices, published once filing closes. */
+  countyFiling: 'https://www.cookcountyclerkil.gov/elections/results-and-election-data/election-results/candidate-filing',
   /** Ranked-choice voting: the 2024 question and what has happened since. */
   rcvQuestion: 'https://www.lwvoprf.org/oak-park-referendums.html',
   rcvNews: 'https://www.oakpark.com/2024/11/06/oak-park-ranked-choice-voting-approved/',
@@ -62,7 +63,6 @@ const EXPLAINERS: [RegExp, string][] = [
 ];
 export const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.test(office))?.[1] ?? '';
 
-const q = encodeURIComponent;
 const BOARD: Record<string, [string, string]> = {
   'village-trustee': ['Village of Oak Park: elected officials', LINKS.village],
   'd97-board': ['District 97 Board of Education', LINKS.d97],
@@ -74,8 +74,8 @@ const BOARD: Record<string, [string, string]> = {
 };
 function researchLinks(c: Candidate, race: Race): ResearchLink[] {
   const links: ResearchLink[] = [];
-  if (c.website) links.push({ label: `Campaign site: ${sourceName(c.website)}`, href: c.website, note: 'Their own words on the issues' });
-  else links.push({ label: 'Search DuckDuckGo for their campaign', href: `https://duckduckgo.com/?q=${q(`${c.name} ${race.office.replace(/\s*\(.*\)$/, '')} Oak Park 2027`)}`, note: 'No campaign site on record, so this opens a web search, not their site' });
+  const own = campaignLink(c);
+  if (own) links.push(own);
   if (c.profile) links.push({ label: `Wednesday Journal: their announcement`, href: c.profile, note: 'Oak Park’s local paper on their campaign' });
   links.push({ label: 'Their committee at the Illinois State Board of Elections', href: LINKS.disclosure, note: 'Search their name: every report, donor and expense' });
   const [board, href] = BOARD[race.id] ?? BOARD['village-trustee'];

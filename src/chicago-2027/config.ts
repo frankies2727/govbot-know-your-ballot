@@ -1,7 +1,7 @@
 import type { GuideSection } from '../guide/spec';
 import { sourceName } from '../lib/sources';
 import type { StateData } from '../guide/types';
-import type { ResearchLink } from '../research';
+import { campaignLink, type ResearchLink } from '../research';
 import type { StateConfig } from '../state';
 import type { Candidate, Race } from '../types';
 import { ELECTION_DAY } from './dates';
@@ -48,14 +48,13 @@ export const explainOffice = (office: string) => EXPLAINERS.find(([re]) => re.te
 
 const areaLabel = (r: Race) => (!r.area ? 'Citywide' : r.area.type === 'ward' ? `Ward ${r.area.id}` : `Police District ${r.area.id}`);
 
-const q = encodeURIComponent;
 
 /** Where to read more about a candidate, official sources first; `data` adds the ward office of a sitting alderperson. */
 function researchLinks(data: StateData) {
   return (c: Candidate, race: Race): ResearchLink[] => {
     const links: ResearchLink[] = [];
-    if (c.website) links.push({ label: `Campaign site: ${sourceName(c.website)}`, href: c.website, note: 'Their own words on the issues' });
-    else links.push({ label: 'Search DuckDuckGo for their campaign', href: `https://duckduckgo.com/?q=${q(`${c.name.replace(/["“”][^"“”]*["“”]\s*/g, '')} ${race.office} Chicago 2027`)}`, note: 'No campaign site on record, so this opens a web search, not their site' });
+    const own = campaignLink(c);
+    if (own) links.push(own);
     if (c.profile) links.push({ label: 'Their page on Chicago Politics', href: c.profile, note: 'Their nominating petition’s signature count and campaign money, from public records' });
     if (c.money) links.push({ label: 'Their committee at the Illinois State Board of Elections', href: `https://www.elections.il.gov/CampaignDisclosure/CommitteeDetail.aspx?ID=${c.money.id}`, note: 'Every report, donor and expense, on the Illinois State Board of Elections’ site' });
     else links.push({ label: 'Illinois State Board of Elections: committee search', href: LINKS.disclosure, note: 'The State Board of Elections’ records: search for their committee' });
