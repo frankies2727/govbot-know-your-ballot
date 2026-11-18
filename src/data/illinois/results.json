@@ -14,569 +14,569 @@
    "calls": true
   }
  ],
- "asOf": "2026-11-15T20:43:03.000Z",
+ "asOf": "2026-11-17T00:09:31.000Z",
  "races": {
   "metropolitan-water-reclamation-district-commissioners-full-6-year-term": {
    "reporting": 2657,
    "precincts": 2657,
-   "total": 3579924,
+   "total": 3587621,
    "votes": {
-    "51": 266816,
-    "52": 237727,
-    "53": 230551,
-    "54": 976689,
-    "55": 935979,
-    "56": 932162
+    "51": 267193,
+    "52": 238055,
+    "53": 230874,
+    "54": 979009,
+    "55": 938183,
+    "56": 934307
    }
   },
   "metropolitan-water-reclamation-district-commissioners-unexpired-2-year-term": {
    "reporting": 2657,
    "precincts": 2657,
-   "total": 1201360,
+   "total": 1204208,
    "votes": {
-    "57": 1201360
+    "57": 1204208
    }
   },
   "president-of-county-board": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1405842,
+   "total": 1408938,
    "votes": {
-    "62": 1121522,
-    "63": 284320
+    "62": 1124172,
+    "63": 284766
    }
   },
   "county-clerk": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1248733,
+   "total": 1251623,
    "votes": {
-    "64": 1248733
+    "64": 1251623
    }
   },
   "county-sheriff": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1373113,
+   "total": 1376102,
    "votes": {
-    "65": 1184232,
-    "66": 188881
+    "65": 1186875,
+    "66": 189227
    }
   },
   "county-treasurer": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1282465,
+   "total": 1285393,
    "votes": {
-    "67": 1282465
+    "67": 1285393
    }
   },
   "county-assessor": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1391594,
+   "total": 1394630,
    "votes": {
-    "68": 1200634,
-    "69": 190960
+    "68": 1203357,
+    "69": 191273
    }
   },
   "county-commissioner-1st-district": {
    "reporting": 168,
    "precincts": 168,
-   "total": 78103,
+   "total": 78288,
    "votes": {
-    "72": 78103
+    "72": 78288
    }
   },
   "county-commissioner-2nd-district": {
    "reporting": 160,
    "precincts": 160,
-   "total": 62668,
+   "total": 62933,
    "votes": {
-    "72": 62668
+    "72": 62933
    }
   },
   "county-commissioner-3rd-district": {
    "reporting": 166,
    "precincts": 166,
-   "total": 84887,
+   "total": 85217,
    "votes": {
-    "72": 84887
+    "72": 85217
    }
   },
   "county-commissioner-4th-district": {
    "reporting": 174,
    "precincts": 174,
-   "total": 78179,
+   "total": 78361,
    "votes": {
-    "72": 78179
+    "72": 78361
    }
   },
   "county-commissioner-5th-district": {
    "reporting": 194,
    "precincts": 194,
-   "total": 77389,
+   "total": 77465,
    "votes": {
-    "71": 7755,
-    "72": 69634
+    "71": 7759,
+    "72": 69706
    }
   },
   "county-commissioner-7th-district": {
    "reporting": 114,
    "precincts": 114,
-   "total": 43592,
+   "total": 43755,
    "votes": {
-    "72": 43592
+    "72": 43755
    }
   },
   "county-commissioner-8th-district": {
    "reporting": 147,
    "precincts": 147,
-   "total": 77122,
+   "total": 77413,
    "votes": {
-    "71": 8615,
-    "72": 68507
+    "71": 8648,
+    "72": 68765
    }
   },
   "county-commissioner-9th-district": {
    "reporting": 201,
    "precincts": 201,
-   "total": 99831,
+   "total": 99882,
    "votes": {
-    "71": 36473,
-    "72": 63358
+    "71": 36493,
+    "72": 63389
    }
   },
   "county-commissioner-10th-district": {
    "reporting": 165,
    "precincts": 165,
-   "total": 106413,
+   "total": 106718,
    "votes": {
-    "72": 106413
+    "72": 106718
    }
   },
   "county-commissioner-11th-district": {
    "reporting": 183,
    "precincts": 183,
-   "total": 80443,
+   "total": 80624,
    "votes": {
-    "71": 20556,
-    "72": 59887
+    "71": 20583,
+    "72": 60041
    }
   },
   "county-commissioner-12th-district": {
    "reporting": 153,
    "precincts": 153,
-   "total": 108621,
+   "total": 108942,
    "votes": {
-    "71": 16135,
-    "72": 92486
+    "71": 16175,
+    "72": 92767
    }
   },
   "county-commissioner-13th-district": {
    "reporting": 161,
    "precincts": 161,
-   "total": 91996,
+   "total": 92128,
    "votes": {
-    "71": 13503,
-    "72": 78493
+    "71": 13528,
+    "72": 78600
    }
   },
   "county-commissioner-16th-district": {
    "reporting": 163,
    "precincts": 163,
-   "total": 58771,
+   "total": 58778,
    "votes": {
-    "72": 58771
+    "72": 58778
    }
   },
   "board-of-review-1st-district": {
    "reporting": 891,
    "precincts": 891,
-   "total": 340315,
+   "total": 340682,
    "votes": {
-    "82": 340315
+    "82": 340682
    }
   },
   "board-of-review-2nd-district": {
    "reporting": 899,
    "precincts": 899,
-   "total": 462803,
+   "total": 463804,
    "votes": {
-    "82": 462803
+    "82": 463804
    }
   },
   "judge-of-the-appellate-court-vacancy-of-hoffman": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1223124,
+   "total": 1224980,
    "votes": {
-    "102": 1223124
+    "102": 1224980
    }
   },
   "judge-of-the-circuit-court-vacancy-of-burke": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1189590,
+   "total": 1191430,
    "votes": {
-    "103": 1189590
+    "103": 1191430
    }
   },
   "judge-of-the-circuit-court-vacancy-of-cobbs": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1185337,
+   "total": 1187165,
    "votes": {
-    "104": 1185337
+    "104": 1187165
    }
   },
   "judge-of-the-circuit-court-vacancy-of-coghlan": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1173910,
+   "total": 1175703,
    "votes": {
-    "105": 1173910
+    "105": 1175703
    }
   },
   "judge-of-the-circuit-court-vacancy-of-hooks": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1169669,
+   "total": 1171460,
    "votes": {
-    "106": 1169669
+    "106": 1171460
    }
   },
   "judge-of-the-circuit-court-vacancy-of-karkula": {
    "reporting": 2721,
    "precincts": 2721,
-   "total": 1167042,
+   "total": 1168825,
    "votes": {
-    "107": 1167042
+    "107": 1168825
    }
   },
   "judge-1st-subcircuit-vacancy-of-balanoff": {
    "reporting": 147,
    "precincts": 147,
-   "total": 67253,
+   "total": 67426,
    "votes": {
-    "112": 67253
+    "112": 67426
    }
   },
   "judge-1st-subcircuit-vacancy-of-walker": {
    "reporting": 147,
    "precincts": 147,
-   "total": 67301,
+   "total": 67473,
    "votes": {
-    "114": 67301
+    "114": 67473
    }
   },
   "judge-3rd-subcircuit-vacancy-of-murphy": {
    "reporting": 148,
    "precincts": 148,
-   "total": 46434,
+   "total": 46495,
    "votes": {
-    "112": 46434
+    "112": 46495
    }
   },
   "judge-3rd-subcircuit-vacancy-of-sherlock": {
    "reporting": 148,
    "precincts": 148,
-   "total": 45660,
+   "total": 45721,
    "votes": {
-    "114": 45660
+    "114": 45721
    }
   },
   "judge-5th-subcircuit-vacancy-of-ross": {
    "reporting": 151,
    "precincts": 151,
-   "total": 54468,
+   "total": 54636,
    "votes": {
-    "112": 54468
+    "112": 54636
    }
   },
   "judge-8th-subcircuit-vacancy-of-gamrath": {
    "reporting": 136,
    "precincts": 136,
-   "total": 66125,
+   "total": 66310,
    "votes": {
-    "112": 66125
+    "112": 66310
    }
   },
   "judge-8th-subcircuit-vacancy-of-mikva": {
    "reporting": 136,
    "precincts": 136,
-   "total": 66368,
+   "total": 66553,
    "votes": {
-    "114": 66368
+    "114": 66553
    }
   },
   "judge-11th-subcircuit-vacancy-of-mclean-meyerson": {
    "reporting": 148,
    "precincts": 148,
-   "total": 61208,
+   "total": 61291,
    "votes": {
-    "112": 61208
+    "112": 61291
    }
   },
   "judge-11th-subcircuit-vacancy-of-roberts": {
    "reporting": 148,
    "precincts": 148,
-   "total": 62005,
+   "total": 62089,
    "votes": {
-    "114": 62005
+    "114": 62089
    }
   },
   "judge-16th-subcircuit-converted-from-associate-judgeship-of-baird": {
    "reporting": 111,
    "precincts": 111,
-   "total": 38063,
+   "total": 38172,
    "votes": {
-    "112": 38063
+    "112": 38172
    }
   },
   "judge-16th-subcircuit-converted-from-associate-judgeship-of-mendoza": {
    "reporting": 111,
    "precincts": 111,
-   "total": 37627,
+   "total": 37739,
    "votes": {
-    "114": 37627
+    "114": 37739
    }
   },
   "judge-17th-subcircuit-converted-from-associate-judgeship-of-brooks": {
    "reporting": 170,
    "precincts": 170,
-   "total": 61252,
+   "total": 61297,
    "votes": {
-    "112": 61252
+    "112": 61297
    }
   },
   "judge-17th-subcircuit-converted-from-associate-judgeship-of-carroll": {
    "reporting": 170,
    "precincts": 170,
-   "total": 61954,
+   "total": 61999,
    "votes": {
-    "114": 61954
+    "114": 61999
    }
   },
   "judge-19th-subcircuit-converted-from-associate-judgeship-of-fairman": {
    "reporting": 159,
    "precincts": 159,
-   "total": 55844,
+   "total": 55902,
    "votes": {
-    "112": 55844
+    "112": 55902
    }
   },
   "judge-19th-subcircuit-converted-from-associate-judgeship-of-kane": {
    "reporting": 159,
    "precincts": 159,
-   "total": 54739,
+   "total": 54796,
    "votes": {
-    "114": 54739
+    "114": 54796
    }
   },
   "judge-20th-subcircuit-converted-from-associate-judgeship-of-haracz": {
    "reporting": 135,
    "precincts": 135,
-   "total": 89583,
+   "total": 89811,
    "votes": {
-    "112": 89583
+    "112": 89811
    }
   },
   "judge-20th-subcircuit-converted-from-associate-judgeship-of-miller": {
    "reporting": 135,
    "precincts": 135,
-   "total": 89584,
+   "total": 89814,
    "votes": {
-    "114": 89584
+    "114": 89814
    }
   },
   "president-of-the-chicago-board-of-education": {
    "reporting": 1291,
    "precincts": 1291,
-   "total": 679168,
+   "total": 682013,
    "votes": {
-    "121": 119808,
-    "122": 333083,
-    "123": 17837,
-    "124": 208440
+    "121": 120296,
+    "122": 334379,
+    "123": 17932,
+    "124": 209406
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-1a": {
    "reporting": 79,
    "precincts": 79,
-   "total": 40235,
+   "total": 40340,
    "votes": {
-    "131": 14187,
-    "132": 26048
+    "131": 14235,
+    "132": 26105
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-1b": {
    "reporting": 76,
    "precincts": 76,
-   "total": 34045,
+   "total": 34154,
    "votes": {
-    "131": 21701,
-    "132": 12344
+    "131": 21778,
+    "132": 12376
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-2a": {
    "reporting": 58,
    "precincts": 58,
-   "total": 30820,
+   "total": 30946,
    "votes": {
-    "131": 20962,
-    "132": 9858
+    "131": 21043,
+    "132": 9903
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-2b": {
    "reporting": 70,
    "precincts": 70,
-   "total": 47088,
+   "total": 47210,
    "votes": {
-    "131": 30299,
-    "132": 11503,
-    "133": 5286
+    "131": 30365,
+    "132": 11537,
+    "133": 5308
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-3a": {
    "reporting": 61,
    "precincts": 61,
-   "total": 34098,
+   "total": 34227,
    "votes": {
-    "131": 24203,
-    "132": 9895
+    "131": 24289,
+    "132": 9938
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-3b": {
    "reporting": 74,
    "precincts": 74,
-   "total": 29581,
+   "total": 29702,
    "votes": {
-    "131": 15382,
-    "132": 14199
+    "131": 15445,
+    "132": 14257
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-4a": {
    "reporting": 69,
    "precincts": 69,
-   "total": 50596,
+   "total": 50733,
    "votes": {
-    "131": 19269,
-    "132": 22730,
-    "133": 8597
+    "131": 19317,
+    "132": 22796,
+    "133": 8620
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-4b": {
    "reporting": 74,
    "precincts": 74,
-   "total": 38619,
+   "total": 38782,
    "votes": {
-    "131": 38619
+    "131": 38782
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-5a": {
    "reporting": 76,
    "precincts": 76,
-   "total": 28922,
+   "total": 29045,
    "votes": {
-    "131": 18310,
-    "132": 10612
+    "131": 18383,
+    "132": 10662
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-5b": {
    "reporting": 75,
    "precincts": 75,
-   "total": 29777,
+   "total": 29914,
    "votes": {
-    "131": 15622,
-    "132": 14155
+    "131": 15697,
+    "132": 14217
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-6a": {
    "reporting": 72,
    "precincts": 72,
-   "total": 39646,
+   "total": 39754,
    "votes": {
-    "131": 13548,
-    "132": 13630,
-    "133": 12468
+    "131": 13574,
+    "132": 13677,
+    "133": 12503
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-6b": {
    "reporting": 77,
    "precincts": 77,
-   "total": 31079,
+   "total": 31205,
    "votes": {
-    "131": 11659,
-    "132": 19420
+    "131": 11713,
+    "132": 19492
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-7a": {
    "reporting": 50,
    "precincts": 50,
-   "total": 22432,
+   "total": 22525,
    "votes": {
-    "131": 12090,
-    "132": 10342
+    "131": 12147,
+    "132": 10378
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-7b": {
    "reporting": 60,
    "precincts": 60,
-   "total": 19982,
+   "total": 20051,
    "votes": {
-    "131": 13764,
-    "132": 6218
+    "131": 13813,
+    "132": 6238
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-8a": {
    "reporting": 93,
    "precincts": 93,
-   "total": 28244,
+   "total": 28361,
    "votes": {
-    "131": 28244
+    "131": 28361
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-8b": {
    "reporting": 73,
    "precincts": 73,
-   "total": 20065,
+   "total": 20143,
    "votes": {
-    "131": 20065
+    "131": 20143
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-9a": {
    "reporting": 90,
    "precincts": 90,
-   "total": 25844,
+   "total": 25936,
    "votes": {
-    "131": 25844
+    "131": 25936
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-9b": {
    "reporting": 85,
    "precincts": 85,
-   "total": 43398,
+   "total": 43558,
    "votes": {
-    "131": 31424,
-    "132": 11974
+    "131": 31527,
+    "132": 12031
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-10a": {
    "reporting": 74,
    "precincts": 74,
-   "total": 27797,
+   "total": 27898,
    "votes": {
-    "131": 27797
+    "131": 27898
    }
   },
   "member-of-the-chicago-board-of-education-subdistrict-10b": {
    "reporting": 89,
    "precincts": 89,
-   "total": 33179,
+   "total": 33280,
    "votes": {
-    "131": 21058,
-    "132": 12121
+    "131": 21118,
+    "132": 12162
    }
   },
   "subcircuit-13-judgethsubcircuitvacancyofcurryjr": {
@@ -3322,434 +3322,434 @@
   "retain-bertina-e-lampkin": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 960115,
-   "no": 273756
+   "yes": 961543,
+   "no": 274184
   },
   "retain-lewis-nixon": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 935643,
-   "no": 292298
+   "yes": 937004,
+   "no": 292750
   },
   "retain-kerry-m-kennedy": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 825829,
-   "no": 401646
+   "yes": 826974,
+   "no": 402294
   },
   "retain-joan-e-powell": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 923231,
-   "no": 278763
+   "yes": 924584,
+   "no": 279146
   },
   "retain-maureen-ward-kirby": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 844781,
-   "no": 356649
+   "yes": 845958,
+   "no": 357203
   },
   "retain-edward-a-arce": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 812849,
-   "no": 382902
+   "yes": 813966,
+   "no": 383516
   },
   "retain-thomas-j-byrne": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 788880,
-   "no": 413861
+   "yes": 789948,
+   "no": 414519
   },
   "retain-diana-l-kenworthy": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 922190,
-   "no": 269219
+   "yes": 923516,
+   "no": 269604
   },
   "retain-kristyna-colleen-ryan": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 941908,
-   "no": 253029
+   "yes": 943269,
+   "no": 253394
   },
   "retain-ursula-walowski": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 735486,
-   "no": 468348
+   "yes": 736446,
+   "no": 469096
   },
   "retain-anthony-c-tony-kyriakopoulos": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 897319,
-   "no": 294822
+   "yes": 898571,
+   "no": 295271
   },
   "retain-caroline-kate-moreland": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 914006,
-   "no": 275640
+   "yes": 915329,
+   "no": 276021
   },
   "retain-thomas-j-carroll": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 915461,
-   "no": 270586
+   "yes": 916766,
+   "no": 270984
   },
   "retain-andrea-m-buford": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 842555,
-   "no": 344547
+   "yes": 843720,
+   "no": 345085
   },
   "retain-john-michael-allegretti": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 801551,
-   "no": 383786
+   "yes": 802616,
+   "no": 384425
   },
   "retain-kristal-r-rivers": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 938977,
-   "no": 246006
+   "yes": 940336,
+   "no": 246346
   },
   "retain-steven-g-watkins": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 869988,
-   "no": 313999
+   "yes": 871212,
+   "no": 314461
   },
   "retain-abbey-fishman-romanek": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 798106,
-   "no": 383972
+   "yes": 799198,
+   "no": 384572
   },
   "retain-judith-c-rice": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 938145,
-   "no": 250490
+   "yes": 939485,
+   "no": 250848
   },
   "retain-patrick-kevin-coughlin": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 789378,
-   "no": 392124
+   "yes": 790424,
+   "no": 392771
   },
   "retain-megan-elizabeth-goldish": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 771780,
-   "no": 416545
+   "yes": 772837,
+   "no": 417186
   },
   "retain-anjana-m-j-hansen": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 809152,
-   "no": 368683
+   "yes": 810291,
+   "no": 369229
   },
   "retain-robert-d-kuzas": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 772117,
-   "no": 402068
+   "yes": 773156,
+   "no": 402701
   },
   "retain-maritza-martinez": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 769254,
-   "no": 425471
+   "yes": 770310,
+   "no": 426117
   },
   "retain-terrence-j-mcguire": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 914876,
-   "no": 258801
+   "yes": 916167,
+   "no": 259191
   },
   "retain-bridget-anne-mitchell": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 845021,
-   "no": 331523
+   "yes": 846188,
+   "no": 332050
   },
   "retain-james-p-pieczonka": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 782165,
-   "no": 392218
+   "yes": 783226,
+   "no": 392848
   },
   "retain-patricia-o-brien-sheahan": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 929340,
-   "no": 252368
+   "yes": 930649,
+   "no": 252751
   },
   "retain-michael-a-forti": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 888200,
-   "no": 283210
+   "yes": 889448,
+   "no": 283646
   },
   "retain-nichole-c-patton": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 928326,
-   "no": 247345
+   "yes": 929643,
+   "no": 247713
   },
   "retain-sondra-n-denmark": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 915910,
-   "no": 256115
+   "yes": 917212,
+   "no": 256494
   },
   "retain-gerardo-tristan-jr": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 773893,
-   "no": 398174
+   "yes": 774942,
+   "no": 398807
   },
   "retain-lynn-weaver-boyle": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 834177,
-   "no": 342378
+   "yes": 835298,
+   "no": 342946
   },
   "retain-daniel-edward-maloney": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 902590,
-   "no": 271210
+   "yes": 903879,
+   "no": 271607
   },
   "retain-thomas-m-cushing": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 776108,
-   "no": 394432
+   "yes": 777145,
+   "no": 395072
   },
   "retain-john-g-mulroe": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 876284,
-   "no": 291609
+   "yes": 877507,
+   "no": 292066
   },
   "retain-tyria-b-walton": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 919111,
-   "no": 255524
+   "yes": 920420,
+   "no": 255890
   },
   "retain-erin-haggerty-antonietti": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 834395,
-   "no": 341235
+   "yes": 835552,
+   "no": 341763
   },
   "retain-teresa-molina-gonzalez": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 835116,
-   "no": 354814
+   "yes": 836306,
+   "no": 355320
   },
   "retain-patricia-maria-fallon": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 936801,
-   "no": 236061
+   "yes": 938141,
+   "no": 236396
   },
   "retain-sheree-d-henry": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 928726,
-   "no": 244491
+   "yes": 930068,
+   "no": 244820
   },
   "retain-celestia-l-mays": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 929686,
-   "no": 242906
+   "yes": 931022,
+   "no": 243243
   },
   "retain-levander-smith-jr": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 894089,
-   "no": 276530
+   "yes": 895339,
+   "no": 276949
   },
   "retain-julie-bess-aimen": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 884696,
-   "no": 281389
+   "yes": 885977,
+   "no": 281777
   },
   "retain-laura-ayala-gonzalez": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 924367,
-   "no": 256616
+   "yes": 925684,
+   "no": 256989
   },
   "retain-krista-d-butler": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 922949,
-   "no": 246804
+   "yes": 924269,
+   "no": 247146
   },
   "retain-marie-aileen-dempsey": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 922101,
-   "no": 246917
+   "yes": 923421,
+   "no": 247264
   },
   "retain-jamie-guerra-dickler": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 890372,
-   "no": 276032
+   "yes": 891643,
+   "no": 276431
   },
   "retain-jonathan-clark-green": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 798732,
-   "no": 367738
+   "yes": 799813,
+   "no": 368312
   },
   "retain-mary-catherine-marubio": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 908470,
-   "no": 260473
+   "yes": 909762,
+   "no": 260845
   },
   "retain-regina-a-mescall": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 811677,
-   "no": 356239
+   "yes": 812792,
+   "no": 356793
   },
   "retain-lorraine-mary-murphy": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 732249,
-   "no": 450232
+   "yes": 733248,
+   "no": 450903
   },
   "retain-eileen-marie-o-connor": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 926593,
-   "no": 245945
+   "yes": 927905,
+   "no": 246298
   },
   "retain-jill-rose-quinn": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 924588,
-   "no": 249017
+   "yes": 925885,
+   "no": 249383
   },
   "retain-pamela-reaves-harris": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 930471,
-   "no": 221908
+   "yes": 931801,
+   "no": 222237
   },
   "retain-tiesha-l-smith": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 703454,
-   "no": 457375
+   "yes": 704458,
+   "no": 458039
   },
   "retain-chris-stacey": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 761580,
-   "no": 382482
+   "yes": 762620,
+   "no": 383100
   },
   "retain-perla-tirado": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 890249,
-   "no": 254496
+   "yes": 891530,
+   "no": 254865
   },
   "retain-elizabeth-anne-walsh": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 912258,
-   "no": 236668
+   "yes": 913549,
+   "no": 237037
   },
   "retain-maura-mcmahon-zeller": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 893541,
-   "no": 252844
+   "yes": 894816,
+   "no": 253229
   },
   "county-the-cook-county-millionaire-amendment-for-property-tax-relief-and-education": {
    "reporting": 2721,
    "precincts": 2721,
-   "yes": 1097584,
-   "no": 348982
+   "yes": 1099234,
+   "no": 349407
   },
   "city-restart-chicago-gunshot-detection": {
    "reporting": 1291,
    "precincts": 1291,
-   "yes": 529613,
-   "no": 212933
+   "yes": 531139,
+   "no": 213483
   },
   "city-permanent-chicago-festival-space": {
    "reporting": 1291,
    "precincts": 1291,
-   "yes": 494871,
-   "no": 239702
+   "yes": 496291,
+   "no": 240319
   },
   "city-chicago-cost-recovery-from-midway-blitz": {
    "reporting": 1291,
    "precincts": 1291,
-   "yes": 635718,
-   "no": 109974
+   "yes": 637511,
+   "no": 110254
   },
   "city-advisory-question-regarding-millionaires-surcharge": {
    "reporting": 1291,
    "precincts": 1291,
-   "yes": 598731,
-   "no": 143498
+   "yes": 600407,
+   "no": 143884
   },
   "city-advisory-question-regarding-chicago-land-owners": {
    "reporting": 1291,
    "precincts": 1291,
-   "yes": 549710,
-   "no": 191732
+   "yes": 551293,
+   "no": 192217
   },
   "named-mid-northside-expanded-mental-health-services": {
    "reporting": 78,
    "precincts": 78,
-   "yes": 52957,
-   "no": 8849
+   "yes": 53084,
+   "no": 8868
   },
   "named-2027-property-tax-extension-mid-northside-expanded-mental-health-services": {
    "reporting": 78,
    "precincts": 78,
-   "yes": 48570,
-   "no": 11418
+   "yes": 48684,
+   "no": 11442
   },
   "named-far-southwest-side-expanded-mental-health-services": {
    "reporting": 90,
    "precincts": 90,
-   "yes": 40208,
-   "no": 9649
+   "yes": 40334,
+   "no": 9670
   },
   "named-2027-property-tax-extension-far-southwest-side-expanded-mental-health-services": {
    "reporting": 90,
    "precincts": 90,
-   "yes": 36027,
-   "no": 13228
+   "yes": 36142,
+   "no": 13260
   },
   "ward-4-jesse-jackson-monument-statue": {
    "reporting": 28,
    "precincts": 28,
-   "yes": 13686,
-   "no": 2451
+   "yes": 13731,
+   "no": 2456
   },
   "ward-26-shared-housing-limits-in-26th-ward": {
    "reporting": 32,
    "precincts": 32,
-   "yes": 9665,
-   "no": 3311
+   "yes": 9697,
+   "no": 3328
   },
   "precinct-7-13-chicago-lakefront-national-park": {
    "reporting": 1,
@@ -3760,8 +3760,8 @@
   "precinct-7-14-ensure-remediation-of-former-south-works-site": {
    "reporting": 1,
    "precincts": 1,
-   "yes": 368,
-   "no": 50
+   "yes": 370,
+   "no": 53
   },
   "precinct-10-2-ensure-remediation-of-former-south-works-site": {
    "reporting": 1,
@@ -3772,14 +3772,14 @@
   "precinct-10-4-ensure-remediation-of-former-south-works-site": {
    "reporting": 1,
    "precincts": 1,
-   "yes": 369,
+   "yes": 372,
    "no": 57
   },
   "precinct-7-14-government-support-for-quantum-facility-and-data-center-at-former-south-work": {
    "reporting": 1,
    "precincts": 1,
-   "yes": 98,
-   "no": 324
+   "yes": 99,
+   "no": 328
   },
   "precinct-10-2-government-support-for-quantum-facility-and-data-center-at-former-south-work": {
    "reporting": 1,
@@ -3791,12 +3791,12 @@
    "reporting": 1,
    "precincts": 1,
    "yes": 87,
-   "no": 340
+   "no": 343
   },
   "precinct-5-1-500-employee-corporate-tax-for-youth-jobs-and-social-services": {
    "reporting": 1,
    "precincts": 1,
-   "yes": 534,
+   "yes": 536,
    "no": 75
   },
   "precinct-5-14-500-employee-corporate-tax-for-youth-jobs-and-social-services": {
@@ -3814,7 +3814,7 @@
   "precinct-8-26-500-employee-corporate-tax-for-youth-jobs-and-social-services": {
    "reporting": 1,
    "precincts": 1,
-   "yes": 358,
+   "yes": 361,
    "no": 42
   },
   "precinct-8-27-500-employee-corporate-tax-for-youth-jobs-and-social-services": {
@@ -3832,7 +3832,7 @@
   "precinct-24-5-500-employee-corporate-tax-for-youth-jobs-and-social-services": {
    "reporting": 1,
    "precincts": 1,
-   "yes": 497,
+   "yes": 501,
    "no": 72
   },
   "precinct-24-6-500-employee-corporate-tax-for-youth-jobs-and-social-services": {
@@ -3844,7 +3844,7 @@
   "precinct-24-12-500-employee-corporate-tax-for-youth-jobs-and-social-services": {
    "reporting": 1,
    "precincts": 1,
-   "yes": 551,
+   "yes": 556,
    "no": 74
   }
  },
