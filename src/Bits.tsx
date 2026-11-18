@@ -398,7 +398,7 @@ const districtNo = (sub: string) => { const m = sub.match(/(\d+[A-Za-z]?)\s*$/);
  * show their wording. The list scrolls inside the card so a 148-race section
  * stays one card tall.
  */
-export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
+export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump, holders }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void; /** Who holds a seat no one is listed for yet (Race.tsx's Incumbents; passed in, since Race.tsx imports this file). */ holders?: (race: Race) => ReactNode }) {
   const list = useRef<HTMLUListElement>(null);
   const faces: StripPerson[] = card.items.flatMap((it) => (it.race?.candidates ?? []).map((c) => ({ ...c, note: districtNo(it.sub), key: it.id })));
   // A pick in the row opens that candidate's district below and scrolls to it.
@@ -457,7 +457,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
                     <div className="px-3 pb-3 space-y-2">
                       {it.why && <p className="text-[15px] leading-relaxed"><span className="font-bold">Why it matters: </span>{it.why}</p>}
                       <RaceResults race={it.race!} color={card.color} />
-                      {candidates(it)}
+                      {it.race!.candidates.length ? candidates(it) : holders?.(it.race!)}
                       <div className="flex flex-wrap items-center gap-3">
                         <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
                         {it.race!.candidates.length > 1 && (
@@ -504,7 +504,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump }: { 
  * colours: every contest, what it is, why it matters and who's running, on
  * the page already; a candidate opens their details.
  */
-export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onCompare, onJump }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void }) {
+export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onCompare, onJump, holders }: { cards: SectionCard[]; heading: string; intro: string; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void; holders?: (race: Race) => ReactNode }) {
   if (!cards.length) return null;
   return (
     <section id="kyb-else" aria-labelledby="kyb-more" className="space-y-4 scroll-mt-[var(--kyb-bar,0px)]">
@@ -513,7 +513,7 @@ export function SectionCards({ cards, heading, intro, onOpen, onOpenRace, onComp
         <p className="text-[15px]">{intro}</p>
       </div>
       <ul className="grid gap-3 sm:grid-cols-2 items-start">
-        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onJump} />)}
+        {cards.map((c) => <SectionPanel key={c.id} card={c} onOpen={onOpen} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onJump} holders={holders} />)}
       </ul>
     </section>
   );

@@ -144,8 +144,8 @@ function OutsideBars({ c, max }: { c: Candidate; max: number }) {
 /** The seat's holder is one of these candidates. */
 export const isIncumbent = (race: Race, c: Candidate) => Boolean(c.incumbent || race.incumbents?.some((i) => i.ballot === c.ballot));
 
-/** Who holds the seat now and whether they're on this ballot; open seats say who left. */
-function Incumbents({ race }: { race: Race }) {
+/** Who holds the seat now and whether they’re on this ballot; open seats say who left. Also on the landing page for a race no one is listed in yet. */
+export function Incumbents({ race }: { race: Race }) {
   const { listFinal, electionDate } = useStateConfig();
   const list = race.incumbents;
   if (!list?.length) return null;

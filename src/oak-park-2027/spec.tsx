@@ -16,8 +16,8 @@ const NONPARTISAN = 'Nonpartisan: no party is printed next to any name, and ther
 
 const sources = (d: StateData): SourceCard[] => [
   { emoji: '🗳️', title: 'Who’s running', status: `Official · daily · as of ${d.sources.candidates.asOf}`,
-    body: 'Candidates listed with the Illinois State Board of Elections for one of these offices in 2027, plus those the Wednesday Journal has reported as running who aren’t listed there yet (marked “Announced”). Petitions are filed Nov 16–23, 2026 with each body; the official ballot, in its drawn order, is certified Jan 28, 2027. Until then names are listed alphabetically. District 97 candidates aren’t placed until the certified list says which term they filed for.',
-    links: [['Illinois State Board of Elections', LINKS.disclosure], ['Wednesday Journal', LINKS.wednesdayJournal]] },
+    body: 'Candidates listed in the Illinois State Board of Elections’ campaign disclosure records for one of these offices in 2027 (its Candidate Disclosure Search; not its “Candidates Filed” page, which covers only races filed with the State Board), plus those the Wednesday Journal has reported as running who aren’t listed there yet (marked “Announced”). Petitions are filed Nov 16–23, 2026 with each body; the official ballot, in its drawn order, is certified Jan 28, 2027. Until then names are listed alphabetically. District 97 candidates aren’t placed until the certified list says which term they filed for.',
+    links: [['State Board: Candidate Disclosure Search', LINKS.candidateSearch], ['Wednesday Journal', LINKS.wednesdayJournal]] },
   { emoji: '💵', title: 'Campaign money', status: 'Official · daily',
     body: 'Raised and spent by each candidate’s committee in its reports to the Illinois State Board of Elections since Jan 1, 2025. A candidate who raises or spends under $5,000 doesn’t need a committee, so no money shown doesn’t mean none raised.',
     links: [['Illinois State Board of Elections', LINKS.disclosure]] },

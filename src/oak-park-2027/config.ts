@@ -29,6 +29,8 @@ export const LINKS = {
   calendar: 'https://cdn.ymaws.com/www.ilparks.org/resource/resmgr/legislative_material/election_calendar/2027electionandcampaignfinan.pdf',
   candidatesGuide: 'https://www.stclaircountyil.gov/webdocuments/departments/countyclerk/2027Resources/2027%20Candidates%20Guide%20(1).pdf',
   disclosure: 'https://www.elections.il.gov/CampaignDisclosure/CommitteeSearch.aspx',
+  /** Who the State Board lists as a candidate: the records the guide reads (Candidates.txt, CanElections.txt). */
+  candidateSearch: 'https://www.elections.il.gov/CampaignDisclosure/CandidateSearch.aspx',
   /** Ranked-choice voting: the 2024 question and what has happened since. */
   rcvQuestion: 'https://www.lwvoprf.org/oak-park-referendums.html',
   rcvNews: 'https://www.oakpark.com/2024/11/06/oak-park-ranked-choice-voting-approved/',

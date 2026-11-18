@@ -1,7 +1,7 @@
 import { ArrowRight, Scale } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { FaceStrip } from './Bits';
-import { NoCandidates } from './Race';
+import { Incumbents, NoCandidates } from './Race';
 import { RaceResults, ResultsNote } from './results';
 import { stakes } from './stakes';
 import { useStateConfig } from './state';
@@ -45,7 +45,7 @@ function Card({ race, section, onOpen, onOpenRace, onCompare }: { key?: string; 
       <RaceResults race={race} color={section.color} />
       {race.candidates.length
         ? <FaceStrip people={race.candidates} names info color={section.color} onPick={(c) => onOpen(race, c as Candidate)} />
-        : <NoCandidates />}
+        : <><Incumbents race={race} /><NoCandidates /></>}
       <p className="text-sm font-bold">{race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} · <span className="rounded-md bg-[var(--kyb-chip)] px-1.5 py-0.5">{race.voteFor > 1 ? `pick up to ${race.voteFor}` : 'pick 1'}</span></p>
       {/* The two ways into the race, side by side. */}
       <div className="mt-auto flex gap-2">
