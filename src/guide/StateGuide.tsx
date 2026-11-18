@@ -5,7 +5,7 @@ import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, Prog
 import { Group } from '../Calendar';
 import { GUIDES, guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
-import { billItems, billUrl, changeItems, dateItems, Feed, moneyItems, newsItems, pressItems } from '../Feed';
+import { billItems, billUrl, changeItems, dateItems, Feed, moneyItems, newsItems, sourceItems } from '../Feed';
 import { Laws } from '../Laws';
 import { ElectionTimeline } from './Timeline';
 import { Headliners } from '../Headliners';
@@ -480,7 +480,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
                   <Feed storageKey={`kyb-${code}-feed-open`} onJump={(id) => jumpTo(sectionFor(id), id)} items={[
                     ...changeItems(data.changes ?? [], (c) => (c.kind === 'money' ? { name: copy.moneyFilings, url: data.sources.money.url } : { name: 'Ballotpedia candidate lists', url: links.ballotpedia })),
                     ...newsItems(data.news ?? []),
-                    ...pressItems(data.races, briefs, today()),
+                    ...sourceItems(data.races, briefs, today()),
                     // A guide whose refresh doesn't log money reports gets each race's totals instead.
                     ...((data.changes ?? []).some((c) => c.kind === 'money') ? [] : moneyItems(data.races, { name: copy.moneyFilings, url: data.sources.money.url })),
                     ...billItems(data.laws ?? [], billUrl, copy.legislature),

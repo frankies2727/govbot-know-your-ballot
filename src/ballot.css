@@ -18,6 +18,10 @@
 :root { --kyb-orange: #F59E54; }
 :root[data-theme="light"] { --kyb-orange: #A04A0C; }
 @media (prefers-color-scheme: light) { :root:not([data-theme]) { --kyb-orange: #A04A0C; } }
+/* Campaign pink (the News Feed's campaign sites), tuned the same way. */
+:root { --kyb-pink: #F4A3C0; }
+:root[data-theme="light"] { --kyb-pink: #A3245B; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --kyb-pink: #A3245B; } }
 
 /* The locating ring: six colours round a hole. */
 .kyb-rainbow {

@@ -7,11 +7,11 @@ import type { KeyDate } from './dates';
 
 // "News Feed": one feed of everything that moved lately, newest first, each
 // item dated and sourced. Ballot changes the daily refresh noticed, news
-// headlines, press coverage of the candidates (the dated articles their
-// briefs were read from), each race's campaign money, bills (where the state
+// headlines, everything dated the candidates' briefs were read from (press,
+// social posts, official releases, their own sites), each race's campaign money, bills (where the state
 // has them) and the next key dates.
 
-export type Kind = 'ballot' | 'news' | 'money' | 'bill' | 'date';
+export type Kind = 'ballot' | 'news' | 'social' | 'official' | 'campaign' | 'money' | 'bill' | 'date';
 
 export interface FeedItem {
   at: string; // ISO
@@ -27,12 +27,15 @@ export interface FeedItem {
 const KINDS: { id: Kind | 'all'; label: string; color: string }[] = [
   { id: 'all', label: 'Everything', color: 'var(--gb-text)' },
   { id: 'news', label: 'News', color: 'var(--gb-blue-hi)' },
+  { id: 'social', label: 'Social posts', color: 'var(--gb-purple-hi)' },
+  { id: 'official', label: 'Official', color: 'var(--gb-text)' },
+  { id: 'campaign', label: 'Campaign sites', color: 'var(--kyb-pink)' },
   { id: 'money', label: 'Finances', color: 'var(--kyb-orange)' },
   { id: 'ballot', label: 'Ballot changes', color: 'var(--gb-primary)' },
   { id: 'bill', label: 'Bills', color: 'var(--kyb-gold)' },
   { id: 'date', label: 'Key dates', color: 'var(--gb-amber-hi)' },
 ];
-const KIND_LABEL: Record<Kind, string> = { ballot: 'Ballot', news: 'News', money: 'Finances', bill: 'Bill', date: 'Key date' };
+const KIND_LABEL: Record<Kind, string> = { ballot: 'Ballot', news: 'News', social: 'Social', official: 'Official', campaign: 'Campaign', money: 'Finances', bill: 'Bill', date: 'Key date' };
 
 const day = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' });
 const when = (iso: string) => day.format(new Date(iso.length === 10 ? `${iso}T12:00:00` : iso));
@@ -63,12 +66,24 @@ export const billItems = (laws: Law[], billUrl: (b: Law) => string | undefined, 
     at: b.latest_action!, kind: 'bill', title: `${b.id}: ${b.title}`, detail: b.latest_action_desc, source: { name: `${legislature}, via govbot`, url: billUrl(b) },
   }));
 
-/** Reference, record, social and government pages a brief also cites: not news. */
-const NOT_PRESS = /ballotpedia|wikipedia|linkedin|facebook|instagram|twitter|x\.com|youtube|bluesky|bsky|threads|tiktok|\.gov\b|\.us\b|\.edu\b|campaign|\boffice\b|clerk|auditor|city and county|\bcity of\b|\bvillage\b|\bdistrict\b|\bcounty\b|governor|commission|\bboard\b|\bcourt/i;
 const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+const SOCIAL = /(^|\.)(bsky\.app|bsky\.social|bluesky|instagram\.com|facebook\.com|fb\.com|fb\.watch|x\.com|twitter\.com|threads\.net|threads\.com|tiktok\.com|youtube\.com|youtu\.be|linkedin\.com|reddit\.com|mastodon\.\w+|nextdoor\.com|medium\.com|substack\.com|patreon\.com|linktr\.ee)$/i;
+const OFFICIAL_HOST = /\.(gov|us|mil|edu)$|(^|\.)gov\./i;
+const OFFICIAL_NAME = /\boffice\b|clerk|auditor|city and county|\bcity of\b|\bvillage of\b|\bschool district\b|\bdistrict \d|\bcounty\b|governor|commission|\bboard of\b|\bcourt|\bstate of\b|department|council\b/i;
+const CAMPAIGN_NAME = /campaign|friends of|(citizens|neighbors|people) for|committee to elect|\bfor \d+(st|nd|rd|th)?\b|\belect\b|\bfor (mayor|council|alder|ward|trustee|judge|justice|sheriff|clerk|treasurer|supreme|district|chicago|denver|jacksonville|oak park|wisconsin)/i;
+const SAID: Record<'news' | 'social' | 'official' | 'campaign', string> = { news: 'Candidates in this story', social: 'Candidates in this post', official: 'Candidates in this release', campaign: 'Candidate' };
 
-/** Press coverage of the candidates: each dated article a brief was read from in the last year, once, with whom it's about. */
-export function pressItems(races: Race[], briefs: Briefs, today: string): FeedItem[] {
+/** What kind of source a cited page is: a post, a government page, the candidate's own site, or the press (anything else, reference sites included). */
+function sourceKind(url: string, publisher: string, own: string, surname: string): 'news' | 'social' | 'official' | 'campaign' {
+  const h = host(url);
+  if (SOCIAL.test(h)) return 'social';
+  if ((own && h === own) || (surname.length > 3 && h.replace(/[^a-z]/g, '').includes(surname)) || CAMPAIGN_NAME.test(publisher)) return 'campaign';
+  if (OFFICIAL_HOST.test(h) || OFFICIAL_NAME.test(publisher)) return 'official';
+  return 'news';
+}
+
+/** Everything dated a candidate's or seat holder's brief was read from in the last year, once each, sorted into news, social posts, official releases and campaign sites, with who's in it. */
+export function sourceItems(races: Race[], briefs: Briefs, today: string): FeedItem[] {
   const since = `${Number(today.slice(0, 4)) - 1}${today.slice(4)}`;
   const byUrl = new Map<string, FeedItem & { names: string[] }>();
   for (const r of races) {
@@ -77,14 +92,14 @@ export function pressItems(races: Race[], briefs: Briefs, today: string): FeedIt
       const surname = p.name.toLowerCase().replace(/,? (jr|sr|ii|iii|iv)\.?$/, '').split(' ').pop()!.replace(/[^a-z]/g, '');
       for (const s of briefs[`${r.id}|${p.name}`]?.sources ?? []) {
         const url = safe(s.url);
-        if (!url || !s.date || s.date < since || s.date > today || NOT_PRESS.test(`${s.publisher} ${host(url)}`) || (own && host(url) === own) || (surname.length > 3 && host(url).replace(/[^a-z]/g, '').includes(surname))) continue; // their own site
-        const item = byUrl.get(url) ?? { at: s.date, kind: 'news' as const, title: s.title, source: { name: s.publisher, url }, jump: r.id, names: [] };
+        if (!url || !s.date || s.date < since || s.date > today) continue;
+        const item = byUrl.get(url) ?? { at: s.date, kind: sourceKind(url, s.publisher, own, surname), title: s.title, source: { name: s.publisher, url }, jump: r.id, names: [] };
         if (!item.names.includes(p.name)) item.names.push(p.name);
         byUrl.set(url, item);
       }
     }
   }
-  return [...byUrl.values()].map(({ names, ...i }) => ({ ...i, detail: `Candidates in this story: ${names.length > 3 ? `${names.slice(0, 3).join(', ')} and ${names.length - 3} more` : names.join(names.length === 2 ? ' and ' : ', ')}` }));
+  return [...byUrl.values()].map(({ names, ...i }) => ({ ...i, detail: `${SAID[i.kind as keyof typeof SAID]}: ${names.length > 3 ? `${names.slice(0, 3).join(', ')} and ${names.length - 3} more` : names.join(names.length === 2 ? ' and ' : ', ')}` }));
 }
 
 /** "09/30/2026" -> "2026-09-30". */
@@ -134,7 +149,7 @@ export function Feed({ items, storageKey, onJump }: { items: FeedItem[]; storage
             <span className="sr-only">{open ? '(hide)' : '(show)'}</span>
           </button>
         </h2>
-        {open && <p className="text-[15px] leading-relaxed">Everything that moved lately: news and press coverage of the candidates, campaign finances (each race’s latest reports, and stories about who’s funding whom), changes to the ballot the daily refresh noticed, bills and the dates coming up. Each item says where it comes from.</p>}
+        {open && <p className="text-[15px] leading-relaxed">Everything that moved lately: news, social posts, official releases and campaign sites about the candidates, campaign finances (each race’s latest reports, and stories about who’s funding whom), changes to the ballot the daily refresh noticed, bills and the dates coming up. Each item says where it comes from.</p>}
       </div>
       {open && <div id="kyb-feed-body" className="space-y-4">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Kinds of activity">
