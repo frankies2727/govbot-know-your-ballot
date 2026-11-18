@@ -1,4 +1,5 @@
 import rawData from '../data/oak-park-2027/ballot.json';
+import type { Briefs } from '../briefs';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
 import { Out } from '../PlanToVote';
@@ -37,6 +38,7 @@ const sources = (d: StateData): SourceCard[] => [
 export const OAK_PARK_2027_GUIDE: GuideSpec = {
   slug: 'oak-park-2027', code: 'OP', name: 'Oak Park', capital: 'Village Hall',
   data,
+  briefs: () => import('../data/oak-park-2027/briefs.json') as Promise<{ default: Briefs }>,
   results: { races: {} },
   Map: OakParkMap,
   cssClass: 'kyb-op',

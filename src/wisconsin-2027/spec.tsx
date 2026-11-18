@@ -1,6 +1,7 @@
 import mapsUrl from '../data/wisconsin/districts.json?url';
 import rawData from '../data/wisconsin-2027/ballot.json';
 import { makeLookup } from '../guide/lookup';
+import type { Briefs } from '../briefs';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
 import { Out } from '../PlanToVote';
@@ -36,6 +37,7 @@ const sources = (d: StateData): SourceCard[] => [
 export const WISCONSIN_2027_GUIDE: GuideSpec = {
   slug: 'wisconsin-2027', code: 'WI27', name: 'Wisconsin', capital: 'Madison',
   data,
+  briefs: () => import('../data/wisconsin-2027/briefs.json') as Promise<{ default: Briefs }>,
   results: { races: {} },
   Map: WisconsinMap,
   cssClass: 'kyb-wi',

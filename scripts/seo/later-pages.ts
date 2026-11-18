@@ -6,7 +6,8 @@
 // the FAQ markup and the visible "Common questions" say the same words. No
 // recommendations, ratings or adjectives.
 
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { withBriefs } from '../../src/briefs';
 import { explainOffice as chicagoExplain } from '../../src/chicago-2027/config';
 import { ELECTION_DAY as CHICAGO_DAY } from '../../src/chicago-2027/dates';
 import { chicagoFaq } from '../../src/chicago-2027/faq';
@@ -90,7 +91,12 @@ export const LATER_GUIDES: GuidePage[] = [
   },
 ];
 
-export const readGuide = (id: GuideId): StateData => JSON.parse(readFileSync(`src/data/${id}/ballot.json`, 'utf8'));
+/** A guide's data with its briefs on it (they ship as their own file, src/briefs.ts). */
+export const readGuide = (id: GuideId): StateData => {
+  const d: StateData = JSON.parse(readFileSync(`src/data/${id}/ballot.json`, 'utf8'));
+  const briefs = `src/data/${id}/briefs.json`;
+  return existsSync(briefs) ? withBriefs(d, JSON.parse(readFileSync(briefs, 'utf8'))) : d;
+};
 
 /** The readable page: what's on the ballot, every race and who's running, the questions. */
 export function guideBody(g: GuidePage, d: StateData, site: string, desc: string): string {

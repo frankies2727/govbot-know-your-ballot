@@ -24,6 +24,7 @@ import { drawShareCard, shareCard } from '../share';
 import { PdfCard } from '../components/PdfCard';
 import type { PdfSummary } from '../ballotPdf';
 import { ReadOnlyContext, StateContext } from '../state';
+import { BriefsContext, type Briefs } from '../briefs';
 import { GovbotChrome } from '../GovbotChrome';
 import { daysUntil, hasProgress, isDecided, readResumeLink, resumeLink, today, useNow, useOpen, useSaved, type Choice, type Saved, choiceState } from '../store';
 import type { Candidate, Districts, Race } from '../types';
@@ -71,6 +72,13 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   };
 
   useDocumentMeta(`Know Your Ballot: ${spec.name}`);
+  // The briefs are their own download, fetched once the page is up (src/briefs.ts).
+  const [briefs, setBriefs] = useState<Briefs>({});
+  useEffect(() => {
+    let live = true;
+    spec.briefs?.().then((m) => { if (live) setBriefs(m.default); }).catch(() => {}); // offline: the cards just go without
+    return () => { live = false; };
+  }, [spec]);
   const [saved, setSaved] = useSaved(storageKey);
   const setBrowsing = (on: boolean) => setSaved((s) => ({ ...s, browsing: on || undefined }));
   const [tab, setTab] = useState<'ballot' | 'plan' | 'share' | 'how' | 'feed'>('ballot');
@@ -351,6 +359,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
   const Sources = () => <SourcesCard spec={spec} />;
 
   return (
+    <BriefsContext.Provider value={briefs}>
     <ResultsProvider value={spec.results}>
     <StateContext.Provider value={config}>
     <ReadOnlyContext.Provider value={!saved.place}>
@@ -564,6 +573,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     </ReadOnlyContext.Provider>
     </StateContext.Provider>
     </ResultsProvider>
+    </BriefsContext.Provider>
   );
 }
 

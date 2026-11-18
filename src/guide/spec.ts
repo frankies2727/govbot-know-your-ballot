@@ -9,6 +9,7 @@ import type { Faq } from '../seo/faq';
 import type { Districts } from '../types';
 import type { Place } from './lookup';
 import type { StateData } from './types';
+import type { Briefs } from '../briefs';
 
 /** One of the guide's ballot sections, in ballot order, with the colour it wears and the ink that reads on it. */
 export interface GuideSection { id: string; title: string; color: string; ink: string; emoji: string }
@@ -29,6 +30,8 @@ export interface GuideSpec {
   /** Where the legislature sits: "Lansing". */
   capital: string;
   data: StateData;
+  /** The candidates' and seat holders' briefs, a separate download (src/data/<guide>/briefs.json). */
+  briefs?: () => Promise<{ default: Briefs }>;
   /** The election's results (src/data/<state>/results.json, scripts/results.mjs). */
   results: Results;
   /** The state's outline, with an optional pin (Hero.tsx). */

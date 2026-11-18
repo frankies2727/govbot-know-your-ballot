@@ -1,6 +1,7 @@
 import mapsUrl from '../data/denver-2027/districts.json?url';
 import rawData from '../data/denver-2027/ballot.json';
 import { makeLookup } from '../guide/lookup';
+import type { Briefs } from '../briefs';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
 import { Out } from '../PlanToVote';
@@ -42,6 +43,7 @@ const sources = (d: StateData): SourceCard[] => [
 export const DENVER_2027_GUIDE: GuideSpec = {
   slug: 'denver-2027', code: 'DEN', name: 'Denver', capital: 'the City and County Building',
   data,
+  briefs: () => import('../data/denver-2027/briefs.json') as Promise<{ default: Briefs }>,
   results: { races: {} },
   Map: DenverMap,
   cssClass: 'kyb-den',

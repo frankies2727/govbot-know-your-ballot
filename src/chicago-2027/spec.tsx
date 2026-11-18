@@ -1,5 +1,6 @@
 import cookMapsUrl from '../data/illinois/districts.json?url';
 import rawData from '../data/chicago-2027/ballot.json';
+import type { Briefs } from '../briefs';
 import type { GuideSpec, SourceCard } from '../guide/spec';
 import type { StateData } from '../guide/types';
 import { geocode, getMaps, lookIn, type Maps } from '../lookup';
@@ -62,6 +63,7 @@ const prefetchDistricts = () => (maps ??= getMaps(cookMapsUrl).catch((e) => { ma
 export const CHICAGO_2027_GUIDE: GuideSpec = {
   slug: 'chicago-2027', code: 'CHI', name: 'Chicago', capital: 'City Hall',
   data,
+  briefs: () => import('../data/chicago-2027/briefs.json') as Promise<{ default: Briefs }>,
   results: { races: {} },
   Map: ChicagoMap,
   cssClass: 'kyb-chi',

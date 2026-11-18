@@ -4,6 +4,7 @@ import { sourceName } from './lib/sources';
 import { memo, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { BarRatings } from './BarRatings';
 import { Face } from './Face';
+import { useBrief } from './briefs';
 import { useReadOnly, useStateConfig } from './state';
 import { daysUntil, money, type Choice } from './store';
 import type { Candidate, CandidateBrief, CouncilRecord, Guide, Incumbent, Measure, Race, Retention, SocialPlatform } from './types';
@@ -165,7 +166,7 @@ function Incumbents({ race }: { race: Race }) {
           {i.source?.url && <> <a href={i.source.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{i.source.name.replace(/^Wikipedia: .*/, 'Wikipedia')} ↗</a>{i.asOf ? <span className="text-xs"> · read {i.asOf}</span> : null}</>}
         </p>
         {i.council && <CouncilRecordBlock r={i.council} name={i.name} short />}
-        <HolderBrief i={i} />
+        <HolderBrief i={i} raceId={race.id} />
         </div>
       ))}
     </div>
@@ -173,29 +174,31 @@ function Incumbents({ race }: { race: Race }) {
 }
 
 /** A seat holder's photo and brief (who they are, what they've worked on, their words), folded under their name. */
-function HolderBrief({ i }: { i: Incumbent }) {
+function HolderBrief({ i, raceId }: { i: Incumbent; raceId: string }) {
   const [open, setOpen] = useState(false);
-  if (!i.photo && !i.brief) return null;
-  const quotes = i.brief?.quotes ?? [];
+  const found = useBrief(raceId, i.name);
+  const brief = i.ballot === undefined ? found : undefined; // running again: it's on their candidate card
+  if (!i.photo && !brief) return null;
+  const quotes = brief?.quotes ?? [];
   return (
     <div className="space-y-2 pb-1">
       <div className="flex items-center gap-3">
         <Face c={i} className="w-14 h-14 text-lg" />
         <div className="min-w-0 space-y-1">
           {i.photo && <p className="text-xs">Photo: {i.photo.link ? <a href={i.photo.link} target="_blank" rel="noreferrer noopener" className="underline underline-offset-2">{i.photo.credit}</a> : i.photo.credit}</p>}
-          {i.brief && <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="min-h-[36px] font-bold underline underline-offset-2">{open ? 'Hide' : 'About'} {i.name.split(' ')[0]}</button>}
+          {brief && <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="min-h-[36px] font-bold underline underline-offset-2">{open ? 'Hide' : 'About'} {i.name.split(' ')[0]}</button>}
         </div>
       </div>
-      {open && i.brief && (
+      {open && brief && (
         <div className="space-y-4 rounded-xl bg-[var(--gb-surface)] p-3">
-          <Brief b={i.brief} />
+          <Brief b={brief} />
           {quotes.length > 0 && (
             <section className="space-y-3">
               <h3 className={heading}>🗣️ In their words</h3>
               <ul className="space-y-2 text-[15px] leading-relaxed">{quotes.map((q) => <li key={q.text.slice(0, 40)} className="rounded-xl bg-[var(--gb-bg)] p-3">“{q.text}” <Cite url={q.source} /></li>)}</ul>
             </section>
           )}
-          <BriefSources b={i.brief} />
+          <BriefSources b={brief} />
         </div>
       )}
     </div>
@@ -306,8 +309,8 @@ function BriefSources({ b }: { b?: CandidateBrief }) {
 }
 
 /** The candidate's own words: quotes from the press and their pages, their Ballotpedia survey answer, and their site's issues page. */
-function InTheirWords({ c }: { c: Candidate }) {
-  const quotes = c.brief?.quotes ?? [];
+function InTheirWords({ c, brief }: { c: Candidate; brief?: CandidateBrief }) {
+  const quotes = brief?.quotes ?? [];
   if (!c.stances && !c.issuesUrl && !quotes.length) return null;
   const when = c.stances?.asOf ? new Date(c.stances.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
   return (
@@ -608,6 +611,7 @@ function Follow({ c }: { c: Candidate }) {
  */
 export function CandidateProfile({ race, c, color, ink, numbered, guide = null, judge, head = true }: { race: Race; c: Candidate; color: string; ink: string; numbered: boolean; guide?: Guide | null | undefined; judge?: string; /** The photo and badges at the top. */ head?: boolean }) {
   const { noMoney, researchLinks } = useStateConfig();
+  const brief = useBrief(race.id, c.name);
   return (
     <>
       {head && (
@@ -633,7 +637,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
         </>
       )}
 
-      <Brief b={c.brief} />
+      <Brief b={brief} />
 
       <section className="space-y-3">
         <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">💰 Campaign money</h3>
@@ -659,7 +663,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
         </section>
       )}
 
-      <InTheirWords c={c} />
+      <InTheirWords c={c} brief={brief} />
 
       <Endorsements c={c} />
 
@@ -669,7 +673,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
 
       <Follow c={c} />
 
-      <BriefSources b={c.brief} />
+      <BriefSources b={brief} />
 
       <section className="space-y-3">
         <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🔎 Dig deeper</h3>
