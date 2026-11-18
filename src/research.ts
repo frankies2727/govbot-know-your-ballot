@@ -11,11 +11,11 @@ const lead = (name: string) => name.split(' & ')[0];
 
 const SOCIAL_NAME: Record<SocialPlatform, string> = { facebook: 'Facebook', instagram: 'Instagram', x: 'X', bluesky: 'Bluesky', threads: 'Threads', tiktok: 'TikTok', youtube: 'YouTube', linkedin: 'LinkedIn' };
 
-/** The candidate's own campaign: their site, else their campaign's page on a social network (found and checked by hand), else nothing. */
+/** The candidate's own campaign site, else their own page on a social network (found and checked by hand), else nothing. */
 export function campaignLink(c: Candidate): ResearchLink | null {
   if (c.website) return { label: `Campaign site: ${sourceName(c.website)}`, href: c.website, note: 'Their own words on the issues' };
   const page = (Object.keys(SOCIAL_NAME) as SocialPlatform[]).find((k) => c.social?.[k]);
-  return page ? { label: `Campaign page on ${SOCIAL_NAME[page]}`, href: c.social![page]!, note: 'No campaign website; this is their campaign’s own page' } : null;
+  return page ? { label: `Their page on ${SOCIAL_NAME[page]}`, href: c.social![page]!, note: 'No campaign website on record; this is their own account' } : null;
 }
 
 export function researchLinks(c: Candidate, race: Race): ResearchLink[] {
