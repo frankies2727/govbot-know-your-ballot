@@ -504,5 +504,9 @@
   "url": "https://run.imgix.net/66a326a8-8ec3-4f97-950b-26347b35ce5d/ac378ce5-c11f-4450-b247-81cad6b965ed/ac378ce5-c11f-4450-b247-81cad6b965ed.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=916%2C1243%2C3951%2C4063&auto=compress%2Cformat&fit=fillmax&w=2048&q=75&s=296da9bb0a57ce5361c905517d586088",
   "page": "https://www.quinlanforchicago.com/",
   "credit": "Quinlan for Chicago"
+ },
+ "alderperson-ward-5|Ryan Greenlaw": {
+  "url": "repo:scripts/chicago-2027/provided/ryan-greenlaw.jpg",
+  "credit": "Provided to Know Your Ballot"
  }
 }

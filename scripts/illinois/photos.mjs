@@ -5,7 +5,9 @@
 // and its credit. Wikimedia Commons files carry their author and license.
 //
 // Candidates no official source covers can have a photo picked by hand in
-// photos-chosen.json ({ "<race id>|<name>": { url, page, credit, crop? } }, or
+// photos-chosen.json ({ "<race id>|<name>": { url, page, credit, crop? } }, the
+// url "repo:<path>" for a photo kept in this repo (one the candidate or a voter
+// sent, credited as such), or
 // { commons: "<file name>" } for a Wikimedia Commons file, credited with its
 // author and license from the file page): a government page about that person,
 // their own campaign site or account, or (by the site owner's decision) a news
@@ -117,8 +119,9 @@ function getWithIntermediate(url, headers, ca) {
   });
 }
 
-/** An image's bytes, filling in a missing intermediate certificate when a site needs it. */
+/** An image's bytes, filling in a missing intermediate certificate when a site needs it. "repo:<path>" is a photo kept in this repo (one sent to us), read from disk. */
 async function download(url, ua) {
+  if (url.startsWith('repo:')) return readFileSync(new URL(`../../${url.slice(5)}`, import.meta.url));
   try {
     return Buffer.from(await (await get(url, ua, true)).arrayBuffer());
   } catch (err) {
