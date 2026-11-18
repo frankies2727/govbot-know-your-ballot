@@ -1,12 +1,15 @@
 import { ChevronDown, ExternalLink } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { money, useOpen } from './store';
-import type { Change, Law, NewsItem } from './types';
+import type { Briefs } from './briefs';
+import type { Change, Law, NewsItem, Race } from './types';
 import type { KeyDate } from './dates';
 
 // "News Feed": one feed of everything that moved lately, newest first, each
 // item dated and sourced. Ballot changes the daily refresh noticed, news
-// headlines, bills (where the state has them) and the next key dates.
+// headlines, press coverage of the candidates (the dated articles their
+// briefs were read from), each race's campaign money, bills (where the state
+// has them) and the next key dates.
 
 export type Kind = 'ballot' | 'news' | 'money' | 'bill' | 'date';
 
@@ -24,12 +27,12 @@ export interface FeedItem {
 const KINDS: { id: Kind | 'all'; label: string; color: string }[] = [
   { id: 'all', label: 'Everything', color: 'var(--gb-text)' },
   { id: 'news', label: 'News', color: 'var(--gb-blue-hi)' },
-  { id: 'money', label: 'Money', color: 'var(--kyb-orange)' },
+  { id: 'money', label: 'Finances', color: 'var(--kyb-orange)' },
   { id: 'ballot', label: 'Ballot changes', color: 'var(--gb-primary)' },
   { id: 'bill', label: 'Bills', color: 'var(--kyb-gold)' },
   { id: 'date', label: 'Key dates', color: 'var(--gb-amber-hi)' },
 ];
-const KIND_LABEL: Record<Kind, string> = { ballot: 'Ballot', news: 'News', money: 'Money', bill: 'Bill', date: 'Key date' };
+const KIND_LABEL: Record<Kind, string> = { ballot: 'Ballot', news: 'News', money: 'Finances', bill: 'Bill', date: 'Key date' };
 
 const day = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' });
 const when = (iso: string) => day.format(new Date(iso.length === 10 ? `${iso}T12:00:00` : iso));
@@ -60,6 +63,49 @@ export const billItems = (laws: Law[], billUrl: (b: Law) => string | undefined, 
     at: b.latest_action!, kind: 'bill', title: `${b.id}: ${b.title}`, detail: b.latest_action_desc, source: { name: `${legislature}, via govbot`, url: billUrl(b) },
   }));
 
+/** Reference, record, social and government pages a brief also cites: not news. */
+const NOT_PRESS = /ballotpedia|wikipedia|linkedin|facebook|instagram|twitter|x\.com|youtube|bluesky|bsky|threads|tiktok|\.gov\b|\.us\b|\.edu\b|campaign|\boffice\b|clerk|auditor|city and county|\bcity of\b|\bvillage\b|\bdistrict\b|\bcounty\b|governor|commission|\bboard\b|\bcourt/i;
+const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+
+/** Press coverage of the candidates: each dated article a brief was read from in the last year, once, with whom it's about. */
+export function pressItems(races: Race[], briefs: Briefs, today: string): FeedItem[] {
+  const since = `${Number(today.slice(0, 4)) - 1}${today.slice(4)}`;
+  const byUrl = new Map<string, FeedItem & { names: string[] }>();
+  for (const r of races) {
+    for (const p of [...r.candidates, ...(r.incumbents ?? []).filter((i) => i.ballot === undefined)]) {
+      const own = 'website' in p && p.website ? host(p.website) : '';
+      const surname = p.name.toLowerCase().replace(/,? (jr|sr|ii|iii|iv)\.?$/, '').split(' ').pop()!.replace(/[^a-z]/g, '');
+      for (const s of briefs[`${r.id}|${p.name}`]?.sources ?? []) {
+        const url = safe(s.url);
+        if (!url || !s.date || s.date < since || s.date > today || NOT_PRESS.test(`${s.publisher} ${host(url)}`) || (own && host(url) === own) || (surname.length > 3 && host(url).replace(/[^a-z]/g, '').includes(surname))) continue; // their own site
+        const item = byUrl.get(url) ?? { at: s.date, kind: 'news' as const, title: s.title, source: { name: s.publisher, url }, jump: r.id, names: [] };
+        if (!item.names.includes(p.name)) item.names.push(p.name);
+        byUrl.set(url, item);
+      }
+    }
+  }
+  return [...byUrl.values()].map(({ names, ...i }) => ({ ...i, detail: `Candidates in this story: ${names.length > 3 ? `${names.slice(0, 3).join(', ')} and ${names.length - 3} more` : names.join(names.length === 2 ? ' and ' : ', ')}` }));
+}
+
+/** "09/30/2026" -> "2026-09-30". */
+const isoOf = (mdy: string) => { const [m, d, y] = mdy.split('/'); return y && m && d ? `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}` : ''; };
+
+/** Each race's campaign money from the latest reports: who has raised the most, dated by the newest report. */
+export function moneyItems(races: Race[], source: { name: string; url?: string }): FeedItem[] {
+  return races.flatMap((r) => {
+    const filed = r.candidates.filter((c) => c.money).sort((a, b) => b.money!.raised - a.money!.raised);
+    if (!filed.length) return [];
+    const at = filed.map((c) => isoOf(c.money!.through)).filter(Boolean).sort().pop();
+    if (!at) return [];
+    const top = filed.slice(0, 3).map((c) => `${c.name} ${money(c.money!.raised)}`).join(', ');
+    return [{
+      at, kind: 'money' as const, jump: r.id, source,
+      title: `${r.office.replace(/ \(\d+ seats?\)$/, '')}: ${filed.length} of ${r.candidates.length} candidate${r.candidates.length === 1 ? '' : 's'} ${filed.length === 1 ? 'has' : 'have'} filed money reports`,
+      detail: `Raised the most: ${top}. Latest reports run through ${when(at)}.`,
+    }];
+  });
+}
+
 /** The next few dates, as items dated on the day itself. */
 export const dateItems = (dates: KeyDate[], today: string, source: { name: string; url: string }): FeedItem[] =>
   dates.filter((d) => d.date >= today).slice(0, 3).map((d) => ({ at: d.date, kind: 'date', title: d.title, detail: d.detail, source }));
@@ -88,7 +134,7 @@ export function Feed({ items, storageKey, onJump }: { items: FeedItem[]; storage
             <span className="sr-only">{open ? '(hide)' : '(show)'}</span>
           </button>
         </h2>
-        {open && <p className="text-[15px] leading-relaxed">Everything that moved lately: news, campaign money (new reports and stories about who’s funding whom), changes to the ballot the daily refresh noticed, bills and the dates coming up. Each item says where it comes from.</p>}
+        {open && <p className="text-[15px] leading-relaxed">Everything that moved lately: news and press coverage of the candidates, campaign finances (each race’s latest reports, and stories about who’s funding whom), changes to the ballot the daily refresh noticed, bills and the dates coming up. Each item says where it comes from.</p>}
       </div>
       {open && <div id="kyb-feed-body" className="space-y-4">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Kinds of activity">
@@ -102,9 +148,9 @@ export function Feed({ items, storageKey, onJump }: { items: FeedItem[]; storage
       <ol className="kyb-scroll-bar max-h-[560px] overflow-y-auto divide-y divide-[var(--kyb-chip)] pr-1" style={{ ['--scroll' as string]: 'var(--gb-blue-hi)' }}>
         {list.map((i, n) => (
           <li key={`${i.kind}-${i.at}-${n}`} className="flex gap-3 py-3">
-            <div className="w-16 shrink-0">
-              <p className="font-black leading-tight">{when(i.at)}</p>
-              <span className="mt-1 inline-block rounded-full px-2 py-0.5 text-[11px] font-black uppercase tracking-wide" style={{ background: color(i.kind), color: 'var(--gb-bg)' }}>{KIND_LABEL[i.kind]}</span>
+            <div className="w-24 shrink-0">
+              <p className="font-black leading-tight whitespace-nowrap">{when(i.at)}</p>
+              <span className="mt-1 inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-black uppercase tracking-wide" style={{ background: color(i.kind), color: 'var(--gb-bg)' }}>{KIND_LABEL[i.kind]}</span>
             </div>
             <div className="min-w-0 flex-1 space-y-1">
               {i.jump
