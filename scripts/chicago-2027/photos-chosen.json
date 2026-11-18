@@ -1,128 +1,293 @@
 {
-  "mayor|Willie L. Wilson": {
-    "commons": "Willie_Wilson_2015.jpg"
-  },
-  "mayor|Joe Holberg": {
-    "commons": "Joe_Holberg_2025_(cropped).jpg"
-  },
-  "mayor|Danielle Carter-Walters": {
-    "commons": "Danielle_Carter_Walters_in_2026_(cropped).jpg"
-  },
-  "mayor|John Kelly": {
-    "url": "https://johnkellyforchi.com/wp-content/uploads/2026/08/jkseocard-1024x538.png",
-    "page": "https://johnkellyforchi.com/",
-    "credit": "John Kelly for Chicago (campaign site)",
-    "crop": "400x400+590+10"
-  },
-  "mayor|Matt Brewer": {
-    "url": "https://run.imgix.net/9e231b13-3c59-4e21-94f1-d4e0232af310/84998b8e-df7c-4118-b80b-12ce53148652/84998b8e-df7c-4118-b80b-12ce53148652.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C502%2C7008%2C3668&s=e984061d5e6daaa9db3c0b95430b501c",
-    "page": "https://www.mattbrewer.com/",
-    "credit": "Matt Brewer (campaign site)",
-    "crop": "2200x2200+1300+100"
-  },
-  "mayor|Lisa Nee": {
-    "url": "https://run.imgix.net/1b30bb13-49a4-43a9-ab24-648182a64aae/1223ee1c-57f3-4c08-907c-af998e08252b/1223ee1c-57f3-4c08-907c-af998e08252b.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C1174%2C1066&s=5b676f43c985cc437b1d4409be971510",
-    "page": "https://www.lisaneeforchicago.com/",
-    "credit": "Lisa Nee for Chicago (campaign site)",
-    "crop": "520x520+385+80"
-  },
-  "mayor|Zoe X. Ma": {
-    "url": "https://vibe.filesafe.space/meta/1776525447363326568/og_image.jpg",
-    "page": "https://zoemaformayor.com/",
-    "credit": "Zoe Ma for Mayor (campaign site)",
-    "crop": "470x470+405+565"
-  },
-  "alderperson-ward-1|Bill Thanoukos": {
-    "url": "https://pbs.twimg.com/profile_images/2074885769798238208/ao6ThIw8.jpg",
-    "page": "https://x.com/bill_thanoukos",
-    "credit": "Bill Thanoukos (his X account)"
-  },
-  "alderperson-ward-2|Richard Omoniyi-Shoyoola": {
-    "url": "https://images.squarespace-cdn.com/content/v1/68e15c33bab1250943b4bf7d/b7a87713-9577-43fb-afef-6ce953ca2d12/Aldermann+Campaign-625.jpg",
-    "page": "https://www.richard4ward2.com",
-    "credit": "Richard Omoniyi-Shoyoola (campaign site)"
-  },
-  "alderperson-ward-7|Nathaniel A. Pendleton": {
-    "url": "https://primary.jwwb.nl/public/o/a/j/temp-jchnrlvjhtgnqlpfsltl/blue-suit-blue-stripe-tie-leaning-high-hvsr01.png?enable-io=true&enable=upscale&fit=bounds&width=1200",
-    "page": "https://www.votenatependleton.com/about-nate-pendleton",
-    "credit": "Vote Nate Pendleton (campaign site)"
-  },
-  "alderperson-ward-9|Cecelia Z. Harrison": {
-    "url": "https://res.cloudinary.com/hxn9dbuhd/image/upload/c_fill,g_auto,f_jpg,q_auto,w_1200,h_630/v1786370397/organizations/6/8/b/7/68b7934f-d065-4f94-bd14-0bcfc1d25fbd/f4adaa06-050a-4e2b-a48f-455f23076b3e.png",
-    "page": "https://www.zeffy.com/en-US/donation-form/support-cecelia-harrison-for-9th-ward-alderperson",
-    "credit": "Cecelia Harrison for 9th Ward (campaign page)",
-    "crop": "360x360+10+150"
-  },
-  "alderperson-ward-27|Nate Cornell": {
-    "url": "https://ugc.production.linktr.ee/7ce7acf0-9279-4fa5-83fa-fa5c3dfc600b_DSC-0387.jpeg",
-    "page": "https://linktr.ee/natecornell27",
-    "credit": "Nate Cornell (campaign Linktree)",
-    "crop": "560x560+390+40"
-  },
-  "mayor|Maria Pappas": {
-    "url": "https://cst.brightspotcdn.com/dims4/default/8d4a818/2147483647/strip/true/crop/6804x3884+0+327/resize/1461x834!/quality/90/?url=https%3A%2F%2Fchorus-production-cst-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2F1e%2Ffd%2F994ffcec404a9c55db44e84bbe1c%2Flastdaytofile-261027-009.jpg",
-    "page": "https://chicago.suntimes.com/",
-    "credit": "Chicago Sun-Times",
-    "crop": "760x760+350+0"
-  },
-  "mayor|Jessica \"Jesse\" Maronto": {
-    "url": "https://southwestregionalpublishing.com/wp-content/uploads/2026/10/SLUG_1_Maronto_Hd_Shot.jpeg",
-    "page": "https://southwestregionalpublishing.com/2026/10/05/traffic-signal-repairman-mba-holder-jesse-maronto-builds-chicago-mayoral-bid-around-cone-platform/",
-    "credit": "Southwest Regional Publishing",
-    "crop": "860x860+110+100"
-  },
-  "city-treasurer|Bruce Leon": {
-    "url": "https://loyolaphoenix.com/wp-content/uploads/2025/10/BRUCELEON-pdf.jpg",
-    "page": "https://loyolaphoenix.com/2025/10/congressional-catch-up-bruce-leon/",
-    "credit": "Loyola Phoenix",
-    "crop": "520x520+130+20"
-  },
-  "alderperson-ward-1|Laura Yepez": {
-    "url": "https://www.cookcountydems.com/wp-content/uploads/2020/08/Screenshot-2024-04-21-at-7.44.03%E2%80%AFPM-Laura-Yepez.png",
-    "page": "https://www.cookcountydems.com/ward_commttee_people/1st-ward/",
-    "credit": "Cook County Democratic Party",
-    "crop": "560x560+190+20"
-  },
-  "alderperson-ward-7|Sheila Gunn-Ward": {
-    "url": "https://us1-photo.nextdoor.com/post_photos/c8/4a/c84aaff7c6bd42bb605cacdc9b01731f.jpeg",
-    "page": "https://nextdoor.com/pages/sheila-ward-of-coldwell-banker-realty-chicago-il/",
-    "credit": "Nextdoor",
-    "crop": "900x900+380+0"
-  },
-  "alderperson-ward-7|Samuel C. Sparks": {
-    "url": "https://thechicagolandjournal.com/wp-content/uploads/2026/10/Brewing-Change_-Why-Entrepreneur-Sam-Sparks-is-Challenging-a-12-Year-Incumbent-in-Chicagos-7th-Ward.jpg",
-    "page": "https://thechicagolandjournal.com/brewing-change-why-entrepreneur-sam-sparks-is-challenging-a-12-year-incumbent-in-chicagos-7th-ward/",
-    "credit": "The Chicagoland Journal",
-    "crop": "560x560+360+20"
-  },
-  "alderperson-ward-12|Claudia L. Zuno": {
-    "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2026/02/IMG_0327-scaled.jpg?fit=2560%2C1707&ssl=1",
-    "page": "https://blockclubchicago.org/2026/02/18/fight-over-bike-lanes-in-brighton-park-propels-claudia-zuno-to-run-for-12th-ward-alderperson/",
-    "credit": "Block Club Chicago",
-    "crop": "1100x1100+1000+50"
-  },
-  "alderperson-ward-13|Al Cacciottolo": {
-    "url": "https://southwestregionalpublishing.com/wp-content/uploads/2026/08/cacciottolo-headshot.png",
-    "page": "https://southwestregionalpublishing.com/2026/08/20/cacciottolo-to-run-for-13th-ward-alderman-with-marty-quinns-blessing/",
-    "credit": "Southwest Regional Publishing",
-    "crop": "900x900+220+200"
-  },
-  "alderperson-ward-17|Raynetta Greenleaf": {
-    "url": "https://thechicagolandjournal.com/wp-content/uploads/2026/10/Raynetta-Greenleaf-Puts-Neighborhood-Ownership-at-Center-of-17th-Ward-Campaign.jpg",
-    "page": "https://thechicagolandjournal.com/raynetta-greenleaf-puts-neighborhood-ownership-at-center-of-17th-ward-campaign/",
-    "credit": "The Chicagoland Journal",
-    "crop": "480x480+310+20"
-  },
-  "alderperson-ward-19|Jillian Robinson": {
-    "url": "https://bloximages.newyork1.vip.townnews.com/beverlyreview.net/content/tncms/assets/v3/editorial/0/ab/0ab6749a-e719-476e-86c7-219ec07dd910/6aea01fb762d4.image.jpg",
-    "page": "https://www.beverlyreview.net/news/top_story/article_6d5c0544-be01-44e5-a66b-800e3204265b.html",
-    "credit": "The Beverly Review",
-    "crop": "900x900+150+120"
-  },
-  "alderperson-ward-25|Aida Flores": {
-    "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2019/01/IMG_6579.jpg?fit=5184%2C2916&ssl=1",
-    "page": "https://blockclubchicago.org/2026/02/04/aida-flores-again-running-for-25th-ward-aldermanic-seat/",
-    "credit": "Block Club Chicago",
-    "crop": "1400x1400+1950+150"
-  }
+ "mayor|Willie L. Wilson": {
+  "commons": "Willie_Wilson_2015.jpg"
+ },
+ "mayor|Joe Holberg": {
+  "commons": "Joe_Holberg_2025_(cropped).jpg"
+ },
+ "mayor|Danielle Carter-Walters": {
+  "commons": "Danielle_Carter_Walters_in_2026_(cropped).jpg"
+ },
+ "mayor|John Kelly": {
+  "url": "https://johnkellyforchi.com/wp-content/uploads/2026/08/jkseocard-1024x538.png",
+  "page": "https://johnkellyforchi.com/",
+  "credit": "John Kelly for Chicago (campaign site)",
+  "crop": "400x400+590+10"
+ },
+ "mayor|Matt Brewer": {
+  "url": "https://run.imgix.net/9e231b13-3c59-4e21-94f1-d4e0232af310/84998b8e-df7c-4118-b80b-12ce53148652/84998b8e-df7c-4118-b80b-12ce53148652.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C502%2C7008%2C3668&s=e984061d5e6daaa9db3c0b95430b501c",
+  "page": "https://www.mattbrewer.com/",
+  "credit": "Matt Brewer (campaign site)",
+  "crop": "2200x2200+1300+100"
+ },
+ "mayor|Lisa Nee": {
+  "url": "https://run.imgix.net/1b30bb13-49a4-43a9-ab24-648182a64aae/1223ee1c-57f3-4c08-907c-af998e08252b/1223ee1c-57f3-4c08-907c-af998e08252b.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C1174%2C1066&s=5b676f43c985cc437b1d4409be971510",
+  "page": "https://www.lisaneeforchicago.com/",
+  "credit": "Lisa Nee for Chicago (campaign site)",
+  "crop": "520x520+385+80"
+ },
+ "mayor|Zoe X. Ma": {
+  "url": "https://vibe.filesafe.space/meta/1776525447363326568/og_image.jpg",
+  "page": "https://zoemaformayor.com/",
+  "credit": "Zoe Ma for Mayor (campaign site)",
+  "crop": "470x470+405+565"
+ },
+ "alderperson-ward-1|Bill Thanoukos": {
+  "url": "https://pbs.twimg.com/profile_images/2074885769798238208/ao6ThIw8.jpg",
+  "page": "https://x.com/bill_thanoukos",
+  "credit": "Bill Thanoukos (his X account)"
+ },
+ "alderperson-ward-2|Richard Omoniyi-Shoyoola": {
+  "url": "https://images.squarespace-cdn.com/content/v1/68e15c33bab1250943b4bf7d/b7a87713-9577-43fb-afef-6ce953ca2d12/Aldermann+Campaign-625.jpg",
+  "page": "https://www.richard4ward2.com",
+  "credit": "Richard Omoniyi-Shoyoola (campaign site)"
+ },
+ "alderperson-ward-7|Nathaniel A. Pendleton": {
+  "url": "https://primary.jwwb.nl/public/o/a/j/temp-jchnrlvjhtgnqlpfsltl/blue-suit-blue-stripe-tie-leaning-high-hvsr01.png?enable-io=true&enable=upscale&fit=bounds&width=1200",
+  "page": "https://www.votenatependleton.com/about-nate-pendleton",
+  "credit": "Vote Nate Pendleton (campaign site)"
+ },
+ "alderperson-ward-9|Cecelia Z. Harrison": {
+  "url": "https://res.cloudinary.com/hxn9dbuhd/image/upload/c_fill,g_auto,f_jpg,q_auto,w_1200,h_630/v1786370397/organizations/6/8/b/7/68b7934f-d065-4f94-bd14-0bcfc1d25fbd/f4adaa06-050a-4e2b-a48f-455f23076b3e.png",
+  "page": "https://www.zeffy.com/en-US/donation-form/support-cecelia-harrison-for-9th-ward-alderperson",
+  "credit": "Cecelia Harrison for 9th Ward (campaign page)",
+  "crop": "360x360+10+150"
+ },
+ "alderperson-ward-27|Nate Cornell": {
+  "url": "https://ugc.production.linktr.ee/7ce7acf0-9279-4fa5-83fa-fa5c3dfc600b_DSC-0387.jpeg",
+  "page": "https://linktr.ee/natecornell27",
+  "credit": "Nate Cornell (campaign Linktree)",
+  "crop": "560x560+390+40"
+ },
+ "mayor|Maria Pappas": {
+  "url": "https://cst.brightspotcdn.com/dims4/default/8d4a818/2147483647/strip/true/crop/6804x3884+0+327/resize/1461x834!/quality/90/?url=https%3A%2F%2Fchorus-production-cst-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2F1e%2Ffd%2F994ffcec404a9c55db44e84bbe1c%2Flastdaytofile-261027-009.jpg",
+  "page": "https://chicago.suntimes.com/",
+  "credit": "Chicago Sun-Times",
+  "crop": "760x760+350+0"
+ },
+ "mayor|Jessica \"Jesse\" Maronto": {
+  "url": "https://southwestregionalpublishing.com/wp-content/uploads/2026/10/SLUG_1_Maronto_Hd_Shot.jpeg",
+  "page": "https://southwestregionalpublishing.com/2026/10/05/traffic-signal-repairman-mba-holder-jesse-maronto-builds-chicago-mayoral-bid-around-cone-platform/",
+  "credit": "Southwest Regional Publishing",
+  "crop": "860x860+110+100"
+ },
+ "city-treasurer|Bruce Leon": {
+  "url": "https://loyolaphoenix.com/wp-content/uploads/2025/10/BRUCELEON-pdf.jpg",
+  "page": "https://loyolaphoenix.com/2025/10/congressional-catch-up-bruce-leon/",
+  "credit": "Loyola Phoenix",
+  "crop": "520x520+130+20"
+ },
+ "alderperson-ward-1|Laura Yepez": {
+  "url": "https://www.cookcountydems.com/wp-content/uploads/2020/08/Screenshot-2024-04-21-at-7.44.03%E2%80%AFPM-Laura-Yepez.png",
+  "page": "https://www.cookcountydems.com/ward_commttee_people/1st-ward/",
+  "credit": "Cook County Democratic Party",
+  "crop": "560x560+190+20"
+ },
+ "alderperson-ward-7|Sheila Gunn-Ward": {
+  "url": "https://us1-photo.nextdoor.com/post_photos/c8/4a/c84aaff7c6bd42bb605cacdc9b01731f.jpeg",
+  "page": "https://nextdoor.com/pages/sheila-ward-of-coldwell-banker-realty-chicago-il/",
+  "credit": "Nextdoor",
+  "crop": "900x900+380+0"
+ },
+ "alderperson-ward-7|Samuel C. Sparks": {
+  "url": "https://thechicagolandjournal.com/wp-content/uploads/2026/10/Brewing-Change_-Why-Entrepreneur-Sam-Sparks-is-Challenging-a-12-Year-Incumbent-in-Chicagos-7th-Ward.jpg",
+  "page": "https://thechicagolandjournal.com/brewing-change-why-entrepreneur-sam-sparks-is-challenging-a-12-year-incumbent-in-chicagos-7th-ward/",
+  "credit": "The Chicagoland Journal",
+  "crop": "560x560+360+20"
+ },
+ "alderperson-ward-12|Claudia L. Zuno": {
+  "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2026/02/IMG_0327-scaled.jpg?fit=2560%2C1707&ssl=1",
+  "page": "https://blockclubchicago.org/2026/02/18/fight-over-bike-lanes-in-brighton-park-propels-claudia-zuno-to-run-for-12th-ward-alderperson/",
+  "credit": "Block Club Chicago",
+  "crop": "1100x1100+1000+50"
+ },
+ "alderperson-ward-13|Al Cacciottolo": {
+  "url": "https://southwestregionalpublishing.com/wp-content/uploads/2026/08/cacciottolo-headshot.png",
+  "page": "https://southwestregionalpublishing.com/2026/08/20/cacciottolo-to-run-for-13th-ward-alderman-with-marty-quinns-blessing/",
+  "credit": "Southwest Regional Publishing",
+  "crop": "900x900+220+200"
+ },
+ "alderperson-ward-17|Raynetta Greenleaf": {
+  "url": "https://thechicagolandjournal.com/wp-content/uploads/2026/10/Raynetta-Greenleaf-Puts-Neighborhood-Ownership-at-Center-of-17th-Ward-Campaign.jpg",
+  "page": "https://thechicagolandjournal.com/raynetta-greenleaf-puts-neighborhood-ownership-at-center-of-17th-ward-campaign/",
+  "credit": "The Chicagoland Journal",
+  "crop": "480x480+310+20"
+ },
+ "alderperson-ward-19|Jillian Robinson": {
+  "url": "https://bloximages.newyork1.vip.townnews.com/beverlyreview.net/content/tncms/assets/v3/editorial/0/ab/0ab6749a-e719-476e-86c7-219ec07dd910/6aea01fb762d4.image.jpg",
+  "page": "https://www.beverlyreview.net/news/top_story/article_6d5c0544-be01-44e5-a66b-800e3204265b.html",
+  "credit": "The Beverly Review",
+  "crop": "900x900+150+120"
+ },
+ "alderperson-ward-25|Aida Flores": {
+  "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2019/01/IMG_6579.jpg?fit=5184%2C2916&ssl=1",
+  "page": "https://blockclubchicago.org/2026/02/04/aida-flores-again-running-for-25th-ward-aldermanic-seat/",
+  "credit": "Block Club Chicago",
+  "crop": "1400x1400+1950+150"
+ },
+ "police-district-council-10|Kiisha Smith": {
+  "url": "https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2026/11/825267016_122102312637487173_6244215970874495093_n-e1794331885786.jpg?resize=960%2C950&ssl=1",
+  "page": "https://blockclubchicago.org/2026/11/11/ald-monique-scott-faces-2-challengers-in-24th-ward-race/",
+  "credit": "Facebook"
+ },
+ "police-district-council-11|Alees Edwards": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Edwards-Alees_WM2319-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/alees-edwards/",
+  "credit": "City of Chicago / Community Commission for Public Safety and Accountability"
+ },
+ "police-district-council-11|Bryan J. Ramson, Jr.": {
+  "url": "https://i0.wp.com/illinoisanswers.org/wp-content/uploads/2025/05/Copy-of-American-Dream-Portraits-5758-scaled.jpg?resize=780%2C520&ssl=1",
+  "page": "https://illinoisanswers.org/2025/05/27/making-it-in-chicago-detours-and-dead-ends-on-the-path-to-opportunity/",
+  "credit": "Akilah Townsend for Illinois Answer Project"
+ },
+ "police-district-council-11|Jocelyn A. Woodards": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/03/Jocelyn-Woodards-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/jocelyn-woodards/",
+  "credit": "Patrick L. Pyszka / © City of Chicago (CCPSA)"
+ },
+ "police-district-council-14|Christopher M. Laurent": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Laurent-Christopher_WM2237-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/christopher-laurent/",
+  "credit": "Community Commission for Public Safety and Accountability (CCPSA), City of Chicago"
+ },
+ "police-district-council-15|Arewa Najm Ekua": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Winters-Karen-2024-014-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/?p=1624",
+  "credit": "Community Commission for Public Safety and Accountability, City of Chicago"
+ },
+ "police-district-council-15|Deondre' Rutues (Dr. Dre')": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Rutues-Deondre-2024-002-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/?p=1692",
+  "credit": "Community Commission for Public Safety and Accountability, City of Chicago"
+ },
+ "police-district-council-16|Colleen Murphy": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Murphy-Colleen_WM2285-1-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/district-council/16th-district-council/",
+  "credit": "Walter S. Mitchell III / © City of Chicago (CCPSA)"
+ },
+ "police-district-council-18|Brad Kessler": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Kessler-Brad-2024-009-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/brad-kessler/",
+  "credit": "CCPSA, City of Chicago (image metadata: Patrick L. Pyszka, © City of Chicago)"
+ },
+ "police-district-council-18|Karen Kane": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Kane-Karen-2023-004-1.jpg",
+  "page": "https://ccpsa.chicago.gov/member/karen-kane/",
+  "credit": "CCPSA, City of Chicago (image metadata: Patrick L. Pyszka, © City of Chicago)"
+ },
+ "police-district-council-19|Jennifer Schaffer": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Schaffer-Jennifer-2023-008-1-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/district-council/19th-district-council/",
+  "credit": "Community Commission for Public Safety and Accountability (City of Chicago)"
+ },
+ "police-district-council-19|Sam Schoenburg": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2025/07/Schoenburg-Samuel-2024-002-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/district-council/19th-district-council/",
+  "credit": "Community Commission for Public Safety and Accountability (City of Chicago)"
+ },
+ "police-district-council-1|Adrienne Johnson": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Johnson-Adrienne_WM2231-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/?p=1170",
+  "credit": "CCPSA, City of Chicago (image metadata: Walter S. Mitchell III, © City of Chicago)"
+ },
+ "police-district-council-1|Sarah Kammerer": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/03/Sarah-Kammerer-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/?p=1170",
+  "credit": "CCPSA, City of Chicago (image metadata: Patrick L. Pyszka, © City of Chicago)"
+ },
+ "police-district-council-20|Eric Smith": {
+  "url": "https://static.wixstatic.com/media/cdb395_9dc950f857e94e158dda485fb349da16~mv2.jpg",
+  "page": "https://www.dc20alliance.com/about",
+  "credit": "© 2026 DC 20 Alliance"
+ },
+ "police-district-council-20|Nassir Faulkner": {
+  "url": "https://static.wixstatic.com/media/cdb395_5da08ca458f04142ab496052d8f616e7~mv2.jpg",
+  "page": "https://www.dc20alliance.com/about",
+  "credit": "© 2026 DC 20 Alliance"
+ },
+ "police-district-council-20|Rebecca Kling": {
+  "url": "https://static.wixstatic.com/media/cdb395_afa101cf0016468599abeac7cea5b4af~mv2.png",
+  "page": "https://www.dc20alliance.com/about",
+  "credit": "© 2026 DC 20 Alliance"
+ },
+ "police-district-council-22|Lee Bielecki": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Bielecki-Lee-2024-003-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/district-council/22nd-district-council/",
+  "credit": "CCPSA"
+ },
+ "police-district-council-24|Keola Jean-Joseph": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2025/07/Keola-Joseph-Jean-2025-006-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/keola-jean-joseph/",
+  "credit": "Walter S. Mitchell III, City of Chicago"
+ },
+ "police-district-council-25|Angelica Green": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Green-Angelica-2024-014-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/angelica-p-green/",
+  "credit": "Patrick L.Pyszka, City of Chicago (per image metadata; CCPSA)"
+ },
+ "police-district-council-2|Alexander Perez": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/03/Alexander-Perez-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/district-council/2nd-district-council/",
+  "credit": "CCPSA (Community Commission for Public Safety and Accountability), City of Chicago"
+ },
+ "police-district-council-2|Ephraim Lee": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Lee-Ephraim-2024-013-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/ephraim-lee/",
+  "credit": "CCPSA (Community Commission for Public Safety and Accountability), City of Chicago"
+ },
+ "police-district-council-3|Kenya Franklin": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Franklin-Kenya-2024-014-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/?p=680",
+  "credit": "Community Commission for Public Safety and Accountability (CCPSA), City of Chicago"
+ },
+ "police-district-council-4|Brenda D. Waters": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Waters-Brenda_WM2290-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/brenda-waters/",
+  "credit": "Community Commission for Public Safety and Accountability (City of Chicago)"
+ },
+ "police-district-council-4|Gloria Jenkins": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Jenkins-Gloria_WM2375-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/gloria-jenkins/",
+  "credit": "Community Commission for Public Safety and Accountability (City of Chicago)"
+ },
+ "police-district-council-4|Lovie Bernard": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Lovie-Benard_WM2417-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/lovie-bernard/",
+  "credit": "Community Commission for Public Safety and Accountability (City of Chicago)"
+ },
+ "police-district-council-6|Aisha Humphries": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Humphries-Aisha_WM2362-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/?p=1610",
+  "credit": "Community Commission for Public Safety and Accountability (CCPSA)"
+ },
+ "police-district-council-6|Ciera Whitaker": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2025/07/Whitaker-Ciera-2025-009-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/district-council/6th-district-council/",
+  "credit": "Walter S. Mitchell III, Samuel Sotelo-Avila, City of Chicago"
+ },
+ "police-district-council-6|David Boykin": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Boykin-David-2024-004-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/david-boykin/",
+  "credit": "Patrick L. Pyszka, City of Chicago"
+ },
+ "police-district-council-7|Dion McGill": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-McGill-Dion_WM2398-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/dion-mcgill/",
+  "credit": "Walter S. Mitchell III, City of Chicago"
+ },
+ "police-district-council-7|Joseph G. Williams": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/03/Williams-Joseph.jpg",
+  "page": "https://ccpsa.chicago.gov/?p=704",
+  "credit": "Patrick L. Pyszka, City of Chicago"
+ },
+ "police-district-council-7|Teresa R. Chandler": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/2024-03-24-Chandler-Teresa_WM2353-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/teresa-chandler/",
+  "credit": "Walter S. Mitchell III, City of Chicago"
+ },
+ "police-district-council-8|Jason Huff": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Dist.008-Jason-Huff.jpeg",
+  "page": "https://ccpsa.chicago.gov/member/jason-huff/",
+  "credit": "Community Commission for Public Safety and Accountability (CCPSA)"
+ }
 }
