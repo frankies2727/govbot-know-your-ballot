@@ -76,7 +76,6 @@ export const DENVER_2027_GUIDE: GuideSpec = {
     addressPlaceholder: 'e.g. 1437 Bannock St or 3001 E Colfax Ave',
     exampleAddress: '1437 Bannock St, Denver',
     districtKinds: 'council district',
-    measuresLabel: 'citywide questions',
     sectionNotes: {
       city: <>{NONPARTISAN}</>,
       council: <>{NONPARTISAN} Every voter votes for both at-large seats and for their own district’s member.</>,

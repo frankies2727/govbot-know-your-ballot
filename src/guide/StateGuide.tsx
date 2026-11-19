@@ -612,7 +612,6 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   // Spins while the browser finds you and the lookup runs.
   const [locating, setLocating] = useState(false);
   useEffect(() => { if (!status.busy) setLocating(false); }, [status.busy]);
-  const candidates = data.races.reduce((n, r) => n + r.candidates.length, 0);
   const byDistrict = data.races.length - headliners.length;
   // Fetch the district maps while the voter types, once the page is idle.
   useEffect(() => {
@@ -687,15 +686,6 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
           <SavedPicks place={place} saved={saved} onContinue={onContinue} onStartFresh={onStartFresh} />
         </div>
       )}
-
-      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
-        {([[headliners.length, 'races on every ballot'], [byDistrict, 'races by district'], [candidates, 'candidates'], [data.measures.length, copy.measuresLabel]] as [number, string][]).filter(([n], i) => i === 0 || i === 2 || n > 0).map(([n, label]) => (
-          <li key={label} className="rounded-2xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)] p-4">
-            <span className="block text-3xl font-black">{n}</span>
-            <span className="block text-sm font-bold">{label}</span>
-          </li>
-        ))}
-      </ul>
 
       {daysLeft >= 0 && <ElectionTimeline dates={spec.keyDates} source={{ name: `${spec.links.datesSource}’s calendar`, url: spec.links.dates }} />}
 

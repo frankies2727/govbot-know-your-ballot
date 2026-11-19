@@ -89,7 +89,6 @@ export const MICHIGAN_GUIDE: GuideSpec = {
     addressPlaceholder: 'e.g. 2 Woodward Ave, Detroit or 100 N Capitol Ave, Lansing',
     exampleAddress: '2 Woodward Ave, Detroit',
     districtKinds: 'U.S. House, state Senate, state House and Court of Appeals',
-    measuresLabel: 'statewide proposals',
     sectionNotes: {
       judicial: <>These are on the <strong>nonpartisan</strong> part of your ballot: no party labels, and the straight-party box doesn’t cover them. Circuit, district and probate judges for your county aren’t in here yet; your sample ballot has them.</>,
       measures: <>Two statewide proposals. Your city, township or school district may add local ones (millages, charter changes); your sample ballot has those.</>,

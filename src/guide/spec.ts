@@ -89,8 +89,6 @@ export interface GuideSpec {
     sameBallot?: string;
     /** "U.S. House, state Senate, state House and Court of Appeals": the by-district races an address adds. */
     districtKinds: string;
-    /** "statewide proposals", "constitutional amendment": the ballot questions, as the ballot calls them. */
-    measuresLabel: string;
     /** Under a section's heading: a note on judges, on the questions. */
     sectionNotes: Partial<Record<string, ReactNode>>;
     /** Browsing a county: what the list holds ("the statewide races and proposals, … that reaches into the county"). */

@@ -87,7 +87,6 @@ export const MINNESOTA_GUIDE: GuideSpec = {
     addressPlaceholder: 'e.g. 350 S 5th St, Minneapolis or 75 Rev Dr Martin Luther King Jr Blvd, St Paul',
     exampleAddress: '350 S 5th St, Minneapolis',
     districtKinds: 'U.S. House, state Senate, state House and district court',
-    measuresLabel: 'constitutional amendment',
     sectionNotes: {
       judicial: <>Judges are on the <strong>nonpartisan</strong> part of your ballot: no party labels. The sitting judge is marked “incumbent” on the ballot, and most run unopposed; marking them is a vote, leaving it blank is fine too. The district court seats are your judicial district’s: Minnesota has ten, each a group of counties, so your county decides which seats you see.</>,
       measures: <>One statewide question. <strong>A blank vote counts as a no:</strong> an amendment passes only if a majority of everyone voting in the election marks yes. Your city or school district may add local questions; your sample ballot has those.</>,

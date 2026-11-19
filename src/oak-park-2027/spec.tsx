@@ -66,7 +66,6 @@ export const OAK_PARK_2027_GUIDE: GuideSpec = {
     ],
     sameBallot: 'Every Oak Park voter gets the same ballot: the village, both school districts, the library, the parks and Triton College. No address needed.',
     districtKinds: 'village',
-    measuresLabel: 'village questions',
     sectionNotes: {
       city: <>{NONPARTISAN} Ranked-choice voting: voters approved it in 2024 (<Out href={LINKS.rcvNews}>Wednesday Journal</Out>), but the Cook County Clerk says state law doesn’t allow it yet (<Out href={LINKS.rcvClerk}>the Clerk’s office, as reported</Out>).</>,
       school: <>{NONPARTISAN} District 200 is shared with River Forest; its voters elect the same board.</>,

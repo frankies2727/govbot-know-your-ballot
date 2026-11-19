@@ -66,7 +66,6 @@ export const WISCONSIN_2027_GUIDE: GuideSpec = {
     addressPlaceholder: 'e.g. 200 E Wells St, Milwaukee or 2 E Main St, Madison',
     exampleAddress: '200 E Wells St, Milwaukee',
     districtKinds: 'Court of Appeals and circuit court',
-    measuresLabel: 'statewide questions',
     sectionNotes: {
       judicial: <>Every spring race is nonpartisan. Your city, village, town and school races are on your sample ballot at <Out href={LINKS.myInfo}>MyVote.wi.gov</Out>.</>,
     },

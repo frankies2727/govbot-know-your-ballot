@@ -76,7 +76,6 @@ export const JACKSONVILLE_2027_GUIDE: GuideSpec = {
     addressPlaceholder: 'e.g. 117 W Duval St or 1 Ocean Blvd, Atlantic Beach',
     exampleAddress: '117 W Duval St, Jacksonville',
     districtKinds: 'council district',
-    measuresLabel: 'countywide questions',
     sectionNotes: {
       city: <>{PARTY}</>,
       county: <>Duval County’s constitutional officers, elected with the city’s offices. {PARTY}</>,

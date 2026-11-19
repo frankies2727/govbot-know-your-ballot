@@ -86,7 +86,6 @@ export const WISCONSIN_GUIDE: GuideSpec = {
     addressPlaceholder: 'e.g. 200 E Wells St, Milwaukee or 2 E Main St, Madison',
     exampleAddress: '200 E Wells St, Milwaukee',
     districtKinds: 'U.S. House, state Senate and Assembly',
-    measuresLabel: 'statewide questions',
     sectionNotes: {
       measures: <>Three statewide questions, each a yes or no on amending the state constitution. Your county, city or school district may add local referendums; your sample ballot has those.</>,
     },

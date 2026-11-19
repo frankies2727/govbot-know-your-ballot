@@ -100,7 +100,6 @@ export const CHICAGO_2027_GUIDE: GuideSpec = {
     addressPlaceholder: 'e.g. 121 N LaSalle St or 5800 N Lincoln Ave',
     exampleAddress: '121 N LaSalle St, Chicago',
     districtKinds: 'ward and police district',
-    measuresLabel: 'citywide questions',
     sectionNotes: {
       city: <>{PARTY_NOTE}</>,
       council: <>{PARTY_NOTE}</>,
