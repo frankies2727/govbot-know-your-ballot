@@ -40,7 +40,10 @@ export interface OutsideSpending {
 }
 
 export interface Candidate {
+  /** Who a pick points at: stays the same person from build to build. Also the ballot number where no `position` is given. */
   ballot: number;
+  /** The official ballot position, once the ballot is certified (scripts/ballot-order.mjs). */
+  position?: number;
   name: string;
   party: string;
   /** Only set when official records (FEC or ISBE) say so. */

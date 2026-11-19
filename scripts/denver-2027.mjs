@@ -23,6 +23,7 @@ import { outlineOf, readLayer } from './city-maps.mjs';
 import { recentBills } from './illinois/govbot.mjs';
 import { sameName } from './wiki.mjs';
 import { addCandidatePhotos, addHolderPhotos, applyBriefs } from './briefs.mjs';
+import { settleBallots } from './ballot-order.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/denver-2027/', ROOT);
@@ -202,6 +203,7 @@ async function main() {
   console.log(`govbot: ${laws.length} bills`);
 
   // Briefs (candidates and seat holders), campaign sites and accounts, then photos: ./briefs.mjs.
+  settleBallots(races, prev, 'denver-2027'); // stable pick ids; official ballot numbers once known
   const unused = applyBriefs(races, 'denver-2027');
   if (unused.length) console.warn(`briefs.json: no candidate or seat holder for ${unused.join('; ')}`);
   for (const l of (await addCandidatePhotos(races, 'denver-2027', prev)).log) console.log(l);

@@ -16,7 +16,7 @@ import { isoDate, longDate } from '../seo/format';
 import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
 import { ElectionHeader } from '../ElectionHeader';
-import { CandidateSheet, Compare, Incumbents, MeasureCard, RaceCard } from '../Race';
+import { ballotNo, CandidateSheet, Compare, Incumbents, MeasureCard, RaceCard } from '../Race';
 import { BallotSearch, type Hit } from '../Search';
 import { LandingBar, landingItems } from '../LandingBar';
 import { ResultsProvider } from '../results';
@@ -833,7 +833,7 @@ function SampleContest({ spec, id, pick }: { key?: string; spec: GuideSpec; id: 
       <div className="mt-2 break-inside-avoid">
         <p className="font-bold">{race.office}{race.voteFor > 1 ? ` (vote for up to ${race.voteFor})` : ''}</p>
         <ul className="pl-3">
-          {race.candidates.map((c) => <li key={c.ballot}>{box(picked.includes(c.ballot))}{race.numbered ? `${c.ballot}. ` : ''}{c.name}{c.party && <span className="text-[9pt]"> ({c.party})</span>}</li>)}
+          {race.candidates.map((c) => <li key={c.ballot}>{box(picked.includes(c.ballot))}{race.numbered ? `${ballotNo(c)}. ` : ''}{c.name}{c.party && <span className="text-[9pt]"> ({c.party})</span>}</li>)}
           {race.writeIn && <li>{box(false)}Write-in: ______________________</li>}
         </ul>
       </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Pause, Play } from 'lucide-react';
+import { ChevronDown, Github, Pause, Play } from 'lucide-react';
 import { guidePath } from './hosts';
 import { navigate } from './lib/router';
 import { BackToTop, useDocumentMeta } from './Bits';
@@ -93,7 +93,7 @@ export function KybHome() {
               <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-balance sm:text-[3.4rem] lg:text-[3.9rem]">Everything on Your Ballot. All in One Place.</h1>
               <p className="text-pretty text-xl leading-snug">From presidential and statewide races to judges, school boards, and local ballot questions. Discover who&rsquo;s running, who&rsquo;s funding them, and what you need to know before Election Day.</p>
               <p>
-                <a href="#elections" className="inline-flex min-h-[48px] items-center rounded-full bg-[var(--gb-primary)] px-6 text-[16px] font-bold text-[var(--gb-on-primary)] no-underline hover:bg-[var(--gb-primary-hi)] focus-visible:outline-[var(--gb-text)]">Browse the elections</a>
+                <a href="https://github.com/frankies2727/govbot-know-your-ballot" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-[var(--gb-primary)] px-6 text-[16px] font-bold text-[var(--gb-on-primary)] no-underline hover:bg-[var(--gb-primary-hi)] focus-visible:outline-[var(--gb-text)]"><Github className="h-5 w-5" aria-hidden="true" />See our data on GitHub ↗</a>
               </p>
               <p className="text-[15px]">Free, non-partisan and open source. Nothing about you is kept: no names, no cookies, no tracking.</p>
             </div>

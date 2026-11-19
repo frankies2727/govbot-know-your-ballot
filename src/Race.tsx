@@ -141,6 +141,9 @@ function OutsideBars({ c, max }: { c: Candidate; max: number }) {
   );
 }
 
+/** The number printed beside their name on the ballot. */
+export const ballotNo = (c: Candidate) => c.position ?? c.ballot;
+
 /** The seat's holder is one of these candidates. */
 export const isIncumbent = (race: Race, c: Candidate) => Boolean(c.incumbent || race.incumbents?.some((i) => i.ballot === c.ballot));
 
@@ -528,7 +531,7 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
                     {numbered && <span className="text-[9px] font-bold uppercase tracking-wide leading-none text-[var(--gb-text)]">Ballot #</span>}
                     {numbered ? (
                       <span className="w-9 h-9 rounded-full border-2 flex items-center justify-center text-sm font-black" style={on ? { background: color, borderColor: color, color: ink } : { borderColor: 'var(--gb-text)', color: 'var(--gb-text)' }}>
-                        {on ? <Check className="w-5 h-5" strokeWidth={3} /> : c.ballot}
+                        {on ? <Check className="w-5 h-5" strokeWidth={3} /> : ballotNo(c)}
                       </span>
                     ) : (
                       // No official ballot order yet (it comes when the ballot is certified): their face, with a check over it once picked.
@@ -639,7 +642,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
             {c.party && <Badge>{c.party}</Badge>}
             {c.filing && <Badge tone="var(--gb-amber-hi)" ink="var(--gb-bg)">{c.filing}</Badge>}
             {c.nominatedBy && <Badge>{c.nominatedBy} nominee</Badge>}
-            {numbered && <Badge>Ballot #{c.ballot}</Badge>}
+            {numbered && <Badge>Ballot #{ballotNo(c)}</Badge>}
             {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
           </div>
         </>
@@ -797,7 +800,7 @@ function CompareColumns({ race, color, ink, numbered, picked, onPick }: { race: 
                     <div className="min-w-0 space-y-1">
                       <p className="text-lg font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
                       <div className="flex flex-wrap gap-1.5">
-                        {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{c.ballot}</span>}
+                        {numbered && <span className="inline-flex items-center rounded-full border-2 px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]" style={{ borderColor: color }}>Ballot #{ballotNo(c)}</span>}
                         {c.party && <Badge>{c.party}</Badge>}
                         {c.filing && <Badge tone="var(--gb-amber-hi)" ink="var(--gb-bg)">{c.filing}</Badge>}
                         {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
@@ -969,7 +972,7 @@ function CardHero({ race, c, numbered, onBallot = false }: { race: Race; c: Cand
       {onBallot && <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] px-2.5 py-0.5 text-xs font-black text-[var(--gb-text)]"><Check className="w-3.5 h-3.5" strokeWidth={3} aria-hidden="true" />On My Ballot</span>}
       <p className="mt-3 text-2xl font-black leading-tight text-[var(--gb-text)]">{c.name}</p>
       <div className="mt-2 flex flex-wrap justify-center gap-1.5">
-        {numbered && <span className="inline-flex items-center rounded-full border-2 border-[var(--gb-text)] px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]">Ballot #{c.ballot}</span>}
+        {numbered && <span className="inline-flex items-center rounded-full border-2 border-[var(--gb-text)] px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-[var(--gb-text)]">Ballot #{ballotNo(c)}</span>}
         {c.party && <Badge>{c.party}</Badge>}
         {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
       </div>

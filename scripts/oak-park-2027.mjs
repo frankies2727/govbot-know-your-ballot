@@ -28,6 +28,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { outlineOf, readLayer } from './city-maps.mjs';
 import { addCandidatePhotos, addHolderPhotos, applyBriefs } from './briefs.mjs';
+import { settleBallots } from './ballot-order.mjs';
 import { recentBills } from './illinois/govbot.mjs';
 import { addStateMoney, candidatesOnFile, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
 import { sameName } from './wiki.mjs';
@@ -172,6 +173,7 @@ async function main() {
   }
 
   // Briefs (candidates and seat holders), campaign sites and accounts, then photos: ./briefs.mjs.
+  settleBallots(races, prev, 'oak-park-2027'); // stable pick ids; official ballot numbers once known
   const unused = applyBriefs(races, 'oak-park-2027');
   if (unused.length) console.warn(`briefs.json: no candidate or seat holder for ${unused.join('; ')}`);
   for (const l of (await addCandidatePhotos(races, 'oak-park-2027', prev)).log) console.log(l);

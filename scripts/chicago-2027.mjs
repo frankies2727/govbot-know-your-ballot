@@ -36,6 +36,7 @@ import { outlineOf } from './city-maps.mjs';
 import { councilRecords } from './chicago-2027/council.mjs';
 import { recentBills } from './illinois/govbot.mjs';
 import { addHolderPhotos, applyBriefs } from './briefs.mjs';
+import { settleBallots } from './ballot-order.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const OUT = new URL('src/data/chicago-2027/', ROOT);
@@ -301,6 +302,7 @@ async function main() {
   }
   // Briefs (candidates and seat holders), campaign sites and accounts: ./briefs.mjs. Photos found by
   // hand for them go in photos-chosen.json, which the automatic sources above still win over.
+  settleBallots(races, prev, 'chicago-2027'); // stable pick ids; official ballot numbers once known
   const unused = applyBriefs(races, 'chicago-2027');
   if (unused.length) console.warn(`briefs.json: no candidate or seat holder for ${unused.join('; ')}`);
   const photos = await addPhotos(races, { dir: PHOTOS.pathname, publicPath: 'kyb-photos/chicago-2027', prev, chosen: new URL('./chicago-2027/photos-chosen.json', import.meta.url) });
