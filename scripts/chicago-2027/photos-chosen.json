@@ -508,5 +508,10 @@
  "alderperson-ward-5|Ryan Greenlaw": {
   "url": "repo:scripts/chicago-2027/provided/ryan-greenlaw.jpg",
   "credit": "Provided to Know Your Ballot"
+ },
+ "alderperson-ward-34|Nathan Bean": {
+  "url": "repo:scripts/chicago-2027/provided/nathan-bean.jpg",
+  "page": "https://www.instagram.com/votethebean/",
+  "credit": "Nathan Bean on Instagram (@votethebean)"
  }
 }
