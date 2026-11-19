@@ -526,9 +526,17 @@ export const RaceCard = memo(function RaceCard({ race, color, ink, numbered, cho
                 >
                   <span className="shrink-0 flex flex-col items-center gap-0.5">
                     {numbered && <span className="text-[9px] font-bold uppercase tracking-wide leading-none text-[var(--gb-text)]">Ballot #</span>}
-                    <span className="w-9 h-9 rounded-full border-2 flex items-center justify-center text-sm font-black" style={on ? { background: color, borderColor: color, color: ink } : { borderColor: 'var(--gb-text)', color: 'var(--gb-text)' }}>
-                      {on ? <Check className="w-5 h-5" strokeWidth={3} /> : numbered ? c.ballot : ''}
-                    </span>
+                    {numbered ? (
+                      <span className="w-9 h-9 rounded-full border-2 flex items-center justify-center text-sm font-black" style={on ? { background: color, borderColor: color, color: ink } : { borderColor: 'var(--gb-text)', color: 'var(--gb-text)' }}>
+                        {on ? <Check className="w-5 h-5" strokeWidth={3} /> : c.ballot}
+                      </span>
+                    ) : (
+                      // No official ballot order yet (it comes when the ballot is certified): their face, with a check over it once picked.
+                      <span className="relative w-11 h-11 rounded-full border-2 p-px" style={{ borderColor: on ? color : 'var(--gb-text)' }}>
+                        <Face c={c} className="h-full w-full text-sm" />
+                        {on && <span className="absolute inset-0 m-px flex items-center justify-center rounded-full" style={{ background: `color-mix(in srgb, ${color} 80%, transparent)`, color: ink }}><Check className="w-5 h-5" strokeWidth={3} /></span>}
+                      </span>
+                    )}
                   </span>
                   <span className="min-w-0">
                     <span className="block font-bold leading-snug text-[var(--gb-text)]">{c.name}</span>
