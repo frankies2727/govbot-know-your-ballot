@@ -1,6 +1,6 @@
 // Offline test of api/_pulse.ts against an in-memory stand-in for Redis (the
 // handful of commands it uses): node --experimental-strip-types scripts/pulse-test.mjs
-import { addressKey, connect, heart, ourOrigin, ping } from '../api/_pulse.ts';
+import { addressKey, connect, ourOrigin, ping } from '../api/_pulse.ts';
 
 function fake() {
   const kv = new Map(), z = new Map(), hll = new Map();
@@ -43,16 +43,9 @@ for (let i = 0; i < 125; i++) await ping(redis, `bot-${String(i).padStart(8, '0'
 p = await ping(redis, 'tab-dddddddd', 'ip4', t0 + 71_000);
 if (p.here > 125) throw new Error(`one address inflated the count to ${p.here}`);
 eq(p.here <= 122, true, 'flood is capped near the per-address limit');
-// Hearts: counted, timestamped, and limited to 5 an hour per address.
-let h = await heart(redis, 'ip5', t0);
-eq([h.counted, h.hearts, h.heartAt], [true, 1, t0], 'first heart');
-for (let i = 0; i < 4; i++) await heart(redis, 'ip5', t0 + 1_000);
-h = await heart(redis, 'ip5', t0 + 2_000);
-eq([h.counted, h.hearts], [false, 5], 'sixth heart from one address is not counted');
-h = await heart(redis, 'ip6', t0 + 3_000);
-eq([h.counted, h.hearts], [true, 6], 'another address still can');
+// The answer is just the two numbers (the heart isn't counted).
 p = await ping(redis, 'tab-eeeeeeee', 'ip7', t0 + 4_000);
-eq([p.hearts, p.heartAt], [6, t0 + 3_000], 'pulse carries the heart total and when it last happened');
+eq(Object.keys(p).sort(), ['here', 'total'], 'pulse returns here and total only');
 // Addresses become opaque keys; the same address gives the same key, a different secret a different one.
 eq(addressKey('1.2.3.4', 's1') === addressKey('1.2.3.4', 's1') && addressKey('1.2.3.4', 's1') !== addressKey('1.2.3.4', 's2') && !addressKey('1.2.3.4', 's1').includes('1.2.3.4'), true, 'address key');
 // The store is found under Vercel's default names, a custom prefix, or Upstash's own; absent → null.

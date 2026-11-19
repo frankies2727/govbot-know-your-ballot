@@ -30,5 +30,5 @@ export default function App() {
   const route = useRoute();
   const guide = route.match(/^projects\/know-your-ballot-(illinois|michigan|minnesota|wisconsin|chicago-2027|jacksonville-2027|denver-2027|wisconsin-2027|oak-park-2027)(\/|$)/)?.[1];
   const Screen = guide === 'illinois' ? Illinois : guide === 'michigan' ? Michigan : guide === 'minnesota' ? Minnesota : guide === 'wisconsin' ? Wisconsin : guide === 'chicago-2027' ? Chicago2027 : guide === 'jacksonville-2027' ? Jacksonville2027 : guide === 'denver-2027' ? Denver2027 : guide === 'wisconsin-2027' ? Wisconsin2027 : guide === 'oak-park-2027' ? OakPark2027 : KybHome;
-  return <><Suspense fallback={<Loading />}><Screen /></Suspense><Pulse compact={!!guide} /></>;
+  return <><Suspense fallback={<Loading />}><Screen /></Suspense><Pulse /></>;
 }

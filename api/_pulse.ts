@@ -1,5 +1,5 @@
-// The numbers behind the floating "using the guide right now" counter and the
-// heart (api/pulse.ts, api/heart.ts). Everything is anonymous: a tab is a random
+// The numbers behind the floating "using the guide right now" counter
+// (api/pulse.ts); the heart beside it isn't counted. Everything is anonymous: a tab is a random
 // id it makes up and forgets, nobody is asked who they are, no cookie is set, and
 // the only thing kept about a connection is an HMAC of its address that expires
 // within the hour, so one address can't inflate the numbers. The store is a Redis
@@ -14,7 +14,6 @@ export type Redis = (cmds: Cmd[]) => Promise<unknown[]>;
 
 export const HERE_WINDOW_MS = 60_000;
 const PINGS_PER_MINUTE = 120;   // one address; a school or office behind one still fits
-const HEARTS_PER_HOUR = 5;
 
 /**
  * The store Vercel's integration connected, or null. Two kinds are understood:
@@ -61,7 +60,7 @@ function tcp(url: string): Redis {
 /** The visitor's address as an opaque key: HMAC with the store's own token, so it can't be reversed or matched across sites. */
 export const addressKey = (ip: string, secret: string) => createHmac('sha256', secret).update(ip).digest('hex').slice(0, 24);
 
-export interface Pulse { here: number; total: number; hearts: number; heartAt: number }
+export interface Pulse { here: number; total: number }
 
 /**
  * Counts this tab as here, and reads the numbers. A tab is "here" for a minute
@@ -74,28 +73,14 @@ export async function ping(redis: Redis, id: string, ip: string, now = Date.now(
   const [count] = await redis([['INCR', rate], ['EXPIRE', rate, 60, 'NX']]);
   // Over the limit: still answer, but don't count this tab again.
   const counting = Number(count) <= PINGS_PER_MINUTE;
-  const [, , here, , total, hearts, heartAt] = await redis([
+  const [, , here, , total] = await redis([
     counting ? ['ZADD', 'kyb:here', now, id] : ['PING'],
     ['ZREMRANGEBYSCORE', 'kyb:here', 0, now - HERE_WINDOW_MS],
     ['ZCARD', 'kyb:here'],
     counting ? ['PFADD', 'kyb:all', id] : ['PING'],
     ['PFCOUNT', 'kyb:all'],
-    ['GET', 'kyb:hearts'],
-    ['GET', 'kyb:heart-at'],
   ]);
-  return { here: Number(here) || 0, total: Number(total) || 0, hearts: Number(hearts) || 0, heartAt: Number(heartAt) || 0 };
-}
-
-/** One more heart, unless this address has hearted five times in the last hour. */
-export async function heart(redis: Redis, ip: string, now = Date.now()): Promise<{ counted: boolean; hearts: number; heartAt: number }> {
-  const rate = `kyb:heart:${ip}`;
-  const [count] = await redis([['INCR', rate], ['EXPIRE', rate, 3_600, 'NX']]);
-  if (Number(count) > HEARTS_PER_HOUR) {
-    const [hearts, heartAt] = await redis([['GET', 'kyb:hearts'], ['GET', 'kyb:heart-at']]);
-    return { counted: false, hearts: Number(hearts) || 0, heartAt: Number(heartAt) || 0 };
-  }
-  const [hearts] = await redis([['INCR', 'kyb:hearts'], ['SET', 'kyb:heart-at', now]]);
-  return { counted: true, hearts: Number(hearts) || 0, heartAt: now };
+  return { here: Number(here) || 0, total: Number(total) || 0 };
 }
 
 export interface Req { method?: string; query?: Record<string, string | string[] | undefined>; headers: Record<string, string | string[] | undefined> }
