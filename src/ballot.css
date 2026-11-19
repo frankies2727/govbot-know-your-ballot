@@ -167,7 +167,11 @@
 /* Each heart of a tap's burst bubbles up its own way: sideways drift, height, speed and size come from Pulse.tsx. */
 @keyframes kyb-heart-float { 0% { transform: translate(-50%, 0) scale(.4); opacity: 0; } 15% { opacity: 1; } 55% { transform: translate(calc(-50% + var(--dx) * .6), calc(var(--rise, -72px) * .6)) scale(1.05); opacity: .95; } 100% { transform: translate(calc(-50% + var(--dx)), var(--rise, -72px)) scale(1.15); opacity: 0; } }
 .kyb-heart-float { position: absolute; left: 50%; top: 25%; opacity: 0; animation: kyb-heart-float var(--du, .95s) ease-out forwards; animation-delay: var(--dl, 0s); }
-@media (prefers-reduced-motion: reduce) { .kyb-live-dot, .kyb-heart-toast, .kyb-heart-on { animation: none; } .kyb-heart-float { display: none; } }
+/* A tap's line rises out of the heart, drifts up slowly while it's read (--read, set by its length) and fades. */
+@keyframes kyb-line-float { 0% { transform: translateY(18px) scale(.94); opacity: 0; } 8% { transform: translateY(0) scale(1); opacity: 1; } 82% { transform: translateY(-22px); opacity: 1; } 100% { transform: translateY(-40px); opacity: 0; } }
+.kyb-line-float { animation: kyb-line-float var(--read, 5s) ease-out forwards; }
+@keyframes kyb-line-fade { 0%, 88% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .kyb-live-dot, .kyb-heart-toast, .kyb-heart-on { animation: none; } .kyb-heart-float { display: none; } .kyb-line-float { animation: kyb-line-fade var(--read, 5s) linear forwards; } }
 
 /* Web interface basics. The native controls (scrollbars, selects) follow the
    page's theme; the first Tab stop skips the header; headings break evenly;

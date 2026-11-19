@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Heart, X } from 'lucide-react';
+import { LINES } from './heartLines';
 import { compact as count } from './lib/format';
 
 // The two floating bits on every page: how many people have used the guide
 // (every state together, and how many are here now), which can be closed, and
 // a heart anyone can tap as often as they like: each tap sends up a burst of
-// hearts and a line picked at random, encouraging or a joke. Nothing about the
+// hearts and a line picked at random (src/heartLines.ts), encouraging or a
+// joke, which floats up and fades once there's been time to read it. Nothing about the
 // heart is counted or sent anywhere. The numbers come from /api/pulse
 // (api/_pulse.ts); anonymous by design: a tab makes up a random id and forgets
 // it. Fail-soft: until the numbers load, or if the site has no store behind
@@ -13,42 +15,7 @@ import { compact as count } from './lib/format';
 
 const EVERY_MS = 25_000;
 const CLOSED_KEY = 'kyb-pulse-closed';
-const SAY_MS = 4_200;
 const HEARTS_PER_TAP = 9;
-
-/** A tap's lines: nonpartisan, about voting and the guide; a few are jokes. */
-export const LINES = [
-  'Every vote is a voice. Yours counts.',
-  'Local races decide your schools, streets and parks. Nice work reading up.',
-  'You showed up to learn. That’s civic power.',
-  'Democracy is a group project. Thanks for doing your part.',
-  'Small races, big impact.',
-  'The best ballot is a read ballot.',
-  'Knowing who’s on your ballot beats guessing in the booth.',
-  'Make a plan: when, where and how you’ll vote.',
-  'Tell a friend there’s an election. Then tell another.',
-  'Turnout is often low in local elections, so your vote goes further.',
-  'Informed voters make strong communities.',
-  'Your vote is secret. Your enthusiasm doesn’t have to be.',
-  'Fun fact: “ballot” comes from the Italian “ballotta,” a little ball once used to vote.',
-  'This heart is nonpartisan. It loves everyone equally.',
-  'Studies show 100% of people who read their ballot have read their ballot.',
-  'Your ballot called. It wants to be filled out with confidence.',
-  'Petition signatures: the original likes.',
-  'Hearts can’t vote. You can.',
-  'Plot twist: the park board runs the pools.',
-  'Warning: reading candidate briefs may cause informed opinions.',
-  'Tapping hearts burns about 0.0001 calories. Keep going.',
-  'Some heroes wear capes. Others read the whole ballot.',
-  'Achievement unlocked: Civic Enthusiast. (Not a real badge. Yet.)',
-  'This heart was fact-checked. It’s 100% love.',
-  'Tap responsibly. Vote enthusiastically.',
-  'Ballots don’t have a “skip intro” button. Good thing you read ahead.',
-  'The heart has opinions too. It keeps them private, like a ballot.',
-  'Fewer surprises in the booth, more confidence at the ballot box.',
-  'You + a plan to vote = unstoppable.',
-  'Every board seat is somebody’s neighborhood. Thanks for caring.',
-];
 
 interface Pulse { here: number; total: number }
 type Burst = { id: number; hearts: { dx: number; dl: number; du: number; size: number; rise: number }[] };
@@ -56,11 +23,13 @@ type Burst = { id: number; hearts: { dx: number; dl: number; du: number; size: n
 const fmt = (n: number) => n.toLocaleString('en-US');
 const closedBefore = (): boolean => { try { return sessionStorage.getItem(CLOSED_KEY) === '1'; } catch { return false; } };
 const rand = (lo: number, hi: number) => lo + Math.random() * (hi - lo);
+/** Long enough to read the line at an easy pace: 4 to 9 seconds. */
+const readMs = (text: string) => Math.min(9_000, Math.max(4_000, 2_200 + text.length * 60));
 
 export function Pulse() {
   const [pulse, setPulse] = useState<Pulse | null>(null);
   const [closed, setClosed] = useState(closedBefore);
-  const [line, setLine] = useState<{ id: number; text: string } | null>(null);
+  const [line, setLine] = useState<{ id: number; text: string; ms: number } | null>(null);
   const [bursts, setBursts] = useState<Burst[]>([]);
   const taps = useRef(0);
   const sayTimer = useRef(0);
@@ -97,13 +66,12 @@ export function Pulse() {
   const tap = () => {
     const n = ++taps.current;
     // A line at random, never the same one twice in a row.
-    setLine((prev) => {
-      let text = LINES[Math.floor(Math.random() * LINES.length)];
-      if (prev && text === prev.text) text = LINES[(LINES.indexOf(text) + 1) % LINES.length];
-      return { id: n, text };
-    });
+    let text = LINES[Math.floor(Math.random() * LINES.length)];
+    if (text === line?.text) text = LINES[(LINES.indexOf(text) + 1) % LINES.length];
+    const ms = readMs(text);
+    setLine({ id: n, text, ms });
     window.clearTimeout(sayTimer.current);
-    sayTimer.current = window.setTimeout(() => setLine(null), SAY_MS);
+    sayTimer.current = window.setTimeout(() => setLine(null), ms);
     // They drift mostly left: the heart sits in the right-hand corner.
     const hearts = Array.from({ length: HEARTS_PER_TAP }, () => ({ dx: rand(-80, 18), dl: rand(0, 0.18), du: rand(0.9, 1.5), size: rand(12, 22), rise: rand(80, 150) }));
     setBursts((b) => [...b.slice(-3), { id: n, hearts }]);
@@ -130,7 +98,8 @@ export function Pulse() {
         </div>
       )}
       {line && (
-        <p key={line.id} role="status" aria-live="polite" className={`kyb-heart-toast max-w-[17rem] rounded-xl px-3 py-2 text-sm font-bold leading-snug ${box}`}>
+        <p key={line.id} role="status" aria-live="polite" style={{ '--read': `${line.ms}ms` } as CSSProperties}
+          className={`kyb-line-float max-w-[17rem] rounded-xl px-3 py-2 text-sm font-bold leading-snug ${box}`}>
           <Heart className={`mr-1.5 inline h-4 w-4 align-[-2px] ${red}`} aria-hidden="true" />{line.text}
         </p>
       )}
