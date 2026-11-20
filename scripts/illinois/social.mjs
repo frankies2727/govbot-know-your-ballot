@@ -163,6 +163,7 @@ function accountsOf(e) {
     website: typeof site === 'string' && /^https?:\/\//.test(site) ? site : undefined,
     photo: typeof image === 'string' ? { commons: image } : undefined,
     party: partyOf(e),
+    id: e.id,
   };
 }
 
@@ -378,7 +379,7 @@ export async function addSocial(races, work, render, prev, code = 'IL') {
     if (Object.keys(m).length) { e.c.social = m; withSocial++; } else delete e.c.social;
     if (!e.c.website && e.website) e.c.website = e.website;
     // A nonpartisan list prints no party: Wikidata's, where the list has none.
-    if (!e.c.party && e.wiki?.party) e.c.party = e.wiki.party;
+    if (!e.c.party && e.wiki?.party) { e.c.party = e.wiki.party; if (e.wiki.id) e.c.partyFrom = `https://www.wikidata.org/wiki/${e.wiki.id}`; }
     if (e.issues) e.c.issuesUrl = e.issues; else delete e.c.issuesUrl;
     const photo = e.member?.photo ?? e.legislator?.photo ?? e.wiki?.photo;
     if (photo) e.c.photoFrom = photo; else delete e.c.photoFrom;

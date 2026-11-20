@@ -648,6 +648,11 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
         </>
       )}
 
+      {c.partyOnFile && (
+        <p className="text-[15px] leading-relaxed text-[var(--gb-text)]">
+          <span className="font-bold">Party on file: </span>{c.partyOnFile.party}, per <a href={c.partyOnFile.source.url} target="_blank" rel="noreferrer noopener" className={cite}>{c.partyOnFile.source.name} ↗</a>. No party is printed on this ballot.
+        </p>
+      )}
       <Brief b={brief} />
 
       <section className="space-y-3">

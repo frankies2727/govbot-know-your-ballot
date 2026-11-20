@@ -44,6 +44,8 @@ export interface Candidate {
   ballot: number;
   /** The official ballot position, once the ballot is certified (scripts/ballot-order.mjs). */
   position?: number;
+  /** In a race that prints no party: the one their campaign filing (or Wikidata) lists, shown as a fact in their profile, never as a ballot label. */
+  partyOnFile?: { party: string; source: { name: string; url: string } };
   name: string;
   party: string;
   /** Only set when official records (FEC or ISBE) say so. */

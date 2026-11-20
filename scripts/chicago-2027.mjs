@@ -313,15 +313,25 @@ async function main() {
   const isbe = await soft('ISBE', () => isbeFiles(work), null);
   if (isbe) {
     // Filed for 2027, or (a sitting alderperson's committee) for the same seat in 2023; who's in office comes from the City, not these files.
+    // A party the State Board's filing lists wins over Wikidata's: keep Wikidata's aside, and see what the filing sets.
+    for (const r of races) for (const c of r.candidates) { c.wikiParty = c.party; c.party = ''; }
     const m = await addStateMoney(races, isbe, { years: ['2027', '2023'], types: ['CP', 'CE'], incumbency: false, party: true });
+    for (const r of races) for (const c of r.candidates) { if (c.party) delete c.partyFrom; else c.party = c.wikiParty; delete c.wikiParty; }
     console.log(`Money: ${m.matched} of ${m.total} candidates matched to a committee`);
   } else {
     // Couldn't read the files today: keep yesterday's figures.
     for (const r of races) for (const c of r.candidates) { const p = prevById.get(r.id)?.candidates.find((x) => x.name === c.name); if (p?.money) c.money = p.money; }
   }
 
-  // No party is printed on this ballot: a candidate with none on file (the State Board's records or Wikidata) says so, rather than looking unfinished.
-  for (const r of races) for (const c of r.candidates) if (!c.party) c.party = 'No party on file';
+  // No party is printed on this ballot, so none is shown like one: a party the candidate's State Board
+  // filing lists (else Wikidata's) is kept as a fact about them, with its source, for their profile.
+  for (const r of races) for (const c of r.candidates) {
+    if (c.party) c.partyOnFile = c.partyFrom
+      ? { party: c.party, source: { name: 'Wikidata', url: c.partyFrom } }
+      : { party: c.party, source: { name: 'their Illinois State Board of Elections filing', url: 'https://www.elections.il.gov/CampaignDisclosure/CandidateSearch.aspx' } };
+    c.party = '';
+    delete c.partyFrom;
+  }
 
   // Each candidate's Chicago Politics page, where the sitemap lists one.
   const pages = await soft('chicagopolitics.org', chicagoPolitics, null);

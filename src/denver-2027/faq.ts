@@ -22,6 +22,7 @@ export function denverFaq(data: StateData): Faq[] {
   return [
     { q: `When ${is} Denver’s 2027 municipal election?`, a: `${longDate(ELECTION_DAY)}. Every registered voter gets a ballot in the mail from Mar 15; it has to be back by 7pm on Election Day. Where no one gets more than half the vote, the top two meet in a runoff on ${longDate(RUNOFF_DAY)}.` },
     { q: `What ${is} on the ballot?`, a: 'Mayor, Auditor and Clerk and Recorder; City Council At-Large Seats A and B, which every voter votes in; and the City Council member for your district, one of 11. Every race is nonpartisan: no party is printed next to any name.' },
+    { q: 'Are Denver’s city races partisan?', a: 'No. Denver’s city elections are nonpartisan: no party is printed next to any name on the ballot, so this guide shows none. Candidates are listed as they registered with the Clerk and Recorder.' },
     { q: `Who ${past ? 'ran' : 'is running'} for mayor of Denver in 2027?`, a: mayor.length ? `${list(mayor)} have registered campaigns with Denver SearchLight (as of ${asOf}). Registering isn’t qualifying: candidates turn in petitions by Jan 21, 2027, and the Elections Division certifies who is on the ballot.` : 'No one has registered yet.' },
     { q: 'What does the mayor do?', a: explainOffice('Mayor') },
     { q: 'What does the Auditor do?', a: explainOffice('Auditor') },

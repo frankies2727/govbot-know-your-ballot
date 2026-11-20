@@ -20,9 +20,11 @@ export function chicagoFaq(data: StateData): Faq[] {
   const wards = data.races.filter((r) => r.section === 'council');
   const contested = wards.filter((r) => r.candidates.length > 1).length;
   const filed = data.races.reduce((n, r) => n + r.candidates.length, 0);
+  const onFile = data.races.reduce((n, r) => n + r.candidates.filter((c) => c.partyOnFile).length, 0);
   const out: Faq[] = [
     { q: `When ${is} Chicago’s 2027 city election?`, a: `${longDate(ELECTION_DAY)}. Polls are open 6am to 7pm. Where no one gets more than half the vote for mayor, clerk, treasurer or alderperson, the top two meet in a runoff on ${longDate('2027-04-06')}.` },
     { q: `What ${is} on the ballot?`, a: `Mayor, City Clerk and City Treasurer for every voter; the alderperson for your ward (one of 50); and three members of your police district’s District Council (one of 22). Every race is nonpartisan: no party is printed next to any name. ${filed} candidates filed by the Oct 26, 2026 deadline.` },
+    { q: 'Are Chicago’s city races partisan? Why does a candidate’s profile mention a party?', a: `No. Chicago’s city elections are nonpartisan: no party is printed next to any name on the ballot, and there is no party primary; if no one wins more than half the votes, the top two meet in the Apr 6 runoff. Candidates can still belong to a party. Where a candidate’s campaign filing with the Illinois State Board of Elections lists one (or, failing that, Wikidata does, for a national party and only for someone it places in Chicago or Illinois), their profile says so as a fact, with the source. It is never shown as a ballot label, because the ballot has none. ${onFile} of the ${filed} candidates have a party on file.` },
     { q: `Who ${past ? 'ran' : 'is running'} for mayor of Chicago in 2027?`, a: `${list(names('mayor'))}, in the Board of Election Commissioners’ ballot order (its list as of ${asOf}). A name comes off only if the Board sustains an objection to it, or the candidate withdraws by Dec 17, 2026, when the Board certifies the ballot.` },
     { q: `Who ${past ? 'ran' : 'is running'} for City Clerk and City Treasurer?`, a: `City Clerk: ${list(names('city-clerk'))}. City Treasurer: ${list(names('city-treasurer'))}. (The Board’s list as of ${asOf}.)` },
     { q: 'What does the mayor do?', a: explainOffice('Mayor') },

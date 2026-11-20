@@ -15,7 +15,7 @@ import './chicago.css';
 
 const data = rawData as unknown as StateData;
 /** Where a party comes from on a ballot that prints none. */
-const PARTY_NOTE = 'No party is printed on this ballot. A party shown here is the one the candidate lists on their campaign filing with the Illinois State Board of Elections, or else Wikidata’s record; “No party on file” means neither has one.';
+const PARTY_NOTE = 'No party is printed on this ballot, so none is shown beside a name. Where a candidate’s campaign filing with the Illinois State Board of Elections (or else Wikidata) lists a party, their profile says so, with the source.';
 /** Wards with one candidate, for "How it works". */
 const unopposed = data.races.filter((r) => r.section === 'council' && r.candidates.length === 1).length;
 
