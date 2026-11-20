@@ -37,8 +37,9 @@ export function useCandidateRoute(guide: GuideId, races: Race[], open: (race: Ra
 }
 
 /**
- * Share a candidate's own page: the phone's share sheet where there is one,
- * otherwise the link is copied.
+ * Share a candidate's own page: just its link (no title or blurb, which some
+ * apps and "Copy" keep instead of the link), through the phone's share sheet
+ * where there is one, otherwise copied.
  */
 export function ShareCandidate({ race, c, className = '' }: { race: Race; c: Candidate; className?: string }) {
   const guide = guideOf(useRoute());
@@ -49,7 +50,7 @@ export function ShareCandidate({ race, c, className = '' }: { race: Race; c: Can
   const share = async () => {
     const touch = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
     if (touch && navigator.share) {
-      try { await navigator.share({ title: `${c.name} · ${race.office}`, text: `${c.name}, candidate for ${race.office}: money, record, their own words and sources.`, url }); } catch { /* closed */ }
+      try { await navigator.share({ url }); } catch { /* closed */ }
       return;
     }
     try { await navigator.clipboard.writeText(url); setCopied(true); } catch { window.prompt('Copy this link:', url); }

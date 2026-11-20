@@ -625,6 +625,10 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
   const brief = useBrief(race.id, c.name);
   return (
     <>
+      {/* First thing under their name: their own page's link to send, and their accounts to follow. (Compare's cards carry their own Share.) */}
+      {head && <ShareCandidate race={race} c={c} className="w-full sm:w-auto" />}
+      <Follow c={c} />
+
       {head && (
         <>
           <figure className="flex items-center gap-4">
@@ -687,8 +691,6 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
 
       {(() => { const rec = race.incumbents?.find((x) => x.ballot === c.ballot && x.council)?.council; return rec ? <CouncilRecordBlock r={rec} name={c.name} /> : null; })()}
 
-      <Follow c={c} />
-
       <BriefSources b={brief} />
 
       <section className="space-y-3">
@@ -719,9 +721,6 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
     <Dialog title={c.name} onClose={onClose}>
       <div className="space-y-6">
         <CandidateProfile race={race} c={c} color={color} ink={ink} numbered={numbered} guide={guide} judge={judge} />
-
-        {/* Their own page: a link to send, which opens straight to this profile. */}
-        <ShareCandidate race={race} c={c} className="w-full" />
 
         {!readOnly && (
           <button
