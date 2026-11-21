@@ -407,8 +407,8 @@ function WhoGave({ d }: { d?: Candidate['donors'] }) {
   );
 }
 
-/** Endorsers in a fixed order (never a judgement of which matter more): papers, officials, unions, party groups, other groups, other people. */
-const KIND_ORDER = ['newspaper', 'elected official', 'labor union', 'party or political organization', 'advocacy or community group', 'other public figure'];
+/** Endorsers in a fixed order (never a judgement of which matter more): papers, officials, unions, party groups, other groups, businesses, public figures, then private individuals. */
+const KIND_ORDER = ['newspaper', 'elected official', 'labor union', 'party or political organization', 'advocacy or community group', 'business', 'other public figure', 'individual'];
 const KIND_SHOWN = 6;
 
 /** Who has endorsed them for this race (a later guide's brief), each linked to the page that names it. */
