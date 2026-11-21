@@ -28,7 +28,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { namesAgree } from './ballotpedia-profiles.mjs';
 import { nameCase, parseCityList, stillFiled } from './illinois/city.mjs';
-import { addStateMoney, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
+import { addDonors, addStateMoney, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
 import { addPhotos } from './illinois/photos.mjs';
 import { addSocial } from './illinois/social.mjs';
 import { personKey } from './results/match.mjs';
@@ -318,9 +318,12 @@ async function main() {
     const m = await addStateMoney(races, isbe, { years: ['2027', '2023'], types: ['CP', 'CE'], incumbency: false, party: true });
     for (const r of races) for (const c of r.candidates) { if (c.party) delete c.partyFrom; else c.party = c.wikiParty; delete c.wikiParty; }
     console.log(`Money: ${m.matched} of ${m.total} candidates matched to a committee`);
+    const d = await addDonors(races, isbe);
+    console.log(d.withDonors ? `Donors: ${d.withDonors} candidates` : 'Donors: no receipts file today; yesterday\'s lists kept');
+    if (!d.withDonors) for (const r of races) for (const c of r.candidates) { const p = prevById.get(r.id)?.candidates.find((x) => x.name === c.name); if (p?.donors) c.donors = p.donors; }
   } else {
     // Couldn't read the files today: keep yesterday's figures.
-    for (const r of races) for (const c of r.candidates) { const p = prevById.get(r.id)?.candidates.find((x) => x.name === c.name); if (p?.money) c.money = p.money; }
+    for (const r of races) for (const c of r.candidates) { const p = prevById.get(r.id)?.candidates.find((x) => x.name === c.name); if (p?.money) c.money = p.money; if (p?.donors) c.donors = p.donors; }
   }
 
   // No party is printed on this ballot, so none is shown like one: a party the candidate's State Board

@@ -6,6 +6,19 @@ export type Section = 'federal' | 'state' | 'county' | 'judicial' | 'school' | '
 export type AreaType = 'cd' | 'sldu' | 'sldl' | 'commissioner' | 'bor' | 'subcircuit' | 'school' | 'ward' | 'mwrd' | 'city' | 'police' | 'county' | 'coa' | 'jd' | 'council';
 export interface Area { type: AreaType; id: string }
 
+/** A candidate's donors from itemized filings (scripts/illinois/isbe.mjs addDonors). */
+export interface Donors {
+  /** The biggest givers, largest first; a person's occupation and employer as they reported them. */
+  top: { name: string; kind: 'individual' | 'organization'; amount: number; last: string; occupation?: string; employer?: string }[];
+  /** How many distinct givers, and what they gave in all, since `since`. */
+  givers: number;
+  total: number;
+  /** Given by donors who asked for their names to be withheld (counted, not named). */
+  withheld?: number;
+  since: string;
+  source: { name: string; url: string };
+}
+
 /** Campaign totals this cycle (since Jan 1, 2025), from official filings. */
 export interface Money {
   /** FEC for federal candidates; the state's disclosure system otherwise (Illinois' SBE, Michigan's MiTN, Minnesota's Campaign Finance Board, Wisconsin's campaign finance system), or Denver's SearchLight. */
@@ -59,6 +72,8 @@ export interface Candidate {
   /** Campaign website: their State Board filing, else their official homepage. */
   website?: string;
   money?: Money;
+  /** Who gave to their committee this cycle (itemized, from official filings): the biggest givers first. Never an address. */
+  donors?: Donors;
   /** What outside groups spent for and against them this cycle (federal candidates; scripts/illinois/fec.mjs). */
   outside?: OutsideSpending;
   /** Their social media accounts (scripts/know-your-ballot/illinois/social.mjs says where each comes from). */

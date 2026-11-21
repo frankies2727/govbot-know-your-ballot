@@ -373,6 +373,40 @@ function Endorsements({ c }: { c: Candidate }) {
   );
 }
 
+const DONORS_SHOWN = 8;
+
+/** Who gave to their campaign, biggest givers first, each with their total; a person's job as they reported it. */
+function WhoGave({ d }: { d?: Candidate['donors'] }) {
+  const [all, setAll] = useState(false);
+  if (!d?.top.length) return null;
+  const shown = all ? d.top : d.top.slice(0, DONORS_SHOWN);
+  const since = new Date(d.since + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  return (
+    <div className="space-y-2 border-t border-[var(--gb-border)] pt-3">
+      <p className="text-sm font-black text-[var(--gb-text)]">Who gave <span className="font-bold">({d.givers.toLocaleString()} donors, {money(d.total)} since {since})</span></p>
+      <ol className="space-y-1.5 text-[15px] leading-snug text-[var(--gb-text)]">
+        {shown.map((g) => (
+          <li key={g.name} className="flex items-baseline justify-between gap-3">
+            <span className="min-w-0">
+              <span className="font-bold">{g.name}</span>
+              {g.kind === 'organization' ? <span className="text-xs"> · organization</span> : (g.occupation || g.employer) ? <span className="text-xs"> · {[g.occupation, g.employer].filter(Boolean).join(', ')}</span> : null}
+            </span>
+            <span className="shrink-0 font-black tabular-nums">{money(g.amount)}</span>
+          </li>
+        ))}
+      </ol>
+      {d.top.length > DONORS_SHOWN && (
+        <button type="button" onClick={() => setAll((v) => !v)} className="min-h-[40px] rounded-xl border-2 border-[var(--gb-text)] px-3 text-sm font-bold text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+          {all ? 'Show fewer' : `Show the top ${d.top.length}`}
+        </button>
+      )}
+      <p className="text-xs text-[var(--gb-text)]">
+        Itemized gifts to their committee as reported to the <a href={d.source.url} target="_blank" rel="noreferrer noopener" className={cite}>{d.source.name} ↗</a>: contributions, transfers from other committees and in-kind gifts, totalled per donor. Gifts under the reporting threshold aren't itemized{d.withheld ? `, and ${money(d.withheld)} came from donors who asked for their names to be withheld` : ''}. A gift isn’t an endorsement.
+      </p>
+    </div>
+  );
+}
+
 /** Endorsers in a fixed order (never a judgement of which matter more): papers, officials, unions, party groups, other groups, other people. */
 const KIND_ORDER = ['newspaper', 'elected official', 'labor union', 'party or political organization', 'advocacy or community group', 'other public figure'];
 const KIND_SHOWN = 6;
@@ -699,6 +733,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
         ) : (
           <p className="text-[15px] text-[var(--gb-text)]">{noMoney(race)}</p>
         )}
+        <WhoGave d={c.donors} />
         {c.outside && (
           <div className="space-y-2 border-t border-[var(--gb-border)] pt-3">
             <OutsideHeading className="text-sm font-black text-[var(--gb-text)]" />

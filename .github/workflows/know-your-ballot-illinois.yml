@@ -59,6 +59,18 @@ jobs:
       - name: Refresh results
         run: node scripts/results.mjs illinois
 
+      # The State Board's files once, for Chicago and Oak Park below, with the
+      # itemized receipts (about 1 GB) that name each candidate's donors. A
+      # failed download just leaves a file out: the builds fetch the small
+      # files themselves and keep yesterday's donors.
+      - name: Download State Board files for the 2027 guides
+        run: |
+          mkdir -p "$RUNNER_TEMP/isbe"
+          for f in Candidates CanElections CmteCandidateLinks FiledDocs D2Totals Receipts; do
+            curl -sSfL --retry 3 -A 'Mozilla/5.0' -o "$RUNNER_TEMP/isbe/$f.txt" "https://www.elections.il.gov/CampaignDisclosureDataFiles/$f.txt" || { echo "::warning::$f.txt not downloaded"; rm -f "$RUNNER_TEMP/isbe/$f.txt"; }
+          done
+          if ls "$RUNNER_TEMP/isbe"/{Candidates,CanElections,CmteCandidateLinks,FiledDocs,D2Totals}.txt >/dev/null 2>&1; then echo "ISBE_DIR=$RUNNER_TEMP/isbe" >> "$GITHUB_ENV"; fi
+
       # Chicago's Feb 23, 2027 city election (scripts/chicago-2027.mjs): the
       # Board's newest candidate list (found by the build above), who holds
       # each seat, campaign money and links. A bad read keeps yesterday's

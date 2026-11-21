@@ -30,7 +30,7 @@ import { outlineOf, readLayer } from './city-maps.mjs';
 import { addCandidatePhotos, addHolderPhotos, applyBriefs } from './briefs.mjs';
 import { settleBallots } from './ballot-order.mjs';
 import { recentBills } from './illinois/govbot.mjs';
-import { addStateMoney, candidatesOnFile, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
+import { addDonors, addStateMoney, candidatesOnFile, ISBE_BASE, ISBE_FILES } from './illinois/isbe.mjs';
 import { sameName } from './wiki.mjs';
 
 const ROOT = new URL('..', import.meta.url);
@@ -191,6 +191,9 @@ async function main() {
   if (dir) {
     const m = await soft('ISBE money', () => addStateMoney(races, dir, { years: ['2027', '2025', '2023'], types: ['CE'], incumbency: false, where: (r) => Boolean(raceFor({ office: r.Office, districtType: r.DistrictType, district: r.District }, r.City)) }), null);
     if (m) console.log(`Money: ${m.matched} of ${m.total} candidates matched to a committee`);
+    const d = await soft('ISBE donors', () => addDonors(races, dir), { withDonors: 0 });
+    console.log(d.withDonors ? `Donors: ${d.withDonors} candidates` : 'Donors: no receipts file today; yesterday\'s lists kept');
+    if (!d.withDonors && prev) for (const r of races) for (const c of r.candidates) { const p = prev.races.find((x) => x.id === r.id)?.candidates.find((x) => x.name === c.name); if (p?.donors) c.donors = p.donors; }
   }
   if (!dir && prev) for (const r of races) for (const c of r.candidates) { const p = prev.races.find((x) => x.id === r.id)?.candidates.find((x) => x.name === c.name); if (p?.money) c.money = p.money; }
 

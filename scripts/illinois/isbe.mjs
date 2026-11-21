@@ -229,3 +229,57 @@ export async function addStateMoney(races, dir, election = { years: ['2026'], ty
   }
   return { matched, total, log, a1Rows };
 }
+
+// ---- donors ----------------------------------------------------------------
+
+/** Contributions (1A), transfers from other committees (2A) and in-kind gifts (5A); never loans or refunds. */
+const GIFTS = new Set(['1A', '2A', '5A']);
+const DONORS_SHOWN = 15;
+/** "SMITH" -> "Smith"; a name already in mixed case stays as filed. */
+const proper = (s) => (s && s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s'’.-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : s);
+
+/**
+ * Who gave to each candidate's committee (the one their `money` comes from),
+ * from the State Board's itemized receipts (Receipts.txt, in `dir`) since
+ * `since`: the biggest givers first, each with their total, and for a person
+ * the occupation and employer they reported. Never an address. A donor who
+ * asked for their name to be withheld counts in the totals but isn't named.
+ * Returns how many candidates got a list; with no receipts file, nothing changes.
+ */
+export async function addDonors(races, dir, { since = CYCLE_START } = {}) {
+  const path = `${dir}/${ISBE_RECEIPTS}.txt`;
+  if (!existsSync(path)) return { withDonors: 0 };
+  const owners = new Map(); // committee id -> candidates
+  for (const r of races) for (const c of r.candidates) if (c.money?.source === 'ISBE') owners.set(c.money.id, [...(owners.get(c.money.id) ?? []), c]);
+  const byCommittee = new Map(); // id -> { givers: Map, total, withheld }
+  for await (const r of rows(path)) {
+    if (!owners.has(r.CommitteeID) || !GIFTS.has(r.D2Part) || r.Archived === 'True' || day(r.RcvDate) < since) continue;
+    const amount = Number(r.Amount) || 0;
+    if (amount <= 0) continue;
+    const acc = byCommittee.get(r.CommitteeID) ?? { givers: new Map(), total: 0, withheld: 0 };
+    byCommittee.set(r.CommitteeID, acc);
+    acc.total += amount;
+    if (r.RedactionRequested === 'True') { acc.withheld += amount; continue; }
+    const person = Boolean(r.FirstName);
+    const name = person ? `${proper(r.FirstName)} ${proper(r.LastOnlyName)}` : proper(r.LastOnlyName);
+    const key = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (!key) continue;
+    const g = acc.givers.get(key) ?? { name, kind: person ? 'individual' : 'organization', amount: 0, last: '' };
+    g.amount += amount;
+    if (day(r.RcvDate) > g.last) {
+      g.last = day(r.RcvDate);
+      if (person) { g.occupation = proper(r.Occupation) || undefined; g.employer = proper(r.Employer) || undefined; }
+    }
+    acc.givers.set(key, g);
+  }
+  let withDonors = 0;
+  for (const [id, acc] of byCommittee) {
+    const top = [...acc.givers.values()].sort((a, b) => b.amount - a.amount).slice(0, DONORS_SHOWN)
+      .map(({ name, kind, amount, last, occupation, employer }) => ({ name, kind, amount: Math.round(amount), last, ...(occupation ? { occupation } : {}), ...(employer ? { employer } : {}) }));
+    for (const c of owners.get(id) ?? []) {
+      c.donors = { top, givers: acc.givers.size, total: Math.round(acc.total), ...(acc.withheld ? { withheld: Math.round(acc.withheld) } : {}), since, source: { name: 'Illinois State Board of Elections', url: `https://www.elections.il.gov/CampaignDisclosure/CommitteeDetail.aspx?id=${id}` } };
+      withDonors++;
+    }
+  }
+  return { withDonors };
+}
