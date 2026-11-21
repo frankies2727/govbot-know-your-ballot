@@ -1,0 +1,55 @@
+name: Know Your Ballot data setup
+description: Node, plus only the tools a guide's data build needs.
+
+inputs:
+  pdf:
+    description: Install pdftotext (poppler), for candidate lists published as PDFs.
+    default: 'false'
+  photos:
+    description: Install ImageMagick (shrinks photos) and OpenCV (tells a headshot from a flyer).
+    default: 'false'
+  browser:
+    description: Install a headless Chromium, for sites whose bot check turns a plain request away.
+    default: 'false'
+  isbe:
+    description: Download the Illinois State Board of Elections' campaign-finance files and set ISBE_DIR.
+    default: 'false'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install tools
+      if: inputs.pdf == 'true' || inputs.photos == 'true'
+      shell: bash
+      run: |
+        pkgs=""
+        [ "${{ inputs.pdf }}" = true ] && pkgs="$pkgs poppler-utils"
+        [ "${{ inputs.photos }}" = true ] && pkgs="$pkgs imagemagick"
+        sudo apt-get update -qq && sudo apt-get install -y -qq $pkgs
+        if [ "${{ inputs.photos }}" = true ]; then pip install --quiet "opencv-python-headless<5"; fi
+
+    # Playwright 1.56 has no Chromium build for the 26.04 image: a workflow
+    # that sets browser: true runs on ubuntu-24.04.
+    - name: Install a headless browser
+      if: inputs.browser == 'true'
+      shell: bash
+      run: |
+        npm install --no-save playwright@1.56.0
+        npx playwright install --with-deps chromium
+
+    # The State Board's files, with the itemized receipts (about 1 GB) that name
+    # each candidate's donors. A failed download just leaves a file out: the
+    # builds fetch the small files themselves and keep yesterday's donors.
+    - name: Download State Board files
+      if: inputs.isbe == 'true'
+      shell: bash
+      run: |
+        mkdir -p "$RUNNER_TEMP/isbe"
+        for f in Candidates CanElections CmteCandidateLinks FiledDocs D2Totals Receipts; do
+          curl -sSfL --retry 3 -A 'Mozilla/5.0' -o "$RUNNER_TEMP/isbe/$f.txt" "https://www.elections.il.gov/CampaignDisclosureDataFiles/$f.txt" || { echo "::warning::$f.txt not downloaded"; rm -f "$RUNNER_TEMP/isbe/$f.txt"; }
+        done
+        if ls "$RUNNER_TEMP/isbe"/{Candidates,CanElections,CmteCandidateLinks,FiledDocs,D2Totals}.txt >/dev/null 2>&1; then echo "ISBE_DIR=$RUNNER_TEMP/isbe" >> "$GITHUB_ENV"; fi

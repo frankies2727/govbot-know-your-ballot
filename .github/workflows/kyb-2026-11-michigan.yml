@@ -1,0 +1,38 @@
+name: Daily data · 2026-11 Michigan
+
+# Rebuilds src/data/michigan (candidates from Ballotpedia and Wikipedia, FEC
+# money, Census maps). See scripts/state.mjs and scripts/michigan/config.mjs.
+# Commits the result; Vercel redeploys the site from main. One workflow per
+# election, so each can be run, paused (Actions → this workflow → Disable) or
+# retired on its own.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 11 * * *' # daily, ~7am Detroit
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kyb-2026-11-michigan
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/kyb-setup
+        with:
+          photos: true
+
+      - name: Build ballot data
+        run: node scripts/state.mjs michigan
+
+      - uses: ./.github/actions/kyb-commit
+        with:
+          paths: src/data/michigan public/kyb-photos/michigan
+          message: 'Daily data: 2026-11 Michigan'

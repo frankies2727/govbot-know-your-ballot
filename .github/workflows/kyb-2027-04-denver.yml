@@ -1,0 +1,37 @@
+name: Daily data · 2027-04 Denver
+
+# Rebuilds src/data/denver-2027 for the Apr 6, 2027 municipal election:
+# Denver SearchLight's registered candidates and their money, the City's
+# council district map. See scripts/denver-2027.mjs.
+# Commits the result; Vercel redeploys the site from main. One workflow per
+# election, so each can be run, paused (Actions → this workflow → Disable) or
+# retired on its own.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 12 * * *' # daily, ~5am Denver
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kyb-2027-04-denver
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/kyb-setup
+
+      - name: Build ballot data
+        run: node scripts/denver-2027.mjs || echo "::warning::2027-04 Denver build failed; yesterday's data kept"
+
+      - uses: ./.github/actions/kyb-commit
+        with:
+          paths: src/data/denver-2027 public/kyb-photos/denver-2027 public/kyb-photos/denver-2027-office
+          message: 'Daily data: 2027-04 Denver'

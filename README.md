@@ -1,10 +1,15 @@
 # Govbot Know Your Ballot
 
 [![Live site](public/badges/live-site.svg)](https://govbot-know-your-ballot.vercel.app)
-[![Illinois data](public/badges/illinois.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-illinois.yml)
-[![Michigan data](public/badges/michigan.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-michigan.yml)
-[![Minnesota data](public/badges/minnesota.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-minnesota.yml)
-[![Wisconsin data](public/badges/wisconsin.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/know-your-ballot-wisconsin.yml)
+[![2026-11 Illinois data](public/badges/2026-11-illinois.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2026-11-illinois.yml)
+[![2026-11 Michigan data](public/badges/2026-11-michigan.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2026-11-michigan.yml)
+[![2026-11 Minnesota data](public/badges/2026-11-minnesota.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2026-11-minnesota.yml)
+[![2026-11 Wisconsin data](public/badges/2026-11-wisconsin.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2026-11-wisconsin.yml)
+[![2027-02 Chicago data](public/badges/2027-02-chicago.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2027-02-chicago.yml)
+[![2027-03 Jacksonville data](public/badges/2027-03-jacksonville.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2027-03-jacksonville.yml)
+[![2027-04 Denver data](public/badges/2027-04-denver.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2027-04-denver.yml)
+[![2027-04 Oak Park data](public/badges/2027-04-oak-park.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2027-04-oak-park.yml)
+[![2027-04 Wisconsin data](public/badges/2027-04-wisconsin.svg)](https://github.com/frankies2727/govbot-know-your-ballot/actions/workflows/kyb-2027-04-wisconsin.yml)
 [![Last data refresh](public/badges/data-refreshed.svg)](https://github.com/frankies2727/govbot-know-your-ballot/commits/main)
 [![Good first issues](public/badges/good-first-issues.svg)](https://github.com/frankies2727/govbot-know-your-ballot/labels/good%20first%20issue)
 [![States wanted](public/badges/states-wanted.svg)](https://github.com/frankies2727/govbot-know-your-ballot/labels/new%20state)
@@ -44,7 +49,8 @@ src/govbot/          Govbot's header, footer and stylesheet, copied by scripts/g
 scripts/             the daily builds: illinois.mjs, state.mjs with <state>/config.mjs for the others, and the modules they share (illinois/* is the original set, used by all)
 scripts/audit.mjs    reconciliation, the last step of every build (see below)
 public/kyb-photos/   candidate photos, each credited and linked in the app
-.github/workflows/   one daily data workflow per state guide, named for the elections it refreshes ("Daily data · 2026-11 Illinois + 2027-02 Chicago"); ci.yml builds and tests the site
+.github/workflows/   one daily data workflow per election, kyb-<YYYY-MM>-<place>.yml ("Daily data · 2027-02 Chicago"), so each can be run or paused on its own; kyb-site.yml refreshes the shared govbot shell and the badges; ci.yml builds and tests the site
+.github/actions/     kyb-setup (Node plus only the tools a build needs) and kyb-commit (commit, replaying on top of anything pushed meanwhile)
 ```
 
 ### Run it locally

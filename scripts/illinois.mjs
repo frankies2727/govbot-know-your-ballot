@@ -12,7 +12,7 @@
 //   5. Chicago community areas, Census places    -> the neighborhoods a district covers
 //
 // Needs `pdftotext` (poppler-utils) and `unzip` on PATH. Run by
-// .github/workflows/know-your-ballot-illinois.yml; locally: `node scripts/illinois.mjs`.
+// .github/workflows/kyb-2026-11-illinois.yml; locally: `node scripts/illinois.mjs`.
 // CANDIDATE_PDF=<url or path> skips the page lookup (handy if the Board's site
 // is blocking automated requests); CITY_PDF=<url or path> does the same for the
 // Feb 23, 2027 city list.

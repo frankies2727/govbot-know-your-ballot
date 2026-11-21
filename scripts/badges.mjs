@@ -1,6 +1,6 @@
 // The README's badges, drawn here as SVG files (public/badges/*.svg) so each
 // can carry a coloured outline, which shields.io images can't. The daily
-// refresh workflows run this before their data commit, so the live values
+// site workflow (kyb-site.yml) runs this after the elections' data workflows, so the live values
 // (workflow status, last refresh, issue counts) are a day old at most.
 //   node scripts/badges.mjs            writes public/badges/*.svg
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -58,13 +58,24 @@ function badge(label, value, color, outline) {
 `;
 }
 
+// The elections' data workflows, in README order.
+const ELECTIONS = [
+  ['kyb-2026-11-illinois.yml', '2026-11 Illinois'],
+  ['kyb-2026-11-michigan.yml', '2026-11 Michigan'],
+  ['kyb-2026-11-minnesota.yml', '2026-11 Minnesota'],
+  ['kyb-2026-11-wisconsin.yml', '2026-11 Wisconsin'],
+  ['kyb-2027-02-chicago.yml', '2027-02 Chicago'],
+  ['kyb-2027-03-jacksonville.yml', '2027-03 Jacksonville'],
+  ['kyb-2027-04-denver.yml', '2027-04 Denver'],
+  ['kyb-2027-04-oak-park.yml', '2027-04 Oak Park'],
+  ['kyb-2027-04-wisconsin.yml', '2027-04 Wisconsin'],
+];
+
 const commit = await tryJson(`${API}/commits/main`);
 const badges = [
   ['live-site', 'live site', ...((await siteUp()) ? ['online', GREEN] : ['down', RED])],
-  ['illinois', 'Illinois data', ...(await workflowStatus('know-your-ballot-illinois.yml'))],
-  ['michigan', 'Michigan data', ...(await workflowStatus('know-your-ballot-michigan.yml'))],
-  ['minnesota', 'Minnesota data', ...(await workflowStatus('know-your-ballot-minnesota.yml'))],
-  ['wisconsin', 'Wisconsin data', ...(await workflowStatus('know-your-ballot-wisconsin.yml'))],
+  // One badge per election's data workflow (.github/workflows/kyb-<YYYY-MM>-<place>.yml).
+  ...(await Promise.all(ELECTIONS.map(async ([file, label]) => [file.replace(/^kyb-|\.yml$/g, ''), `${label} data`, ...(await workflowStatus(file))]))),
   ['data-refreshed', 'data refreshed', commit ? ago(commit.commit.committer.date) : '?', BLUE],
   ['good-first-issues', 'good first issues', await openIssues('good first issue'), PURPLE],
   ['states-wanted', 'states wanted', await openIssues('new state'), LEAF],

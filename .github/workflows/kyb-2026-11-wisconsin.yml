@@ -1,0 +1,39 @@
+name: Daily data · 2026-11 Wisconsin
+
+# Rebuilds src/data/wisconsin (candidates from Ballotpedia and Wikipedia, FEC
+# money, Census maps). See scripts/state.mjs and scripts/wisconsin/config.mjs.
+# Commits the result; Vercel redeploys the site from main. One workflow per
+# election, so each can be run, paused (Actions → this workflow → Disable) or
+# retired on its own.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '53 11 * * *' # daily, ~7am Madison
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kyb-2026-11-wisconsin
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/kyb-setup
+        with:
+          pdf: true
+          photos: true
+
+      - name: Build ballot data
+        run: node scripts/state.mjs wisconsin
+
+      - uses: ./.github/actions/kyb-commit
+        with:
+          paths: src/data/wisconsin public/kyb-photos/wisconsin
+          message: 'Daily data: 2026-11 Wisconsin'

@@ -1,0 +1,52 @@
+name: Daily data · 2026-11 Illinois
+
+# Rebuilds src/data/illinois for the Nov 3, 2026 election from official
+# sources (Chicago Board of Elections candidate list, FEC filings, district
+# maps), the home page's turnout for all four November states
+# (src/data/turnout.json), and the election's results. See scripts/illinois.mjs.
+# Commits the result; Vercel redeploys the site from main. One workflow per
+# election, so each can be run, paused (Actions → this workflow → Disable) or
+# retired on its own.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 11 * * *' # daily, ~6am Chicago
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kyb-2026-11-illinois
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/kyb-setup
+        with:
+          pdf: true
+          photos: true
+          browser: true
+
+      # The home page's turnout panels, all four states (scripts/turnout.mjs).
+      # Fail-soft: a source that can't be read keeps yesterday's numbers.
+      - name: Refresh turnout
+        run: node scripts/turnout.mjs
+
+      - name: Build ballot data
+        run: node scripts/illinois.mjs
+
+      # Chicago's and suburban Cook's counts, the State Board's official totals
+      # once posted (scripts/results.mjs). Fail-soft.
+      - name: Refresh results
+        run: node scripts/results.mjs illinois
+
+      - uses: ./.github/actions/kyb-commit
+        with:
+          paths: src/data/illinois public/kyb-photos/illinois src/data/turnout.json
+          message: 'Daily data: 2026-11 Illinois'

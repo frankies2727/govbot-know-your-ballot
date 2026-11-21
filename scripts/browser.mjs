@@ -1,7 +1,7 @@
 // One headless browser for a build, opened on first need, for sites whose
 // firewall turns a plain request away (the Board of Elections' bot check,
 // Ballotpedia's challenge page) but lets a real browser through. Playwright
-// is installed only where a build needs it (the Illinois workflow); without
+// is installed only where a build needs it (the Illinois, Chicago and Oak Park workflows); without
 // it browserPage answers null and the caller keeps its plain result.
 
 let browser = null;

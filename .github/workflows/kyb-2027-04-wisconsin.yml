@@ -1,0 +1,41 @@
+name: Daily data · 2027-04 Wisconsin
+
+# Rebuilds src/data/wisconsin-2027 for the Apr 6, 2027 spring election: the
+# seats up and who holds them, and once a copy of the Elections Commission's
+# candidate list is in scripts/wisconsin-2027/official/, its candidates.
+# See scripts/wisconsin-2027.mjs.
+# Commits the result; Vercel redeploys the site from main. One workflow per
+# election, so each can be run, paused (Actions → this workflow → Disable) or
+# retired on its own.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '59 11 * * *' # daily, ~6am Madison
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kyb-2027-04-wisconsin
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/kyb-setup
+        with:
+          pdf: true
+          photos: true
+
+      - name: Build ballot data
+        run: node scripts/wisconsin-2027.mjs || echo "::warning::2027-04 Wisconsin build failed; yesterday's data kept"
+
+      - uses: ./.github/actions/kyb-commit
+        with:
+          paths: src/data/wisconsin-2027 public/kyb-photos/wisconsin-2027 public/kyb-photos/wisconsin-2027-office
+          message: 'Daily data: 2027-04 Wisconsin'

@@ -16,7 +16,7 @@
 //   6. The certified ballot questions (scripts/<state>/measures.mjs)
 //
 // Needs `unzip`, `curl`, ImageMagick and OpenCV for Python (see face-check.py)
-// on PATH. Run by .github/workflows/know-your-ballot-<state>.yml.
+// on PATH. Run by .github/workflows/kyb-2026-11-<state>.yml.
 
 import { execFileSync } from 'node:child_process';
 import { createWriteStream, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';

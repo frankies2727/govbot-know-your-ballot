@@ -1,0 +1,43 @@
+name: Daily · site shell + badges
+
+# The pieces every guide shares, refreshed once a day after the elections'
+# data workflows (kyb-<YYYY-MM>-<place>.yml) have run:
+# - govbot's header, footer, stylesheet and script (src/govbot), a copy of
+#   the live govbot site's, so the guide never lags govbot's nav
+#   (scripts/govbot-shell.mjs);
+# - the README's badges (public/badges), including each data workflow's
+#   latest status (scripts/badges.mjs).
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '5 13 * * *' # daily, ~7am Chicago, after the data workflows
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kyb-site
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/kyb-setup
+
+      - name: Refresh govbot's site shell
+        run: node scripts/govbot-shell.mjs
+
+      - name: Redraw the README badges
+        run: node scripts/badges.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - uses: ./.github/actions/kyb-commit
+        with:
+          paths: src/govbot public/badges
+          message: 'Daily: site shell + badges'

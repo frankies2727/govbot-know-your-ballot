@@ -5,7 +5,7 @@
 // Minnesota's own count from the Secretary of State, which the page prefers.
 // Earlier elections are left as they are. Fail-soft: a source that can't be
 // read, or a figure that looks wrong, keeps yesterday's numbers for it.
-// Run daily by .github/workflows/know-your-ballot-illinois.yml.
+// Run daily by .github/workflows/kyb-2026-11-illinois.yml.
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { check, labCsv, labRows, labUpdated, minnesota } from './turnout/parse.mjs';
