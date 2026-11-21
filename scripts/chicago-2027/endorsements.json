@@ -33,11 +33,6 @@
    "kind": "labor union",
    "source": "https://www.audacy.com/wbbm780/news/local/chicago-mayor-re-election-2677922939",
    "date": "2026-09-23"
-  },
-  {
-   "endorser": "Stacy Davis Gates, Chicago Teachers Union president",
-   "kind": "other public figure",
-   "source": "https://www.foxnews.com/media/chicago-teachers-union-boss-vows-push-petitions-mayor-brandon-johnsons-re-election"
   }
  ],
  "mayor|Susana A. Mendoza": [
@@ -1058,6 +1053,14 @@
    "endorser": "CB Johnson, Chicago Businessman, Community Service Provider, Former Candidate for Chicago City Council",
    "kind": "individual",
    "source": "https://www.jamesmorganfor29.com/_files/ugd/0a1ca6_c49dea93cfc44a34abca772f61bd9132.pdf"
+  }
+ ],
+ "alderperson-ward-13|Al Cacciottolo": [
+  {
+   "endorser": "Ald. Marty Quinn",
+   "kind": "elected official",
+   "source": "https://blockclubchicago.org/2026/11/04/3-file-to-fill-retiring-13th-ward-ald-marty-quinns-seat/",
+   "date": "2026-11-04"
   }
  ]
 }

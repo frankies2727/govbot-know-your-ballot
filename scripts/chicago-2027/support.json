@@ -1,0 +1,84 @@
+{
+ "mayor|Alexi Giannoulias": [
+  {
+   "backer": "Local 150 Operating Engineers",
+   "kind": "labor union",
+   "wording": "says the union is making no secret of its support",
+   "source": "https://www.theillinoize.com/articles/unions-coalescing-around-giannoulias-mayoral",
+   "date": "2026-07-01"
+  }
+ ],
+ "mayor|Willie L. Wilson": [
+  {
+   "backer": "former State Sen. Rickey Hendon",
+   "kind": "other public figure",
+   "wording": "Hendon, who supports mayoral challenger Willie Wilson",
+   "source": "https://www.audacy.com/wbbm780/news/local/chicago-election-challenges",
+   "date": "2026-11-09"
+  }
+ ],
+ "mayor|Brandon Johnson": [
+  {
+   "backer": "Chicago Teachers Union (CTU) President Stacy Davis Gates",
+   "kind": "labor union",
+   "wording": "signaled firm support for Mayor Brandon Johnson’s political future",
+   "source": "https://www.foxnews.com/media/chicago-teachers-union-boss-vows-push-petitions-mayor-brandon-johnsons-re-election",
+   "date": "2026-08-01"
+  },
+  {
+   "backer": "Cook County Commissioner Tara Stamps",
+   "kind": "elected official",
+   "wording": "it will be a mistake to put your vote and your confidence in anybody other than Brandon Johnson",
+   "source": "https://chicago.suntimes.com/elections/2026/09/13/chicago-mayor-brandon-johnson-announcement-reelection-bid-2027",
+   "date": "2026-09-13"
+  }
+ ],
+ "alderperson-ward-23|Leonardo Rojas-Banda": [
+  {
+   "backer": "Crystal Lopez",
+   "kind": "individual",
+   "wording": "One of the main reasons why I'm here supporting Leo",
+   "source": "https://southwestregionalpublishing.com/2026/08/28/meet-the-28-year-old-lawyer-running-to-represent-the-23rd-ward/",
+   "date": "2026-08-28"
+  },
+  {
+   "backer": "Stephanie Gutierrez",
+   "kind": "individual",
+   "wording": "The big reason I'm a Leo supporter",
+   "source": "https://southwestregionalpublishing.com/2026/11/15/23rd-ward-candidate-leo-rojas-banda-opens-campaign-with-potluck-says-ward-needs-an-alderman-who-works-with-the-mayor/",
+   "date": "2026-11-15"
+  },
+  {
+   "backer": "Ashley Corral",
+   "kind": "individual",
+   "wording": "I am a big supporter for Leo",
+   "source": "https://southwestregionalpublishing.com/2026/11/15/23rd-ward-candidate-leo-rojas-banda-opens-campaign-with-potluck-says-ward-needs-an-alderman-who-works-with-the-mayor/",
+   "date": "2026-11-15"
+  }
+ ],
+ "alderperson-ward-27|Walter \"Red\" Burnett": [
+  {
+   "backer": "Darlena Williams-Burnett",
+   "kind": "other public figure",
+   "wording": "having her support and many others … my dad included",
+   "source": "https://blockclubchicago.org/2026/11/06/ald-walter-red-burnetts-mom-challenges-his-4-opponents-ballot-petitions/",
+   "date": "2026-11-06"
+  },
+  {
+   "backer": "Walter Burnett Jr.",
+   "kind": "other public figure",
+   "wording": "having her support and many others … my dad included",
+   "source": "https://blockclubchicago.org/2026/11/06/ald-walter-red-burnetts-mom-challenges-his-4-opponents-ballot-petitions/",
+   "date": "2026-11-06"
+  }
+ ],
+ "alderperson-ward-45|James \"Jim\" Gardiner": [
+  {
+   "backer": "the trade, police and fire unions",
+   "kind": "labor union",
+   "wording": "Gardiner has strong support from the trade, police and fire unions",
+   "source": "https://nadignewspapers.com/45th-ward-dems-endorse-s-gronkiewicz-doran-for-alderperson/",
+   "date": "2026-08-18"
+  }
+ ]
+}
