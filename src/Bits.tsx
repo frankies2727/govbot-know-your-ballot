@@ -398,6 +398,39 @@ const districtNo = (sub: string) => { const m = sub.match(/(\d+[A-Za-z]?)\s*$/);
  * show their wording. The list scrolls inside the card so a 148-race section
  * stays one card tall.
  */
+/** One race in a section card's list: its summary line always, the rest (who's running, results, buttons) only once opened, so a card with hundreds of districts stays light. The face strip opens one by setting `open`, which fires the same toggle. */
+function RaceRow({ it, color, candidates, holders, onOpenRace, onCompare }: { it: SectionItem; color: string; candidates: (it: SectionItem) => ReactNode; holders?: (race: Race) => ReactNode; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void }) {
+  const [open, setOpen] = useState(false);
+  const race = it.race!;
+  return (
+    <details className="group scroll-mt-[72px]" data-race={it.id} onToggle={(e) => setOpen(e.currentTarget.open)}>
+      <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
+        <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
+        <span className="min-w-0 flex-1">
+          <span className="block text-[16px] font-bold leading-snug">{it.title}</span>
+          <span className="block text-[13px]">{it.sub} · {race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} · {race.voteFor > 1 ? `pick up to ${race.voteFor}` : 'pick 1'}</span>
+          <RaceResults race={race} color={color} compact />
+        </span>
+      </summary>
+      {open && (
+        <div className="px-3 pb-3 space-y-2">
+          {it.why && <p className="text-[15px] leading-relaxed"><span className="font-bold">Why it matters: </span>{it.why}</p>}
+          <RaceResults race={race} color={color} />
+          {race.candidates.length ? candidates(it) : holders?.(race)}
+          <div className="flex flex-wrap items-center gap-3">
+            <button type="button" onClick={() => onOpenRace(race)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
+            {race.candidates.length > 1 && (
+              <button type="button" onClick={() => onCompare(race)} className="inline-flex items-center gap-1.5 min-h-[36px] rounded-lg border-2 border-[var(--gb-text)] px-2.5 text-[13px] font-bold hover:bg-[var(--kyb-chip)]">
+                <Scale className="w-3.5 h-3.5" aria-hidden="true" /> Compare
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </details>
+  );
+}
+
 export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump, holders }: { key?: string; card: SectionCard; onOpen: (race: Race, c: Candidate) => void; onOpenRace: (race: Race) => void; onCompare: (race: Race) => void; onJump: (sectionId: string, id: string) => void; /** Who holds a seat no one is listed for yet (Race.tsx's Incumbents; passed in, since Race.tsx imports this file). */ holders?: (race: Race) => ReactNode }) {
   const list = useRef<HTMLUListElement>(null);
   const faces: StripPerson[] = card.items.flatMap((it) => (it.race?.candidates ?? []).map((c) => ({ ...c, note: districtNo(it.sub), key: it.id })));
@@ -445,29 +478,7 @@ export function SectionPanel({ card, onOpen, onOpenRace, onCompare, onJump, hold
             <ul className="divide-y divide-[var(--kyb-chip)]">
               {g.items.map((it) => (
                 <li key={it.id}>
-                  <details className="group scroll-mt-[72px]" data-race={it.id}>
-                    <summary className="flex cursor-pointer items-center gap-2 px-3 py-2.5 hover:bg-[var(--kyb-chip)]">
-                      <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
-                      <span className="min-w-0 flex-1">
-                        <span className="block text-[16px] font-bold leading-snug">{it.title}</span>
-                        <span className="block text-[13px]">{it.sub} · {it.race!.candidates.length} candidate{it.race!.candidates.length === 1 ? '' : 's'} · {it.race!.voteFor > 1 ? `pick up to ${it.race!.voteFor}` : 'pick 1'}</span>
-                        <RaceResults race={it.race!} color={card.color} compact />
-                      </span>
-                    </summary>
-                    <div className="px-3 pb-3 space-y-2">
-                      {it.why && <p className="text-[15px] leading-relaxed"><span className="font-bold">Why it matters: </span>{it.why}</p>}
-                      <RaceResults race={it.race!} color={card.color} />
-                      {it.race!.candidates.length ? candidates(it) : holders?.(it.race!)}
-                      <div className="flex flex-wrap items-center gap-3">
-                        <button type="button" onClick={() => onOpenRace(it.race!)} className="text-sm font-bold underline underline-offset-2">Open this race on the ballot →</button>
-                        {it.race!.candidates.length > 1 && (
-                          <button type="button" onClick={() => onCompare(it.race!)} className="inline-flex items-center gap-1.5 min-h-[36px] rounded-lg border-2 border-[var(--gb-text)] px-2.5 text-[13px] font-bold hover:bg-[var(--kyb-chip)]">
-                            <Scale className="w-3.5 h-3.5" aria-hidden="true" /> Compare
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </details>
+                  <RaceRow it={it} color={card.color} candidates={candidates} holders={holders} onOpenRace={onOpenRace} onCompare={onCompare} />
                 </li>
               ))}
             </ul>

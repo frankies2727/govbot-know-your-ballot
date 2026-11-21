@@ -743,14 +743,10 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
   const [locating, setLocating] = useState(false);
   useEffect(() => { if (!status.busy) setLocating(false); }, [status.busy]);
   const candidates = data.races.reduce((n, r) => n + r.candidates.length, 0);
-  // Fetch the district maps while the voter types, so "Find my ballot"
-  // doesn't wait on a download, but once the page is idle, so reading them
-  // doesn't stall the first taps.
-  useEffect(() => {
-    if (!('requestIdleCallback' in window)) { const t = setTimeout(prefetchDistricts, 1500); return () => clearTimeout(t); }
-    const id = requestIdleCallback(() => { prefetchDistricts(); }, { timeout: 3000 });
-    return () => cancelIdleCallback(id);
-  }, []);
+  // Fetch the district maps (hundreds of KB) only once the voter reaches for the
+  // address box or "use my location", so "Find my ballot" doesn't wait on a
+  // download and nobody who just reads pays for it.
+  const prefetchMaps = () => { prefetchDistricts().catch(() => {}); };
   return (
     <div className="space-y-8 pt-2 [&>*:not(header,.kyb-wide)]:max-w-3xl">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
@@ -779,7 +775,7 @@ function Landing({ address, setAddress, status, onSubmit, onLocate, onBrowse, on
         <div className="w-[190px] md:w-[300px] md:max-w-[36%] shrink-0 self-center"><StateMap outline={outline as Outline} name="Illinois" colors={IL_MAP} id="il" /></div>
       </header>
 
-      <form id="kyb-find" onSubmit={onSubmit} className="space-y-3 scroll-mt-[var(--kyb-bar,0px)]">
+      <form id="kyb-find" onSubmit={onSubmit} onFocus={prefetchMaps} onPointerDown={prefetchMaps} className="space-y-3 scroll-mt-[var(--kyb-bar,0px)]">
         <label htmlFor="kyb-address" className="block font-black text-lg">Your address in Illinois</label>
         <div className="flex gap-2">
           <div className="relative flex-1 min-w-0">

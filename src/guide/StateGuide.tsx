@@ -618,14 +618,10 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   const [locating, setLocating] = useState(false);
   useEffect(() => { if (!status.busy) setLocating(false); }, [status.busy]);
   const byDistrict = data.races.length - headliners.length;
-  // Fetch the district maps while the voter types, once the page is idle.
-  useEffect(() => {
-    const prefetch = spec.lookup?.prefetchDistricts;
-    if (!prefetch) return;
-    if (!('requestIdleCallback' in window)) { const t = setTimeout(prefetch, 1500); return () => clearTimeout(t); }
-    const id = requestIdleCallback(() => { prefetch(); }, { timeout: 3000 });
-    return () => cancelIdleCallback(id);
-  }, [spec]);
+  // Fetch the district maps (hundreds of KB) only once the voter reaches for the
+  // address box or "use my location", so the download runs while they type and
+  // nobody who just reads pays for it.
+  const prefetchMaps = () => { if (spec.lookup) Promise.resolve(spec.lookup.prefetchDistricts()).catch(() => {}); };
   const others = GUIDES.filter((g) => g.id !== spec.slug);
   const everyone = copy.everyone ?? 'statewide';
   return (
@@ -650,7 +646,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
       </header>
 
       {spec.lookup ? (
-        <form id="kyb-find" onSubmit={onSubmit} className="space-y-3 max-w-3xl scroll-mt-[var(--kyb-bar,0px)]">
+        <form id="kyb-find" onSubmit={onSubmit} onFocus={prefetchMaps} onPointerDown={prefetchMaps} className="space-y-3 max-w-3xl scroll-mt-[var(--kyb-bar,0px)]">
           <label htmlFor="kyb-address" className="block font-black text-lg">Your address in {spec.name}</label>
           <div className="flex gap-2">
             <div className="relative flex-1 min-w-0">
