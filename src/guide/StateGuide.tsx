@@ -73,10 +73,15 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
   useDocumentMeta(`Know Your Ballot: ${spec.name}`);
   // The briefs are their own download, fetched once the page is up (src/briefs.ts).
+  // A profile waits for them (a beat at most, only when the page opens on one), so its
+  // endorsements and links don't arrive later and push everything down.
   const [briefs, setBriefs] = useState<Briefs>({});
+  const [briefsReady, setBriefsReady] = useState(!spec.briefs);
   useEffect(() => {
     let live = true;
-    spec.briefs?.().then((m) => { if (live) setBriefs(m.default); }).catch(() => {}); // offline: the cards just go without
+    spec.briefs?.().then((m) => { if (live) setBriefs(m.default); })
+      .catch(() => {}) // offline: the cards just go without
+      .finally(() => { if (live) setBriefsReady(true); });
     return () => { live = false; };
   }, [spec]);
   const [saved, setSaved] = useSaved(storageKey);
@@ -554,7 +559,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
       <PrintBallot spec={spec} sections={sections} picks={saved.picks} label={saved.place?.label} sample={printMode === 'sample'} describePick={describePick} />
 
-      {sheet && (
+      {sheet && briefsReady && (
         <CandidateSheet race={sheet.race} c={sheet.c} color={sectionOf(sheet.race.section).color} ink={sectionOf(sheet.race.section).ink} numbered={sheet.race.numbered === true}
           picked={picksFor(sheet.race.id).includes(sheet.c.ballot)}
           onPick={() => togglePick(sheet.race, sheet.c.ballot)}
