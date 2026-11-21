@@ -150,21 +150,21 @@ function Stat({ k, v, title }: { k: string; v: string; title?: string }) {
   );
 }
 
-/** One bar per election on a 0–100% scale: midterms filled, presidential years outlined (so the kind isn't colour alone). Tap, hover or focus one to read it. */
+/** One bar per election on a 0–100% scale: midterms filled, presidential years outlined (so the kind isn't colour alone). Tap, hover or focus one to read it. On phones the row uses the card's side padding so each bar stays a 24px tap target (WCAG 2.5.8). */
 function Bars({ cycles, picked, onPick, name }: { cycles: Cycle[]; picked: number; onPick: (y: number) => void; name: string }) {
   return (
     <div className="mt-3">
-      <div role="group" aria-label={`${name}: turnout of eligible voters, by election`} className="flex h-[84px] items-end border-b border-[var(--gb-border-strong)]">
+      <div role="group" aria-label={`${name}: turnout of eligible voters, by election`} className="-mx-3 flex h-[84px] items-end border-b border-[var(--gb-border-strong)] sm:mx-0">
         {cycles.map((c) => (
           <button key={c.year} type="button" onClick={() => onPick(c.year)} onMouseEnter={() => onPick(c.year)} onFocus={() => onPick(c.year)}
             aria-pressed={c.year === picked} aria-label={`${c.year}: ${c.pct.toFixed(1)}%`}
-            className="flex h-full min-w-0 flex-1 items-end justify-center px-[2px]">
+            className="flex h-full min-w-[24px] flex-1 items-end justify-center px-[2px]">
             <span className={`kyb-bar ${midterm(c.year) ? 'kyb-bar-mid' : 'kyb-bar-pres'} ${c.year === picked ? 'kyb-bar-on' : ''}`} style={{ height: `${c.pct}%` }} />
           </button>
         ))}
       </div>
-      <div className="mt-1 flex text-center text-[10.5px] tabular-nums" aria-hidden="true">
-        {cycles.map((c) => <span key={c.year} className={`min-w-0 flex-1 ${c.year === picked ? 'font-black' : ''}`}>’{String(c.year).slice(2)}</span>)}
+      <div className="-mx-3 mt-1 flex text-center text-[10.5px] tabular-nums sm:mx-0" aria-hidden="true">
+        {cycles.map((c) => <span key={c.year} className={`min-w-[24px] flex-1 ${c.year === picked ? 'font-black' : ''}`}>’{String(c.year).slice(2)}</span>)}
       </div>
       <p className="mt-1 flex flex-wrap gap-x-3 text-[11px]" aria-hidden="true">
         <span className="inline-flex items-center gap-1"><span className="kyb-bar-mid kyb-key" />midterm</span>

@@ -148,7 +148,7 @@ export function KybHome() {
               </summary>
               <p className="mt-2 max-w-[60ch] text-[17px]">Each state&rsquo;s guide, and how many voted in 2026 and in every general election since 2014.</p>
               {/* Each card is three rows of one subgrid (the map and name, the full-ballot link, the turnout), so cards in a row match in height and their parts line up. */}
-              <ul className="mt-6 grid grid-cols-2 gap-x-4 lg:grid-cols-4" aria-label="States with a guide">
+              <ul className="mt-6 grid grid-cols-1 gap-x-4 min-[400px]:grid-cols-2 lg:grid-cols-4" aria-label="States with a guide">
                 {STATES.map((s) => (
                   <li key={s.id} id={`kyb-home-${s.id}`} className={`kyb-card row-span-3 grid grid-rows-subgrid ${UNDER_BAR}`} style={{ '--ink': s.ink } as React.CSSProperties}>
                     <a href={guidePath(s.id)} onClick={openIn(`projects/know-your-ballot-${s.id}`)} className="kyb-tile h-full">
