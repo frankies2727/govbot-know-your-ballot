@@ -5,56 +5,56 @@
    "url": "https://electionresults.sos.state.mn.us/"
   }
  ],
- "asOf": "2026-11-13T19:38:30.000Z",
+ "asOf": "2026-11-19T20:38:29.000Z",
  "races": {
   "u-s-senator": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2832773,
+   "total": 2832868,
    "votes": {
-    "1": 1521794,
-    "2": 1233555,
-    "3": 32491,
-    "4": 41583
+    "1": 1521835,
+    "2": 1233592,
+    "3": 32500,
+    "4": 41589
    },
-   "writeIn": 3350
+   "writeIn": 3352
   },
   "cd-1": {
    "reporting": 750,
    "precincts": 750,
-   "total": 326179,
+   "total": 326197,
    "votes": {
-    "1": 163055,
-    "2": 162733
+    "1": 163065,
+    "2": 162741
    },
    "writeIn": 391
   },
   "cd-2": {
    "reporting": 260,
    "precincts": 260,
-   "total": 375241,
+   "total": 375243,
    "votes": {
     "1": 214282,
-    "2": 160645
+    "2": 160646
    },
-   "writeIn": 314
+   "writeIn": 315
   },
   "cd-3": {
    "reporting": 229,
    "precincts": 229,
-   "total": 377996,
+   "total": 378010,
    "votes": {
-    "1": 242079,
-    "2": 135504
+    "1": 242087,
+    "2": 135511
    },
-   "writeIn": 413
+   "writeIn": 412
   },
   "cd-4": {
    "reporting": 212,
    "precincts": 212,
-   "total": 336243,
+   "total": 336244,
    "votes": {
-    "1": 245699,
+    "1": 245700,
     "2": 90067
    },
    "writeIn": 477
@@ -62,54 +62,54 @@
   "cd-5": {
    "reporting": 217,
    "precincts": 217,
-   "total": 344517,
+   "total": 344522,
    "votes": {
-    "1": 263496,
+    "1": 263500,
     "2": 55851,
     "3": 24236
    },
-   "writeIn": 934
+   "writeIn": 935
   },
   "cd-6": {
    "reporting": 276,
    "precincts": 276,
-   "total": 367341,
+   "total": 367358,
    "votes": {
-    "1": 162212,
-    "2": 204702
+    "1": 162220,
+    "2": 204709
    },
-   "writeIn": 427
+   "writeIn": 429
   },
   "cd-7": {
    "reporting": 1327,
    "precincts": 1327,
-   "total": 330858,
+   "total": 330882,
    "votes": {
-    "1": 115859,
-    "2": 214677
+    "1": 115869,
+    "2": 214691
    },
    "writeIn": 322
   },
   "cd-8": {
    "reporting": 834,
    "precincts": 834,
-   "total": 359453,
+   "total": 359463,
    "votes": {
-    "1": 168427,
-    "2": 190667
+    "1": 168432,
+    "2": 190671
    },
-   "writeIn": 359
+   "writeIn": 360
   },
   "governor-and-lieutenant-governor": {
    "reporting": 4105,
    "precincts": 4105,
-   "total": 2831179,
+   "total": 2831267,
    "votes": {
-    "1": 1570631,
-    "2": 1206671,
-    "3": 51426
+    "1": 1570672,
+    "2": 1206705,
+    "3": 51432
    },
-   "writeIn": 2451
+   "writeIn": 2458
   },
   "state-auditor": {
    "reporting": 4105,
@@ -447,10 +447,10 @@
   "sldu-33": {
    "reporting": 27,
    "precincts": 27,
-   "total": 47951,
+   "total": 47953,
    "votes": {
-    "1": 23935,
-    "2": 23977
+    "1": 23936,
+    "2": 23978
    },
    "writeIn": 39
   },
