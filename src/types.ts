@@ -117,6 +117,8 @@ export interface CandidateBrief {
   asOf: string;
   /** Who has endorsed them for this race, each with the page that names it (scripts/<guide>/endorsements.json). */
   endorsements?: { endorser: string; kind: string; source: string; date?: string }[];
+  /** Support short of a formal endorsement, in the source's own words (scripts/<guide>/support.json). */
+  support?: { backer: string; kind: string; wording: string; source: string; date?: string }[];
 }
 
 /** Bills a sitting legislator sponsored this session, from govbot's catalog. */

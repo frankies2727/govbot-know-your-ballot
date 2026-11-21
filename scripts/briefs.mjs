@@ -28,6 +28,8 @@ export function applyBriefs(races, guide) {
   const sites = read(new URL(`scripts/${guide}/sites.json`, ROOT));
   // { "<race id>|<name>": [{ endorser, kind, source, date? }] }: this race's endorsements, each checked against its page.
   const endorsed = read(new URL(`scripts/${guide}/endorsements.json`, ROOT));
+  // { "<race id>|<name>": [{ backer, kind, wording, source, date? }] }: support short of an endorsement, in the source's words.
+  const backed = read(new URL(`scripts/${guide}/support.json`, ROOT));
   const out = {};
   /** A campaign site and accounts found by hand: kept only as https, and never over one the official record gives. */
   const addSite = (p, s) => {
@@ -42,9 +44,11 @@ export function applyBriefs(races, guide) {
       if (r.candidates.includes(p)) addSite(p, sites[key]);
       const b = briefs[key];
       const e = r.candidates.includes(p) ? (endorsed[key] ?? []).filter((x) => x.endorser && https(x.source)) : [];
-      if (!b && !e.length) continue;
+      const s = r.candidates.includes(p) ? (backed[key] ?? []).filter((x) => x.backer && x.wording && https(x.source)) : [];
+      if (!b && !e.length && !s.length) continue;
       out[key] = b ? { facts: dated(b.facts, b), priorities: dated(b.priorities, b), quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf } : { facts: [], priorities: [], quotes: [], sources: [], asOf: '' };
       if (e.length) out[key].endorsements = e;
+      if (s.length) out[key].support = s;
       if (!b) continue;
       if (!r.candidates.includes(p)) continue; // a holder's card shows only the brief and photo
       addSite(p, b);

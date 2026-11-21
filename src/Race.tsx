@@ -411,16 +411,17 @@ function WhoGave({ d }: { d?: Candidate['donors'] }) {
 const KIND_ORDER = ['newspaper', 'elected official', 'labor union', 'party or political organization', 'advocacy or community group', 'business', 'other public figure', 'individual'];
 const KIND_SHOWN = 6;
 
-/** Who has endorsed them for this race (a later guide's brief), each linked to the page that names it. */
-function BriefEndorsements({ list }: { list?: CandidateBrief['endorsements'] }) {
+/** Who has endorsed them for this race (a later guide's brief), each linked to the page that names it, and who has said they back them short of endorsing, in the source's words. */
+function BriefEndorsements({ list = [], support = [] }: { list?: CandidateBrief['endorsements']; support?: CandidateBrief['support'] }) {
   const [all, setAll] = useState(false);
-  if (!list?.length) return null;
+  if (!list.length && !support.length) return null;
   const rank = (k: string) => { const i = KIND_ORDER.indexOf(k); return i < 0 ? KIND_ORDER.length : i; };
   const sorted = [...list].sort((a, b) => rank(a.kind) - rank(b.kind));
   const shown = all ? sorted : sorted.slice(0, KIND_SHOWN);
+  const backers = [...support].sort((a, b) => rank(a.kind) - rank(b.kind));
   return (
     <section className="space-y-3">
-      <h3 className={heading}>🤝 Endorsed by <span className="normal-case tracking-normal">({list.length})</span></h3>
+      <h3 className={heading}>🤝 {list.length ? <>Endorsed by <span className="normal-case tracking-normal">({list.length})</span></> : 'Support'}</h3>
       <ul className="space-y-1.5 text-[15px] leading-snug text-[var(--gb-text)]">
         {shown.map((e) => (
           <li key={e.endorser} className="flex flex-wrap items-baseline gap-x-2">
@@ -434,7 +435,21 @@ function BriefEndorsements({ list }: { list?: CandidateBrief['endorsements'] }) 
           {all ? 'Show fewer' : `Show all ${list.length}`}
         </button>
       )}
-      <p className="text-xs text-[var(--gb-text)]">Each links to where it was announced. An endorsement is the endorser’s choice, not a rating of the candidate, and this list may not be complete.</p>
+      {backers.length > 0 && (
+        <div className="space-y-2">
+          <p className="text-sm font-black text-[var(--gb-text)]">Support, not a formal endorsement <span className="font-bold">({backers.length})</span></p>
+          <ul className="space-y-2 text-[15px] leading-snug text-[var(--gb-text)]">
+            {backers.map((x) => (
+              <li key={x.backer + x.source}>
+                <a href={x.source} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{x.backer} ↗</a>
+                <span className="text-xs"> · {x.kind}{x.date ? ` · ${new Date(x.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}` : ''}</span>
+                <span className="block text-sm italic">“{x.wording}”</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <p className="text-xs text-[var(--gb-text)]">Each links to where it was said. {backers.length ? 'Support is shown in the source’s own words, because it stops short of a formal endorsement. ' : ''}An endorsement is the endorser’s choice, not a rating of the candidate, and this list may not be complete.</p>
     </section>
   );
 }
@@ -694,7 +709,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
       {/* First thing under their name: their own page's link to send, and their accounts to follow. (Compare's cards carry their own Share.) */}
       {head && <ShareCandidate race={race} c={c} className="w-full sm:w-auto" />}
       <Follow c={c} />
-      <BriefEndorsements list={brief?.endorsements} />
+      <BriefEndorsements list={brief?.endorsements} support={brief?.support} />
 
       {head && (
         <>
