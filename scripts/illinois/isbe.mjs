@@ -235,8 +235,12 @@ export async function addStateMoney(races, dir, election = { years: ['2026'], ty
 /** Contributions (1A), transfers from other committees (2A) and in-kind gifts (5A); never loans or refunds. */
 const GIFTS = new Set(['1A', '2A', '5A']);
 const DONORS_SHOWN = 15;
-/** "SMITH" -> "Smith"; a name already in mixed case stays as filed. */
-const proper = (s) => (s && s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s'’.-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : s);
+/** Kept in capitals when a name filed in capitals is tidied ("Firefighters PAC", not "Pac"). */
+const ACRONYMS = new Set('PAC PAF LLC LLP LP INC PC PLLC LTD NA SEIU IBEW CTU AFSCME UFCW IUOE AFL CIO IUPAT DSA NAACP USA US IL IPAC CFL UAW UNITE HERE BAC IFT IEA CPS CHA CTA ATU'.split(' '));
+/** "SMITH" -> "Smith"; a name already in mixed case stays as filed; acronyms and words with no vowels stay in capitals. */
+const proper = (s) => (s && s === s.toUpperCase()
+  ? s.replace(/[A-Z0-9]+/g, (w) => (ACRONYMS.has(w) || !/[AEIOUY]/.test(w) ? w : w[0] + w.slice(1).toLowerCase()))
+  : s);
 
 /**
  * Who gave to each candidate's committee (the one their `money` comes from),
@@ -268,7 +272,8 @@ export async function addDonors(races, dir, { since = CYCLE_START } = {}) {
     g.amount += amount;
     if (day(r.RcvDate) > g.last) {
       g.last = day(r.RcvDate);
-      if (person) { g.occupation = proper(r.Occupation) || undefined; g.employer = proper(r.Employer) || undefined; }
+      // As filed ("CEO" stays "CEO"); an employer that only repeats the occupation ("Not Employed") is shown once.
+      if (person) { g.occupation = r.Occupation || undefined; g.employer = r.Employer && r.Employer.toLowerCase() !== r.Occupation.toLowerCase() ? r.Employer : undefined; }
     }
     acc.givers.set(key, g);
   }
