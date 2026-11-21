@@ -100,6 +100,8 @@ export interface CandidateBrief {
   sources: { title: string; publisher: string; date?: string; url: string }[];
   /** When it was last checked. */
   asOf: string;
+  /** Who has endorsed them for this race, each with the page that names it (scripts/<guide>/endorsements.json). */
+  endorsements?: { endorser: string; kind: string; source: string; date?: string }[];
 }
 
 /** Bills a sitting legislator sponsored this session, from govbot's catalog. */

@@ -373,6 +373,38 @@ function Endorsements({ c }: { c: Candidate }) {
   );
 }
 
+/** Endorsers in a fixed order (never a judgement of which matter more): papers, officials, unions, party groups, other groups, other people. */
+const KIND_ORDER = ['newspaper', 'elected official', 'labor union', 'party or political organization', 'advocacy or community group', 'other public figure'];
+const KIND_SHOWN = 6;
+
+/** Who has endorsed them for this race (a later guide's brief), each linked to the page that names it. */
+function BriefEndorsements({ list }: { list?: CandidateBrief['endorsements'] }) {
+  const [all, setAll] = useState(false);
+  if (!list?.length) return null;
+  const rank = (k: string) => { const i = KIND_ORDER.indexOf(k); return i < 0 ? KIND_ORDER.length : i; };
+  const sorted = [...list].sort((a, b) => rank(a.kind) - rank(b.kind));
+  const shown = all ? sorted : sorted.slice(0, KIND_SHOWN);
+  return (
+    <section className="space-y-3">
+      <h3 className={heading}>🤝 Endorsed by <span className="normal-case tracking-normal">({list.length})</span></h3>
+      <ul className="space-y-1.5 text-[15px] leading-snug text-[var(--gb-text)]">
+        {shown.map((e) => (
+          <li key={e.endorser} className="flex flex-wrap items-baseline gap-x-2">
+            <a href={e.source} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{e.endorser} ↗</a>
+            <span className="text-xs">{e.kind}{e.date ? ` · ${new Date(e.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}` : ''}</span>
+          </li>
+        ))}
+      </ul>
+      {list.length > KIND_SHOWN && (
+        <button type="button" onClick={() => setAll((v) => !v)} className="min-h-[40px] rounded-xl border-2 border-[var(--gb-text)] px-3 text-sm font-bold text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+          {all ? 'Show fewer' : `Show all ${list.length}`}
+        </button>
+      )}
+      <p className="text-xs text-[var(--gb-text)]">Each links to where it was announced. An endorsement is the endorser’s choice, not a rating of the candidate, and this list may not be complete.</p>
+    </section>
+  );
+}
+
 /** One question of the questionnaire, folded: the question (or its title) is the summary. */
 function QA({ title, q, a }: { key?: string; title?: string; q: string; a: string }) {
   return (
@@ -628,6 +660,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
       {/* First thing under their name: their own page's link to send, and their accounts to follow. (Compare's cards carry their own Share.) */}
       {head && <ShareCandidate race={race} c={c} className="w-full sm:w-auto" />}
       <Follow c={c} />
+      <BriefEndorsements list={brief?.endorsements} />
 
       {head && (
         <>

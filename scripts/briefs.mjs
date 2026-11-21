@@ -26,6 +26,8 @@ const https = (u) => typeof u === 'string' && /^https:\/\//.test(u);
 export function applyBriefs(races, guide) {
   const briefs = read(new URL(`scripts/${guide}/briefs.json`, ROOT));
   const sites = read(new URL(`scripts/${guide}/sites.json`, ROOT));
+  // { "<race id>|<name>": [{ endorser, kind, source, date? }] }: this race's endorsements, each checked against its page.
+  const endorsed = read(new URL(`scripts/${guide}/endorsements.json`, ROOT));
   const out = {};
   /** A campaign site and accounts found by hand: kept only as https, and never over one the official record gives. */
   const addSite = (p, s) => {
@@ -39,8 +41,11 @@ export function applyBriefs(races, guide) {
       const key = `${r.id}|${p.name}`;
       if (r.candidates.includes(p)) addSite(p, sites[key]);
       const b = briefs[key];
+      const e = r.candidates.includes(p) ? (endorsed[key] ?? []).filter((x) => x.endorser && https(x.source)) : [];
+      if (!b && !e.length) continue;
+      out[key] = b ? { facts: dated(b.facts, b), priorities: dated(b.priorities, b), quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf } : { facts: [], priorities: [], quotes: [], sources: [], asOf: '' };
+      if (e.length) out[key].endorsements = e;
       if (!b) continue;
-      out[key] = { facts: dated(b.facts, b), priorities: dated(b.priorities, b), quotes: b.quotes ?? [], sources: b.sources ?? [], asOf: b.asOf };
       if (!r.candidates.includes(p)) continue; // a holder's card shows only the brief and photo
       addSite(p, b);
     }
