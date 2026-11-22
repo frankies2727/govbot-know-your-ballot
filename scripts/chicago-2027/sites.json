@@ -202,12 +202,37 @@
  "alderperson-ward-34|Nathan Bean": {
   "social": {
    "instagram": "https://www.instagram.com/votethebean/"
-  }
+  },
+  "website": "https://www.instagram.com/votethebean/"
  },
  "alderperson-ward-31|Alonso Zaragoza": {
   "social": {
    "instagram": "https://www.instagram.com/belmontcraginunited/",
    "threads": "https://www.threads.net/@belmontcraginunited"
   }
+ },
+ "alderperson-ward-16|Shenina Fletcher": {
+  "website": "https://www.instagram.com/fletcherforbetter/"
+ },
+ "alderperson-ward-3|Qushona Harris": {
+  "website": "https://www.qushonaharris.com/"
+ },
+ "alderperson-ward-37|Howard Ray": {
+  "website": "https://howardrayforalderman.com/"
+ },
+ "alderperson-ward-37|Kobey Lofton": {
+  "website": "https://votekobeylofton.com/"
+ },
+ "alderperson-ward-37|Michael Patrick Murphy": {
+  "website": "https://michaelmurphyforchicago.com/"
+ },
+ "alderperson-ward-8|Jimmy Darnell Jones Aka Jaye Jones": {
+  "website": "https://jonesfor8thward.com/"
+ },
+ "alderperson-ward-8|Yolonda Mack": {
+  "website": "https://www.mackhasyourbackward8.com/"
+ },
+ "police-district-council-10|Kiisha Smith": {
+  "website": "https://www.facebook.com/KiishaMonae"
  }
 }

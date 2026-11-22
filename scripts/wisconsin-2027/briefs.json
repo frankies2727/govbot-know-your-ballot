@@ -2978,12 +2978,11 @@
     "url": "https://en.wikipedia.org/wiki/2027_Wisconsin_elections"
    }
   ],
-  "asOf": "2026-11-17",
-  "website": "https://www.retainjudgemorales.com/",
   "social": {
    "facebook": "https://www.facebook.com/reyna.morales.963",
    "linkedin": "https://www.linkedin.com/in/reyna-morales-3705943a/"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "circuit-outagamie-1|Whitney Healy": {
   "facts": [
@@ -3912,19 +3911,92 @@
    {
     "text": "He was born in Two Rivers, Wisconsin.",
     "source": "https://www.wicourts.gov/courts/appeals/judges/petrashek.htm"
+   },
+   {
+    "text": "His campaign says he is seeking election to a full term on the Court of Appeals on April 6, 2027.",
+    "source": "https://friendsofnathan.com/about"
+   },
+   {
+    "text": "His campaign says he volunteered as an election inspector after the 2020 election.",
+    "source": "https://friendsofnathan.com/about"
+   },
+   {
+    "text": "He is a first-generation college graduate, according to his campaign announcement.",
+    "source": "https://urbanmilwaukee.com/pressrelease/judge-nathan-petrashek-announces-campaign-to-continue-serving-on-wisconsin-court-of-appeals/"
    }
   ],
-  "priorities": [],
-  "quotes": [],
+  "priorities": [
+   {
+    "text": "Says he is seeking to continue serving because people deserve a judicial system that treats everyone with dignity, applies the law fairly, and inspires confidence in the courts.",
+    "source": "https://urbanmilwaukee.com/pressrelease/judge-nathan-petrashek-announces-campaign-to-continue-serving-on-wisconsin-court-of-appeals/"
+   },
+   {
+    "text": "His campaign says he is committed to equal justice under the law, safeguarding the independence of Wisconsin's courts, and preserving public confidence in the judicial system.",
+    "source": "https://friendsofnathan.com/news/30-judges"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I have spent my career committed to fairness, impartiality, and the rule of law",
+    "source": "https://urbanmilwaukee.com/pressrelease/judge-nathan-petrashek-announces-campaign-to-continue-serving-on-wisconsin-court-of-appeals/",
+    "date": "2026-06-01"
+   },
+   {
+    "text": "Serving as a Court of Appeals Judge is a tremendous honor, and I’m seeking to continue that service because I believe people deserve a judicial system that treats everyone with dignity, applies the law fairly, and inspires confidence in our courts.",
+    "source": "https://urbanmilwaukee.com/pressrelease/judge-nathan-petrashek-announces-campaign-to-continue-serving-on-wisconsin-court-of-appeals/",
+    "date": "2026-06-01"
+   },
+   {
+    "text": "Public service has always been at the center of my career",
+    "source": "https://urbanmilwaukee.com/pressrelease/judge-nathan-petrashek-announces-campaign-to-continue-serving-on-wisconsin-court-of-appeals/",
+    "date": "2026-06-01"
+   }
+  ],
   "sources": [
+   {
+    "title": "Judges Across WI Endorse Judge Nathan Petrashek for Court of Appeals",
+    "publisher": "Urban Milwaukee (press release from Nathan Petrashek)",
+    "date": "2026-10-22",
+    "url": "https://urbanmilwaukee.com/pressrelease/correction-judges-across-wi-endorse-judge-nathan-petrashek-for-court-of-appeals/"
+   },
+   {
+    "title": "Thirty Current & Former Milwaukee Judges Endorse Judge Nathan Petrashek",
+    "publisher": "Nathan Petrashek for Court of Appeals",
+    "date": "2026-09-29",
+    "url": "https://friendsofnathan.com/news/30-judges"
+   },
+   {
+    "title": "Judge Nathan Petrashek Announces Campaign to Continue Serving on Wisconsin Court of Appeals",
+    "publisher": "Urban Milwaukee (press release from Nathan Petrashek)",
+    "date": "2026-06-01",
+    "url": "https://urbanmilwaukee.com/pressrelease/judge-nathan-petrashek-announces-campaign-to-continue-serving-on-wisconsin-court-of-appeals/"
+   },
    {
     "title": "Judge Nathan A. Petrashek",
     "publisher": "Wisconsin Court System",
     "date": "2026-04-23",
     "url": "https://www.wicourts.gov/courts/appeals/judges/petrashek.htm"
+   },
+   {
+    "title": "About",
+    "publisher": "Nathan Petrashek for Court of Appeals",
+    "url": "https://friendsofnathan.com/about"
+   },
+   {
+    "title": "Endorsements",
+    "publisher": "Nathan Petrashek for Court of Appeals",
+    "url": "https://friendsofnathan.com/endorsements-2"
    }
   ],
-  "asOf": "2026-11-17"
+  "website": "https://friendsofnathan.com/",
+  "social": {
+   "facebook": "https://www.facebook.com/profile.php?id=61589578002438",
+   "instagram": "https://instagram.com/friendsofnathan",
+   "x": "https://x.com/nathanpetrashek",
+   "linkedin": "https://www.linkedin.com/company/friendsofnathan",
+   "youtube": "https://www.youtube.com/@NathanPetrashek"
+  },
+  "asOf": "2026-11-22"
  },
  "court-of-appeals-2|Shelley Grogan": {
   "facts": [

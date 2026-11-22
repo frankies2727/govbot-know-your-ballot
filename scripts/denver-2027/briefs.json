@@ -624,7 +624,7 @@
     "source": "https://www.mejiafordenver.com/meetmelissa"
    },
    {
-    "text": "She filed candidate forms for the 2027 At-Large Seat B race on Nov. 6, 2026, according to the Clerk and Recorder.",
+    "text": "She filed candidate forms for the 2027 At-Large Seat B race on Nov. 6, 2026; the Clerk and Recorder lists her Fair Elections Fund status as \"Participating, Not Yet Qualified.\"",
     "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
    }
   ],
@@ -692,12 +692,12 @@
     "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
    }
   ],
-  "asOf": "2026-11-17",
   "website": "https://www.mejiafordenver.com/",
   "social": {
    "facebook": "https://www.facebook.com/profile.php?id=61593173843471",
    "instagram": "https://www.instagram.com/mejiafordenver/"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "at-large-b|Monica Martinez": {
   "facts": [
@@ -728,6 +728,10 @@
    {
     "text": "Her campaign site says she is married to a former Denver Director of Economic Development.",
     "source": "https://monica4council.com/"
+   },
+   {
+    "text": "On the Clerk and Recorder's 2027 municipal candidate list, her entry (affidavit filed 7/31/26) is marked \"Filed for Vacancy Election.\"",
+    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
    }
   ],
   "priorities": [
@@ -778,8 +782,8 @@
     "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
    }
   ],
-  "asOf": "2026-11-17",
-  "website": "https://monica4council.com/"
+  "website": "https://monica4council.com/",
+  "asOf": "2026-11-22"
  },
  "at-large-b|Sarah Parady": {
   "facts": [
@@ -1109,6 +1113,10 @@
    {
     "text": "He is listed as a candidate for Clerk and Recorder in Denver's campaign finance system for the April 6, 2027 election.",
     "source": "https://denver.maplight.com/public/candidate-details/491/33"
+   },
+   {
+    "text": "The Clerk and Recorder lists his affidavit for the 2027 Clerk & Recorder race as filed 1/21/25, with Fair Elections Fund status \"Participating, Not Yet Qualified.\"",
+    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
    }
   ],
   "priorities": [
@@ -1166,9 +1174,24 @@
     "title": "Paul D. López, candidate for Clerk and Recorder",
     "publisher": "Denver campaign finance (MapLight)",
     "url": "https://denver.maplight.com/public/candidate-details/491/33"
+   },
+   {
+    "title": "Candidate and Initiative Tracking",
+    "publisher": "Denver Clerk and Recorder",
+    "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "title": "Lopez for Denver",
+    "publisher": "Lopez for Denver",
+    "url": "https://www.lopezfordenver.com/"
    }
   ],
-  "asOf": "2026-11-17"
+  "website": "https://www.lopezfordenver.com/",
+  "social": {
+   "facebook": "https://www.facebook.com/lopezfordenver/",
+   "x": "https://twitter.com/PaulLopez5280"
+  },
+  "asOf": "2026-11-22"
  },
  "council-district-10|Andrew Fischer": {
   "facts": [
@@ -1312,6 +1335,10 @@
    {
     "text": "The Denver Clerk and Recorder lists him as a 2027 municipal candidate for City Council District 10, with an affidavit filed 11/27/24, and as qualified for Fair Elections Fund matching funds.",
     "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "text": "His campaign site describes the 2027 race as his final term under term limits and says he chairs the council's Finance & Business Committee.",
+    "source": "https://www.chrisfordenver.com/next-term"
    }
   ],
   "priorities": [
@@ -1320,24 +1347,24 @@
     "source": "https://www.denverperfect10.com/"
    },
    {
-    "text": "Access to housing, transportation, and representation, the values his district site lists under \"Leading by values.\"",
-    "source": "https://www.denverperfect10.com/"
+    "text": "Finish Colfax Bus Rapid Transit east of District 10 and full service in 2027, and fix crossings, loading zones and business access the opening surfaces.",
+    "source": "https://www.chrisfordenver.com/next-term"
    },
    {
-    "text": "Reducing dependence on cars and expanding freedom of mobility.",
-    "source": "https://www.coloradopolitics.com/2021/05/31/denver-council-spotlight-chris-hinds-on-fulfilling-the-needs-of-district-10-and-the-disability-community-0a118c7f-7e6f-5dd7-93c0-e4b22fbd06a4/"
+    "text": "Complete the 5280 Trail's Acoma Street segment by the end of 2027 and fund and design the next District 10 segments.",
+    "source": "https://www.chrisfordenver.com/next-term"
    },
    {
-    "text": "In his first term he co-sponsored a bill that raised Denver's minimum wage and voted for policies to encourage more affordable housing.",
-    "source": "https://www.westword.com/news/denver-city-council-chris-hinds-defeats-shannon-hoffman-17041130"
+    "text": "Oversee the $570 million downtown reinvestment fund, with housing across incomes downtown and every dollar reported.",
+    "source": "https://www.chrisfordenver.com/next-term"
    },
    {
-    "text": "Co-leading, with Councilmember Kevin Flynn, a proposed ordinance to ban dirt bikes, electric motorcycles and other off-road vehicles on public roads.",
-    "source": "https://groups.google.com/g/east-central-denver/c/3g7G8JV5jss"
+    "text": "Break ground in 2027 on 132 homes at 1139 Delaware, 80 of them supportive housing, and protect renters when buildings change hands.",
+    "source": "https://www.chrisfordenver.com/next-term"
    },
    {
-    "text": "Convened police, property managers and residents in July 2026 to address crime and drug use in the 1400 blocks of Pennsylvania and Pearl Streets.",
-    "source": "https://groups.google.com/g/east-central-denver/c/FOdxTdnmbK8"
+    "text": "Crisis response: scale STAR-style co-responder teams to more neighborhoods and shifts, and reform dispatch so 911 calls get the right response.",
+    "source": "https://www.chrisfordenver.com/next-term"
    }
   ],
   "quotes": [
@@ -1358,18 +1385,6 @@
   ],
   "sources": [
    {
-    "title": "Hinds' Sights - 2026-08-a",
-    "publisher": "Denver's Perfect 10 Newsletter",
-    "date": "2026-08-13",
-    "url": "https://groups.google.com/g/east-central-denver/c/3g7G8JV5jss"
-   },
-   {
-    "title": "Hinds' Sights - 2026-07-b",
-    "publisher": "Denver's Perfect 10 Newsletter",
-    "date": "2026-07-16",
-    "url": "https://groups.google.com/g/east-central-denver/c/FOdxTdnmbK8"
-   },
-   {
     "title": "Chris Hinds Defeats Shannon Hoffman to Stay on Denver City Council",
     "publisher": "Denver Westword",
     "date": "2023-06-08",
@@ -1380,6 +1395,16 @@
     "publisher": "Colorado Politics / The Denver Gazette",
     "date": "2021-05-31",
     "url": "https://www.coloradopolitics.com/2021/05/31/denver-council-spotlight-chris-hinds-on-fulfilling-the-needs-of-district-10-and-the-disability-community-0a118c7f-7e6f-5dd7-93c0-e4b22fbd06a4/"
+   },
+   {
+    "title": "Next Term · Chris for Denver",
+    "publisher": "Chris Hinds for City Council",
+    "url": "https://www.chrisfordenver.com/next-term"
+   },
+   {
+    "title": "Endorsements · Chris for Denver",
+    "publisher": "Chris Hinds for City Council",
+    "url": "https://www.chrisfordenver.com/endorsements"
    },
    {
     "title": "Chris Hinds, Councilman, District 10",
@@ -1395,21 +1420,15 @@
     "title": "Candidate and Initiative Tracking",
     "publisher": "Denver Clerk and Recorder",
     "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
-   },
-   {
-    "title": "Chris Hinds - Denver Campaign Finance Dashboard",
-    "publisher": "MapLight / City and County of Denver",
-    "url": "https://denver.maplight.com/public/candidate-details/1152/33"
    }
   ],
-  "asOf": "2026-11-17",
-  "website": "https://www.denverperfect10.com/",
+  "website": "https://www.chrisfordenver.com/",
   "social": {
-   "facebook": "https://www.facebook.com/DenverPerfect10/",
-   "instagram": "https://www.instagram.com/denverperfect10/",
-   "x": "https://twitter.com/DenverPerfect10",
-   "linkedin": "https://www.linkedin.com/in/chris-hinds-66a692174/"
-  }
+   "facebook": "https://www.facebook.com/ChrisForDenver",
+   "instagram": "https://www.instagram.com/ChrisForDenver",
+   "linkedin": "https://www.linkedin.com/in/chris-hinds-denver/"
+  },
+  "asOf": "2026-11-22"
  },
  "council-district-10|June Churchill": {
   "facts": [
@@ -1615,10 +1634,31 @@
    {
     "text": "The Clerk and Recorder's tracker lists him as Allen Webb II, with a candidate affidavit for City Council District 11 filed February 17, 2026, and his campaign as qualified for Fair Elections Fund matching funds.",
     "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "text": "His campaign site says he is a Lead Program Specialist with Denver Public Schools, connecting young people with workforce opportunities, career pathways and support services.",
+    "source": "https://webbfordenver.com/about/"
+   },
+   {
+    "text": "His campaign site says he is a quarterbacks coach at Northfield High School and played quarterback at Kansas State University.",
+    "source": "https://webbfordenver.com/about/"
+   },
+   {
+    "text": "His campaign site says he is the grandson of former Denver Mayor Wellington E. Webb and former Colorado First Lady Wilma J. Webb.",
+    "source": "https://webbfordenver.com/about/"
+   },
+   {
+    "text": "His campaign site says he is conducting a Vision D11 Listening Tour of District 11 residents, businesses, faith leaders and community organizations before officially launching his campaign.",
+    "source": "https://ourd11.com/"
    }
   ],
   "priorities": [],
-  "quotes": [],
+  "quotes": [
+   {
+    "text": "I want to hear directly from the people who live and work here about what’s working, what needs attention, and what you want District 11 to become.",
+    "source": "https://ourd11.com/"
+   }
+  ],
   "sources": [
    {
     "title": "Candidate and Initiative Tracking",
@@ -1629,9 +1669,23 @@
     "title": "Candidate details",
     "publisher": "Denver Clerk and Recorder (MapLight campaign finance)",
     "url": "https://denver.maplight.com/public/candidate-details/1290/33"
+   },
+   {
+    "title": "About – Allen Webb for Denver",
+    "publisher": "Committee to Elect Allen Webb",
+    "url": "https://webbfordenver.com/about/"
+   },
+   {
+    "title": "What's Your Vision for District 11?",
+    "publisher": "Allen Webb II for Council",
+    "url": "https://ourd11.com/"
    }
   ],
-  "asOf": "2026-11-17"
+  "website": "https://ourd11.com/",
+  "social": {
+   "facebook": "https://www.facebook.com/profile.php?id=61593136827044"
+  },
+  "asOf": "2026-11-22"
  },
  "council-district-11|Ayah Maldonado": {
   "facts": [
@@ -1755,20 +1809,62 @@
     "source": "https://coloradochildrep.org/about/our-staff/"
    },
    {
-    "text": "Her staff biography says she earned an M.S. in Management from Colorado State University.",
-    "source": "https://coloradochildrep.org/about/our-staff/"
-   },
-   {
     "text": "Denver For All's candidate tracker says she previously served as Director of Constituent Services for Denver City Council, starting in 2011.",
     "source": "https://denverforall.org/tools/candidate-tracker/"
    },
    {
     "text": "She filed her candidate affidavit for Denver City Council District 11 on January 2, 2026, and the Clerk and Recorder lists her as qualified for Fair Elections Fund matching funds.",
     "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "text": "Her campaign site says she holds a Master of Science in Organizational Leadership and a Bachelor of Arts in Broadcast Journalism and Public Relations.",
+    "source": "https://www.brandefordenver.com/about"
+   },
+   {
+    "text": "Her campaign site says she serves on the Denver International Airport (DEN) Community Advisory Committee and previously worked in the Executive Office at DEN.",
+    "source": "https://www.brandefordenver.com/about"
+   },
+   {
+    "text": "Her campaign site says she has served on boards and commissions including One Colorado, the Denver Mayor's African American Commission, the Denver Parks and Recreation Advisory Board and Prodigy Ventures.",
+    "source": "https://www.brandefordenver.com/about"
    }
   ],
-  "priorities": [],
-  "quotes": [],
+  "priorities": [
+   {
+    "text": "Building pathways for young people: youth programming, mentorship, workforce programs tied to industries like Denver International Airport, and paid internships and apprenticeships.",
+    "source": "https://www.brandefordenver.com/priorities"
+   },
+   {
+    "text": "Housing: expand affordable housing options, protect renters, support first-time homeownership, income-restricted housing and ADUs, and preserve existing affordable units.",
+    "source": "https://www.brandefordenver.com/priorities"
+   },
+   {
+    "text": "Small businesses: improve access to city resources, technical assistance and capital, equitable contracting, streamlined permitting, and support for minority-owned and immigrant-owned businesses.",
+    "source": "https://www.brandefordenver.com/priorities"
+   },
+   {
+    "text": "Infrastructure: sidewalks, street lighting, transit access, pedestrian safety and accessible public spaces in Far Northeast Denver.",
+    "source": "https://www.brandefordenver.com/priorities"
+   },
+   {
+    "text": "Safety: community-based prevention, mental health response and accountability in policing.",
+    "source": "https://www.brandefordenver.com/priorities"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I am running for Denver City Council to change that — to ensure our voices shape the policies that impact our daily lives.",
+    "source": "https://www.brandefordenver.com/about"
+   },
+   {
+    "text": "I know how City Hall works — and where it doesn’t.",
+    "source": "https://www.brandefordenver.com/about"
+   },
+   {
+    "text": "I believe growth should not come at the expense of the people who already call District 11 home.",
+    "source": "https://www.brandefordenver.com/priorities"
+   }
+  ],
   "sources": [
    {
     "title": "Our Staff",
@@ -1789,9 +1885,24 @@
     "title": "Candidate details",
     "publisher": "Denver Clerk and Recorder (MapLight campaign finance)",
     "url": "https://denver.maplight.com/public/candidate-details/1240/33"
+   },
+   {
+    "title": "About — Brande Micheau",
+    "publisher": "Brande for Denver",
+    "url": "https://www.brandefordenver.com/about"
+   },
+   {
+    "title": "Priorities — Brande Micheau",
+    "publisher": "Brande for Denver",
+    "url": "https://www.brandefordenver.com/priorities"
    }
   ],
-  "asOf": "2026-11-17"
+  "website": "https://www.brandefordenver.com/",
+  "social": {
+   "instagram": "https://www.instagram.com/brandefordenver/",
+   "facebook": "https://www.facebook.com/profile.php?id=61586168286355"
+  },
+  "asOf": "2026-11-22"
  },
  "council-district-11|K. Haynes": {
   "facts": [
@@ -1913,9 +2024,34 @@
    {
     "text": "Westword reported he championed an ordinance directing Denver to donate bison from its herds to tribes rather than selling them at auction.",
     "source": "https://www.westword.com/news/denver-scott-gilmore-people-watch-2023-15801589"
+   },
+   {
+    "text": "His campaign site says he chairs the Green Leadership Trust and is a board member of the Colorado Golf Association.",
+    "source": "https://www.gilmorefordenver.com/about-1"
    }
   ],
-  "priorities": [],
+  "priorities": [
+   {
+    "text": "Complete and maintain the Capital Improvement Projects promised and funded in the district, including traffic signals, streetlights, medians, bike lanes and road improvements around schools.",
+    "source": "https://www.gilmorefordenver.com/group-events"
+   },
+   {
+    "text": "Work with DEN, the FAA and regional partners on Peña Blvd. improvements and expand RTD bus routes in Far Northeast Denver.",
+    "source": "https://www.gilmorefordenver.com/group-events"
+   },
+   {
+    "text": "Support affordable housing projects in Far Northeast Denver and connect residents to housing, energy assistance and financial empowerment resources.",
+    "source": "https://www.gilmorefordenver.com/group-events"
+   },
+   {
+    "text": "Establish a new Denver Police Department district for Far Northeast Denver with a new police station in Green Valley Ranch, and support the Office of the Independent Monitor and the Citizen Oversight Board.",
+    "source": "https://www.gilmorefordenver.com/group-events"
+   },
+   {
+    "text": "Have each major city department create a youth corps crew as a pipeline from high school to a permanent city job.",
+    "source": "https://www.gilmorefordenver.com/group-events"
+   }
+  ],
   "quotes": [
    {
     "text": "Whoever the next mayor is, parks are important to the public",
@@ -1936,6 +2072,14 @@
     "text": "I just hope the best for the city. I hope the best for the employees",
     "source": "https://www.denver7.com/news/front-range/denver/im-a-casualty-denver-city-council-members-husband-was-one-of-171-city-employees-laid-off-in-first-round",
     "date": "2025-08-18"
+   },
+   {
+    "text": "I want to see viable and implementable solutions for transportation, safety and housing.",
+    "source": "https://www.gilmorefordenver.com/about-1"
+   },
+   {
+    "text": "We should not be building bike lanes and sidewalks that lead to nowhere just to count the miles.",
+    "source": "https://www.gilmorefordenver.com/about-1"
    }
   ],
   "sources": [
@@ -1960,107 +2104,23 @@
     "title": "Candidate and Initiative Tracking",
     "publisher": "Denver Clerk and Recorder",
     "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "title": "ABOUT — Scott Gilmore for District 11",
+    "publisher": "Gilmore for Denver",
+    "url": "https://www.gilmorefordenver.com/about-1"
+   },
+   {
+    "title": "ISSUES — Scott Gilmore for District 11",
+    "publisher": "Gilmore for Denver",
+    "url": "https://www.gilmorefordenver.com/group-events"
    }
   ],
-  "asOf": "2026-11-17"
- },
- "council-district-11|Stacie Gilmore": {
-  "facts": [
-   {
-    "text": "Stacie Gilmore is the Councilmember for Denver City Council District 11, Denver's Far Northeast district.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "She was elected to Denver City Council in 2015 and re-elected in 2019 and 2023.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "She served as President Pro Tempore of the council in 2018 and 2019, and as Council President from July 2020 to July 2022.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "Before joining the council she worked for state natural resource agencies and in 1996 co-founded Environmental Learning for Kids (ELK), which she led as Executive Director.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "She holds a B.S. in zoology and chemistry from Metropolitan State College of Denver and a master's in nonprofit management from Regis University.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "Her city bio describes her as a third-generation Coloradan and Latina with Indigenous ancestry who has lived in Denver for 35 years.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "In the April 4, 2023 general election she received 99.8% of the vote against a write-in candidate; her current term ends in 2027.",
-    "source": "https://ballotpedia.org/Stacie_Gilmore"
-   },
-   {
-    "text": "She is married to Scott Gilmore, a former deputy executive director of Denver Parks & Recreation who was among 171 city employees laid off in August 2025.",
-    "source": "https://www.denver7.com/news/front-range/denver/im-a-casualty-denver-city-council-members-husband-was-one-of-171-city-employees-laid-off-in-first-round"
-   }
-  ],
-  "priorities": [
-   {
-    "text": "Developed the \"Healthy Residential Rentals for All\" rental license, passed unanimously in May 2021, setting minimum housing standards for rental units.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "Co-sponsored making Indigenous Peoples' Day a paid city holiday (March 2025) and passed the Buffalo Return bill (March 2026) returning buffalo to American Indian tribes and nonprofits.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "Co-sponsored the November 2022 Civil Wage Theft bill and the Denver minimum wage increase starting in 2020.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "Sponsored the June 2022 HOA Foreclosure Notice bill and extended the city's property tax rebate to more low-income families and older adults.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "Her office reports bringing $433 million in investment to District 11, including Green Valley Ranch Blvd and 56th Ave expansions and the GVR Indoor Pool, and helping bring full-service grocery stores to the district.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "text": "Helped place the Vibrant Denver bond on the ballot in August 2025 with the Montbello Senior Tech Lab and the American Indian Cultural Embassy included.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   }
-  ],
-  "quotes": [
-   {
-    "text": "I feel like today, there was retaliation for me being a very outspoken critic of Mayor Johnston's administration",
-    "source": "https://www.denver7.com/news/front-range/denver/im-a-casualty-denver-city-council-members-husband-was-one-of-171-city-employees-laid-off-in-first-round",
-    "date": "2025-08-18"
-   },
-   {
-    "text": "I just feel horrible for the other 170 people that were laid off today, especially because the majority of those, I'm sure, helped us make it through the pandemic",
-    "source": "https://www.denver7.com/news/front-range/denver/im-a-casualty-denver-city-council-members-husband-was-one-of-171-city-employees-laid-off-in-first-round",
-    "date": "2025-08-18"
-   }
-  ],
-  "sources": [
-   {
-    "title": "'I'm a casualty': Denver City Council member's husband was one of 171 city employees laid off in first round",
-    "publisher": "Denver7",
-    "date": "2025-08-18",
-    "url": "https://www.denver7.com/news/front-range/denver/im-a-casualty-denver-city-council-members-husband-was-one-of-171-city-employees-laid-off-in-first-round"
-   },
-   {
-    "title": "Stacie Gilmore, Councilmember, District 11",
-    "publisher": "City and County of Denver",
-    "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Stacie-Gilmore-Council-District-11"
-   },
-   {
-    "title": "Stacie Gilmore",
-    "publisher": "Ballotpedia",
-    "url": "https://ballotpedia.org/Stacie_Gilmore"
-   }
-  ],
-  "asOf": "2026-11-17",
+  "website": "https://www.gilmorefordenver.com/",
   "social": {
-   "facebook": "https://www.facebook.com/CouncilwomanStacieGilmore",
-   "instagram": "https://www.instagram.com/staciegilmore_district11/",
-   "x": "https://twitter.com/VoteSGilmore"
-  }
+   "facebook": "https://www.facebook.com/profile.php?id=61589068828540"
+  },
+  "asOf": "2026-11-22"
  },
  "council-district-1|Amanda Sandoval": {
   "facts": [
@@ -2091,12 +2151,28 @@
    {
     "text": "District 1 includes Berkeley, Chaffee Park, Highland, Jefferson Park, Regis / Inspiration Point, Riverfront / Union Station, Sloan's Lake, Sunnyside and West Highland.",
     "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Amanda-P-Sandoval-Council-District-1"
+   },
+   {
+    "text": "She filed candidate forms for the 2027 City Council District 1 race on Nov. 16, 2026, according to the Clerk and Recorder.",
+    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "text": "Her campaign site says she is running for a third term on the District 1 seat.",
+    "source": "https://www.amandasandoval.com/"
    }
   ],
   "priorities": [
    {
-    "text": "Her city page lists land use, small business development and preserving Northwest Denver's history and culture as her focus.",
-    "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Amanda-P-Sandoval-Council-District-1"
+    "text": "Development: her campaign platform calls for smart, contextual growth that drives affordability, livability, safety and community, with preserved neighborhood character.",
+    "source": "https://www.amandasandoval.com/"
+   },
+   {
+    "text": "Public safety: her campaign platform calls for proper funding and supporting initiatives that meet community needs.",
+    "source": "https://www.amandasandoval.com/"
+   },
+   {
+    "text": "Housing, transportation and mobility, and environment, parks and recreation, including funding needed projects, are listed on her campaign platform.",
+    "source": "https://www.amandasandoval.com/"
    },
    {
     "text": "She sponsored neighborhood-wide rezonings allowing accessory dwelling units (ADUs) in Chaffee Park, Sloan's Lake, Regis, West Highland, and Berkeley and Sunnyside.",
@@ -2121,6 +2197,10 @@
   ],
   "quotes": [
    {
+    "text": "I am running for re-election because I have been a voice for District 1 and will continue to protect our neighborhoods and businesses.",
+    "source": "https://www.amandasandoval.com/"
+   },
+   {
     "text": "ADUs are simply a win-win. As we figure out how to welcome future residents who want to live in this wonderful city, ADUs are a solution that creates gentle density while retaining the beloved character of our residential neighborhoods and allowing homeowners to invest in their properties",
     "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info/Amanda-P-Sandoval-Council-District-1/District-1-Accomplishments"
    },
@@ -2138,6 +2218,11 @@
    }
   ],
   "sources": [
+   {
+    "title": "Amanda Sandoval - For Denver City Council District 1",
+    "publisher": "Amanda Sandoval for Council",
+    "url": "https://www.amandasandoval.com/"
+   },
    {
     "title": "Amanda P. Sandoval, Councilwoman, District 1",
     "publisher": "City and County of Denver",
@@ -2157,14 +2242,21 @@
     "title": "Amanda Sandoval, candidate details",
     "publisher": "Denver campaign finance (MapLight)",
     "url": "https://denver.maplight.com/public/candidate-details/504/33"
+   },
+   {
+    "title": "Candidate and Initiative Tracking",
+    "publisher": "Denver Clerk and Recorder",
+    "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
    }
   ],
-  "asOf": "2026-11-17",
+  "website": "https://www.amandasandoval.com/",
   "social": {
-   "facebook": "https://www.facebook.com/SandovalCD1/",
+   "facebook": "https://facebook.com/SandovalforCD1",
    "instagram": "https://www.instagram.com/sandovalcd1/",
+   "x": "https://twitter.com/sandovalcd1",
    "youtube": "https://www.youtube.com/channel/UCcHUTPYyP1ImzJGPv_R18wQ"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "council-district-2|Kevin Flynn": {
   "facts": [
@@ -3864,18 +3956,32 @@
    {
     "text": "He filed to run for City Council District 7 on Nov. 26, 2025, and the Denver Clerk and Recorder lists him as qualified for Fair Elections Fund matching funds.",
     "source": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "text": "His municipal treasurer affidavit, dated Nov. 26, 2025, names his campaign committee Fenton for Denver and lists him as its treasurer.",
+    "source": "https://www.denvergov.org/files/assets/public/v/1/clerk-and-recorder/documents/elections-division/2025/candidates/william-fenton-ii-candidate-documents.pdf"
+   },
+   {
+    "text": "His candidate financial disclosure lists the City and County of Denver as a source of income over $2,000.",
+    "source": "https://www.denvergov.org/files/assets/public/v/1/clerk-and-recorder/documents/elections-division/2025/candidates/william-fenton-ii-candidate-documents.pdf"
    }
   ],
   "priorities": [],
   "quotes": [],
   "sources": [
    {
+    "title": "William Fenton II candidate documents (candidate affidavit, treasurer affidavit, financial disclosure)",
+    "publisher": "Denver Clerk and Recorder",
+    "date": "2025-11-26",
+    "url": "https://www.denvergov.org/files/assets/public/v/1/clerk-and-recorder/documents/elections-division/2025/candidates/william-fenton-ii-candidate-documents.pdf"
+   },
+   {
     "title": "Candidate and Initiative Tracking",
     "publisher": "Denver Clerk and Recorder",
     "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "council-district-8|Evelyn Barnes": {
   "facts": [
@@ -3894,10 +4000,56 @@
    {
     "text": "Is participating in Denver's Fair Elections Fund and, as of the city's tracking page, had not yet qualified for matching funds.",
     "source": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-Clerk-and-Recorder/Elections-Division/Campaign-Candidate-Resources/Candidate-and-Initiative-Tracking"
+   },
+   {
+    "text": "Her campaign site says she has worked inside Denver City Council, led the Northeast Park Hill Coalition and supported leaders at both the city and state levels.",
+    "source": "https://evelynfor8.com/meet-candidate/"
+   },
+   {
+    "text": "Her campaign site says she is originally from Memphis, Tennessee, came to Colorado in 1996, and has lived in District 8's Park Hill neighborhood since 2016.",
+    "source": "https://evelynfor8.com/meet-candidate/"
+   },
+   {
+    "text": "Her campaign site says she earned three degrees, including two master's degrees.",
+    "source": "https://evelynfor8.com/meet-candidate/"
+   },
+   {
+    "text": "Her campaign site says she took up competitive powerlifting in midlife and won first place at her first meet.",
+    "source": "https://evelynfor8.com/meet-candidate/"
    }
   ],
-  "priorities": [],
-  "quotes": [],
+  "priorities": [
+   {
+    "text": "Clean and safe neighborhoods: clean streets and alleys, well-maintained public spaces, and safe routes for people walking and biking.",
+    "source": "https://evelynfor8.com/priorities/"
+   },
+   {
+    "text": "Responsive city services: a council office that returns calls and messages, helps residents navigate city services and follows through.",
+    "source": "https://evelynfor8.com/priorities/"
+   },
+   {
+    "text": "Small businesses: look at permitting, communication between departments and how long businesses wait for answers and approvals.",
+    "source": "https://evelynfor8.com/priorities/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I’m running for Denver City Council District 8 because representation starts with listening.",
+    "source": "https://evelynfor8.com/"
+   },
+   {
+    "text": "Every District 8 resident deserves to feel safe and proud of the neighborhood they call home.",
+    "source": "https://evelynfor8.com/priorities/"
+   },
+   {
+    "text": "When you contact your City Council office, you should receive a response—even when the answer isn’t immediate.",
+    "source": "https://evelynfor8.com/priorities/"
+   },
+   {
+    "text": "But opening and operating a small business in Denver shouldn’t be unnecessarily difficult.",
+    "source": "https://evelynfor8.com/priorities/"
+   }
+  ],
   "sources": [
    {
     "title": "Evelyn Barnes candidate documents (affidavit, treasurer affidavit, financial disclosure)",
@@ -3914,9 +4066,29 @@
     "title": "Evelyn Barnes candidate details",
     "publisher": "Denver campaign finance (MapLight)",
     "url": "https://denver.maplight.com/public/candidate-details/1337/33"
+   },
+   {
+    "title": "Evelyn for 8 | Denver City Council District 8",
+    "publisher": "Evelyn for 8",
+    "url": "https://evelynfor8.com/"
+   },
+   {
+    "title": "Meet Evelyn | Evelyn for 8",
+    "publisher": "Evelyn for 8",
+    "url": "https://evelynfor8.com/meet-candidate/"
+   },
+   {
+    "title": "Priorities | Evelyn for 8",
+    "publisher": "Evelyn for 8",
+    "url": "https://evelynfor8.com/priorities/"
    }
   ],
-  "asOf": "2026-11-17"
+  "website": "https://evelynfor8.com/",
+  "social": {
+   "facebook": "https://www.facebook.com/profile.php?id=61593886816483",
+   "instagram": "https://www.instagram.com/evelynfor8/"
+  },
+  "asOf": "2026-11-22"
  },
  "council-district-8|Felicia Rodriguez": {
   "facts": [
@@ -4120,10 +4292,68 @@
    {
     "text": "Her campaign committee is Sharron Pettiford For Denver.",
     "source": "https://denver.maplight.com/public/candidate-details/1317/33"
+   },
+   {
+    "text": "She is originally from Bartlesville, Oklahoma, and earned a Bachelor of Arts in Criminal Justice from Northeastern State University in Oklahoma.",
+    "source": "https://www.sharronpettifordfordenver.com/meet-sharron"
+   },
+   {
+    "text": "She says she spent years working in the court system, social services, child welfare and behavioral health, including as a mental health case manager and child welfare specialist.",
+    "source": "https://www.sharronpettifordfordenver.com/meet-sharron"
+   },
+   {
+    "text": "She says she worked on labor and political campaigns, including the effort to defeat Right to Work legislation in Missouri, and helped organize Colorado state employees.",
+    "source": "https://www.sharronpettifordfordenver.com/meet-sharron"
+   },
+   {
+    "text": "Her campaign site says she is President of the Colorado Coalition of Black Trade Unionists and a member of its International Executive Board.",
+    "source": "https://www.sharronpettifordfordenver.com/meet-sharron"
+   },
+   {
+    "text": "She describes herself as a Northeast Park Hill neighbor.",
+    "source": "https://www.sharronpettifordfordenver.com/"
    }
   ],
-  "priorities": [],
-  "quotes": [],
+  "priorities": [
+   {
+    "text": "Strengthen tenant protections and habitability enforcement, address displacement and hold corporate landlords accountable; supports social housing and community land trusts.",
+    "source": "https://www.sharronpettifordfordenver.com/my-platform"
+   },
+   {
+    "text": "Establish zoning rules for where data centers can be located, with separation from residential neighborhoods, environmental standards and utility cost accountability.",
+    "source": "https://www.sharronpettifordfordenver.com/my-platform"
+   },
+   {
+    "text": "Public safety that combines emergency response, accountable policing, violence prevention, mental health services and youth programs.",
+    "source": "https://www.sharronpettifordfordenver.com/my-platform"
+   },
+   {
+    "text": "Address homelessness through eviction prevention, supportive services and housing pathways, with public measures of program results.",
+    "source": "https://www.sharronpettifordfordenver.com/my-platform"
+   },
+   {
+    "text": "Improve sidewalks, ADA accessibility, safer intersections and reliable bus service through stronger coordination with RTD.",
+    "source": "https://www.sharronpettifordfordenver.com/issues"
+   },
+   {
+    "text": "Support prevailing wage protections, apprenticeships, Project Labor Agreements and expanded food access in areas including Montbello and East Colfax.",
+    "source": "https://www.sharronpettifordfordenver.com/my-platform"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I'm not running to reinvent Denver. I'm running to make sure more of our neighborhoods share in its progress.",
+    "source": "https://www.sharronpettifordfordenver.com/"
+   },
+   {
+    "text": "Nobody wants a data center in their backyard. I certainly don't.",
+    "source": "https://www.sharronpettifordfordenver.com/issues"
+   },
+   {
+    "text": "Public dollars should create public value.",
+    "source": "https://www.sharronpettifordfordenver.com/issues"
+   }
+  ],
   "sources": [
    {
     "title": "Candidate and Initiative Tracking",
@@ -4139,9 +4369,35 @@
     "title": "Campaign forms (candidate documents)",
     "publisher": "Denver Clerk and Recorder",
     "url": "https://www.denvergov.org/files/assets/public/v/1/clerk-and-recorder/documents/elections-division/2026/candidates/sharron-pettiford-candidate-documents-updated.pdf"
+   },
+   {
+    "title": "Sharron Pettiford for City Council | District 8",
+    "publisher": "Sharron Pettiford for Denver",
+    "url": "https://www.sharronpettifordfordenver.com/"
+   },
+   {
+    "title": "Meet Sharron",
+    "publisher": "Sharron Pettiford for Denver",
+    "url": "https://www.sharronpettifordfordenver.com/meet-sharron"
+   },
+   {
+    "title": "My Platform",
+    "publisher": "Sharron Pettiford for Denver",
+    "url": "https://www.sharronpettifordfordenver.com/my-platform"
+   },
+   {
+    "title": "On the Issues",
+    "publisher": "Sharron Pettiford for Denver",
+    "url": "https://www.sharronpettifordfordenver.com/issues"
+   },
+   {
+    "title": "View Endorsements",
+    "publisher": "Sharron Pettiford for Denver",
+    "url": "https://www.sharronpettifordfordenver.com/view-endorsements"
    }
   ],
-  "asOf": "2026-11-17"
+  "website": "https://www.sharronpettifordfordenver.com/",
+  "asOf": "2026-11-22"
  },
  "council-district-8|Shontel Lewis": {
   "facts": [
@@ -5357,10 +5613,36 @@
    {
     "text": "His candidate financial disclosure lists The Dirty Islander and the Colorado Department of Revenue as sources of income over $2,000.",
     "source": "https://www.denvergov.org/files/assets/public/v/1/clerk-and-recorder/documents/elections-division/2026/candidates/xander_thomas_candidate_documents.pdf"
+   },
+   {
+    "text": "His campaign site says he moved to Denver in October 2017.",
+    "source": "https://allabout5280.com/"
    }
   ],
-  "priorities": [],
-  "quotes": [],
+  "priorities": [
+   {
+    "text": "Housing: streamline permitting for affordable infill housing, renter protection ordinances, incentives for mixed-income developments and an end to exclusionary zoning in high-opportunity neighborhoods.",
+    "source": "https://allabout5280.com/"
+   },
+   {
+    "text": "Public safety: fully fund Denver PD with competitive salaries and modern equipment, expand de-escalation and crisis-response training, and add mental health co-responder teams.",
+    "source": "https://allabout5280.com/"
+   },
+   {
+    "text": "A Colfax Avenue Revitalization Initiative and a Downtown Denver Recovery Plan, with grants, streamlined permitting and a Denver Tourism & Destination Office.",
+    "source": "https://allabout5280.com/"
+   },
+   {
+    "text": "Clean government: a full audit of city contracts and vendor relationships, an open-data portal for city spending, ethics reform, term limits and campaign finance transparency.",
+    "source": "https://allabout5280.com/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "Every policy position starts with a simple question: does this make life better for the people of Denver?",
+    "source": "https://allabout5280.com/"
+   }
+  ],
   "sources": [
    {
     "title": "Xander Thomas Candidate Documents (Campaign Forms)",
@@ -5377,8 +5659,32 @@
     "title": "All About Denver - Candidate Details",
     "publisher": "Denver Campaign Finance (MapLight)",
     "url": "https://denver.maplight.com/public/candidate-details/1304/33"
+   },
+   {
+    "title": "Xander Thomas for Denver Mayor 2027 | All About Denver",
+    "publisher": "All About Denver (Xander Thomas campaign)",
+    "url": "https://allabout5280.com/"
    }
   ],
-  "asOf": "2026-11-17"
+  "website": "https://allabout5280.com/",
+  "asOf": "2026-11-22"
+ },
+ "council-district-1|Levi Griffith": {
+  "facts": [
+   {
+    "text": "Registered with the City and County of Denver's campaign finance system (Denver SearchLight) as a candidate for City Council, District 1 in the 2027 municipal election.",
+    "source": "https://denver.maplight.com/public/candidate-details/1352/33"
+   }
+  ],
+  "priorities": [],
+  "quotes": [],
+  "sources": [
+   {
+    "title": "Levi Griffith: candidate details",
+    "publisher": "Denver SearchLight, City and County of Denver",
+    "url": "https://denver.maplight.com/public/candidate-details/1352/33"
+   }
+  ],
+  "asOf": "2026-11-22"
  }
 }

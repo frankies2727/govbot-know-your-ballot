@@ -30,8 +30,8 @@
     "source": "https://www.corywesley.com/"
    },
    {
-    "text": "The Oak Park Firefighters IAFF/AFFI Local 95 endorsed his candidacy for reelection, in a letter signed by Local 95 President Bob Toth.",
-    "source": "https://www.corywesley.com/local95"
+    "text": "At the Nov. 17, 2026 village board discussion of stricter short-term rental rules after a fatal Halloween shooting tied to a rental party, he said community safety comes before the ability to rent out a house for a night.",
+    "source": "https://www.oakpark.com/2026/11/20/short-term-rental-regulations/"
    }
   ],
   "priorities": [
@@ -79,28 +79,19 @@
    {
     "text": "My goal is to create an affordable Oak Park that acknowledges our middle-class origins, that makes space for those seeking affordability, and works hard to keep our seniors in our community as they age through life.",
     "source": "https://www.corywesley.com/"
+   },
+   {
+    "text": "I believe that the safety of the community comes before the ability for folks to rent out a house for a night, especially for folks who don’t even live in the community",
+    "source": "https://www.oakpark.com/2026/11/20/short-term-rental-regulations/",
+    "date": "2026-11-20"
    }
   ],
   "sources": [
    {
-    "title": "Cory J. Wesley - Oak Park Trustee (home)",
-    "publisher": "corywesley.com",
-    "url": "https://www.corywesley.com/"
-   },
-   {
-    "title": "Meet Trustee Cory J. Wesley",
-    "publisher": "corywesley.com",
-    "url": "https://www.corywesley.com/bio"
-   },
-   {
-    "title": "Oak Park Firefighters - Local 95 Endorsement Letter",
-    "publisher": "corywesley.com",
-    "url": "https://www.corywesley.com/local95"
-   },
-   {
-    "title": "Board of Trustees",
-    "publisher": "Village of Oak Park",
-    "url": "https://oak-park.granicus.com/boards/w/d6ac89421af6f1dd/boards/44424"
+    "title": "Oak Park village board wants stricter rules for short-term rentals",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-20",
+    "url": "https://www.oakpark.com/2026/11/20/short-term-rental-regulations/"
    },
    {
     "title": "Oak Park Trustee Cory Wesley running for reelection in 2027",
@@ -131,13 +122,28 @@
     "publisher": "Wednesday Journal",
     "date": "2022-10-07",
     "url": "https://www.oakpark.com/2022/10/07/cory-wesley-to-be-appointed-oak-park-village-trustee/"
+   },
+   {
+    "title": "Cory J. Wesley - Oak Park Trustee (home)",
+    "publisher": "corywesley.com",
+    "url": "https://www.corywesley.com/"
+   },
+   {
+    "title": "Meet Trustee Cory J. Wesley",
+    "publisher": "corywesley.com",
+    "url": "https://www.corywesley.com/bio"
+   },
+   {
+    "title": "Board of Trustees",
+    "publisher": "Village of Oak Park",
+    "url": "https://oak-park.granicus.com/boards/w/d6ac89421af6f1dd/boards/44424"
    }
   ],
-  "asOf": "2026-11-17",
   "website": "https://www.corywesley.com/",
   "social": {
    "facebook": "https://www.facebook.com/CoryforOPTrustee"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "village-trustee|Derek Eder": {
   "facts": [
@@ -172,6 +178,10 @@
    {
     "text": "Disclosure: Know Your Ballot is built on Govbot, a Chi Hack Night project; he co-founded Chi Hack Night.",
     "source": "https://github.com/chihacknight/govbot"
+   },
+   {
+    "text": "At the Nov. 17, 2026 village board discussion of stricter short-term rental rules, he raised housing availability and affordability and how short-term rentals are reducing the number of housing units.",
+    "source": "https://www.oakpark.com/2026/11/20/short-term-rental-regulations/"
    }
   ],
   "priorities": [
@@ -220,13 +230,19 @@
     "text": "So more transparency, more data is something that I think that actually can help boost confidence in government in a time where, frankly, confidence in government is low.",
     "source": "https://www.oakpark.com/2026/10/08/derek-eder-campaign/",
     "date": "2026-10-08"
+   },
+   {
+    "text": "I think I want to take a more proactive and maybe preventative approach",
+    "source": "https://www.oakpark.com/2026/11/20/short-term-rental-regulations/",
+    "date": "2026-11-20"
    }
   ],
   "sources": [
    {
-    "title": "Oak Park village board supports public access to police dispatch",
+    "title": "Oak Park village board wants stricter rules for short-term rentals",
     "publisher": "Wednesday Journal",
-    "url": "https://www.oakpark.com/2026/11/17/oak-park-police-dispatch-access/"
+    "date": "2026-11-20",
+    "url": "https://www.oakpark.com/2026/11/20/short-term-rental-regulations/"
    },
    {
     "title": "Derek Eder for Oak Park Village Trustee (campaign site)",
@@ -259,6 +275,11 @@
     "url": "https://www.oakpark.com/2025/06/24/scaman-appoints-derek-eder-oak-park-trustee-seat/"
    },
    {
+    "title": "Oak Park village board supports public access to police dispatch",
+    "publisher": "Wednesday Journal",
+    "url": "https://www.oakpark.com/2026/11/17/oak-park-police-dispatch-access/"
+   },
+   {
     "title": "About Derek",
     "publisher": "derekeder.com",
     "url": "https://derekeder.com/about"
@@ -274,12 +295,12 @@
     "url": "https://chihacknight.org/board-of-directors/derek-eder"
    }
   ],
-  "asOf": "2026-11-17",
   "website": "https://derekforoakpark.com/",
   "social": {
    "facebook": "https://www.facebook.com/derekforoakpark/",
    "bluesky": "https://bsky.app/profile/derekeder.com"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "village-trustee|Joseph Beer": {
   "facts": [
@@ -609,6 +630,14 @@
    {
     "text": "She has designed homes for aging clients and has designed senior living facilities.",
     "source": "https://www.oakpark.com/2026/05/21/renovations-which-allow-aging-in-place/"
+   },
+   {
+    "text": "In a Wednesday Journal letter about her campaign, she wrote that she is a founding member of Preservation Chicago, a nonprofit advocating for Chicago's endangered structures.",
+    "source": "https://www.oakpark.com/2026/09/29/why-im-running/"
+   },
+   {
+    "text": "She wrote that after moving to Oak Park she joined the board of Oak Leyden, an organization focused on adults and children with disabilities, and that she coaches football at the high school.",
+    "source": "https://www.oakpark.com/2026/09/29/why-im-running/"
    }
   ],
   "priorities": [
@@ -631,6 +660,10 @@
    {
     "text": "More information before single-family zoning changes; she says she is not opposed to change but \"we’re putting the cart before the horse.\"",
     "source": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "text": "Looking for other ways to add housing that may not disrupt the community's aesthetic; she ties the zoning rewrite to sustainability, affordability and economic development.",
+    "source": "https://www.oakpark.com/2026/09/29/why-im-running/"
    }
   ],
   "quotes": [
@@ -653,6 +686,11 @@
     "text": "This is not simply a policy decision. It is a decision about the physical framework of nearly every residential neighborhood in Oak Park",
     "source": "https://www.oakpark.com/2026/07/16/single-family-zoning/",
     "date": "2026-07-16"
+   },
+   {
+    "text": "Architecture teaches you that a project’s success is determined before the first shovel goes in the ground.",
+    "source": "https://www.oakpark.com/2026/09/29/why-im-running/",
+    "date": "2026-09-29"
    }
   ],
   "sources": [
@@ -661,6 +699,12 @@
     "publisher": "Wednesday Journal",
     "date": "2026-10-06",
     "url": "https://www.oakpark.com/2026/10/06/kimberlee-smith-campaign/"
+   },
+   {
+    "title": "Why I’m running (letter by Kimberlee Smith)",
+    "publisher": "Wednesday Journal",
+    "date": "2026-09-29",
+    "url": "https://www.oakpark.com/2026/09/29/why-im-running/"
    },
    {
     "title": "Oak Park considers both advisory referendum and zoning code recommendation",
@@ -681,7 +725,7 @@
     "url": "https://www.oakpark.com/2025/01/24/oak-park-announces-2024-historic-preservation-awards/"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "village-trustee|Brian Straw": {
   "facts": [
@@ -829,12 +873,17 @@
   "quotes": [],
   "sources": [
    {
+    "title": "Campaign Disclosure Data Files (Candidates, CanElections)",
+    "publisher": "Illinois State Board of Elections",
+    "url": "https://www.elections.il.gov/CampaignDisclosureDataFiles/"
+   },
+   {
     "title": "Board of Trustees",
     "publisher": "Triton College",
     "url": "https://www.triton.edu/about/administration/board-of-trustees.html"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "d97-board|Cheree Moore": {
   "facts": [
@@ -861,6 +910,10 @@
    {
     "text": "Did not submit answers to the 2023 Activist Toolkit candidate questionnaire.",
     "source": "https://activisttoolkit.squarespace.com/cheree-moore-2023-district-97-school-board"
+   },
+   {
+    "text": "Wednesday Journal reported on Nov. 19, 2026 that she is not running for re-election after eight years on the D97 board.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -892,6 +945,12 @@
   ],
   "sources": [
    {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
+   {
     "title": "D97 board member Perez resigns after year in office",
     "publisher": "Wednesday Journal (Bob Skolnik)",
     "date": "2026-05-28",
@@ -920,7 +979,7 @@
     "url": "https://activisttoolkit.squarespace.com/cheree-moore-2023-district-97-school-board"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "park-commissioner|Chris Wollmuth": {
   "facts": [
@@ -1016,6 +1075,10 @@
    {
     "text": "Was a member of Div-Co (the district's diversity committee) and, as a D97 parent, was involved in crafting the district's equity policy.",
     "source": "https://www.oakpark.com/2023/02/27/gavin-kearney-2/"
+   },
+   {
+    "text": "Told Wednesday Journal in November 2026 that he will run for the open two-year D97 board term (the remainder of Becky Pérez's term), saying he is running to provide continuity on a board that could have five new members.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -1041,6 +1104,12 @@
    }
   ],
   "sources": [
+   {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
    {
     "title": "D97 board member Perez resigns after year in office",
     "publisher": "Wednesday Journal (Bob Skolnik)",
@@ -1083,7 +1152,7 @@
     "url": "https://www.op97.org/boe/meet-the-board"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "d200-board|Graham Brisben": {
   "facts": [
@@ -1110,6 +1179,10 @@
    {
     "text": "Voted in July 2026 to approve $712,500 for Act 3 design documents; Wednesday Journal reports he said weighing the design spending against academic support was a false choice, since design costs are one-time.",
     "source": "https://www.oakpark.com/2026/07/21/oprf-oks-act-3-design-docs-referendum/"
+   },
+   {
+    "text": "Wednesday Journal reported on Nov. 19, 2026 that, according to the Cook County Clerk website, he had filed to run for another term on the D200 board in the April 6, 2027 election.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -1144,6 +1217,12 @@
    }
   ],
   "sources": [
+   {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
    {
     "title": "OPRF OKs ACT 3 design docs but debates date for referendum",
     "publisher": "Wednesday Journal (Bob Skolnik)",
@@ -1180,10 +1259,10 @@
     "url": "https://www.oprfhs.org/about/board-of-education"
    }
   ],
-  "asOf": "2026-11-17",
   "social": {
    "linkedin": "https://www.linkedin.com/in/graham-brisben-9b6856140"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "d97-board|Holly Spurlock": {
   "facts": [
@@ -1206,6 +1285,10 @@
    {
     "text": "Her 2023 Wednesday Journal profile lists community involvement on the Frank Lloyd Wright Advisory Board.",
     "source": "https://www.oakpark.com/2023/02/27/holly-spurlock-3/"
+   },
+   {
+    "text": "Wednesday Journal reported on Nov. 19, 2026 that she is not running for re-election after 12 years on the D97 board.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -1231,6 +1314,12 @@
    }
   ],
   "sources": [
+   {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
    {
     "title": "D97 board member Perez resigns after year in office",
     "publisher": "Wednesday Journal (Bob Skolnik)",
@@ -1267,7 +1356,7 @@
     "url": "https://www.op97.org/boe/meet-the-board"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "park-commissioner|Jake Worley-Hood": {
   "facts": [
@@ -1367,6 +1456,14 @@
    {
     "text": "Voted in July 2026 to approve Act 3 design documents but said he opposed a spring 2027 referendum for the project and preferred spring 2028.",
     "source": "https://www.oakpark.com/2026/07/21/oprf-oks-act-3-design-docs-referendum/"
+   },
+   {
+    "text": "Told Wednesday Journal in November 2026 that he will not run for another term on the D200 board.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
+   {
+    "text": "Wednesday Journal reported in November 2026 that he was hired earlier in 2026 as executive director of the River Forest Community Center.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -1402,9 +1499,20 @@
     "text": "I am not in favor of this. Instead, I believe that we need to invest in a greater capacity to serve the social, emotional, and mental health needs of our students.",
     "source": "https://www.oakpark.com/2023/02/26/jonathan-livingston/",
     "date": "2023-02-26"
+   },
+   {
+    "text": "It wasn’t an easy decision to make",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/",
+    "date": "2026-11-19"
    }
   ],
   "sources": [
+   {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
    {
     "title": "OPRF OKs ACT 3 design docs but debates date for referendum",
     "publisher": "Wednesday Journal (Bob Skolnik)",
@@ -1452,7 +1560,7 @@
     "url": "https://www.cgs.pitt.edu/people/jonathan-livingston-phd"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "d97-board|Jung Kim": {
   "facts": [
@@ -1483,6 +1591,10 @@
    {
     "text": "Listed in her 2023 Wednesday Journal candidate profile as current D97 board president, age 45, with community involvement in PTO, Div-Co, Unity Temple and local Asian American organizations.",
     "source": "https://www.oakpark.com/2023/02/27/jung-kim-2/"
+   },
+   {
+    "text": "As of Wednesday Journal's Nov. 19, 2026 report, she had not responded to emails asking whether she plans to run for another term.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -1513,6 +1625,12 @@
    }
   ],
   "sources": [
+   {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
    {
     "title": "D97 board member Perez resigns after year in office",
     "publisher": "Wednesday Journal (Bob Skolnik)",
@@ -1555,7 +1673,7 @@
     "url": "https://www.op97.org/boe/meet-the-board"
    }
   ],
-  "asOf": "2026-11-17"
+  "asOf": "2026-11-22"
  },
  "park-commissioner|Kassie Porreca": {
   "facts": [
@@ -1921,6 +2039,10 @@
    {
     "text": "Voted in July 2026 to approve $712,500 for Act 3 design documents (an estimated $84.6 million rebuild of the school's southwest section, including music, arts and PE spaces); said the referendum date should be discussed later, which he expected in December.",
     "source": "https://www.oakpark.com/2026/07/21/oprf-oks-act-3-design-docs-referendum/"
+   },
+   {
+    "text": "As of Wednesday Journal's Nov. 19, 2026 report, he had not replied to phone calls or a text message asking whether he planned to run for another term.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -1959,6 +2081,12 @@
    }
   ],
   "sources": [
+   {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
    {
     "title": "OPRF OKs ACT 3 design docs but debates date for referendum",
     "publisher": "Wednesday Journal (Bob Skolnik)",
@@ -2001,10 +2129,10 @@
     "url": "https://www.oprfhs.org/about/board-of-education"
    }
   ],
-  "asOf": "2026-11-17",
   "social": {
    "linkedin": "https://www.linkedin.com/in/tim-brandhorst-677a469"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "triton-trustee|Tracy Jennings": {
   "facts": [
@@ -2122,6 +2250,14 @@
    {
     "text": "Ran for the D97 board in April 2025 and finished fourth of six candidates for three seats.",
     "source": "https://www.oakpark.com/2026/06/16/d97-appoints-vincent-gay-school-board/"
+   },
+   {
+    "text": "Told Wednesday Journal in November 2026 he had not yet decided whether to run; the paper reported that if he runs he will likely seek a four-year term.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
+   {
+    "text": "Wednesday Journal noted in November 2026 that he is a monthly opinion columnist for the paper.",
+    "source": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
    }
   ],
   "priorities": [
@@ -2161,6 +2297,12 @@
   ],
   "sources": [
    {
+    "title": "Filing deadline nears for public school board seats",
+    "publisher": "Wednesday Journal",
+    "date": "2026-11-19",
+    "url": "https://www.oakpark.com/2026/11/19/public-school-board-seats-filing-deadline/"
+   },
+   {
     "title": "Vincent Gay Appointed as New Member of District 97 Board of Education",
     "publisher": "Oak Park Elementary School District 97",
     "date": "2026-06-16",
@@ -2190,10 +2332,10 @@
     "url": "https://www.op97.org/boe/meet-the-board"
    }
   ],
-  "asOf": "2026-11-17",
   "social": {
    "facebook": "https://www.facebook.com/profile.php?id=61572884218846"
-  }
+  },
+  "asOf": "2026-11-22"
  },
  "library-trustee|Virginia Bloom": {
   "facts": [
@@ -2284,5 +2426,127 @@
    }
   ],
   "asOf": "2026-11-17"
+ },
+ "d200-board|Tania Mattera Haigh": {
+  "facts": [
+   {
+    "text": "She is listed with the Illinois State Board of Elections as a candidate for the District 200 school board in the April 2027 consolidated election, from Oak Park.",
+    "source": "https://www.elections.il.gov/CampaignDisclosureDataFiles/"
+   },
+   {
+    "text": "She is not among the current members on District 200's Board of Education page.",
+    "source": "https://www.oprfhs.org/about/board-of-education"
+   },
+   {
+    "text": "In a February 2025 letter to the Wednesday Journal, she wrote that she had sought a seat on the District 200 board in the 2025 election, her first attempt to run for public office, and was out of the running after two other candidates challenged her candidacy paperwork.",
+    "source": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/"
+   },
+   {
+    "text": "In the same letter she wrote that she founded TEDxOakPark about a decade earlier.",
+    "source": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/"
+   },
+   {
+    "text": "The Wednesday Journal reported in 2015 that she was organizing a TEDx event in River Forest focused on women's issues.",
+    "source": "https://www.oakpark.com/2015/03/06/tedx-forum-coming-to-oak-park-river-forest/"
+   },
+   {
+    "text": "The Wednesday Journal named her in 2016 as an organizer and curator of TEDxOakParkWomen.",
+    "source": "https://www.oakpark.com/2016/06/03/tedxoakparkwomen-announces-lecture-series/"
+   },
+   {
+    "text": "In a March 2025 letter she described herself as a 20-year Oak Park resident and a leader of a child advocacy nonprofit.",
+    "source": "https://www.oakpark.com/2025/03/11/ravi-will-bring-a-fresh-approach/"
+   }
+  ],
+  "priorities": [
+   {
+    "text": "Academic excellence (from her 2025 District 200 platform, as she described it in a February 2025 letter)",
+    "source": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/"
+   },
+   {
+    "text": "Student safety (from her 2025 District 200 platform)",
+    "source": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/"
+   },
+   {
+    "text": "Capital improvements at the high school (from her 2025 District 200 platform)",
+    "source": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/"
+   }
+  ],
+  "quotes": [
+   {
+    "text": "I had a strong platform that would have focused on academic excellence, student safety and capital improvements to reflect the world-class high school that is a beacon for both Oak Park and River Forest communities.",
+    "source": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/",
+    "date": "2025-02-25"
+   },
+   {
+    "text": "I looked forward to getting to know the parent community, serving as a liaison for their praises and concerns about our high school.",
+    "source": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/",
+    "date": "2025-02-25"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Ravi will bring a fresh approach",
+    "publisher": "Wednesday Journal",
+    "date": "2025-03-11",
+    "url": "https://www.oakpark.com/2025/03/11/ravi-will-bring-a-fresh-approach/"
+   },
+   {
+    "title": "Fred Arkin for D200 board",
+    "publisher": "Wednesday Journal",
+    "date": "2025-02-25",
+    "url": "https://www.oakpark.com/2025/02/25/fred-arkin-for-d200-board/"
+   },
+   {
+    "title": "TedxOakParkWomen announces lecture series",
+    "publisher": "Wednesday Journal",
+    "date": "2016-06-03",
+    "url": "https://www.oakpark.com/2016/06/03/tedxoakparkwomen-announces-lecture-series/"
+   },
+   {
+    "title": "TEDx forum coming to Oak Park-River Forest",
+    "publisher": "Wednesday Journal",
+    "date": "2015-03-06",
+    "url": "https://www.oakpark.com/2015/03/06/tedx-forum-coming-to-oak-park-river-forest/"
+   },
+   {
+    "title": "Campaign Disclosure Data Files (Candidates)",
+    "publisher": "Illinois State Board of Elections",
+    "url": "https://www.elections.il.gov/CampaignDisclosureDataFiles/"
+   },
+   {
+    "title": "Board of Education",
+    "publisher": "Oak Park and River Forest High School District 200",
+    "url": "https://www.oprfhs.org/about/board-of-education"
+   }
+  ],
+  "asOf": "2026-11-22"
+ },
+ "triton-trustee|Bart Allan Smith": {
+  "facts": [
+   {
+    "text": "He is listed with the Illinois State Board of Elections as a candidate for Triton College trustee in the April 2027 consolidated election, from River Grove.",
+    "source": "https://www.elections.il.gov/CampaignDisclosureDataFiles/"
+   },
+   {
+    "text": "He is not listed among the current members on Triton College's Board of Trustees page, whose seats ending in 2027 are held by Tracy Jennings and Mark R. Stephens.",
+    "source": "https://www.triton.edu/about/administration/board-of-trustees.html"
+   }
+  ],
+  "priorities": [],
+  "quotes": [],
+  "sources": [
+   {
+    "title": "Campaign Disclosure Data Files (Candidates)",
+    "publisher": "Illinois State Board of Elections",
+    "url": "https://www.elections.il.gov/CampaignDisclosureDataFiles/"
+   },
+   {
+    "title": "Board of Trustees",
+    "publisher": "Triton College",
+    "url": "https://www.triton.edu/about/administration/board-of-trustees.html"
+   }
+  ],
+  "asOf": "2026-11-22"
  }
 }

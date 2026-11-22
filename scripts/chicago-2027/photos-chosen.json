@@ -513,5 +513,82 @@
   "url": "repo:scripts/chicago-2027/provided/nathan-bean.jpg",
   "page": "https://www.instagram.com/votethebean/",
   "credit": "Nathan Bean on Instagram (@votethebean)"
+ },
+ "alderperson-ward-16|Cheryl Blackmond": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2026/11/656634363_10233876443078150_6967386152837953934_n.jpg",
+  "page": "https://blockclubchicago.org/2026/11/10/ald-stephanie-coleman-faces-3-challengers-in-16th-ward-race/",
+  "credit": "Facebook"
+ },
+ "alderperson-ward-16|Eddie Johnson III": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2023/01/Eddie-Johnson.png",
+  "page": "https://blockclubchicago.org/2026/11/10/ald-stephanie-coleman-faces-3-challengers-in-16th-ward-race/",
+  "credit": "Screenshot",
+  "crop": "760x760+480+20"
+ },
+ "alderperson-ward-16|Shenina Fletcher": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2026/11/Screenshot-2026-11-06-at-3.43.33-PM-960x1024.png",
+  "page": "https://blockclubchicago.org/2026/11/10/ald-stephanie-coleman-faces-3-challengers-in-16th-ward-race/",
+  "credit": "Shenina Fletcher for 16th Ward"
+ },
+ "alderperson-ward-18|Glenford Flowers Jr.": {
+  "url": "https://images.squarespace-cdn.com/content/v1/69b9ee9cf023a2053c5753ad/c08e6dc0-0c9f-4ea6-9c5d-03a41a1d6163/Glenford+Pic2.png?format=750w",
+  "page": "https://www.flowersfor18thward.com/about",
+  "credit": "Flowers For 18th Ward Alderman (campaign site; no photographer credited)"
+ },
+ "alderperson-ward-25|Miguel Chacon": {
+  "url": "https://images.squarespace-cdn.com/content/v1/6a7128e49f03fe37a1223f0a/293b9ee3-082d-4324-98e9-997226b2a1e8/Chacon+copy.jpg",
+  "page": "https://www.chaconfor25.com/meet-miguel",
+  "credit": "Chacon for 25 (campaign website)"
+ },
+ "alderperson-ward-25|Nubia Batista Willman": {
+  "url": "https://img1.wsimg.com/isteam/ip/5c3e5226-8c87-4234-9a1b-5806564f2201/blob-f6f8969.png",
+  "page": "https://nubiafor25.com/about-nubia",
+  "credit": "Neighbors for Nubia (campaign website)"
+ },
+ "alderperson-ward-27|Tyhesha C. Haynes": {
+  "url": "https://tyfor27.com/assets/tyhesha-portrait-Db2JhIdz.jpg",
+  "page": "https://tyfor27.com/",
+  "credit": "© 2026 Haynes for the 27th Ward"
+ },
+ "alderperson-ward-3|Qushona Harris": {
+  "url": "https://www.qushonaharris.com/__l5e/assets-v1/48cffe31-b958-410a-9bd6-8e9bad21cdf4/qushona-campaign.png",
+  "page": "https://blockclubchicago.org/2026/11/19/ald-pat-dowell-facing-2-challengers-in-3rd-ward-race/",
+  "credit": "Credit: Qushona Harris Campaign Website"
+ },
+ "alderperson-ward-37|Carmelita P. Earls": {
+  "url": "https://ccpsa.chicago.gov/wp-content/uploads/2024/04/Earls-Carmelita-2024-002-scaled.jpg",
+  "page": "https://ccpsa.chicago.gov/member/carmelita-earls/",
+  "credit": "Community Commission for Public Safety and Accountability, City of Chicago (Austin Weekly News credits the same photo: City of Chicago, Patrick L. Pyszka)"
+ },
+ "alderperson-ward-37|Howard Ray": {
+  "url": "https://www.austinweeklynews.com/wp-content/uploads/2026/11/Howard-Ray-Headshot.jpg",
+  "page": "https://www.austinweeklynews.com/2026/11/16/ald-emma-mitts-faces-challengers-37th-ward-race/",
+  "credit": "Provided"
+ },
+ "alderperson-ward-37|Kobey Lofton": {
+  "url": "https://votekobeylofton.com/_assets/media/0657116b4f68d586b09a90abd60d3c6d.jpg",
+  "page": "https://votekobeylofton.com/",
+  "credit": "Friends of Kobey Lofton campaign site (no photographer credit stated)"
+ },
+ "alderperson-ward-37|Michael Patrick Murphy": {
+  "url": "https://www.austinweeklynews.com/wp-content/uploads/2026/11/Michael-Murphy.jpg",
+  "page": "https://www.austinweeklynews.com/2026/11/16/ald-emma-mitts-faces-challengers-37th-ward-race/",
+  "credit": "Facebook"
+ },
+ "alderperson-ward-38|Agnieszka Kozielska": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2026/11/1768846817025.jpg",
+  "page": "https://blockclubchicago.org/2026/11/19/ald-nick-sposato-faces-1-challenger-in-38th-ward-race/",
+  "credit": "Provided"
+ },
+ "alderperson-ward-8|Jimmy Darnell Jones Aka Jaye Jones": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2026/11/Screenshot-2026-11-10-at-12.58.36-PM-838x1024.png",
+  "page": "https://blockclubchicago.org/2026/11/11/ald-michelle-harris-faces-4-challengers-in-8th-ward-race/",
+  "credit": "Jimmy 'Jaye' Jones"
+ },
+ "alderperson-ward-8|Yolonda Mack": {
+  "url": "https://bcc-newspack.s3.amazonaws.com/uploads/2026/11/Screenshot-2026-11-10-at-12.55.46-PM-1024x822.png",
+  "page": "https://blockclubchicago.org/2026/11/11/ald-michelle-harris-faces-4-challengers-in-8th-ward-race/",
+  "credit": "Yolanda Mack",
+  "crop": "320x320+560+190"
  }
 }

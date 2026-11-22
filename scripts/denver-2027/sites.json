@@ -9,7 +9,8 @@
    "facebook": "https://www.facebook.com/SandovalCD1/",
    "instagram": "https://www.instagram.com/sandovalcd1/",
    "youtube": "https://www.youtube.com/channel/UCcHUTPYyP1ImzJGPv_R18wQ"
-  }
+  },
+  "website": "https://www.amandasandoval.com/"
  },
  "council-district-3|Jamie Torres": {
   "social": {
@@ -20,5 +21,26 @@
   "social": {
    "instagram": "https://www.instagram.com/nigelfordenver/"
   }
+ },
+ "clerk-and-recorder|Paul D. López": {
+  "website": "https://www.lopezfordenver.com/"
+ },
+ "council-district-11|Allen Webb": {
+  "website": "https://ourd11.com/"
+ },
+ "council-district-11|Brande Micheau": {
+  "website": "https://www.brandefordenver.com/"
+ },
+ "council-district-11|Scott Gilmore": {
+  "website": "https://www.gilmorefordenver.com/"
+ },
+ "council-district-8|Evelyn Barnes": {
+  "website": "https://evelynfor8.com/"
+ },
+ "council-district-8|Sharron Pettiford": {
+  "website": "https://www.sharronpettifordfordenver.com/"
+ },
+ "mayor|Xander Thomas": {
+  "website": "https://allabout5280.com/"
  }
 }

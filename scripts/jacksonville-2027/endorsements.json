@@ -3,30 +3,35 @@
   {
    "endorser": "State Rep. Jessica Baker",
    "kind": "elected official",
-   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election"
+   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election",
+   "date": "2026-10-20"
   },
   {
    "endorser": "State Rep. Dean Black",
    "kind": "elected official",
-   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election"
+   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election",
+   "date": "2026-10-20"
   },
   {
    "endorser": "State Rep. Kiyan Michael",
    "kind": "elected official",
-   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election"
+   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election",
+   "date": "2026-10-20"
   },
   {
    "endorser": "State Sen. Clay Yarborough",
    "kind": "elected official",
-   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election"
+   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election",
+   "date": "2026-10-20"
   },
   {
    "endorser": "Lenny Curry, former Mayor of Jacksonville",
    "kind": "elected official",
-   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election"
+   "source": "https://en.wikipedia.org/wiki/2027_Jacksonville_mayoral_election",
+   "date": "2026-10-02"
   }
  ],
- "mayor|Ronald Armstrong": [
+ "mayor|Ron Armstrong": [
   {
    "endorser": "Mark Timothy Mandrino, Owner and President of Mandrino Enterprises LLC",
    "kind": "individual",
@@ -34,11 +39,6 @@
   },
   {
    "endorser": "David Medure, Vice President/Co-Founder, Medure Brothers Culinary Concepts",
-   "kind": "individual",
-   "source": "https://theronarmstrong.com/endorsements/"
-  },
-  {
-   "endorser": "Justin Stewart, Entrepreneur, inventor, and business owner",
    "kind": "individual",
    "source": "https://theronarmstrong.com/endorsements/"
   },
@@ -53,8 +53,8 @@
    "source": "https://theronarmstrong.com/endorsements/"
   },
   {
-   "endorser": "Doug Powell, Christian Brothers Plumbing",
-   "kind": "individual",
+   "endorser": "Christian Brothers Plumbing (Doug Powell, Owner)",
+   "kind": "business",
    "source": "https://theronarmstrong.com/endorsements/"
   },
   {
@@ -83,7 +83,7 @@
    "source": "https://theronarmstrong.com/endorsements/"
   },
   {
-   "endorser": "Mike McCann, Owner, JaxCo Furniture",
+   "endorser": "Mike McCann Owner, JaxCo Furniture",
    "kind": "individual",
    "source": "https://theronarmstrong.com/endorsements/"
   }
