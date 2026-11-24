@@ -5,7 +5,7 @@
    "url": "https://electionresults.sos.state.mn.us/"
   }
  ],
- "asOf": "2026-11-19T20:38:29.000Z",
+ "asOf": "2026-11-24T18:48:47.000Z",
  "races": {
   "u-s-senator": {
    "reporting": 4105,
@@ -1334,10 +1334,10 @@
   "sldl-32a": {
    "reporting": 15,
    "precincts": 15,
-   "total": 23666,
+   "total": 23689,
    "votes": {
-    "1": 11811,
-    "2": 11833
+    "1": 11827,
+    "2": 11840
    },
    "writeIn": 22
   },
