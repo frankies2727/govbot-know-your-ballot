@@ -240,7 +240,8 @@ export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name:
   const i = r.introduced;
   const votes = r.budgets.map((b) => `${b.year} budget: ${b.vote}`).join(' · ');
   if (short) {
-    return <p className="text-[13px]">🏛️ This term: present at {a.present} of {a.meetings} City Council roll calls · {plural(i.total, 'item')} introduced{votes ? ` · ${votes}` : ''}</p>;
+    const split = r.divided && r.divided.total ? ` · with the majority on ${r.divided.withMajority} of ${plural(r.divided.total, 'divided vote')}` : '';
+    return <p className="text-[13px]">🏛️ This term: present at {a.present} of {a.meetings} City Council roll calls · {plural(i.total, 'item')} introduced{votes ? ` · ${votes}` : ''}{split}</p>;
   }
   const link = 'font-bold text-[var(--gb-link)] underline underline-offset-2';
   return (
@@ -248,8 +249,11 @@ export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name:
       <h3 className="text-sm font-black uppercase tracking-widest">🏛️ Their City Council record</h3>
       <p>Since the Council took office on {fullDate(r.since)}:</p>
       <ul className="space-y-1.5">
-        <li><strong>Attendance:</strong> present at the opening roll call of {a.present} of {plural(a.meetings, 'City Council meeting')}. (Someone who arrives after the roll call is marked absent.)</li>
+        <li><strong>Attendance:</strong> present at the opening roll call of {a.present} of {plural(a.meetings, 'City Council meeting')}{r.committees && r.committees.meetings > 0 ? <>, and of {r.committees.present} of {plural(r.committees.meetings, 'meeting')} of the committees they sit on</> : null}. (Someone who arrives after the roll call is marked absent.)</li>
         <li><strong>Introduced as lead sponsor:</strong> {plural(i.total, 'item')}: {plural(i.law, 'change')} to the Municipal Code ({i.lawPassed} passed), {plural(i.resolutions, 'resolution')}, and {i.ward.toLocaleString()} ward matters{i.wardKinds.length ? `, most often ${i.wardKinds.map((k) => `${k.kind} (${k.n})`).join(', ')}` : ''}.</li>
+        {r.divided && r.divided.total > 0 && (
+          <li><strong>Divided votes:</strong> of the {plural(r.divided.total, 'roll call')} this term where at least one alderperson voted no, they voted with the majority on {r.divided.withMajority} and voted no on {r.divided.nays}.</li>
+        )}
         {r.budgets.length > 0 && (
           <li><strong>The city budget:</strong> {r.budgets.map((b, n) => <span key={b.year}>{n ? ' · ' : ''}<a href={b.url} target="_blank" rel="noreferrer noopener" className={link}>{b.year}</a>: {b.vote} <span className="text-sm">(passed {b.tally})</span></span>)}</li>
         )}
@@ -261,6 +265,18 @@ export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name:
             {i.recent.map((m) => (
               <li key={m.id} className="leading-snug">
                 <a href={m.url} target="_blank" rel="noreferrer noopener" className={link}>{m.id}</a> {m.title} <span className="text-xs">· {fullDate(m.date)} · {m.status}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      {r.divided && r.divided.recent.length > 0 && (
+        <>
+          <p className="font-bold">Their newest divided votes:</p>
+          <ul className="space-y-1.5 text-sm">
+            {r.divided.recent.map((v) => (
+              <li key={v.id + v.date} className="leading-snug">
+                <strong>{v.vote === 'Yea' ? 'Yes' : 'No'}</strong> on <a href={v.url} target="_blank" rel="noreferrer noopener" className={link}>{v.id}</a> {v.title} <span className="text-xs">· {fullDate(v.date)} · {v.result} {v.tally}</span>
               </li>
             ))}
           </ul>

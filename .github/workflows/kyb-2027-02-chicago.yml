@@ -39,5 +39,5 @@ jobs:
 
       - uses: ./.github/actions/kyb-commit
         with:
-          paths: src/data/chicago-2027 public/kyb-photos/chicago-2027 public/kyb-photos/chicago-2027-office
+          paths: src/data/chicago-2027 scripts/chicago-2027/council-cache.json public/kyb-photos/chicago-2027 public/kyb-photos/chicago-2027-office
           message: 'Daily data: 2027-02 Chicago'
