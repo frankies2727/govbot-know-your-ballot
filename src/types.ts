@@ -170,8 +170,6 @@ export interface CouncilRecord {
   };
   /** Their vote on each year's budget (the Annual Appropriation Ordinance), with the Council's tally. */
   budgets: { year: number; vote: string; tally: string; url: string }[];
-  /** Present at the roll call of the committee meetings that list them (the committees they sit on). */
-  committees?: { present: number; meetings: number };
   /**
    * The City Council roll calls this term where at least one member voted Nay: how many they voted in, how
    * often they sided with the majority, how often they voted Nay, and the newest few. Absent until every

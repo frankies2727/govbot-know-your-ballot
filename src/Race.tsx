@@ -249,7 +249,7 @@ export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name:
       <h3 className="text-sm font-black uppercase tracking-widest">🏛️ Their City Council record</h3>
       <p>Since the Council took office on {fullDate(r.since)}:</p>
       <ul className="space-y-1.5">
-        <li><strong>Attendance:</strong> present at the opening roll call of {a.present} of {plural(a.meetings, 'City Council meeting')}{r.committees && r.committees.meetings > 0 ? <>, and of {r.committees.present} of {plural(r.committees.meetings, 'meeting')} of the committees they sit on</> : null}. (Someone who arrives after the roll call is marked absent.)</li>
+        <li><strong>Attendance:</strong> present at the opening roll call of {a.present} of {plural(a.meetings, 'City Council meeting')}. (Someone who arrives after the roll call is marked absent.)</li>
         <li><strong>Introduced as lead sponsor:</strong> {plural(i.total, 'item')}: {plural(i.law, 'change')} to the Municipal Code ({i.lawPassed} passed), {plural(i.resolutions, 'resolution')}, and {i.ward.toLocaleString()} ward matters{i.wardKinds.length ? `, most often ${i.wardKinds.map((k) => `${k.kind} (${k.n})`).join(', ')}` : ''}.</li>
         {r.divided && r.divided.total > 0 && (
           <li><strong>Divided votes:</strong> of the {plural(r.divided.total, 'roll call')} this term where at least one alderperson voted no, they voted with the majority on {r.divided.withMajority} and voted no on {r.divided.nays}.</li>

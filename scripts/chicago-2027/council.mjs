@@ -9,12 +9,12 @@
 //     that make up most of an alderperson's filings.
 //   - How they voted on each year's city budget, the Annual Appropriation
 //     Ordinance, as the Council's roll call recorded it.
-//   - Committee attendance: every committee meeting held this term whose roll
-//     call lists them (members of that committee).
 //   - Divided votes: every non-routine item at a City Council meeting this term
 //     whose roll call had at least one "Nay" (the Clerk records a roll call for
 //     every item; most pass 49–0 together). How they voted on each, and how often
 //     they sided with the majority.
+// Committee attendance isn't counted: most committee meetings this term have no
+// roll call in eLMS, and the ones that do also list non-members as absent.
 // Roll calls never change once a meeting is over, so they're kept in
 // council-cache.json (committed by the daily workflow) and each run only reads
 // meetings it hasn't seen, at most MAX_CALLS requests a run.
@@ -127,16 +127,20 @@ export function budgetVote(matter) {
   return { year, url: MATTER_PAGE + matter.matterId, tally: `${yea}–${nay}`, votes: new Map(roll.votes.map((v) => [v.personId, v.vote])) };
 }
 
-/** The roll-call cache: people (person ids, by index), committee meetings, and the divided votes found. */
-export function emptyCache() { return { people: [], committee: {}, councilDone: [], divided: {} }; }
+/** The roll-call cache: people (person ids, by index), the meetings read, and the divided votes found. */
+export function emptyCache() { return { people: [], councilDone: [], divided: {} }; }
 export function loadCache(url = CACHE) {
-  try { return existsSync(url) ? { ...emptyCache(), ...JSON.parse(readFileSync(url, 'utf8')) } : emptyCache(); } catch { return emptyCache(); }
+  try {
+    if (!existsSync(url)) return emptyCache();
+    const { people, councilDone, divided } = JSON.parse(readFileSync(url, 'utf8'));
+    return { ...emptyCache(), ...(people && { people }), ...(councilDone && { councilDone }), ...(divided && { divided }) };
+  } catch { return emptyCache(); }
 }
 /** One entry per line, so the daily commit's diff shows just the new meetings. */
 export function saveCache(c, url = CACHE) {
   const lines = (o) => Object.keys(o).sort().map((k) => `  ${JSON.stringify(k)}: ${JSON.stringify(o[k])}`).join(',\n');
   writeFileSync(url, `{\n"people": ${JSON.stringify(c.people)},\n"councilDone": ${JSON.stringify([...c.councilDone].sort())},\n`
-    + `"committee": {\n${lines(c.committee)}\n},\n"divided": {\n${lines(c.divided)}\n}\n}\n`);
+    + `"divided": {\n${lines(c.divided)}\n}\n}\n`);
 }
 const idx = (c, personId) => { let i = c.people.indexOf(personId); if (i < 0) { c.people.push(personId); i = c.people.length - 1; } return i; };
 
@@ -147,25 +151,6 @@ export function dividedRoll(c, votes) {
   for (const v of votes) out[v.vote === 'Yea' ? 'y' : v.vote === 'Nay' ? 'n' : 'o'].push(idx(c, v.personId));
   return out;
 }
-/** A committee meeting's roll call -> { p, a } person indexes (present, everything else). */
-export function committeeRoll(c, meeting) {
-  const roll = (meeting.attendance ?? []).flatMap((a) => a.votes ?? []);
-  return { p: roll.filter((v) => /^present$/i.test(v.vote)).map((v) => idx(c, v.personId)), a: roll.filter((v) => !/^present$/i.test(v.vote)).map((v) => idx(c, v.personId)) };
-}
-
-/** personId -> committee meetings present / listed, from the cache. */
-export function committeeAttendance(c) {
-  const out = new Map();
-  for (const m of Object.values(c.committee)) {
-    for (const [list, here] of [[m.p, true], [m.a, false]]) for (const i of list) {
-      const a = out.get(c.people[i]) ?? { present: 0, meetings: 0 };
-      a.meetings++; if (here) a.present++;
-      out.set(c.people[i], a);
-    }
-  }
-  return out;
-}
-
 /** One member's divided votes: how many, how often with the majority, how often Nay, and the newest few. */
 export function dividedFor(c, personId) {
   const i = c.people.indexOf(personId);
@@ -203,19 +188,9 @@ export async function councilRecords(today, log = () => {}) {
   const present = attendance(meetings);
   log(`  ${meetings.length} of ${held.length} City Council meetings held this term have a roll call`);
 
-  // Committee attendance and divided votes, from the cache plus the meetings it hasn't seen yet.
+  // Divided votes, from the cache plus the meetings it hasn't seen yet.
   const cache = loadCache();
-  const committeesHeld = (await all('/meeting', { filter: `body ne 'City Council' and date gt ${TERM_START}T00:00:00Z`, sort: 'date desc' }))
-    .filter((m) => m.date.slice(0, 10) < today && !cache.committee[m.meetingId]);
   const settled = new Date(Date.parse(today) - 14 * 864e5).toISOString().slice(0, 10); // a roll call is posted within two weeks
-  for (let i = 0; i < committeesHeld.length; i += 6) {
-    await Promise.all(committeesHeld.slice(i, i + 6).map(async (m) => {
-      const full = await get(`/meeting/${m.meetingId}`).catch(() => null);
-      if (!full) return;
-      const roll = committeeRoll(cache, full);
-      if (roll.p.length + roll.a.length || m.date.slice(0, 10) < settled) cache.committee[m.meetingId] = { d: m.date.slice(0, 10), b: m.body, ...roll };
-    }));
-  }
   const nonRoutine = new Set((await all('/matter', { filter: `introductionDate gt ${TERM_START}T00:00:00Z and routine eq 'NO'` })).map((m) => m.matterId));
   let calls = 0;
   for (const m of details.filter((x) => x && !cache.councilDone.includes(x.meetingId) && x.date.slice(0, 10) < settled)) {
@@ -233,8 +208,7 @@ export async function councilRecords(today, log = () => {}) {
   }
   saveCache(cache);
   const allRead = details.filter((x) => x && x.date.slice(0, 10) < settled).every((x) => cache.councilDone.includes(x.meetingId));
-  const committees = committeeAttendance(cache);
-  log(`  ${Object.keys(cache.committee).length} committee meetings, ${Object.keys(cache.divided).length} divided votes so far (${calls} roll calls read this run${allRead ? '' : '; more next run'})`);
+  log(`  ${Object.keys(cache.divided).length} divided votes so far (${calls} roll calls read this run${allRead ? '' : '; more next run'})`);
 
   // The budgets passed this term: the mayor files each one, so search the mayor's filings by year.
   const mayor = (await get('/person', { filter: 'isActive eq true', top: '100' })).data.find((p) => /mayor/i.test(p.ward ?? ''));
@@ -261,7 +235,6 @@ export async function councilRecords(today, log = () => {}) {
         attendance: present.get(p.personId) ?? { present: 0, meetings: 0 },
         introduced: summarize(matters),
         budgets: budgets.map((b) => ({ year: b.year, vote: b.votes.get(p.personId) ?? 'Not recorded', tally: b.tally, url: b.url })),
-        committees: committees.get(p.personId) ?? { present: 0, meetings: 0 },
         // Shown only once every meeting held this term has been read, so a count is never partial.
         ...(allRead ? { divided: dividedFor(cache, p.personId) } : {}),
         source: { name: 'City Clerk of Chicago: eLMS', url: 'https://chicityclerkelms.chicago.gov/' },

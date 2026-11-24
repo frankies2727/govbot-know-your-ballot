@@ -1,7 +1,7 @@
 // node --test: how an alderperson's City Council record is counted (scripts/chicago-2027/council.mjs).
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { attendance, budgetVote, committeeAttendance, committeeRoll, dividedFor, dividedRoll, emptyCache, statusOf, summarize } from './council.mjs';
+import { attendance, budgetVote, dividedFor, dividedRoll, emptyCache, statusOf, summarize } from './council.mjs';
 
 test('a filing’s status in plain words', () => {
   assert.equal(statusOf({ status: '90-Final', subStatus: 'Passed as Substitute' }), 'Passed');
@@ -66,11 +66,3 @@ test('divided votes: with the majority, Nays, and the newest first', () => {
   assert.deepEqual([dividedFor(c, 'D').nays, dividedFor(c, 'Z').total], [2, 0]);
 });
 
-test('committee attendance counts each meeting that lists the member', () => {
-  const c = emptyCache();
-  c.committee.m1 = { d: '2026-01-01', b: 'Committee on Finance', ...committeeRoll(c, { attendance: [{ votes: [{ personId: 'A', vote: 'Present' }, { personId: 'B', vote: 'Absent' }] }] }) };
-  c.committee.m2 = { d: '2026-02-01', b: 'Committee on Zoning', ...committeeRoll(c, { attendance: [{ votes: [{ personId: 'A', vote: 'Present' }] }] }) };
-  const m = committeeAttendance(c);
-  assert.deepEqual(m.get('A'), { present: 2, meetings: 2 });
-  assert.deepEqual(m.get('B'), { present: 0, meetings: 1 });
-});
