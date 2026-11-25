@@ -3,7 +3,7 @@
   "name": "University of Florida Election Lab",
   "url": "https://election.lab.ufl.edu/voter-turnout/"
  },
- "asOf": "2026-11-14",
+ "asOf": "2026-11-25",
  "states": {
   "illinois": {
    "office": {
@@ -127,9 +127,9 @@
     },
     {
      "year": 2026,
-     "ballots": 4800000,
+     "ballots": 4849519,
      "eligible": 7795255,
-     "pct": 61.58,
+     "pct": 62.21,
      "preliminary": true
     }
    ],
