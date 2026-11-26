@@ -58,7 +58,7 @@ export interface GuideSpec {
   lawsFrom?: LawsState;
   /** Whether an address's districts are inside the guide's area (default: anywhere in the state). */
   inArea?: (d: Districts) => boolean;
-  /** The guide's own common questions (default: the state guides' questions, src/seo/faq.ts). */
+  /** The guide's own FAQs (default: the state guides' questions, src/seo/faq.ts). */
   faq?: (data: StateData) => Faq[];
   /** Address -> districts. None when every voter gets the same ballot: the landing page then just starts it. */
   lookup?: {

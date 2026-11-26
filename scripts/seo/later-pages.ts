@@ -3,7 +3,7 @@
 // the ballot with its candidates and who holds the seat, the guide's common
 // questions, and the page's structured data. Built from the same data and copy
 // the app shows (src/data/<guide>/ballot.json, src/<guide>/), so the page text,
-// the FAQ markup and the visible "Common questions" say the same words. No
+// the FAQ markup and the visible "FAQs" say the same words. No
 // recommendations, ratings or adjectives.
 
 import { existsSync, readFileSync } from 'node:fs';
@@ -119,7 +119,7 @@ export function guideBody(g: GuidePage, d: StateData, site: string, desc: string
     `<p>${esc(desc)}</p>`,
     `<p>Election Day: ${esc(longDate(g.day))}, polls open ${g.hours}. Candidates from ${esc(g.listFrom)}, as of ${esc(d.sources.candidates.asOf)}. Enter your address in <a href="${url}">the guide</a> to see just ${esc(g.narrows)}.</p>`,
     ...g.sections.map(section),
-    '<h2>Common questions</h2>',
+    '<h2>FAQs</h2>',
     ...g.faq(d).map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
     `<p><a href="${site}/">All elections</a></p>`,
     '</main>',

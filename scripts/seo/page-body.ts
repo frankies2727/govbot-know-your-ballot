@@ -2,7 +2,7 @@
 // and the structured data in its <head>. Built from the same sourced data and
 // copy the app shows (src/data/<state>/ballot.json, the offices' plain-English
 // explainers, the key dates, src/seo/copy.ts and src/seo/faq.ts), so the text
-// in the page, the FAQ markup and the visible "Common questions" section say
+// in the page, the FAQ markup and the visible "FAQs" section say
 // the same words. The text sits inside <div id="root">; the app's first render
 // replaces it, exactly as it replaces the loading screen.
 //
@@ -71,7 +71,7 @@ export function stateBody(f: StatePage, site: string, desc: string): string {
     ...(statewideMeasures(f.measures).length ? ['<h2>Statewide ballot questions</h2>', ...statewideMeasures(f.measures).map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.question)}</p>${m.plain ? `<p>${esc(m.plain)}</p>` : ''}`)] : []),
     `<h2>How ${aOrAn(name)} ${esc(name)} ballot works</h2>`,
     ...HOW[slug].map((i) => `<p><strong>${esc(i.lead)}</strong> ${esc(i.text)}</p>`),
-    '<h2>Common questions</h2>',
+    '<h2>FAQs</h2>',
     ...f.faq.map((x) => `<h3>${esc(x.q)}</h3><p>${esc(x.a)}</p>`),
     `<p>Enter your address in the guide to see your own ballot, including your district's races and judges. <a href="${site}/">All states</a> · ${STATE_SLUGS.filter((s) => s !== slug).map((s) => `<a href="${site}${guidePath(s)}">${STATE_NAMES[s]}</a>`).join(' · ')}</p>`,
     '</main>',
@@ -93,7 +93,7 @@ export function homeBody(states: StatePage[], site: string, desc: string): strin
       ...ELECTIONS.filter((e) => e.date.startsWith(String(y))).map((e) => `<li>${esc(longDate(e.date))}: ${esc(STATE_NAME[e.state])} ${esc(e.title.toLowerCase())}. ${esc(e.what)}${e.guide ? ` <a href="${site}${guidePath(guideOf(e))}">${esc(e.guide.label.replace(/^Open the /, '').replace(/^\w/, (c) => c.toUpperCase()))}</a>` : ''}</li>`),
       '</ul>',
     ]),
-    '<h2>Common questions</h2>',
+    '<h2>FAQs</h2>',
     ...homeFaq().map((x) => `<h3>${esc(x.q)}</h3><p>${esc(x.a)}</p>`),
     '</main>',
   ].join('\n');

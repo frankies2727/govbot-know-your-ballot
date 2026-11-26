@@ -1,6 +1,6 @@
 // The plain words behind "How a ballot works", the official voter portals and
 // the two questions about the site itself. One copy: the app's How-it-works
-// tab, the visible "Common questions" section, the text a crawler reads in the
+// tab, the visible "FAQs" section, the text a crawler reads in the
 // page and the FAQ structured data all come from here (see faq.ts).
 
 export type StateSlug = 'illinois' | 'michigan' | 'minnesota' | 'wisconsin';

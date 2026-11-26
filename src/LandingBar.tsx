@@ -41,9 +41,10 @@ export interface LandingSub {
 /**
  * The landing's parts in page order: `statewide` are the statewide races (in
  * `sections`' colours), `more` the district cards, `questions` the
- * ballot-questions card some states show after the statewide races.
+ * ballot-questions card some states show after the statewide races, `news` whether
+ * the page shows the News Feed (above the FAQs).
  */
-export function landingItems(more: SectionCard[], statewide: Race[], sections: readonly { id: string; emoji: string; color: string }[], questions?: SectionCard, everyone = 'The statewide races'): LandingItem[] {
+export function landingItems(more: SectionCard[], statewide: Race[], sections: readonly { id: string; emoji: string; color: string }[], questions?: SectionCard, everyone = 'The statewide races', news = false): LandingItem[] {
   // A card of one office is named for it ("Federal: U.S. Representative"); a card of several lists them under it.
   const card = (c: SectionCard): LandingSub => {
     const { groups } = officeGroups(c);
@@ -61,7 +62,8 @@ export function landingItems(more: SectionCard[], statewide: Race[], sections: r
     { id: 'kyb-find', emoji: '📍', label: 'Find my ballot' },
     { id: 'kyb-statewide', emoji: '🗳️', label: everyone, sub: [...statewide.map(race), ...(questions ? [card(questions)] : [])] },
     { id: 'kyb-else', emoji: '🧭', label: 'District and precinct races', short: 'District races', sub: more.map(card) },
-    { id: 'kyb-faq', emoji: '❓', label: 'Common questions' },
+    ...(news ? [{ id: 'kyb-news', emoji: '📰', label: 'News Feed' }] : []),
+    { id: 'kyb-faq', emoji: '❓', label: 'FAQs' },
     { id: 'kyb-sources', emoji: '📂', label: 'Sources' },
     { id: 'kyb-beyond', emoji: '🏛️', label: 'Beyond your ballot' },
     { id: 'kyb-next', emoji: '📅', label: 'The next election' },

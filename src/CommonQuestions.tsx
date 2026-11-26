@@ -11,7 +11,7 @@ export function HowItems({ slug }: { slug: StateSlug }) {
 export function CommonQuestions({ items }: { items: Faq[] }) {
   return (
     <section id="kyb-faq" aria-labelledby="kyb-faq-h" className="space-y-3 scroll-mt-[var(--kyb-bar,0px)]">
-      <h2 id="kyb-faq-h" className="text-2xl font-black">Common questions</h2>
+      <h2 id="kyb-faq-h" className="text-2xl font-black">FAQs</h2>
       <ul className="space-y-2">
         {items.map((f) => (
           <li key={f.q}>

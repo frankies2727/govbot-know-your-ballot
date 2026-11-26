@@ -4,6 +4,7 @@ import { money, useOpen } from './store';
 import type { Briefs } from './briefs';
 import type { Change, Law, NewsItem, Race } from './types';
 import type { KeyDate } from './dates';
+import { longDate } from './seo/format';
 
 // "News Feed": one feed of everything that moved lately, newest first, each
 // item dated and sourced. Ballot changes the daily refresh noticed, news
@@ -129,19 +130,28 @@ export const dateItems = (dates: KeyDate[], today: string, source: { name: strin
 const SHOWN = 6;
 const STEP = 5;
 
-/** `storageKey` remembers whether the feed is shown or hidden; it starts shown. */
-export function Feed({ items, storageKey, onJump }: { items: FeedItem[]; storageKey: string; onJump: (id: string) => void }) {
+/**
+ * `storageKey` remembers whether the feed is shown or hidden; it starts shown.
+ * `asOf` (YYYY-MM-DD) is when the data behind it was last read; `start` the topic it opens on
+ * (Everything instead while that topic is empty).
+ * Every topic always has its tab (an empty one says so), except "Ballot changes", which only
+ * guides whose daily refresh logs changes have.
+ */
+export function Feed({ items, storageKey, onJump, asOf, start = 'all' }: { items: FeedItem[]; storageKey: string; onJump: (id: string) => void; asOf?: string; start?: Kind | 'all' }) {
   const [open, toggle] = useOpen(storageKey, true);
-  const [kind, setKind] = useState<Kind | 'all'>('all');
+  const [picked, setKind] = useState<Kind | 'all' | null>(null);
   const [limit, setLimit] = useState(SHOWN);
   const sorted = useMemo(() => [...items].sort((a, b) => b.at.localeCompare(a.at)), [items]);
+  // Until a tab is tapped: the `start` topic, or Everything while it has nothing (the briefs load after the page).
+  const kind = picked ?? (sorted.some((i) => i.kind === start) ? start : 'all');
   const shown = sorted.filter((i) => kind === 'all' || i.kind === kind);
   const list = shown.slice(0, limit);
   if (!items.length) return null;
   const color = (k: Kind) => KINDS.find((x) => x.id === k)!.color;
   return (
-    <section aria-labelledby="kyb-feed" className="rounded-2xl border-[3px] border-[var(--gb-blue-hi)] bg-[var(--gb-surface)] p-4 sm:p-5 space-y-4">
+    <section id="kyb-news" aria-labelledby="kyb-feed" className="scroll-mt-[var(--kyb-bar,0px)] rounded-2xl border-[3px] border-[var(--gb-blue-hi)] bg-[var(--gb-surface)] p-4 sm:p-5 space-y-4">
       <div className="space-y-1">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <h2 id="kyb-feed" className="text-2xl">
           <button type="button" onClick={toggle} aria-expanded={open} aria-controls="kyb-feed-body" className="inline-flex min-h-[44px] items-center gap-2 text-left">
             📰 News Feed
@@ -149,11 +159,13 @@ export function Feed({ items, storageKey, onJump }: { items: FeedItem[]; storage
             <span className="sr-only">{open ? '(hide)' : '(show)'}</span>
           </button>
         </h2>
+        {asOf && <p className="rounded-full border-2 border-[var(--gb-blue-hi)] px-3 py-0.5 text-sm font-bold">Data as of {longDate(asOf).replace(/^\w+, /, '')}</p>}
+        </div>
         {open && <p className="text-[15px] leading-relaxed">Everything that moved lately: news, social posts, official releases and campaign sites about the candidates, campaign finances (each race’s latest reports, and stories about who’s funding whom), changes to the ballot the daily refresh noticed, bills and the dates coming up. Each item says where it comes from.</p>}
       </div>
       {open && <div id="kyb-feed-body" className="space-y-4">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Kinds of activity">
-        {KINDS.filter((k) => k.id === 'all' || sorted.some((i) => i.kind === k.id)).map((k) => (
+        {KINDS.filter((k) => k.id !== 'ballot' || sorted.some((i) => i.kind === 'ballot')).map((k) => (
           <button key={k.id} type="button" role="tab" aria-selected={kind === k.id} onClick={() => { setKind(k.id); setLimit(SHOWN); }}
             className="min-h-[40px] rounded-full border-2 px-4 text-sm font-bold" style={kind === k.id ? { background: k.color, borderColor: k.color, color: 'var(--gb-bg)' } : { borderColor: k.color }}>
             {k.label}
@@ -169,8 +181,8 @@ export function Feed({ items, storageKey, onJump }: { items: FeedItem[]; storage
             </div>
             <div className="min-w-0 flex-1 space-y-1">
               {i.jump
-                ? <button type="button" onClick={() => onJump(i.jump!)} className="text-left font-bold leading-snug underline underline-offset-2">{i.title}</button>
-                : <p className="font-bold leading-snug">{i.title}</p>}
+                ? <button type="button" onClick={() => onJump(i.jump!)} className="text-left font-bold leading-snug underline underline-offset-2 [overflow-wrap:anywhere]">{i.title}</button>
+                : <p className="font-bold leading-snug [overflow-wrap:anywhere]">{i.title}</p>}
               {i.detail && <p className="text-sm leading-snug">{i.detail}</p>}
               <p className="text-sm">
                 {i.source.url

@@ -352,7 +352,7 @@ async function main() {
   const data = {
     election: ELECTION,
     sources: {
-      candidates: { pages: { 'Chicago Board of Election Commissioners': BOARD_CANDIDATES }, asOf: asOf ?? prev?.sources?.candidates?.asOf ?? today, list: list.url },
+      candidates: { pages: { 'Chicago Board of Election Commissioners': BOARD_CANDIDATES }, asOf: asOf ?? prev?.sources?.candidates?.asOf ?? today, checked: today, list: list.url },
       money: { url: 'https://www.elections.il.gov/CampaignDisclosure/CampaignDisclosureSearch.aspx', file: ISBE_BASE },
       proposals: {},
     },

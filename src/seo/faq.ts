@@ -1,5 +1,5 @@
 // The questions voters ask, answered from the data and copy already in the app.
-// One function builds them for three readers: the visible "Common questions"
+// One function builds them for three readers: the visible "FAQs"
 // section, the text in the page a crawler reads, and the FAQ structured data.
 // Every answer is made from sourced data (the candidate lists, the offices'
 // plain-English explainers, the key dates, the ballot copy), never written

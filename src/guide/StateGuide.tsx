@@ -5,7 +5,7 @@ import { BrowsingBadge, BrowsingNotice, Confetti, HowBallotWorks, Locating, Prog
 import { Group } from '../Calendar';
 import { GUIDES, guideUrl } from '../hosts';
 import { routeHref } from '../lib/router';
-import { billItems, billUrl, changeItems, dateItems, Feed, moneyItems, newsItems, sourceItems } from '../Feed';
+import { billItems, billUrl, changeItems, dateItems, Feed, type FeedItem, moneyItems, newsItems, sourceItems } from '../Feed';
 import { Laws } from '../Laws';
 import { ElectionTimeline } from './Timeline';
 import { Headliners } from '../Headliners';
@@ -133,6 +133,17 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     return { ...s, ids, done: ids.filter((id) => isDecided(saved.picks[id])).length };
   }).filter((s) => s.ids.length), [SECTIONS, ballot, saved.picks]);
   const sectionFor = (id: string) => raceById.get(id)?.section ?? 'measures';
+  // The News Feed's items, for its tab and the landing page.
+  const feed = useMemo(() => [
+    ...changeItems(data.changes ?? [], (c) => (c.kind === 'money' ? { name: copy.moneyFilings, url: data.sources.money.url } : { name: 'Ballotpedia candidate lists', url: links.ballotpedia })),
+    ...newsItems(data.news ?? []),
+    ...sourceItems(data.races, briefs, today()),
+    // A guide whose refresh doesn't log money reports gets each race's totals instead.
+    ...((data.changes ?? []).some((c) => c.kind === 'money') ? [] : moneyItems(data.races, { name: copy.moneyFilings, url: data.sources.money.url })),
+    ...billItems(data.laws ?? [], billUrl, copy.legislature),
+    ...dateItems(spec.keyDates, today(), { name: links.datesSource, url: links.dates }),
+  ], [data, briefs, copy, links, spec.keyDates]);
+  const dataAsOf = isoDate(data.sources.candidates.checked ?? data.sources.candidates.asOf);
   const total = sections.reduce((n, s) => n + s.ids.length, 0);
   const done = sections.reduce((n, s) => n + s.done, 0);
   const allDone = total > 0 && done === total;
@@ -380,6 +391,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
             onOpenCandidate={openSheet}
             onOpenSection={(sectionId, id) => { browse(); jumpTo(sectionId, id); }}
             onCompare={openCompare}
+            feed={feed} dataAsOf={dataAsOf} onFeedJump={(id) => { browse(); jumpTo(sectionFor(id), id); }}
             place={saved.place?.label} onContinue={() => showView(true)}
             saved={Object.keys(saved.picks).length}
             onStartFresh={() => { setSaved((s) => ({ ...s, picks: {}, plan: {} })); setToast('Cleared. Starting fresh.'); }}
@@ -482,15 +494,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 
               {tab === 'feed' && (
                 <div className="pt-6">
-                  <Feed storageKey={`kyb-${code}-feed-open`} onJump={(id) => jumpTo(sectionFor(id), id)} items={[
-                    ...changeItems(data.changes ?? [], (c) => (c.kind === 'money' ? { name: copy.moneyFilings, url: data.sources.money.url } : { name: 'Ballotpedia candidate lists', url: links.ballotpedia })),
-                    ...newsItems(data.news ?? []),
-                    ...sourceItems(data.races, briefs, today()),
-                    // A guide whose refresh doesn't log money reports gets each race's totals instead.
-                    ...((data.changes ?? []).some((c) => c.kind === 'money') ? [] : moneyItems(data.races, { name: copy.moneyFilings, url: data.sources.money.url })),
-                    ...billItems(data.laws ?? [], billUrl, copy.legislature),
-                    ...dateItems(spec.keyDates, today(), { name: links.datesSource, url: links.dates }),
-                  ]} />
+                  <Feed storageKey={`kyb-${code}-feed-open`} onJump={(id) => jumpTo(sectionFor(id), id)} items={feed} asOf={dataAsOf} />
                 </div>
               )}
 
@@ -591,12 +595,13 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
 const dayOf = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
 const shortDay = (iso: string) => dayOf(iso).replace(/^\w+, /, '');
 
-function Landing({ spec, everything, ballotHref, address, setAddress, status, onSubmit, onLocate, onBrowse, onSearchJump, onOpenRace, onOpenCandidate, onOpenSection, onCompare, place, onContinue, daysLeft, saved, onStartFresh }: {
+function Landing({ spec, everything, ballotHref, address, setAddress, status, onSubmit, onLocate, onBrowse, onSearchJump, onOpenRace, onOpenCandidate, onOpenSection, onCompare, place, onContinue, daysLeft, saved, onStartFresh, feed, dataAsOf, onFeedJump }: {
   spec: GuideSpec; everything: ReturnType<typeof ballotFor>; ballotHref: string;
   address: string; setAddress: (s: string) => void; status: { busy: boolean; error: string; outside: boolean };
   onSubmit: (e: FormEvent) => void; onLocate: () => void; onBrowse: () => void; onSearchJump: (h: Hit) => void; onOpenRace: (r: Race) => void; onOpenCandidate: (r: Race, c: Candidate) => void;
   onOpenSection: (sectionId: string, id: string) => void; onCompare: (r: Race) => void; /** A saved ballot to go back to. */ place?: string; onContinue: () => void;
   daysLeft: number; saved: number; onStartFresh: () => void;
+  feed: FeedItem[]; dataAsOf?: string; onFeedJump: (id: string) => void;
 }) {
   const { data, sections: SECTIONS, config, copy, Map } = spec;
   // The questions voters ask, from the same sourced data and copy as the rest of the page (the page's FAQ markup says these words too).
@@ -627,7 +632,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
   return (
     <div className="space-y-10 pt-4">
       {/* Pinned under govbot's header all the way down: the page's contents and its search. */}
-      <LandingBar items={landingItems(more, headliners, SECTIONS, questions.n > 0 ? questions : undefined, `The ${everyone} races`)} search={(slot) => (
+      <LandingBar items={landingItems(more, headliners, SECTIONS, questions.n > 0 ? questions : undefined, `The ${everyone} races`, feed.length > 0)} search={(slot) => (
         <BallotSearch ballot={everything} sections={sectionTitles} onJump={onSearchJump} hrefFor={(h) => `${ballotHref}#race=${encodeURIComponent(h.id)}`} {...slot} />
       )} />
       <header className="flex flex-col-reverse md:flex-row md:items-center gap-6 md:gap-12">
@@ -699,6 +704,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
       <SectionCards cards={more} heading="District and precinct races on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} holders={(r) => <Incumbents race={r} />} />
 
       <div className="pt-2 space-y-8">
+        <Feed storageKey={`kyb-${spec.code.toLowerCase()}-landing-feed-open`} onJump={onFeedJump} items={feed} asOf={dataAsOf} start="social" />
         <CommonQuestions items={faq} />
         <SourcesCard spec={spec} />
         <div id="kyb-beyond" role="separator" aria-label="Beyond your ballot" className="flex items-center gap-4 scroll-mt-[var(--kyb-bar,0px)]">

@@ -263,8 +263,8 @@ What a crawler or AI assistant reads is built from the same sourced data and cop
 
 - **Files:** `robots.txt` (AI crawlers welcome, `/api/` kept out), `sitemap.xml` (each page's `lastmod` is its candidate list's own date), `llms.txt` and `llms-full.txt`. The Vite plugin in `vite.config.ts` writes them from `scripts/seo/`.
 - **A page per candidate:** `scripts/seo/candidate-pages.ts` prerenders every candidate's facts (money, quotes, endorsements, record, sources) at `/<guide>/candidates/<race>/<name>`, and the app opens their card there.
-- **Text in each page:** `scripts/seo/page-body.ts` writes readable text into each guide page before the app loads (dates, races, what each office does, common questions). The app's first render replaces it: the same facts, never hidden text.
-- **One copy of the words:** `src/seo/faq.ts` builds every question from the ballot data, and the same function feeds the visible "Common questions", the page text and the FAQ markup, so they can't disagree.
+- **Text in each page:** `scripts/seo/page-body.ts` writes readable text into each guide page before the app loads (dates, races, what each office does, FAQs). The app's first render replaces it: the same facts, never hidden text.
+- **One copy of the words:** `src/seo/faq.ts` builds every question from the ballot data, and the same function feeds the visible "FAQs", the page text and the FAQ markup, so they can't disagree.
 - **Check it:** after `npm run build`, `npx esbuild scripts/seo-test.mjs --bundle --platform=node --format=esm --outfile=/tmp/seo-test.mjs && node /tmp/seo-test.mjs`.
 </details>
 
