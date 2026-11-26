@@ -194,7 +194,7 @@ async function main() {
   const data = {
     election: ELECTION,
     sources: {
-      candidates: { pages: official ? { 'Wisconsin Elections Commission': 'https://elections.wi.gov/candidates-and-committees/candidates' } : { 'Wikipedia: 2027 Wisconsin elections': ARTICLE, 'Wikipedia: 2027 Wisconsin Supreme Court election': COURT_ARTICLE }, asOf: official?.printed ?? today, official: Boolean(official) },
+      candidates: { pages: official ? { 'Wisconsin Elections Commission': 'https://elections.wi.gov/candidates-and-committees/candidates' } : { 'Wikipedia: 2027 Wisconsin elections': ARTICLE, 'Wikipedia: 2027 Wisconsin Supreme Court election': COURT_ARTICLE }, asOf: official?.printed ?? today, checked: today, official: Boolean(official) },
       money: { url: 'https://campaignfinance.wi.gov/', file: '' },
       proposals: {},
     },

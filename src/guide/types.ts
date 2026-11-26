@@ -6,7 +6,7 @@ import type { Change, Law, Measure, NewsItem, Race } from '../types';
 export interface StateData {
   election: { name: string; date: string };
   sources: {
-    /** Each office's candidate page, and the day the list was last read; `checked` when `asOf` is the source's own stamp (Chicago's Board list) rather than the day it was read. */
+    /** Each office's candidate page, and the day the list was last read; `checked` when `asOf` is the source’s own stamp (Chicago’s Board list, Wisconsin’s official list) rather than the day it was read. */
     candidates: { pages: Record<string, string>; asOf: string; checked?: string };
     money: { url: string; file: string };
     /** The state's own money exports, where the build reads them (Michigan's MiTN). */
