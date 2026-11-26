@@ -206,6 +206,17 @@ export interface Race {
   incumbents?: Incumbent[];
   /** The area the seat serves, in an official source's words (a Chicago police district: its neighborhoods and wards). */
   about?: { text: string; source: { name: string; url: string } };
+  /** A Chicago ward's 311 service requests over the year from `since` (scripts/chicago-2027/services.mjs), with the median ward's for comparison. */
+  services?: WardServices;
+}
+
+export interface WardServices {
+  /** Requests filed, still open, and open more than 90 days. */
+  filed: number; open: number; old: number;
+  /** The three request types filed most. */
+  top: { type: string; n: number }[];
+  median: { filed: number; open: number; old: number };
+  since: string; asOf: string;
 }
 
 export interface Retention {

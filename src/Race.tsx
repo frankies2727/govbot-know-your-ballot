@@ -1,4 +1,4 @@
-import { AtSign, Check, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, Youtube, type LucideIcon } from 'lucide-react';
+import { AtSign, Check, ChevronDown, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import { GOVBOT_LEGISLATION } from './hosts';
 import { sourceName } from './lib/sources';
 import { memo, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
@@ -7,9 +7,10 @@ import { Face } from './Face';
 import { useBrief } from './briefs';
 import { useReadOnly, useStateConfig } from './state';
 import { daysUntil, money, type Choice } from './store';
-import type { Candidate, CandidateBrief, CouncilRecord, Guide, Incumbent, Measure, Race, Retention, SocialPlatform, Sourced } from './types';
+import type { Candidate, CandidateBrief, CouncilRecord, Guide, Incumbent, Measure, Race, Retention, SocialPlatform, Sourced, WardServices } from './types';
 import { QuestionResults, RaceResults } from './results';
 import { JudgeFold, JudgeProfileBlock } from './Judge';
+import { longDate } from './seo/format';
 import { Dialog, ReportLink } from './Bits';
 import { ShareCandidate } from './CandidateLink';
 
@@ -172,7 +173,39 @@ export function Incumbents({ race }: { race: Race }) {
         <HolderBrief i={i} raceId={race.id} />
         </div>
       ))}
+      {race.services && race.area && <WardServicesBlock s={race.services} ward={race.area.id} />}
     </div>
+  );
+}
+
+/** "Graffiti Removal Request" -> "graffiti removal". */
+const plainType = (t: string) => t.replace(/\s*(Request|Complaint|Inspection Request)$/i, '').replace(/\s*-\s*/g, ': ').toLowerCase().replace(/^311 /, '');
+
+/** A Chicago ward's 311 service requests over the last year, folded under who holds the seat. */
+function WardServicesBlock({ s, ward }: { s: WardServices; ward: string }) {
+  const n = (x: number) => x.toLocaleString('en-US');
+  const vs = (x: number, m: number) => <span className="whitespace-nowrap"> (median ward: {n(m)})</span>;
+  return (
+    <details className="group rounded-lg border-2 border-[var(--gb-border-strong)] bg-[var(--gb-surface)] px-3">
+      <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-2 py-1.5 font-bold">
+        <span>🛠️ City services in Ward {ward}: {n(s.open)} open 311 requests</span>
+        <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
+      </summary>
+      <div className="space-y-1.5 pb-2.5">
+        <p className="text-xs font-bold uppercase tracking-wide">Last 12 months, since {longDate(s.since).replace(/^\w+, /, '')}</p>
+        <ul className="list-disc space-y-1 pl-5">
+          <li><strong>{n(s.filed)}</strong> requests filed with 311{vs(s.filed, s.median.filed)}</li>
+          <li><strong>{n(s.open)}</strong> still open{vs(s.open, s.median.open)}; <strong>{n(s.old)}</strong> of them waiting more than 90 days{vs(s.old, s.median.old)}</li>
+          {s.top.length > 0 && <li>Asked for most: {s.top.map((t, k) => <span key={t.type}>{k ? ', ' : ''}{plainType(t.type)} ({n(t.n)})</span>)}</li>}
+        </ul>
+        <p className="text-xs leading-snug">City departments do the work; the ward office helps residents file requests and follow them up. Information-only calls and O’Hare noise complaints aren’t counted.</p>
+        <p className="text-sm">
+          <a href="https://data.cityofchicago.org/Service-Requests/311-Service-Requests/v6vf-nfxy" target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">City of Chicago 311 data ↗</a> · <span className="whitespace-nowrap">read {s.asOf}</span>
+          {' · '}<a href={`https://www.chi311plus.com/wards/${encodeURIComponent(ward)}`} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Ward {ward} on Chi311 Plus ↗</a> <span className="text-xs">(an independent tracker: map, open issues)</span>
+          {' · '}<a href="https://311.chicago.gov/" target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">File a 311 request ↗</a>
+        </p>
+      </div>
+    </details>
   );
 }
 

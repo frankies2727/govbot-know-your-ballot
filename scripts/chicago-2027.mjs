@@ -34,6 +34,7 @@ import { addSocial } from './illinois/social.mjs';
 import { personKey } from './results/match.mjs';
 import { outlineOf } from './city-maps.mjs';
 import { councilRecords } from './chicago-2027/council.mjs';
+import { wardServices } from './chicago-2027/services.mjs';
 import { recentBills } from './illinois/govbot.mjs';
 import { addHolderPhotos, applyBriefs } from './briefs.mjs';
 import { settleBallots } from './ballot-order.mjs';
@@ -270,6 +271,13 @@ async function main() {
     withRecord++;
   }
   console.log(`Council records: ${withRecord} of 50 wards`);
+  // City services in each ward over the last year, from the City's 311 data; yesterday's when it can't be read.
+  const services = await soft('311 service requests', () => wardServices(today), null);
+  for (const r of races.filter((x) => x.section === 'council')) {
+    const w = services?.wards[r.area.id];
+    r.services = w ? { ...w, median: services.median, since: services.since, asOf: today } : prevById.get(r.id)?.services;
+  }
+  console.log(`311 services: ${services ? 'read for 50 wards' : 'kept'}`);
 
   let councils = 0;
   for (const r of races.filter((x) => x.section === 'police')) {
