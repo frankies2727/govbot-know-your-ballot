@@ -17,7 +17,7 @@ import { longDate } from './seo/format';
  * `wide` lets a side-by-side sheet (Compare) use most of the screen instead of a reading column; it then scrolls its own body, so its title stays put. `tall` gives it all the height there is, with less padding, up front (Compare's deck of cards on a phone sizes itself to it).
  * On a phone the sheet opens below govbot's pinned header (--kyb-top), so the logo and name stay in view.
  */
-export function Dialog({ title, onClose, wide = false, tall = false, children }: { title: string; onClose: () => void; wide?: boolean; tall?: boolean; children: ReactNode }) {
+export function Dialog({ title, onClose, wide = false, tall = false, actions, children }: { title: string; onClose: () => void; wide?: boolean; tall?: boolean; /** Buttons beside the close button, in the top bar. */ actions?: ReactNode; children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useModal(ref, true, onClose);
   return (
@@ -31,11 +31,16 @@ export function Dialog({ title, onClose, wide = false, tall = false, children }:
         onClick={(e) => e.stopPropagation()}
         className={`w-full overscroll-contain ${wide ? 'sm:max-w-[min(96vw,1500px)] flex flex-col overflow-hidden' : 'sm:max-w-2xl overflow-y-auto'} ${tall ? 'h-[calc(100dvh-var(--kyb-top,0px))] sm:h-[96dvh] px-3 pt-3 pb-2 sm:px-6 sm:pt-6 rounded-t-2xl' : 'max-h-[calc(100dvh-var(--kyb-top,0px)-12px)] sm:max-h-[92dvh] p-6 rounded-t-3xl'} sm:rounded-3xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] outline-none`}
       >
-        <div className={`flex shrink-0 items-start justify-between gap-4 ${tall ? 'mb-2 items-center' : 'mb-5'}`}>
-          <h2 className={`${tall ? 'text-xl' : 'text-2xl'} font-black leading-tight text-[var(--gb-text)]`}>{title}</h2>
-          <button type="button" onClick={onClose} aria-label="Close" className="shrink-0 w-11 h-11 rounded-full bg-[var(--kyb-chip)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip-hi)]">
-            <X className="w-5 h-5" />
-          </button>
+        {/* The title and close button stay on top while the dialog scrolls, so closing never means scrolling back up.
+            Sticky offsets count from inside the dialog's 24px padding: -top-6 keeps the bar flush with its top edge. */}
+        <div className={`flex shrink-0 items-start justify-between gap-3 ${tall ? 'mb-2 items-center' : 'sticky -top-6 z-10 -mx-6 -mt-6 mb-4 items-center border-b-2 border-[var(--gb-border)] bg-[var(--gb-surface-2)] px-6 pt-6 pb-3'}`}>
+          <h2 className={`${tall ? 'text-xl' : 'text-xl sm:text-2xl line-clamp-2'} min-w-0 font-black leading-tight text-[var(--gb-text)]`}>{title}</h2>
+          <div className="flex shrink-0 items-center gap-2">
+            {actions}
+            <button type="button" onClick={onClose} aria-label="Close" className="shrink-0 w-11 h-11 rounded-full bg-[var(--kyb-chip)] flex items-center justify-center text-[var(--gb-text)] hover:bg-[var(--kyb-chip-hi)]">
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
         {children}
       </div>

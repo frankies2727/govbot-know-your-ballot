@@ -1,7 +1,7 @@
 import { AtSign, Check, ChevronDown, ChevronLeft, ChevronRight, ExternalLink, Facebook, Info, Instagram, Linkedin, Music2, Scale, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import { GOVBOT_LEGISLATION } from './hosts';
 import { sourceName } from './lib/sources';
-import { memo, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { createContext, memo, useContext, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { BarRatings } from './BarRatings';
 import { Face } from './Face';
 import { useBrief } from './briefs';
@@ -248,8 +248,7 @@ function Record({ c }: { c: Candidate }) {
   const date = (d?: string) => (d ? new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '');
   const all = `${GOVBOT_LEGISLATION}#state=${r.bills[0]?.state ?? 'il'}&q=${encodeURIComponent(c.name.split(' & ')[0].replace(/["“”][^"“”]*["“”]\s*/g, ''))}`;
   return (
-    <section className="space-y-3">
-      <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">📜 Their record in office</h3>
+    <Fold title="📜 Their record in office" hint={`${plural(r.sponsored, 'bill')} sponsored or co-sponsored this session`}>
       <p className="text-[15px] leading-relaxed text-[var(--gb-text)]">As {r.seat}’s member they sponsored or co-sponsored <strong>{r.sponsored.toLocaleString()} bill{r.sponsored === 1 ? '' : 's'}</strong> this session. The newest:</p>
       <ul className="space-y-1.5 text-sm">
         {r.bills.map((b) => (
@@ -260,7 +259,7 @@ function Record({ c }: { c: Candidate }) {
         ))}
       </ul>
       <p className="text-xs text-[var(--gb-text)]"><a href={all} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">Every bill with their name on it, on govbot ↗</a> · {r.source}, read {r.asOf}. Sponsoring a bill is one part of a record; how they voted is on the legislature’s own site.</p>
-    </section>
+    </Fold>
   );
 }
 
@@ -278,8 +277,7 @@ export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name:
   }
   const link = 'font-bold text-[var(--gb-link)] underline underline-offset-2';
   return (
-    <section className="space-y-3 text-[15px] leading-relaxed text-[var(--gb-text)]">
-      <h3 className="text-sm font-black uppercase tracking-widest">🏛️ Their City Council record</h3>
+    <Fold title="🏛️ Their City Council record" hint={`Present at ${a.present} of ${a.meetings} meetings · ${plural(i.total, 'item')} introduced`} className="space-y-3 text-[15px] leading-relaxed text-[var(--gb-text)]">
       <p>Since the Council took office on {fullDate(r.since)}:</p>
       <ul className="space-y-1.5">
         <li><strong>Attendance:</strong> present at the opening roll call of {a.present} of {plural(a.meetings, 'City Council meeting')}. (Someone who arrives after the roll call is marked absent.)</li>
@@ -316,12 +314,66 @@ export function CouncilRecordBlock({ r, name, short }: { r: CouncilRecord; name:
         </>
       )}
       <p className="text-xs">From the <a href={r.source.url} target="_blank" rel="noreferrer noopener" className={link}>{r.source.name} ↗</a>, the City Clerk’s official record, read {r.asOf}. <a href={`https://chicago.councilmatic.org/search/?q=${encodeURIComponent(name)}`} target="_blank" rel="noreferrer noopener" className={link}>More on Chicago Councilmatic ↗</a></p>
-    </section>
+    </Fold>
   );
 }
 
 const heading = 'text-sm font-black uppercase tracking-widest text-[var(--gb-text)]';
 const cite = 'font-bold text-[var(--gb-link)] underline underline-offset-2';
+
+/** Inside the candidate sheet: whether to open or close every section, bumped by "Open all" / "Close all". */
+const FoldCtx = createContext<{ gen: number; open: boolean } | null>(null);
+
+/**
+ * A profile section. In the candidate sheet it starts folded behind its heading ("At a glance" above
+ * carries the gist), one tap to show or hide, and
+ * `hint` says what's inside while it's closed (so a reader can skim the headings first). Anywhere else
+ * (Compare, a seat holder's brief) it's a plain section.
+ */
+function Fold({ title, hint, className = 'space-y-3', children }: { title: ReactNode; hint?: string; className?: string; children: ReactNode }) {
+  const ctx = useContext(FoldCtx);
+  const [open, setOpen] = useState(false);
+  const gen = ctx?.gen ?? 0;
+  // Follows only the open/close-all control (`gen`), so a section the reader toggled stays as they left it.
+  useEffect(() => { if (gen && ctx) setOpen(ctx.open); }, [gen]);
+  if (!ctx) return <section className={className}><h3 className={heading}>{title}</h3>{children}</section>;
+  return (
+    <section className="rounded-xl border-2 border-[var(--gb-border)] bg-[var(--gb-surface)]">
+      <h3>
+        <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)}
+          className="flex w-full min-h-[52px] items-center gap-3 rounded-xl px-3 py-2 text-left hover:bg-[var(--kyb-chip)]">
+          <span className="min-w-0 flex-1">
+            <span className={`block ${heading}`}>{title}</span>
+            {!open && hint ? <span className="mt-0.5 block font-[family-name:var(--gb-font-sans)] text-sm font-normal leading-snug text-[var(--gb-text)]">{hint}</span> : null}
+          </span>
+          <span className="shrink-0 font-[family-name:var(--gb-font-sans)] text-xs font-bold text-[var(--gb-text)]">{open ? 'Hide' : 'Show'}</span>
+          <ChevronDown className={`h-5 w-5 shrink-0 text-[var(--gb-text)] transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
+        </button>
+      </h3>
+      {open && <div className={`px-3 pb-3 ${className}`}>{children}</div>}
+    </section>
+  );
+}
+
+/** The few facts that matter most, one line each, before anything else in the candidate sheet. */
+function AtAGlance({ c, brief }: { c: Candidate; brief?: CandidateBrief }) {
+  const endorsed = (brief?.endorsements?.length ?? 0) || (c.endorsements?.total ?? 0);
+  const lines: [string, string][] = [
+    ...(brief?.facts[0] ? [['👤', brief.facts[0].text] as [string, string]] : []),
+    ...(brief?.priorities[0] ? [['🎯', brief.priorities[0].text] as [string, string]] : []),
+    ...(c.money ? [['💰', `${money(c.money.raised)} raised, ${money(c.money.spent)} spent in their latest reports`] as [string, string]] : []),
+    ...(endorsed ? [['🤝', `${endorsed.toLocaleString()} endorsement${endorsed === 1 ? '' : 's'} on record`] as [string, string]] : []),
+  ];
+  if (!lines.length) return null;
+  return (
+    <section aria-label="At a glance" className="rounded-xl border-2 border-[var(--gb-text)] bg-[var(--gb-surface)] p-3 space-y-2">
+      <p className={heading}>⚡ At a glance</p>
+      <ul className="space-y-1.5 text-[15px] leading-snug text-[var(--gb-text)]">
+        {lines.map(([icon, text]) => <li key={text} className="flex gap-2"><span aria-hidden="true">{icon}</span><span>{text}</span></li>)}
+      </ul>
+    </section>
+  );
+}
 /** "Wednesday Journal ↗": the page a line of the brief comes from. */
 function Cite({ url }: { url: string }) {
   return <a href={url} target="_blank" rel="noreferrer noopener" className={`${cite} text-xs whitespace-nowrap`}>{sourceName(url)} ↗</a>;
@@ -337,8 +389,8 @@ function Brief({ b }: { b?: CandidateBrief }) {
   );
   return (
     <>
-      {b.facts.length > 0 && <section className="space-y-3"><h3 className={heading}>👤 About them</h3>{list(b.facts)}</section>}
-      {b.priorities.length > 0 && <section className="space-y-3"><h3 className={heading}>🎯 What they’d work on</h3>{list(b.priorities)}</section>}
+      {b.facts.length > 0 && <Fold title="👤 About them" hint={plural(b.facts.length, 'fact')}>{list(b.facts)}</Fold>}
+      {b.priorities.length > 0 && <Fold title="🎯 What they’d work on" hint={plural(b.priorities.length, 'priority', 'priorities')}>{list(b.priorities)}</Fold>}
     </>
   );
 }
@@ -348,15 +400,14 @@ function BriefSources({ b }: { b?: CandidateBrief }) {
   if (!b?.sources.length) return null;
   const when = new Date(b.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   return (
-    <section className="space-y-2">
-      <h3 className={heading}>📰 Where this comes from</h3>
+    <Fold title="📰 Where this comes from" hint={`${plural(b.sources.length, 'source')}, read ${when}`} className="space-y-2">
       <ul className="space-y-1 text-sm leading-snug text-[var(--gb-text)]">
         {b.sources.map((s) => (
           <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer noopener" className={cite}>{s.title} ↗</a> <span className="text-xs">· {s.publisher}{s.date ? ` · ${new Date(s.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}` : ''}</span></li>
         ))}
       </ul>
       <p className="text-xs text-[var(--gb-text)]">Read and summarized by Know Your Ballot, {when}; quotes are word for word. Nothing here is an endorsement.</p>
-    </section>
+    </Fold>
   );
 }
 
@@ -365,9 +416,9 @@ function InTheirWords({ c, brief }: { c: Candidate; brief?: CandidateBrief }) {
   const quotes = brief?.quotes ?? [];
   if (!c.stances && !c.issuesUrl && !quotes.length) return null;
   const when = c.stances?.asOf ? new Date(c.stances.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+  const said = quotes.length + (c.stances?.messages.length ?? 0);
   return (
-    <section className="space-y-3">
-      <h3 className={heading}>🗣️ In their words</h3>
+    <Fold title="🗣️ In their words" hint={said ? plural(said, 'quote') : 'Where they stand, on their site'}>
       {quotes.length > 0 && (
         <ul className="space-y-2 text-[15px] leading-relaxed text-[var(--gb-text)]">
           {quotes.map((q) => <li key={q.text.slice(0, 40)} className="rounded-xl bg-[var(--gb-bg)] p-3">“{q.text}” <Cite url={q.source} /></li>)}
@@ -386,7 +437,7 @@ function InTheirWords({ c, brief }: { c: Candidate; brief?: CandidateBrief }) {
           Where they stand, on {sourceName(c.issuesUrl)} <ExternalLink className="w-4 h-4" aria-hidden="true" />
         </a>
       )}
-    </section>
+    </Fold>
   );
 }
 
@@ -402,8 +453,7 @@ function Endorsements({ c }: { c: Candidate }) {
   const groups = e.groups.map((g) => { const names = g.names.slice(0, Math.max(0, left)); left -= names.length; return { ...g, names }; }).filter((g) => g.names.length);
   const when = new Date(e.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   return (
-    <section className="space-y-3">
-      <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🤝 Endorsements <span className="normal-case tracking-normal">({e.total.toLocaleString()})</span></h3>
+    <Fold title={<>🤝 Endorsements <span className="normal-case tracking-normal">({e.total.toLocaleString()})</span></>} hint={e.groups.map((g) => g.category).slice(0, 3).join(' · ')}>
       <dl className="space-y-2 text-[15px] leading-snug text-[var(--gb-text)]">
         {groups.map((g) => (
           <div key={g.category}>
@@ -418,7 +468,7 @@ function Endorsements({ c }: { c: Candidate }) {
         </button>
       )}
       <p className="text-xs text-[var(--gb-text)]">As listed by <a href={e.source.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{e.source.name} ↗</a>, read {when}. An endorsement is the endorser’s choice, not a rating of the candidate; the article may not list every one.</p>
-    </section>
+    </Fold>
   );
 }
 
@@ -469,8 +519,7 @@ function BriefEndorsements({ list = [], support = [] }: { list?: CandidateBrief[
   const shown = all ? sorted : sorted.slice(0, KIND_SHOWN);
   const backers = [...support].sort((a, b) => rank(a.kind) - rank(b.kind));
   return (
-    <section className="space-y-3">
-      <h3 className={heading}>🤝 {list.length ? <>Endorsed by <span className="normal-case tracking-normal">({list.length})</span></> : 'Support'}</h3>
+    <Fold title={<>🤝 {list.length ? <>Endorsed by <span className="normal-case tracking-normal">({list.length})</span></> : 'Support'}</>} hint={[...sorted.map((e) => e.endorser), ...backers.map((b) => b.backer)].slice(0, 3).join(' · ')}>
       <ul className="space-y-1.5 text-[15px] leading-snug text-[var(--gb-text)]">
         {shown.map((e) => (
           <li key={e.endorser} className="flex flex-wrap items-baseline gap-x-2">
@@ -499,7 +548,7 @@ function BriefEndorsements({ list = [], support = [] }: { list?: CandidateBrief[
         </div>
       )}
       <p className="text-xs text-[var(--gb-text)]">Each links to where it was said. {backers.length ? 'Support is shown in the source’s own words, because it stops short of a formal endorsement. ' : ''}An endorsement is the endorser’s choice, not a rating of the candidate, and this list may not be complete.</p>
-    </section>
+    </Fold>
   );
 }
 
@@ -529,8 +578,7 @@ function VoterGuide({ g }: { g: Guide | null | undefined }) {
   const when = new Date(g.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   const stance = (a?: string) => (/^yes$/i.test(a ?? '') ? ['Yes', 'var(--gb-primary)', 'var(--gb-on-primary, var(--gb-bg))'] : /^no$/i.test(a ?? '') ? ['No', 'var(--gb-red)', '#fff'] : [a || '—', 'var(--kyb-chip)', 'var(--gb-text)']);
   return (
-    <section className="space-y-4">
-      <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">📰 Voter guide Q&A</h3>
+    <Fold title="📰 Voter guide Q&A" hint={g.answered ? `Their answers to the ${g.source}` : 'They didn’t answer the questionnaire'} className="space-y-4">
       {!g.answered && <p className="text-[15px] leading-relaxed text-[var(--gb-text)]">They didn’t send the Sun-Times / WBEZ questionnaire back; the guide has only their background below.</p>}
       {g.issues.length > 0 && (
         <div className="space-y-2">
@@ -586,7 +634,7 @@ function VoterGuide({ g }: { g: Guide | null | undefined }) {
         </details>
       )}
       <p className="text-xs text-[var(--gb-text)]">Their own answers to the <a href={g.url} target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">{g.source} ↗</a>, read {when}. Answers were limited to 50 or 100 words by the guide.</p>
-    </section>
+    </Fold>
   );
 }
 
@@ -728,8 +776,7 @@ function Follow({ c }: { c: Candidate }) {
   const links = SOCIAL.filter(([k]) => /^https:\/\//.test(c.social?.[k] ?? ''));
   if (!links.length) return null;
   return (
-    <section className="space-y-3">
-      <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">📣 Follow them</h3>
+    <Fold title="📣 Follow them" hint={links.map(([, label]) => label).join(' · ')}>
       <ul className="flex flex-wrap gap-2">
         {links.map(([k, label, Icon]) => (
           <li key={k}>
@@ -739,7 +786,7 @@ function Follow({ c }: { c: Candidate }) {
           </li>
         ))}
       </ul>
-    </section>
+    </Fold>
   );
 }
 
@@ -755,11 +802,6 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
   const brief = useBrief(race.id, c.name);
   return (
     <>
-      {/* First thing under their name: their own page's link to send, and their accounts to follow. (Compare's cards carry their own Share.) */}
-      {head && <ShareCandidate race={race} c={c} className="w-full sm:w-auto" />}
-      <Follow c={c} />
-      <BriefEndorsements list={brief?.endorsements} support={brief?.support} />
-
       {head && (
         <>
           <figure className="flex items-center gap-4">
@@ -780,6 +822,9 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
             {numbered && <Badge>Ballot #{ballotNo(c)}</Badge>}
             {isIncumbent(race, c) && <Badge tone="var(--gb-text)" ink="var(--gb-bg)">Incumbent</Badge>}
           </div>
+          <AtAGlance c={c} brief={brief} />
+          {/* Their own page's link to send. (Compare's cards carry their own Share.) */}
+          <ShareCandidate race={race} c={c} className="w-full sm:w-auto" />
         </>
       )}
 
@@ -790,8 +835,7 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
       )}
       <Brief b={brief} />
 
-      <section className="space-y-3">
-        <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">💰 Campaign money</h3>
+      <Fold title="💰 Campaign money" hint={c.money ? `${money(c.money.raised)} raised · ${money(c.money.spent)} spent` : 'No reports found'}>
         {c.money ? (
           <MoneyBars c={c} max={Math.max(c.money.raised, c.money.spent, c.money.cash ?? 0)} />
         ) : (
@@ -804,15 +848,16 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
             <OutsideBars c={c} max={Math.max(c.outside.support, c.outside.oppose)} />
           </div>
         )}
-      </section>
+      </Fold>
+
+      <BriefEndorsements list={brief?.endorsements} support={brief?.support} />
 
       <VoterGuide g={guide} />
 
       {judge && (
-        <section className="space-y-3">
-          <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">⚖️ About this candidate</h3>
+        <Fold title="⚖️ About this candidate" hint="Their record as a judge or lawyer">
           <JudgeProfileBlock k={judge} wanted />
-        </section>
+        </Fold>
       )}
 
       <InTheirWords c={c} brief={brief} />
@@ -823,10 +868,11 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
 
       {(() => { const rec = race.incumbents?.find((x) => x.ballot === c.ballot && x.council)?.council; return rec ? <CouncilRecordBlock r={rec} name={c.name} /> : null; })()}
 
+      <Follow c={c} />
+
       <BriefSources b={brief} />
 
-      <section className="space-y-3">
-        <h3 className="text-sm font-black uppercase tracking-widest text-[var(--gb-text)]">🔎 Dig deeper</h3>
+      <Fold title="🔎 Dig deeper" hint={`${plural(researchLinks(c, race).length, 'official source')} and more`}>
         {c.bar && <BarRatings bar={c.bar} source={c.barSource} />}
         <ul className={`grid gap-2 ${head ? 'sm:grid-cols-2' : ''}`}>
           {researchLinks(c, race).map((l) => (
@@ -842,16 +888,23 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
           ))}
         </ul>
         <ReportLink what={race.office} name={c.name} id={race.id} />
-      </section>
+      </Fold>
     </>
   );
 }
 
 export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, onShowRace, onClose, guide = null, judge }: { race: Race; c: Candidate; color: string; ink: string; numbered: boolean; picked: boolean; onPick: () => void; /** From the landing page: open their race on the ballot. */ onShowRace?: () => void; onClose: () => void; /** Their voter-guide questionnaire: `undefined` while it loads, `null` when there is none. */ guide?: Guide | null | undefined; /** A judicial candidate: their key in Injustice Watch's profiles (judges.json). */ judge?: string }) {
   const readOnly = useReadOnly();
+  const [all, setAll] = useState({ gen: 0, open: false });
   return (
-    <Dialog title={c.name} onClose={onClose}>
-      <div className="space-y-6">
+    <Dialog title={c.name} onClose={onClose} actions={
+      <button type="button" onClick={() => setAll((a) => ({ gen: a.gen + 1, open: !a.open }))}
+        className="min-h-[44px] rounded-full border-2 border-[var(--gb-text)] px-3 text-sm font-bold text-[var(--gb-text)] hover:bg-[var(--kyb-chip)]">
+        {all.open ? 'Close all' : 'Open all'}
+      </button>
+    }>
+      <FoldCtx.Provider value={all}>
+      <div className="space-y-4">
         <CandidateProfile race={race} c={c} color={color} ink={ink} numbered={numbered} guide={guide} judge={judge} />
 
         {!readOnly && (
@@ -871,6 +924,7 @@ export function CandidateSheet({ race, c, color, ink, numbered, picked, onPick, 
           </button>
         )}
       </div>
+      </FoldCtx.Provider>
     </Dialog>
   );
 }
