@@ -10,5 +10,15 @@
   --op-sky: #8EC5F0;
 }
 
+/* op-brick as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#A34D3F stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #9B3D2E. */
+:root { --op-brick-hi: #A34D3F; }
+:root[data-theme="light"] { --op-brick-hi: #9B3D2E; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --op-brick-hi: #9B3D2E; } }
+
+/* op-green as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#487052 stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #2F5D3A. */
+:root { --op-green-hi: #487052; }
+:root[data-theme="light"] { --op-green-hi: #2F5D3A; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --op-green-hi: #2F5D3A; } }
+
 /* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the precinct map glows gold. */
 .kyb-op { --kyb-accent: var(--op-gold); --kyb-accent-ink: #1C1606; --kyb-map-glow: color-mix(in srgb, var(--op-gold) 45%, transparent); }

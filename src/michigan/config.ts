@@ -31,10 +31,10 @@ const BLUE = 'var(--mi-blue)';
 export const SECTIONS: readonly GuideSection[] = [
   { id: 'federal', title: 'Federal', color: 'var(--mi-arboretum)', ink: WHITE, emoji: '🏛️' },
   { id: 'state', title: 'Michigan statewide', color: 'var(--mi-teal)', ink: BLUE, emoji: '🧤' },
-  { id: 'legislature', title: 'Lansing', color: 'var(--mi-amethyst)', ink: WHITE, emoji: '⭐' },
+  { id: 'legislature', title: 'Lansing', color: 'var(--mi-amethyst-hi)', ink: WHITE, emoji: '⭐' },
   { id: 'education', title: 'Schools & universities', color: 'var(--mi-maize)', ink: BLUE, emoji: '🎓' },
   { id: 'judicial', title: 'Judges', color: 'var(--mi-field)', ink: BLUE, emoji: '⚖️' },
-  { id: 'measures', title: 'Proposals', color: 'var(--mi-red)', ink: WHITE, emoji: '🗳️' },
+  { id: 'measures', title: 'Proposals', color: 'var(--mi-red-hi)', ink: WHITE, emoji: '🗳️' },
 ];
 
 // Plain-English "what does this job actually do", factual and neutral.

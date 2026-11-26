@@ -42,9 +42,9 @@ export const LINKS = {
 const INK = '#1C1606';
 const WHITE = '#FFFFFF';
 export const SECTIONS: readonly GuideSection[] = [
-  { id: 'city', title: 'Village Board', color: 'var(--op-green)', ink: WHITE, emoji: '🌳' },
+  { id: 'city', title: 'Village Board', color: 'var(--op-green-hi)', ink: WHITE, emoji: '🌳' },
   { id: 'school', title: 'School boards', color: 'var(--op-gold)', ink: INK, emoji: '🏫' },
-  { id: 'council', title: 'Library and parks', color: 'var(--op-brick)', ink: WHITE, emoji: '📚' },
+  { id: 'council', title: 'Library and parks', color: 'var(--op-brick-hi)', ink: WHITE, emoji: '📚' },
   { id: 'education', title: 'Triton College', color: 'var(--op-sky)', ink: INK, emoji: '🎓' },
 ];
 

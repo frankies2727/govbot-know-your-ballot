@@ -11,5 +11,15 @@
   --wi-cream: #F2E6C9;
 }
 
+/* wi-lake as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#316C94 stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #1F5F8B. */
+:root { --wi-lake-hi: #316C94; }
+:root[data-theme="light"] { --wi-lake-hi: #1F5F8B; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --wi-lake-hi: #1F5F8B; } }
+
+/* The navy as a border, button or dot: it vanishes on the dark page, so the dark theme brightens it (#3070C0 keeps white text 5:1 on it and stands 3.5:1 off a dark card); the light theme keeps the navy. The hero map keeps the deep navy. */
+:root { --wi-navy-hi: #3070C0; }
+:root[data-theme="light"] { --wi-navy-hi: #002D62; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --wi-navy-hi: #002D62; } }
+
 /* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the outline glows lake blue. */
-.kyb-wi { --kyb-accent: var(--wi-navy); --kyb-accent-ink: #FFFFFF; --kyb-map-glow: color-mix(in srgb, var(--wi-lake) 55%, transparent); }
+.kyb-wi { --kyb-accent: var(--wi-navy-hi); --kyb-accent-ink: #FFFFFF; --kyb-map-glow: color-mix(in srgb, var(--wi-lake) 55%, transparent); }

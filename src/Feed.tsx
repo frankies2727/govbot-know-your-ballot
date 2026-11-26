@@ -41,6 +41,10 @@ const KIND_LABEL: Record<Kind, string> = { ballot: 'Ballot', news: 'News', socia
 const day = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' });
 const when = (iso: string) => day.format(new Date(iso.length === 10 ? `${iso}T12:00:00` : iso));
 
+// A read time shows in Chicago time ("Nov 26, 2026, 3:42 PM CST"); a bare day as the day.
+const central = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago', timeZoneName: 'short' });
+const asOfText = (at: string) => (at.includes('T') ? central.format(new Date(at)) : longDate(at).replace(/^\w+, /, ''));
+
 const safe = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined);
 
 /** The bill's own card in govbot's catalog (its state's catalog opens underneath), else the legislature's page. */
@@ -132,7 +136,7 @@ const STEP = 5;
 
 /**
  * `storageKey` remembers whether the feed is shown or hidden; it starts shown.
- * `asOf` (YYYY-MM-DD) is when the data behind it was last read; `start` the topic it opens on
+ * `asOf` (an ISO time, or a YYYY-MM-DD day) is when the data behind it was last read; `start` the topic it opens on
  * (Everything instead while that topic is empty).
  * Every topic always has its tab (an empty one says so), except "Ballot changes", which only
  * guides whose daily refresh logs changes have.
@@ -159,7 +163,7 @@ export function Feed({ items, storageKey, onJump, asOf, start = 'all' }: { items
             <span className="sr-only">{open ? '(hide)' : '(show)'}</span>
           </button>
         </h2>
-        {asOf && <p className="rounded-full border-2 border-[var(--gb-blue-hi)] px-3 py-0.5 text-sm font-bold">Data as of {longDate(asOf).replace(/^\w+, /, '')}</p>}
+        {asOf && <p className="rounded-full border-2 border-[var(--gb-blue-hi)] px-3 py-0.5 text-sm font-bold">Data as of {asOfText(asOf)}</p>}
         </div>
         {open && <p className="text-[15px] leading-relaxed">Everything that moved lately: news, social posts, official releases and campaign sites about the candidates, campaign finances (each race’s latest reports, and stories about who’s funding whom), changes to the ballot the daily refresh noticed, bills and the dates coming up. Each item says where it comes from.</p>}
       </div>

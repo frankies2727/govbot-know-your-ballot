@@ -28,7 +28,7 @@ export const LINKS = {
 const INK = '#1C1400';
 const WHITE = '#FFFFFF';
 export const SECTIONS: readonly GuideSection[] = [
-  { id: 'city', title: 'Mayor', color: 'var(--jax-navy)', ink: WHITE, emoji: '🏙️' },
+  { id: 'city', title: 'Mayor', color: 'var(--jax-navy-hi)', ink: WHITE, emoji: '🏙️' },
   { id: 'county', title: 'Countywide officers', color: 'var(--jax-teal)', ink: WHITE, emoji: '🏛️' },
   { id: 'council', title: 'City Council', color: 'var(--jax-gold)', ink: INK, emoji: '🗳️' },
 ];

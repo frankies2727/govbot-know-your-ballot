@@ -143,7 +143,7 @@ export function StateGuide({ spec }: { spec: GuideSpec }) {
     ...billItems(data.laws ?? [], billUrl, copy.legislature),
     ...dateItems(spec.keyDates, today(), { name: links.datesSource, url: links.dates }),
   ], [data, briefs, copy, links, spec.keyDates]);
-  const dataAsOf = isoDate(data.sources.candidates.checked ?? data.sources.candidates.asOf);
+  const dataAsOf = data.sources.candidates.checked ?? isoDate(data.sources.candidates.asOf);
   const total = sections.reduce((n, s) => n + s.ids.length, 0);
   const done = sections.reduce((n, s) => n + s.done, 0);
   const allDone = total > 0 && done === total;

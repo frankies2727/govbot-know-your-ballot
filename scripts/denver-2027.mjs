@@ -35,7 +35,9 @@ const CYCLE = 33; // SearchLight's "2027 Municipal General Election"
 const DISTRICTS = 'https://services1.arcgis.com/zdB7qR0BtYrg0Xpl/arcgis/rest/services/ODC_ADMN_COUNCILDIST_A/FeatureServer/3';
 const DISTRICTS_PAGE = 'https://opendata-geospatialdenver.hub.arcgis.com/datasets/geospatialdenver::council-districts';
 const REGISTERED = 'Registered; petitions due Jan 21';
-const today = new Date().toISOString().slice(0, 10);
+// When this run read its sources (the guide's "Data as of"), and its day.
+const readAt = new Date().toISOString();
+const today = readAt.slice(0, 10);
 
 // The citywide offices' holders, from the City's own pages (checked Nov 8, 2026).
 const CITYWIDE_NOW = {
@@ -212,7 +214,7 @@ async function main() {
   const data = {
     election: ELECTION,
     sources: {
-      candidates: { pages: { 'Denver SearchLight': SEARCHLIGHT }, asOf: list ? today : prev?.sources.candidates.asOf ?? today },
+      candidates: { pages: { 'Denver SearchLight': SEARCHLIGHT }, asOf: list ? today : prev?.sources.candidates.asOf ?? today, checked: list ? readAt : prev?.sources.candidates.checked },
       money: { url: SEARCHLIGHT, file: '' },
       proposals: {},
     },

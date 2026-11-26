@@ -9,6 +9,11 @@
   --jax-ink: #1C1400;
 }
 
+/* The navy as a border, button or dot: it vanishes on the dark page, so the dark theme brightens it (#3070C0 keeps white text 5:1 on it and stands 3.5:1 off a dark card); the light theme keeps the navy. The hero map keeps the deep navy. */
+:root { --jax-navy-hi: #3070C0; }
+:root[data-theme="light"] { --jax-navy-hi: #12355B; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --jax-navy-hi: #12355B; } }
+
 /* The state's colour in the elections list (lanes, dots, the row's edge): lighter on the dark theme, deeper on the light one. */
 :root { --jax-teal-hi: #3CC3D3; }
 :root[data-theme="light"] { --jax-teal-hi: #00788A; }

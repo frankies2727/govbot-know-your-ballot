@@ -9,5 +9,10 @@
   --chi-ink: #0B1F2E;
 }
 
+/* The navy as a border, button or dot: it vanishes on the dark page, so the dark theme brightens it (#3070C0 keeps white text 5:1 on it and stands 3.5:1 off a dark card); the light theme keeps the navy. The hero map keeps the deep navy. */
+:root { --chi-navy-hi: #3070C0; }
+:root[data-theme="light"] { --chi-navy-hi: #14325C; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --chi-navy-hi: #14325C; } }
+
 /* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the ward map glows flag blue. */
 .kyb-chi { --kyb-accent: var(--chi-blue); --kyb-accent-ink: var(--chi-ink); --kyb-map-glow: color-mix(in srgb, var(--chi-blue) 55%, transparent); }

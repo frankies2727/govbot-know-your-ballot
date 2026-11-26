@@ -9,6 +9,11 @@
   --den-ink: #1A1600;
 }
 
+/* den-blue as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#4165B5 stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #1F4AA8. */
+:root { --den-blue-hi: #4165B5; }
+:root[data-theme="light"] { --den-blue-hi: #1F4AA8; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --den-blue-hi: #1F4AA8; } }
+
 /* The state's colour in the elections list (lanes, dots, the row's edge): lighter on the dark theme, deeper on the light one. */
 :root { --den-blue-hi: #7FA6F5; }
 :root[data-theme="light"] { --den-blue-hi: #1F4AA8; }

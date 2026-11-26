@@ -30,7 +30,9 @@ const WIKI = 'https://en.wikipedia.org/w/index.php?action=raw&title=';
 const ARTICLE = 'https://en.wikipedia.org/wiki/2027_Wisconsin_elections';
 const COURT_ARTICLE = 'https://en.wikipedia.org/wiki/2027_Wisconsin_Supreme_Court_election';
 const ELECTION = { name: 'Wisconsin Spring Election', date: '2027-04-06' };
-const today = new Date().toISOString().slice(0, 10);
+// When this run read its sources (the guide's "Data as of"), and its day.
+const readAt = new Date().toISOString();
+const today = readAt.slice(0, 10);
 
 // The Court of Appeals districts by county (Wis. Stat. 752.11).
 const COA = {
@@ -194,7 +196,7 @@ async function main() {
   const data = {
     election: ELECTION,
     sources: {
-      candidates: { pages: official ? { 'Wisconsin Elections Commission': 'https://elections.wi.gov/candidates-and-committees/candidates' } : { 'Wikipedia: 2027 Wisconsin elections': ARTICLE, 'Wikipedia: 2027 Wisconsin Supreme Court election': COURT_ARTICLE }, asOf: official?.printed ?? today, checked: today, official: Boolean(official) },
+      candidates: { pages: official ? { 'Wisconsin Elections Commission': 'https://elections.wi.gov/candidates-and-committees/candidates' } : { 'Wikipedia: 2027 Wisconsin elections': ARTICLE, 'Wikipedia: 2027 Wisconsin Supreme Court election': COURT_ARTICLE }, asOf: official?.printed ?? today, checked: readAt, official: Boolean(official) },
       money: { url: 'https://campaignfinance.wi.gov/', file: '' },
       proposals: {},
     },

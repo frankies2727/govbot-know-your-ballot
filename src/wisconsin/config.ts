@@ -26,10 +26,10 @@ export const LINKS = {
 // themes; each carries the ink that reads on it. Party never gets a colour.
 const WHITE = '#FFFFFF';
 export const SECTIONS: readonly GuideSection[] = [
-  { id: 'federal', title: 'Federal', color: 'var(--wi-navy)', ink: WHITE, emoji: '🏛️' },
+  { id: 'federal', title: 'Federal', color: 'var(--wi-navy-hi)', ink: WHITE, emoji: '🏛️' },
   { id: 'state', title: 'Wisconsin statewide', color: 'var(--wi-cardinal)', ink: WHITE, emoji: '🧀' },
   { id: 'legislature', title: 'Madison', color: 'var(--wi-forest)', ink: WHITE, emoji: '⭐' },
-  { id: 'measures', title: 'Questions', color: 'var(--wi-lake)', ink: WHITE, emoji: '🗳️' },
+  { id: 'measures', title: 'Questions', color: 'var(--wi-lake-hi)', ink: WHITE, emoji: '🗳️' },
 ];
 
 // Plain-English "what does this job actually do", factual and neutral.

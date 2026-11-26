@@ -14,5 +14,25 @@
   --mn-gold: #FFC845;
 }
 
+/* mn-orange as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#9A5442 stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #8D3F2B. */
+:root { --mn-orange-hi: #9A5442; }
+:root[data-theme="light"] { --mn-orange-hi: #8D3F2B; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --mn-orange-hi: #8D3F2B; } }
+
+/* mn-purple as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#825A84 stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #5D295F. */
+:root { --mn-purple-hi: #825A84; }
+:root[data-theme="light"] { --mn-purple-hi: #5D295F; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --mn-purple-hi: #5D295F; } }
+
+/* mn-pine as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#366F74 stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #0D5257. */
+:root { --mn-pine-hi: #366F74; }
+:root[data-theme="light"] { --mn-pine-hi: #0D5257; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --mn-pine-hi: #0D5257; } }
+
+/* mn-blue as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#426C8D stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #003865. */
+:root { --mn-blue-hi: #426C8D; }
+:root[data-theme="light"] { --mn-blue-hi: #003865; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --mn-blue-hi: #003865; } }
+
 /* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the outline glows Minnesota blue. */
 .kyb-mn { --kyb-accent: var(--mn-blue); --kyb-accent-ink: #FFFFFF; --kyb-map-glow: color-mix(in srgb, var(--mn-teal) 55%, transparent); }

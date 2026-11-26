@@ -36,7 +36,9 @@ const COUNCIL_PAGE = 'https://www.jacksonville.gov/city-council/city-council-mem
 const DISTRICTS = 'https://services1.arcgis.com/NXfNVaFp7QMxnE3j/arcgis/rest/services/CouncilDistricts/FeatureServer/0';
 const SOE_CANDIDATES = 'https://www.duvalelections.gov/254/Active-Candidates-Committees';
 const DECLARED = 'Declared; qualifying Jan 11–15';
-const today = new Date().toISOString().slice(0, 10);
+// When this run read its sources (the guide's "Data as of"), and its day.
+const readAt = new Date().toISOString();
+const today = readAt.slice(0, 10);
 
 // The officers elected citywide, and who holds each office, from the office's own page (checked Nov 8, 2026).
 const OFFICERS = [
@@ -158,7 +160,7 @@ async function main() {
   const data = {
     election: ELECTION,
     sources: {
-      candidates: { pages: { 'Wikipedia: 2027 Jacksonville mayoral election': MAYOR_ARTICLE, 'Duval County Supervisor of Elections': SOE_CANDIDATES }, asOf: article ? today : prev?.sources.candidates.asOf ?? today },
+      candidates: { pages: { 'Wikipedia: 2027 Jacksonville mayoral election': MAYOR_ARTICLE, 'Duval County Supervisor of Elections': SOE_CANDIDATES }, asOf: article ? today : prev?.sources.candidates.asOf ?? today, checked: article ? readAt : prev?.sources.candidates.checked },
       money: { url: 'https://www.duvalelections.gov/309/Candidate-Resources', file: '' },
       proposals: {},
     },

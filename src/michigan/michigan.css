@@ -15,5 +15,15 @@
   --mi-amethyst: #702082;
 }
 
+/* mi-red as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#A64B3E stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #9A3324. */
+:root { --mi-red-hi: #A64B3E; }
+:root[data-theme="light"] { --mi-red-hi: #9A3324; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --mi-red-hi: #9A3324; } }
+
+/* mi-amethyst as a border, button or dot: too dark to see on the dark page, so the dark theme lightens it (#8E4F9C stands 3.3:1 off a dark card and keeps white text on it readable); the light theme keeps #702082. */
+:root { --mi-amethyst-hi: #8E4F9C; }
+:root[data-theme="light"] { --mi-amethyst-hi: #702082; }
+@media (prefers-color-scheme: light) { :root:not([data-theme]) { --mi-amethyst-hi: #702082; } }
+
 /* The guide's accent (buttons, focus rings, the selection colour) and the ink that reads on it; the outline glows arboretum blue. */
 .kyb-mi { --kyb-accent: var(--mi-arboretum); --kyb-accent-ink: #FFFFFF; --kyb-map-glow: color-mix(in srgb, var(--mi-arboretum) 55%, transparent); }

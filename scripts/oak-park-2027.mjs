@@ -42,7 +42,9 @@ const PRECINCTS = `${GIS}/electionSrvcLite/MapServer/1`;
 const DISCLOSURE = 'https://www.elections.il.gov/CampaignDisclosure/CommitteeSearch.aspx';
 const ON_FILE = 'Listed with the State Board';
 const ANNOUNCED_STATUS = 'Announced';
-const today = new Date().toISOString().slice(0, 10);
+// When this run read its sources (the guide's "Data as of"), and its day.
+const readAt = new Date().toISOString();
+const today = readAt.slice(0, 10);
 
 const SRC = {
   village: { name: 'Village of Oak Park: elected officials', url: 'https://www.oak-park.us/your-government/elected-officials' },
@@ -213,7 +215,7 @@ async function main() {
   const data = {
     election: ELECTION,
     sources: {
-      candidates: { pages: { 'Illinois State Board of Elections': DISCLOSURE }, asOf: filed ? today : prev?.sources.candidates.asOf ?? today },
+      candidates: { pages: { 'Illinois State Board of Elections': DISCLOSURE }, asOf: filed ? today : prev?.sources.candidates.asOf ?? today, checked: filed ? readAt : prev?.sources.candidates.checked },
       money: { url: DISCLOSURE, file: ISBE_BASE },
       proposals: {},
     },

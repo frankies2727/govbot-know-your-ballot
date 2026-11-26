@@ -30,7 +30,7 @@ const WHITE = '#FFFFFF';
 export const SECTIONS: readonly GuideSection[] = [
   { id: 'city', title: 'Citywide', color: 'var(--chi-red)', ink: WHITE, emoji: '🏙️' },
   { id: 'council', title: 'City Council', color: 'var(--chi-blue)', ink: INK, emoji: '🏛️' },
-  { id: 'police', title: 'Police District Council', color: 'var(--chi-navy)', ink: WHITE, emoji: '🛡️' },
+  { id: 'police', title: 'Police District Council', color: 'var(--chi-navy-hi)', ink: WHITE, emoji: '🛡️' },
 ];
 
 const MAJORITY = 'Wins with more than half the votes; if no one gets there, the top two meet in a runoff on Apr 6, 2027.';

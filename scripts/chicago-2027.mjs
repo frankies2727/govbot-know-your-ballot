@@ -48,7 +48,9 @@ const WARD_OFFICES = 'https://data.cityofchicago.org/resource/htai-wnw4.json';
 const WARD_OFFICES_PAGE = 'https://data.cityofchicago.org/d/htai-wnw4';
 const CCPSA = 'https://ccpsa.chicago.gov/district-council/';
 const CHICAGO_POLITICS = 'https://www.chicagopolitics.org/';
-const today = new Date().toISOString().slice(0, 10);
+// When this run read its sources (the guide's "Data as of"), and its day.
+const readAt = new Date().toISOString();
+const today = readAt.slice(0, 10);
 
 // The citywide offices' holders, from the City's own pages (checked Nov 8, 2026).
 const CITYWIDE_NOW = {
@@ -352,7 +354,7 @@ async function main() {
   const data = {
     election: ELECTION,
     sources: {
-      candidates: { pages: { 'Chicago Board of Election Commissioners': BOARD_CANDIDATES }, asOf: asOf ?? prev?.sources?.candidates?.asOf ?? today, checked: today, list: list.url },
+      candidates: { pages: { 'Chicago Board of Election Commissioners': BOARD_CANDIDATES }, asOf: asOf ?? prev?.sources?.candidates?.asOf ?? today, checked: readAt, list: list.url },
       money: { url: 'https://www.elections.il.gov/CampaignDisclosure/CampaignDisclosureSearch.aspx', file: ISBE_BASE },
       proposals: {},
     },

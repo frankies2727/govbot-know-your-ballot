@@ -15,7 +15,7 @@ export { LINKS };
 const WHITE = '#FFFFFF';
 export const SECTIONS: readonly GuideSection[] = [
   { id: 'state', title: 'Supreme Court', color: 'var(--wi-cardinal)', ink: WHITE, emoji: '⚖️' },
-  { id: 'judicial', title: 'Your judges', color: 'var(--wi-navy)', ink: WHITE, emoji: '🏛️' },
+  { id: 'judicial', title: 'Your judges', color: 'var(--wi-navy-hi)', ink: WHITE, emoji: '🏛️' },
 ];
 
 const PRIMARY = 'If more than two people file, a Feb 16 primary narrows it to two.';

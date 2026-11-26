@@ -28,11 +28,11 @@ export const LINKS = {
 const WHITE = '#FFFFFF';
 const BLUE = 'var(--mn-blue)';
 export const SECTIONS: readonly GuideSection[] = [
-  { id: 'federal', title: 'Federal', color: 'var(--mn-blue)', ink: WHITE, emoji: '🏛️' },
-  { id: 'state', title: 'Minnesota statewide', color: 'var(--mn-pine)', ink: WHITE, emoji: '🌲' },
-  { id: 'legislature', title: 'St. Paul', color: 'var(--mn-purple)', ink: WHITE, emoji: '⭐' },
+  { id: 'federal', title: 'Federal', color: 'var(--mn-blue-hi)', ink: WHITE, emoji: '🏛️' },
+  { id: 'state', title: 'Minnesota statewide', color: 'var(--mn-pine-hi)', ink: WHITE, emoji: '🌲' },
+  { id: 'legislature', title: 'St. Paul', color: 'var(--mn-purple-hi)', ink: WHITE, emoji: '⭐' },
   { id: 'judicial', title: 'Judges', color: 'var(--mn-sky)', ink: BLUE, emoji: '⚖️' },
-  { id: 'measures', title: 'Amendment', color: 'var(--mn-orange)', ink: WHITE, emoji: '🗳️' },
+  { id: 'measures', title: 'Amendment', color: 'var(--mn-orange-hi)', ink: WHITE, emoji: '🗳️' },
 ];
 
 // Plain-English "what does this job actually do", factual and neutral.
