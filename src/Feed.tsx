@@ -18,6 +18,8 @@ export interface FeedItem {
   at: string; // ISO
   kind: Kind;
   title: string;
+  /** A line or two on what it says, so a voter learns something before following the link. */
+  blurb?: string;
   detail?: string;
   /** Who said so, and where. */
   source: { name: string; url?: string };
@@ -87,15 +89,35 @@ function sourceKind(url: string, publisher: string, own: string, surname: string
   return 'news';
 }
 
-/** Everything dated a candidate's or seat holder's brief was read from in the last year, once each, sorted into news, social posts, official releases and campaign sites, with who's in it. */
+/** Up to two statements, about 260 characters, cut at a word. */
+function clip(lines: string[]): string | undefined {
+  let out = '';
+  for (const l of lines.slice(0, 2)) {
+    const next = out ? `${out} ${l}` : l;
+    if (next.length <= 260) { out = next; continue; }
+    if (!out) out = `${l.slice(0, 257).replace(/\s+\S*$/, '')}…`;
+    break;
+  }
+  return out || undefined;
+}
+
+/**
+ * Everything dated a candidate's or seat holder's brief was read from in the last year, once each, sorted into
+ * news, social posts, official releases and campaign sites, with who's in it, and a blurb: what the brief took from
+ * that page (its facts and priorities in our words, its quotes word for word, each citing the page).
+ */
 export function sourceItems(races: Race[], briefs: Briefs, today: string): FeedItem[] {
   const since = `${Number(today.slice(0, 4)) - 1}${today.slice(4)}`;
   const byUrl = new Map<string, FeedItem & { names: string[] }>();
+  const said = new Map<string, string[]>();
   for (const r of races) {
     for (const p of [...r.candidates, ...(r.incumbents ?? []).filter((i) => i.ballot === undefined)]) {
       const own = 'website' in p && p.website ? host(p.website) : '';
       const surname = p.name.toLowerCase().replace(/,? (jr|sr|ii|iii|iv)\.?$/, '').split(' ').pop()!.replace(/[^a-z]/g, '');
-      for (const s of briefs[`${r.id}|${p.name}`]?.sources ?? []) {
+      const brief = briefs[`${r.id}|${p.name}`];
+      for (const f of [...(brief?.facts ?? []), ...(brief?.priorities ?? [])]) if (f.source) said.set(f.source, [...(said.get(f.source) ?? []), f.text]);
+      for (const q of brief?.quotes ?? []) if (q.source) said.set(q.source, [...(said.get(q.source) ?? []), `${p.name}: “${q.text}”`]);
+      for (const s of brief?.sources ?? []) {
         const url = safe(s.url);
         if (!url || !s.date || s.date < since || s.date > today) continue;
         const item = byUrl.get(url) ?? { at: s.date, kind: sourceKind(url, s.publisher, own, surname), title: s.title, source: { name: s.publisher, url }, jump: r.id, names: [] };
@@ -104,7 +126,7 @@ export function sourceItems(races: Race[], briefs: Briefs, today: string): FeedI
       }
     }
   }
-  return [...byUrl.values()].map(({ names, ...i }) => ({ ...i, detail: `${SAID[i.kind as keyof typeof SAID]}: ${names.length > 3 ? `${names.slice(0, 3).join(', ')} and ${names.length - 3} more` : names.join(names.length === 2 ? ' and ' : ', ')}` }));
+  return [...byUrl.values()].map(({ names, ...i }) => ({ ...i, blurb: clip([...new Set(said.get(i.source.url!) ?? [])]), detail: `${SAID[i.kind as keyof typeof SAID]}: ${names.length > 3 ? `${names.slice(0, 3).join(', ')} and ${names.length - 3} more` : names.join(names.length === 2 ? ' and ' : ', ')}` }));
 }
 
 /** "09/30/2026" -> "2026-09-30". */
@@ -187,6 +209,7 @@ export function Feed({ items, storageKey, onJump, asOf, start = 'all' }: { items
               {i.jump
                 ? <button type="button" onClick={() => onJump(i.jump!)} className="text-left font-bold leading-snug underline underline-offset-2 [overflow-wrap:anywhere]">{i.title}</button>
                 : <p className="font-bold leading-snug [overflow-wrap:anywhere]">{i.title}</p>}
+              {i.blurb && <p className="text-[15px] leading-snug">{i.blurb}</p>}
               {i.detail && <p className="text-sm leading-snug">{i.detail}</p>}
               <p className="text-sm">
                 {i.source.url
