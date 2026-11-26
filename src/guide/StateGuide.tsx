@@ -16,7 +16,7 @@ import { isoDate, longDate } from '../seo/format';
 import { stakes } from '../stakes';
 import { ContentsColumn, ContentsDrawer } from '../Contents';
 import { ElectionHeader } from '../ElectionHeader';
-import { ballotNo, CandidateSheet, Compare, Incumbents, MeasureCard, RaceCard } from '../Race';
+import { ballotNo, CandidateSheet, Compare, Incumbents, MeasureCard, RaceCard, WardServices } from '../Race';
 import { BallotSearch, type Hit } from '../Search';
 import { LandingBar, landingItems } from '../LandingBar';
 import { ResultsProvider } from '../results';
@@ -701,7 +701,7 @@ function Landing({ spec, everything, ballotHref, address, setAddress, status, on
         {questions.n > 0 && <SectionPanel card={questions} onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} />}
       </Headliners>
 
-      <SectionCards cards={more} heading="District and precinct races on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} holders={(r) => <Incumbents race={r} />} />
+      <SectionCards cards={more} heading="District and precinct races on your ballot" intro="By district: your address picks out yours. Each office explained once, every district under it: open a district for why it matters and who’s running." onOpen={onOpenCandidate} onOpenRace={onOpenRace} onCompare={onCompare} onJump={onOpenSection} holders={(r) => <Incumbents race={r} />} extra={(r) => <WardServices race={r} />} />
 
       <div className="pt-2 space-y-8">
         <Feed storageKey={`kyb-${spec.code.toLowerCase()}-landing-feed-open`} onJump={onFeedJump} items={feed} asOf={dataAsOf} start="social" />

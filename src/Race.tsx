@@ -173,7 +173,7 @@ export function Incumbents({ race }: { race: Race }) {
         <HolderBrief i={i} raceId={race.id} />
         </div>
       ))}
-      {race.services && race.area && <WardServicesBlock s={race.services} ward={race.area.id} />}
+      <WardServices race={race} />
     </div>
   );
 }
@@ -182,16 +182,29 @@ export function Incumbents({ race }: { race: Race }) {
 const plainType = (t: string) => t.replace(/\s*(Request|Complaint|Inspection Request)$/i, '').replace(/\s*-\s*/g, ': ').toLowerCase().replace(/^311 /, '');
 
 /** A Chicago ward's 311 service requests over the last year, folded under who holds the seat. */
-function WardServicesBlock({ s, ward }: { s: WardServices; ward: string }) {
-  const n = (x: number) => x.toLocaleString('en-US');
-  const vs = (x: number, m: number) => <span className="whitespace-nowrap"> (median ward: {n(m)})</span>;
+const count = (x: number) => x.toLocaleString('en-US');
+
+/** A Chicago ward's 311 numbers as a fold-out: under who holds the seat, and under each ward's candidates on the landing page. */
+export function WardServices({ race }: { race: Race }) {
+  const s = race.services;
+  if (!s || !race.area) return null;
   return (
-    <details className="group rounded-lg border-2 border-[var(--gb-border-strong)] bg-[var(--gb-surface)] px-3">
+    <details className="group rounded-lg border-2 border-[var(--gb-border-strong)] bg-[var(--gb-surface)] px-3 text-sm leading-snug text-[var(--gb-text)]">
       <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-2 py-1.5 font-bold">
-        <span>🛠️ City services in Ward {ward}: {n(s.open)} open 311 requests</span>
+        <span>🛠️ City services in Ward {race.area.id}: {count(s.open)} open 311 requests</span>
         <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
       </summary>
-      <div className="space-y-1.5 pb-2.5">
+      <div className="pb-2.5"><WardServicesBody s={s} ward={race.area.id} /></div>
+    </details>
+  );
+}
+
+/** What 311 shows for a ward over the last year, beside the median ward, with where it comes from. */
+function WardServicesBody({ s, ward }: { s: WardServices; ward: string }) {
+  const n = count;
+  const vs = (x: number, m: number) => <span className="whitespace-nowrap"> (median ward: {n(m)})</span>;
+  return (
+      <div className="space-y-1.5">
         <p className="text-xs font-bold uppercase tracking-wide">Last 12 months, since {longDate(s.since).replace(/^\w+, /, '')}</p>
         <ul className="list-disc space-y-1 pl-5">
           <li><strong>{n(s.filed)}</strong> requests filed with 311{vs(s.filed, s.median.filed)}</li>
@@ -205,7 +218,6 @@ function WardServicesBlock({ s, ward }: { s: WardServices; ward: string }) {
           {' · '}<a href="https://311.chicago.gov/" target="_blank" rel="noreferrer noopener" className="font-bold text-[var(--gb-link)] underline underline-offset-2">File a 311 request ↗</a>
         </p>
       </div>
-    </details>
   );
 }
 
@@ -325,14 +337,14 @@ const cite = 'font-bold text-[var(--gb-link)] underline underline-offset-2';
 const FoldCtx = createContext<{ gen: number; open: boolean } | null>(null);
 
 /**
- * A profile section. In the candidate sheet it starts folded behind its heading ("At a glance" above
- * carries the gist), one tap to show or hide, and
+ * A profile section. In the candidate sheet it folds behind its heading (only who they are and what
+ * they'd work on start open), one tap to show or hide, and
  * `hint` says what's inside while it's closed (so a reader can skim the headings first). Anywhere else
  * (Compare, a seat holder's brief) it's a plain section.
  */
-function Fold({ title, hint, className = 'space-y-3', children }: { title: ReactNode; hint?: string; className?: string; children: ReactNode }) {
+function Fold({ title, hint, start = false, className = 'space-y-3', children }: { title: ReactNode; hint?: string; /** Open to begin with. */ start?: boolean; className?: string; children: ReactNode }) {
   const ctx = useContext(FoldCtx);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(start);
   const gen = ctx?.gen ?? 0;
   // Follows only the open/close-all control (`gen`), so a section the reader toggled stays as they left it.
   useEffect(() => { if (gen && ctx) setOpen(ctx.open); }, [gen]);
@@ -389,8 +401,8 @@ function Brief({ b }: { b?: CandidateBrief }) {
   );
   return (
     <>
-      {b.facts.length > 0 && <Fold title="👤 About them" hint={plural(b.facts.length, 'fact')}>{list(b.facts)}</Fold>}
-      {b.priorities.length > 0 && <Fold title="🎯 What they’d work on" hint={plural(b.priorities.length, 'priority', 'priorities')}>{list(b.priorities)}</Fold>}
+      {b.facts.length > 0 && <Fold title="👤 About them" hint={plural(b.facts.length, 'fact')} start>{list(b.facts)}</Fold>}
+      {b.priorities.length > 0 && <Fold title="🎯 What they’d work on" hint={plural(b.priorities.length, 'priority', 'priorities')} start>{list(b.priorities)}</Fold>}
     </>
   );
 }
@@ -867,6 +879,13 @@ export function CandidateProfile({ race, c, color, ink, numbered, guide = null, 
       <Record c={c} />
 
       {(() => { const rec = race.incumbents?.find((x) => x.ballot === c.ballot && x.council)?.council; return rec ? <CouncilRecordBlock r={rec} name={c.name} /> : null; })()}
+
+      {/* The ward they'd represent: its 311 requests (Chicago). */}
+      {head && race.services && race.area && (
+        <Fold title={`🛠️ City services in Ward ${race.area.id}`} hint={`${count(race.services.open)} open 311 requests · ${count(race.services.filed)} filed this year`} className="space-y-1.5 text-sm leading-snug text-[var(--gb-text)]">
+          <WardServicesBody s={race.services} ward={race.area.id} />
+        </Fold>
+      )}
 
       <Follow c={c} />
 
