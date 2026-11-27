@@ -1,6 +1,6 @@
 import { ChevronDown, ExternalLink } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { money, useOpen } from './store';
+import { money, today, useOpen } from './store';
 import type { Briefs } from './briefs';
 import type { Change, Law, NewsItem, Race } from './types';
 import type { KeyDate } from './dates';
@@ -70,7 +70,7 @@ export const newsItems = (news: NewsItem[]): FeedItem[] =>
 
 export const billItems = (laws: Law[], billUrl: (b: Law) => string | undefined, legislature: string): FeedItem[] =>
   laws.filter((b) => b.latest_action).map((b) => ({
-    at: b.latest_action!, kind: 'bill', title: `${b.id}: ${b.title}`, detail: b.latest_action_desc, source: { name: `${legislature}, via govbot`, url: billUrl(b) },
+    at: b.latest_action!, kind: 'bill', title: `${b.id}: ${b.title}`, blurb: b.latest_action_desc ? `Latest action: ${b.latest_action_desc}` : undefined, source: { name: `${legislature}, via govbot`, url: billUrl(b) },
   }));
 
 const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
@@ -143,14 +143,14 @@ export function moneyItems(races: Race[], source: { name: string; url?: string }
     return [{
       at, kind: 'money' as const, jump: r.id, source,
       title: `${r.office.replace(/ \(\d+ seats?\)$/, '')}: ${filed.length} of ${r.candidates.length} candidate${r.candidates.length === 1 ? '' : 's'} ${filed.length === 1 ? 'has' : 'have'} filed money reports`,
-      detail: `Raised the most: ${top}. Latest reports run through ${when(at)}.`,
+      blurb: `Raised the most: ${top}. Latest reports run through ${when(at)}.`,
     }];
   });
 }
 
 /** The next few dates, as items dated on the day itself. */
 export const dateItems = (dates: KeyDate[], today: string, source: { name: string; url: string }): FeedItem[] =>
-  dates.filter((d) => d.date >= today).slice(0, 3).map((d) => ({ at: d.date, kind: 'date', title: d.title, detail: d.detail, source }));
+  dates.filter((d) => d.date >= today).slice(0, 3).map((d) => ({ at: d.date, kind: 'date', title: d.title, blurb: d.detail, source }));
 
 // Six at first, five more per tap; the list scrolls past about a screen's worth.
 const SHOWN = 6;
@@ -167,7 +167,14 @@ export function Feed({ items, storageKey, onJump, asOf, start = 'all' }: { items
   const [open, toggle] = useOpen(storageKey, true);
   const [picked, setKind] = useState<Kind | 'all' | null>(null);
   const [limit, setLimit] = useState(SHOWN);
-  const sorted = useMemo(() => [...items].sort((a, b) => b.at.localeCompare(a.at)), [items]);
+  // What already happened, newest first; then what's coming (key dates ahead), soonest first, so the
+  // feed leads with the latest news instead of the furthest-off date.
+  const sorted = useMemo(() => {
+    const now = today();
+    const past = items.filter((i) => i.at.slice(0, 10) <= now).sort((a, b) => b.at.localeCompare(a.at));
+    const ahead = items.filter((i) => i.at.slice(0, 10) > now).sort((a, b) => a.at.localeCompare(b.at));
+    return [...past, ...ahead];
+  }, [items]);
   // Until a tab is tapped: the `start` topic, or Everything while it has nothing (the briefs load after the page).
   const kind = picked ?? (sorted.some((i) => i.kind === start) ? start : 'all');
   const shown = sorted.filter((i) => kind === 'all' || i.kind === kind);
